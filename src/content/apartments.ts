@@ -5,10 +5,15 @@ export type LocalizedText = Record<Locale, string>;
 export type ApartmentImage = {
   src: string;
   alt: LocalizedText;
+  caption: LocalizedText;
+  category: "balcony" | "view" | "living" | "bedroom" | "kitchen" | "bathroom" | "location" | "exterior";
+  priority?: boolean;
 };
 
 export type Apartment = {
   slug: string;
+  heroImage: string;
+  cardImage: string;
   name: LocalizedText;
   shortName: LocalizedText;
   tagline: LocalizedText;
@@ -40,9 +45,13 @@ const enFallback = <T extends string>(en: T): LocalizedText => ({
   uk: `[UK placeholder] ${en}`,
 });
 
+const seaViewImagePath = "/images/apartments/sea-view-balcony-studio";
+
 export const apartments: Apartment[] = [
   {
     slug: "sea-view-balcony-studio",
+    heroImage: `${seaViewImagePath}/04-open-plan-studio-layout.jpeg`,
+    cardImage: `${seaViewImagePath}/01-balcony-coffee-sea-view.jpeg`,
     name: enFallback("Beachfront Studio with Balcony & Sea View, Menton"),
     shortName: enFallback("Sea View Balcony Studio"),
     tagline: enFallback(
@@ -91,12 +100,108 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: "/images/apartments/sea-view-studio-hero.svg",
-        alt: enFallback("Placeholder hero image for the Sea View Studio balcony in Menton"),
+        src: `${seaViewImagePath}/01-balcony-coffee-sea-view.jpeg`,
+        alt: enFallback("Private balcony table with coffee and Mediterranean sea view in Menton"),
+        caption: enFallback("Morning coffee with the Mediterranean in front of you"),
+        category: "balcony",
+        priority: true,
       },
       {
-        src: "/images/apartments/sea-view-studio-room.svg",
-        alt: enFallback("Placeholder room image for the Sea View Studio"),
+        src: `${seaViewImagePath}/02-sea-view-from-balcony.jpeg`,
+        alt: enFallback("Mediterranean sea view with palm trees from the private balcony"),
+        caption: enFallback("Sea view from the private balcony"),
+        category: "view",
+      },
+      {
+        src: `${seaViewImagePath}/03-balcony-from-inside.jpeg`,
+        alt: enFallback("View from inside the studio toward the private balcony and the sea"),
+        caption: enFallback("Private balcony overlooking the seafront"),
+        category: "balcony",
+      },
+      {
+        src: `${seaViewImagePath}/04-open-plan-studio-layout.jpeg`,
+        alt: enFallback("Bright open-plan studio with sofa, dining table, bed and balcony access"),
+        caption: enFallback("Open-plan studio with seating area and sea-view balcony"),
+        category: "living",
+        priority: true,
+      },
+      {
+        src: `${seaViewImagePath}/05-double-bed-balcony-access.jpeg`,
+        alt: enFallback("Double bed in a bright studio with dining area and balcony access"),
+        caption: enFallback("Bright studio space with balcony access"),
+        category: "bedroom",
+      },
+      {
+        src: `${seaViewImagePath}/06-dining-area-by-balcony.jpeg`,
+        alt: enFallback("Small dining table by the balcony in the sea view studio"),
+        caption: enFallback("Dining area by the balcony"),
+        category: "living",
+      },
+      {
+        src: `${seaViewImagePath}/07-seating-area-sofa.jpeg`,
+        alt: enFallback("Sofa seating area in the bright studio apartment"),
+        caption: enFallback("Seating area for relaxing after the beach"),
+        category: "living",
+      },
+      {
+        src: `${seaViewImagePath}/08-dining-corner.jpeg`,
+        alt: enFallback("Dining corner with table and chairs inside the studio apartment"),
+        caption: enFallback("Dining corner for breakfast or remote work"),
+        category: "living",
+      },
+      {
+        src: `${seaViewImagePath}/09-comfortable-double-bed.jpeg`,
+        alt: enFallback("Comfortable double bed with white headboard in the studio apartment"),
+        caption: enFallback("Comfortable double bed"),
+        category: "bedroom",
+      },
+      {
+        src: `${seaViewImagePath}/10-kitchenette.jpeg`,
+        alt: enFallback("Compact kitchenette with sink, microwave, kettle and kitchenware"),
+        caption: enFallback("Kitchenette for simple meals during your stay"),
+        category: "kitchen",
+      },
+      {
+        src: `${seaViewImagePath}/11-bathroom-sink.jpeg`,
+        alt: enFallback("Private bathroom with sink, mirror and shower area"),
+        caption: enFallback("Private bathroom with sink and shower area"),
+        category: "bathroom",
+      },
+      {
+        src: `${seaViewImagePath}/12-bathroom-shower.jpeg`,
+        alt: enFallback("Private bathroom shower in the studio apartment"),
+        caption: enFallback("Bathroom with shower"),
+        category: "bathroom",
+      },
+      {
+        src: `${seaViewImagePath}/13-beachfront-view.jpeg`,
+        alt: enFallback("Beachfront promenade and Mediterranean sea view from the apartment"),
+        caption: enFallback("Beachfront view and promenade below"),
+        category: "location",
+      },
+      {
+        src: `${seaViewImagePath}/14-mediterranean-sea-view.jpeg`,
+        alt: enFallback("Mediterranean sea and palm trees seen from the apartment balcony"),
+        caption: enFallback("Mediterranean sea view from the balcony"),
+        category: "view",
+      },
+      {
+        src: `${seaViewImagePath}/15-evening-seafront-view.jpeg`,
+        alt: enFallback("Evening sea view from the balcony in Menton"),
+        caption: enFallback("Evening colours over the seafront"),
+        category: "view",
+      },
+      {
+        src: `${seaViewImagePath}/16-menton-lemon-festival-view.jpeg`,
+        alt: enFallback("Menton Lemon Festival atmosphere seen from the apartment balcony"),
+        caption: enFallback("A special location during Menton's Lemon Festival"),
+        category: "location",
+      },
+      {
+        src: `${seaViewImagePath}/17-building-entrance.jpeg`,
+        alt: enFallback("Entrance to the apartment building in central Menton"),
+        caption: enFallback("Building entrance"),
+        category: "exterior",
       },
     ],
     seoTitle: enFallback("Beachfront Studio with Balcony & Sea View in Menton | Azur Menton"),
@@ -111,6 +216,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "beachside-family-apartment",
+    heroImage: "/images/apartments/terrace-apartment-hero.svg",
+    cardImage: "/images/apartments/terrace-apartment-hero.svg",
     name: enFallback("Beachside Apartment with Terrace & Parking, Menton"),
     shortName: enFallback("Terrace & Parking Apartment"),
     tagline: enFallback(
@@ -163,10 +270,14 @@ export const apartments: Apartment[] = [
       {
         src: "/images/apartments/terrace-apartment-hero.svg",
         alt: enFallback("Placeholder hero image for the Terrace Apartment in Menton"),
+        caption: enFallback("Terrace apartment image placeholder"),
+        category: "living",
       },
       {
         src: "/images/apartments/terrace-apartment-room.svg",
         alt: enFallback("Placeholder room image for the Terrace Apartment"),
+        caption: enFallback("Terrace apartment room placeholder"),
+        category: "living",
       },
     ],
     seoTitle: enFallback("Beachside Apartment with Terrace & Parking in Menton | Azur Menton"),
@@ -181,6 +292,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "panoramic-sea-view-studio",
+    heroImage: "/images/apartments/panoramic-studio-hero.svg",
+    cardImage: "/images/apartments/panoramic-studio-hero.svg",
     name: enFallback("Beachfront Studio with Balcony & Panoramic Sea View, Menton"),
     shortName: enFallback("Panoramic Sea View Studio"),
     tagline: enFallback("A compact beachfront studio where the view is the highlight."),
@@ -225,10 +338,14 @@ export const apartments: Apartment[] = [
       {
         src: "/images/apartments/panoramic-studio-hero.svg",
         alt: enFallback("Placeholder hero image for the Panoramic Studio balcony in Menton"),
+        caption: enFallback("Panoramic studio sea view placeholder"),
+        category: "view",
       },
       {
         src: "/images/apartments/panoramic-studio-room.svg",
         alt: enFallback("Placeholder room image for the Panoramic Studio"),
+        caption: enFallback("Panoramic studio room placeholder"),
+        category: "living",
       },
     ],
     seoTitle: enFallback(

@@ -13,7 +13,9 @@ export function ApartmentCard({
   locale: Locale;
 }) {
   const copy = t[locale];
-  const image = apartment.gallery[0];
+  const image =
+    apartment.gallery.find((galleryImage) => galleryImage.src === apartment.cardImage) ??
+    apartment.gallery[0];
 
   return (
     <Card className="overflow-hidden">
@@ -23,7 +25,7 @@ export function ApartmentCard({
           alt={image.alt[locale]}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover object-center"
         />
       </div>
       <div className="p-5">

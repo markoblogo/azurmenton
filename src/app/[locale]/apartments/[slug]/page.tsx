@@ -48,7 +48,9 @@ export default async function ApartmentPage({ params }: PageProps) {
   }
 
   const labels = t[safeLocale];
-  const heroImage = apartment.gallery[0];
+  const heroImage =
+    apartment.gallery.find((galleryImage) => galleryImage.src === apartment.heroImage) ??
+    apartment.gallery[0];
 
   return (
     <>
@@ -89,7 +91,7 @@ export default async function ApartmentPage({ params }: PageProps) {
                 width={1200}
                 height={850}
                 priority
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover object-center"
               />
             </div>
           </div>
@@ -103,16 +105,26 @@ export default async function ApartmentPage({ params }: PageProps) {
               <h2 className="text-2xl font-semibold text-[#17313a]">About this apartment</h2>
               <p className="mt-4 text-base leading-8 text-[#5c5044]">{apartment.longDescription[safeLocale]}</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {apartment.gallery.slice(1).map((image) => (
-                  <div key={image.src} className="relative overflow-hidden rounded-lg border border-[#e4d8c7]">
-                    <Image
-                      src={image.src}
-                      alt={image.alt[safeLocale]}
-                      width={1200}
-                      height={850}
-                      className="aspect-[4/3] w-full object-cover"
-                    />
-                  </div>
+                {apartment.gallery.map((image) => (
+                  <figure
+                    key={image.src}
+                    className="overflow-hidden rounded-lg border border-[#e4d8c7] bg-white"
+                  >
+                    <div className="relative">
+                      <Image
+                        src={image.src}
+                        alt={image.alt[safeLocale]}
+                        width={1200}
+                        height={850}
+                        priority={image.priority}
+                        sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+                        className="aspect-[4/3] w-full object-cover object-center"
+                      />
+                    </div>
+                    <figcaption className="px-4 py-3 text-sm leading-6 text-[#5c5044]">
+                      {image.caption[safeLocale]}
+                    </figcaption>
+                  </figure>
                 ))}
               </div>
             </div>
