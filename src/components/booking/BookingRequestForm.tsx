@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
-import { locales, type Locale } from "@/i18n/locales";
+import { localeLabels, locales, type Locale } from "@/i18n/locales";
 
 const initialState: BookingRequestState = {
   status: "idle",
@@ -19,6 +19,7 @@ export function BookingRequestForm({
   locale: Locale;
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
+  const today = new Date().toISOString().slice(0, 10);
 
   return (
     <form action={formAction} className="grid gap-5" aria-label="Booking request form">
@@ -30,31 +31,32 @@ export function BookingRequestForm({
           </option>
           {apartments.map((apartment) => (
             <option key={apartment.slug} value={apartment.slug}>
-              {apartment.name[locale]}
+              {apartment.shortName[locale]}
             </option>
           ))}
+          <option value="not-sure">Not sure, please recommend</option>
         </select>
       </label>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           Check-in date
-          <input className="field" name="checkIn" type="date" required />
+          <input className="field" min={today} name="checkIn" type="date" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           Check-out date
-          <input className="field" name="checkOut" type="date" required />
+          <input className="field" min={today} name="checkOut" type="date" required />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           Adults
-          <input className="field" min="1" name="adults" type="number" defaultValue="2" required />
+          <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           Children
-          <input className="field" min="0" name="children" type="number" defaultValue="0" required />
+          <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
         </label>
       </div>
 
@@ -72,7 +74,7 @@ export function BookingRequestForm({
           <select className="field" name="preferredLanguage" defaultValue={locale} required>
             {locales.map((item) => (
               <option key={item} value={item}>
-                {item.toUpperCase()}
+                {localeLabels[item]}
               </option>
             ))}
           </select>
@@ -86,7 +88,7 @@ export function BookingRequestForm({
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           Email
-          <input className="field" name="email" placeholder="guest@example.com" type="email" required />
+          <input className="field" name="email" placeholder="guest@example.com" type="email" />
         </label>
       </div>
 
@@ -105,7 +107,7 @@ export function BookingRequestForm({
       </label>
 
       <div className="rounded-md border border-[#d9cdbd] bg-[#fff3df] p-4 text-sm leading-6 text-[#5c5044]">
-        This is a request only. It does not reserve an apartment and does not create instant confirmation.
+        To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.
       </div>
 
       {state.message ? (

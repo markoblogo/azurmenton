@@ -1,46 +1,53 @@
 "use server";
 
+import {
+  createBookingRequestLog,
+  formDataToBookingPayload,
+  validateBookingRequest,
+} from "@/lib/booking-request";
+import { sendBookingRequestEmail } from "@/lib/resend";
+
 export type BookingRequestState = {
   status: "idle" | "success" | "error";
   message: string;
 };
 
-const requiredFields = [
-  "apartment",
-  "checkIn",
-  "checkOut",
-  "adults",
-  "children",
-  "parking",
-  "preferredLanguage",
-  "name",
-  "email",
-] as const;
-
-function formDataToObject(formData: FormData) {
-  return Object.fromEntries(
-    Array.from(formData.entries()).map(([key, value]) => [key, String(value)]),
-  );
-}
-
 export async function submitBookingRequest(
   _previousState: BookingRequestState,
   formData: FormData,
 ): Promise<BookingRequestState> {
-  const payload = formDataToObject(formData);
-  const missingField = requiredFields.find((field) => !payload[field]?.trim());
+  const payload = formDataToBookingPayload(formData);
+  const validation = validateBookingRequest(payload);
 
-  if (missingField) {
+  if (!validation.ok) {
     return {
       status: "error",
-      message: "Please complete the required fields before sending your request.",
+      message: validation.error ?? "Please check your request and try again.",
     };
   }
 
-  console.info("Azur Menton booking request placeholder", {
-    ...payload,
-    receivedAt: new Date().toISOString(),
-  });
+  console.info("Azur Menton booking request placeholder", createBookingRequestLog(payload));
+
+  const emailResult = await sendBookingRequestEmail(payload);
+
+  if (!emailResult.ok) {
+    console.error("Azur Menton booking request email failed", {
+      attempted: emailResult.attempted,
+      error: emailResult.error,
+    });
+
+    return {
+      status: "error",
+      message:
+        "We could not send your request right now. Please try again or contact us by email.",
+    };
+  }
+
+  if (!emailResult.attempted) {
+    console.info("Azur Menton booking request email skipped", {
+      reason: emailResult.error,
+    });
+  }
 
   return {
     status: "success",
