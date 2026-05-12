@@ -1,16 +1,30 @@
 # Azur Menton
 
-Production website project for Azur Menton, a family-run short-term rental brand for three apartments in central Menton, France.
+Production website for Azur Menton, a small family-run short-term rental brand for three beachfront or beachside apartments in central Menton, France.
 
-The site is built as a static-first multilingual Next.js application. It presents the apartments, prepares SEO-friendly travel and events content, and supports manual booking requests. Booking is currently request-to-book only: there is no instant booking, payment flow, live availability calendar, or channel manager integration yet.
+The site is static-first, multilingual, SEO-focused, and designed for a temporary direct request-to-book flow before a channel manager such as Smoobu or Lodgify is connected.
 
 ## Stack
 
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- ESLint
+- Static pages where possible
+- Simple TypeScript content files
 - Vercel-compatible deployment
+
+## Routes
+
+- `/en`, `/fr`, `/it`, `/uk`
+- `/[locale]/apartments`
+- `/[locale]/apartments/[slug]`
+- `/[locale]/check-availability`
+- `/[locale]/guide`
+- `/[locale]/events`
+- `/[locale]/faq`
+- `/[locale]/contact`
+- `/[locale]/privacy`
+- `/[locale]/legal`
 
 ## Local Development
 
@@ -29,32 +43,52 @@ npm run typecheck
 npm run build
 ```
 
-## Deployment Notes
+## Booking Flow
 
-- Expected deployment target: Vercel
-- Production domain: `azurmenton.com`
-- DNS is managed through Cloudflare
-- Do not configure Cloudflare or deploy automatically from local work unless explicitly requested
+The booking page is a manual request form, not instant booking. It collects:
 
-## Booking Notes
+- apartment
+- check-in and check-out dates
+- adults and children
+- parking need
+- preferred language
+- name, email, phone or WhatsApp
+- message
 
-Direct booking is currently manual request-to-book. The placeholder form at `/[locale]/check-availability` has no backend submission, email provider, payment handling, or channel manager connection.
+The current implementation uses:
 
-Later integration may use Smoobu, Lodgify, or another channel manager.
+- server action: `src/app/actions/booking-request.ts`
+- placeholder API route: `src/app/api/booking-request/route.ts`
 
-## Project Structure
+Both only log the request for now. They are intentionally isolated so they can later connect to email, Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
 
-- `src/app/[locale]` - locale-based routes for `en`, `fr`, `it`, and `uk`
-- `src/components` - shared layout and UI primitives
-- `src/config/site.ts` - domain, locale, and navigation labels
-- `src/content` - placeholder content data for apartments and pages
-- `src/lib/seo.ts` - canonical URL and hreflang metadata helpers
-- `src/lib/structured-data.ts` - reserved utility for future JSON-LD
+## Content
 
-## Content Still Needed
+- `src/config/site.ts` - domain and site-level config
+- `src/content/apartments.ts` - apartment data and image gallery placeholders
+- `src/content/pages.ts` - guide, events, FAQ, legal/privacy/contact content
+- `src/content/navigation.ts` - navigation labels
+- `src/content/translations.ts` - reusable interface text
+- `public/images/` - replaceable local image placeholders
 
-- Confirmed apartment names, descriptions, amenities, capacity, and house notes
-- Apartment photo source files and preferred ordering
-- Final booking form requirements and backend/email provider choice
-- Menton guide and events content with verified dates/details
-- Legal owner/publication details and privacy policy wording
+English is the source language. French, Italian, and Ukrainian currently use the same structure with editable placeholder text.
+
+## SEO
+
+The app includes:
+
+- localized metadata
+- canonical URLs for `https://azurmenton.com`
+- hreflang alternates including `x-default`
+- `sitemap.xml`
+- `robots.txt`
+- JSON-LD for the home page and apartment pages
+- `next/image` for local placeholder assets
+
+## Deployment
+
+- Expected target: Vercel
+- Domain: `azurmenton.com`
+- DNS managed through Cloudflare
+
+Do not configure DNS, deploy, or connect production services from local development unless explicitly requested.

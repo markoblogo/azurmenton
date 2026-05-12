@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Navigation } from "@/components/layout/Navigation";
+import { StickyCta } from "@/components/layout/StickyCta";
 import { siteConfig } from "@/config/site";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { createMetadata } from "@/lib/seo";
@@ -40,6 +41,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <Navigation locale={locale as Locale} />
       <main className="flex-1">{children}</main>
       <Footer locale={locale as Locale} />
+      <StickyCta locale={locale as Locale} />
     </>
   );
 }

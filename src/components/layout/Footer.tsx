@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Route } from "next";
-import { routeLabels, siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
+import { routeLabels } from "@/content/navigation";
 import type { Locale } from "@/i18n/locales";
 
 export function Footer({ locale }: { locale: Locale }) {

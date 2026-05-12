@@ -42,7 +42,10 @@ export function createMetadata({
     description,
     alternates: {
       canonical: absoluteUrl(currentPath),
-      languages: languageAlternates(path),
+      languages: {
+        ...languageAlternates(path),
+        "x-default": absoluteUrl(localizedPath(siteConfig.defaultLocale, path)),
+      },
     },
     openGraph: {
       title: title ?? siteConfig.name,

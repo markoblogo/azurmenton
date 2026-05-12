@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder Menton seafront image</title>
+  <desc id="desc">Warm Mediterranean seafront illustration placeholder.</desc>
+  <rect width="1200" height="700" fill="#fff3df"/>
+  <rect y="0" width="1200" height="360" fill="#9bd2df"/>
+  <path d="M0 310 C200 270 410 350 610 300 C830 245 980 330 1200 280 L1200 430 L0 430 Z" fill="#0b6f8f" opacity=".8"/>
+  <rect y="430" width="1200" height="270" fill="#d7bea0"/>
+  <rect x="120" y="365" width="130" height="190" fill="#f2c97d"/>
+  <rect x="270" y="330" width="120" height="225" fill="#eaa36f"/>
+  <rect x="410" y="385" width="150" height="170" fill="#f7dfaa"/>
+  <text x="840" y="565" font-family="Arial, sans-serif" font-size="42" fill="#17313a">Menton guide image</text>
+</svg>

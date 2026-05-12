@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder room for panoramic studio</title>
+  <desc id="desc">Compact studio room placeholder with large blue window.</desc>
+  <rect width="1200" height="850" fill="#fff9f0"/>
+  <rect x="110" y="120" width="980" height="570" rx="16" fill="#f1dfc8"/>
+  <rect x="180" y="190" width="840" height="210" rx="10" fill="#b9dfe6"/>
+  <rect x="400" y="470" width="400" height="92" rx="12" fill="#ffffff"/>
+  <rect x="370" y="545" width="460" height="52" rx="8" fill="#0b6f8f" opacity=".75"/>
+  <text x="600" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#17313a">Compact studio placeholder</text>
+</svg>

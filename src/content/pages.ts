@@ -5,174 +5,258 @@ export const homeCopy: Record<
   {
     title: string;
     intro: string;
+    proof: string[];
     primaryCta: string;
     secondaryCta: string;
+    seoTitle: string;
+    seoDescription: string;
   }
 > = {
   en: {
-    title: "Family-run apartments in central Menton",
+    title: "Beachfront apartments in central Menton",
     intro:
-      "A clear, practical home for Azur Menton's three short-term rentals. Full apartment details, photos, and direct booking request handling will be added as the source material is confirmed.",
-    primaryCta: "Request to book",
-    secondaryCta: "View apartments",
+      "Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
+    proof: ["Beachfront or beachside", "Central Menton", "Manual direct booking request"],
+    primaryCta: "Check availability",
+    secondaryCta: "Compare apartments",
+    seoTitle: "Azur Menton | Beachfront Apartments in Central Menton",
+    seoDescription:
+      "Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
   },
   fr: {
-    title: "Appartements familiaux au centre de Menton",
+    title: "[FR placeholder] Beachfront apartments in central Menton",
     intro:
-      "Un site clair et pratique pour les trois locations courte duree d'Azur Menton. Les details, photos et demandes de reservation directe seront ajoutes avec les contenus confirmes.",
-    primaryCta: "Faire une demande",
-    secondaryCta: "Voir les appartements",
+      "[FR placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
+    proof: ["[FR placeholder] Beachfront or beachside", "[FR placeholder] Central Menton", "[FR placeholder] Manual direct booking request"],
+    primaryCta: "Verifier disponibilite",
+    secondaryCta: "Comparer les appartements",
+    seoTitle: "[FR placeholder] Azur Menton | Beachfront Apartments in Central Menton",
+    seoDescription:
+      "[FR placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
   },
   it: {
-    title: "Appartamenti a gestione familiare nel centro di Mentone",
+    title: "[IT placeholder] Beachfront apartments in central Menton",
     intro:
-      "Una base chiara e pratica per le tre case vacanza di Azur Menton. Dettagli, foto e richieste dirette saranno aggiunti quando i contenuti saranno confermati.",
-    primaryCta: "Richiedi prenotazione",
-    secondaryCta: "Vedi appartamenti",
+      "[IT placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
+    proof: ["[IT placeholder] Beachfront or beachside", "[IT placeholder] Central Menton", "[IT placeholder] Manual direct booking request"],
+    primaryCta: "Controlla disponibilita",
+    secondaryCta: "Confronta appartamenti",
+    seoTitle: "[IT placeholder] Azur Menton | Beachfront Apartments in Central Menton",
+    seoDescription:
+      "[IT placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
   },
   uk: {
-    title: "Family-run apartments in central Menton",
+    title: "[UK placeholder] Beachfront apartments in central Menton",
     intro:
-      "A clear, practical home for Azur Menton's three short-term rentals. Full apartment details, photos, and direct booking request handling will be added as the source material is confirmed.",
-    primaryCta: "Request to book",
-    secondaryCta: "View apartments",
+      "[UK placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
+    proof: ["[UK placeholder] Beachfront or beachside", "[UK placeholder] Central Menton", "[UK placeholder] Manual direct booking request"],
+    primaryCta: "Check availability",
+    secondaryCta: "Compare apartments",
+    seoTitle: "[UK placeholder] Azur Menton | Beachfront Apartments in Central Menton",
+    seoDescription:
+      "[UK placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
   },
 };
 
+export const guidePages = [
+  {
+    slug: "beaches-and-seafront",
+    title: "Beaches and seafront walks",
+    description:
+      "A practical starter guide to Menton's beaches, promenades, and easy coastal walks near the apartments.",
+  },
+  {
+    slug: "old-town-and-markets",
+    title: "Old town, markets, and everyday Menton",
+    description:
+      "Notes for guests who want a relaxed local base: food shopping, old town lanes, and simple day planning.",
+  },
+  {
+    slug: "day-trips",
+    title: "Easy day trips",
+    description:
+      "Ideas for Monaco, Italy, and nearby Riviera stops, to be expanded with verified transport notes.",
+  },
+];
+
+export const events = [
+  {
+    title: "Menton seasonal events",
+    description:
+      "A future editorial page for confirmed seasonal events. Dates will only be added when verified.",
+  },
+  {
+    title: "Nearby Riviera events",
+    description:
+      "A place for Monaco, Italian Riviera, and Cote d'Azur events that are useful for guests.",
+  },
+];
+
+export const faqItems = [
+  {
+    question: "Is this instant booking?",
+    answer:
+      "No. The website sends a booking request only. Azur Menton confirms availability and the best direct offer manually.",
+  },
+  {
+    question: "Are prices shown on the website?",
+    answer:
+      "No prices are shown until direct pricing rules are confirmed. Guests can request dates and receive a direct offer.",
+  },
+  {
+    question: "Is there a live availability calendar?",
+    answer:
+      "No. A real booking engine or channel manager may be connected later, but the current website avoids showing fake availability.",
+  },
+  {
+    question: "Which apartment is best for families?",
+    answer:
+      "The Beachside Apartment with Terrace & Parking is positioned for families or longer stays, with a full kitchen, terrace, and parking.",
+  },
+];
+
 export const pageCopy: Record<
   string,
-  Record<Locale, { title: string; description: string; note: string }>
+  Record<Locale, { title: string; description: string; note: string; seoTitle?: string; seoDescription?: string }>
 > = {
   guide: {
     en: {
       title: "Menton guide",
-      description: "Travel notes for Menton and nearby Riviera destinations will live here.",
-      note: "Future content can cover beaches, old town walks, transport, restaurants, Monaco, Italy, and family-friendly day trips.",
+      description: "Practical travel notes for beach days, food, local walks, and easy Riviera trips.",
+      note: "Guide articles are structured now and can be expanded with verified local recommendations.",
+      seoTitle: "Menton Guide for Beach Apartment Guests",
+      seoDescription: "A practical Menton travel guide for Azur Menton guests, including beaches, local walks, markets, and day trips.",
     },
     fr: {
-      title: "Guide de Menton",
-      description: "Les conseils de voyage pour Menton et la Riviera seront ajoutes ici.",
-      note: "Les futurs contenus pourront couvrir les plages, la vieille ville, les transports, restaurants, Monaco, l'Italie et les sorties en famille.",
+      title: "[FR placeholder] Menton guide",
+      description: "[FR placeholder] Practical travel notes for beach days, food, local walks, and easy Riviera trips.",
+      note: "[FR placeholder] Guide articles are structured now and can be expanded with verified local recommendations.",
     },
     it: {
-      title: "Guida di Mentone",
-      description: "Qui saranno pubblicate note di viaggio su Mentone e la Riviera vicina.",
-      note: "I contenuti futuri potranno includere spiagge, centro storico, trasporti, ristoranti, Monaco, Italia e gite in famiglia.",
+      title: "[IT placeholder] Menton guide",
+      description: "[IT placeholder] Practical travel notes for beach days, food, local walks, and easy Riviera trips.",
+      note: "[IT placeholder] Guide articles are structured now and can be expanded with verified local recommendations.",
     },
     uk: {
-      title: "Menton guide",
-      description: "Travel notes for Menton and nearby Riviera destinations will live here.",
-      note: "Future content can cover beaches, old town walks, transport, restaurants, Monaco, Italy, and family-friendly day trips.",
+      title: "[UK placeholder] Menton guide",
+      description: "[UK placeholder] Practical travel notes for beach days, food, local walks, and easy Riviera trips.",
+      note: "[UK placeholder] Guide articles are structured now and can be expanded with verified local recommendations.",
     },
   },
   events: {
     en: {
-      title: "Events in Menton",
-      description: "Seasonal and event content will be added only when dates and details are confirmed.",
-      note: "No event dates are shown yet to avoid stale or invented information.",
+      title: "Events in Menton & nearby",
+      description: "A careful events page prepared for verified Menton and Riviera dates.",
+      note: "No dates are listed until confirmed, so this page will not invent or preserve stale event information.",
+      seoTitle: "Events in Menton and Nearby Riviera Destinations",
+      seoDescription: "Verified event content for Menton and nearby Riviera destinations, prepared for Azur Menton guests.",
     },
     fr: {
-      title: "Evenements a Menton",
-      description: "Les contenus saisonniers seront ajoutes uniquement avec dates et details confirmes.",
-      note: "Aucune date d'evenement n'est affichee pour eviter les informations inventees ou obsoletes.",
+      title: "[FR placeholder] Events in Menton & nearby",
+      description: "[FR placeholder] A careful events page prepared for verified Menton and Riviera dates.",
+      note: "[FR placeholder] No dates are listed until confirmed.",
     },
     it: {
-      title: "Eventi a Mentone",
-      description: "I contenuti stagionali saranno aggiunti solo con date e dettagli confermati.",
-      note: "Le date degli eventi non sono ancora indicate per evitare informazioni inventate o obsolete.",
+      title: "[IT placeholder] Events in Menton & nearby",
+      description: "[IT placeholder] A careful events page prepared for verified Menton and Riviera dates.",
+      note: "[IT placeholder] No dates are listed until confirmed.",
     },
     uk: {
-      title: "Events in Menton",
-      description: "Seasonal and event content will be added only when dates and details are confirmed.",
-      note: "No event dates are shown yet to avoid stale or invented information.",
+      title: "[UK placeholder] Events in Menton & nearby",
+      description: "[UK placeholder] A careful events page prepared for verified Menton and Riviera dates.",
+      note: "[UK placeholder] No dates are listed until confirmed.",
     },
   },
   faq: {
     en: {
-      title: "Frequently asked questions",
-      description: "Practical guest questions and answers will be added after the booking workflow is confirmed.",
-      note: "This page is ready for check-in, payment, cancellation, parking, and travel information.",
+      title: "FAQ",
+      description: "Answers about manual booking requests, availability, prices, apartments, and future booking integration.",
+      note: "The FAQ is intentionally practical and avoids unconfirmed booking claims.",
+      seoTitle: "Azur Menton FAQ",
+      seoDescription: "Frequently asked questions for Azur Menton's direct request-to-book apartment website.",
     },
     fr: {
-      title: "Questions frequentes",
-      description: "Les questions pratiques seront ajoutees apres confirmation du parcours de reservation.",
-      note: "Cette page est prete pour les informations d'arrivee, paiement, annulation, parking et transport.",
+      title: "[FR placeholder] FAQ",
+      description: "[FR placeholder] Answers about manual booking requests, availability, prices, apartments, and future booking integration.",
+      note: "[FR placeholder] The FAQ is intentionally practical and avoids unconfirmed booking claims.",
     },
     it: {
-      title: "Domande frequenti",
-      description: "Le domande pratiche saranno aggiunte dopo la conferma del flusso di prenotazione.",
-      note: "La pagina e pronta per informazioni su check-in, pagamento, cancellazione, parcheggio e viaggio.",
+      title: "[IT placeholder] FAQ",
+      description: "[IT placeholder] Answers about manual booking requests, availability, prices, apartments, and future booking integration.",
+      note: "[IT placeholder] The FAQ is intentionally practical and avoids unconfirmed booking claims.",
     },
     uk: {
-      title: "Frequently asked questions",
-      description: "Practical guest questions and answers will be added after the booking workflow is confirmed.",
-      note: "This page is ready for check-in, payment, cancellation, parking, and travel information.",
+      title: "[UK placeholder] FAQ",
+      description: "[UK placeholder] Answers about manual booking requests, availability, prices, apartments, and future booking integration.",
+      note: "[UK placeholder] The FAQ is intentionally practical and avoids unconfirmed booking claims.",
     },
   },
   contact: {
     en: {
       title: "Contact Azur Menton",
-      description: "Contact details and enquiry handling will be completed with the booking request backend.",
-      note: "No email provider or form backend is connected yet.",
+      description: "Contact the family behind Azur Menton or send a direct request for your dates.",
+      note: "The booking request form is the preferred temporary contact path until the final backend is connected.",
+      seoTitle: "Contact Azur Menton",
+      seoDescription: "Contact Azur Menton for manual direct booking requests for beachfront and beachside apartments in central Menton.",
     },
     fr: {
-      title: "Contacter Azur Menton",
-      description: "Les coordonnees et demandes seront finalisees avec le backend du formulaire.",
-      note: "Aucun fournisseur email ni backend de formulaire n'est connecte pour l'instant.",
+      title: "[FR placeholder] Contact Azur Menton",
+      description: "[FR placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
+      note: "[FR placeholder] The booking request form is the preferred temporary contact path.",
     },
     it: {
-      title: "Contatta Azur Menton",
-      description: "Contatti e richieste saranno completati con il backend del modulo.",
-      note: "Nessun provider email o backend del modulo e ancora collegato.",
+      title: "[IT placeholder] Contact Azur Menton",
+      description: "[IT placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
+      note: "[IT placeholder] The booking request form is the preferred temporary contact path.",
     },
     uk: {
-      title: "Contact Azur Menton",
-      description: "Contact details and enquiry handling will be completed with the booking request backend.",
-      note: "No email provider or form backend is connected yet.",
+      title: "[UK placeholder] Contact Azur Menton",
+      description: "[UK placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
+      note: "[UK placeholder] The booking request form is the preferred temporary contact path.",
     },
   },
   privacy: {
     en: {
       title: "Privacy policy",
-      description: "A full privacy policy will be added before collecting real guest enquiries.",
-      note: "The production policy should reflect the final form backend, email handling, analytics, and hosting setup.",
+      description: "Privacy placeholder for the temporary Azur Menton request-to-book website.",
+      note: "Replace this placeholder before collecting production enquiries. The final text should match the selected form backend, email handling, hosting, analytics, and retention policy.",
     },
     fr: {
-      title: "Politique de confidentialite",
-      description: "La politique complete sera ajoutee avant la collecte de vraies demandes clients.",
-      note: "La version finale devra refleter le backend, l'email, les analytics et l'hebergement.",
+      title: "[FR placeholder] Privacy policy",
+      description: "[FR placeholder] Privacy placeholder for the temporary Azur Menton request-to-book website.",
+      note: "[FR placeholder] Replace this placeholder before collecting production enquiries.",
     },
     it: {
-      title: "Privacy policy",
-      description: "La policy completa sara aggiunta prima di raccogliere richieste reali.",
-      note: "La versione finale dovra riflettere backend, email, analytics e hosting.",
+      title: "[IT placeholder] Privacy policy",
+      description: "[IT placeholder] Privacy placeholder for the temporary Azur Menton request-to-book website.",
+      note: "[IT placeholder] Replace this placeholder before collecting production enquiries.",
     },
     uk: {
-      title: "Privacy policy",
-      description: "A full privacy policy will be added before collecting real guest enquiries.",
-      note: "The production policy should reflect the final form backend, email handling, analytics, and hosting setup.",
+      title: "[UK placeholder] Privacy policy",
+      description: "[UK placeholder] Privacy placeholder for the temporary Azur Menton request-to-book website.",
+      note: "[UK placeholder] Replace this placeholder before collecting production enquiries.",
     },
   },
   legal: {
     en: {
       title: "Legal notice",
-      description: "Legal owner and publication details will be added from confirmed business information.",
-      note: "Do not publish this page as final until the legal details are verified.",
+      description: "Legal notice placeholder for Azur Menton.",
+      note: "Add verified owner, publisher, hosting, and registration details before production launch.",
     },
     fr: {
-      title: "Mentions legales",
-      description: "Les informations legales seront ajoutees a partir des donnees confirmees.",
-      note: "Ne pas publier cette page comme finale avant verification des details legaux.",
+      title: "[FR placeholder] Legal notice",
+      description: "[FR placeholder] Legal notice placeholder for Azur Menton.",
+      note: "[FR placeholder] Add verified legal details before production launch.",
     },
     it: {
-      title: "Note legali",
-      description: "Le informazioni legali saranno aggiunte dai dati aziendali confermati.",
-      note: "Non pubblicare questa pagina come definitiva prima della verifica.",
+      title: "[IT placeholder] Legal notice",
+      description: "[IT placeholder] Legal notice placeholder for Azur Menton.",
+      note: "[IT placeholder] Add verified legal details before production launch.",
     },
     uk: {
-      title: "Legal notice",
-      description: "Legal owner and publication details will be added from confirmed business information.",
-      note: "Do not publish this page as final until the legal details are verified.",
+      title: "[UK placeholder] Legal notice",
+      description: "[UK placeholder] Legal notice placeholder for Azur Menton.",
+      note: "[UK placeholder] Add verified legal details before production launch.",
     },
   },
 };

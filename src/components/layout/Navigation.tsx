@@ -1,15 +1,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
-import { routeLabels } from "@/config/site";
-
-const navItems = [
-  { key: "apartments", href: "/apartments" },
-  { key: "guide", href: "/guide" },
-  { key: "events", href: "/events" },
-  { key: "faq", href: "/faq" },
-  { key: "contact", href: "/contact" },
-] as const;
+import { navItems, routeLabels } from "@/content/navigation";
 
 export function Navigation({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
