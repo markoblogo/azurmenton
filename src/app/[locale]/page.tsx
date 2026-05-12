@@ -207,6 +207,7 @@ export default async function LocaleHome({ params }: PageProps) {
                   width={1200}
                   height={850}
                   priority
+                  quality={90}
                   sizes="(min-width: 1024px) 48vw, 100vw"
                   className="aspect-[4/5] w-full object-cover object-[50%_42%]"
                 />
@@ -217,6 +218,8 @@ export default async function LocaleHome({ params }: PageProps) {
                   alt="Bright beachfront studio with balcony access in Menton"
                   width={700}
                   height={520}
+                  quality={90}
+                  sizes="224px"
                   className="aspect-[4/3] w-full object-cover"
                 />
               </div>
@@ -278,6 +281,8 @@ export default async function LocaleHome({ params }: PageProps) {
                 alt="Colourful old town buildings and church tower in Menton"
                 width={800}
                 height={1000}
+                quality={90}
+                sizes="(min-width: 1024px) 280px, 50vw"
                 className="aspect-[3/4] w-full object-cover"
               />
               <Image
@@ -285,6 +290,8 @@ export default async function LocaleHome({ params }: PageProps) {
                 alt="Nearby beach in Menton with palm trees and the Mediterranean sea"
                 width={800}
                 height={1000}
+                quality={90}
+                sizes="(min-width: 1024px) 280px, 50vw"
                 className="mt-12 aspect-[3/4] w-full object-cover"
               />
             </div>
