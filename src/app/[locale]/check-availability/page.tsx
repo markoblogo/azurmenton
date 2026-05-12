@@ -60,10 +60,20 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   <p>This is a direct booking request, not instant confirmation.</p>
                   <p>The host checks availability manually and replies with the best direct offer.</p>
                   <p>
-                    You can also contact us via WhatsApp or email. Email:{" "}
+                    You can also contact us via WhatsApp or email:{" "}
+                    <a
+                      className="font-semibold text-[#0b6f8f]"
+                      href={siteConfig.whatsappHref}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      WhatsApp {siteConfig.whatsappDisplay}
+                    </a>
+                    {" "}or{" "}
                     <a className="font-semibold text-[#0b6f8f]" href={`mailto:${siteConfig.email}`}>
                       {siteConfig.email}
                     </a>
+                    .
                   </p>
                   <p className="rounded-md border border-[#d9cdbd] bg-[#fff3df] p-4">
                     To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.

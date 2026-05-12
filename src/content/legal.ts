@@ -44,7 +44,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "TODO: nom du proprietaire, de l'entreprise ou de l'editeur du site.",
             "TODO: forme juridique ou statut, SIRET/SIREN, TVA intracommunautaire ou numero d'immatriculation si applicable.",
             "TODO: adresse du siege social ou adresse de contact.",
-            "Email de contact: hello@azurmenton.com. TODO: confirmer l'adresse email officielle et ajouter un telephone si applicable.",
+            "Email de contact: petraetpaul@gmail.com. Telephone / WhatsApp: +33 6 24 71 65 65. TODO: confirmer les autres coordonnees legales si applicable.",
             "TODO: directeur ou directrice de la publication.",
           ],
         },
@@ -71,7 +71,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Contact",
           body: [
-            "Pour toute question relative au site ou aux contenus: hello@azurmenton.com. TODO: confirmer les coordonnees definitives du responsable du site.",
+            "Pour toute question relative au site ou aux contenus: petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. TODO: confirmer les coordonnees definitives du responsable du site.",
           ],
         },
       ],
@@ -89,7 +89,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "Website: Azur Menton, azurmenton.com.",
             "TODO: add business or owner name, legal status, SIRET/SIREN, VAT or registration number if applicable.",
             "TODO: add registered address or contact address, publication director and confirmed phone details if applicable.",
-            "Contact email: hello@azurmenton.com. TODO: confirm the final official contact address.",
+            "Contact email: petraetpaul@gmail.com. Phone / WhatsApp: +33 6 24 71 65 65. TODO: confirm other official legal contact details if applicable.",
           ],
         },
         {
@@ -165,7 +165,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Responsable du traitement",
           body: [
             "Le responsable du traitement est Azur Menton / l'hote exploitant les appartements. TODO: ajouter le nom legal complet, le statut, l'adresse et les coordonnees definitives.",
-            "Contact pour les demandes relatives aux donnees personnelles: hello@azurmenton.com. TODO: confirmer l'adresse dediee si differente.",
+            "Contact pour les demandes relatives aux donnees personnelles: petraetpaul@gmail.com. TODO: confirmer l'adresse dediee si differente.",
           ],
         },
         {
@@ -210,7 +210,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Controller and contact",
           body: [
             "The data controller is Azur Menton / the host team. TODO: add the full legal owner or business details.",
-            "Privacy contact: hello@azurmenton.com. TODO: confirm a dedicated privacy contact if different.",
+            "Privacy contact: petraetpaul@gmail.com. TODO: confirm a dedicated privacy contact if different.",
           ],
         },
         {
@@ -401,7 +401,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Le parking depend de l'appartement, de la disponibilite et peut necessiter une reservation. Des frais peuvent s'appliquer lorsque cela est indique.",
             "Les voyageurs sont responsables de l'utilisation normale du logement, du respect du voisinage et du signalement rapide de tout probleme.",
-            "Pour une reclamation, contacter hello@azurmenton.com. TODO: ajouter la procedure definitive.",
+            "Pour une reclamation, contacter petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. TODO: ajouter la procedure definitive.",
             "TODO: ajouter les coordonnees du mediateur de la consommation si legalement requis.",
             "TODO: confirmer la loi applicable et la juridiction competente.",
           ],

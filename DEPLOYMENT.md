@@ -27,11 +27,11 @@ Do not commit secrets. Do not deploy, connect the domain or change Cloudflare DN
 ```bash
 NEXT_PUBLIC_SITE_URL=https://azurmenton.com
 RESEND_API_KEY=
-BOOKING_REQUEST_TO_EMAIL=hello@azurmenton.com
+BOOKING_REQUEST_TO_EMAIL=petraetpaul@gmail.com
 BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@azurmenton.com>"
 ```
 
-`RESEND_API_KEY` must be configured in Vercel for booking requests to be delivered by email. Without it, the form will show an error and ask guests to contact by email instead of silently dropping the request.
+`RESEND_API_KEY` must be configured in Vercel for booking requests to be delivered by email. Without it, the form will show an error and ask guests to contact by email or WhatsApp instead of silently dropping the request.
 
 Weather variables are reserved for a future weather widget and may remain blank if that feature is not enabled:
 

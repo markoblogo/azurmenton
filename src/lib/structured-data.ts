@@ -16,6 +16,8 @@ export function lodgingBusinessJsonLd() {
     image: "https://azurmenton.com/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpeg",
     description:
       "Family-run beachfront and beachside apartments in central Menton, France. Direct booking requests are confirmed manually by the host.",
+    email: "petraetpaul@gmail.com",
+    telephone: "+33 6 24 71 65 65",
     areaServed: {
       "@type": "City",
       name: "Menton",

@@ -39,7 +39,7 @@ export async function submitBookingRequest(
     return {
       status: "error",
       message:
-        "We could not send your request right now. Please contact us by email and include your dates.",
+        "We could not send your request right now. Please contact us by email or WhatsApp and include your dates.",
     };
   }
 

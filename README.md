@@ -68,7 +68,11 @@ The current implementation uses:
 - API route: `src/app/api/booking-request/route.ts`
 - email helper: `src/lib/resend.ts`
 
-In production, request delivery requires `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` to be set in Vercel. If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email instead of pretending the request was delivered. The booking logic remains isolated so it can later connect to Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
+In production, request delivery requires `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` to be set in Vercel. If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp instead of pretending the request was delivered. The booking logic remains isolated so it can later connect to Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
+
+Current guest contact details:
+- Email: `petraetpaul@gmail.com`
+- Phone / WhatsApp: `+33 6 24 71 65 65`
 
 ## Legal Pages
 

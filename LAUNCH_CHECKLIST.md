@@ -40,7 +40,7 @@
 - [ ] Business status is completed.
 - [ ] SIRET/SIREN is completed if applicable.
 - [ ] Contact or registered address is completed.
-- [ ] Email and phone wording is confirmed.
+- [x] Email and phone wording is confirmed: petraetpaul@gmail.com, +33 6 24 71 65 65.
 - [ ] Hosting provider details are completed.
 - [ ] Consumer mediator details are added if legally required.
 - [ ] Payment, deposit, cancellation, tourist tax and mediation details are completed.

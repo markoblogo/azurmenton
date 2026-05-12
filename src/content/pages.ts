@@ -195,24 +195,24 @@ export const pageCopy: Record<
     en: {
       title: "Contact Azur Menton",
       description: "Contact the family behind Azur Menton or send a direct request for your dates.",
-      note: "The booking request form is the preferred temporary contact path until the final backend is connected.",
+      note: "For direct booking requests, apartment questions or arrival details, contact Azur Menton by email or WhatsApp. The booking request form remains the clearest way to send dates and guest details.",
       seoTitle: "Contact Azur Menton | Direct Booking Requests",
       seoDescription: "Contact Azur Menton for direct booking requests, apartment questions and practical information about staying in central Menton.",
     },
     fr: {
       title: "[FR placeholder] Contact Azur Menton",
       description: "[FR placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
-      note: "[FR placeholder] The booking request form is the preferred temporary contact path.",
+      note: "[FR placeholder] Contact Azur Menton by email or WhatsApp for booking requests and apartment questions.",
     },
     it: {
       title: "[IT placeholder] Contact Azur Menton",
       description: "[IT placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
-      note: "[IT placeholder] The booking request form is the preferred temporary contact path.",
+      note: "[IT placeholder] Contact Azur Menton by email or WhatsApp for booking requests and apartment questions.",
     },
     uk: {
       title: "[UK placeholder] Contact Azur Menton",
       description: "[UK placeholder] Contact the family behind Azur Menton or send a direct request for your dates.",
-      note: "[UK placeholder] The booking request form is the preferred temporary contact path.",
+      note: "[UK placeholder] Contact Azur Menton by email or WhatsApp for booking requests and apartment questions.",
     },
   },
   privacy: {

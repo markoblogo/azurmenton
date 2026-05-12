@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { siteConfig } from "@/config/site";
 import { events, faqItems, guidePages, pageCopy } from "@/content/pages";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { createMetadata } from "@/lib/seo";
@@ -102,6 +103,56 @@ function DefaultBody({
   );
 }
 
+function ContactBody({ note, locale }: { note: string; locale: Locale }) {
+  return (
+    <div className="grid gap-5 lg:grid-cols-[1fr_0.9fr]">
+      <Card className="p-6 text-sm leading-7 text-[#5c5044]">
+        <p>{note}</p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Button href={`/${locale}/check-availability`}>Check availability</Button>
+          <Button href={`mailto:${siteConfig.email}`} variant="secondary">
+            Email us
+          </Button>
+        </div>
+      </Card>
+      <Card className="p-6">
+        <h2 className="text-xl font-semibold text-[#17313a]">Direct contact</h2>
+        <dl className="mt-5 grid gap-4 text-sm">
+          <div>
+            <dt className="font-semibold text-[#17313a]">Email</dt>
+            <dd className="mt-1">
+              <a className="text-[#0b6f8f] hover:underline" href={`mailto:${siteConfig.email}`}>
+                {siteConfig.email}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-[#17313a]">WhatsApp</dt>
+            <dd className="mt-1">
+              <a
+                className="text-[#0b6f8f] hover:underline"
+                href={siteConfig.whatsappHref}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {siteConfig.whatsappDisplay}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-[#17313a]">Phone</dt>
+            <dd className="mt-1">
+              <a className="text-[#0b6f8f] hover:underline" href={siteConfig.phoneHref}>
+                {siteConfig.phoneDisplay}
+              </a>
+            </dd>
+          </div>
+        </dl>
+      </Card>
+    </div>
+  );
+}
+
 export function SimpleContentPage(pageKey: SimplePageKey) {
   async function Page({ params }: PageProps) {
     const { locale } = await params;
@@ -134,7 +185,8 @@ export function SimpleContentPage(pageKey: SimplePageKey) {
             {pageKey === "guide" ? <GuideBody /> : null}
             {pageKey === "events" ? <EventsBody /> : null}
             {pageKey === "faq" ? <FaqBody locale={safeLocale} /> : null}
-            {["contact", "privacy", "legal"].includes(pageKey) ? (
+            {pageKey === "contact" ? <ContactBody note={copy.note} locale={safeLocale} /> : null}
+            {["privacy", "legal"].includes(pageKey) ? (
               <DefaultBody note={copy.note} locale={safeLocale} />
             ) : null}
             {pageKey === "guide" ? (
