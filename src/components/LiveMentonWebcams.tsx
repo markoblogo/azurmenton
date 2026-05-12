@@ -10,7 +10,7 @@ export function LiveMentonWebcams({ locale }: { locale: Locale }) {
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#0b6f8f]">
-            Live Menton
+            Useful live links
           </p>
           <h2 id="live-menton-title" className="mt-2 text-3xl font-semibold tracking-tight text-[#17313a]">
             {copy.title}

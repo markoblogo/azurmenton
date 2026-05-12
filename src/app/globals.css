@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff9f0;
-  --foreground: #17313a;
+  --background: #fbf7ef;
+  --foreground: #1b2c2d;
+  --azur-blue: #0a6678;
+  --azur-green: #173f36;
+  --azur-sand: #c6a66a;
+  --azur-line: #dfd4c1;
+  --azur-muted: #695f51;
 }
 
 @theme inline {
@@ -16,6 +21,13 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-serif-display {
+  font-family: var(--font-serif), Georgia, serif;
 }
 
 ::selection {
@@ -32,15 +44,31 @@ textarea {
 }
 
 .field {
-  border: 1px solid #d9cdbd;
-  border-radius: 0.375rem;
-  background: #ffffff;
-  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--azur-line);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 0.78rem 0.85rem;
   font-weight: 400;
   outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 .field:focus {
-  border-color: #0b6f8f;
+  border-color: var(--azur-blue);
   box-shadow: 0 0 0 3px rgba(11, 111, 143, 0.14);
+  background: #ffffff;
+}
+
+.editorial-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--azur-sand);
+}
+
+.serif-heading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }

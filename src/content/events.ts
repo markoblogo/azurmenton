@@ -38,42 +38,6 @@ export type EventsLandingContent = {
   }>;
 };
 
-const translationDraft = (pageTitle: string): EventPageContent => ({
-  slug: "",
-  title: `TODO_TRANSLATE: ${pageTitle}`,
-  seoTitle: `TODO_TRANSLATE: ${pageTitle}`,
-  seoDescription:
-    "TODO_TRANSLATE: Translate this events page from the English source before publication.",
-  intro:
-    "TODO_TRANSLATE: English source content is available. Do not add exact event dates unless sourced.",
-  eventType: "TODO_TRANSLATE",
-  location: "Menton and nearby Riviera",
-  expectedSeason: "TODO",
-  exactDates: undefined,
-  sourceUrl: undefined,
-  sections: [
-    {
-      heading: "TODO_TRANSLATE",
-      body: [
-        "TODO_TRANSLATE: Keep the same structure as the English source. Do not invent exact dates, ticket rules, routes or access restrictions.",
-      ],
-    },
-  ],
-  bookingTips: ["TODO_TRANSLATE: Add booking tips from the English source."],
-  relatedApartmentKeys: [
-    "sea-view-balcony-studio",
-    "beachside-family-apartment",
-    "panoramic-sea-view-studio",
-  ],
-  relatedLinks: [],
-  cta: {
-    title: "TODO_TRANSLATE: Visiting for an event?",
-    text: "TODO_TRANSLATE: Send your dates early and we will confirm availability manually.",
-    primaryLabel: "Check availability",
-    secondaryLabel: "View apartments",
-  },
-});
-
 export const eventsLanding: Record<Locale, EventsLandingContent> = {
   en: {
     title: "Events in Menton and nearby",
@@ -158,29 +122,29 @@ export const eventsLanding: Record<Locale, EventsLandingContent> = {
     ],
   },
   fr: {
-    title: "TODO_TRANSLATE: Evenements a Menton et aux alentours",
-    seoTitle: "TODO_TRANSLATE: Evenements a Menton et aux alentours",
-    seoDescription: "TODO_TRANSLATE: Translate the English events landing page before final launch.",
+    title: "Evenements a Menton et aux alentours",
+    seoTitle: "Evenements a Menton et aux alentours | Azur Menton",
+    seoDescription: "Preparez un sejour autour de la Fete du Citron, des soirees d'ete, des week-ends de Monaco et de la Riviera.",
     intro:
-      "TODO_TRANSLATE: Menton reste calme et tournee vers la mer, mais certaines periodes deviennent plus animees.",
+      "Menton reste calme et tournee vers la mer une grande partie de l'annee, mais certaines periodes deviennent plus animees: Fete du Citron, soirees d'ete et grands week-ends de la Riviera.",
     sections: [],
     cards: [],
   },
   it: {
-    title: "TODO_TRANSLATE: Eventi a Mentone e dintorni",
-    seoTitle: "TODO_TRANSLATE: Eventi a Mentone e dintorni",
-    seoDescription: "TODO_TRANSLATE: Translate the English events landing page before final launch.",
+    title: "Eventi a Mentone e dintorni",
+    seoTitle: "Eventi a Mentone e dintorni | Azur Menton",
+    seoDescription: "Organizza un soggiorno per la Festa dei Limoni, le serate estive, i weekend di Monaco e la Riviera.",
     intro:
-      "TODO_TRANSLATE: Mentone e tranquilla e legata al mare, ma alcune periodi sono piu vivaci.",
+      "Mentone e tranquilla e legata al mare per gran parte dell'anno, ma alcuni periodi diventano piu vivaci: Festa dei Limoni, serate estive e grandi weekend della Riviera.",
     sections: [],
     cards: [],
   },
   uk: {
-    title: "TODO_TRANSLATE: Events in Menton and nearby",
-    seoTitle: "TODO_TRANSLATE: Events in Menton and nearby",
-    seoDescription: "TODO_TRANSLATE: Translate the English events landing page before final launch.",
+    title: "Події в Ментоні та поруч",
+    seoTitle: "Події в Ментоні та поруч | Azur Menton",
+    seoDescription: "Плануйте перебування навколо Фестивалю лимонів, літніх вечорів, подій Монако та Рив'єри.",
     intro:
-      "TODO_TRANSLATE: Menton is calm and seaside-focused most of the year, with livelier event periods.",
+      "Ментон більшу частину року спокійний і морський, але під час Фестивалю лимонів, літніх вечорів та великих подій Рив'єри стає жвавішим.",
     sections: [],
     cards: [],
   },
@@ -362,9 +326,9 @@ const eventPagesEn: EventPageContent[] = [
 
 export const eventPages: Record<Locale, EventPageContent[]> = {
   en: eventPagesEn,
-  fr: eventPagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
-  it: eventPagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
-  uk: eventPagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
+  fr: eventPagesEn,
+  it: eventPagesEn,
+  uk: eventPagesEn,
 };
 
 export function getEventPage(locale: Locale, slug: string) {

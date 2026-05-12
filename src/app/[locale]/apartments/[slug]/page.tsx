@@ -76,25 +76,25 @@ export default async function ApartmentPage({ params }: PageProps) {
           { name: apartment.shortName[safeLocale], url: apartmentUrl },
         ])}
       />
-      <section className="bg-[#fff3df]">
+      <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
           <div className="grid gap-10 py-12 lg:grid-cols-[0.95fr_1.05fr] lg:py-16">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#0b6f8f]">
+              <p className="editorial-label">
                 {apartment.shortName[safeLocale]}
               </p>
-              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-[#17313a] sm:text-5xl">
+              <h1 className="serif-heading mt-3 text-5xl leading-none text-[#173f36] sm:text-7xl">
                 {apartment.name[safeLocale]}
               </h1>
-              <p className="mt-5 text-lg leading-8 text-[#5c5044]">{apartment.tagline[safeLocale]}</p>
+              <p className="mt-6 text-lg leading-8 text-[#5f574c]">{apartment.tagline[safeLocale]}</p>
               <dl className="mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
                 {[
-                  [labels.guests, `Up to ${apartment.maxGuests}`],
-                  [labels.size, `${apartment.sizeSqm} sqm`],
+                  [labels.guests, `${labels.upTo} ${apartment.maxGuests}`],
+                  [labels.size, `${apartment.sizeSqm} m²`],
                   [labels.beds, apartment.beds],
                   [labels.bathrooms, apartment.bathrooms],
                 ].map(([label, value]) => (
-                  <div key={label} className="rounded-md border border-[#d9cdbd] bg-white/70 p-3">
+                  <div key={label} className="border border-[#dfd4c1] bg-white/55 p-3">
                     <dt className="text-[#6b5f50]">{label}</dt>
                     <dd className="mt-1 font-semibold text-[#17313a]">{value}</dd>
                   </div>
@@ -107,7 +107,7 @@ export default async function ApartmentPage({ params }: PageProps) {
                 </Button>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-lg border border-[#e4d8c7] bg-white shadow-sm">
+            <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
                 src={heroImage.src}
                 alt={heroImage.alt[safeLocale]}
@@ -126,18 +126,18 @@ export default async function ApartmentPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.72fr_0.28fr]">
             <div>
-              <h2 className="text-2xl font-semibold text-[#17313a]">Overview</h2>
-              <p className="mt-4 text-base leading-8 text-[#5c5044]">{apartment.longDescription[safeLocale]}</p>
+              <h2 className="serif-heading text-4xl text-[#173f36]">Overview</h2>
+              <p className="mt-4 text-base leading-8 text-[#5f574c]">{apartment.longDescription[safeLocale]}</p>
               <ApartmentGallery apartment={apartment} locale={safeLocale} />
             </div>
             <Card className="h-fit p-6">
               <dl className="grid gap-4 text-sm">
                 {[
-                  [labels.guests, `Up to ${apartment.maxGuests}`],
+                  [labels.guests, `${labels.upTo} ${apartment.maxGuests}`],
                   [labels.bedrooms, apartment.bedrooms],
                   [labels.beds, apartment.beds],
                   [labels.bathrooms, apartment.bathrooms],
-                  [labels.size, `${apartment.sizeSqm} sqm`],
+                  [labels.size, `${apartment.sizeSqm} m²`],
                   [labels.bestFor, apartment.bestFor[safeLocale]],
                 ].map(([label, value]) => (
                   <div key={label} className="border-b border-[#eadfce] pb-3 last:border-b-0 last:pb-0">

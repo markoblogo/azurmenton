@@ -79,9 +79,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
     en: {
       title: "Legal Notice",
       description:
-        "Legal notice for Azur Menton. Unknown owner and business fields are clearly marked as TODO placeholders.",
+        "Legal notice for Azur Menton. Unknown owner and business fields are clearly marked for completion.",
       seoTitle: "Legal Notice",
-      seoDescription: "Legal notice for Azur Menton with publisher, owner, hosting and contact placeholders.",
+      seoDescription: "Legal notice for Azur Menton with publisher, owner, hosting and contact fields to complete.",
       sections: [
         {
           title: "Website publisher",
@@ -132,9 +132,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
     },
     uk: {
       title: "Legal Notice",
-      description: "Legal notice for Azur Menton with TODO placeholders for owner and business details.",
+      description: "Legal notice for Azur Menton with owner and business details to complete.",
       seoTitle: "Legal Notice",
-      seoDescription: "Legal notice for Azur Menton with publisher, hosting and contact placeholders.",
+      seoDescription: "Legal notice for Azur Menton with publisher, hosting and contact fields to complete.",
       sections: [
         {
           title: "Website publisher",
@@ -313,7 +313,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
       title: "Cookie Policy",
       description: "Cookie information for the Azur Menton website.",
       seoTitle: "Cookie Policy",
-      seoDescription: "Azur Menton cookie policy covering essential cookies, analytics placeholders and third-party embeds.",
+      seoDescription: "Azur Menton cookie policy covering essential cookies, future analytics and third-party embeds.",
       sections: [
         {
           title: "Current use",

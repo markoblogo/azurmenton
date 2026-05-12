@@ -51,9 +51,9 @@ export type Apartment = {
 
 const enFallback = <T extends string>(en: T): LocalizedText => ({
   en,
-  fr: `[FR placeholder] ${en}`,
-  it: `[IT placeholder] ${en}`,
-  uk: `[UK placeholder] ${en}`,
+  fr: en,
+  it: en,
+  uk: en,
 });
 
 const seaViewImagePath = "/images/apartments/sea-view-balcony-studio";

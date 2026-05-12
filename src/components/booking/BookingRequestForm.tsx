@@ -13,6 +13,105 @@ const initialState: BookingRequestState = {
   message: "",
 };
 
+const formCopy = {
+  en: {
+    apartment: "Apartment",
+    selectApartment: "Select an apartment",
+    notSure: "Not sure, please recommend",
+    checkIn: "Check-in date",
+    checkOut: "Check-out date",
+    adults: "Adults",
+    children: "Children",
+    parking: "Need parking?",
+    yes: "Yes",
+    no: "No",
+    notSureShort: "Not sure",
+    language: "Preferred language",
+    name: "Name",
+    email: "Email",
+    phone: "Phone or WhatsApp",
+    message: "Message",
+    manual:
+      "To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.",
+    privacy: "I agree that Azur Menton may use my details to respond to this booking request.",
+    privacyLink: "Privacy Policy",
+    sending: "Sending request...",
+    send: "Send request",
+  },
+  fr: {
+    apartment: "Appartement",
+    selectApartment: "Choisir un appartement",
+    notSure: "Je ne sais pas, conseillez-moi",
+    checkIn: "Date d'arrivee",
+    checkOut: "Date de depart",
+    adults: "Adultes",
+    children: "Enfants",
+    parking: "Besoin de parking ?",
+    yes: "Oui",
+    no: "Non",
+    notSureShort: "Pas sur",
+    language: "Langue preferee",
+    name: "Nom",
+    email: "Email",
+    phone: "Telephone ou WhatsApp",
+    message: "Message",
+    manual:
+      "Pour eviter les doubles reservations pendant la connexion du channel manager, toutes les demandes directes sont confirmees manuellement par l'hote.",
+    privacy: "J'accepte qu'Azur Menton utilise mes informations pour repondre a cette demande de reservation.",
+    privacyLink: "Politique de confidentialite",
+    sending: "Envoi en cours...",
+    send: "Envoyer la demande",
+  },
+  it: {
+    apartment: "Appartamento",
+    selectApartment: "Scegli un appartamento",
+    notSure: "Non sono sicuro, consigliatemi voi",
+    checkIn: "Data di arrivo",
+    checkOut: "Data di partenza",
+    adults: "Adulti",
+    children: "Bambini",
+    parking: "Serve parcheggio?",
+    yes: "Si",
+    no: "No",
+    notSureShort: "Non so",
+    language: "Lingua preferita",
+    name: "Nome",
+    email: "Email",
+    phone: "Telefono o WhatsApp",
+    message: "Messaggio",
+    manual:
+      "Per evitare doppie prenotazioni mentre colleghiamo il channel manager, tutte le richieste dirette sono confermate manualmente dall'host.",
+    privacy: "Accetto che Azur Menton usi i miei dati per rispondere a questa richiesta di prenotazione.",
+    privacyLink: "Informativa privacy",
+    sending: "Invio in corso...",
+    send: "Invia richiesta",
+  },
+  uk: {
+    apartment: "Апартаменти",
+    selectApartment: "Оберіть апартаменти",
+    notSure: "Не впевнений/впевнена, порадьте",
+    checkIn: "Дата заїзду",
+    checkOut: "Дата виїзду",
+    adults: "Дорослі",
+    children: "Діти",
+    parking: "Потрібен паркінг?",
+    yes: "Так",
+    no: "Ні",
+    notSureShort: "Не впевнений/впевнена",
+    language: "Бажана мова",
+    name: "Ім'я",
+    email: "Email",
+    phone: "Телефон або WhatsApp",
+    message: "Повідомлення",
+    manual:
+      "Щоб уникнути подвійних бронювань до підключення channel manager, усі прямі запити підтверджує господар вручну.",
+    privacy: "Я погоджуюся, що Azur Menton може використати мої дані, щоб відповісти на цей запит.",
+    privacyLink: "Політика конфіденційності",
+    sending: "Надсилаємо запит...",
+    send: "Надіслати запит",
+  },
+} satisfies Record<Locale, Record<string, string>>;
+
 export function BookingRequestForm({
   apartments,
   locale,
@@ -22,57 +121,58 @@ export function BookingRequestForm({
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
   const today = new Date().toISOString().slice(0, 10);
+  const labels = formCopy[locale];
 
   return (
     <form action={formAction} className="grid gap-5" aria-label="Booking request form">
       <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        Apartment
+        {labels.apartment}
         <select className="field" name="apartment" defaultValue="" required>
           <option value="" disabled>
-            Select an apartment
+            {labels.selectApartment}
           </option>
           {apartments.map((apartment) => (
             <option key={apartment.slug} value={apartment.slug}>
               {apartment.shortName[locale]}
             </option>
           ))}
-          <option value="not-sure">Not sure, please recommend</option>
+          <option value="not-sure">{labels.notSure}</option>
         </select>
       </label>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Check-in date
+          {labels.checkIn}
           <input className="field" min={today} name="checkIn" type="date" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Check-out date
+          {labels.checkOut}
           <input className="field" min={today} name="checkOut" type="date" required />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Adults
+          {labels.adults}
           <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Children
+          {labels.children}
           <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Need parking?
+          {labels.parking}
           <select className="field" name="parking" defaultValue="not-sure" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="not-sure">Not sure</option>
+            <option value="yes">{labels.yes}</option>
+            <option value="no">{labels.no}</option>
+            <option value="not-sure">{labels.notSureShort}</option>
           </select>
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Preferred language
+          {labels.language}
           <select className="field" name="preferredLanguage" defaultValue={locale} required>
             {locales.map((item) => (
               <option key={item} value={item}>
@@ -85,31 +185,30 @@ export function BookingRequestForm({
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Name
-          <input className="field" name="name" placeholder="Guest name" required />
+          {labels.name}
+          <input className="field" name="name" required />
         </label>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          Email
-          <input className="field" name="email" placeholder="guest@example.com" type="email" />
+          {labels.email}
+          <input className="field" name="email" type="email" />
         </label>
       </div>
 
       <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        Phone or WhatsApp
-        <input className="field" name="phone" placeholder="+33..." />
+        {labels.phone}
+        <input className="field" name="phone" />
       </label>
 
       <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        Message
+        {labels.message}
         <textarea
           className="field min-h-32"
           name="message"
-          placeholder="Tell us who is travelling and any questions."
         />
       </label>
 
       <div className="rounded-md border border-[#d9cdbd] bg-[#fff3df] p-4 text-sm leading-6 text-[#5c5044]">
-        To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.
+        {labels.manual}
       </div>
 
       <label className="flex items-start gap-3 rounded-md border border-[#d9cdbd] bg-white/70 p-4 text-sm leading-6 text-[#5c5044]">
@@ -121,12 +220,12 @@ export function BookingRequestForm({
           value="accepted"
         />
         <span>
-          I agree that Azur Menton may use my details to respond to this booking request.{" "}
+          {labels.privacy}{" "}
           <Link
             className="font-semibold text-[#0b6f8f] underline-offset-4 hover:underline"
             href={`/${locale}/privacy` as Route}
           >
-            Privacy Policy
+            {labels.privacyLink}
           </Link>
         </span>
       </label>
@@ -144,7 +243,7 @@ export function BookingRequestForm({
         </div>
       ) : null}
 
-      <Button type="submit">{pending ? "Sending request..." : "Send request"}</Button>
+      <Button type="submit">{pending ? labels.sending : labels.send}</Button>
     </form>
   );
 }

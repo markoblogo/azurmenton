@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
@@ -9,36 +8,20 @@ export function Navigation({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[#eadfce] bg-[#fff9f0]/92 backdrop-blur">
-      <div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-20 border-b border-[#dfd4c1] bg-[#fbf7ef]/90 backdrop-blur-xl">
+      <div className="mx-auto flex min-h-18 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}` as Route}
-          className="flex shrink-0 items-center gap-2 text-base font-semibold tracking-[0.08em] text-[#17313a]"
+          className="font-serif-display shrink-0 text-2xl font-semibold tracking-[-0.02em] text-[#173f36] sm:text-3xl"
         >
-          <Image
-            src="/images/brand/azurmenton.png"
-            alt="Azur Menton"
-            width={748}
-            height={437}
-            priority
-            className="hidden h-10 w-auto sm:block"
-          />
-          <Image
-            src="/images/brand/az.png"
-            alt="Azur Menton icon"
-            width={372}
-            height={366}
-            priority
-            className="h-9 w-9 sm:hidden"
-          />
-          <span className="sr-only">Azur Menton</span>
+          Azur Menton
         </Link>
-        <nav aria-label="Primary" className="hidden items-center gap-5 text-sm font-medium md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 text-[0.7rem] font-bold uppercase tracking-[0.16em] lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.key}
               href={`/${locale}${item.href}` as Route}
-              className="text-[#51646a] transition hover:text-[#0b6f8f]"
+              className="text-[#5f675f] transition hover:text-[#0a6678]"
             >
               {labels[item.key]}
             </Link>
@@ -47,13 +30,27 @@ export function Navigation({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-3">
           <Link
             href={`/${locale}/check-availability` as Route}
-            className="hidden rounded-md bg-[#0b6f8f] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#075a75] sm:inline-flex"
+            className="hidden border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#102f28] md:inline-flex"
           >
             {labels.availability}
           </Link>
           <LocaleSwitcher locale={locale} />
         </div>
       </div>
+      <nav
+        aria-label="Mobile primary"
+        className="mx-auto flex w-full max-w-6xl gap-5 overflow-x-auto border-t border-[#eadfce] px-5 py-3 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#5f675f] sm:px-6 lg:hidden lg:px-8"
+      >
+        {navItems.slice(0, 4).map((item) => (
+          <Link
+            key={item.key}
+            href={`/${locale}${item.href}` as Route}
+            className="shrink-0 hover:text-[#0a6678]"
+          >
+            {labels[item.key]}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

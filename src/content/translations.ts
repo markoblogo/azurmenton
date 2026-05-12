@@ -15,6 +15,7 @@ type CommonTranslations = {
   keyFeatures: string;
   amenities: string;
   location: string;
+  upTo: string;
 };
 
 export const t: Record<Locale, CommonTranslations> = {
@@ -33,6 +34,7 @@ export const t: Record<Locale, CommonTranslations> = {
     keyFeatures: "Key features",
     amenities: "Amenities",
     location: "Location",
+    upTo: "Up to",
   },
   fr: {
     checkAvailability: "Verifier disponibilite",
@@ -49,6 +51,7 @@ export const t: Record<Locale, CommonTranslations> = {
     keyFeatures: "Points forts",
     amenities: "Equipements",
     location: "Localisation",
+    upTo: "Jusqu'a",
   },
   it: {
     checkAvailability: "Controlla disponibilita",
@@ -65,21 +68,23 @@ export const t: Record<Locale, CommonTranslations> = {
     keyFeatures: "Punti forti",
     amenities: "Servizi",
     location: "Posizione",
+    upTo: "Fino a",
   },
   uk: {
-    checkAvailability: "Check availability",
-    viewApartment: "View apartment",
-    compareApartments: "Compare apartments",
-    requestOnly: "Request to book",
-    noInstantBooking: "No instant confirmation. We confirm availability and the best direct offer manually.",
-    guests: "Guests",
-    bedrooms: "Bedrooms",
-    beds: "Beds",
-    bathrooms: "Bathrooms",
-    size: "Size",
-    bestFor: "Best for",
-    keyFeatures: "Key features",
-    amenities: "Amenities",
-    location: "Location",
+    checkAvailability: "Перевірити доступність",
+    viewApartment: "Переглянути апартаменти",
+    compareApartments: "Порівняти апартаменти",
+    requestOnly: "Запит на бронювання",
+    noInstantBooking: "Без миттєвого підтвердження. Ми вручну підтверджуємо доступність і найкращу пряму пропозицію.",
+    guests: "Гості",
+    bedrooms: "Спальні",
+    beds: "Ліжка",
+    bathrooms: "Ванні кімнати",
+    size: "Площа",
+    bestFor: "Найкраще для",
+    keyFeatures: "Ключові переваги",
+    amenities: "Зручності",
+    location: "Локація",
+    upTo: "До",
   },
 };

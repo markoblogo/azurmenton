@@ -35,7 +35,7 @@
 
 ## Legal And Content
 
-- [ ] Legal placeholders are replaced with verified owner/business details.
+- [ ] Legal owner/business details are replaced with verified values.
 - [ ] Owner / publisher name is completed.
 - [ ] Business status is completed.
 - [ ] SIRET/SIREN is completed if applicable.
@@ -45,7 +45,7 @@
 - [ ] Consumer mediator details are added if legally required.
 - [ ] Payment, deposit, cancellation, tourist tax and mediation details are completed.
 - [ ] Exact event dates are added only with source URLs.
-- [ ] French, Italian and Ukrainian `TODO_TRANSLATE` guide/event content is finalized.
+- [ ] French, Italian and Ukrainian guide/event content is reviewed by a native speaker.
 
 ## SEO And Quality
 

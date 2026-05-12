@@ -4,5 +4,5 @@ type SectionProps = {
 };
 
 export function Section({ children, className = "" }: SectionProps) {
-  return <section className={`py-14 sm:py-20 ${className}`}>{children}</section>;
+  return <section className={`py-16 sm:py-24 ${className}`}>{children}</section>;
 }

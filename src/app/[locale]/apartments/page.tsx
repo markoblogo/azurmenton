@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description:
       safeLocale === "en"
         ? "Choose from three family-run Menton apartments: sea-view balcony studios for couples and a spacious beachside apartment with terrace and parking for families."
-        : "TODO_TRANSLATE: Choose from three family-run Menton apartments close to the sea, old town and promenade.",
+        : "Choose from three family-run Menton apartments close to the sea, old town and promenade.",
   });
 }
 
@@ -64,9 +64,9 @@ export default async function ApartmentsPage({ params }: PageProps) {
               ))}
             </div>
             {[
-              [labels.guests, apartments.map((a) => `Up to ${a.maxGuests}`)],
+              [labels.guests, apartments.map((a) => `${labels.upTo} ${a.maxGuests}`)],
               [labels.bestFor, apartments.map((a) => a.bestFor[safeLocale])],
-              [labels.size, apartments.map((a) => `${a.sizeSqm} sqm`)],
+              [labels.size, apartments.map((a) => `${a.sizeSqm} m²`)],
               [labels.keyFeatures, apartments.map((a) => a.keyFeatures.map((f) => f[safeLocale]).join(", "))],
             ].map(([label, values]) => (
               <div

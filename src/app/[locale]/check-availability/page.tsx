@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description:
       safeLocale === "en"
         ? "Send a direct booking request for Azur Menton apartments. We will confirm availability and the best direct offer manually."
-        : "TODO_TRANSLATE: Send a direct booking request for Azur Menton apartments. Availability and direct offers are confirmed manually.",
+        : "Send a direct booking request for Azur Menton apartments. Availability and direct offers are confirmed manually.",
   });
 }
 

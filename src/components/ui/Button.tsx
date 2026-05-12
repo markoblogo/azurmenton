@@ -10,9 +10,9 @@ type ButtonProps = {
 
 const variants = {
   primary:
-    "bg-[#0b6f8f] text-white shadow-sm hover:bg-[#075a75] focus-visible:outline-[#0b6f8f]",
+    "border border-[#173f36] bg-[#173f36] text-white hover:bg-[#102f28] focus-visible:outline-[#173f36]",
   secondary:
-    "border border-[#d9cdbd] bg-white/70 text-[#17313a] hover:border-[#0b6f8f] hover:text-[#0b6f8f] focus-visible:outline-[#0b6f8f]",
+    "border border-[#c6a66a] bg-transparent text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline-[#c6a66a]",
 };
 
 export function Button({
@@ -21,7 +21,7 @@ export function Button({
   variant = "primary",
   type = "button",
 }: ButtonProps) {
-  const className = `inline-flex min-h-11 items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]}`;
+  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]}`;
 
   if (href) {
     return (

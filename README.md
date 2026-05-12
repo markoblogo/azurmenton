@@ -74,6 +74,20 @@ Current guest contact details:
 - Email: `petraetpaul@gmail.com`
 - Phone / WhatsApp: `+33 6 24 71 65 65`
 
+## Weather Widget
+
+The homepage uses `src/lib/weather.ts` and `src/components/weather/WeatherWidget.tsx` to fetch Menton weather server-side from Open-Meteo with a two-hour cache. It shows current temperature, condition, wind, rain chance, a five-day forecast, provider label and a graceful fallback if the provider is unavailable.
+
+Configure provider and Menton coordinates with:
+
+```bash
+WEATHER_PROVIDER=open-meteo
+WEATHER_LATITUDE=43.7745
+WEATHER_LONGITUDE=7.4975
+```
+
+Open-Meteo is the first provider because it does not require a key for prototyping. Review provider terms before production launch or heavier commercial use.
+
 ## Legal Pages
 
 The site includes locale routes for:
@@ -87,24 +101,22 @@ The French version is treated as the primary compliance draft. Unknown owner, pu
 
 ## Live Menton Webcams
 
-The homepage and Menton guide include a small reusable `LiveMentonWebcams` section. It uses link-only cards for public third-party webcam resources and does not iframe streams, hotlink video, load third-party scripts or claim that Azur Menton owns the webcams.
+The Menton guide includes a small reusable `LiveMentonWebcams` section. It uses link-only cards for public third-party webcam resources and does not iframe streams, hotlink video, load third-party scripts or claim that Azur Menton owns the webcams.
 
 Webcam data lives in `src/content/webcams.ts`. Availability and URLs may change because the sources are third-party public resources.
 
 ## Content
 
 - `src/config/site.ts` - domain and site-level config
-- `src/content/apartments.ts` - apartment data and image gallery placeholders
+- `src/content/apartments.ts` - apartment data and image gallery metadata
 - `src/content/guide.ts` - Menton guide landing and article content
 - `src/content/events.ts` - event landing and evergreen event-planning content
-- `src/content/pages.ts` - FAQ and simple contact/legal placeholder content
+- `src/content/pages.ts` - FAQ and simple contact/legal content
 - `src/content/navigation.ts` - navigation labels
 - `src/content/translations.ts` - reusable interface text
-- `public/images/` - replaceable local image placeholders
+- `public/images/` - local brand, apartment and guide assets
 
-English is the source language. French, Italian, and Ukrainian currently use the same structure with editable placeholder text.
-
-Guide and event article translations use `TODO_TRANSLATE` where a polished localized draft is still needed. Exact event dates are intentionally omitted until sourced dates can be added with a `sourceUrl`.
+English is the source language. French, Italian, and Ukrainian use the same content structure and should be refined by a native speaker before final launch. Exact event dates are intentionally omitted until sourced dates can be added with a `sourceUrl`.
 
 ## SEO
 
@@ -116,7 +128,7 @@ The app includes:
 - `sitemap.xml`
 - `robots.txt`
 - JSON-LD for the home page, apartment pages, guide/event articles, FAQ and breadcrumbs
-- `next/image` for local placeholder assets
+- `next/image` for local brand, apartment and guide assets
 
 After deployment, verify the domain in Google Search Console, submit `https://azurmenton.com/sitemap.xml`, and check indexing coverage, hreflang issues, mobile usability and Core Web Vitals. Do not add analytics or tracking pixels unless cookie compliance is handled.
 

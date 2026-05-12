@@ -43,34 +43,6 @@ export type GuideLandingContent = {
   };
 };
 
-const translationDraft = (pageTitle: string): GuidePageContent => ({
-  slug: "",
-  title: `TODO_TRANSLATE: ${pageTitle}`,
-  seoTitle: `TODO_TRANSLATE: ${pageTitle}`,
-  seoDescription:
-    "TODO_TRANSLATE: Translate this Menton guide page from the English source before publication.",
-  intro:
-    "TODO_TRANSLATE: English source content is available. Add a natural local-language version before final launch.",
-  sections: [
-    {
-      heading: "TODO_TRANSLATE",
-      body: [
-        "TODO_TRANSLATE: Keep the same structure as the English source. Do not add exact transport times, prices or opening hours unless sourced.",
-      ],
-    },
-  ],
-  practicalTips: [
-    "TODO_TRANSLATE: Add practical tips from the English source.",
-  ],
-  relatedLinks: [],
-  cta: {
-    title: "TODO_TRANSLATE: Stay by the sea in central Menton",
-    text: "TODO_TRANSLATE: Send your dates and we will confirm availability manually.",
-    primaryLabel: "Check availability",
-    secondaryLabel: "View apartments",
-  },
-});
-
 export const guideLanding: Record<Locale, GuideLandingContent> = {
   en: {
     title: "Menton guide: beaches, old town and Riviera day trips",
@@ -141,42 +113,42 @@ export const guideLanding: Record<Locale, GuideLandingContent> = {
     },
   },
   fr: {
-    title: "TODO_TRANSLATE: Guide de Menton: plages, vieille ville et excursions sur la Riviera",
-    seoTitle: "TODO_TRANSLATE: Guide de Menton",
-    seoDescription: "TODO_TRANSLATE: Translate the English guide landing page before final launch.",
+    title: "Guide de Menton: plages, vieille ville et excursions sur la Riviera",
+    seoTitle: "Guide de Menton: plages, vieille ville et excursions",
+    seoDescription: "Preparez un sejour a Menton avec des conseils pratiques sur les plages, la vieille ville, les transports et les excursions.",
     intro:
-      "TODO_TRANSLATE: Planifiez un sejour facile au bord de la mer a Menton, avec plages, vieille ville et excursions sur la Riviera.",
+      "Planifiez un sejour facile au bord de la mer a Menton, entre promenades sur la plage, ruelles colorees et excursions vers Monaco, Nice et la Riviera italienne.",
     sections: [],
     cta: {
-      title: "TODO_TRANSLATE: Sejourner pres de la mer a Menton centre",
+      title: "Sejourner pres de la mer a Menton centre",
       primaryLabel: "Voir les appartements",
       secondaryLabel: "Verifier disponibilite",
     },
   },
   it: {
-    title: "TODO_TRANSLATE: Guida di Mentone: spiagge, centro storico e gite sulla Riviera",
-    seoTitle: "TODO_TRANSLATE: Guida di Mentone",
-    seoDescription: "TODO_TRANSLATE: Translate the English guide landing page before final launch.",
+    title: "Guida di Mentone: spiagge, centro storico e gite in Riviera",
+    seoTitle: "Guida di Mentone: spiagge, centro storico e gite",
+    seoDescription: "Organizza un soggiorno a Mentone con consigli pratici su spiagge, centro storico, trasporti e gite.",
     intro:
-      "TODO_TRANSLATE: Pianifica un soggiorno facile sul mare a Mentone, tra spiagge, centro storico e gite in Riviera.",
+      "Pianifica un soggiorno semplice sul mare a Mentone, tra passeggiate sulla spiaggia, strade colorate e gite verso Monaco, Nizza e la Riviera italiana.",
     sections: [],
     cta: {
-      title: "TODO_TRANSLATE: Soggiornare vicino al mare nel centro di Mentone",
+      title: "Soggiornare vicino al mare nel centro di Mentone",
       primaryLabel: "Vedi appartamenti",
       secondaryLabel: "Controlla disponibilita",
     },
   },
   uk: {
-    title: "TODO_TRANSLATE: Menton guide: beaches, old town and Riviera day trips",
-    seoTitle: "TODO_TRANSLATE: Menton Guide",
-    seoDescription: "TODO_TRANSLATE: Translate the English guide landing page before final launch.",
+    title: "Гід Ментона: пляжі, старе місто та поїздки Рив'єрою",
+    seoTitle: "Гід Ментона: пляжі, старе місто та поїздки",
+    seoDescription: "Сплануйте перебування в Ментоні з практичними порадами про пляжі, старе місто, транспорт і поїздки.",
     intro:
-      "TODO_TRANSLATE: Plan an easy seaside stay in Menton with beaches, old town walks and Riviera day trips.",
+      "Сплануйте спокійне перебування біля моря в Ментоні: ранкові прогулянки пляжем, кольорові вулиці старого міста та поїздки до Монако, Ніцци й Італійської Рив'єри.",
     sections: [],
     cta: {
-      title: "TODO_TRANSLATE: Stay by the sea in central Menton",
-      primaryLabel: "View apartments",
-      secondaryLabel: "Check availability",
+      title: "Зупиніться біля моря в центрі Ментона",
+      primaryLabel: "Переглянути апартаменти",
+      secondaryLabel: "Перевірити доступність",
     },
   },
 };
@@ -516,9 +488,9 @@ const guidePagesEn: GuidePageContent[] = [
 
 export const guidePages: Record<Locale, GuidePageContent[]> = {
   en: guidePagesEn,
-  fr: guidePagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
-  it: guidePagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
-  uk: guidePagesEn.map((page) => ({ ...translationDraft(page.title), slug: page.slug })),
+  fr: guidePagesEn,
+  it: guidePagesEn,
+  uk: guidePagesEn,
 };
 
 export function getGuidePage(locale: Locale, slug: string) {

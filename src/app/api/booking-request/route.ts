@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: validation.error }, { status: 400 });
   }
 
-  console.info("Azur Menton booking request API placeholder", createBookingRequestLog(payload));
+  console.info("Azur Menton booking request API received", createBookingRequestLog(payload));
 
   const emailResult = await sendBookingRequestEmail(payload);
 
