@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(
-      { error: "Request accepted but email delivery failed. Please contact the host directly." },
+      { error: "Email delivery is not configured or failed. Please contact the host directly." },
       { status: 502 },
     );
   }

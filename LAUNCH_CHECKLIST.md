@@ -2,7 +2,17 @@
 
 ## Deployment
 
+- [ ] Code is pushed to GitHub.
+- [ ] Vercel project is created from `https://github.com/markoblogo/azurmenton`.
+- [ ] Preview deployment is checked.
+- [ ] Environment variables from `.env.example` are set in Vercel.
 - [ ] Domain points to the production deployment.
+- [ ] Production domain `azurmenton.com` is added in Vercel.
+- [ ] `www.azurmenton.com` is added in Vercel.
+- [ ] Cloudflare DNS is configured using Vercel-provided records.
+- [ ] Vercel domain status is verified.
+- [ ] SSL certificate is active.
+- [ ] Canonical redirect between `www` and apex is tested.
 - [ ] HTTPS works for `https://azurmenton.com`.
 - [ ] `https://azurmenton.com/sitemap.xml` returns the production sitemap.
 - [ ] `https://azurmenton.com/robots.txt` allows public crawling and references the sitemap.
@@ -20,11 +30,19 @@
 - [ ] Booking request form submits successfully in production.
 - [ ] Privacy acknowledgement checkbox is required and not pre-checked.
 - [ ] Host receives booking request notifications.
+- [ ] Resend sender/domain is verified if Resend is used.
 - [ ] No fake prices, ratings, reviews or availability are displayed.
 
 ## Legal And Content
 
 - [ ] Legal placeholders are replaced with verified owner/business details.
+- [ ] Owner / publisher name is completed.
+- [ ] Business status is completed.
+- [ ] SIRET/SIREN is completed if applicable.
+- [ ] Contact or registered address is completed.
+- [ ] Email and phone wording is confirmed.
+- [ ] Hosting provider details are completed.
+- [ ] Consumer mediator details are added if legally required.
 - [ ] Payment, deposit, cancellation, tourist tax and mediation details are completed.
 - [ ] Exact event dates are added only with source URLs.
 - [ ] French, Italian and Ukrainian `TODO_TRANSLATE` guide/event content is finalized.

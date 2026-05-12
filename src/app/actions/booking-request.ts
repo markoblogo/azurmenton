@@ -39,14 +39,8 @@ export async function submitBookingRequest(
     return {
       status: "error",
       message:
-        "We could not send your request right now. Please try again or contact us by email.",
+        "We could not send your request right now. Please contact us by email and include your dates.",
     };
-  }
-
-  if (!emailResult.attempted) {
-    console.info("Azur Menton booking request email skipped", {
-      reason: emailResult.error,
-    });
   }
 
   return {

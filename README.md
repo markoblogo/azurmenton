@@ -65,9 +65,10 @@ The booking page is a manual request form, not instant booking. It collects:
 The current implementation uses:
 
 - server action: `src/app/actions/booking-request.ts`
-- placeholder API route: `src/app/api/booking-request/route.ts`
+- API route: `src/app/api/booking-request/route.ts`
+- email helper: `src/lib/resend.ts`
 
-Both only log the request for now. They are intentionally isolated so they can later connect to email, Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
+In production, request delivery requires `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` to be set in Vercel. If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email instead of pretending the request was delivered. The booking logic remains isolated so it can later connect to Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
 
 ## Legal Pages
 
@@ -122,5 +123,7 @@ See `LAUNCH_CHECKLIST.md` for the production SEO and launch checklist.
 - Expected target: Vercel
 - Domain: `azurmenton.com`
 - DNS managed through Cloudflare
+
+See `DEPLOYMENT.md` for first production deployment steps.
 
 Do not configure DNS, deploy, or connect production services from local development unless explicitly requested.

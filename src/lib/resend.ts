@@ -94,7 +94,7 @@ export async function sendBookingRequestEmail(
   if (!apiKey || !to) {
     return {
       attempted: false,
-      ok: true,
+      ok: false,
       error: "RESEND_API_KEY or BOOKING_REQUEST_TO_EMAIL is not configured.",
     };
   }
