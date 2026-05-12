@@ -6,7 +6,17 @@ export type ApartmentImage = {
   src: string;
   alt: LocalizedText;
   caption: LocalizedText;
-  category: "balcony" | "view" | "living" | "bedroom" | "kitchen" | "bathroom" | "location" | "exterior";
+  category:
+    | "balcony"
+    | "terrace"
+    | "view"
+    | "living"
+    | "bedroom"
+    | "kitchen"
+    | "bathroom"
+    | "parking"
+    | "location"
+    | "exterior";
   priority?: boolean;
 };
 
@@ -46,6 +56,7 @@ const enFallback = <T extends string>(en: T): LocalizedText => ({
 });
 
 const seaViewImagePath = "/images/apartments/sea-view-balcony-studio";
+const beachsideFamilyImagePath = "/images/apartments/beachside-family-apartment";
 
 export const apartments: Apartment[] = [
   {
@@ -216,8 +227,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "beachside-family-apartment",
-    heroImage: "/images/apartments/terrace-apartment-hero.svg",
-    cardImage: "/images/apartments/terrace-apartment-hero.svg",
+    heroImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpeg`,
+    cardImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpeg`,
     name: enFallback("Beachside Apartment with Terrace & Parking, Menton"),
     shortName: enFallback("Terrace & Parking Apartment"),
     tagline: enFallback(
@@ -268,16 +279,126 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: "/images/apartments/terrace-apartment-hero.svg",
-        alt: enFallback("Placeholder hero image for the Terrace Apartment in Menton"),
-        caption: enFallback("Terrace apartment image placeholder"),
+        src: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpeg`,
+        alt: enFallback("Private terrace with outdoor dining table and garden view in central Menton"),
+        caption: enFallback("Private terrace for breakfast outdoors"),
+        category: "terrace",
+        priority: true,
+      },
+      {
+        src: `${beachsideFamilyImagePath}/02-living-room-terrace-access.jpeg`,
+        alt: enFallback("Living room with sofa, TV and direct access to the private terrace"),
+        caption: enFallback("Living room with direct access to the terrace"),
+        category: "living",
+        priority: true,
+      },
+      {
+        src: `${beachsideFamilyImagePath}/03-comfortable-bedroom.jpeg`,
+        alt: enFallback("Comfortable bedroom with double bed, armchair and soft lighting"),
+        caption: enFallback("Comfortable bedroom with double bed"),
+        category: "bedroom",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/04-dining-area-equipped-kitchen.jpeg`,
+        alt: enFallback("Dining area beside an equipped kitchen in the beachside apartment"),
+        caption: enFallback("Dining area and equipped kitchen"),
+        category: "kitchen",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/05-living-room-sofa-bed.jpeg`,
+        alt: enFallback("Living room with sofa bed, dining table and light from the terrace"),
+        caption: enFallback("Living room with sofa bed and dining area"),
         category: "living",
       },
       {
-        src: "/images/apartments/terrace-apartment-room.svg",
-        alt: enFallback("Placeholder room image for the Terrace Apartment"),
-        caption: enFallback("Terrace apartment room placeholder"),
+        src: `${beachsideFamilyImagePath}/06-full-kitchen-longer-stays.jpeg`,
+        alt: enFallback("Fully equipped kitchen with oven, microwave, washing machine and dishwasher"),
+        caption: enFallback("Fully equipped kitchen for longer stays"),
+        category: "kitchen",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/07-tv-and-terrace-view.jpeg`,
+        alt: enFallback("TV area in the living room with access to the terrace"),
+        caption: enFallback("Living room with TV and terrace access"),
         category: "living",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/08-private-bathroom-sink.jpeg`,
+        alt: enFallback("Private bathroom with sink, mirror and dark tiled wall"),
+        caption: enFallback("Private bathroom with sink"),
+        category: "bathroom",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/09-bathroom-bath-shower.jpeg`,
+        alt: enFallback("Bathroom with bath and shower in the family apartment"),
+        caption: enFallback("Bathroom with bath and shower"),
+        category: "bathroom",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/10-garden-courtyard-view.jpeg`,
+        alt: enFallback("Garden and inner courtyard view from the apartment terrace"),
+        caption: enFallback("Garden and inner courtyard view"),
+        category: "view",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/11-parking-nearby.jpeg`,
+        alt: enFallback("Parking sign near the apartment building in central Menton"),
+        caption: enFallback("Parking nearby, available by reservation"),
+        category: "parking",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/12-building-entrance.jpeg`,
+        alt: enFallback("Entrance to the apartment building near the beach in Menton"),
+        caption: enFallback("Building entrance"),
+        category: "exterior",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/13-beachside-building-exterior.jpeg`,
+        alt: enFallback("Exterior of the beachside apartment building in Menton"),
+        caption: enFallback("Beachside building exterior"),
+        category: "exterior",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/14-nearby-beach.jpeg`,
+        alt: enFallback("Nearby beach in Menton with palm trees and the Mediterranean sea"),
+        caption: enFallback("The beach is just a short walk away"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/15-mediterranean-sea-nearby.jpeg`,
+        alt: enFallback("Mediterranean sea near the apartment in Menton"),
+        caption: enFallback("Mediterranean sea nearby"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/16-menton-evening-market.jpeg`,
+        alt: enFallback("Evening market and colourful old town streets in Menton"),
+        caption: enFallback("Menton old town and evening market"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/17-menton-old-town.jpeg`,
+        alt: enFallback("Colourful old town buildings and church tower in Menton"),
+        caption: enFallback("Menton old town within walking distance"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/18-menton-harbour-nearby.jpeg`,
+        alt: enFallback("Boats in Menton harbour at sunset"),
+        caption: enFallback("Menton harbour nearby"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/19-evening-riviera-view.jpeg`,
+        alt: enFallback("Evening colours over the sea and mountains near Menton"),
+        caption: enFallback("Evening colours over the Riviera"),
+        category: "location",
+      },
+      {
+        src: `${beachsideFamilyImagePath}/20-evening-harbour-walk.jpeg`,
+        alt: enFallback("Evening harbour view with boats near Menton"),
+        caption: enFallback("Evening walk by the harbour"),
+        category: "location",
       },
     ],
     seoTitle: enFallback("Beachside Apartment with Terrace & Parking in Menton | Azur Menton"),
