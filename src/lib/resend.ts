@@ -61,6 +61,7 @@ function buildEmailHtml(payload: BookingRequestPayload) {
     ["Email", payload.email || "Not provided"],
     ["Phone / WhatsApp", payload.phone || "Not provided"],
     ["Message", payload.message || "No message"],
+    ["Privacy acknowledgement", payload.privacyAcknowledgement === "accepted" ? "Accepted" : "Missing"],
   ];
 
   return `

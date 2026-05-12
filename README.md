@@ -27,6 +27,8 @@ The site is static-first, multilingual, SEO-focused, and designed for a temporar
 - `/[locale]/contact`
 - `/[locale]/privacy`
 - `/[locale]/legal`
+- `/[locale]/cookies`
+- `/[locale]/booking-terms`
 
 ## Local Development
 
@@ -56,6 +58,7 @@ The booking page is a manual request form, not instant booking. It collects:
 - preferred language
 - name, email, phone or WhatsApp
 - message
+- required privacy acknowledgement for responding to the booking request
 
 The current implementation uses:
 
@@ -63,6 +66,23 @@ The current implementation uses:
 - placeholder API route: `src/app/api/booking-request/route.ts`
 
 Both only log the request for now. They are intentionally isolated so they can later connect to email, Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
+
+## Legal Pages
+
+The site includes locale routes for:
+
+- Legal Notice: `/[locale]/legal`
+- Privacy Policy: `/[locale]/privacy`
+- Cookie Policy: `/[locale]/cookies`
+- Booking Terms: `/[locale]/booking-terms`
+
+The French version is treated as the primary compliance draft. Unknown owner, publisher, registration, mediator, payment, cancellation, tourist tax, deposit and retention details are intentionally marked as `TODO` and must be completed with verified information before production launch.
+
+## Live Menton Webcams
+
+The homepage and Menton guide include a small reusable `LiveMentonWebcams` section. It uses link-only cards for public third-party webcam resources and does not iframe streams, hotlink video, load third-party scripts or claim that Azur Menton owns the webcams.
+
+Webcam data lives in `src/content/webcams.ts`. Availability and URLs may change because the sources are third-party public resources.
 
 ## Content
 

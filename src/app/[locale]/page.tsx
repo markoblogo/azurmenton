@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
+import { LiveMentonWebcams } from "@/components/LiveMentonWebcams";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -190,6 +191,12 @@ export default async function LocaleHome({ params }: PageProps) {
               </div>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fff9f0]">
+        <Container>
+          <LiveMentonWebcams locale={safeLocale} />
         </Container>
       </Section>
 

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import type { Route } from "next";
 import { useActionState } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import { Button } from "@/components/ui/Button";
@@ -109,6 +111,25 @@ export function BookingRequestForm({
       <div className="rounded-md border border-[#d9cdbd] bg-[#fff3df] p-4 text-sm leading-6 text-[#5c5044]">
         To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.
       </div>
+
+      <label className="flex items-start gap-3 rounded-md border border-[#d9cdbd] bg-white/70 p-4 text-sm leading-6 text-[#5c5044]">
+        <input
+          className="mt-1 h-4 w-4 rounded border-[#d9cdbd] text-[#0b6f8f]"
+          name="privacyAcknowledgement"
+          required
+          type="checkbox"
+          value="accepted"
+        />
+        <span>
+          I agree that Azur Menton may use my details to respond to this booking request.{" "}
+          <Link
+            className="font-semibold text-[#0b6f8f] underline-offset-4 hover:underline"
+            href={`/${locale}/privacy` as Route}
+          >
+            Privacy Policy
+          </Link>
+        </span>
+      </label>
 
       {state.message ? (
         <div

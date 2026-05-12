@@ -28,8 +28,10 @@ export function Footer({ locale }: { locale: Locale }) {
             ["availability", "/check-availability"],
             ["guide", "/guide"],
             ["contact", "/contact"],
-            ["privacy", "/privacy"],
             ["legal", "/legal"],
+            ["privacy", "/privacy"],
+            ["cookies", "/cookies"],
+            ["bookingTerms", "/booking-terms"],
           ].map(([key, href]) => (
             <Link key={key} href={`/${locale}${href}` as Route} className="hover:text-white">
               {labels[key]}

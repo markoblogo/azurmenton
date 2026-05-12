@@ -10,6 +10,7 @@ export type BookingRequestPayload = {
   email: string;
   phone: string;
   message: string;
+  privacyAcknowledgement: string;
 };
 
 export type BookingRequestValidation = {
@@ -27,6 +28,7 @@ const requiredFields: Array<keyof BookingRequestPayload> = [
   "parking",
   "preferredLanguage",
   "name",
+  "privacyAcknowledgement",
 ];
 
 const validApartments = new Set([
@@ -52,6 +54,7 @@ export function formDataToBookingPayload(formData: FormData): BookingRequestPayl
     email: String(formData.get("email") ?? "").trim(),
     phone: String(formData.get("phone") ?? "").trim(),
     message: String(formData.get("message") ?? "").trim(),
+    privacyAcknowledgement: String(formData.get("privacyAcknowledgement") ?? "").trim(),
   };
 }
 
@@ -74,6 +77,7 @@ export function unknownToBookingPayload(input: unknown): BookingRequestPayload |
     email: String(record.email ?? "").trim(),
     phone: String(record.phone ?? "").trim(),
     message: String(record.message ?? "").trim(),
+    privacyAcknowledgement: String(record.privacyAcknowledgement ?? "").trim(),
   };
 }
 
@@ -113,6 +117,13 @@ export function validateBookingRequest(payload: BookingRequestPayload): BookingR
 
   if (!validLanguages.has(payload.preferredLanguage)) {
     return { ok: false, error: "Please choose a valid preferred language." };
+  }
+
+  if (payload.privacyAcknowledgement !== "accepted") {
+    return {
+      ok: false,
+      error: "Please confirm that Azur Menton may use your details to respond to this request.",
+    };
   }
 
   const adults = Number(payload.adults);

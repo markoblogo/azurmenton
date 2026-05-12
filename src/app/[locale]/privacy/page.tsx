@@ -1,8 +1,8 @@
 import {
-  generateSimpleMetadata,
-  SimpleContentPage,
-} from "@/components/layout/SimpleContentPage";
+  generateLegalMetadata,
+  LegalContentPage,
+} from "@/components/layout/LegalContentPage";
 
-export const generateMetadata = generateSimpleMetadata.bind(null, "privacy");
+export const generateMetadata = generateLegalMetadata.bind(null, "privacy");
 
-export default SimpleContentPage("privacy");
+export default LegalContentPage("privacy");

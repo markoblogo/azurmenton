@@ -14,6 +14,8 @@ const staticRoutes = [
   "contact",
   "privacy",
   "legal",
+  "cookies",
+  "booking-terms",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
