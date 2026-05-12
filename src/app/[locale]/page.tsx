@@ -68,6 +68,14 @@ export default async function LocaleHome({ params }: PageProps) {
         <Container>
           <div className="grid min-h-[calc(100vh-4rem)] items-center gap-10 py-12 md:grid-cols-[1fr_0.95fr]">
             <div>
+              <Image
+                src="/images/brand/azurmenton.png"
+                alt="Azur Menton"
+                width={748}
+                height={437}
+                priority
+                className="mb-6 h-16 w-auto rounded-md bg-white/80 p-2 shadow-sm sm:h-20"
+              />
               <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[#17313a] sm:text-6xl">
                 {copy.title}
               </h1>

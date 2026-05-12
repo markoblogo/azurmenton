@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
@@ -11,9 +12,25 @@ export function Navigation({ locale }: { locale: Locale }) {
       <div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}` as Route}
-          className="text-base font-semibold tracking-[0.08em] text-[#17313a]"
+          className="flex shrink-0 items-center gap-2 text-base font-semibold tracking-[0.08em] text-[#17313a]"
         >
-          Azur Menton
+          <Image
+            src="/images/brand/azurmenton.png"
+            alt="Azur Menton"
+            width={748}
+            height={437}
+            priority
+            className="hidden h-10 w-auto sm:block"
+          />
+          <Image
+            src="/images/brand/az.png"
+            alt="Azur Menton icon"
+            width={372}
+            height={366}
+            priority
+            className="h-9 w-9 sm:hidden"
+          />
+          <span className="sr-only">Azur Menton</span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-5 text-sm font-medium md:flex">
           {navItems.map((item) => (

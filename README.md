@@ -1,3 +1,5 @@
+<img src="./public/images/brand/azurmenton.png" alt="Azur Menton" width="220" />
+
 # Azur Menton
 
 Production website for Azur Menton, a small family-run short-term rental brand for three beachfront or beachside apartments in central Menton, France.
