@@ -15,10 +15,10 @@ export const homeCopy: Record<
   en: {
     title: "Beachfront apartments in central Menton",
     intro:
-      "Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
-    proof: ["Beachfront or beachside", "Central Menton", "Manual direct booking request"],
-    primaryCta: "Check availability",
-    secondaryCta: "Compare apartments",
+      "Family-run seaside apartments just steps from the beach, old town, cafes and the Mediterranean promenade. Choose a sea-view studio with balcony or a spacious beachside apartment with terrace and parking.",
+    proof: ["Beachfront or beachside", "Central Menton", "Manual request-to-book"],
+    primaryCta: "View apartments",
+    secondaryCta: "Check availability",
     seoTitle: "Azur Menton | Beachfront Apartments in Central Menton",
     seoDescription:
       "Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
@@ -26,10 +26,10 @@ export const homeCopy: Record<
   fr: {
     title: "[FR placeholder] Beachfront apartments in central Menton",
     intro:
-      "[FR placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
-    proof: ["[FR placeholder] Beachfront or beachside", "[FR placeholder] Central Menton", "[FR placeholder] Manual direct booking request"],
-    primaryCta: "Verifier disponibilite",
-    secondaryCta: "Comparer les appartements",
+      "[FR placeholder] Family-run seaside apartments just steps from the beach, old town, cafes and the Mediterranean promenade. Choose a sea-view studio with balcony or a spacious beachside apartment with terrace and parking.",
+    proof: ["[FR placeholder] Beachfront or beachside", "[FR placeholder] Central Menton", "[FR placeholder] Manual request-to-book"],
+    primaryCta: "Voir les appartements",
+    secondaryCta: "Verifier disponibilite",
     seoTitle: "[FR placeholder] Azur Menton | Beachfront Apartments in Central Menton",
     seoDescription:
       "[FR placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
@@ -37,10 +37,10 @@ export const homeCopy: Record<
   it: {
     title: "[IT placeholder] Beachfront apartments in central Menton",
     intro:
-      "[IT placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
-    proof: ["[IT placeholder] Beachfront or beachside", "[IT placeholder] Central Menton", "[IT placeholder] Manual direct booking request"],
-    primaryCta: "Controlla disponibilita",
-    secondaryCta: "Confronta appartamenti",
+      "[IT placeholder] Family-run seaside apartments just steps from the beach, old town, cafes and the Mediterranean promenade. Choose a sea-view studio with balcony or a spacious beachside apartment with terrace and parking.",
+    proof: ["[IT placeholder] Beachfront or beachside", "[IT placeholder] Central Menton", "[IT placeholder] Manual request-to-book"],
+    primaryCta: "Vedi appartamenti",
+    secondaryCta: "Controlla disponibilita",
     seoTitle: "[IT placeholder] Azur Menton | Beachfront Apartments in Central Menton",
     seoDescription:
       "[IT placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
@@ -48,10 +48,10 @@ export const homeCopy: Record<
   uk: {
     title: "[UK placeholder] Beachfront apartments in central Menton",
     intro:
-      "[UK placeholder] Three family-run apartments for practical stays by the beach in Menton: two sea-view studios for couples and one terrace apartment with parking for families or longer stays.",
-    proof: ["[UK placeholder] Beachfront or beachside", "[UK placeholder] Central Menton", "[UK placeholder] Manual direct booking request"],
-    primaryCta: "Check availability",
-    secondaryCta: "Compare apartments",
+      "[UK placeholder] Family-run seaside apartments just steps from the beach, old town, cafes and the Mediterranean promenade. Choose a sea-view studio with balcony or a spacious beachside apartment with terrace and parking.",
+    proof: ["[UK placeholder] Beachfront or beachside", "[UK placeholder] Central Menton", "[UK placeholder] Manual request-to-book"],
+    primaryCta: "View apartments",
+    secondaryCta: "Check availability",
     seoTitle: "[UK placeholder] Azur Menton | Beachfront Apartments in Central Menton",
     seoDescription:
       "[UK placeholder] Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
