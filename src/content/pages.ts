@@ -219,7 +219,7 @@ export const pageCopy: Record<
     en: {
       title: "Privacy policy",
       description: "How Azur Menton uses booking request details to reply to guests.",
-      note: "The privacy page explains how direct booking request details are used and which legal owner details still need to be completed.",
+      note: "The privacy page explains how direct booking request details are used and identifies SCI Petra et Paul as the data controller.",
     },
     fr: {
       title: "Politique de confidentialite",
@@ -241,7 +241,7 @@ export const pageCopy: Record<
     en: {
       title: "Legal notice",
       description: "Legal notice for Azur Menton.",
-      note: "Add verified owner, publisher, hosting, and registration details before production launch.",
+      note: "Owner, publisher and registration details are listed from the SCI Petra et Paul Kbis extract; hosting and booking terms still need final confirmation.",
     },
     fr: {
       title: "Mentions legales",

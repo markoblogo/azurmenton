@@ -11,6 +11,8 @@ export function lodgingBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     name: "Azur Menton",
+    legalName: "SCI Petra et Paul",
+    taxID: "983 423 898 R.C.S. Nice",
     url: "https://azurmenton.com",
     logo: "https://azurmenton.com/images/brand/azurmenton.png",
     image: "https://azurmenton.com/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpeg",

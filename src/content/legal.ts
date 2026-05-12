@@ -16,14 +16,9 @@ export type LegalPageContent = {
 };
 
 const legalTodos = [
-  "TODO: add website publisher / editeur details.",
-  "TODO: add business or owner name and legal form/status.",
-  "TODO: add SIRET/SIREN, VAT number or registration details if applicable.",
-  "TODO: add registered address or contact address.",
-  "TODO: add publication director.",
-  "TODO: confirm hosting provider legal details.",
-  "TODO: add appointed consumer mediator details if legally required.",
-  "TODO: confirm payment, deposit, cancellation, tourist tax and retention periods.",
+  "To be confirmed: hosting provider legal details.",
+  "To be added: appointed consumer mediator details if legally required.",
+  "To be confirmed: payment, deposit, cancellation, tourist tax and retention periods.",
 ];
 
 export const legalTodoFields = legalTodos;
@@ -33,25 +28,28 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
     fr: {
       title: "Mentions legales",
       description:
-        "Mentions legales d'Azur Menton. Les champs inconnus sont marques comme TODO et doivent etre completes avant lancement definitif.",
+        "Mentions legales d'Azur Menton, site exploite par SCI Petra et Paul.",
       seoTitle: "Mentions legales",
-      seoDescription: "Mentions legales d'Azur Menton avec champs proprietaire, editeur, hebergeur et contact a completer.",
+      seoDescription: "Mentions legales d'Azur Menton: editeur, immatriculation, hebergement, propriete intellectuelle et contact.",
       sections: [
         {
           title: "Editeur du site",
           body: [
             "Site: Azur Menton, azurmenton.com.",
-            "TODO: nom du proprietaire, de l'entreprise ou de l'editeur du site.",
-            "TODO: forme juridique ou statut, SIRET/SIREN, TVA intracommunautaire ou numero d'immatriculation si applicable.",
-            "TODO: adresse du siege social ou adresse de contact.",
-            "Email de contact: petraetpaul@gmail.com. Telephone / WhatsApp: +33 6 24 71 65 65. TODO: confirmer les autres coordonnees legales si applicable.",
-            "TODO: directeur ou directrice de la publication.",
+            "Editeur: SCI Petra et Paul.",
+            "Forme juridique: societe civile immobiliere.",
+            "Immatriculation: 983 423 898 R.C.S. Nice.",
+            "EUID: FR0605.983423898.",
+            "Capital social: 1 000,00 euros. Capital variable minimum: 100,00 euros.",
+            "Siege social: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Gerant et directeur de la publication: Ruslan Volokh.",
+            "Email de contact: petraetpaul@gmail.com. Telephone / WhatsApp: +33 6 24 71 65 65.",
           ],
         },
         {
           title: "Hebergement",
           body: [
-            "Le site est prevu pour un hebergement sur Vercel. TODO: confirmer le prestataire d'hebergement final, sa denomination sociale et son adresse avant mise en production.",
+            "Le site est prevu pour un hebergement sur Vercel. A confirmer: le prestataire d'hebergement final, sa denomination sociale et son adresse avant mise en production.",
           ],
         },
         {
@@ -71,7 +69,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Contact",
           body: [
-            "Pour toute question relative au site ou aux contenus: petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. TODO: confirmer les coordonnees definitives du responsable du site.",
+            "Pour toute question relative au site ou aux contenus: petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65.",
           ],
         },
       ],
@@ -79,23 +77,28 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
     en: {
       title: "Legal Notice",
       description:
-        "Legal notice for Azur Menton. Unknown owner and business fields are clearly marked for completion.",
+        "Legal notice for Azur Menton, operated by SCI Petra et Paul.",
       seoTitle: "Legal Notice",
-      seoDescription: "Legal notice for Azur Menton with publisher, owner, hosting and contact fields to complete.",
+      seoDescription: "Legal notice for Azur Menton covering publisher, registration, hosting, intellectual property and contact details.",
       sections: [
         {
           title: "Website publisher",
           body: [
             "Website: Azur Menton, azurmenton.com.",
-            "TODO: add business or owner name, legal status, SIRET/SIREN, VAT or registration number if applicable.",
-            "TODO: add registered address or contact address, publication director and confirmed phone details if applicable.",
-            "Contact email: petraetpaul@gmail.com. Phone / WhatsApp: +33 6 24 71 65 65. TODO: confirm other official legal contact details if applicable.",
+            "Publisher: SCI Petra et Paul.",
+            "Legal form: societe civile immobiliere, a French civil real-estate company.",
+            "Registration: 983 423 898 R.C.S. Nice.",
+            "EUID: FR0605.983423898.",
+            "Share capital: EUR 1,000.00. Minimum variable capital: EUR 100.00.",
+            "Registered office: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Manager and publication director: Ruslan Volokh.",
+            "Contact email: petraetpaul@gmail.com. Phone / WhatsApp: +33 6 24 71 65 65.",
           ],
         },
         {
           title: "Hosting",
           body: [
-            "The website is prepared for Vercel hosting. TODO: confirm the final hosting provider legal name and address before production launch.",
+            "The website is prepared for Vercel hosting. To be confirmed: the final hosting provider legal name and address before production launch.",
           ],
         },
         {
@@ -109,44 +112,57 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
     },
     it: {
       title: "Note legali",
-      description: "Note legali di Azur Menton con campi da completare prima del lancio definitivo.",
+      description: "Note legali di Azur Menton, sito gestito da SCI Petra et Paul.",
       seoTitle: "Note legali",
-      seoDescription: "Note legali di Azur Menton con segnaposto per editore, proprietario, hosting e contatti.",
+      seoDescription: "Note legali di Azur Menton con editore, registrazione, hosting, proprieta intellettuale e contatti.",
       sections: [
         {
           title: "Editore del sito",
           body: [
             "Sito: Azur Menton, azurmenton.com.",
-            "TODO: aggiungere nome del proprietario o dell'attivita, forma giuridica, SIRET/SIREN, partita IVA o registrazione se applicabile.",
-            "TODO: aggiungere indirizzo, direttore della pubblicazione, telefono se applicabile e dati definitivi di contatto.",
+            "Editore: SCI Petra et Paul.",
+            "Forma giuridica: societe civile immobiliere, societa civile immobiliare francese.",
+            "Registrazione: 983 423 898 R.C.S. Nice.",
+            "EUID: FR0605.983423898.",
+            "Capitale sociale: 1.000,00 EUR. Capitale variabile minimo: 100,00 EUR.",
+            "Sede legale: 13 Avenue Porte de France, 06500 Menton, Francia.",
+            "Amministratore e direttore della pubblicazione: Ruslan Volokh.",
+            "Email: petraetpaul@gmail.com. Telefono / WhatsApp: +33 6 24 71 65 65.",
           ],
         },
         {
           title: "Hosting, proprieta intellettuale e responsabilita",
           body: [
-            "Il sito e predisposto per Vercel. TODO: confermare i dettagli legali dell'hosting prima del lancio.",
+            "Il sito e predisposto per Vercel. Da confermare: i dettagli legali dell'hosting prima del lancio.",
             "Testi, foto, logo e design sono protetti. Le richieste di prenotazione non sono conferme istantanee.",
           ],
         },
       ],
     },
     uk: {
-      title: "Legal Notice",
-      description: "Legal notice for Azur Menton with owner and business details to complete.",
-      seoTitle: "Legal Notice",
-      seoDescription: "Legal notice for Azur Menton with publisher, hosting and contact fields to complete.",
+      title: "Юридична інформація",
+      description: "Юридична інформація Azur Menton, сайту, яким керує SCI Petra et Paul.",
+      seoTitle: "Юридична інформація",
+      seoDescription: "Юридична інформація Azur Menton: видавець сайту, реєстрація, хостинг і контакти.",
       sections: [
         {
-          title: "Website publisher",
+          title: "Видавець сайту",
           body: [
-            "Website: Azur Menton, azurmenton.com.",
-            "TODO: add owner or business name, legal status, registration details, address, publication director and confirmed contact details.",
+            "Сайт: Azur Menton, azurmenton.com.",
+            "Видавець: SCI Petra et Paul.",
+            "Юридична форма: societe civile immobiliere, французьке цивільне товариство з нерухомості.",
+            "Реєстрація: 983 423 898 R.C.S. Nice.",
+            "EUID: FR0605.983423898.",
+            "Статутний капітал: 1 000,00 EUR. Мінімальний змінний капітал: 100,00 EUR.",
+            "Юридична адреса: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Керівник і директор публікації: Ruslan Volokh.",
+            "Email: petraetpaul@gmail.com. Телефон / WhatsApp: +33 6 24 71 65 65.",
           ],
         },
         {
-          title: "Hosting and liability",
+          title: "Хостинг і відповідальність",
           body: [
-            "The website is prepared for Vercel hosting. TODO: confirm final hosting legal details.",
+            "The website is prepared for Vercel hosting. To be confirmed: final hosting legal details.",
             "Booking requests are not instant confirmations. Availability, prices and conditions are confirmed manually in writing.",
           ],
         },
@@ -164,8 +180,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Responsable du traitement",
           body: [
-            "Le responsable du traitement est Azur Menton / l'hote exploitant les appartements. TODO: ajouter le nom legal complet, le statut, l'adresse et les coordonnees definitives.",
-            "Contact pour les demandes relatives aux donnees personnelles: petraetpaul@gmail.com. TODO: confirmer l'adresse dediee si differente.",
+            "Le responsable du traitement est SCI Petra et Paul, societe civile immobiliere immatriculee 983 423 898 R.C.S. Nice, siege social: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Contact pour les demandes relatives aux donnees personnelles: petraetpaul@gmail.com.",
           ],
         },
         {
@@ -186,8 +202,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Destinataires, conservation et transferts",
           body: [
             "Les donnees sont destinees a Azur Menton / l'equipe hote et aux prestataires techniques strictement necessaires, le cas echeant.",
-            "TODO: definir les durees exactes de conservation des demandes non confirmees, reservations confirmees, archives comptables et messages de support.",
-            "TODO: verifier les eventuels transferts hors Union europeenne si des outils email, notification, CRM, Airtable, Supabase ou equivalents sont ajoutes.",
+            "A definir: les durees exactes de conservation des demandes non confirmees, reservations confirmees, archives comptables et messages de support.",
+            "A verifier: les eventuels transferts hors Union europeenne si des outils email, notification, CRM, Airtable, Supabase ou equivalents sont ajoutes.",
           ],
         },
         {
@@ -209,8 +225,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Controller and contact",
           body: [
-            "The data controller is Azur Menton / the host team. TODO: add the full legal owner or business details.",
-            "Privacy contact: petraetpaul@gmail.com. TODO: confirm a dedicated privacy contact if different.",
+            "The data controller is SCI Petra et Paul, a French societe civile immobiliere registered as 983 423 898 R.C.S. Nice, registered office: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Privacy contact: petraetpaul@gmail.com.",
           ],
         },
         {
@@ -224,9 +240,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Recipients, retention and rights",
           body: [
-            "Data may be accessed by Azur Menton / the host team and necessary technical providers. TODO: confirm exact providers and retention periods.",
+            "Data may be accessed by Azur Menton / the host team and necessary technical providers. To be confirmed: exact providers and retention periods.",
             "Users may request access, rectification, deletion, restriction, objection and portability where applicable, and may complain to CNIL.",
-            "Azur Menton does not sell personal data. TODO: assess international transfers if non-EU tools are added later.",
+            "Azur Menton does not sell personal data. To be assessed: international transfers if non-EU tools are added later.",
           ],
         },
       ],
@@ -240,7 +256,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Titolare, dati e finalita",
           body: [
-            "Il titolare e Azur Menton / il team host. TODO: aggiungere i dati legali completi.",
+            "Il titolare del trattamento e SCI Petra et Paul, societe civile immobiliere registrata 983 423 898 R.C.S. Nice, sede legale: 13 Avenue Porte de France, 06500 Menton, Francia.",
             "Il modulo puo raccogliere nome, email, telefono/WhatsApp, lingua, appartamento, date, numero ospiti, richiesta parcheggio e messaggio.",
             "I dati servono per rispondere alla richiesta, gestire comunicazioni precontrattuali, eventuali prenotazioni confermate e supporto.",
           ],
@@ -249,32 +265,32 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Diritti e conservazione",
           body: [
             "Le basi giuridiche possono includere misure precontrattuali, contratto, interesse legittimo e consenso dove richiesto.",
-            "TODO: confermare destinatari, tempi di conservazione e eventuali trasferimenti internazionali.",
+            "Da confermare: destinatari, tempi di conservazione e eventuali trasferimenti internazionali.",
             "Gli utenti hanno diritti GDPR applicabili e possono presentare reclamo alla CNIL. Azur Menton non vende dati personali.",
           ],
         },
       ],
     },
     uk: {
-      title: "Privacy Policy",
-      description: "How Azur Menton uses booking request details to respond to guests.",
-      seoTitle: "Privacy Policy",
-      seoDescription: "Azur Menton privacy policy covering request data, purposes, GDPR rights and contact.",
+      title: "Політика конфіденційності",
+      description: "Як Azur Menton використовує дані з запитів на бронювання, щоб відповісти гостям.",
+      seoTitle: "Політика конфіденційності",
+      seoDescription: "Політика конфіденційності Azur Menton щодо даних запиту, цілей обробки, прав GDPR і контактів.",
       sections: [
         {
-          title: "Controller, data and purpose",
+          title: "Контролер, дані та цілі",
           body: [
-            "The controller is Azur Menton / the host team. TODO: add full legal owner or business details.",
-            "The form may collect name, email, phone/WhatsApp, preferred language, apartment, dates, guest numbers, parking request and message.",
-            "Data is used to answer booking requests, manage pre-contractual communication, confirmed reservations where applicable and customer support.",
+            "Контролер даних: SCI Petra et Paul, societe civile immobiliere, зареєстрована як 983 423 898 R.C.S. Nice, юридична адреса: 13 Avenue Porte de France, 06500 Menton, France.",
+            "Форма може збирати ім'я, email, телефон/WhatsApp, бажану мову, апартаменти, дати, кількість гостей, запит щодо паркування та повідомлення.",
+            "Дані використовуються для відповіді на запити бронювання, переддоговірної комунікації, підтверджених бронювань, якщо застосовно, та підтримки гостей.",
           ],
         },
         {
-          title: "Rights and retention",
+          title: "Права та зберігання",
           body: [
-            "Legal bases may include pre-contractual steps, contract, legitimate interest and consent where required.",
-            "TODO: confirm recipients, retention periods and any international transfers.",
-            "Users have applicable GDPR rights and may complain to CNIL. Azur Menton does not sell personal data.",
+            "Правові підстави можуть включати переддоговірні заходи, договір, законний інтерес і згоду, якщо вона потрібна.",
+            "To be confirmed: recipients, retention periods and any international transfers.",
+            "Користувачі мають застосовні права GDPR і можуть подати скаргу до CNIL. Azur Menton не продає персональні дані.",
           ],
         },
       ],
@@ -304,7 +320,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Consentement",
           body: [
-            "TODO: ajouter un mecanisme de consentement et de retrait si des cookies non essentiels, analytics ou embeds tiers sont actives.",
+            "A ajouter: un mecanisme de consentement et de retrait si des cookies non essentiels, analytics ou embeds tiers sont actives.",
           ],
         },
       ],
@@ -327,7 +343,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Analytics cookies, third-party embeds or additional providers must be documented here if added later.",
             "Weather and webcam features should not load third-party browser scripts by default. Webcam cards currently link out to public sources.",
-            "TODO: add a consent and withdrawal mechanism if non-essential cookies are introduced.",
+            "To be added: a consent and withdrawal mechanism if non-essential cookies are introduced.",
           ],
         },
       ],
@@ -343,7 +359,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il sito non usa attualmente cookie non essenziali noti per marketing o analytics.",
             "Cookie strettamente necessari possono essere usati dall'hosting o da servizi tecnici.",
-            "TODO: aggiungere consenso e revoca se in futuro vengono attivati cookie non essenziali o embed terzi.",
+            "Da aggiungere: consenso e revoca se in futuro vengono attivati cookie non essenziali o embed terzi.",
           ],
         },
       ],
@@ -359,7 +375,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "The website does not currently use known non-essential marketing or analytics cookies.",
             "Strictly necessary cookies may be used by hosting or core technical services.",
-            "TODO: add consent and withdrawal controls if non-essential cookies or third-party embeds are introduced.",
+            "To be added: consent and withdrawal controls if non-essential cookies or third-party embeds are introduced.",
           ],
         },
       ],
@@ -382,18 +398,18 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Paiement, annulation et taxe",
           body: [
-            "TODO: definir les conditions de paiement, acompte ou solde.",
-            "TODO: definir les conditions d'annulation et de remboursement.",
-            "TODO: definir les modalites de taxe de sejour, si applicable.",
-            "TODO: definir le depot de garantie ou caution dommage, si applicable.",
+            "A definir: les conditions de paiement, acompte ou solde.",
+            "A definir: les conditions d'annulation et de remboursement.",
+            "A definir: les modalites de taxe de sejour, si applicable.",
+            "A definir: le depot de garantie ou caution dommage, si applicable.",
           ],
         },
         {
           title: "Arrivee, depart et regles de maison",
           body: [
-            "TODO: confirmer les horaires d'arrivee et de depart.",
+            "A confirmer: les horaires d'arrivee et de depart.",
             "Regles prevues: logement non-fumeur, pas de fetes ni evenements, respect de l'occupation maximale de chaque appartement.",
-            "TODO: confirmer la politique animaux, enfants et lit bebe.",
+            "A confirmer: la politique animaux, enfants et lit bebe.",
           ],
         },
         {
@@ -401,9 +417,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Le parking depend de l'appartement, de la disponibilite et peut necessiter une reservation. Des frais peuvent s'appliquer lorsque cela est indique.",
             "Les voyageurs sont responsables de l'utilisation normale du logement, du respect du voisinage et du signalement rapide de tout probleme.",
-            "Pour une reclamation, contacter petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. TODO: ajouter la procedure definitive.",
-            "TODO: ajouter les coordonnees du mediateur de la consommation si legalement requis.",
-            "TODO: confirmer la loi applicable et la juridiction competente.",
+            "Pour une reclamation, contacter petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. A ajouter: la procedure definitive.",
+            "A ajouter: les coordonnees du mediateur de la consommation si legalement requis.",
+            "A confirmer: la loi applicable et la juridiction competente.",
           ],
         },
       ],
@@ -424,17 +440,17 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Payments, cancellation and tax",
           body: [
-            "TODO: define payment, deposit and balance terms.",
-            "TODO: define cancellation and refund terms.",
-            "TODO: define tourist tax handling, if applicable.",
-            "TODO: define damage or security deposit terms, if applicable.",
+            "To be defined: payment, deposit and balance terms.",
+            "To be defined: cancellation and refund terms.",
+            "To be defined: tourist tax handling, if applicable.",
+            "To be defined: damage or security deposit terms, if applicable.",
           ],
         },
         {
           title: "House rules and guest responsibilities",
           body: [
             "Expected house rules: no smoking, no parties/events and respect for each apartment's maximum occupancy.",
-            "TODO: confirm pets, children and cot policies, check-in/check-out times, complaints process, consumer mediator if legally required, governing law and jurisdiction.",
+            "To be confirmed: pets, children and cot policies, check-in/check-out times, complaints process, consumer mediator if legally required, governing law and jurisdiction.",
             "Parking depends on the apartment and availability. Reservation may be required and charges may apply where relevant.",
           ],
         },
@@ -451,7 +467,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il modulo invia solo una richiesta diretta. Non e una conferma immediata.",
             "La prenotazione e confermata solo dopo conferma scritta dell'host. Prezzi, disponibilita e condizioni sono confermati manualmente.",
-            "TODO: definire pagamento, deposito, cancellazione, tassa di soggiorno, cauzione, orari, animali, bambini, reclami, mediatore se richiesto, legge applicabile e giurisdizione.",
+            "Da definire: pagamento, deposito, cancellazione, tassa di soggiorno, cauzione, orari, animali, bambini, reclami, mediatore se richiesto, legge applicabile e giurisdizione.",
             "Regole previste: non fumare, niente feste/eventi e rispetto dell'occupazione massima. Il parcheggio dipende dall'appartamento e dalla disponibilita.",
           ],
         },
@@ -468,7 +484,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "The form sends a direct booking request only. It is not instant confirmation.",
             "A booking is confirmed only after written confirmation from the host. Prices, availability and conditions are confirmed manually.",
-            "TODO: define payment, deposit, cancellation, tourist tax, security deposit, check-in/check-out, pets, children, complaints, mediator if required, governing law and jurisdiction.",
+            "To be defined: payment, deposit, cancellation, tourist tax, security deposit, check-in/check-out, pets, children, complaints, mediator if required, governing law and jurisdiction.",
             "Expected rules: no smoking, no parties/events and respect for maximum occupancy. Parking depends on apartment and availability.",
           ],
         },

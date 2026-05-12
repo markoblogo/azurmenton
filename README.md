@@ -97,7 +97,7 @@ The site includes locale routes for:
 - Cookie Policy: `/[locale]/cookies`
 - Booking Terms: `/[locale]/booking-terms`
 
-The French version is treated as the primary compliance draft. Unknown owner, publisher, registration, mediator, payment, cancellation, tourist tax, deposit and retention details are intentionally marked as `TODO` and must be completed with verified information before production launch.
+The French version is treated as the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business confirmation before production launch.
 
 ## Live Menton Webcams
 
