@@ -39,7 +39,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <>
       <Navigation locale={locale as Locale} />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1" lang={locale}>
+        {children}
+      </main>
       <Footer locale={locale as Locale} />
       <StickyCta locale={locale as Locale} />
     </>

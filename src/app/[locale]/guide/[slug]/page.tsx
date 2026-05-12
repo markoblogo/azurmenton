@@ -5,12 +5,14 @@ import { InternalLinkList } from "@/components/content/InternalLinkList";
 import { PracticalTips } from "@/components/content/PracticalTips";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { PageIntro } from "@/components/layout/PageIntro";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getGuidePage, guidePages } from "@/content/guide";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -39,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: `guide/${page.slug}`,
     title: page.seoTitle,
     description: page.seoDescription,
+    type: "article",
   });
 }
 
@@ -59,9 +62,24 @@ export default async function GuideArticlePage({ params }: PageProps) {
     (section) => section.relatedApartmentKeys ?? [],
   );
   const relatedApartmentKeys = Array.from(new Set(sectionApartmentKeys));
+  const pageUrl = absoluteUrl(localizedPath(locale, `guide/${page.slug}`));
 
   return (
     <>
+      <JsonLdScript
+        data={articleJsonLd({
+          title: page.title,
+          description: page.seoDescription,
+          url: pageUrl,
+        })}
+      />
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          { name: "Home", url: absoluteUrl(localizedPath(locale)) },
+          { name: "Guide", url: absoluteUrl(localizedPath(locale, "guide")) },
+          { name: page.title, url: pageUrl },
+        ])}
+      />
       <PageIntro title={page.title} description={page.intro} />
       <Section>
         <Container>

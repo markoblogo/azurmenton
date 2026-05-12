@@ -19,9 +19,9 @@ export const homeCopy: Record<
     proof: ["Beachfront or beachside", "Central Menton", "Manual request-to-book"],
     primaryCta: "View apartments",
     secondaryCta: "Check availability",
-    seoTitle: "Azur Menton | Beachfront Apartments in Central Menton",
+    seoTitle: "Beachfront Apartments in Menton | Azur Menton",
     seoDescription:
-      "Family-run beachfront and beachside apartments in central Menton, France. Request availability directly; no instant booking or fake calendar.",
+      "Family-run beachfront and beachside apartments in central Menton, close to the beach, old town, cafes and seafront promenade. Request a direct booking with Azur Menton.",
   },
   fr: {
     title: "[FR placeholder] Beachfront apartments in central Menton",
@@ -172,8 +172,8 @@ export const pageCopy: Record<
       title: "FAQ",
       description: "Answers about manual booking requests, availability, prices, apartments, and future booking integration.",
       note: "The FAQ is intentionally practical and avoids unconfirmed booking claims.",
-      seoTitle: "Azur Menton FAQ",
-      seoDescription: "Frequently asked questions for Azur Menton's direct request-to-book apartment website.",
+      seoTitle: "FAQ | Azur Menton Apartments",
+      seoDescription: "Questions about Azur Menton apartments, direct booking requests, check-in, parking, children, amenities and staying by the sea in Menton.",
     },
     fr: {
       title: "[FR placeholder] FAQ",
@@ -196,8 +196,8 @@ export const pageCopy: Record<
       title: "Contact Azur Menton",
       description: "Contact the family behind Azur Menton or send a direct request for your dates.",
       note: "The booking request form is the preferred temporary contact path until the final backend is connected.",
-      seoTitle: "Contact Azur Menton",
-      seoDescription: "Contact Azur Menton for manual direct booking requests for beachfront and beachside apartments in central Menton.",
+      seoTitle: "Contact Azur Menton | Direct Booking Requests",
+      seoDescription: "Contact Azur Menton for direct booking requests, apartment questions and practical information about staying in central Menton.",
     },
     fr: {
       title: "[FR placeholder] Contact Azur Menton",

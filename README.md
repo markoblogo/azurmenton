@@ -110,8 +110,12 @@ The app includes:
 - hreflang alternates including `x-default`
 - `sitemap.xml`
 - `robots.txt`
-- JSON-LD for the home page and apartment pages
+- JSON-LD for the home page, apartment pages, guide/event articles, FAQ and breadcrumbs
 - `next/image` for local placeholder assets
+
+After deployment, verify the domain in Google Search Console, submit `https://azurmenton.com/sitemap.xml`, and check indexing coverage, hreflang issues, mobile usability and Core Web Vitals. Do not add analytics or tracking pixels unless cookie compliance is handled.
+
+See `LAUNCH_CHECKLIST.md` for the production SEO and launch checklist.
 
 ## Deployment
 

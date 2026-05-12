@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
+import { routeLabels } from "@/content/navigation";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { createMetadata } from "@/lib/seo";
@@ -21,9 +22,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createMetadata({
     locale: safeLocale,
     path: "apartments",
-    title: "Compare beachfront apartments in Menton",
+    title: safeLocale === "en"
+      ? "Apartments in Menton by the Sea | Azur Menton"
+      : `${routeLabels[safeLocale].apartments} | Azur Menton`,
     description:
-      "Compare Azur Menton's three central Menton apartments: two beachfront sea-view studios and one beachside terrace apartment with parking.",
+      safeLocale === "en"
+        ? "Choose from three family-run Menton apartments: sea-view balcony studios for couples and a spacious beachside apartment with terrace and parking for families."
+        : "TODO_TRANSLATE: Choose from three family-run Menton apartments close to the sea, old town and promenade.",
   });
 }
 

@@ -12,7 +12,7 @@ import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { getHeroImage, imageObjectPosition } from "@/lib/apartment-images";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
-import { vacationRentalJsonLd } from "@/lib/structured-data";
+import { breadcrumbJsonLd, vacationRentalJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: `apartments/${slug}`,
     title: apartment?.seoTitle[safeLocale] ?? "Apartment",
     description: apartment?.seoDescription[safeLocale],
+    image: apartment?.cardImage,
   });
 }
 
@@ -51,6 +52,7 @@ export default async function ApartmentPage({ params }: PageProps) {
 
   const labels = t[safeLocale];
   const heroImage = getHeroImage(apartment);
+  const apartmentUrl = absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`));
 
   return (
     <>
@@ -58,13 +60,21 @@ export default async function ApartmentPage({ params }: PageProps) {
         data={vacationRentalJsonLd({
           name: apartment.name[safeLocale],
           description: apartment.seoDescription[safeLocale],
-          url: absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`)),
-          image: absoluteUrl(heroImage.src),
+          url: apartmentUrl,
+          image: apartment.gallery.slice(0, 8).map((image) => absoluteUrl(image.src)),
           accommodationCategory: apartment.structuredData.accommodationCategory,
           occupancy: apartment.structuredData.occupancy,
           rooms: apartment.structuredData.numberOfRooms,
           sizeSqm: apartment.sizeSqm,
+          amenities: apartment.amenities.map((amenity) => amenity[safeLocale]),
         })}
+      />
+      <JsonLdScript
+        data={breadcrumbJsonLd([
+          { name: "Home", url: absoluteUrl(localizedPath(safeLocale)) },
+          { name: labels.compareApartments, url: absoluteUrl(localizedPath(safeLocale, "apartments")) },
+          { name: apartment.shortName[safeLocale], url: apartmentUrl },
+        ])}
       />
       <section className="bg-[#fff3df]">
         <Container>
@@ -159,6 +169,27 @@ export default async function ApartmentPage({ params }: PageProps) {
               </Card>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Card className="p-6">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#17313a]">
+              Plan around this stay
+            </h2>
+            <div className="mt-5 grid gap-3 text-sm font-semibold text-[#0b6f8f] sm:grid-cols-3">
+              <Button href={`/${safeLocale}/guide/best-beaches-in-menton`} variant="secondary">
+                Nearby beaches
+              </Button>
+              <Button href={`/${safeLocale}/guide/menton-without-a-car`} variant="secondary">
+                Without a car
+              </Button>
+              <Button href={`/${safeLocale}/events/menton-lemon-festival`} variant="secondary">
+                Lemon Festival stays
+              </Button>
+            </div>
+          </Card>
         </Container>
       </Section>
 

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
-import { localeLabels, locales, type Locale } from "@/i18n/locales";
+import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
+import type { Locale } from "@/i18n/locales";
 import { navItems, routeLabels } from "@/content/navigation";
 
 export function Navigation({ locale }: { locale: Locale }) {
@@ -50,18 +51,7 @@ export function Navigation({ locale }: { locale: Locale }) {
           >
             {labels.availability}
           </Link>
-          <div className="flex items-center gap-1 text-xs font-medium text-[#6b5f50]">
-            {locales.map((item) => (
-              <Link
-                key={item}
-                href={`/${item}` as Route}
-                className={item === locale ? "text-[#0b6f8f]" : "hover:text-[#0b6f8f]"}
-                aria-label={localeLabels[item]}
-              >
-                {item.toUpperCase()}
-              </Link>
-            ))}
-          </div>
+          <LocaleSwitcher locale={locale} />
         </div>
       </div>
     </header>

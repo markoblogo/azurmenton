@@ -405,7 +405,7 @@ export const apartments: Apartment[] = [
     ],
     seoTitle: enFallback("Beachside Apartment with Terrace & Parking in Menton | Azur Menton"),
     seoDescription: enFallback(
-      "Spacious beachside apartment in central Menton for up to 4 guests, with private terrace, full kitchen, air conditioning and on-site parking.",
+      "Spacious beachside apartment in central Menton for up to 4 guests, with private terrace, full kitchen, air conditioning and parking by reservation.",
     ),
     structuredData: {
       accommodationCategory: "Apartment",

@@ -7,6 +7,8 @@ type MetadataInput = {
   path?: string;
   title?: string;
   description?: string;
+  image?: string;
+  type?: "website" | "article";
 };
 
 function normalizePath(path = "") {
@@ -22,6 +24,10 @@ export function absoluteUrl(path = "") {
   return new URL(path, siteConfig.url).toString();
 }
 
+export function absoluteImageUrl(path = siteConfig.defaultOgImage) {
+  return path.startsWith("http") ? path : absoluteUrl(path);
+}
+
 export function languageAlternates(path = "") {
   return Object.fromEntries(
     locales.map((locale) => [locale, absoluteUrl(localizedPath(locale, path))]),
@@ -33,12 +39,20 @@ export function createMetadata({
   path,
   title,
   description = siteConfig.description,
+  image = siteConfig.defaultOgImage,
+  type = "website",
 }: MetadataInput): Metadata {
   const currentPath = localizedPath(locale, path);
+  const metadataTitle = title ?? siteConfig.defaultTitle;
+  const imageUrl = absoluteImageUrl(image);
 
   return {
     metadataBase: new URL(siteConfig.url),
-    title: title ? `${title} | ${siteConfig.name}` : siteConfig.name,
+    title: {
+      absolute: metadataTitle.includes(siteConfig.name)
+        ? metadataTitle
+        : `${metadataTitle} | ${siteConfig.name}`,
+    },
     description,
     alternates: {
       canonical: absoluteUrl(currentPath),
@@ -48,17 +62,24 @@ export function createMetadata({
       },
     },
     openGraph: {
-      title: title ?? siteConfig.name,
+      title: metadataTitle,
       description,
       url: absoluteUrl(currentPath),
       siteName: siteConfig.name,
       locale,
-      type: "website",
+      type,
+      images: [
+        {
+          url: imageUrl,
+          alt: siteConfig.name,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: title ?? siteConfig.name,
+      title: metadataTitle,
       description,
+      images: [imageUrl],
     },
   };
 }

@@ -16,21 +16,28 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: siteConfig.defaultTitle,
+    template: siteConfig.titleTemplate,
   },
-  description: siteConfig.description,
+  description: siteConfig.defaultDescription,
   icons: {
-    icon: [{ url: "/images/brand/az.png", type: "image/png" }],
-    shortcut: [{ url: "/images/brand/az.png", type: "image/png" }],
-    apple: [{ url: "/images/brand/az.png", type: "image/png" }],
+    icon: [{ url: siteConfig.iconPath, type: "image/png" }],
+    shortcut: [{ url: siteConfig.iconPath, type: "image/png" }],
+    apple: [{ url: siteConfig.iconPath, type: "image/png" }],
   },
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
     url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
+    images: [{ url: siteConfig.defaultOgImage, alt: siteConfig.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    images: [siteConfig.defaultOgImage],
   },
 };
 

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/layout/PageIntro";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { legalPages, type LegalPageKey } from "@/content/legal";
 import { isLocale, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -32,9 +34,16 @@ export function LegalContentPage(pageKey: LegalPageKey) {
     const { locale } = await params;
     const safeLocale: Locale = isLocale(locale) ? locale : "en";
     const copy = legalPages[pageKey][safeLocale];
+    const pageUrl = absoluteUrl(localizedPath(safeLocale, pageKey));
 
     return (
       <>
+        <JsonLdScript
+          data={breadcrumbJsonLd([
+            { name: "Home", url: absoluteUrl(localizedPath(safeLocale)) },
+            { name: copy.title, url: pageUrl },
+          ])}
+        />
         <PageIntro title={copy.title} description={copy.description} />
         <Section>
           <Container>

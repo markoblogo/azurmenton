@@ -21,9 +21,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createMetadata({
     locale: safeLocale,
     path: "check-availability",
-    title: "Direct booking request",
+    title: safeLocale === "en"
+      ? "Check Availability | Direct Booking Request | Azur Menton"
+      : `${t[safeLocale].checkAvailability} | Azur Menton`,
     description:
-      "Send a direct booking request for Azur Menton's central Menton apartments. The host confirms availability manually and replies with the best direct offer.",
+      safeLocale === "en"
+        ? "Send a direct booking request for Azur Menton apartments. We will confirm availability and the best direct offer manually."
+        : "TODO_TRANSLATE: Send a direct booking request for Azur Menton apartments. Availability and direct offers are confirmed manually.",
   });
 }
 
