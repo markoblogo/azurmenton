@@ -22,7 +22,9 @@ The site is static-first, multilingual, SEO-focused, and designed for a temporar
 - `/[locale]/apartments/[slug]`
 - `/[locale]/check-availability`
 - `/[locale]/guide`
+- `/[locale]/guide/[slug]`
 - `/[locale]/events`
+- `/[locale]/events/[slug]`
 - `/[locale]/faq`
 - `/[locale]/contact`
 - `/[locale]/privacy`
@@ -88,12 +90,16 @@ Webcam data lives in `src/content/webcams.ts`. Availability and URLs may change 
 
 - `src/config/site.ts` - domain and site-level config
 - `src/content/apartments.ts` - apartment data and image gallery placeholders
-- `src/content/pages.ts` - guide, events, FAQ, legal/privacy/contact content
+- `src/content/guide.ts` - Menton guide landing and article content
+- `src/content/events.ts` - event landing and evergreen event-planning content
+- `src/content/pages.ts` - FAQ and simple contact/legal placeholder content
 - `src/content/navigation.ts` - navigation labels
 - `src/content/translations.ts` - reusable interface text
 - `public/images/` - replaceable local image placeholders
 
 English is the source language. French, Italian, and Ukrainian currently use the same structure with editable placeholder text.
+
+Guide and event article translations use `TODO_TRANSLATE` where a polished localized draft is still needed. Exact event dates are intentionally omitted until sourced dates can be added with a `sourceUrl`.
 
 ## SEO
 

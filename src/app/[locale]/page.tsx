@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
+import { guidePages } from "@/content/guide";
 import { faqItems, homeCopy } from "@/content/pages";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
@@ -61,6 +62,17 @@ export default async function LocaleHome({ params }: PageProps) {
       text: "Best for view lovers, a compact studio for two with a wide sea view.",
     },
   ];
+  const guideTeasers = [
+    guidePages[safeLocale].find((page) => page.slug === "best-beaches-in-menton"),
+    guidePages[safeLocale].find((page) => page.slug === "menton-old-town"),
+    guidePages[safeLocale].find((page) => page.slug === "day-trips-from-menton"),
+    {
+      slug: "../events",
+      title: "Events",
+      intro:
+        "Plan around the Lemon Festival, summer evenings and major Riviera weekends without relying on unsourced dates.",
+    },
+  ].flatMap((item) => (item ? [item] : []));
 
   return (
     <>
@@ -194,6 +206,32 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </Section>
 
+      <Section className="bg-[#fff3df]">
+        <Container>
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight text-[#17313a]">
+                Plan your stay in Menton
+              </h2>
+              <p className="mt-3 max-w-2xl text-[#5c5044]">
+                Practical notes for choosing beaches, old-town walks, day trips and event periods from a central seaside base.
+              </p>
+            </div>
+            <Button href={`/${safeLocale}/guide`} variant="secondary">
+              Explore the Menton guide
+            </Button>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-4">
+            {guideTeasers.map((item) => (
+              <Card key={item.slug} className="p-5">
+                <h3 className="text-lg font-semibold text-[#17313a]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5c5044]">{item.intro}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       <Section className="bg-[#fff9f0]">
         <Container>
           <LiveMentonWebcams locale={safeLocale} />
@@ -205,10 +243,10 @@ export default async function LocaleHome({ params }: PageProps) {
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight text-[#17313a]">
-                Events and Riviera day trips
+                Visiting for an event?
               </h2>
               <p className="mt-3 text-[#5c5044]">
-                Plan around the Menton Lemon Festival, Monaco Grand Prix, summer events and nearby Riviera day trips. Dates and details are added only when verified.
+                Menton&apos;s Lemon Festival, summer evenings and major Riviera weekends can make beachside apartments especially attractive. Check your dates early.
               </p>
               <div className="mt-6">
                 <Button href={`/${safeLocale}/events`} variant="secondary">
