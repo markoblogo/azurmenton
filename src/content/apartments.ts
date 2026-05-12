@@ -16,7 +16,8 @@ export type ApartmentImage = {
     | "bathroom"
     | "parking"
     | "location"
-    | "exterior";
+    | "exterior"
+    | "detail";
   priority?: boolean;
 };
 

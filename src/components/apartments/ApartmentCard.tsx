@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import type { Apartment } from "@/content/apartments";
 import { t } from "@/content/translations";
 import type { Locale } from "@/i18n/locales";
+import { getCardImage, imageObjectPosition } from "@/lib/apartment-images";
 
 export function ApartmentCard({
   apartment,
@@ -13,9 +14,7 @@ export function ApartmentCard({
   locale: Locale;
 }) {
   const copy = t[locale];
-  const image =
-    apartment.gallery.find((galleryImage) => galleryImage.src === apartment.cardImage) ??
-    apartment.gallery[0];
+  const image = getCardImage(apartment);
 
   return (
     <Card className="overflow-hidden">
@@ -25,7 +24,7 @@ export function ApartmentCard({
           alt={image.alt[locale]}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover object-center"
+          className={`object-cover ${imageObjectPosition(apartment, image)}`}
         />
       </div>
       <div className="p-5">

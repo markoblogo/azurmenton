@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -9,6 +10,7 @@ import { Section } from "@/components/ui/Section";
 import { apartments, getApartment } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { getHeroImage, imageObjectPosition } from "@/lib/apartment-images";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { vacationRentalJsonLd } from "@/lib/structured-data";
 
@@ -48,9 +50,7 @@ export default async function ApartmentPage({ params }: PageProps) {
   }
 
   const labels = t[safeLocale];
-  const heroImage =
-    apartment.gallery.find((galleryImage) => galleryImage.src === apartment.heroImage) ??
-    apartment.gallery[0];
+  const heroImage = getHeroImage(apartment);
 
   return (
     <>
@@ -77,6 +77,19 @@ export default async function ApartmentPage({ params }: PageProps) {
                 {apartment.name[safeLocale]}
               </h1>
               <p className="mt-5 text-lg leading-8 text-[#5c5044]">{apartment.tagline[safeLocale]}</p>
+              <dl className="mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+                {[
+                  [labels.guests, `Up to ${apartment.maxGuests}`],
+                  [labels.size, `${apartment.sizeSqm} sqm`],
+                  [labels.beds, apartment.beds],
+                  [labels.bathrooms, apartment.bathrooms],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-md border border-[#d9cdbd] bg-white/70 p-3">
+                    <dt className="text-[#6b5f50]">{label}</dt>
+                    <dd className="mt-1 font-semibold text-[#17313a]">{value}</dd>
+                  </div>
+                ))}
+              </dl>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href={`/${safeLocale}/check-availability`}>{labels.checkAvailability}</Button>
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">
@@ -91,7 +104,8 @@ export default async function ApartmentPage({ params }: PageProps) {
                 width={1200}
                 height={850}
                 priority
-                className="aspect-[4/3] w-full object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className={`aspect-[4/3] w-full object-cover ${imageObjectPosition(apartment, heroImage)}`}
               />
             </div>
           </div>
@@ -102,31 +116,9 @@ export default async function ApartmentPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.72fr_0.28fr]">
             <div>
-              <h2 className="text-2xl font-semibold text-[#17313a]">About this apartment</h2>
+              <h2 className="text-2xl font-semibold text-[#17313a]">Overview</h2>
               <p className="mt-4 text-base leading-8 text-[#5c5044]">{apartment.longDescription[safeLocale]}</p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {apartment.gallery.map((image) => (
-                  <figure
-                    key={image.src}
-                    className="overflow-hidden rounded-lg border border-[#e4d8c7] bg-white"
-                  >
-                    <div className="relative">
-                      <Image
-                        src={image.src}
-                        alt={image.alt[safeLocale]}
-                        width={1200}
-                        height={850}
-                        priority={image.priority}
-                        sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
-                        className="aspect-[4/3] w-full object-cover object-center"
-                      />
-                    </div>
-                    <figcaption className="px-4 py-3 text-sm leading-6 text-[#5c5044]">
-                      {image.caption[safeLocale]}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
+              <ApartmentGallery apartment={apartment} locale={safeLocale} />
             </div>
             <Card className="h-fit p-6">
               <dl className="grid gap-4 text-sm">
@@ -167,6 +159,24 @@ export default async function ApartmentPage({ params }: PageProps) {
               </Card>
             ))}
           </div>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Card className="bg-[#17313a] p-6 text-white sm:p-8">
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  Ask about this apartment
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-white/75">
+                  Send your dates and preferred language. We will confirm availability manually and reply with the best direct offer.
+                </p>
+              </div>
+              <Button href={`/${safeLocale}/check-availability`}>{labels.checkAvailability}</Button>
+            </div>
+          </Card>
         </Container>
       </Section>
     </>
