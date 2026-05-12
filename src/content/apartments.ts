@@ -57,6 +57,7 @@ const enFallback = <T extends string>(en: T): LocalizedText => ({
 
 const seaViewImagePath = "/images/apartments/sea-view-balcony-studio";
 const beachsideFamilyImagePath = "/images/apartments/beachside-family-apartment";
+const panoramicSeaViewImagePath = "/images/apartments/panoramic-sea-view-studio";
 
 export const apartments: Apartment[] = [
   {
@@ -413,8 +414,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "panoramic-sea-view-studio",
-    heroImage: "/images/apartments/panoramic-studio-hero.svg",
-    cardImage: "/images/apartments/panoramic-studio-hero.svg",
+    heroImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpeg`,
+    cardImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpeg`,
     name: enFallback("Beachfront Studio with Balcony & Panoramic Sea View, Menton"),
     shortName: enFallback("Panoramic Sea View Studio"),
     tagline: enFallback("A compact beachfront studio where the view is the highlight."),
@@ -457,16 +458,90 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: "/images/apartments/panoramic-studio-hero.svg",
-        alt: enFallback("Placeholder hero image for the Panoramic Studio balcony in Menton"),
-        caption: enFallback("Panoramic studio sea view placeholder"),
+        src: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpeg`,
+        alt: enFallback("Private balcony with breakfast table overlooking the Mediterranean sea in Menton"),
+        caption: enFallback("Balcony with breakfast and Mediterranean sea view"),
+        category: "balcony",
+        priority: true,
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/02-wide-sea-view-from-balcony.jpeg`,
+        alt: enFallback("Wide Mediterranean sea view from the apartment balcony with palm trees and seafront below"),
+        caption: enFallback("Wide sea view from the balcony"),
+        category: "view",
+        priority: true,
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/03-bright-studio-double-bed.jpeg`,
+        alt: enFallback("Compact bright studio with double bed and balcony access"),
+        caption: enFallback("Bright studio with double bed"),
+        category: "bedroom",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/04-equipped-kitchenette.jpeg`,
+        alt: enFallback("Equipped kitchenette with sink, stovetop and storage in the sea view studio"),
+        caption: enFallback("Equipped kitchenette for simple meals"),
+        category: "kitchen",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/05-bathroom-washing-machine.jpeg`,
+        alt: enFallback("Private bathroom with sink, shower area and washing machine"),
+        caption: enFallback("Private bathroom with washing machine"),
+        category: "bathroom",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/06-bathroom-shower.jpeg`,
+        alt: enFallback("Private bathroom shower in the panoramic sea view studio"),
+        caption: enFallback("Bathroom with shower"),
+        category: "bathroom",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/07-mediterranean-harbour-view.jpeg`,
+        alt: enFallback("Mediterranean sea and harbour view from the apartment balcony"),
+        caption: enFallback("Mediterranean view towards the harbour"),
         category: "view",
       },
       {
-        src: "/images/apartments/panoramic-studio-room.svg",
-        alt: enFallback("Placeholder room image for the Panoramic Studio"),
-        caption: enFallback("Panoramic studio room placeholder"),
-        category: "living",
+        src: `${panoramicSeaViewImagePath}/08-seafront-mountain-view.jpeg`,
+        alt: enFallback("View of Menton seafront, palm trees and mountains near the apartment"),
+        caption: enFallback("Seafront and mountain view"),
+        category: "location",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/09-beachfront-palm-view.jpeg`,
+        alt: enFallback("Beachfront view with palm trees and Mediterranean sea from the apartment"),
+        caption: enFallback("Beachfront view with palm trees"),
+        category: "view",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/10-sea-view-with-boats.jpeg`,
+        alt: enFallback("Mediterranean sea view with boats near Menton"),
+        caption: enFallback("Sea view with boats"),
+        category: "view",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/11-seafront-promenade-nearby.jpeg`,
+        alt: enFallback("Seafront promenade with benches and marina near the apartment"),
+        caption: enFallback("Seafront promenade nearby"),
+        category: "location",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/12-menton-old-town-nearby.jpeg`,
+        alt: enFallback("Colourful old town buildings and church tower in Menton"),
+        caption: enFallback("Menton old town nearby"),
+        category: "location",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/13-evening-mediterranean-colours.jpeg`,
+        alt: enFallback("Evening colours over the Mediterranean sea near Menton"),
+        caption: enFallback("Evening colours over the Mediterranean"),
+        category: "view",
+      },
+      {
+        src: `${panoramicSeaViewImagePath}/14-additional-sea-view.jpeg`,
+        alt: enFallback("Vertical Mediterranean sea view from the apartment with boats and palm trees"),
+        caption: enFallback("Additional sea view from the apartment"),
+        category: "view",
       },
     ],
     seoTitle: enFallback(

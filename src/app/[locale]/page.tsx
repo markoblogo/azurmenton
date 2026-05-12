@@ -96,8 +96,8 @@ export default async function LocaleHome({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden rounded-lg border border-[#e4d8c7] bg-white shadow-sm">
               <Image
-                src="/images/apartments/panoramic-studio-hero.svg"
-                alt="Placeholder Mediterranean sea view from an Azur Menton apartment balcony"
+                src="/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpeg"
+                alt="Private balcony with breakfast table and Mediterranean sea view in Menton"
                 width={1200}
                 height={850}
                 priority
