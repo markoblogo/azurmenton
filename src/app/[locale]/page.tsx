@@ -173,6 +173,20 @@ export default async function LocaleHome({ params }: PageProps) {
       intro: String(sections.eventsIntro),
     },
   ].flatMap((item) => (item ? [item] : []));
+  const homeCardImages: Record<string, { src: string; alt: string }> = {
+    "sea-view-balcony-studio": {
+      src: "/images/home/SeaViewBalconyStudio.png",
+      alt: "Private balcony table with coffee and Mediterranean sea view in Menton",
+    },
+    "beachside-family-apartment": {
+      src: "/images/home/TerraceParkingApartment.png",
+      alt: "Private terrace with outdoor dining table and garden view in central Menton",
+    },
+    "panoramic-sea-view-studio": {
+      src: "/images/home/BeachfrontStudio-portret.png",
+      alt: "Private balcony breakfast table with Mediterranean sea view in Menton",
+    },
+  };
 
   return (
     <>
@@ -202,10 +216,10 @@ export default async function LocaleHome({ params }: PageProps) {
             <div className="relative">
               <div className="relative ml-auto max-w-[540px] border border-[#dfd4c1] bg-white p-3">
                 <Image
-                  src="/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpeg"
+                  src="/images/home/BeachfrontStudio-portret.png"
                   alt="Private balcony with breakfast table and Mediterranean sea view in Menton"
-                  width={1200}
-                  height={850}
+                  width={864}
+                  height={1184}
                   priority
                   quality={90}
                   sizes="(min-width: 1024px) 48vw, 100vw"
@@ -214,10 +228,10 @@ export default async function LocaleHome({ params }: PageProps) {
               </div>
               <div className="absolute -bottom-6 -left-2 hidden w-56 border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)] md:block">
                 <Image
-                  src="/images/apartments/sea-view-balcony-studio/04-open-plan-studio-layout.jpeg"
+                  src="/images/home/hero2.png"
                   alt="Bright beachfront studio with balcony access in Menton"
-                  width={700}
-                  height={520}
+                  width={1344}
+                  height={768}
                   quality={90}
                   sizes="224px"
                   className="aspect-[4/3] w-full object-cover"
@@ -241,7 +255,12 @@ export default async function LocaleHome({ params }: PageProps) {
           </div>
           <div className="mt-10 grid gap-8 lg:grid-cols-3">
             {apartments.map((apartment) => (
-              <ApartmentCard key={apartment.slug} apartment={apartment} locale={safeLocale} />
+              <ApartmentCard
+                key={apartment.slug}
+                apartment={apartment}
+                imageOverride={homeCardImages[apartment.slug]}
+                locale={safeLocale}
+              />
             ))}
           </div>
         </Container>
@@ -277,19 +296,19 @@ export default async function LocaleHome({ params }: PageProps) {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="grid grid-cols-2 gap-3">
               <Image
-                src="/images/apartments/beachside-family-apartment/17-menton-old-town.jpeg"
+                src="/images/home/Planyourstay1.png"
                 alt="Colourful old town buildings and church tower in Menton"
-                width={800}
-                height={1000}
+                width={864}
+                height={1184}
                 quality={90}
                 sizes="(min-width: 1024px) 280px, 50vw"
                 className="aspect-[3/4] w-full object-cover"
               />
               <Image
-                src="/images/apartments/beachside-family-apartment/14-nearby-beach.jpeg"
+                src="/images/home/Planyourstay2.png"
                 alt="Nearby beach in Menton with palm trees and the Mediterranean sea"
-                width={800}
-                height={1000}
+                width={864}
+                height={1184}
                 quality={90}
                 sizes="(min-width: 1024px) 280px, 50vw"
                 className="mt-12 aspect-[3/4] w-full object-cover"

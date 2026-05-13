@@ -9,23 +9,30 @@ import { getCardImage, imageObjectPosition } from "@/lib/apartment-images";
 export function ApartmentCard({
   apartment,
   locale,
+  imageOverride,
 }: {
   apartment: Apartment;
   locale: Locale;
+  imageOverride?: {
+    src: string;
+    alt: string;
+  };
 }) {
   const copy = t[locale];
-  const image = getCardImage(apartment);
+  const contentImage = getCardImage(apartment);
+  const imageSrc = imageOverride?.src ?? contentImage.src;
+  const imageAlt = imageOverride?.alt ?? contentImage.alt[locale];
 
   return (
     <Card className="group overflow-hidden bg-[#fbf7ef]">
       <div className="relative aspect-[4/5] overflow-hidden border-b border-[#dfd4c1] bg-[#efe4d1]">
         <Image
-          src={image.src}
-          alt={image.alt[locale]}
+          src={imageSrc}
+          alt={imageAlt}
           fill
           quality={90}
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imageObjectPosition(apartment, image)}`}
+          className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imageOverride ? "" : imageObjectPosition(apartment, contentImage)}`}
         />
       </div>
       <div className="p-5 sm:p-6">
