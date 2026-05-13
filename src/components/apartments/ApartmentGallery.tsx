@@ -17,6 +17,8 @@ const galleryCopy: Record<
     title: string;
     intro: string;
     viewAll: string;
+    morePhotos: string;
+    openMore: string;
     close: string;
     previous: string;
     next: string;
@@ -29,6 +31,8 @@ const galleryCopy: Record<
     title: "Photo gallery",
     intro: "The first photos show the main reason to choose this apartment, followed by living space, practical amenities and location details.",
     viewAll: "View all photos",
+    morePhotos: "more photos",
+    openMore: "Open full gallery",
     close: "Close",
     previous: "Previous",
     next: "Next",
@@ -52,6 +56,8 @@ const galleryCopy: Record<
     title: "Galerie photos",
     intro: "Les premieres photos montrent le principal atout de l'appartement, puis l'espace de vie, les equipements pratiques et l'environnement.",
     viewAll: "Voir toutes les photos",
+    morePhotos: "photos en plus",
+    openMore: "Ouvrir la galerie complete",
     close: "Fermer",
     previous: "Precedente",
     next: "Suivante",
@@ -75,6 +81,8 @@ const galleryCopy: Record<
     title: "Galleria fotografica",
     intro: "Le prime foto mostrano il motivo principale per scegliere l'appartamento, poi gli spazi interni, i servizi pratici e la posizione.",
     viewAll: "Vedi tutte le foto",
+    morePhotos: "foto in piu",
+    openMore: "Apri la galleria completa",
     close: "Chiudi",
     previous: "Precedente",
     next: "Successiva",
@@ -98,6 +106,8 @@ const galleryCopy: Record<
     title: "Фотогалерея",
     intro: "Перші фото показують головну перевагу апартаментів, далі - житловий простір, практичні зручності та локацію.",
     viewAll: "Переглянути всі фото",
+    morePhotos: "ще фото",
+    openMore: "Відкрити повну галерею",
     close: "Закрити",
     previous: "Попереднє",
     next: "Наступне",
@@ -135,11 +145,11 @@ const previewOrder: Record<string, string[]> = {
     "05-living-room-sofa-bed.jpeg",
   ],
   "panoramic-sea-view-studio": [
-    "01-balcony-breakfast-sea-view.jpeg",
-    "02-wide-sea-view-from-balcony.jpeg",
-    "03-bright-studio-double-bed.jpeg",
-    "04-equipped-kitchenette.jpeg",
-    "05-bathroom-washing-machine.jpeg",
+    "01-balcony-breakfast-sea-view.png",
+    "02-wide-sea-view-from-balcony.png",
+    "03-bright-studio-double-bed.png",
+    "04-equipped-kitchenette.png",
+    "05-private-bathroom-sink.png",
   ],
 };
 
@@ -153,9 +163,11 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
       return apartment.gallery.slice(0, 5);
     }
 
-    return preferred
+    const images = preferred
       .map((fileName) => apartment.gallery.find((image) => image.src.endsWith(fileName)))
       .filter((image): image is Apartment["gallery"][number] => Boolean(image));
+
+    return images.length > 0 ? images : apartment.gallery.slice(0, 5);
   }, [apartment.gallery, apartment.slug]);
   const activeImage = activeIndex === null ? null : apartment.gallery[activeIndex];
   const visibleIndex = activeIndex ?? 0;
@@ -241,7 +253,13 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
       </div>
 
       <div className="mt-7 grid gap-4 md:grid-cols-4 md:grid-rows-2">
-        {previewImages.map((image, index) => (
+        {previewImages.map((image, index) => {
+          const galleryIndex = apartment.gallery.findIndex((galleryImage) => galleryImage.src === image.src);
+          const safeGalleryIndex = galleryIndex >= 0 ? galleryIndex : index;
+          const remainingPhotos = apartment.gallery.length - previewImages.length;
+          const showMoreOverlay = index === previewImages.length - 1 && remainingPhotos > 0;
+
+          return (
           <figure
             key={image.src}
             className={
@@ -252,9 +270,9 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
           >
             <button
               type="button"
-              onClick={() => openGallery(index)}
+              onClick={() => openGallery(showMoreOverlay ? previewImages.length : safeGalleryIndex)}
               className="group block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f]"
-              aria-label={`${copy.viewAll}: ${captionFor(image, index)}`}
+              aria-label={`${showMoreOverlay ? copy.openMore : copy.viewAll}: ${captionFor(image, safeGalleryIndex)}`}
             >
               <div className="relative overflow-hidden">
                 <Image
@@ -272,13 +290,22 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
                     index === 0 ? "aspect-[4/3]" : "aspect-[4/3]"
                   } ${imageObjectPosition(apartment, image)}`}
                 />
+                {showMoreOverlay ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-[#10262d]/62 text-center text-white">
+                    <span className="font-serif-display text-4xl font-semibold">
+                      +{remainingPhotos}
+                    </span>
+                    <span className="sr-only">{copy.morePhotos}</span>
+                  </div>
+                ) : null}
               </div>
               <figcaption className="px-4 py-3 text-sm leading-6 text-[#5c5044]">
-                {captionFor(image, index)}
+                {showMoreOverlay ? `${copy.openMore} · +${remainingPhotos} ${copy.morePhotos}` : captionFor(image, safeGalleryIndex)}
               </figcaption>
             </button>
           </figure>
-        ))}
+          );
+        })}
       </div>
 
       {activeImage ? (

@@ -29,7 +29,7 @@ export const siteConfig = {
   },
   logoPath: "/images/brand/azurmenton.png",
   iconPath: "/images/brand/az.png",
-  defaultOgImage: "/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpeg",
+  defaultOgImage: "/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png",
   address: {
     locality: "Menton",
     region: "Provence-Alpes-Cote d'Azur",
