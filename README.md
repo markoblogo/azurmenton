@@ -101,7 +101,7 @@ The French version is treated as the primary compliance draft. Owner, publisher,
 
 ## Live Menton Webcams
 
-The Menton guide includes a small reusable `LiveMentonWebcams` section. It uses link-only cards for public third-party webcam resources and does not iframe streams, hotlink video, load third-party scripts or claim that Azur Menton owns the webcams.
+The Menton guide includes a small reusable `LiveMentonWebcams` section. It renders one public Windy embed for `Menton: Vieux port` using Windy's official player script, with autoplay disabled, plus a compact list of external webcam references. It does not scrape webcams, hotlink webcam frames, use hidden stream URLs or claim that Azur Menton owns the webcam.
 
 Webcam data lives in `src/content/webcams.ts`. Availability and URLs may change because the sources are third-party public resources.
 

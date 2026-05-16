@@ -2,114 +2,141 @@ import type { Locale } from "@/i18n/locales";
 
 type LocalizedString = Record<Locale, string>;
 
-export type WebcamCard = {
-  title: LocalizedString;
-  description: LocalizedString;
-  sourceName: string;
+export type WindyWebcam = {
+  id: string;
+  title: string;
+  provider: "Windy";
+  webcamId: string;
+  locationLabel: string;
   externalUrl: string;
-  locationLabel: LocalizedString;
+  configUrl: string;
+  playerScriptUrl: string;
+  playMode: "day";
+  autoPlay: false;
+  loop: false;
+  interactive: true;
+};
+
+export type ExternalWebcamLink = {
+  title: LocalizedString;
+  provider: string;
+  externalUrl: string;
+};
+
+export const windyMentonWebcam: WindyWebcam = {
+  id: "menton-vieux-port-windy",
+  title: "Menton: Vieux port",
+  provider: "Windy",
+  webcamId: "1545515171",
+  locationLabel: "Vieux Port de Menton",
+  externalUrl: "https://windy.com/webcams/1545515171",
+  configUrl: "https://embed.windy.com/config/webcam/1545515171",
+  playerScriptUrl: "https://webcams.windy.com/webcams/public/embed/v2/script/player.js",
+  playMode: "day",
+  autoPlay: false,
+  loop: false,
+  interactive: true,
 };
 
 export const webcamSectionCopy: Record<
   Locale,
   {
+    eyebrow: string;
     title: string;
     intro: string;
     note: string;
+    sourceLabel: string;
+    locationLabel: string;
+    timelapseNote: string;
     cta: string;
+    fallbackTitle: string;
+    otherTitle: string;
+    otherIntro: string;
   }
 > = {
   en: {
-    title: "Live webcam links",
-    intro: "Useful public webcam links for checking Menton's seafront before you travel.",
-    note: "Webcams are provided by third-party public sources. Availability may change.",
-    cta: "Open live webcam",
+    eyebrow: "Live Menton",
+    title: "Live view from Menton's old port",
+    intro: "A public Windy webcam from Vieux Port de Menton, useful for checking the seafront mood before planning your stay.",
+    note: "The webcam is provided by Windy / third-party public sources. Availability may change.",
+    sourceLabel: "Source",
+    locationLabel: "Location",
+    timelapseNote: "Timelapse player; not guaranteed real-time video.",
+    cta: "Open on Windy",
+    fallbackTitle: "The live view could not be loaded here.",
+    otherTitle: "Other public webcam links",
+    otherIntro: "Some public webcam pages do not provide a stable embed. They can still be useful as external references.",
   },
   fr: {
-    title: "Liens webcams en direct",
-    intro: "Des liens publics utiles pour regarder le front de mer de Menton avant votre voyage.",
-    note: "Les webcams sont fournies par des sources publiques tierces. Leur disponibilite peut changer.",
-    cta: "Ouvrir la webcam",
+    eyebrow: "En direct à Menton",
+    title: "Vue en direct du vieux port de Menton",
+    intro: "Une webcam publique Windy depuis le Vieux Port de Menton, utile pour vérifier l'ambiance du front de mer avant de préparer votre séjour.",
+    note: "La webcam est fournie par Windy / des sources publiques tierces. Sa disponibilité peut changer.",
+    sourceLabel: "Source",
+    locationLabel: "Lieu",
+    timelapseNote: "Lecteur timelapse; la vidéo n'est pas garantie en temps réel.",
+    cta: "Ouvrir sur Windy",
+    fallbackTitle: "La vue en direct n'a pas pu être chargée ici.",
+    otherTitle: "Autres liens webcams publics",
+    otherIntro: "Certaines pages de webcams publiques ne proposent pas d'intégration stable. Elles peuvent rester utiles comme références externes.",
   },
   it: {
-    title: "Link alle webcam live",
-    intro: "Link pubblici utili per controllare il lungomare di Mentone prima del viaggio.",
-    note: "Le webcam sono fornite da fonti pubbliche di terze parti. La disponibilita puo cambiare.",
-    cta: "Apri webcam live",
+    eyebrow: "Menton dal vivo",
+    title: "Vista in diretta dal vecchio porto di Mentone",
+    intro: "Una webcam pubblica Windy dal Vieux Port de Menton, utile per controllare l'atmosfera del lungomare prima di pianificare il soggiorno.",
+    note: "La webcam è fornita da Windy / fonti pubbliche di terze parti. La disponibilità può cambiare.",
+    sourceLabel: "Fonte",
+    locationLabel: "Luogo",
+    timelapseNote: "Player timelapse; il video non è garantito in tempo reale.",
+    cta: "Apri su Windy",
+    fallbackTitle: "La vista live non può essere caricata qui.",
+    otherTitle: "Altri link pubblici alle webcam",
+    otherIntro: "Alcune pagine webcam pubbliche non offrono un embed stabile. Possono comunque essere utili come riferimenti esterni.",
   },
   uk: {
-    title: "Посилання на вебкамери",
-    intro: "Корисні публічні посилання, щоб подивитися на набережну Ментона перед поїздкою.",
-    note: "Вебкамери надаються сторонніми публічними джерелами. Доступність може змінюватися.",
-    cta: "Відкрити вебкамеру",
+    eyebrow: "Ментон наживо",
+    title: "Вид наживо на старий порт Ментона",
+    intro: "Публічна вебкамера Windy з Vieux Port de Menton допомагає подивитися на набережну перед плануванням поїздки.",
+    note: "Вебкамеру надає Windy / сторонні публічні джерела. Доступність може змінюватися.",
+    sourceLabel: "Джерело",
+    locationLabel: "Локація",
+    timelapseNote: "Timelapse-плеєр; відео не гарантовано є прямою трансляцією в реальному часі.",
+    cta: "Відкрити на Windy",
+    fallbackTitle: "Вид наживо не вдалося завантажити на цій сторінці.",
+    otherTitle: "Інші публічні посилання на вебкамери",
+    otherIntro: "Деякі публічні сторінки вебкамер не мають стабільного embed. Вони можуть бути корисними як зовнішні джерела.",
   },
 };
 
-export const mentonWebcams: WebcamCard[] = [
+export const externalWebcamLinks: ExternalWebcamLink[] = [
   {
     title: {
-      en: "Plage des Sablettes",
-      fr: "Plage des Sablettes",
-      it: "Plage des Sablettes",
-      uk: "Plage des Sablettes",
+      en: "Ville de Menton webcam page",
+      fr: "Page webcam de la Ville de Menton",
+      it: "Pagina webcam della Ville de Menton",
+      uk: "Сторінка вебкамер Ville de Menton",
     },
-    description: {
-      en: "Public live views of one of Menton's most recognisable seafront areas.",
-      fr: "Vues publiques en direct de l'un des lieux les plus reconnaissables du front de mer de Menton.",
-      it: "Viste pubbliche in diretta di una delle zone piu riconoscibili del lungomare di Mentone.",
-      uk: "Публічні прямі види однієї з найвідоміших ділянок набережної Ментона.",
-    },
-    sourceName: "Ville de Menton",
+    provider: "Ville de Menton",
     externalUrl: "https://www.menton.fr/-Webcam",
-    locationLabel: {
-      en: "Sablettes seafront",
-      fr: "Front de mer des Sablettes",
-      it: "Lungomare Sablettes",
-      uk: "Набережна Sablettes",
-    },
   },
   {
     title: {
-      en: "Vieux Port de Menton",
-      fr: "Vieux Port de Menton",
-      it: "Vieux Port de Menton",
-      uk: "Vieux Port de Menton",
+      en: "WebcamGalore Menton page",
+      fr: "Page Menton sur WebcamGalore",
+      it: "Pagina Mentone su WebcamGalore",
+      uk: "Сторінка Ментона на WebcamGalore",
     },
-    description: {
-      en: "A public live-view resource for the old port and marina area.",
-      fr: "Une ressource publique de vue en direct sur le vieux port et la zone de marina.",
-      it: "Una risorsa pubblica con vista live sul vecchio porto e sull'area marina.",
-      uk: "Публічний ресурс з прямим видом на старий порт і марину.",
-    },
-    sourceName: "Webcam Galore",
+    provider: "WebcamGalore",
     externalUrl: "https://www.webcamgalore.com/webcam/France/Menton/32681.html",
-    locationLabel: {
-      en: "Old port and marina",
-      fr: "Vieux port et marina",
-      it: "Vecchio porto e marina",
-      uk: "Старий порт і марина",
-    },
   },
   {
     title: {
-      en: "Sablettes panoramic view",
-      fr: "Vue panoramique des Sablettes",
-      it: "Vista panoramica Sablettes",
-      uk: "Панорамний вид Sablettes",
+      en: "Skaping Sablettes panoramic page",
+      fr: "Page panoramique Skaping Sablettes",
+      it: "Pagina panoramica Skaping Sablettes",
+      uk: "Панорамна сторінка Skaping Sablettes",
     },
-    description: {
-      en: "A wider look at the beach and seafront, depending on source availability.",
-      fr: "Une vue plus large sur la plage et le front de mer, selon la disponibilite de la source.",
-      it: "Uno sguardo piu ampio su spiaggia e lungomare, secondo disponibilita della fonte.",
-      uk: "Ширший вид на пляж і набережну, залежно від доступності джерела.",
-    },
-    sourceName: "Skaping",
+    provider: "Skaping",
     externalUrl: "https://www.skaping.com/menton/plage-des-sablettes/panoramique",
-    locationLabel: {
-      en: "Beach and seafront",
-      fr: "Plage et front de mer",
-      it: "Spiaggia e lungomare",
-      uk: "Пляж і набережна",
-    },
   },
 ];
