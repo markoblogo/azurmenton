@@ -27,8 +27,8 @@ export const siteConfig = {
     registeredOffice: "13 Avenue Porte de France, 06500 Menton, France",
     publicationDirector: "Ruslan Volokh",
   },
-  logoPath: "/images/brand/azurmenton.png",
-  iconPath: "/images/brand/az.png",
+  logoPath: "/icon.png",
+  iconPath: "/icon.png",
   defaultOgImage: "/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png",
   address: {
     locality: "Menton",

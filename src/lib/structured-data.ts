@@ -14,7 +14,7 @@ export function lodgingBusinessJsonLd() {
     legalName: "SCI Petra et Paul",
     taxID: "983 423 898 R.C.S. Nice",
     url: "https://azurmenton.com",
-    logo: "https://azurmenton.com/images/brand/azurmenton.png",
+    logo: "https://azurmenton.com/icon.png",
     image: "https://azurmenton.com/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png",
     description:
       "Family-run beachfront and beachside apartments in central Menton, France. Direct booking requests are confirmed manually by the host.",
@@ -98,7 +98,7 @@ export function articleJsonLd(input: {
       name: "Azur Menton",
       logo: {
         "@type": "ImageObject",
-        url: "https://azurmenton.com/images/brand/azurmenton.png",
+        url: "https://azurmenton.com/icon.png",
       },
     },
   };
