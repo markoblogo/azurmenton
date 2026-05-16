@@ -99,12 +99,6 @@ The site includes locale routes for:
 
 The French version is treated as the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business confirmation before production launch.
 
-## Live Menton Webcams
-
-The Menton guide includes a small reusable `LiveMentonWebcams` section. It renders one public Windy embed for `Menton: Vieux port` using Windy's official player script, with autoplay disabled, plus a compact list of external webcam references. It does not scrape webcams, hotlink webcam frames, use hidden stream URLs or claim that Azur Menton owns the webcam.
-
-Webcam data lives in `src/content/webcams.ts`. Availability and URLs may change because the sources are third-party public resources.
-
 ## Content
 
 - `src/config/site.ts` - domain and site-level config

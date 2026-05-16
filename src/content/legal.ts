@@ -301,7 +301,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
       title: "Politique cookies",
       description: "Informations sur les cookies, mesures d'audience et contenus tiers du site Azur Menton.",
       seoTitle: "Politique cookies",
-      seoDescription: "Politique cookies Azur Menton: cookies strictement necessaires, analytics, webcams, meteo et consentement.",
+      seoDescription: "Politique cookies Azur Menton: cookies strictement necessaires, analytics, meteo et consentement.",
       sections: [
         {
           title: "Cookies actuellement utilises",
@@ -314,7 +314,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Services qui pourraient etre ajoutes",
           body: [
             "Si des outils d'analytics sont ajoutes plus tard, ils devront etre documentes ici et, si necessaire, soumis au consentement.",
-            "Le widget meteo ne charge pas de scripts tiers cote navigateur par defaut. Le guide peut inclure des contenus tiers visibles par l'utilisateur, comme le lecteur webcam Windy, charges uniquement sur les pages ou ils sont affiches.",
+            "Le widget meteo ne charge pas de scripts tiers cote navigateur par defaut. Les contenus tiers visibles par l'utilisateur devront etre documentes ici s'ils sont ajoutes plus tard.",
           ],
         },
         {
@@ -342,7 +342,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Future services and consent",
           body: [
             "Analytics cookies, third-party embeds or additional providers must be documented here if added later.",
-            "The weather widget does not load third-party browser scripts by default. The guide may include user-facing third-party embeds, such as the Windy webcam player, loaded only on pages where they are displayed.",
+            "The weather widget does not load third-party browser scripts by default. User-facing third-party embeds must be documented here if added later.",
             "To be added: a consent and withdrawal mechanism if non-essential cookies are introduced.",
           ],
         },
@@ -359,7 +359,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il sito non usa attualmente cookie non essenziali noti per marketing o analytics.",
             "Cookie strettamente necessari possono essere usati dall'hosting o da servizi tecnici.",
-            "La guida puo includere embed terzi visibili agli utenti, come il player webcam Windy, caricati solo nelle pagine in cui sono mostrati.",
+            "Eventuali embed terzi visibili agli utenti dovranno essere documentati qui se aggiunti in futuro.",
             "Da aggiungere: consenso e revoca se in futuro vengono attivati cookie non essenziali o embed terzi.",
           ],
         },
@@ -376,7 +376,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "The website does not currently use known non-essential marketing or analytics cookies.",
             "Strictly necessary cookies may be used by hosting or core technical services.",
-            "The guide may include user-facing third-party embeds, such as the Windy webcam player, loaded only on pages where they are displayed.",
+            "User-facing third-party embeds must be documented here if added later.",
             "To be added: consent and withdrawal controls if non-essential cookies or third-party embeds are introduced.",
           ],
         },

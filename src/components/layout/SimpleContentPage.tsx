@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { LiveMentonWebcams } from "@/components/LiveMentonWebcams";
 import { PageIntro } from "@/components/layout/PageIntro";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
@@ -188,11 +187,6 @@ export function SimpleContentPage(pageKey: SimplePageKey) {
             {pageKey === "contact" ? <ContactBody note={copy.note} locale={safeLocale} /> : null}
             {["privacy", "legal"].includes(pageKey) ? (
               <DefaultBody note={copy.note} locale={safeLocale} />
-            ) : null}
-            {pageKey === "guide" ? (
-              <div className="mt-12">
-                <LiveMentonWebcams locale={safeLocale} />
-              </div>
             ) : null}
           </Container>
         </Section>

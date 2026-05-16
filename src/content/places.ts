@@ -263,14 +263,24 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualTheme">> = {
+  "halles-du-marche": {
+    image: "/images/guide/halles-du-marche-place.png",
+    imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
+    visualTheme: "market",
+  },
+  "rampes-saint-michel": {
+    image: "/images/guide/les-rampes-saint-michel.png",
+    imageAlt: text("Illustration of Les Rampes Saint-Michel in Menton", "Illustration des Rampes Saint-Michel a Menton", "Illustrazione delle Rampes Saint-Michel a Mentone", "Ілюстрація Les Rampes Saint-Michel у Ментоні"),
+    visualTheme: "viewpoint",
+  },
   "promenade-du-soleil": {
-    image: "/images/home/hero2.png",
-    imageAlt: text("Seafront balcony view over Menton", "Vue balcon sur le front de mer de Menton", "Vista balcone sul lungomare di Mentone", "Вид із балкона на набережну Ментона"),
+    image: "/images/guide/promenade-du-soleil.png",
+    imageAlt: text("Illustration of Promenade du Soleil in Menton", "Illustration de la Promenade du Soleil a Menton", "Illustrazione della Promenade du Soleil a Mentone", "Ілюстрація Promenade du Soleil у Ментоні"),
     visualTheme: "sea",
   },
   "port-de-garavan": {
-    image: "/images/apartments/beachside-family-apartment/18-menton-harbour-nearby.jpeg",
-    imageAlt: text("Menton harbour and marina area", "Port et marina de Menton", "Porto e marina di Mentone", "Порт і марина Ментона"),
+    image: "/images/guide/port-de-garavan.png",
+    imageAlt: text("Illustration of Port de Garavan in Menton", "Illustration du Port de Garavan a Menton", "Illustrazione del Port de Garavan a Mentone", "Ілюстрація Port de Garavan у Ментоні"),
     visualTheme: "port",
   },
   "cimetiere-vieux-chateau": {
@@ -278,9 +288,14 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Colourful old town near the hill viewpoint", "Vieille ville coloree pres du point de vue", "Centro storico colorato vicino al belvedere", "Кольорове старе місто біля оглядової точки"),
     visualTheme: "viewpoint",
   },
+  "jardin-val-rahmeh": {
+    image: "/images/guide/jardin-botanique-val-rahmeh.png",
+    imageAlt: text("Illustration of Jardin Botanique Val Rahmeh in Menton", "Illustration du Jardin Botanique Val Rahmeh a Menton", "Illustrazione del Jardin Botanique Val Rahmeh a Mentone", "Ілюстрація Jardin Botanique Val Rahmeh у Ментоні"),
+    visualTheme: "garden",
+  },
   "plage-sablettes": {
-    image: "/images/apartments/beachside-family-apartment/14-nearby-beach.jpeg",
-    imageAlt: text("Menton beach and Mediterranean water", "Plage de Menton et mer Mediterranee", "Spiaggia di Mentone e Mediterraneo", "Пляж Ментона і Середземне море"),
+    image: "/images/guide/plage-des-sablettes.png",
+    imageAlt: text("Illustration of Plage des Sablettes in Menton", "Illustration de la Plage des Sablettes a Menton", "Illustrazione della Plage des Sablettes a Mentone", "Ілюстрація Plage des Sablettes у Ментоні"),
     visualTheme: "beach",
   },
   "plage-fossan": {

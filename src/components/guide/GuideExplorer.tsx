@@ -158,7 +158,7 @@ function Select({ value, onChange, label, options, allLabel }: { value: string; 
 
 function GuideArticleCard({ article, locale, priority = false }: { article: GuideCardItem; locale: Locale; priority?: boolean }) {
   return (
-    <article className={`group border border-[#dfd2b8] bg-[#fffaf0] ${priority ? "md:col-span-1" : ""}`}>
+    <article className={`group border border-[#dfd2b8] bg-[#fffaf0] transition-colors hover:border-[#c6a66a] ${priority ? "md:col-span-1" : ""}`}>
       <GuideVisual
         image={article.coverImage}
         imageAlt={article.coverImageAlt}
@@ -166,14 +166,14 @@ function GuideArticleCard({ article, locale, priority = false }: { article: Guid
         theme={article.visualTheme ?? "sea"}
         label={article.categoryLabel}
         priority={priority}
-        className="aspect-[4/2.2]"
+        className={priority ? "aspect-[4/2.35]" : "aspect-[4/2.05]"}
       />
       <div className="p-5">
         <div className="flex flex-wrap gap-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#71665b]">
           {article.durationLabel ? <span>{article.durationLabel}</span> : null}
           {article.tags.slice(0, 2).map((tag) => <span key={tag}>/ {tag}</span>)}
         </div>
-        <h3 className="mt-3 serif-heading text-2xl leading-[1.05] text-[#173f36] group-hover:text-[#0b6f8f]">{article.title}</h3>
+        <h3 className="mt-3 serif-heading text-2xl leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{article.title}</h3>
         <p className="mt-3 text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden">{article.excerpt}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {article.bestFor.slice(0, 3).map((item) => <span key={item} className="border border-[#dfd2b8] px-2 py-1 text-[0.62rem] text-[#71665b]">{item}</span>)}

@@ -16,31 +16,31 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
   const location = place.address ?? place.area?.[locale];
 
   return (
-    <article className="overflow-hidden border border-[#dfd2b8] bg-[#fffaf0]">
+    <article className="group overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-colors hover:border-[#c6a66a]">
       <GuideVisual
         image={place.image}
         imageAlt={place.imageAlt?.[locale]}
         locale={locale}
         theme={place.visualTheme ?? "walk"}
         label={place.type.replaceAll("-", " ")}
-        className={compact ? "aspect-[4/1.8]" : "aspect-[4/2.1]"}
+        className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"}
       />
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{place.type.replaceAll("-", " ")}</p>
-          <h3 className="mt-2 serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
+          <div>
+            <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{place.type.replaceAll("-", " ")}</p>
+            <h3 className="mt-2 serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
+          </div>
         </div>
-      </div>
-      <p className="mt-3 text-sm leading-6 text-[#5c5044]">{place.shortNote[locale]}</p>
-      {location ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{location}</p> : null}
-      {!compact && place.openingHoursLabel ? (
-        <p className="mt-3 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.hours}: </span>{place.openingHoursLabel[locale]}</p>
-      ) : null}
-      {!compact && place.priceLabel ? (
-        <p className="mt-2 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.price}: </span>{place.priceLabel[locale]}</p>
-      ) : null}
-      {place.sourceStatus === "needs_verification" ? <p className="mt-3 text-xs italic text-[#71665b]">{copy.note}</p> : null}
+        <p className="mt-3 text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden">{place.shortNote[locale]}</p>
+        {location ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{location}</p> : null}
+        {!compact && place.openingHoursLabel ? (
+          <p className="mt-3 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.hours}: </span>{place.openingHoursLabel[locale]}</p>
+        ) : null}
+        {!compact && place.priceLabel ? (
+          <p className="mt-2 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.price}: </span>{place.priceLabel[locale]}</p>
+        ) : null}
+        {place.sourceStatus === "needs_verification" ? <p className="mt-3 text-xs italic text-[#71665b]">{copy.note}</p> : null}
         <div className="mt-4 flex flex-wrap gap-2">
           {(place.googleMapsSearchUrl ?? place.googleMapsUrl) ? (
             <Link className="inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={(place.googleMapsSearchUrl ?? place.googleMapsUrl) as Route} target="_blank" rel="noopener noreferrer">

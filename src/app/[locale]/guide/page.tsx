@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { BookingCTA } from "@/components/content/BookingCTA";
-import { LiveMentonWebcams } from "@/components/LiveMentonWebcams";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { Container } from "@/components/ui/Container";
@@ -187,13 +186,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-10 sm:py-12">
-        <Container>
-          <LiveMentonWebcams locale={safeLocale} />
-        </Container>
-      </Section>
-
-      <Section className="py-12 sm:py-16">
+      <Section className="py-10 sm:py-14">
         <Container>
           <BookingCTA locale={safeLocale} title={copy.cta.title} primaryLabel={local.viewApartments} secondaryLabel={local.checkAvailability} primaryHref={`/${safeLocale}/apartments`} secondaryHref={`/${safeLocale}/check-availability`} />
         </Container>
