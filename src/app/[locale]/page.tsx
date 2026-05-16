@@ -287,9 +287,7 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Container>
-        <WeatherWidget locale={safeLocale} />
-      </Container>
+      <WeatherWidget locale={safeLocale} />
 
       <Section>
         <Container>

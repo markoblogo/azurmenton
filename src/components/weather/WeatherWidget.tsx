@@ -241,7 +241,7 @@ export async function WeatherWidget({ locale }: { locale: Locale }) {
             "linear-gradient(140deg, rgba(255,244,205,0.96) 0%, rgba(209,235,239,0.82) 42%, rgba(251,247,239,0.86) 70%), radial-gradient(circle at 18% 18%, rgba(247,189,60,0.46), transparent 26%), linear-gradient(180deg, transparent 68%, rgba(61,156,180,0.18) 69%, rgba(61,156,180,0.08) 80%, transparent 81%)",
         }}
       />
-      <div className="relative grid gap-6 py-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch">
+      <div className="relative mx-auto grid w-full max-w-6xl gap-6 px-5 py-8 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch lg:px-8">
         <div className="relative overflow-hidden border border-white/70 bg-white/58 p-6 shadow-[0_18px_50px_rgba(31,105,126,0.12)] backdrop-blur-sm sm:p-8">
           <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#f7bd3c]/28 blur-2xl" aria-hidden="true" />
           <p id="weather-title" className="editorial-label text-[#b07820]">{labels.title}</p>
