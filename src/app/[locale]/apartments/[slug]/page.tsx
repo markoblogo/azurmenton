@@ -689,9 +689,9 @@ function imageByFile(apartment: Apartment, fileName: string) {
 function heroImages(apartment: Apartment) {
   if (apartment.slug === "sea-view-balcony-studio") {
     return [
-      imageByFile(apartment, "04-open-plan-studio-layout.jpeg"),
-      imageByFile(apartment, "01-balcony-coffee-sea-view.jpeg"),
-      imageByFile(apartment, "02-sea-view-from-balcony.jpeg"),
+      imageByFile(apartment, "04-open-plan-studio-layout.jpg"),
+      imageByFile(apartment, "01-balcony-coffee-sea-view.jpg"),
+      imageByFile(apartment, "02-sea-view-from-balcony.jpg"),
     ];
   }
 
