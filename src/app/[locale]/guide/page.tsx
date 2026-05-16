@@ -1,95 +1,188 @@
 import type { Metadata } from "next";
-import { GuideCard } from "@/components/content/GuideCard";
+import Link from "next/link";
+import type { Route } from "next";
+import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { LiveMentonWebcams } from "@/components/LiveMentonWebcams";
-import { PageIntro } from "@/components/layout/PageIntro";
-import { Card } from "@/components/ui/Card";
+import { GuideExplorer } from "@/components/guide/GuideExplorer";
+import { PlaceCard } from "@/components/guide/PlaceCard";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { guideLanding, guidePages } from "@/content/guide";
+import { apartments } from "@/content/apartments";
+import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
+import { getPlaces } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { createMetadata } from "@/lib/seo";
 
-type PageProps = {
-  params: Promise<{ locale: string }>;
+const labels = {
+  en: {
+    usefulPlaces: "Useful places in Menton",
+    usefulIntro: "Addresses and local stops to help you plan food, walks, beaches and easy evenings. Check current hours before relying on a visit.",
+    eventsTitle: "Planning around an event?",
+    eventsText: "Menton and the nearby Riviera have a busy calendar, from the Lemon Festival and summer music to Monaco weekends and Nice events.",
+    eventsCta: "View events calendar",
+    apartmentsTitle: "Where to stay for guide trips",
+    apartmentsText: "Choose a central seaside base, then shape each day around beaches, markets, old-town walks and Riviera day trips.",
+    viewApartments: "View apartments",
+    checkAvailability: "Check availability",
+  },
+  fr: {
+    usefulPlaces: "Adresses utiles a Menton",
+    usefulIntro: "Lieux pratiques pour organiser cuisine, balades, plages et soirees faciles. Verifiez les horaires actuels avant de vous deplacer.",
+    eventsTitle: "Vous venez pour un evenement?",
+    eventsText: "Menton et la Riviera voisine ont un calendrier anime, de la Fete du Citron aux concerts d'ete, week-ends a Monaco et evenements a Nice.",
+    eventsCta: "Voir le calendrier des evenements",
+    apartmentsTitle: "Ou sejourner pour explorer",
+    apartmentsText: "Choisissez une base centrale en bord de mer, puis organisez vos journees entre plages, marches, vieille ville et excursions.",
+    viewApartments: "Voir les appartements",
+    checkAvailability: "Verifier disponibilite",
+  },
+  it: {
+    usefulPlaces: "Luoghi utili a Mentone",
+    usefulIntro: "Indirizzi e tappe locali per organizzare cibo, passeggiate, spiagge e serate semplici. Controlla gli orari aggiornati prima della visita.",
+    eventsTitle: "Stai pianificando per un evento?",
+    eventsText: "Mentone e la Riviera vicina hanno un calendario vivace: Festa del Limone, musica estiva, weekend a Monaco ed eventi a Nizza.",
+    eventsCta: "Vedi calendario eventi",
+    apartmentsTitle: "Dove soggiornare per esplorare",
+    apartmentsText: "Scegli una base centrale sul mare, poi organizza le giornate tra spiagge, mercati, centro storico e gite.",
+    viewApartments: "Vedi appartamenti",
+    checkAvailability: "Controlla disponibilita",
+  },
+  uk: {
+    usefulPlaces: "Корисні місця в Ментоні",
+    usefulIntro: "Адреси й локальні зупинки для їжі, прогулянок, пляжів і спокійних вечорів. Перед візитом перевіряйте актуальні години роботи.",
+    eventsTitle: "Плануєте поїздку навколо події?",
+    eventsText: "У Ментоні та на сусідній Рив'єрі насичений календар: Фестиваль лимонів, літня музика, вікенди в Монако та події в Ніцці.",
+    eventsCta: "Переглянути календар подій",
+    apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
+    apartmentsText: "Оберіть центральну базу біля моря, а дні плануйте навколо пляжів, ринків, старого міста й поїздок Рив'єрою.",
+    viewApartments: "Переглянути апартаменти",
+    checkAvailability: "Перевірити доступність",
+  },
 };
+
+type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
 
-  return createMetadata({
-    locale: safeLocale,
-    path: "guide",
-    title: copy.seoTitle,
-    description: copy.seoDescription,
-  });
+  return createMetadata({ locale: safeLocale, path: "guide", title: copy.seoTitle, description: copy.seoDescription });
 }
 
 export default async function GuideLandingPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
-  const pages = guidePages[safeLocale];
-  const sections = copy.sections.length ? copy.sections : guideLanding.en.sections;
+  const local = labels[safeLocale];
+  const articles = guideArticles.map((article) => {
+    const localized = localizeGuideArticle(article, safeLocale);
+    const relatedPlaces = getPlaces(article.relatedPlaces ?? []);
+    return {
+      slug: localized.slug,
+      title: localized.title,
+      excerpt: localized.excerpt,
+      category: article.category,
+      categoryLabel: localized.categoryLabel,
+      tags: localized.tags,
+      bestFor: localized.bestFor,
+      duration: article.duration,
+      durationLabel: localized.durationLabel,
+      locationTags: article.locationTags,
+      placeNames: relatedPlaces.map((place) => place.name),
+      featured: article.featured,
+    };
+  });
+  const usefulPlaces = getPlaces([
+    "halles-du-marche",
+    "plage-sablettes",
+    "rampes-saint-michel",
+    "promenade-du-soleil",
+    "jardin-val-rahmeh",
+    "port-de-garavan",
+  ]);
 
   return (
     <>
-      <PageIntro title={copy.title} description={copy.intro} />
-      <Section>
+      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-14 sm:py-20">
         <Container>
-          <div className="grid gap-5 md:grid-cols-2">
-            {sections.map((section) => (
-              <Card key={section.heading} className="p-6">
-                <h2 className="text-xl font-semibold text-[#17313a]">{section.heading}</h2>
-                <div className="mt-3 space-y-3 text-sm leading-7 text-[#5c5044]">
-                  {section.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-[#fff3df]">
-        <Container>
-          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.78fr] lg:items-end">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-[#17313a]">
-                Practical Menton planning guides
-              </h2>
-              <p className="mt-3 max-w-2xl text-[#5c5044]">
-                Focused notes for choosing where to stay, moving around and planning easy Riviera days.
-              </p>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">Azur Menton guide</p>
+              <h1 className="mt-5 max-w-4xl serif-heading text-5xl leading-[0.95] text-[#173f36] sm:text-6xl lg:text-7xl">{copy.title}</h1>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[#5c5044]">{copy.intro}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${safeLocale}/apartments` as Route}>{copy.cta.primaryLabel}</Link>
+                <Link className="inline-flex min-h-11 items-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/check-availability` as Route}>{copy.cta.secondaryLabel}</Link>
+              </div>
+            </div>
+            <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">
+              <div className="grid grid-cols-2 gap-3">
+                {guideArticles.filter((article) => article.featured).slice(0, 4).map((article) => (
+                  <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="min-h-36 border border-[#dfd2b8] bg-[linear-gradient(135deg,#fff7e7,#e8f2ec_55%,#f7e6c5)] p-4 transition hover:border-[#173f36]">
+                    <p className="text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{localizeGuideArticle(article, safeLocale).categoryLabel}</p>
+                    <h2 className="mt-7 serif-heading text-xl leading-none text-[#173f36]">{localizeGuideArticle(article, safeLocale).title}</h2>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {pages.map((page) => (
-              <GuideCard key={page.slug} page={page} locale={safeLocale} />
-            ))}
+        </Container>
+      </section>
+
+      <Section className="bg-[#f8f3ea] py-12 sm:py-16">
+        <Container>
+          <GuideExplorer locale={safeLocale} articles={articles} />
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fffaf0] py-12 sm:py-16">
+        <Container>
+          <div className="mb-6 max-w-3xl">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">Menton notes</p>
+            <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{local.usefulPlaces}</h2>
+            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.usefulIntro}</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {usefulPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={safeLocale} compact />)}
           </div>
         </Container>
       </Section>
 
-      <Section>
+      <Section className="bg-[#173f36] py-12 text-white sm:py-16">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-[0.8fr_1fr] md:items-center">
+            <h2 className="serif-heading text-4xl leading-none">{local.eventsTitle}</h2>
+            <div>
+              <p className="max-w-2xl text-sm leading-7 text-[#e8dcc9]">{local.eventsText}</p>
+              <Link className="mt-5 inline-flex border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#f8f3ea] py-12 sm:py-16">
+        <Container>
+          <div className="mb-6 max-w-3xl">
+            <h2 className="serif-heading text-4xl leading-none text-[#173f36]">{local.apartmentsTitle}</h2>
+            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.apartmentsText}</p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {apartments.map((apartment) => <ApartmentCard key={apartment.slug} apartment={apartment} locale={safeLocale} compact />)}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fffaf0] py-10 sm:py-12">
         <Container>
           <LiveMentonWebcams locale={safeLocale} />
         </Container>
       </Section>
 
-      <Section>
+      <Section className="py-12 sm:py-16">
         <Container>
-          <BookingCTA
-            locale={safeLocale}
-            title={copy.cta.title}
-            primaryLabel={copy.cta.primaryLabel}
-            secondaryLabel={copy.cta.secondaryLabel}
-            primaryHref={`/${safeLocale}/apartments`}
-            secondaryHref={`/${safeLocale}/check-availability`}
-          />
+          <BookingCTA locale={safeLocale} title={copy.cta.title} primaryLabel={local.viewApartments} secondaryLabel={local.checkAvailability} primaryHref={`/${safeLocale}/apartments`} secondaryHref={`/${safeLocale}/check-availability`} />
         </Container>
       </Section>
     </>

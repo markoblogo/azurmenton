@@ -1,137 +1,195 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { BookingCTA } from "@/components/content/BookingCTA";
-import { InternalLinkList } from "@/components/content/InternalLinkList";
-import { PracticalTips } from "@/components/content/PracticalTips";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
-import { PageIntro } from "@/components/layout/PageIntro";
+import { PlaceCard } from "@/components/guide/PlaceCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getGuidePage, guidePages } from "@/content/guide";
+import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
+import { getPlaces } from "@/content/places";
+import { getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
-type PageProps = {
-  params: Promise<{ locale: string; slug: string }>;
+type PageProps = { params: Promise<{ locale: string; slug: string }> };
+
+const labels = {
+  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly." },
+  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement." },
+  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita." },
+  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність." },
 };
 
 export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    guidePages[locale].map((page) => ({
-      locale,
-      slug: page.slug,
-    })),
-  );
+  return locales.flatMap((locale) => guidePages[locale].map((page) => ({ locale, slug: page.slug })));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
-  const page = getGuidePage(safeLocale, slug);
+  const article = getGuideArticle(slug);
+  if (!article) return {};
+  const localized = localizeGuideArticle(article, safeLocale);
 
-  if (!page) {
-    return {};
-  }
-
-  return createMetadata({
-    locale: safeLocale,
-    path: `guide/${page.slug}`,
-    title: page.seoTitle,
-    description: page.seoDescription,
-    type: "article",
-  });
+  return createMetadata({ locale: safeLocale, path: `guide/${article.slug}`, title: localized.seoTitle, description: localized.seoDescription, type: "article", image: localized.heroImage });
 }
 
 export default async function GuideArticlePage({ params }: PageProps) {
   const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
 
-  if (!isLocale(locale)) {
-    notFound();
-  }
+  const article = getGuideArticle(slug);
+  if (!article) notFound();
 
+  const localized = localizeGuideArticle(article, locale);
   const page = getGuidePage(locale, slug);
-
-  if (!page) {
-    notFound();
-  }
-
-  const sectionApartmentKeys = page.sections.flatMap(
-    (section) => section.relatedApartmentKeys ?? [],
-  );
-  const relatedApartmentKeys = Array.from(new Set(sectionApartmentKeys));
-  const pageUrl = absoluteUrl(localizedPath(locale, `guide/${page.slug}`));
+  const copy = labels[locale];
+  const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
+  const relatedPlaces = getPlaces(relatedPlaceIds);
+  const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
+  const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
 
   return (
     <>
-      <JsonLdScript
-        data={articleJsonLd({
-          title: page.title,
-          description: page.seoDescription,
-          url: pageUrl,
-        })}
-      />
-      <JsonLdScript
-        data={breadcrumbJsonLd([
-          { name: "Home", url: absoluteUrl(localizedPath(locale)) },
-          { name: "Guide", url: absoluteUrl(localizedPath(locale, "guide")) },
-          { name: page.title, url: pageUrl },
-        ])}
-      />
-      <PageIntro title={page.title} description={page.intro} />
-      <Section>
+      <JsonLdScript data={articleJsonLd({ title: localized.title, description: localized.seoDescription, url: pageUrl, image: localized.heroImage ? absoluteUrl(localized.heroImage) : undefined })} />
+      <JsonLdScript data={breadcrumbJsonLd([
+        { name: copy.home, url: absoluteUrl(localizedPath(locale)) },
+        { name: copy.guide, url: absoluteUrl(localizedPath(locale, "guide")) },
+        { name: localized.title, url: pageUrl },
+      ])} />
+
+      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.34fr]">
-            <article className="grid gap-6">
-              {page.sections.map((section) => (
-                <Card key={section.heading} className="p-6">
-                  <h2 className="text-2xl font-semibold tracking-tight text-[#17313a]">
-                    {section.heading}
-                  </h2>
-                  <div className="mt-4 space-y-4 text-base leading-8 text-[#5c5044]">
-                    {section.body.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {section.bullets?.length ? (
-                    <ul className="mt-5 grid gap-2 text-sm leading-6 text-[#5c5044]">
-                      {section.bullets.map((bullet) => (
-                        <li key={bullet} className="border-l-2 border-[#0b6f8f] pl-3">
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </Card>
-              ))}
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-end">
+            <div>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{localized.categoryLabel}</p>
+              <h1 className="mt-4 max-w-4xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localized.title}</h1>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-[#5c5044]">{localized.excerpt}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {localized.tags.map((tag) => <span key={tag} className="border border-[#dfd2b8] bg-[#fffaf0] px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#71665b]">{tag}</span>)}
+              </div>
+            </div>
+            <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <Fact label={copy.category} value={guideCategoryLabels[article.category][locale]} />
+                {localized.durationLabel ? <Fact label={copy.duration} value={localized.durationLabel} /> : null}
+                <Fact label={copy.bestFor} value={localized.bestFor.slice(0, 3).join(", ")} wide />
+              </div>
+              {article.sourceStatus === "needs_verification" ? <p className="mt-5 border-t border-[#dfd2b8] pt-4 text-xs italic leading-5 text-[#71665b]">{copy.sourceNote}</p> : null}
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${locale}/check-availability` as Route}>{copy.check}</Link>
+                <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
+              </div>
+            </aside>
+          </div>
+        </Container>
+      </section>
+
+      <Section className="bg-[#f8f3ea] py-10 sm:py-14">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
+            <article className="space-y-5">
+              {localized.sections.map((section) => {
+                const sectionPlaces = getPlaces(section.relatedPlaceIds ?? []);
+                return (
+                  <section key={section.heading} className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+                    <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{section.heading}</h2>
+                    <div className="mt-4 space-y-3 text-base leading-8 text-[#5c5044]">
+                      {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
+                    {section.bullets?.length ? (
+                      <ul className="mt-5 grid gap-2 text-sm leading-6 text-[#5c5044] sm:grid-cols-2">
+                        {section.bullets.map((bullet) => <li key={bullet} className="border-l-2 border-[#c6a66a] pl-3">{bullet}</li>)}
+                      </ul>
+                    ) : null}
+                    {sectionPlaces.length ? (
+                      <div className="mt-5 grid gap-3 md:grid-cols-2">
+                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} compact />)}
+                      </div>
+                    ) : null}
+                  </section>
+                );
+              })}
             </article>
-            <aside className="grid h-fit gap-5">
-              <PracticalTips tips={page.practicalTips} />
-              <InternalLinkList links={page.relatedLinks} locale={locale} />
+
+            <aside className="h-fit space-y-4 lg:sticky lg:top-24">
+              {localized.practicalTips?.length ? (
+                <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+                  <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.practicalTips}</h2>
+                  <ul className="mt-4 grid gap-3 text-sm leading-6 text-[#5c5044]">
+                    {localized.practicalTips.map((tip) => <li key={tip} className="border-l-2 border-[#c6a66a] pl-3">{tip}</li>)}
+                  </ul>
+                </div>
+              ) : null}
+              {article.relatedArticles?.length ? (
+                <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+                  <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.relatedGuides}</h2>
+                  <div className="mt-4 grid gap-2">
+                    {article.relatedArticles.map((relatedSlug) => {
+                      const related = getGuideArticle(relatedSlug);
+                      return related ? <Link key={relatedSlug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${locale}/guide/${relatedSlug}` as Route}>{related.title[locale]}</Link> : null;
+                    })}
+                  </div>
+                </div>
+              ) : null}
+              {article.relatedEvents?.length ? (
+                <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+                  <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.relatedEvents}</h2>
+                  <div className="mt-4 grid gap-2">
+                    {article.relatedEvents.map((eventSlug) => {
+                      const event = getRivieraEvent(eventSlug);
+                      return event ? <Link key={eventSlug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${locale}/events/${eventSlug}` as Route}>{event.title}</Link> : null;
+                    })}
+                  </div>
+                </div>
+              ) : null}
+              <div className="border border-[#173f36] bg-[#173f36] p-5 text-white">
+                <h2 className="serif-heading text-2xl leading-none">{copy.finalTitle}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#e8dcc9]">{copy.finalText}</p>
+                <Link className="mt-4 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${locale}/check-availability` as Route}>{copy.check}</Link>
+              </div>
             </aside>
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#fff3df]">
-        <Container>
-          <RelatedApartmentsBlock apartmentKeys={relatedApartmentKeys} locale={locale} />
-        </Container>
-      </Section>
+      {relatedPlaces.length ? (
+        <Section className="bg-[#fffaf0] py-10 sm:py-14">
+          <Container>
+            <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
+            <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} />)}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section>
+      {relatedApartmentKeys.length ? (
+        <Section className="bg-[#f8f3ea] py-10 sm:py-14">
+          <Container>
+            <RelatedApartmentsBlock apartmentKeys={relatedApartmentKeys} locale={locale} title={copy.relatedApartments} compact />
+          </Container>
+        </Section>
+      ) : null}
+
+      <Section className="py-12 sm:py-16">
         <Container>
-          <BookingCTA
-            locale={locale}
-            title={page.cta.title}
-            text={page.cta.text}
-            primaryLabel={page.cta.primaryLabel}
-            secondaryLabel={page.cta.secondaryLabel}
-          />
+          <BookingCTA locale={locale} title={page?.cta.title ?? copy.finalTitle} text={page?.cta.text ?? copy.finalText} primaryLabel={copy.check} secondaryLabel={copy.apartments} />
         </Container>
       </Section>
     </>
+  );
+}
+
+function Fact({ label, value, wide = false }: { label: string; value: string; wide?: boolean }) {
+  return (
+    <div className={wide ? "col-span-2" : undefined}>
+      <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{label}</p>
+      <p className="mt-1 text-sm leading-6 text-[#173f36]">{value}</p>
+    </div>
   );
 }
