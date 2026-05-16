@@ -66,7 +66,15 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
     });
   }, [articles, bestFor, category, duration, location, query]);
 
-  const featured = articles.filter((article) => article.featured).slice(0, 4);
+  const featuredPriority = ["menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
+  const featured = articles
+    .filter((article) => article.featured)
+    .sort((a, b) => {
+      const aIndex = featuredPriority.indexOf(a.slug);
+      const bIndex = featuredPriority.indexOf(b.slug);
+      return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
+    })
+    .slice(0, 4);
 
   function clearFilters() {
     setQuery("");

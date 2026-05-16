@@ -102,6 +102,15 @@ export default async function GuideLandingPage({ params }: PageProps) {
     "jardin-val-rahmeh",
     "port-de-garavan",
   ]);
+  const featuredPriority = ["menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
+  const featuredArticles = guideArticles
+    .filter((article) => article.featured)
+    .sort((a, b) => {
+      const aIndex = featuredPriority.indexOf(a.slug);
+      const bIndex = featuredPriority.indexOf(b.slug);
+      return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
+    })
+    .slice(0, 4);
 
   return (
     <>
@@ -119,7 +128,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
             </div>
             <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">
               <div className="grid grid-cols-2 gap-3">
-                {guideArticles.filter((article) => article.featured).slice(0, 4).map((article) => (
+                {featuredArticles.map((article) => (
                   <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="min-h-36 border border-[#dfd2b8] bg-[linear-gradient(135deg,#fff7e7,#e8f2ec_55%,#f7e6c5)] p-4 transition hover:border-[#173f36]">
                     <p className="text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{localizeGuideArticle(article, safeLocale).categoryLabel}</p>
                     <h2 className="mt-7 serif-heading text-xl leading-none text-[#173f36]">{localizeGuideArticle(article, safeLocale).title}</h2>

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { PlaceCard } from "@/components/guide/PlaceCard";
+import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -18,10 +19,10 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 const labels = {
-  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly." },
-  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement." },
-  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita." },
-  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність." },
+  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans." },
+  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans." },
+  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita.", walkingFinalTitle: "Soggiorna in centro, cammina ovunque", walkingFinalText: "Inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto ai tuoi piani." },
+  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність.", walkingFinalTitle: "Живіть у центрі й ходіть пішки всюди", walkingFinalText: "Надішліть дати, і ми допоможемо обрати апартаменти, які найкраще підходять вашим планам." },
 };
 
 export function generateStaticParams() {
@@ -48,6 +49,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const localized = localizeGuideArticle(article, locale);
   const page = getGuidePage(locale, slug);
   const copy = labels[locale];
+  const isWalkingGuide = article.slug === "menton-without-a-car";
   const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
   const relatedPlaces = getPlaces(relatedPlaceIds);
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
@@ -93,6 +95,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
             <article className="space-y-5">
+              {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {localized.sections.map((section) => {
                 const sectionPlaces = getPlaces(section.relatedPlaceIds ?? []);
                 return (
@@ -178,7 +181,13 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
       <Section className="py-12 sm:py-16">
         <Container>
-          <BookingCTA locale={locale} title={page?.cta.title ?? copy.finalTitle} text={page?.cta.text ?? copy.finalText} primaryLabel={copy.check} secondaryLabel={copy.apartments} />
+          <BookingCTA
+            locale={locale}
+            title={isWalkingGuide ? copy.walkingFinalTitle : (page?.cta.title ?? copy.finalTitle)}
+            text={isWalkingGuide ? copy.walkingFinalText : (page?.cta.text ?? copy.finalText)}
+            primaryLabel={copy.check}
+            secondaryLabel={copy.apartments}
+          />
         </Container>
       </Section>
     </>
