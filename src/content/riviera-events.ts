@@ -322,7 +322,9 @@ export const rivieraEvents: RivieraEvent[] = [
       "Ideale per una pausa in Riviera con Mentone come base sul mare piu tranquilla.",
       "Добре для короткої поїздки Рив'єрою з Ментоном як спокійнішою морською базою.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "verified",
+    sourceUrl: "https://www.tvfestival.com/en",
+    detailPage: true,
   },
   {
     id: "commedia-dell-arte-nice-2026",
@@ -355,6 +357,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Поєднайте морський відпочинок у Ментоні з культурним вечором або днем у Ніцці.",
     ),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.commedia-nice.com/festivaldecommedianice",
+    detailPage: true,
   },
   {
     id: "new-vision-nice-open-2026",
@@ -387,6 +391,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Зручно для спортивного вікенду без проживання безпосередньо в Ніцці.",
     ),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.explorenicecotedazur.com/evenement/new-vision-nice-open/",
+    detailPage: true,
   },
   {
     id: "matisse-yves-saint-laurent-nice-2026",
@@ -418,8 +424,10 @@ export const rivieraEvents: RivieraEvent[] = [
       "Si abbina bene a una giornata culturale a Nizza partendo da Mentone.",
       "Добре поєднується з культурним днем у Ніцці під час проживання в Ментоні.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "verified",
+    sourceUrl: "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
     featured: true,
+    detailPage: true,
   },
   {
     id: "jumping-international-monte-carlo-2026",
@@ -452,6 +460,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Бронюйте заздалегідь для липневих подій у Монако.",
     ),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.jumping-monaco.com/",
+    detailPage: true,
   },
   {
     id: "monte-carlo-summer-festival-2026",
@@ -484,6 +494,7 @@ export const rivieraEvents: RivieraEvent[] = [
       "Живіть біля моря в Ментоні та їдьте до Монако на вибрані вечори.",
     ),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival",
     featured: true,
     detailPage: true,
   },
@@ -1015,6 +1026,12 @@ export const rivieraEvents: RivieraEvent[] = [
 export const eventDetailSlugs = [
   "menton-lemon-festival",
   "monaco-grand-prix",
+  "monte-carlo-television-festival",
+  "commedia-dell-arte-nice",
+  "new-vision-nice-open",
+  "matisse-yves-saint-laurent-nice",
+  "jumping-international-monte-carlo",
+  "monte-carlo-summer-festival",
   "monaco-yacht-show",
   "nice-jazz-fest",
   "menton-music-festival",
@@ -1065,6 +1082,184 @@ export const summerOnTheRivieraEvent: RivieraEvent = {
 };
 
 const eventDetailsBySlug: Partial<Record<string, NonNullable<RivieraEvent["detailContent"]>>> = {
+  "monte-carlo-television-festival": {
+    overview: [
+      t(
+        "The Monte-Carlo Television Festival is one of the world's long-running international TV events, founded in 1961. The 65th edition is announced for 12-16 June 2026 under the high patronage of Prince Albert II.",
+        "Le Festival de Television de Monte-Carlo est l'un des rendez-vous internationaux de television les plus anciens, fonde en 1961. La 65e edition est annoncee du 12 au 16 juin 2026 sous le Haut Patronage du Prince Albert II.",
+        "Il Festival della Televisione di Monte-Carlo e uno degli appuntamenti televisivi internazionali piu longevi, fondato nel 1961. La 65a edizione e annunciata dal 12 al 16 giugno 2026 sotto l'alto patronato del Principe Alberto II.",
+        "Міжнародний телевізійний фестиваль Монте-Карло - одна з найстаріших міжнародних ТВ-подій, заснована 1961 року. 65-й випуск анонсовано на 12-16 червня 2026 року під високим патронатом князя Альбера II.",
+      ),
+      t(
+        "The programme mixes competition, premieres, masterclasses, fan meetings and award ceremonies. It is useful for guests interested in Monaco's media, celebrity and industry calendar.",
+        "Le programme mele competition, avant-premieres, masterclasses, rencontres avec le public et ceremonies de remise de prix. C'est utile pour les visiteurs interesses par le calendrier media, celebrites et industrie de Monaco.",
+        "Il programma combina concorso, anteprime, masterclass, incontri con il pubblico e cerimonie di premiazione. E utile per chi segue il calendario media, celebrity e industria di Monaco.",
+        "Програма поєднує конкурс, прем'єри, майстер-класи, зустрічі з публікою та церемонії нагородження. Це корисно для гостей, яким цікавий медійний, зірковий та індустріальний календар Монако.",
+      ),
+    ],
+    venues: [
+      t("Main venue: Grimaldi Forum Monaco, 10 Avenue Princesse Grace, 98000 Monaco.", "Lieu principal : Grimaldi Forum Monaco, 10 Avenue Princesse Grace, 98000 Monaco.", "Sede principale: Grimaldi Forum Monaco, 10 Avenue Princesse Grace, 98000 Monaco.", "Головна локація: Grimaldi Forum Monaco, 10 Avenue Princesse Grace, 98000 Monaco."),
+      t("Opening ceremony and screenings are usually held inside the Grimaldi Forum; some fan and media activity may be around Monaco Media and the Casino area.", "La ceremonie d'ouverture et les projections ont generalement lieu au Grimaldi Forum ; certaines activites publiques et media peuvent se trouver autour de Monaco Media et du Casino.", "Cerimonia di apertura e proiezioni si svolgono di solito al Grimaldi Forum; alcune attivita fan e media possono essere nell'area Monaco Media e Casino.", "Відкриття та покази зазвичай проходять у Grimaldi Forum; окремі фан- і медіаактивності можуть бути біля Monaco Media та району Casino."),
+    ],
+    family: t(
+      "Mostly adults. Some public fan-zone moments may interest teenagers, but the main format is industry-focused and best for TV fans aged around 16+.",
+      "Plutot adultes. Certains moments publics peuvent interesser les adolescents, mais le format principal reste professionnel et convient surtout aux fans de television a partir d'environ 16 ans.",
+      "Soprattutto per adulti. Alcuni momenti pubblici possono interessare adolescenti, ma il formato principale e professionale e piu adatto agli appassionati TV dai 16 anni circa.",
+      "Переважно для дорослих. Окремі відкриті фан-зони можуть зацікавити підлітків, але основний формат професійний і найкраще підходить шанувальникам телебачення приблизно від 16 років.",
+    ),
+    tickets: [
+      t("Official website: tvfestival.com. Some public events and screenings may be free with advance registration; ticketing details usually open closer to the festival.", "Site officiel : tvfestival.com. Certains evenements publics et projections peuvent etre gratuits sur inscription ; les details de billetterie ouvrent generalement plus pres du festival.", "Sito ufficiale: tvfestival.com. Alcuni eventi pubblici e proiezioni possono essere gratuiti con registrazione anticipata; i dettagli biglietti aprono di solito piu vicino al festival.", "Офіційний сайт: tvfestival.com. Деякі відкриті події та покази можуть бути безкоштовними за попередньою реєстрацією; деталі квитків зазвичай відкривають ближче до фестивалю."),
+      t("VIP events and gala evenings may be invitation-only or handled directly by the organising team.", "Les evenements VIP et soirees de gala peuvent etre sur invitation ou gerees directement par l'organisation.", "Eventi VIP e serate gala possono essere su invito o gestiti direttamente dall'organizzazione.", "VIP-події та гала-вечори можуть бути за запрошеннями або через прямий контакт з організаторами."),
+    ],
+    tips: [
+      t("If you want the industry atmosphere, focus on central Monaco around the Grimaldi Forum and Casino area.", "Pour l'ambiance professionnelle, concentrez-vous sur le centre de Monaco autour du Grimaldi Forum et du Casino.", "Per l'atmosfera professionale, concentrati sul centro di Monaco tra Grimaldi Forum e Casino.", "Якщо вам цікава індустріальна атмосфера, орієнтуйтеся на центр Монако навколо Grimaldi Forum і Casino."),
+      t("From Menton, train travel to Monaco-Monte-Carlo is usually easier than driving during Monaco event days.", "Depuis Menton, le train vers Monaco-Monte-Carlo est souvent plus simple que la voiture les jours d'evenement.", "Da Mentone, il treno per Monaco-Monte-Carlo e spesso piu semplice dell'auto nei giorni di evento.", "З Ментона поїзд до Monaco-Monte-Carlo зазвичай простіший, ніж авто в дні подій у Монако."),
+      t("Register early for public ceremonies or screenings when booking opens; popular sessions can fill quickly.", "Inscrivez-vous tot aux ceremonies ou projections publiques quand les reservations ouvrent ; les sessions populaires se remplissent vite.", "Registrati presto per cerimonie o proiezioni pubbliche quando aprono le prenotazioni; le sessioni popolari si riempiono velocemente.", "Реєструйтеся рано на відкриті церемонії чи покази, коли відкриється бронювання; популярні сесії швидко заповнюються."),
+    ],
+    officialLinks: [
+      { label: t("Official festival website", "Site officiel du festival", "Sito ufficiale del festival", "Офіційний сайт фестивалю"), href: "https://www.tvfestival.com/en" },
+      { label: t("Grimaldi Forum event page", "Page Grimaldi Forum", "Pagina Grimaldi Forum", "Сторінка Grimaldi Forum"), href: "https://www.grimaldiforum.com/en/events-schedule-monaco/65-festival-de-television-de-monte-carlo" },
+    ],
+  },
+  "commedia-dell-arte-nice": {
+    overview: [
+      t("The Festival International de Commedia Dell'Arte in Nice is a two-week theatre and street-performance festival built around masked comedy, music, workshops and screenings.",
+        "Le Festival International de Commedia Dell'Arte a Nice est un rendez-vous de theatre et de spectacle de rue sur deux semaines, autour de la comedie masquee, de la musique, des ateliers et des projections.",
+        "Il Festival International de Commedia Dell'Arte a Nizza e un appuntamento di teatro e spettacolo di strada di due settimane, tra commedia con maschere, musica, laboratori e proiezioni.",
+        "Міжнародний фестиваль Commedia Dell'Arte у Ніцці - двотижнева театральна та вулична подія навколо комедії масок, музики, майстер-класів і показів."),
+      t("Performers usually come from several countries and the festival can feel accessible and lively, with many outdoor shows in public squares. Programmes and venues should be checked before travelling.",
+        "Des artistes viennent generalement de plusieurs pays et le festival reste accessible et vivant, avec de nombreux spectacles en plein air sur les places. Verifiez programme et lieux avant de vous deplacer.",
+        "Gli artisti arrivano di solito da vari paesi e il festival e accessibile e vivace, con molti spettacoli all'aperto nelle piazze. Controllare programma e sedi prima di partire.",
+        "Виконавці зазвичай приїжджають із різних країн, а фестиваль має доступний і живий формат із багатьма виставами просто неба. Перед поїздкою перевіряйте програму та локації."),
+    ],
+    venues: [
+      t("Typical venues: Place Saint-Francois, Theatre de Verdure, Jardins Albert 1er and streets of Vieux Nice.", "Lieux habituels : Place Saint-Francois, Theatre de Verdure, Jardins Albert 1er et rues du Vieux Nice.", "Sedi abituali: Place Saint-Francois, Theatre de Verdure, Jardins Albert 1er e vie della Vecchia Nizza.", "Типові локації: Place Saint-Francois, Theatre de Verdure, Jardins Albert 1er і вулиці Старої Ніцци."),
+      t("Detailed programme: commedia-nice.com.", "Programme detaille : commedia-nice.com.", "Programma dettagliato: commedia-nice.com.", "Детальна програма: commedia-nice.com."),
+    ],
+    family: t("Depends on age. Outdoor masked comedy can work well for children aged around 6+, while some evening shows are more adult in tone.", "Cela depend de l'age. Les spectacles de masques en plein air conviennent souvent aux enfants d'environ 6 ans et plus, tandis que certains soirs sont plus adultes.", "Dipende dall'eta. La commedia con maschere all'aperto puo funzionare bene dai 6 anni circa, mentre alcune serate sono piu adulte.", "Залежить від віку. Комедія масок просто неба часто добре підходить дітям від приблизно 6 років, але деякі вечірні вистави більш дорослі."),
+    tickets: [
+      t("Many outdoor performances are usually free. Theatre performances may require tickets, often in a modest price range; check the current programme.", "De nombreux spectacles en plein air sont souvent gratuits. Les spectacles en salle peuvent etre payants, souvent a tarif modere ; verifiez le programme actuel.", "Molti spettacoli all'aperto sono spesso gratuiti. Gli spettacoli in teatro possono richiedere biglietti, spesso a prezzi moderati; controllare il programma attuale.", "Багато вуличних показів зазвичай безкоштовні. Театральні вистави можуть бути платними, часто в помірному діапазоні; перевіряйте актуальну програму."),
+    ],
+    tips: [
+      t("For families, start with public-square performances around Place Saint-Francois or Jardins Albert 1er.", "En famille, commencez par les spectacles sur les places autour de Place Saint-Francois ou Jardins Albert 1er.", "In famiglia, iniziare dagli spettacoli nelle piazze intorno a Place Saint-Francois o Jardins Albert 1er.", "Для сімей починайте з вистав на площах біля Place Saint-Francois або Jardins Albert 1er."),
+      t("Even in June, bring a light layer for evening performances.", "Meme en juin, prevoyez une veste legere pour les spectacles du soir.", "Anche a giugno, porta uno strato leggero per gli spettacoli serali.", "Навіть у червні візьміть легку куртку для вечірніх вистав."),
+      t("The festival runs for about two weeks, but not every venue has shows every day.", "Le festival dure environ deux semaines, mais tous les lieux n'ont pas des spectacles chaque jour.", "Il festival dura circa due settimane, ma non tutte le sedi hanno spettacoli ogni giorno.", "Фестиваль триває близько двох тижнів, але не на кожній локації є вистави щодня."),
+    ],
+    officialLinks: [
+      { label: t("Official festival website", "Site officiel du festival", "Sito ufficiale del festival", "Офіційний сайт фестивалю"), href: "https://www.commedia-nice.com/festivaldecommedianice" },
+    ],
+  },
+  "new-vision-nice-open": {
+    overview: [
+      t("New Vision Nice Open is a professional women's tennis event in Nice, planned for 8-14 June 2026. It gives visitors a smaller-scale sports atmosphere than the major Riviera stadium events.",
+        "Le New Vision Nice Open est un tournoi professionnel feminin a Nice, prevu du 8 au 14 juin 2026. Il offre une atmosphere sportive plus intime que les grands evenements de stade de la Riviera.",
+        "Il New Vision Nice Open e un torneo professionistico femminile a Nizza, previsto dall'8 al 14 giugno 2026. Offre un'atmosfera sportiva piu raccolta rispetto ai grandi eventi della Riviera.",
+        "New Vision Nice Open - професійний жіночий тенісний турнір у Ніцці, запланований на 8-14 червня 2026 року. Він дає більш камерну спортивну атмосферу, ніж великі стадіонні події Рив'єри."),
+      t("The event is useful for tennis fans and guests who want a sports-focused day trip from Menton without staying directly in Nice.",
+        "L'evenement convient aux fans de tennis et aux visiteurs qui veulent une sortie sportive depuis Menton sans loger directement a Nice.",
+        "L'evento e utile per appassionati di tennis e ospiti che vogliono una giornata sportiva da Mentone senza soggiornare direttamente a Nizza.",
+        "Подія корисна для шанувальників тенісу та гостей, які хочуть спортивну поїздку з Ментона без проживання в самій Ніцці."),
+    ],
+    venues: [
+      t("Nice Lawn Tennis Club: 5 Avenue Suzanne Lenglen, 06100 Nice.", "Nice Lawn Tennis Club : 5 Avenue Suzanne Lenglen, 06100 Nice.", "Nice Lawn Tennis Club: 5 Avenue Suzanne Lenglen, 06100 Nice.", "Nice Lawn Tennis Club: 5 Avenue Suzanne Lenglen, 06100 Nice."),
+    ],
+    family: t("Good with older children, especially if they already like tennis. For young children, long rallies and quiet-court etiquette can be difficult.", "Bien avec des enfants plus grands, surtout s'ils aiment deja le tennis. Pour les plus jeunes, les longs echanges et le silence autour du court peuvent etre difficiles.", "Adatto a ragazzi piu grandi, soprattutto se amano gia il tennis. Per bambini piccoli, scambi lunghi e silenzio in campo possono essere difficili.", "Добре зі старшими дітьми, особливо якщо вони вже люблять теніс. Для малюків довгі розіграші та правила тиші біля корту можуть бути складними."),
+    tickets: [
+      t("Ticket information should be checked through the organiser or Explore Nice Cote d'Azur. For smaller ITF-level events, access may be free or modestly priced, but do not rely on this without checking current details.", "Les informations de billetterie doivent etre verifiees via l'organisateur ou Explore Nice Cote d'Azur. Pour des tournois de ce niveau, l'acces peut etre gratuit ou peu cher, mais verifiez les details actuels.", "Le informazioni sui biglietti vanno verificate tramite organizzatore o Explore Nice Cote d'Azur. Per eventi di questo livello l'accesso puo essere gratuito o economico, ma controllare sempre i dettagli attuali.", "Інформацію про квитки варто перевіряти через організатора або Explore Nice Cote d'Azur. Для турнірів такого рівня вхід може бути безкоштовним або недорогим, але не покладайтеся на це без актуальної перевірки."),
+    ],
+    tips: [
+      t("Later rounds are usually more interesting for casual spectators.", "Les derniers tours sont souvent plus interessants pour les spectateurs occasionnels.", "I turni finali sono di solito piu interessanti per spettatori occasionali.", "Пізніші раунди зазвичай цікавіші для нерегулярних глядачів."),
+      t("Arrive earlier in the day for a calmer atmosphere and more match options.", "Arrivez plus tot dans la journee pour une atmosphere plus calme et plus de matchs possibles.", "Arriva prima nella giornata per un'atmosfera piu calma e piu partite disponibili.", "Приходьте раніше вдень для спокійнішої атмосфери та більшого вибору матчів."),
+      t("Check venue rules on food, drinks and bags before going.", "Verifiez les regles du site concernant nourriture, boissons et sacs avant de partir.", "Controlla le regole della sede su cibo, bevande e borse prima di andare.", "Перед поїздкою перевірте правила локації щодо їжі, напоїв і сумок."),
+    ],
+    officialLinks: [
+      { label: t("Explore Nice event page", "Page Explore Nice", "Pagina Explore Nice", "Сторінка Explore Nice"), href: "https://www.explorenicecotedazur.com/evenement/new-vision-nice-open/" },
+    ],
+  },
+  "matisse-yves-saint-laurent-nice": {
+    overview: [
+      t("Henri Matisse - Yves Saint Laurent: Le beau, la mode et le bonheur is an exhibition dialogue between two major French creative figures of the 20th century, shown at Musee Matisse Nice from 17 June to 28 September 2026.",
+        "Henri Matisse - Yves Saint Laurent : Le beau, la mode et le bonheur est une exposition-dialogue entre deux grandes figures creatives francaises du XXe siecle, presentee au Musee Matisse Nice du 17 juin au 28 septembre 2026.",
+        "Henri Matisse - Yves Saint Laurent: Le beau, la mode et le bonheur e un dialogo espositivo tra due grandi figure creative francesi del Novecento, al Musee Matisse Nice dal 17 giugno al 28 settembre 2026.",
+        "Henri Matisse - Yves Saint Laurent: Le beau, la mode et le bonheur - виставка-діалог двох великих французьких митців XX століття в Musee Matisse Nice з 17 червня до 28 вересня 2026 року."),
+      t("The exhibition connects painting, colour, textiles, fashion and archives, making it a strong cultural day trip from Menton for art and style lovers.",
+        "L'exposition relie peinture, couleur, textile, mode et archives, ce qui en fait une excellente sortie culturelle depuis Menton pour les amateurs d'art et de style.",
+        "La mostra collega pittura, colore, tessuti, moda e archivi, ed e una forte gita culturale da Mentone per amanti di arte e stile.",
+        "Виставка поєднує живопис, колір, текстиль, моду та архіви, тому це сильна культурна поїздка з Ментона для любителів мистецтва і стилю."),
+    ],
+    venues: [
+      t("Musee Matisse Nice: 164 Avenue des Arenes de Cimiez, 06000 Nice.", "Musee Matisse Nice : 164 Avenue des Arenes de Cimiez, 06000 Nice.", "Musee Matisse Nice: 164 Avenue des Arenes de Cimiez, 06000 Nice.", "Musee Matisse Nice: 164 Avenue des Arenes de Cimiez, 06000 Nice."),
+      t("The museum is in Cimiez, near gardens and archaeological sites above central Nice.", "Le musee se trouve a Cimiez, pres des jardins et sites archeologiques au-dessus du centre de Nice.", "Il museo si trova a Cimiez, vicino a giardini e siti archeologici sopra il centro di Nizza.", "Музей розташований у Cimiez, біля садів та археологічних пам'яток над центром Ніцци."),
+    ],
+    family: t("Depends on age and interests. Children aged around 10+ who enjoy art, colour or fashion may find it engaging; younger children may prefer the surrounding gardens.", "Cela depend de l'age et des centres d'interet. Les enfants d'environ 10 ans et plus interesses par l'art, la couleur ou la mode peuvent apprecier ; les plus jeunes prefereront peut-etre les jardins.", "Dipende da eta e interessi. Bambini dai 10 anni circa interessati ad arte, colore o moda possono apprezzarla; i piu piccoli potrebbero preferire i giardini intorno.", "Залежить від віку та інтересів. Дітям приблизно від 10 років, яким цікаві мистецтво, колір або мода, може сподобатися; молодші діти, можливо, більше оцінять сади поруч."),
+    tickets: [
+      t("Check Musee Matisse Nice and Explore Nice Cote d'Azur for current tickets, opening days and prices. Published public information has mentioned full-price access around EUR10, but always verify before visiting.", "Consultez le Musee Matisse Nice et Explore Nice Cote d'Azur pour les billets, horaires et tarifs actuels. Des informations publiques ont mentionne un plein tarif autour de 10 EUR, mais verifiez toujours avant la visite.", "Controlla Musee Matisse Nice ed Explore Nice Cote d'Azur per biglietti, giorni di apertura e prezzi. Informazioni pubbliche hanno indicato un prezzo intero intorno a 10 EUR, ma verificare sempre prima della visita.", "Перевіряйте Musee Matisse Nice та Explore Nice Cote d'Azur щодо квитків, днів роботи і цін. У публічній інформації згадувався повний квиток близько 10 EUR, але перед візитом завжди перевіряйте актуальні дані."),
+    ],
+    tips: [
+      t("Combine the exhibition with a walk through Cimiez gardens.", "Combinez l'exposition avec une promenade dans les jardins de Cimiez.", "Abbina la mostra a una passeggiata nei giardini di Cimiez.", "Поєднайте виставку з прогулянкою садами Cimiez."),
+      t("Families can add the nearby archaeological museum or open garden time for children.", "Les familles peuvent ajouter le musee archeologique voisin ou un moment dans les jardins pour les enfants.", "Le famiglie possono aggiungere il vicino museo archeologico o tempo nei giardini per i bambini.", "Сім'ї можуть додати сусідній археологічний музей або час у садах для дітей."),
+      t("Avoid arriving too late in the day if you want time for both the museum and Cimiez.", "Evitez d'arriver trop tard si vous voulez profiter a la fois du musee et de Cimiez.", "Evita di arrivare troppo tardi se vuoi visitare sia il museo sia Cimiez.", "Не приїжджайте надто пізно, якщо хочете встигнути і музей, і Cimiez."),
+    ],
+    officialLinks: [
+      { label: t("Musee Matisse Nice exhibition page", "Page exposition Musee Matisse Nice", "Pagina mostra Musee Matisse Nice", "Сторінка виставки Musee Matisse Nice"), href: "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/" },
+    ],
+  },
+  "jumping-international-monte-carlo": {
+    overview: [
+      t("Jumping International de Monte-Carlo is a premium equestrian event in Monaco, planned for 2-4 July 2026, with international show-jumping atmosphere around Port Hercule.",
+        "Le Jumping International de Monte-Carlo est un evenement equestre premium a Monaco, prevu du 2 au 4 juillet 2026, avec une atmosphere internationale de saut d'obstacles autour du Port Hercule.",
+        "Il Jumping International de Monte-Carlo e un evento equestre di prestigio a Monaco, previsto dal 2 al 4 luglio 2026, con atmosfera internazionale di salto ostacoli intorno a Port Hercule.",
+        "Jumping International de Monte-Carlo - престижна кінна подія в Монако, запланована на 2-4 липня 2026 року, з міжнародною атмосферою конкуру біля Port Hercule."),
+      t("The setting is very Riviera: horses, yachts, palm trees and the Monaco harbour in one compact summer event.",
+        "Le cadre est tres Riviera : chevaux, yachts, palmiers et port de Monaco dans un evenement estival compact.",
+        "L'ambiente e molto Riviera: cavalli, yacht, palme e porto di Monaco in un evento estivo compatto.",
+        "Локація дуже рив'єрська: коні, яхти, пальми та порт Монако в одній компактній літній події."),
+    ],
+    venues: [
+      t("Port Hercule, Route de la Piscine, 98000 Monaco.", "Port Hercule, Route de la Piscine, 98000 Monaco.", "Port Hercule, Route de la Piscine, 98000 Monaco.", "Port Hercule, Route de la Piscine, 98000 Monaco."),
+      t("From Monaco-Monte-Carlo station, allow time to walk down toward the port.", "Depuis la gare de Monaco-Monte-Carlo, prevoyez le temps de descendre vers le port.", "Dalla stazione Monaco-Monte-Carlo, prevedi tempo per scendere verso il porto.", "Від станції Monaco-Monte-Carlo закладіть час на спуск до порту."),
+    ],
+    family: t("Depends on age. Children who like horses may enjoy it from around age 5+, but applause, announcements and crowds can be tiring for very young children.", "Cela depend de l'age. Les enfants qui aiment les chevaux peuvent apprecier des 5 ans environ, mais applaudissements, annonces et foule peuvent fatiguer les tout-petits.", "Dipende dall'eta. I bambini che amano i cavalli possono apprezzarlo dai 5 anni circa, ma applausi, annunci e folla possono stancare i piu piccoli.", "Залежить від віку. Дітям, які люблять коней, може бути цікаво приблизно від 5 років, але оплески, оголошення і натовп можуть втомити малюків."),
+    tickets: [
+      t("Tickets and access rules should be checked on the official event website. Some sessions may be free while premium competitions or numbered seats can require paid tickets.", "Billets et conditions d'acces doivent etre verifies sur le site officiel. Certaines sessions peuvent etre gratuites, tandis que les competitions premium ou places numerotees peuvent etre payantes.", "Biglietti e regole di accesso vanno verificati sul sito ufficiale. Alcune sessioni possono essere gratuite, mentre gare premium o posti numerati possono essere a pagamento.", "Квитки та правила доступу перевіряйте на офіційному сайті. Деякі сесії можуть бути безкоштовними, тоді як преміальні змагання або нумеровані місця можуть бути платними."),
+    ],
+    tips: [
+      t("Final rounds are usually the most attractive for visitors who want the top sporting atmosphere.", "Les finales sont generalement les plus attractives pour ressentir la meilleure atmosphere sportive.", "Le finali sono di solito le piu interessanti per vivere la migliore atmosfera sportiva.", "Фінальні раунди зазвичай найцікавіші для гостей, які хочуть відчути головну спортивну атмосферу."),
+      t("For families, choose a less crowded session if children mainly want to see the horses.", "En famille, choisissez une session moins frequentee si les enfants veulent surtout voir les chevaux.", "In famiglia, scegli una sessione meno affollata se i bambini vogliono soprattutto vedere i cavalli.", "Для сімей обирайте менш людну сесію, якщо дітям головне побачити коней."),
+      t("Monaco harbour gets busy during events; train travel from Menton is usually simpler than parking.", "Le port de Monaco est charge pendant les evenements ; le train depuis Menton est souvent plus simple que le parking.", "Il porto di Monaco e affollato durante gli eventi; il treno da Mentone e spesso piu semplice del parcheggio.", "Порт Монако завантажений під час подій; поїзд із Ментона зазвичай простіший, ніж паркування."),
+    ],
+    officialLinks: [
+      { label: t("Official Jumping Monaco website", "Site officiel Jumping Monaco", "Sito ufficiale Jumping Monaco", "Офіційний сайт Jumping Monaco"), href: "https://www.jumping-monaco.com/" },
+    ],
+  },
+  "monte-carlo-summer-festival": {
+    overview: [
+      t("Monte-Carlo Summer Festival is a summer concert and entertainment season organised by Monte-Carlo Société des Bains de Mer, planned from 3 July to 15 August 2026.",
+        "Le Monte-Carlo Summer Festival est une saison de concerts et spectacles d'ete organisee par Monte-Carlo Societe des Bains de Mer, prevue du 3 juillet au 15 aout 2026.",
+        "Il Monte-Carlo Summer Festival e una stagione estiva di concerti e spettacoli organizzata da Monte-Carlo Societe des Bains de Mer, prevista dal 3 luglio al 15 agosto 2026.",
+        "Monte-Carlo Summer Festival - літній сезон концертів і шоу від Monte-Carlo Societe des Bains de Mer, запланований на 3 липня - 15 серпня 2026 року."),
+      t("Events are held in iconic Monaco venues such as Opéra de Monte-Carlo and Sporting Monte-Carlo, making it useful for guests who want one or two special Monaco evenings while staying by the sea in Menton.",
+        "Les soirees ont lieu dans des lieux iconiques de Monaco comme l'Opera de Monte-Carlo et le Sporting Monte-Carlo, utiles pour une ou deux soirees speciales a Monaco depuis Menton.",
+        "Gli eventi si svolgono in sedi iconiche come Opera de Monte-Carlo e Sporting Monte-Carlo, ideali per una o due serate speciali a Monaco partendo da Mentone.",
+        "Події проходять у знакових локаціях Монако, як-от Opera de Monte-Carlo та Sporting Monte-Carlo, що зручно для одного-двох особливих вечорів у Монако під час проживання біля моря в Ментоні."),
+    ],
+    venues: [
+      t("Sporting Monte-Carlo, Salle des Etoiles: Avenue Princesse Grace, 98000 Monaco.", "Sporting Monte-Carlo, Salle des Etoiles : Avenue Princesse Grace, 98000 Monaco.", "Sporting Monte-Carlo, Salle des Etoiles: Avenue Princesse Grace, 98000 Monaco.", "Sporting Monte-Carlo, Salle des Etoiles: Avenue Princesse Grace, 98000 Monaco."),
+      t("Opéra de Monte-Carlo: Place du Casino, 98000 Monaco.", "Opera de Monte-Carlo : Place du Casino, 98000 Monaco.", "Opera de Monte-Carlo: Place du Casino, 98000 Monaco.", "Opera de Monte-Carlo: Place du Casino, 98000 Monaco."),
+    ],
+    family: t("Depends on the artist and evening. Some concerts can work for families with older children, but many Monaco evening shows are better suited to adults or teenagers.", "Cela depend de l'artiste et de la soiree. Certains concerts conviennent aux familles avec enfants plus grands, mais beaucoup de soirees monegasques sont plutot adultes ou adolescentes.", "Dipende dall'artista e dalla serata. Alcuni concerti possono andare bene per famiglie con ragazzi piu grandi, ma molte serate a Monaco sono piu adatte ad adulti o adolescenti.", "Залежить від артиста та вечора. Деякі концерти можуть підійти сім'ям зі старшими дітьми, але багато вечірніх шоу Монако краще для дорослих або підлітків."),
+    tickets: [
+      t("Tickets are sold through the Monte-Carlo SBM website and authorised ticketing partners. Prices vary widely by artist, venue and seat category.", "Les billets sont vendus via le site Monte-Carlo SBM et les partenaires autorises. Les prix varient fortement selon artiste, lieu et categorie.", "I biglietti sono venduti tramite il sito Monte-Carlo SBM e partner autorizzati. I prezzi variano molto secondo artista, sede e categoria.", "Квитки продаються через сайт Monte-Carlo SBM та авторизованих партнерів. Ціни сильно залежать від артиста, локації та категорії місця."),
+    ],
+    tips: [
+      t("Choose the concert first, then request accommodation dates; headline evenings can drive demand.", "Choisissez d'abord le concert, puis demandez vos dates de logement ; les grandes soirees peuvent augmenter la demande.", "Scegli prima il concerto, poi richiedi le date di soggiorno; le serate principali possono aumentare la domanda.", "Спочатку оберіть концерт, потім надсилайте запит на дати проживання; головні вечори можуть підвищувати попит."),
+      t("If returning to Menton late, check train times or arrange a transfer before the evening.", "Si vous rentrez tard a Menton, verifiez les trains ou organisez un transfert avant la soiree.", "Se rientri tardi a Mentone, controlla i treni o organizza un transfer prima della serata.", "Якщо повертаєтеся до Ментона пізно, перевірте поїзди або організуйте трансфер до вечора."),
+      t("Dress codes can vary by venue and show; check the organiser's details.", "Les dress codes varient selon le lieu et le spectacle ; verifiez les informations de l'organisateur.", "I dress code variano secondo sede e spettacolo; controlla le indicazioni dell'organizzatore.", "Дрес-код може залежати від локації та шоу; перевіряйте інформацію організатора."),
+    ],
+    officialLinks: [
+      { label: t("Monte-Carlo SBM festival page", "Page festival Monte-Carlo SBM", "Pagina festival Monte-Carlo SBM", "Сторінка фестивалю Monte-Carlo SBM"), href: "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival" },
+    ],
+  },
   "menton-lemon-festival": {
     overview: [
       t(
