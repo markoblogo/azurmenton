@@ -61,11 +61,13 @@ export type RivieraEvent = {
   media?: {
     image?: string;
     imageAlt?: LocalizedText;
+    imageCaption?: LocalizedText;
+    mediaType?: "project_illustration";
     gallery?: string[];
     mediaEmbedUrl?: string;
     mediaSourceName?: string;
     mediaRightsNote?: string;
-    mediaStatus?: "available" | "placeholder" | "needs_rights_check";
+    mediaStatus?: "available" | "missing" | "needs_review";
   };
 };
 
@@ -255,7 +257,53 @@ const relatedAll = [
   "beachside-family-apartment",
 ];
 
-export const rivieraEvents: RivieraEvent[] = [
+function eventIllustration(filename: string, title: string): NonNullable<RivieraEvent["media"]> {
+  return {
+    image: `/images/events/${filename}`,
+    imageAlt: t(
+      `Project illustration for ${title} near Menton`,
+      `Illustration de projet pour ${title} pres de Menton`,
+      `Illustrazione di progetto per ${title} vicino a Mentone`,
+      `Проєктна ілюстрація для ${title} поруч із Ментоном`,
+    ),
+    imageCaption: t(
+      "Project illustration, not an official event photograph.",
+      "Illustration de projet, pas une photographie officielle de l'evenement.",
+      "Illustrazione di progetto, non una fotografia ufficiale dell'evento.",
+      "Проєктна ілюстрація, не офіційна фотографія події.",
+    ),
+    mediaType: "project_illustration",
+    mediaStatus: "available",
+  };
+}
+
+const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
+  "monaco-grand-prix-2026": eventIllustration("monaco-grand-prix.png", "Formula 1 Monaco Grand Prix"),
+  "monte-carlo-television-festival-2026": eventIllustration("monte-carlo-television-festival.png", "Monte-Carlo Television Festival"),
+  "commedia-dell-arte-nice-2026": eventIllustration("festival-international-commedia-dell-arte.png", "Festival International de Commedia Dell'Arte"),
+  "new-vision-nice-open-2026": eventIllustration("new-vision-nice-open.png", "New Vision Nice Open"),
+  "matisse-yves-saint-laurent-nice-2026": eventIllustration("henri-matisse-yves-saint-laurent.png", "Henri Matisse - Yves Saint Laurent"),
+  "jumping-international-monte-carlo-2026": eventIllustration("jumping-international-monte-carlo.png", "Jumping International de Monte-Carlo"),
+  "monte-carlo-summer-festival-2026": eventIllustration("monte-carlo-summer-festival.png", "Monte-Carlo Summer Festival"),
+  "monaco-energy-boat-challenge-2026": eventIllustration("monaco-energy-boat-challenge.png", "Monaco Energy Boat Challenge"),
+  "meeting-herculis-ebs-2026": eventIllustration("meeting-herculis-ebs.png", "Meeting Herculis EBS"),
+  "nice-jazz-fest-2026": eventIllustration("nice-jazz-fest.png", "Nice Jazz Fest"),
+  "menton-music-festival-2026": eventIllustration("menton-music-festival.png", "Festival de Musique de Menton"),
+  "la-vuelta-monaco-start-2026": eventIllustration("grand-depart-la-vuelta-monaco.png", "Grand Depart / start of La Vuelta in Monaco"),
+  "tour-de-france-femmes-nice-finish-2026": eventIllustration("tour-de-france-femmes-nice-finish.png", "Finish of the women's Tour de France in Nice"),
+  "art3f-monaco-2026": eventIllustration("art3f-monaco.png", "ART3F Monaco"),
+  "monaco-yacht-show-2026": eventIllustration("monaco-yacht-show.png", "Monaco Yacht Show"),
+  "matisse-yves-saint-laurent-autumn-2026": eventIllustration("henri-matisse-yves-saint-laurent.png", "Henri Matisse - Yves Saint Laurent"),
+  "immersive-exhibitions-nice-2026": eventIllustration("ongoing-exhibitions-nice.png", "Ongoing exhibitions in Nice"),
+  "nice-cannes-marathon-2026": eventIllustration("nice-cannes-marathon.png", "Alpes-Maritimes Nice-Cannes Marathon"),
+  "major-sports-weekends-nice-autumn-2026": eventIllustration("major-sports-weekends-nice.png", "Major sports weekends in Nice"),
+  "winter-on-the-riviera-2026-2027": eventIllustration("winter-on-the-riviera.png", "Winter on the Riviera"),
+  "local-menton-winter-events-2026-2027": eventIllustration("local-winter-events-menton-nearby-villages.png", "Local winter events in Menton and nearby villages"),
+  "menton-lemon-festival-2027": eventIllustration("menton-lemon-festival.png", "Fete du Citron / Menton Lemon Festival"),
+  "nice-carnival-2027": eventIllustration("nice-carnival.png", "Nice Carnival"),
+};
+
+const rivieraEventsBase: RivieraEvent[] = [
   {
     id: "monaco-grand-prix-2026",
     slug: "monaco-grand-prix",
@@ -1022,6 +1070,11 @@ export const rivieraEvents: RivieraEvent[] = [
     detailPage: true,
   },
 ];
+
+export const rivieraEvents: RivieraEvent[] = rivieraEventsBase.map((event) => ({
+  ...event,
+  media: eventIllustrations[event.id] ?? event.media,
+}));
 
 export const eventDetailSlugs = [
   "menton-lemon-festival",

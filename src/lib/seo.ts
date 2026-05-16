@@ -8,6 +8,7 @@ type MetadataInput = {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   type?: "website" | "article";
 };
 
@@ -40,6 +41,7 @@ export function createMetadata({
   title,
   description = siteConfig.description,
   image = siteConfig.defaultOgImage,
+  imageAlt = siteConfig.name,
   type = "website",
 }: MetadataInput): Metadata {
   const currentPath = localizedPath(locale, path);
@@ -71,7 +73,7 @@ export function createMetadata({
       images: [
         {
           url: imageUrl,
-          alt: siteConfig.name,
+          alt: imageAlt,
         },
       ],
     },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { EventsCalendar } from "@/components/events/EventsCalendar";
+import { EventImage } from "@/components/events/EventImage";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -137,12 +138,10 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
   const href = event.detailPage ? (`/${locale}/events/${event.slug}` as Route) : (`/${locale}/events` as Route);
 
   return (
-    <Link href={href} className="group relative flex min-h-80 flex-col justify-between overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-5 transition hover:border-[#c6a66a]">
-      <span className="absolute right-5 top-5 text-6xl font-serif text-[#f0e3cd]" aria-hidden="true">
-        {event.location.slice(0, 1)}
-      </span>
-      <div>
-        <div className="relative flex flex-wrap gap-2">
+    <Link href={href} className="group grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a]">
+      <EventImage event={event} locale={locale} className="min-h-60 border-0 border-b" sizes="(min-width: 1024px) 30vw, 92vw" />
+      <div className="grid gap-5 p-5">
+        <div className="flex flex-wrap gap-2">
           <span className="border border-[#d2a748] bg-[#fff5d8] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#7b5515]">
             {event.dateLabel}
           </span>
@@ -150,13 +149,11 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
             {event.location}
           </span>
         </div>
-        <h3 className="serif-heading relative mt-8 break-words text-3xl leading-[0.98] text-[#173f36] sm:text-4xl sm:leading-[0.92]">{event.title}</h3>
-        <p className="relative mt-5 border-l border-[#c6a66a] pl-4 font-serif text-lg italic leading-7 text-[#315d53]">
+        <h3 className="serif-heading break-words text-3xl leading-[0.98] text-[#173f36] sm:text-4xl sm:leading-[0.92]">{event.title}</h3>
+        <p className="border-l border-[#c6a66a] pl-4 font-serif text-lg italic leading-7 text-[#315d53]">
           {event.whyShowOnSite[locale]}
         </p>
-      </div>
-      <div>
-        <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-[#dfd4c1] pt-4">
+        <div className="flex flex-wrap items-center gap-3 border-t border-[#dfd4c1] pt-4">
           <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#b07820]">
             {eventCategoryLabels[locale][event.category[0]]}
           </span>
@@ -186,20 +183,31 @@ export default async function EventsLandingPage({ params }: PageProps) {
     <>
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
-          <div className="grid gap-10 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-24">
+          <div className="grid gap-10 py-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:py-20">
             <div>
               <p className="editorial-label">Riviera calendar</p>
               <h1 className="serif-heading mt-4 max-w-3xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-7xl sm:leading-[0.92]">
                 {labels.title}
               </h1>
-            </div>
-            <div>
-              <p className="max-w-2xl text-xl leading-8 text-[#5f574c]">{labels.subtitle}</p>
+              <p className="mt-7 max-w-2xl text-xl leading-8 text-[#5f574c]">{labels.subtitle}</p>
               <p className="mt-5 border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">{labels.note}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href={`/${safeLocale}/check-availability`}>{labels.availability}</Button>
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">{labels.apartments}</Button>
               </div>
+            </div>
+            <div className="grid grid-cols-[0.8fr_1.1fr] gap-4 lg:min-h-[30rem]">
+              {featured.slice(0, 3).map((event, index) => (
+                <EventImage
+                  key={event.id}
+                  event={event}
+                  locale={safeLocale}
+                  priority={index === 0}
+                  className={`${index === 0 ? "col-span-2 min-h-72 lg:col-span-1 lg:row-span-2 lg:min-h-full" : "min-h-48"} bg-[#fffdf8] p-2`}
+                  imageClassName="p-2"
+                  sizes={index === 0 ? "(min-width: 1024px) 34vw, 92vw" : "(min-width: 1024px) 22vw, 44vw"}
+                />
+              ))}
             </div>
           </div>
         </Container>

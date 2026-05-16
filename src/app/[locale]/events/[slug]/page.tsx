@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
+import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -30,6 +31,8 @@ const copy = {
     date: "Date / season",
     location: "Location",
     family: "Family suitability",
+    status: "Source status",
+    bestFor: "Best for",
     verify: "Planning note",
     verifyText:
       "Dates, access rules and event details can change. Check official sources before booking travel or buying tickets.",
@@ -50,6 +53,8 @@ const copy = {
     date: "Date / saison",
     location: "Lieu",
     family: "Adaptation famille",
+    status: "Statut source",
+    bestFor: "Ideal pour",
     verify: "Note pratique",
     verifyText:
       "Dates, acces et details peuvent changer. Verifiez les sources officielles avant de reserver votre voyage ou des billets.",
@@ -70,6 +75,8 @@ const copy = {
     date: "Data / stagione",
     location: "Localita",
     family: "Adatto a famiglie",
+    status: "Stato fonte",
+    bestFor: "Ideale per",
     verify: "Nota pratica",
     verifyText:
       "Date, accessi e dettagli possono cambiare. Controlla fonti ufficiali prima di prenotare viaggio o biglietti.",
@@ -90,6 +97,8 @@ const copy = {
     date: "Дата / сезон",
     location: "Локація",
     family: "Для сімей",
+    status: "Статус джерела",
+    bestFor: "Найкраще для",
     verify: "Практична примітка",
     verifyText:
       "Дати, правила доступу та деталі можуть змінюватися. Перевіряйте офіційні джерела перед бронюванням подорожі чи квитків.",
@@ -130,6 +139,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: `events/${event.slug}`,
     title: `${event.title} | Azur Menton`,
     description: event.shortDescription[safeLocale],
+    image: event.media?.image,
+    imageAlt: event.media?.imageAlt?.[safeLocale],
     type: "article",
   });
 }
@@ -173,14 +184,12 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
-          <div className="grid gap-10 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-24">
+          <div className="grid gap-10 py-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-20">
             <div>
               <p className="editorial-label">{labels.eyebrow}</p>
               <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-7xl sm:leading-[0.92]">
                 {event.title}
               </h1>
-            </div>
-            <div>
               <p className="max-w-2xl text-xl leading-8 text-[#5f574c]">{event.shortDescription[locale]}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {event.category.map((category) => (
@@ -192,6 +201,33 @@ export default async function EventArticlePage({ params }: PageProps) {
                   {sourceStatusLabels[locale][event.sourceStatus]}
                 </span>
               </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href={`/${locale}/check-availability` as Route}
+                  className="inline-flex min-h-11 items-center justify-center border border-[#173f36] bg-[#173f36] px-5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
+                >
+                  {labels.availability}
+                </Link>
+                <Link
+                  href={`/${locale}/apartments` as Route}
+                  className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] px-5 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                >
+                  {labels.viewApartments}
+                </Link>
+              </div>
+            </div>
+            <div>
+              <EventImage
+                event={event}
+                locale={locale}
+                priority
+                className="min-h-[22rem] bg-[#fffdf8] p-2 lg:min-h-[34rem]"
+                imageClassName="p-2"
+                sizes="(min-width: 1024px) 48vw, 92vw"
+              />
+              {event.media?.imageCaption ? (
+                <p className="mt-3 text-xs leading-5 text-[#6b5f50]">{event.media.imageCaption[locale]}</p>
+              ) : null}
             </div>
           </div>
         </Container>
@@ -199,18 +235,20 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <Section>
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.36fr]">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.34fr]">
             <article className="grid gap-10">
-              <div className="border-y border-[#dfd4c1] py-6">
-                <dl className="grid gap-5 text-sm sm:grid-cols-3">
+              <div className="border-y border-[#dfd4c1] bg-[#fffdf8] p-5 sm:p-6">
+                <dl className="grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
                   {[
                     [labels.date, event.dateLabel],
                     [labels.location, event.location],
                     [labels.family, familySuitabilityLabels[locale][event.familySuitability]],
+                    [labels.status, sourceStatusLabels[locale][event.sourceStatus]],
+                    [labels.bestFor, event.category.map((category) => eventCategoryLabels[locale][category]).slice(0, 2).join(", ")],
                   ].map(([label, value]) => (
                     <div key={label}>
                       <dt className="text-[#6b5f50]">{label}</dt>
-                      <dd className="mt-2 serif-heading break-words text-2xl leading-tight text-[#17313a]">{value}</dd>
+                      <dd className="mt-2 serif-heading break-words text-xl leading-tight text-[#17313a]">{value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -220,19 +258,19 @@ export default async function EventArticlePage({ params }: PageProps) {
                 </p>
               </div>
 
-              <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+              <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                 <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.why}</h2>
                 <p className="font-serif text-2xl italic leading-9 text-[#315d53]">{event.whyShowOnSite[locale]}</p>
               </div>
 
-              <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+              <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                 <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.plan}</h2>
                 <p className="text-base leading-8 text-[#5c5044]">{event.bookingTip[locale]}</p>
               </div>
 
               {detail ? (
                 <>
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                     <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.overview}</h2>
                     <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
                       {detail.overview.map((paragraph) => (
@@ -241,7 +279,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                     </div>
                   </div>
 
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                     <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.venues}</h2>
                     <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
                       {detail.venues.map((venue) => (
@@ -250,12 +288,12 @@ export default async function EventArticlePage({ params }: PageProps) {
                     </ul>
                   </div>
 
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                     <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.familyDetails}</h2>
                     <p className="text-base leading-8 text-[#5c5044]">{detail.family[locale]}</p>
                   </div>
 
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                     <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tickets}</h2>
                     <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
                       {detail.tickets.map((ticket) => (
@@ -279,7 +317,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                     </div>
                   </div>
 
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
                     <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tips}</h2>
                     <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
                       {detail.tips.map((tip) => (
