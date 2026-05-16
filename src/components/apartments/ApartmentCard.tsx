@@ -10,6 +10,7 @@ export function ApartmentCard({
   apartment,
   locale,
   imageOverride,
+  compact = false,
 }: {
   apartment: Apartment;
   locale: Locale;
@@ -17,6 +18,7 @@ export function ApartmentCard({
     src: string;
     alt: string;
   };
+  compact?: boolean;
 }) {
   const copy = t[locale];
   const contentImage = getCardImage(apartment);
@@ -25,7 +27,7 @@ export function ApartmentCard({
 
   return (
     <Card className="group overflow-hidden bg-[#fbf7ef]">
-      <div className="relative aspect-[4/5] overflow-hidden border-b border-[#dfd4c1] bg-[#efe4d1]">
+      <div className={`relative overflow-hidden border-b border-[#dfd4c1] bg-[#efe4d1] ${compact ? "aspect-[4/3]" : "aspect-[4/5]"}`}>
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -35,13 +37,13 @@ export function ApartmentCard({
           className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imageOverride ? "" : imageObjectPosition(apartment, contentImage)}`}
         />
       </div>
-      <div className="p-5 sm:p-6">
+      <div className={compact ? "p-4" : "p-5 sm:p-6"}>
         <p className="editorial-label">{apartment.shortName[locale]}</p>
-        <h2 className="serif-heading mt-3 text-3xl leading-none text-[#173f36]">
+        <h2 className={`serif-heading mt-3 leading-none text-[#173f36] ${compact ? "text-2xl" : "text-3xl"}`}>
           {apartment.name[locale]}
         </h2>
-        <p className="mt-4 line-clamp-3 text-sm leading-6 text-[#5f574c]">{apartment.bestFor[locale]}</p>
-        <dl className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 border-y border-[#dfd4c1] py-4 text-sm">
+        <p className={`mt-3 text-sm leading-6 text-[#5f574c] ${compact ? "line-clamp-2" : "line-clamp-3"}`}>{apartment.bestFor[locale]}</p>
+        <dl className={`${compact ? "mt-4 py-3" : "mt-6 py-4"} grid grid-cols-2 gap-x-5 gap-y-3 border-y border-[#dfd4c1] text-sm`}>
           <div>
             <dt className="text-[#6b5f50]">{copy.guests}</dt>
             <dd className="font-semibold text-[#173f36]">{copy.upTo} {apartment.maxGuests}</dd>
@@ -51,7 +53,7 @@ export function ApartmentCard({
             <dd className="font-semibold text-[#173f36]">{apartment.sizeSqm} m²</dd>
           </div>
         </dl>
-        <div className="mt-5">
+        <div className={compact ? "mt-4" : "mt-5"}>
           <Button href={`/${locale}/apartments/${apartment.slug}`} variant="secondary">
             {copy.viewApartment}
           </Button>

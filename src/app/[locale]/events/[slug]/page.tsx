@@ -7,7 +7,6 @@ import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBl
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
 import {
   eventCategoryLabels,
   eventDetailSlugs,
@@ -43,8 +42,11 @@ const copy = {
     familyDetails: "With children",
     tickets: "Official links, tickets and prices",
     tips: "Practical tips",
-    apartments: "Recommended apartments",
-    links: "Useful next steps",
+    apartments: "Where to stay",
+    practicalNotes: "Practical notes",
+    links: "Useful links",
+    sidePlan: "Plan",
+    relatedGuide: "Menton without a car",
     availability: "Check availability",
     viewApartments: "View apartments",
   },
@@ -65,8 +67,11 @@ const copy = {
     familyDetails: "Avec des enfants",
     tickets: "Liens officiels, billets et prix",
     tips: "Conseils pratiques",
-    apartments: "Appartements recommandes",
-    links: "Etapes utiles",
+    apartments: "Ou loger",
+    practicalNotes: "Notes pratiques",
+    links: "Liens utiles",
+    sidePlan: "Plan",
+    relatedGuide: "Menton sans voiture",
     availability: "Verifier disponibilite",
     viewApartments: "Voir appartements",
   },
@@ -87,8 +92,11 @@ const copy = {
     familyDetails: "Con bambini",
     tickets: "Link ufficiali, biglietti e prezzi",
     tips: "Consigli pratici",
-    apartments: "Appartamenti consigliati",
-    links: "Prossimi passi utili",
+    apartments: "Dove soggiornare",
+    practicalNotes: "Note pratiche",
+    links: "Link utili",
+    sidePlan: "Piano",
+    relatedGuide: "Mentone senza auto",
     availability: "Controlla disponibilita",
     viewApartments: "Vedi appartamenti",
   },
@@ -109,8 +117,11 @@ const copy = {
     familyDetails: "З дітьми",
     tickets: "Офіційні посилання, квитки та ціни",
     tips: "Практичні поради",
-    apartments: "Рекомендовані апартаменти",
-    links: "Корисні наступні кроки",
+    apartments: "Де зупинитися",
+    practicalNotes: "Практичні нотатки",
+    links: "Корисні посилання",
+    sidePlan: "План",
+    relatedGuide: "Ментон без авто",
     availability: "Перевірити доступність",
     viewApartments: "Переглянути апартаменти",
   },
@@ -184,14 +195,14 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
-          <div className="grid gap-10 py-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-20">
+          <div className="grid gap-8 py-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-14">
             <div>
               <p className="editorial-label">{labels.eyebrow}</p>
-              <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-7xl sm:leading-[0.92]">
+              <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-6xl sm:leading-[0.92]">
                 {event.title}
               </h1>
-              <p className="max-w-2xl text-xl leading-8 text-[#5f574c]">{event.shortDescription[locale]}</p>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <p className="mt-5 max-w-2xl text-lg leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
                 {event.category.map((category) => (
                   <span key={category} className="border border-[#dfd4c1] bg-[#fffdf8] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#4f5b57]">
                     {eventCategoryLabels[locale][category]}
@@ -201,7 +212,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                   {sourceStatusLabels[locale][event.sourceStatus]}
                 </span>
               </div>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={`/${locale}/check-availability` as Route}
                   className="inline-flex min-h-11 items-center justify-center border border-[#173f36] bg-[#173f36] px-5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
@@ -221,7 +232,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                 event={event}
                 locale={locale}
                 priority
-                className="min-h-[22rem] bg-[#fffdf8] p-2 lg:min-h-[34rem]"
+                className="min-h-[18rem] bg-[#fffdf8] p-2 lg:min-h-[26rem]"
                 imageClassName="p-2"
                 sizes="(min-width: 1024px) 48vw, 92vw"
               />
@@ -233,11 +244,11 @@ export default async function EventArticlePage({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section>
+      <section className="py-10 sm:py-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.34fr]">
-            <article className="grid gap-10">
-              <div className="border-y border-[#dfd4c1] bg-[#fffdf8] p-5 sm:p-6">
+          <div className="grid gap-7 lg:grid-cols-[1fr_18rem]">
+            <article className="grid gap-7">
+              <div className="border-y border-[#dfd4c1] bg-[#fffdf8] p-4 sm:p-5">
                 <dl className="grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
                   {[
                     [labels.date, event.dateLabel],
@@ -248,119 +259,123 @@ export default async function EventArticlePage({ params }: PageProps) {
                   ].map(([label, value]) => (
                     <div key={label}>
                       <dt className="text-[#6b5f50]">{label}</dt>
-                      <dd className="mt-2 serif-heading break-words text-xl leading-tight text-[#17313a]">{value}</dd>
+                      <dd className="mt-1.5 serif-heading break-words text-lg leading-tight text-[#17313a]">{value}</dd>
                     </div>
                   ))}
                 </dl>
-                <p className="mt-6 border-l border-[#c6a66a] bg-[#fff9f0] p-4 text-sm leading-6 text-[#5c5044]">
+                <p className="mt-5 border-l border-[#c6a66a] bg-[#fff9f0] p-3 text-sm leading-6 text-[#5c5044]">
                   <span className="font-bold text-[#173f36]">{labels.verify}: </span>
                   {labels.verifyText}
                 </p>
               </div>
 
-              <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.why}</h2>
-                <p className="font-serif text-2xl italic leading-9 text-[#315d53]">{event.whyShowOnSite[locale]}</p>
-              </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                <section className="border border-[#dfd4c1] bg-[#fffdf8] p-5">
+                  <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.why}</h2>
+                  <p className="mt-4 font-serif text-xl italic leading-8 text-[#315d53]">{event.whyShowOnSite[locale]}</p>
+                  {detail?.overview.slice(0, 2).map((paragraph) => (
+                    <p key={paragraph[locale]} className="mt-4 text-sm leading-7 text-[#5c5044]">{paragraph[locale]}</p>
+                  ))}
+                </section>
 
-              <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.plan}</h2>
-                <p className="text-base leading-8 text-[#5c5044]">{event.bookingTip[locale]}</p>
+                <section className="border border-[#dfd4c1] bg-[#fffdf8] p-5">
+                  <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.plan}</h2>
+                  <p className="mt-4 text-sm leading-7 text-[#5c5044]">{event.bookingTip[locale]}</p>
+                  <p className="mt-4 border-l border-[#c6a66a] bg-[#fff9f0] p-3 text-sm leading-6 text-[#5c5044]">
+                    {labels.verifyText}
+                  </p>
+                </section>
               </div>
 
               {detail ? (
-                <>
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.overview}</h2>
-                    <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
-                      {detail.overview.map((paragraph) => (
-                        <p key={paragraph[locale]}>{paragraph[locale]}</p>
-                      ))}
+                <section className="border-t border-[#dfd4c1] pt-6">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                    <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.practicalNotes}</h2>
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{sourceStatusLabels[locale][event.sourceStatus]}</p>
+                  </div>
+                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                    <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.venues}</h3>
+                      <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#5c5044]">
+                        {detail.venues.map((venue) => (
+                          <li key={venue[locale]} className="border-l border-[#c6a66a] pl-3">{venue[locale]}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.familyDetails}</h3>
+                      <p className="mt-4 text-sm leading-7 text-[#5c5044]">{detail.family[locale]}</p>
+                    </div>
+                    <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.tickets}</h3>
+                      <div className="mt-4 grid gap-3 text-sm leading-7 text-[#5c5044]">
+                        {detail.tickets.map((ticket) => (
+                          <p key={ticket[locale]}>{ticket[locale]}</p>
+                        ))}
+                        {detail.officialLinks?.length ? (
+                          <div className="flex flex-wrap gap-2 pt-1">
+                            {detail.officialLinks.map((link) => (
+                              <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex min-h-10 items-center border border-[#c6a66a] px-3 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                              >
+                                {link.label[locale]}
+                              </a>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.tips}</h3>
+                      <ul className="mt-4 grid gap-2 text-sm leading-6 text-[#5c5044]">
+                        {detail.tips.map((tip) => (
+                          <li key={tip[locale]} className="border-l border-[#c6a66a] pl-3">{tip[locale]}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.venues}</h2>
-                    <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
-                      {detail.venues.map((venue) => (
-                        <li key={venue[locale]} className="border-l border-[#c6a66a] pl-4">{venue[locale]}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.familyDetails}</h2>
-                    <p className="text-base leading-8 text-[#5c5044]">{detail.family[locale]}</p>
-                  </div>
-
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tickets}</h2>
-                    <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
-                      {detail.tickets.map((ticket) => (
-                        <p key={ticket[locale]}>{ticket[locale]}</p>
-                      ))}
-                      {detail.officialLinks?.length ? (
-                        <div className="flex flex-wrap gap-3">
-                          {detail.officialLinks.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex min-h-11 items-center border border-[#c6a66a] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
-                            >
-                              {link.label[locale]}
-                            </a>
-                          ))}
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
-
-                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-8 md:grid-cols-[0.32fr_1fr]">
-                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tips}</h2>
-                    <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
-                      {detail.tips.map((tip) => (
-                        <li key={tip[locale]} className="border-l border-[#c6a66a] pl-4">{tip[locale]}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </>
+                </section>
               ) : null}
             </article>
 
-            <aside className="grid h-fit gap-5 border border-[#dfd4c1] bg-[#fffdf8] p-6 lg:sticky lg:top-24">
+            <aside className="grid h-fit gap-4 border border-[#dfd4c1] bg-[#fffdf8] p-5 lg:sticky lg:top-24">
               <div>
-                <p className="editorial-label">Plan</p>
+                <p className="editorial-label">{labels.sidePlan}</p>
                 <h2 className="serif-heading mt-2 text-3xl leading-none text-[#17313a]">{labels.links}</h2>
-                <div className="mt-5 grid gap-3">
+                <div className="mt-4 grid gap-3">
                   <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/check-availability` as Route}>
                     {labels.availability}
                   </Link>
                   <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/apartments` as Route}>
                     {labels.viewApartments}
                   </Link>
-                  <Link className="text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/menton-without-a-car` as Route}>
-                    Menton without a car
+                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/menton-without-a-car` as Route}>
+                    {labels.relatedGuide}
                   </Link>
+                  <p className="text-xs leading-5 text-[#6b5f50]">{labels.verifyText}</p>
                 </div>
               </div>
             </aside>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      <Section className="bg-[#fff3df]">
+      <section className="bg-[#fff3df] py-10 sm:py-12">
         <Container>
           <RelatedApartmentsBlock
             apartmentKeys={relatedApartmentKeys}
             locale={locale}
             title={labels.apartments}
+            compact
           />
         </Container>
-      </Section>
+      </section>
 
-      <Section>
+      <section className="py-10 sm:py-12">
         <Container>
           <BookingCTA
             locale={locale}
@@ -370,7 +385,7 @@ export default async function EventArticlePage({ params }: PageProps) {
             secondaryLabel={labels.viewApartments}
           />
         </Container>
-      </Section>
+      </section>
     </>
   );
 }

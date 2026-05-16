@@ -85,6 +85,11 @@ const copy = {
     sportsTitle: "Sports and prestige weekends",
     sportsText:
       "Monaco, Nice and the wider Riviera can become busy during major sport, yacht and prestige events. Menton gives a calmer seaside base.",
+    calendarSelection: "Calendar selection",
+    planningGuides: "Planning guides",
+    seasonalRhythm: "Seasonal rhythm",
+    families: "Families",
+    rivieraCalendar: "Riviera calendar",
   },
   fr: {
     filters: "Trouver les bonnes dates",
@@ -121,6 +126,11 @@ const copy = {
     sportsTitle: "Week-ends sport et prestige",
     sportsText:
       "Monaco, Nice et la Riviera peuvent etre tres demandes pendant les grands evenements. Menton reste une base plus calme au bord de mer.",
+    calendarSelection: "Selection du calendrier",
+    planningGuides: "Guides de planification",
+    seasonalRhythm: "Rythme saisonnier",
+    families: "Familles",
+    rivieraCalendar: "Calendrier Riviera",
   },
   it: {
     filters: "Trova le date giuste",
@@ -157,6 +167,11 @@ const copy = {
     sportsTitle: "Weekend sportivi e di prestigio",
     sportsText:
       "Monaco, Nizza e la Riviera sono piu richieste durante grandi eventi sportivi e nautici. Mentone resta una base piu calma sul mare.",
+    calendarSelection: "Selezione calendario",
+    planningGuides: "Guide di pianificazione",
+    seasonalRhythm: "Ritmo stagionale",
+    families: "Famiglie",
+    rivieraCalendar: "Calendario Riviera",
   },
   uk: {
     filters: "Знайти правильні дати",
@@ -193,6 +208,11 @@ const copy = {
     sportsTitle: "Спортивні та престижні вікенди",
     sportsText:
       "Монако, Ніцца та Рив'єра стають завантаженими під час великих спортивних і яхтових подій. Ментон дає спокійнішу морську базу.",
+    calendarSelection: "Вибір календаря",
+    planningGuides: "Гіди для планування",
+    seasonalRhythm: "Сезонний ритм",
+    families: "Сім'ї",
+    rivieraCalendar: "Календар Рив'єри",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -285,7 +305,7 @@ function Badge({ children, tone = "light" }: { children: React.ReactNode; tone?:
         : "border-[#dfd4c1] bg-[#fffdf8] text-[#4f5b57]";
 
   return (
-    <span className={`inline-flex items-center border px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] ${className}`}>
+    <span className={`inline-flex items-center border px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] ${className}`}>
       {children}
     </span>
   );
@@ -300,21 +320,21 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
       <EventImage
         event={event}
         locale={locale}
-        className={`${compact ? "min-h-52" : "min-h-64"} border-0 border-b lg:border-b-0 lg:border-r`}
+        className={`${compact ? "min-h-40" : "min-h-56"} border-0 border-b lg:border-b-0 lg:border-r`}
         sizes={compact ? "(min-width: 1024px) 22vw, 92vw" : "(min-width: 1024px) 34vw, 92vw"}
       />
-      <div className="flex flex-col p-5 sm:p-6">
+      <div className="flex flex-col p-4 sm:p-5">
         <div className="flex flex-wrap gap-2">
           <Badge tone={statusTone}>{statusLabel(locale, status)}</Badge>
           <Badge tone="blue">{event.location}</Badge>
           <Badge tone="gold">{event.dateLabel}</Badge>
           <Badge>{familySuitabilityLabels[locale][event.familySuitability]}</Badge>
         </div>
-        <h3 className={`${compact ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl"} serif-heading mt-5 break-words leading-[0.98] text-[#173f36]`}>
+        <h3 className={`${compact ? "text-2xl" : "text-3xl sm:text-4xl"} serif-heading mt-4 break-words leading-[0.98] text-[#173f36]`}>
           {hasDetail ? <Link href={eventHref(locale, event)}>{event.title}</Link> : event.title}
         </h3>
-        <p className="mt-4 line-clamp-3 text-sm leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
+        <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#5f574c]">{event.shortDescription[locale]}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
           {event.category.slice(0, 3).map((category) => (
             <Badge key={category}>{eventCategoryLabels[locale][category]}</Badge>
           ))}
@@ -322,8 +342,8 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
             {sourceStatusLabels[locale][event.sourceStatus]}
           </Badge>
         </div>
-        <div className="mt-5 grid gap-3 border-t border-[#dfd4c1] pt-5 text-sm leading-6">
-          <p className="font-serif text-lg italic leading-7 text-[#315d53]">
+        <div className="mt-4 grid gap-2 border-t border-[#dfd4c1] pt-4 text-sm leading-6">
+          <p className="line-clamp-2 font-serif text-base italic leading-6 text-[#315d53]">
             {event.whyShowOnSite[locale]}
           </p>
           {!compact ? (
@@ -333,18 +353,18 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
             </p>
           ) : null}
         </div>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-5 flex flex-col gap-2 sm:flex-row">
           {hasDetail ? (
             <Link
               href={eventHref(locale, event)}
-              className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+              className="inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
             >
               {copy[locale].eventDetails}
             </Link>
           ) : null}
           <Link
             href={`/${locale}/check-availability` as Route}
-            className="inline-flex min-h-11 items-center justify-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
+            className="inline-flex min-h-10 items-center justify-center border border-[#173f36] bg-[#173f36] px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
           >
             {copy[locale].availability}
           </Link>
@@ -460,19 +480,19 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   );
 
   return (
-    <div className="grid gap-12">
-      <section className="border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.08)] sm:p-6" aria-label={labels.filters}>
-        <div className="flex flex-col justify-between gap-4 border-b border-[#dfd4c1] pb-5 md:flex-row md:items-end">
+    <div className="grid gap-9">
+      <section className="border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.06)]" aria-label={labels.filters}>
+        <div className="flex flex-col justify-between gap-3 border-b border-[#dfd4c1] pb-4 md:flex-row md:items-end">
           <div>
             <p className="editorial-label">{labels.filters}</p>
-            <h2 className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{labels.timeline}</h2>
+            <h2 className="serif-heading mt-2 text-3xl text-[#173f36]">{labels.timeline}</h2>
           </div>
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#5f574c]">
             {labels.showing} {filtered.length} / {events.length}
           </p>
         </div>
 
-        <div className="mt-5 grid gap-3 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr]">
+        <div className="mt-4 grid gap-3 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr]">
           <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.month}
             <select className={selectClass} value={month} onChange={(event) => setMonth(event.target.value as MonthFilter)}>
@@ -506,9 +526,9 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             </select>
           </label>
         </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
           <input
-            className="min-h-12 w-full border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+            className="min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={labels.search}
@@ -517,7 +537,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
           <button
             type="button"
             onClick={clearFilters}
-            className="min-h-12 border border-[#173f36] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#173f36] hover:text-white"
+            className="min-h-11 border border-[#173f36] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#173f36] hover:text-white"
           >
             {labels.clear}
           </button>
@@ -542,14 +562,14 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
       </section>
 
       <section aria-label={labels.results}>
-        <div className="flex flex-col gap-3 border-b border-[#dfd4c1] pb-6 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-3 border-b border-[#dfd4c1] pb-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="editorial-label">Calendar selection</p>
-            <h2 className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{filtered.length} {labels.results}</h2>
+            <p className="editorial-label">{labels.calendarSelection}</p>
+            <h2 className="serif-heading mt-2 text-3xl text-[#173f36]">{filtered.length} {labels.results}</h2>
           </div>
         </div>
         {filtered.length ? (
-          <div className="mt-8 grid gap-5 xl:grid-cols-2">
+          <div className="mt-5 grid gap-4 xl:grid-cols-2">
             {filtered.map((event) => (
               <EventCard key={event.id} event={event} locale={locale} status={getEventDateStatus(event)} compact />
             ))}
@@ -560,17 +580,17 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
       </section>
 
       {filteredDatesPending.length ? (
-        <section aria-labelledby="events-dates-pending" className="border-y border-[#dfd4c1] py-8">
+        <section aria-labelledby="events-dates-pending" className="border-y border-[#dfd4c1] py-6">
           <div className="grid gap-5 md:grid-cols-[0.36fr_1fr] md:items-end">
             <div>
-              <p className="editorial-label">Planning guides</p>
-              <h2 id="events-dates-pending" className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">
+              <p className="editorial-label">{labels.planningGuides}</p>
+              <h2 id="events-dates-pending" className="serif-heading mt-2 text-3xl text-[#173f36]">
                 {labels.datesPendingTitle}
               </h2>
             </div>
             <p className="max-w-3xl text-sm leading-7 text-[#5f574c]">{labels.datesPendingText}</p>
           </div>
-          <div className="mt-8 grid gap-5 xl:grid-cols-2">
+          <div className="mt-5 grid gap-4 xl:grid-cols-2">
             {filteredDatesPending.map((event) => (
               <EventCard key={event.id} event={event} locale={locale} status="dates_pending" compact />
             ))}
@@ -595,13 +615,13 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
       ) : null}
 
       <section aria-labelledby="events-timeline">
-        <div className="border-b border-[#dfd4c1] pb-6">
-          <p className="editorial-label">Seasonal rhythm</p>
-          <h2 id="events-timeline" className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{labels.timeline}</h2>
+        <div className="border-b border-[#dfd4c1] pb-5">
+          <p className="editorial-label">{labels.seasonalRhythm}</p>
+          <h2 id="events-timeline" className="serif-heading mt-2 text-3xl text-[#173f36]">{labels.timeline}</h2>
         </div>
-        <div className="mt-8 grid gap-0">
+        <div className="mt-6 grid gap-0">
           {grouped.map((group) => (
-            <div key={group.id} className="relative grid gap-5 border-l border-[#dfd4c1] pb-10 pl-6 last:pb-0 md:grid-cols-[0.32fr_1fr] md:pl-8">
+            <div key={group.id} className="relative grid gap-4 border-l border-[#dfd4c1] pb-7 pl-5 last:pb-0 md:grid-cols-[0.28fr_1fr] md:pl-7">
               <span className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-[#b07820]" aria-hidden="true" />
               <div className="md:pr-8">
                 <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[#b07820]">
@@ -610,18 +630,16 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
                 <p className="mt-3 text-sm leading-6 text-[#5f574c]">{timelineIntro[locale][group.id]}</p>
               </div>
               <div className="grid gap-3">
-                {group.events.map((event, index) => (
+                {group.events.map((event) => (
                   <Link
                     key={event.id}
                     href={event.detailPage ? eventHref(locale, event) : (`/${locale}/events` as Route)}
-                    className={`grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a] sm:grid-cols-[8.5rem_1fr] md:grid-cols-[9.5rem_1fr_0.22fr] ${
-                      index === 0 ? "md:py-5" : "opacity-90"
-                    }`}
+                    className="grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] opacity-95 transition hover:border-[#c6a66a] sm:grid-cols-[7.5rem_1fr] md:grid-cols-[8rem_1fr_0.2fr]"
                   >
-                    <EventImage event={event} locale={locale} className="min-h-32 border-0 border-b sm:border-b-0 sm:border-r" sizes="160px" />
-                    <span className="grid gap-2 p-4">
+                    <EventImage event={event} locale={locale} className="min-h-28 border-0 border-b sm:border-b-0 sm:border-r" sizes="140px" />
+                    <span className="grid gap-1.5 p-3">
                       <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{event.dateLabel}</span>
-                      <span className={`serif-heading text-2xl leading-none text-[#173f36] ${index === 0 ? "" : ""}`}>{event.title}</span>
+                      <span className="serif-heading text-2xl leading-none text-[#173f36]">{event.title}</span>
                       <span className="line-clamp-2 text-sm leading-6 text-[#5f574c]">{event.shortDescription[locale]}</span>
                     </span>
                     <span className="flex items-end p-4 text-xs font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">{event.location}</span>
@@ -633,19 +651,19 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="border border-[#d9bf81] bg-[#fff3df] p-5 sm:p-7">
-          <p className="editorial-label text-[#d9b66b]">Families</p>
-          <h2 className="serif-heading mt-3 text-3xl text-[#173f36] sm:text-4xl">{labels.familyTitle}</h2>
+      <section className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="border border-[#d9bf81] bg-[#fff3df] p-5">
+          <p className="editorial-label text-[#d9b66b]">{labels.families}</p>
+          <h2 className="serif-heading mt-3 text-3xl text-[#173f36]">{labels.familyTitle}</h2>
           <p className="mt-4 text-sm leading-7 text-[#5f574c]">{labels.familyText}</p>
-          <div className="mt-6 grid gap-3">
+          <div className="mt-5 grid gap-3">
             {familyHighlights.map((event) => (
               <Link
                 key={event.id}
                 href={event.detailPage ? eventHref(locale, event) : (`/${locale}/events` as Route)}
                 className="grid overflow-hidden border border-[#e1c88d] bg-[#fffaf0] sm:grid-cols-[7.5rem_1fr]"
               >
-                <EventImage event={event} locale={locale} className="min-h-28 border-0 border-b sm:border-b-0 sm:border-r" sizes="140px" />
+                <EventImage event={event} locale={locale} className="min-h-24 border-0 border-b sm:border-b-0 sm:border-r" sizes="120px" />
                 <span className="grid gap-1 p-3">
                   <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#b07820]">
                     {familySuitabilityLabels[locale][event.familySuitability]}
@@ -657,11 +675,11 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             ))}
           </div>
         </div>
-        <div className="border border-[#dfd4c1] bg-[#173f36] p-7 text-white">
-          <p className="editorial-label">Riviera calendar</p>
-          <h2 className="serif-heading mt-3 text-3xl sm:text-4xl">{labels.sportsTitle}</h2>
+        <div className="border border-[#dfd4c1] bg-[#173f36] p-5 text-white">
+          <p className="editorial-label">{labels.rivieraCalendar}</p>
+          <h2 className="serif-heading mt-3 text-3xl">{labels.sportsTitle}</h2>
           <p className="mt-4 text-sm leading-7 text-white/75">{labels.sportsText}</p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {sportsPrestige.map((event) => (
               <Link
                 key={event.id}
