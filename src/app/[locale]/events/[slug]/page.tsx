@@ -35,6 +35,11 @@ const copy = {
       "Dates, access rules and event details can change. Check official sources before booking travel or buying tickets.",
     why: "Why it matters",
     plan: "How to plan your stay",
+    overview: "Event overview",
+    venues: "Where it happens",
+    familyDetails: "With children",
+    tickets: "Official links, tickets and prices",
+    tips: "Practical tips",
     apartments: "Recommended apartments",
     links: "Useful next steps",
     availability: "Check availability",
@@ -50,6 +55,11 @@ const copy = {
       "Dates, acces et details peuvent changer. Verifiez les sources officielles avant de reserver votre voyage ou des billets.",
     why: "Pourquoi c'est utile",
     plan: "Comment organiser le sejour",
+    overview: "Apercu de l'evenement",
+    venues: "Ou cela se passe",
+    familyDetails: "Avec des enfants",
+    tickets: "Liens officiels, billets et prix",
+    tips: "Conseils pratiques",
     apartments: "Appartements recommandes",
     links: "Etapes utiles",
     availability: "Verifier disponibilite",
@@ -65,6 +75,11 @@ const copy = {
       "Date, accessi e dettagli possono cambiare. Controlla fonti ufficiali prima di prenotare viaggio o biglietti.",
     why: "Perche conta",
     plan: "Come organizzare il soggiorno",
+    overview: "Panoramica evento",
+    venues: "Dove si svolge",
+    familyDetails: "Con bambini",
+    tickets: "Link ufficiali, biglietti e prezzi",
+    tips: "Consigli pratici",
     apartments: "Appartamenti consigliati",
     links: "Prossimi passi utili",
     availability: "Controlla disponibilita",
@@ -80,6 +95,11 @@ const copy = {
       "Дати, правила доступу та деталі можуть змінюватися. Перевіряйте офіційні джерела перед бронюванням подорожі чи квитків.",
     why: "Чому це важливо",
     plan: "Як планувати перебування",
+    overview: "Огляд події",
+    venues: "Де проходить",
+    familyDetails: "З дітьми",
+    tickets: "Офіційні посилання, квитки та ціни",
+    tips: "Практичні поради",
     apartments: "Рекомендовані апартаменти",
     links: "Корисні наступні кроки",
     availability: "Перевірити доступність",
@@ -132,6 +152,7 @@ export default async function EventArticlePage({ params }: PageProps) {
   const relatedApartmentKeys =
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
+  const detail = event.detailContent;
 
   return (
     <>
@@ -208,6 +229,66 @@ export default async function EventArticlePage({ params }: PageProps) {
                 <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.plan}</h2>
                 <p className="text-base leading-8 text-[#5c5044]">{event.bookingTip[locale]}</p>
               </div>
+
+              {detail ? (
+                <>
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.overview}</h2>
+                    <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
+                      {detail.overview.map((paragraph) => (
+                        <p key={paragraph[locale]}>{paragraph[locale]}</p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.venues}</h2>
+                    <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
+                      {detail.venues.map((venue) => (
+                        <li key={venue[locale]} className="border-l border-[#c6a66a] pl-4">{venue[locale]}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.familyDetails}</h2>
+                    <p className="text-base leading-8 text-[#5c5044]">{detail.family[locale]}</p>
+                  </div>
+
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tickets}</h2>
+                    <div className="grid gap-5 text-base leading-8 text-[#5c5044]">
+                      {detail.tickets.map((ticket) => (
+                        <p key={ticket[locale]}>{ticket[locale]}</p>
+                      ))}
+                      {detail.officialLinks?.length ? (
+                        <div className="flex flex-wrap gap-3">
+                          {detail.officialLinks.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex min-h-11 items-center border border-[#c6a66a] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                            >
+                              {link.label[locale]}
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                    <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tips}</h2>
+                    <ul className="grid gap-3 text-base leading-7 text-[#5c5044]">
+                      {detail.tips.map((tip) => (
+                        <li key={tip[locale]} className="border-l border-[#c6a66a] pl-4">{tip[locale]}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              ) : null}
             </article>
 
             <aside className="grid h-fit gap-5 border border-[#dfd4c1] bg-[#fffdf8] p-6 lg:sticky lg:top-24">

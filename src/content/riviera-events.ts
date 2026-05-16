@@ -47,6 +47,17 @@ export type RivieraEvent = {
   featured?: boolean;
   detailPage?: boolean;
   relatedApartmentKeys?: string[];
+  detailContent?: {
+    overview: LocalizedText[];
+    venues: LocalizedText[];
+    family: LocalizedText;
+    tickets: LocalizedText[];
+    tips: LocalizedText[];
+    officialLinks?: Array<{
+      label: LocalizedText;
+      href: string;
+    }>;
+  };
   media?: {
     image?: string;
     imageAlt?: LocalizedText;
@@ -276,6 +287,7 @@ export const rivieraEvents: RivieraEvent[] = [
       "Очікуйте високий попит, зміни руху і завантажені поїзди. Заздалегідь уточнюйте доступ і паркування.",
     ),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.acm.mc",
     featured: true,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -569,7 +581,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Soggiorna a Mentone come base piu tranquilla e vai a Nizza per le serate.",
       "Зупиніться в Ментоні як у спокійнішій морській базі та їдьте до Ніцци на вечори фестивалю.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "verified",
+    sourceUrl: "https://www.nicejazzfestival.fr",
     featured: true,
     detailPage: true,
   },
@@ -579,8 +592,9 @@ export const rivieraEvents: RivieraEvent[] = [
     title: "Festival de Musique de Menton",
     location: "Menton",
     monthGroup: "2026-07",
-    dateLabel: "July-August 2026; selected confirmed events on 2 and 4 August",
-    expectedSeason: "July-August 2026",
+    dateLabel: "25 July-7 August 2026",
+    startDate: "2026-07-25",
+    endDate: "2026-08-07",
     category: ["music", "art"],
     familySuitability: "good_with_older_children",
     audience: ["classical music lovers", "culture travellers", "couples", "older children"],
@@ -602,7 +616,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Prenota presto per soggiornare in centro vicino al mare durante il festival.",
       "Бронюйте заздалегідь, щоб жити в центрі біля моря під час фестивалю.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "verified",
+    sourceUrl: "https://www.festival-musique-menton.fr",
     featured: true,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -966,8 +981,9 @@ export const rivieraEvents: RivieraEvent[] = [
     title: "Nice Carnival",
     location: "Nice",
     monthGroup: "winter-highlights",
-    dateLabel: "February-early March 2027; official dates to confirm",
-    expectedSeason: "February-March 2027",
+    dateLabel: "9-28 February 2027",
+    startDate: "2027-02-09",
+    endDate: "2027-02-28",
     category: ["family", "winter", "seasonal"],
     familySuitability: "recommended_with_children",
     audience: ["families", "couples", "carnival visitors"],
@@ -989,7 +1005,8 @@ export const rivieraEvents: RivieraEvent[] = [
       "Buono per famiglie, soprattutto sfilate diurne ed eventi floreali quando disponibili.",
       "Добре для сімей, особливо денні паради та квіткові події, якщо вони є.",
     ),
-    sourceStatus: "official_source_needed",
+    sourceStatus: "verified",
+    sourceUrl: "https://www.nicecarnaval.com/en/",
     featured: true,
     detailPage: true,
   },
@@ -1047,7 +1064,150 @@ export const summerOnTheRivieraEvent: RivieraEvent = {
   relatedApartmentKeys: relatedAll,
 };
 
+const eventDetailsBySlug: Partial<Record<string, NonNullable<RivieraEvent["detailContent"]>>> = {
+  "menton-lemon-festival": {
+    overview: [
+      t(
+        "The Lemon Festival is Menton's signature winter event: giant sculptures made from lemons and oranges in the Jardins Bioves, daytime and evening carnival parades, craft stands and themed animations around town.",
+        "La Fete du Citron est l'evenement d'hiver emblematique de Menton : sculptures geantes de citrons et d'oranges dans les Jardins Bioves, corsos de jour et de nuit, marche artisanal et animations en ville.",
+        "La Fete du Citron e l'evento invernale simbolo di Mentone: sculture giganti di limoni e arance nei Jardins Bioves, sfilate diurne e serali, mercato artigianale e animazioni in citta.",
+        "Свято лимона - головна зимова подія Ментона: гігантські скульптури з лимонів та апельсинів у садах Bioves, денні й вечірні карнавальні кортежі, ярмарок ремесел і тематичні події в місті.",
+      ),
+      t(
+        "The atmosphere is very family-friendly, with music, street performers, light installations and a feeling of winter sunshine on the coast. Recent editions have run for about two weeks from mid-February to early March; future dates should always be checked on the official festival site.",
+        "L'ambiance est tres familiale, avec musique, artistes de rue, installations lumineuses et impression d'ete d'hiver sur la cote. Les editions recentes durent environ deux semaines entre mi-fevrier et debut mars ; les dates futures doivent toujours etre verifiees sur le site officiel.",
+        "L'atmosfera e molto adatta alle famiglie, con musica, artisti di strada, installazioni luminose e una sensazione di sole invernale sulla costa. Le edizioni recenti durano circa due settimane tra meta febbraio e inizio marzo; le date future vanno sempre verificate sul sito ufficiale.",
+        "Атмосфера дуже сімейна: музика, вуличні артисти, світлові інсталяції та відчуття зимового літа на узбережжі. Останні випуски тривали близько двох тижнів із середини лютого до початку березня; майбутні дати завжди варто перевіряти на офіційному сайті.",
+      ),
+    ],
+    venues: [
+      t("Citrus sculpture exhibition: Jardins Bioves, Avenue Boyer, 06500 Menton.", "Exposition des motifs d'agrumes : Jardins Bioves, Avenue Boyer, 06500 Menton.", "Esposizione delle sculture di agrumi: Jardins Bioves, Avenue Boyer, 06500 Menton.", "Виставка цитрусових фігур: Jardins Bioves, Avenue Boyer, 06500 Menton."),
+      t("Parades: Promenade du Soleil and nearby seafront streets.", "Corsos : Promenade du Soleil et rues proches du bord de mer.", "Sfilate: Promenade du Soleil e vie vicine al lungomare.", "Паради: Promenade du Soleil і прилеглі вулиці вздовж моря."),
+      t("Tourist information and ticket desk: Palais de l'Europe, 8 Avenue Boyer, 06500 Menton.", "Information touristique et billetterie : Palais de l'Europe, 8 Avenue Boyer, 06500 Menton.", "Informazioni turistiche e biglietteria: Palais de l'Europe, 8 Avenue Boyer, 06500 Menton.", "Туристична інформація та каси: Palais de l'Europe, 8 Avenue Boyer, 06500 Menton."),
+    ],
+    family: t(
+      "One of the best family events in the whole calendar. For younger children, daytime parades and morning visits to the gardens are usually the easiest because crowds are lighter.",
+      "L'un des meilleurs evenements familiaux de tout le calendrier. Avec de jeunes enfants, les corsos de jour et les visites des jardins le matin sont souvent les plus faciles, avec moins de foule.",
+      "Uno dei migliori eventi per famiglie di tutto il calendario. Con bambini piccoli, le sfilate diurne e le visite ai giardini al mattino sono di solito piu semplici perche c'e meno folla.",
+      "Одна з найкращих сімейних подій у всьому календарі. З маленькими дітьми найзручніші денні кортежі та ранкові візити до садів, коли менше людей.",
+    ),
+    tickets: [
+      t("Tickets are usually sold online through the festival website and at the Menton tourist office.", "Les billets sont generalement vendus en ligne sur le site du festival et a l'office de tourisme de Menton.", "I biglietti sono di solito venduti online sul sito del festival e presso l'ufficio turistico di Mentone.", "Квитки зазвичай продаються онлайн на сайті фестивалю та в туристичному офісі Ментона."),
+      t("Recent published prices give a rough order of magnitude: promenade parade access from about EUR16 for adults and EUR8 for children aged 6-12; grandstand seats are higher. Always check current official prices before booking.", "Les tarifs publies recemment donnent un ordre d'idee : acces promenoir aux corsos a partir d'environ 16 EUR adulte et 8 EUR enfant 6-12 ans ; les tribunes sont plus cheres. Verifiez toujours les tarifs officiels a jour.", "Le tariffe pubblicate di recente danno un ordine di grandezza: accesso in piedi alle sfilate da circa 16 EUR adulti e 8 EUR bambini 6-12 anni; le tribune costano di piu. Verificare sempre i prezzi ufficiali aggiornati.", "Останні опубліковані тарифи дають орієнтир: доступ до параду в зоні promenoir від приблизно 16 EUR для дорослого і 8 EUR для дітей 6-12 років; місця на трибунах дорожчі. Завжди перевіряйте актуальні офіційні ціни."),
+    ],
+    tips: [
+      t("Book accommodation and key parade tickets several months ahead where possible.", "Reservez logement et billets pour les grands corsos plusieurs mois a l'avance si possible.", "Prenota alloggio e biglietti per le sfilate principali con alcuni mesi di anticipo quando possibile.", "За можливості бронюйте житло і квитки на головні паради за кілька місяців."),
+      t("On parade days, streets are partly closed. If travelling by car, ask in advance about parking and access routes.", "Les jours de corso, certaines rues sont fermees. Si vous venez en voiture, demandez a l'avance les informations de parking et d'acces.", "Nei giorni di sfilata alcune strade sono chiuse. Se arrivi in auto, chiedi in anticipo informazioni su parcheggio e accesso.", "У дні парадів частину вулиць перекривають. Якщо їдете авто, заздалегідь уточнюйте паркування і під'їзд."),
+      t("For sensitive children, consider ear protection and bring snacks; cafe queues grow quickly on busy weekends.", "Pour les enfants sensibles, prevoyez des protections auditives et des encas ; les files dans les cafes augmentent vite les week-ends.", "Per bambini sensibili, porta protezioni per le orecchie e snack; nei weekend affollati le code nei cafe crescono rapidamente.", "Для чутливих дітей варто взяти захист для вух і перекуси; у вихідні черги в кафе швидко ростуть."),
+    ],
+    officialLinks: [
+      { label: t("Official Lemon Festival website", "Site officiel Fete du Citron", "Sito ufficiale Fete du Citron", "Офіційний сайт Fete du Citron"), href: "https://www.fete-du-citron.com" },
+      { label: t("Menton tourist office", "Office de tourisme de Menton", "Ufficio turistico di Mentone", "Туристичний офіс Ментона"), href: "https://www.menton-riviera-merveilles.co.uk/get-planning/schedule/major-events/lemon-festival/" },
+    ],
+  },
+  "nice-carnival": {
+    overview: [
+      t("Nice Carnival is one of Europe's major winter carnivals, with giant floats, illuminated shows, flower battles and a festive atmosphere across the city.", "Le Carnaval de Nice est l'un des grands carnavals d'hiver d'Europe, avec chars geants, spectacles lumineux, batailles de fleurs et ambiance festive dans toute la ville.", "Il Carnevale di Nizza e uno dei grandi carnevali invernali d'Europa, con carri giganti, spettacoli luminosi, battaglie di fiori e atmosfera festosa in tutta la citta.", "Карнавал Ніцци - один із великих зимових карнавалів Європи з гігантськими платформами, світловими шоу, квітковими баталіями та святковою атмосферою в місті."),
+      t("The format usually combines classic carnival parades, evening illuminated processions and Batailles de Fleurs, where performers throw flowers from decorated floats. The 2027 edition has been announced for 9-28 February with the theme Vive l'Amour.", "Le format combine generalement corsos carnavalesques, defiles illumines en soiree et Batailles de Fleurs, ou les artistes lancent des fleurs depuis les chars. L'edition 2027 est annoncee du 9 au 28 fevrier sur le theme Vive l'Amour.", "Il formato combina di solito sfilate carnevalesche, cortei illuminati serali e Batailles de Fleurs, con fiori lanciati dai carri decorati. L'edizione 2027 e annunciata dal 9 al 28 febbraio con il tema Vive l'Amour.", "Формат зазвичай поєднує класичні карнавальні кортежі, вечірні підсвічені паради і Batailles de Fleurs, коли артисти кидають квіти з декорованих платформ. Випуск 2027 року анонсовано на 9-28 лютого з темою Vive l'Amour."),
+    ],
+    venues: [
+      t("Main stage and grandstands: Place Massena, 06000 Nice.", "Scene principale et tribunes : Place Massena, 06000 Nice.", "Scena principale e tribune: Place Massena, 06000 Nice.", "Головна сцена і трибуни: Place Massena, 06000 Nice."),
+      t("Flower battles and some parades: Promenade des Anglais and nearby seafront areas.", "Batailles de Fleurs et certains corsos : Promenade des Anglais et secteurs voisins du bord de mer.", "Battaglie dei fiori e alcune sfilate: Promenade des Anglais e zone vicine al mare.", "Квіткові баталії та частина парадів: Promenade des Anglais і прилеглі ділянки набережної."),
+      t("Ticket desks are usually around Promenade du Paillon and the seafront carnival area.", "Les billetteries se trouvent generalement autour de la Promenade du Paillon et de la zone carnaval du bord de mer.", "Le biglietterie sono di solito intorno alla Promenade du Paillon e alla zona carnevale sul mare.", "Каси зазвичай розташовані біля Promenade du Paillon і карнавальної зони біля моря."),
+    ],
+    family: t("A strong family event. Daytime parades and flower parades are usually easiest with children; evening shows suit older children and teenagers better.", "Un evenement tres familial. Les defiles de jour et les batailles de fleurs sont souvent les plus simples avec enfants ; les soirees conviennent mieux aux plus grands.", "Un evento molto adatto alle famiglie. Le sfilate diurne e quelle floreali sono di solito piu facili con bambini; gli spettacoli serali sono migliori per ragazzi piu grandi.", "Дуже сімейна подія. Денні кортежі та квіткові паради зазвичай найзручніші з дітьми; вечірні шоу краще підходять старшим дітям і підліткам."),
+    tickets: [
+      t("Tickets are sold online on the official carnival website and at local ticket desks.", "Les billets sont vendus en ligne sur le site officiel du carnaval et aux billetteries locales.", "I biglietti sono venduti online sul sito ufficiale del carnevale e nelle biglietterie locali.", "Квитки продаються онлайн на офіційному сайті карнавалу та в місцевих касах."),
+      t("Recent published ranges: grandstand seats around EUR23-31 for adults and around EUR10-11 for children aged 6-12; standing areas around EUR14 adults and EUR5 children. Check the official site for current prices.", "Ordres de prix recents : tribunes autour de 23-31 EUR adulte et 10-11 EUR enfant 6-12 ans ; zones debout autour de 14 EUR adulte et 5 EUR enfant. Verifiez les tarifs actuels sur le site officiel.", "Fasce recenti: tribune circa 23-31 EUR adulti e 10-11 EUR bambini 6-12 anni; zone in piedi circa 14 EUR adulti e 5 EUR bambini. Controllare i prezzi attuali sul sito ufficiale.", "Орієнтовні останні тарифи: трибуни близько 23-31 EUR для дорослих і 10-11 EUR для дітей 6-12 років; стоячі зони близько 14 EUR для дорослих і 5 EUR для дітей. Актуальні ціни перевіряйте на офіційному сайті."),
+    ],
+    tips: [
+      t("From Menton, the train to Nice Ville is usually simpler than driving on parade days.", "Depuis Menton, le train jusqu'a Nice Ville est souvent plus simple que la voiture les jours de defile.", "Da Mentone, il treno per Nice Ville e spesso piu semplice dell'auto nei giorni di sfilata.", "З Ментона поїзд до Nice Ville зазвичай простіший, ніж авто в дні парадів."),
+      t("With children, grandstand seats can make the experience calmer than standing in dense crowds.", "Avec enfants, les places en tribune peuvent rendre l'experience plus calme que les zones debout tres denses.", "Con bambini, i posti in tribuna possono rendere l'esperienza piu tranquilla rispetto alla folla in piedi.", "З дітьми місця на трибунах можуть бути спокійнішими, ніж стояння у щільному натовпі."),
+      t("February evenings can feel cool by the sea; bring warm layers and scarves.", "Les soirees de fevrier peuvent etre fraiches au bord de mer ; prevoyez des couches chaudes et des echarpes.", "Le sere di febbraio possono essere fresche sul mare; porta strati caldi e sciarpe.", "Лютневі вечори біля моря прохолодні; візьміть теплий одяг і шарфи."),
+    ],
+    officialLinks: [
+      { label: t("Official Nice Carnival website", "Site officiel Carnaval de Nice", "Sito ufficiale Carnevale di Nizza", "Офіційний сайт Карнавалу Ніцци"), href: "https://www.nicecarnaval.com/en/" },
+    ],
+  },
+  "menton-music-festival": {
+    overview: [
+      t("The Menton Music Festival is one of France's oldest classical music festivals, created in 1950, with evening open-air concerts by the Basilique Saint-Michel and chamber performances in historic venues.", "Le Festival de Musique de Menton est l'un des plus anciens festivals de musique classique en France, cree en 1950, avec concerts du soir en plein air pres de la basilique Saint-Michel et concerts de chambre dans des lieux historiques.", "Il Festival de Musique de Menton e uno dei piu antichi festival francesi di musica classica, nato nel 1950, con concerti serali all'aperto presso la basilica Saint-Michel e appuntamenti da camera in luoghi storici.", "Фестиваль музики в Ментоні - один із найстаріших фестивалів класичної музики у Франції, заснований у 1950 році, з вечірніми концертами просто неба біля базиліки Saint-Michel і камерними виступами в історичних залах."),
+      t("The 77th edition is announced for 25 July-7 August 2026, with concerts on the Parvis de la Basilique Saint-Michel, at the Palais de l'Europe and in Parc du Pian. The mood is very Riviera: sunset, sea air, a lit baroque facade and an audience of music lovers and curious travellers.", "La 77e edition est annoncee du 25 juillet au 7 aout 2026, avec concerts sur le Parvis de la Basilique Saint-Michel, au Palais de l'Europe et au Parc du Pian. L'ambiance est tres Riviera : coucher de soleil, air marin, facade baroque illuminee et public de melomanes comme de voyageurs curieux.", "La 77a edizione e annunciata dal 25 luglio al 7 agosto 2026, con concerti sul Parvis de la Basilique Saint-Michel, al Palais de l'Europe e nel Parc du Pian. L'atmosfera e molto Riviera: tramonto, aria di mare, facciata barocca illuminata e pubblico di appassionati e viaggiatori curiosi.", "77-й випуск анонсовано на 25 липня - 7 серпня 2026 року, з концертами на Parvis de la Basilique Saint-Michel, у Palais de l'Europe та Parc du Pian. Атмосфера дуже рив'єрська: захід сонця, морське повітря, підсвічений бароковий фасад і публіка з меломанів та допитливих мандрівників."),
+    ],
+    venues: [
+      t("Parvis de la Basilique Saint-Michel: Parvis Saint-Michel, 06500 Menton.", "Parvis de la Basilique Saint-Michel : Parvis Saint-Michel, 06500 Menton.", "Parvis de la Basilique Saint-Michel: Parvis Saint-Michel, 06500 Menton.", "Parvis de la Basilique Saint-Michel: Parvis Saint-Michel, 06500 Menton."),
+      t("Palais de l'Europe: 8 Avenue Boyer, 06500 Menton.", "Palais de l'Europe : 8 Avenue Boyer, 06500 Menton.", "Palais de l'Europe: 8 Avenue Boyer, 06500 Menton.", "Palais de l'Europe: 8 Avenue Boyer, 06500 Menton."),
+      t("Parc du Pian: Route de Gorbio, 06500 Menton.", "Parc du Pian : Route de Gorbio, 06500 Menton.", "Parc du Pian: Route de Gorbio, 06500 Menton.", "Parc du Pian: Route de Gorbio, 06500 Menton."),
+    ],
+    family: t("Best with older children or calm teenagers who enjoy music. Long evening concerts can be difficult for small children.", "Mieux avec des enfants plus grands ou des adolescents calmes qui aiment la musique. Les longs concerts du soir peuvent etre difficiles pour les petits.", "Meglio con ragazzi piu grandi o adolescenti tranquilli che amano la musica. I lunghi concerti serali possono essere difficili per bambini piccoli.", "Найкраще зі старшими дітьми або спокійними підлітками, яким цікава музика. Довгі вечірні концерти можуть бути складними для малюків."),
+    tickets: [
+      t("Tickets are sold online on the festival website and via the Menton tourist office at Palais de l'Europe.", "Les billets sont vendus en ligne sur le site du festival et via l'office de tourisme de Menton au Palais de l'Europe.", "I biglietti sono venduti online sul sito del festival e tramite l'ufficio turistico di Mentone al Palais de l'Europe.", "Квитки продаються онлайн на сайті фестивалю та через туристичний офіс Ментона в Palais de l'Europe."),
+      t("For 2026, published ranges mention Parvis concerts around EUR25-50 depending on seat category, and Palais de l'Europe concerts around EUR20-35. Check the official site before booking.", "Pour 2026, les fourchettes publiees indiquent environ 25-50 EUR pour les concerts du Parvis selon la categorie, et 20-35 EUR au Palais de l'Europe. Verifiez le site officiel avant reservation.", "Per il 2026, le fasce pubblicate indicano circa 25-50 EUR per i concerti sul Parvis secondo categoria, e 20-35 EUR al Palais de l'Europe. Controllare il sito ufficiale prima di prenotare.", "Для 2026 року опубліковані діапазони вказують близько 25-50 EUR для концертів на Parvis залежно від категорії місця і 20-35 EUR у Palais de l'Europe. Перед бронюванням перевіряйте офіційний сайт."),
+    ],
+    tips: [
+      t("Book major evenings early, especially opening nights or famous soloists.", "Reservez les grandes soirees tot, surtout ouverture et solistes connus.", "Prenota presto le serate principali, soprattutto apertura e solisti famosi.", "Бронюйте головні вечори заздалегідь, особливо відкриття та виступи відомих солістів."),
+      t("The Parvis Saint-Michel involves old-town steps; wear comfortable shoes or choose Palais de l'Europe concerts if stairs are difficult.", "Le Parvis Saint-Michel implique des marches dans la vieille ville ; prevoyez des chaussures confortables ou choisissez le Palais de l'Europe si les escaliers sont difficiles.", "Il Parvis Saint-Michel richiede scale nel centro storico; indossa scarpe comode o scegli il Palais de l'Europe se le scale sono difficili.", "До Parvis Saint-Michel ведуть сходи старого міста; взуйте зручне взуття або оберіть концерти в Palais de l'Europe, якщо сходи складні."),
+      t("Even after a hot day, sea breeze can make evenings cool. Bring a light jacket or shawl.", "Meme apres une journee chaude, la brise marine peut rafraichir la soiree. Prenez veste legere ou chale.", "Anche dopo una giornata calda, la brezza marina puo rendere fresca la sera. Porta una giacca leggera o uno scialle.", "Навіть після спекотного дня морський бриз може охолодити вечір. Візьміть легку куртку або плед."),
+    ],
+    officialLinks: [
+      { label: t("Official festival website", "Site officiel du festival", "Sito ufficiale del festival", "Офіційний сайт фестивалю"), href: "https://www.festival-musique-menton.fr" },
+    ],
+  },
+  "monaco-grand-prix": {
+    overview: [
+      t("The Formula 1 Monaco Grand Prix is one of the most iconic weekends on the Cote d'Azur: practice, qualifying and the race itself take place on the streets of the Principality.", "Le Grand Prix de Formule 1 de Monaco est l'un des week-ends les plus iconiques de la Cote d'Azur : essais, qualifications et course se deroulent dans les rues de la Principaute.", "Il Gran Premio di Formula 1 di Monaco e uno dei weekend piu iconici della Costa Azzurra: prove, qualifiche e gara si svolgono sulle strade del Principato.", "Гран-прі Формули-1 у Монако - один із найзнаковіших вікендів Лазурового берега: практики, кваліфікація і гонка проходять вулицями князівства."),
+      t("The atmosphere mixes motorsport and Riviera social life: yachts in the harbour, fan zones, terrace viewing and very high prices across Monaco and nearby towns.", "L'atmosphere mele sport automobile et vie mondaine Riviera : yachts dans le port, fan zones, terrasses et prix tres eleves a Monaco et dans les villes voisines.", "L'atmosfera unisce motorsport e vita mondana della Riviera: yacht nel porto, fan zone, terrazze e prezzi molto alti a Monaco e nelle localita vicine.", "Атмосфера поєднує автоспорт і світське життя Рив'єри: яхти в порту, фан-зони, тераси для перегляду і дуже високі ціни в Монако та поруч."),
+    ],
+    venues: [
+      t("Circuit area: streets around Port Hercule, Casino, the tunnel and central Monaco. A useful guest reference is Port Hercule, 98000 Monaco.", "Zone du circuit : rues autour du Port Hercule, du Casino, du tunnel et du centre de Monaco. Point de repere utile : Port Hercule, 98000 Monaco.", "Area del circuito: strade intorno a Port Hercule, Casino, tunnel e centro di Monaco. Riferimento utile: Port Hercule, 98000 Monaco.", "Зона траси: вулиці навколо Port Hercule, Casino, тунелю та центру Монако. Зручний орієнтир: Port Hercule, 98000 Monaco."),
+      t("By train from Menton: Gare de Monaco-Monte-Carlo, with exits toward the port and casino area.", "En train depuis Menton : Gare de Monaco-Monte-Carlo, avec sorties vers le port et le casino.", "In treno da Mentone: Gare de Monaco-Monte-Carlo, con uscite verso porto e casino.", "Поїздом із Ментона: Gare de Monaco-Monte-Carlo, з виходами до порту і району казино."),
+    ],
+    family: t("Good with older children who already enjoy racing. For small children, the crowds, noise and long day can be too intense.", "Bien avec des enfants plus grands deja interesses par la course. Pour les petits, foule, bruit et longue journee peuvent etre trop intenses.", "Adatto a ragazzi piu grandi gia interessati alle corse. Per bambini piccoli folla, rumore e giornata lunga possono essere troppo intensi.", "Добре зі старшими дітьми, які вже цікавляться гонками. Для малюків натовп, шум і довгий день можуть бути надто інтенсивними."),
+    tickets: [
+      t("Official organiser: Automobile Club de Monaco. Tickets are sold through ACM and authorised ticket services.", "Organisateur officiel : Automobile Club de Monaco. Les billets sont vendus via l'ACM et les services autorises.", "Organizzatore ufficiale: Automobile Club de Monaco. I biglietti sono venduti tramite ACM e servizi autorizzati.", "Офіційний організатор: Automobile Club de Monaco. Квитки продаються через ACM та авторизовані сервіси."),
+      t("Prices vary sharply by day and sector, from high grandstand prices to VIP, yacht and terrace packages. Treat Monaco GP as a very high-demand, high-price weekend and verify all details officially.", "Les prix varient fortement selon le jour et le secteur, des tribunes aux packages VIP, yachts et terrasses. Considerez le GP de Monaco comme un week-end tres demande et tres cher, et verifiez tout officiellement.", "I prezzi cambiano molto per giorno e settore, dalle tribune ai pacchetti VIP, yacht e terrazze. Considera il GP di Monaco un weekend di altissima domanda e prezzi elevati, da verificare sempre ufficialmente.", "Ціни сильно залежать від дня і сектора: від дорогих трибун до VIP-пакетів, яхт і терас. Вважайте GP Monaco вікендом дуже високого попиту і високих цін та перевіряйте все офіційно."),
+    ],
+    tips: [
+      t("From Menton, train travel is usually the most practical option on race days.", "Depuis Menton, le train est generalement l'option la plus pratique les jours de course.", "Da Mentone, il treno e di solito l'opzione piu pratica nei giorni di gara.", "З Ментона поїзд зазвичай найпрактичніший варіант у дні гонки."),
+      t("Book Menton accommodation early: even though the race is in Monaco, demand rises across the eastern Riviera.", "Reservez votre logement a Menton tot : meme si la course est a Monaco, la demande augmente sur toute la Riviera orientale.", "Prenota presto l'alloggio a Mentone: anche se la gara e a Monaco, la domanda cresce in tutta la Riviera orientale.", "Бронюйте житло в Ментоні рано: хоча гонка в Монако, попит зростає на всій східній Рив'єрі."),
+      t("With older children, consider practice or qualifying for a shorter and slightly less intense experience than race day.", "Avec de grands enfants, envisagez essais ou qualifications pour une experience plus courte et un peu moins intense que la course.", "Con ragazzi piu grandi, valuta prove o qualifiche per un'esperienza piu breve e meno intensa del giorno gara.", "Зі старшими дітьми розгляньте практику або кваліфікацію як коротший і менш напружений формат, ніж день гонки."),
+    ],
+    officialLinks: [
+      { label: t("Automobile Club de Monaco", "Automobile Club de Monaco", "Automobile Club de Monaco", "Automobile Club de Monaco"), href: "https://www.acm.mc" },
+    ],
+  },
+  "nice-jazz-fest": {
+    overview: [
+      t("Nice Jazz Fest is a major summer music festival in Nice, mixing international names with contemporary jazz, soul, fusion and related styles over several evenings.", "Nice Jazz Fest est un grand festival musical estival a Nice, entre artistes internationaux, jazz contemporain, soul, fusion et styles voisins pendant plusieurs soirees.", "Nice Jazz Fest e un grande festival musicale estivo a Nizza, con nomi internazionali, jazz contemporaneo, soul, fusion e generi affini per piu serate.", "Nice Jazz Fest - великий літній музичний фестиваль у Ніцці, що поєднує міжнародних артистів, сучасний джаз, соул, ф'южн і суміжні жанри протягом кількох вечорів."),
+      t("Because the format is open-air with several stages, it works well with a 2-4 night Riviera stay and a calmer seaside base in Menton.", "Comme le format est en plein air avec plusieurs scenes, il se combine bien avec un sejour Riviera de 2 a 4 nuits et une base plus calme a Menton.", "Poiche il formato e all'aperto con piu palchi, si abbina bene a un soggiorno in Riviera di 2-4 notti con base piu tranquilla a Mentone.", "Завдяки формату просто неба з кількома сценами його зручно поєднати з перебуванням на Рив'єрі на 2-4 ночі та спокійнішою базою в Ментоні."),
+    ],
+    venues: [
+      t("Typical central location: Theatre de Verdure and Jardins Albert 1er, near Place Massena, 06000 Nice. Venues can vary slightly by edition.", "Lieu central habituel : Theatre de Verdure et Jardins Albert 1er, pres de la Place Massena, 06000 Nice. Les lieux peuvent legerement varier selon l'edition.", "Sede centrale abituale: Theatre de Verdure e Jardins Albert 1er, vicino a Place Massena, 06000 Nice. Le sedi possono variare leggermente secondo edizione.", "Типова центральна локація: Theatre de Verdure та Jardins Albert 1er біля Place Massena, 06000 Nice. Локації можуть трохи змінюватися залежно від випуску."),
+    ],
+    family: t("Not a children's festival, but some evenings can suit teenagers who enjoy live music. For small children, late hours, volume and crowds may be uncomfortable.", "Ce n'est pas un festival pour enfants, mais certaines soirees peuvent convenir aux adolescents qui aiment la musique live. Pour les petits, horaires tardifs, volume et foule peuvent etre inconfortables.", "Non e un festival per bambini, ma alcune serate possono andare bene per adolescenti che amano la musica dal vivo. Per bambini piccoli, orari tardi, volume e folla possono essere scomodi.", "Це не дитячий фестиваль, але окремі вечори можуть підійти підліткам, які люблять живу музику. Для малюків пізній час, гучність і натовп можуть бути незручними."),
+    tickets: [
+      t("Tickets are sold online on the official festival website, usually as single-evening tickets and multi-day passes.", "Les billets sont vendus en ligne sur le site officiel, generalement en billets soiree et pass plusieurs jours.", "I biglietti sono venduti online sul sito ufficiale, di solito come biglietti serali e pass di piu giorni.", "Квитки продаються онлайн на офіційному сайті, зазвичай як квитки на один вечір і абонементи на кілька днів."),
+      t("Past years suggest a rough range from about EUR40-50 for an evening ticket, with higher prices for passes or premium options. Check the current programme and prices before booking.", "Les annees precedentes donnent un ordre d'idee autour de 40-50 EUR pour une soiree, avec tarifs plus eleves pour pass ou options premium. Verifiez programme et prix actuels avant reservation.", "Gli anni passati indicano un ordine di circa 40-50 EUR per una serata, con prezzi piu alti per pass o opzioni premium. Verificare programma e prezzi attuali prima di prenotare.", "Попередні роки дають орієнтир близько 40-50 EUR за вечірній квиток, з вищими цінами на абонементи чи преміум-опції. Перевіряйте актуальну програму і ціни перед бронюванням."),
+    ],
+    tips: [
+      t("Concerts can finish late. If staying in Menton, check the last train or plan a night transfer in advance.", "Les concerts peuvent finir tard. Si vous logez a Menton, verifiez le dernier train ou prevoyez un transfert de nuit.", "I concerti possono finire tardi. Se soggiorni a Mentone, controlla l'ultimo treno o organizza in anticipo un transfer notturno.", "Концерти можуть закінчуватися пізно. Якщо живете в Ментоні, перевірте останній поїзд або заздалегідь сплануйте нічний трансфер."),
+      t("July days are hot: light clothes, water and a hat are useful before the evening concerts.", "Les journees de juillet sont chaudes : vetements legers, eau et chapeau sont utiles avant les concerts du soir.", "Le giornate di luglio sono calde: abiti leggeri, acqua e cappello sono utili prima dei concerti serali.", "Липневі дні спекотні: легкий одяг, вода і капелюх стануть у пригоді перед вечірніми концертами."),
+      t("Book early for headline evenings if a specific artist matters to you.", "Reservez tot les soirees les plus demandees si un artiste precis compte pour vous.", "Prenota presto le serate principali se ti interessa un artista specifico.", "Бронюйте заздалегідь найпопулярніші вечори, якщо вам важливий конкретний артист."),
+    ],
+    officialLinks: [
+      { label: t("Official Nice Jazz Fest website", "Site officiel Nice Jazz Fest", "Sito ufficiale Nice Jazz Fest", "Офіційний сайт Nice Jazz Fest"), href: "https://www.nicejazzfestival.fr" },
+    ],
+  },
+};
+
 export function getEventDetail(slug: string) {
   if (slug === summerOnTheRivieraEvent.slug) return summerOnTheRivieraEvent;
-  return getRivieraEvent(slug);
+
+  const event = getRivieraEvent(slug);
+  if (!event) return undefined;
+
+  return {
+    ...event,
+    detailContent: eventDetailsBySlug[event.slug] ?? event.detailContent,
+  };
 }
