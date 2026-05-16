@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
+import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
 import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
@@ -78,6 +79,15 @@ export default async function GuideArticlePage({ params }: PageProps) {
               </div>
             </div>
             <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+              <GuideVisual
+                image={localized.coverImage}
+                imageAlt={localized.coverImageAlt}
+                locale={locale}
+                theme={localized.visualTheme ?? "sea"}
+                label={localized.categoryLabel}
+                priority
+                className="-m-5 mb-5 aspect-[4/2.2]"
+              />
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <Fact label={copy.category} value={guideCategoryLabels[article.category][locale]} />
                 {localized.durationLabel ? <Fact label={copy.duration} value={localized.durationLabel} /> : null}

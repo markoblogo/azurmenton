@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locales";
+import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -23,7 +24,15 @@ export type Place = {
   type: PlaceType;
   address?: string;
   area?: LocalizedText;
+  image?: string;
+  imageAlt?: LocalizedText;
+  visualTheme?: GuideVisualTheme;
   googleMapsUrl?: string;
+  googleMapsSearchUrl?: string;
+  googlePlaceId?: string;
+  googlePhotosStatus?: "not_connected" | "future_api_possible" | "not_allowed_without_api";
+  ratingStatus?: "not_connected" | "future_api_possible";
+  hoursStatus?: "not_connected" | "needs_manual_verification" | "future_api_possible";
   openingHoursLabel?: LocalizedText;
   priceLabel?: LocalizedText;
   sourceStatus: PlaceSourceStatus;
@@ -54,7 +63,7 @@ const checkPrices = text(
   "Перевірте актуальні ціни.",
 );
 
-export const places: Place[] = [
+const rawPlaces: Place[] = [
   {
     id: "halles-du-marche",
     name: "Halles du Marché",
@@ -252,6 +261,73 @@ export const places: Place[] = [
     relatedArticleIds: ["best-beaches-in-menton"],
   },
 ];
+
+const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualTheme">> = {
+  "promenade-du-soleil": {
+    image: "/images/home/hero2.png",
+    imageAlt: text("Seafront balcony view over Menton", "Vue balcon sur le front de mer de Menton", "Vista balcone sul lungomare di Mentone", "Вид із балкона на набережну Ментона"),
+    visualTheme: "sea",
+  },
+  "port-de-garavan": {
+    image: "/images/apartments/beachside-family-apartment/18-menton-harbour-nearby.jpeg",
+    imageAlt: text("Menton harbour and marina area", "Port et marina de Menton", "Porto e marina di Mentone", "Порт і марина Ментона"),
+    visualTheme: "port",
+  },
+  "cimetiere-vieux-chateau": {
+    image: "/images/apartments/beachside-family-apartment/17-menton-old-town.jpeg",
+    imageAlt: text("Colourful old town near the hill viewpoint", "Vieille ville coloree pres du point de vue", "Centro storico colorato vicino al belvedere", "Кольорове старе місто біля оглядової точки"),
+    visualTheme: "viewpoint",
+  },
+  "plage-sablettes": {
+    image: "/images/apartments/beachside-family-apartment/14-nearby-beach.jpeg",
+    imageAlt: text("Menton beach and Mediterranean water", "Plage de Menton et mer Mediterranee", "Spiaggia di Mentone e Mediterraneo", "Пляж Ментона і Середземне море"),
+    visualTheme: "beach",
+  },
+  "plage-fossan": {
+    image: "/images/apartments/beachside-family-apartment/15-mediterranean-sea-nearby.jpeg",
+    imageAlt: text("Mediterranean water near central Menton", "Mer Mediterranee pres du centre de Menton", "Mediterraneo vicino al centro di Mentone", "Середземне море біля центру Ментона"),
+    visualTheme: "beach",
+  },
+};
+
+export const places: Place[] = rawPlaces.map((place) => {
+  const visual = placeVisuals[place.id] ?? {};
+  return {
+    ...place,
+    ...visual,
+    visualTheme: place.visualTheme ?? visual.visualTheme ?? visualThemeForPlace(place.type),
+    googleMapsSearchUrl:
+      place.googleMapsSearchUrl ??
+      place.googleMapsUrl ??
+      mapsSearch(place.name, place.address ?? place.area?.en),
+    googleMapsUrl:
+      place.googleMapsUrl ??
+      place.googleMapsSearchUrl ??
+      mapsSearch(place.name, place.address ?? place.area?.en),
+    googlePhotosStatus: place.googlePhotosStatus ?? "not_connected",
+    ratingStatus: place.ratingStatus ?? "not_connected",
+    hoursStatus:
+      place.hoursStatus ??
+      (place.sourceStatus === "needs_verification" ? "needs_manual_verification" : "not_connected"),
+  };
+});
+
+function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
+  const themes: Record<PlaceType, GuideVisualTheme> = {
+    market: "market",
+    restaurant: "food",
+    bar: "bar",
+    rooftop: "rooftop",
+    beach: "beach",
+    garden: "garden",
+    museum: "museum",
+    viewpoint: "viewpoint",
+    walk: "walk",
+    port: "port",
+    neighbourhood: "old-town",
+  };
+  return themes[type];
+}
 
 export function getPlace(id: string) {
   return places.find((place) => place.id === id);

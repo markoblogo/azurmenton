@@ -92,6 +92,10 @@ export default async function GuideLandingPage({ params }: PageProps) {
       locationTags: article.locationTags,
       placeNames: relatedPlaces.map((place) => place.name),
       featured: article.featured,
+      coverImage: localized.coverImage,
+      coverImageAlt: localized.coverImageAlt,
+      visualTheme: localized.visualTheme,
+      visualStatus: localized.visualStatus,
     };
   });
   const usefulPlaces = getPlaces([

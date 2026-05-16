@@ -5,6 +5,7 @@ import type { Route } from "next";
 import { useMemo, useState } from "react";
 import type { GuideCategory, GuideDuration } from "@/content/guide";
 import { guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
+import { GuideVisual, type GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { Locale } from "@/i18n/locales";
 
 type GuideCardItem = {
@@ -20,6 +21,10 @@ type GuideCardItem = {
   locationTags: string[];
   placeNames: string[];
   featured?: boolean;
+  coverImage?: string;
+  coverImageAlt?: string;
+  visualTheme?: GuideVisualTheme;
+  visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
 };
 
 type GuideExplorerProps = {
@@ -154,12 +159,15 @@ function Select({ value, onChange, label, options, allLabel }: { value: string; 
 function GuideArticleCard({ article, locale, priority = false }: { article: GuideCardItem; locale: Locale; priority?: boolean }) {
   return (
     <article className={`group border border-[#dfd2b8] bg-[#fffaf0] ${priority ? "md:col-span-1" : ""}`}>
-      <div className="aspect-[4/2.15] border-b border-[#dfd2b8] bg-[linear-gradient(135deg,#fff7e7,#e8f2ec_55%,#f7e6c5)] p-4">
-        <div className="flex h-full flex-col justify-between">
-          <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{article.categoryLabel}</p>
-          <p className="serif-heading text-2xl leading-none text-[#173f36]">Azur Menton</p>
-        </div>
-      </div>
+      <GuideVisual
+        image={article.coverImage}
+        imageAlt={article.coverImageAlt}
+        locale={locale}
+        theme={article.visualTheme ?? "sea"}
+        label={article.categoryLabel}
+        priority={priority}
+        className="aspect-[4/2.2]"
+      />
       <div className="p-5">
         <div className="flex flex-wrap gap-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#71665b]">
           {article.durationLabel ? <span>{article.durationLabel}</span> : null}
