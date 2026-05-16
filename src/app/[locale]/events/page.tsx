@@ -13,11 +13,14 @@ import {
   type RivieraEvent,
 } from "@/content/riviera-events";
 import { isLocale, type Locale } from "@/i18n/locales";
+import { getVisibleEvents } from "@/lib/events";
 import { createMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export const revalidate = 86400;
 
 const copy = {
   en: {
@@ -134,21 +137,26 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
   const href = event.detailPage ? (`/${locale}/events/${event.slug}` as Route) : (`/${locale}/events` as Route);
 
   return (
-    <Link href={href} className="group flex min-h-72 flex-col justify-between border border-[#dfd4c1] bg-[#fffdf8] p-5 transition hover:border-[#c6a66a]">
+    <Link href={href} className="group relative flex min-h-80 flex-col justify-between overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-5 transition hover:border-[#c6a66a]">
+      <span className="absolute right-5 top-5 text-6xl font-serif text-[#f0e3cd]" aria-hidden="true">
+        {event.location.slice(0, 1)}
+      </span>
       <div>
-        <div className="flex flex-wrap gap-2">
-          <span className="border border-[#d2a748] bg-[#fff5d8] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#7b5515]">
+        <div className="relative flex flex-wrap gap-2">
+          <span className="border border-[#d2a748] bg-[#fff5d8] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#7b5515]">
             {event.dateLabel}
           </span>
-          <span className="border border-[#9ac7d2] bg-[#edf8fb] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#245d6a]">
+          <span className="border border-[#9ac7d2] bg-[#edf8fb] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#245d6a]">
             {event.location}
           </span>
         </div>
-        <h3 className="serif-heading mt-5 text-3xl leading-none text-[#173f36]">{event.title}</h3>
-        <p className="mt-4 text-sm leading-6 text-[#5f574c]">{event.whyShowOnSite[locale]}</p>
+        <h3 className="serif-heading relative mt-8 break-words text-3xl leading-[0.98] text-[#173f36] sm:text-4xl sm:leading-[0.92]">{event.title}</h3>
+        <p className="relative mt-5 border-l border-[#c6a66a] pl-4 font-serif text-lg italic leading-7 text-[#315d53]">
+          {event.whyShowOnSite[locale]}
+        </p>
       </div>
       <div>
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-[#dfd4c1] pt-4">
           <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#b07820]">
             {eventCategoryLabels[locale][event.category[0]]}
           </span>
@@ -168,7 +176,8 @@ export default async function EventsLandingPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = copy[safeLocale];
-  const featured = rivieraEvents.filter((event) => event.featured).slice(0, 6);
+  const visibleEvents = getVisibleEvents(rivieraEvents);
+  const featured = [...visibleEvents.upcoming, ...visibleEvents.datesPending].filter((event) => event.featured).slice(0, 6);
   const apartmentsForEvents = apartments.filter((apartment) =>
     ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"].includes(apartment.slug),
   );
@@ -177,15 +186,15 @@ export default async function EventsLandingPage({ params }: PageProps) {
     <>
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
-          <div className="grid gap-10 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:py-24">
+          <div className="grid gap-10 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-24">
             <div>
               <p className="editorial-label">Riviera calendar</p>
-              <h1 className="serif-heading mt-4 text-5xl leading-[0.96] text-[#173f36] sm:text-7xl">
+              <h1 className="serif-heading mt-4 max-w-3xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-7xl sm:leading-[0.92]">
                 {labels.title}
               </h1>
             </div>
             <div>
-              <p className="text-lg leading-8 text-[#5f574c]">{labels.subtitle}</p>
+              <p className="max-w-2xl text-xl leading-8 text-[#5f574c]">{labels.subtitle}</p>
               <p className="mt-5 border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">{labels.note}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href={`/${safeLocale}/check-availability`}>{labels.availability}</Button>
@@ -201,7 +210,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
           <div className="flex flex-col justify-between gap-5 border-b border-[#dfd4c1] pb-8 md:flex-row md:items-end">
             <div>
               <p className="editorial-label">Highlights</p>
-              <h2 className="serif-heading mt-3 text-4xl text-[#173f36]">{labels.featured}</h2>
+              <h2 className="serif-heading mt-3 break-words text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.featured}</h2>
             </div>
             <p className="max-w-xl text-sm leading-7 text-[#5f574c]">{labels.featuredIntro}</p>
           </div>
@@ -215,20 +224,28 @@ export default async function EventsLandingPage({ params }: PageProps) {
 
       <Section className="bg-[#f6efe3]">
         <Container>
-          <EventsCalendar events={rivieraEvents} locale={safeLocale} />
+          <EventsCalendar
+            events={visibleEvents.upcoming}
+            datesPendingEvents={visibleEvents.datesPending}
+            pastEvents={visibleEvents.past}
+            locale={safeLocale}
+          />
         </Container>
       </Section>
 
       <Section>
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="editorial-label">Practical planning</p>
-              <h2 className="serif-heading mt-3 text-4xl text-[#173f36]">{labels.tipsTitle}</h2>
+              <h2 className="serif-heading mt-3 text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.tipsTitle}</h2>
             </div>
-            <div className="grid border border-[#dfd4c1] md:grid-cols-2">
-              {(labels.tips as string[]).map((tip) => (
-                <p key={tip} className="border-b border-r border-[#dfd4c1] p-5 text-sm font-semibold leading-6 text-[#173f36] last:border-b-0 md:[&:nth-child(even)]:border-r-0">
+            <div className="grid border-y border-[#dfd4c1] md:grid-cols-2">
+              {(labels.tips as string[]).map((tip, index) => (
+                <p key={tip} className="border-b border-[#dfd4c1] py-5 text-sm font-semibold leading-6 text-[#173f36] md:border-r md:px-5 md:[&:nth-child(even)]:border-r-0">
+                  <span className="mb-3 block text-xs font-bold uppercase tracking-[0.16em] text-[#b07820]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                   {tip}
                 </p>
               ))}
@@ -242,13 +259,13 @@ export default async function EventsLandingPage({ params }: PageProps) {
           <div className="grid gap-8 border-b border-[#dfd4c1] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="editorial-label">Azur Menton</p>
-              <h2 className="serif-heading mt-3 text-4xl text-[#173f36]">{labels.stayTitle}</h2>
+              <h2 className="serif-heading mt-3 text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.stayTitle}</h2>
             </div>
             <p className="max-w-3xl text-lg leading-8 text-[#5f574c]">{labels.stayIntro}</p>
           </div>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {apartmentsForEvents.map((apartment) => (
-              <Link key={apartment.slug} href={`/${safeLocale}/apartments/${apartment.slug}` as Route} className="border border-[#dfd4c1] bg-[#fffdf8] p-6 transition hover:border-[#c6a66a]">
+              <Link key={apartment.slug} href={`/${safeLocale}/apartments/${apartment.slug}` as Route} className="border-t border-[#dfd4c1] bg-[#fffdf8]/70 p-6 transition hover:border-[#c6a66a]">
                 <p className="editorial-label">{apartment.shortName[safeLocale]}</p>
                 <h3 className="serif-heading mt-3 text-3xl leading-none text-[#173f36]">{apartment.name[safeLocale]}</h3>
                 <p className="mt-4 text-sm leading-6 text-[#5f574c]">{apartment.bestFor[safeLocale]}</p>

@@ -5,7 +5,6 @@ import type { Route } from "next";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import {
@@ -22,6 +21,8 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
+
+export const revalidate = 86400;
 
 const copy = {
   en: {
@@ -151,15 +152,15 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
-          <div className="grid gap-10 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:py-24">
+          <div className="grid gap-10 py-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-end lg:py-24">
             <div>
               <p className="editorial-label">{labels.eyebrow}</p>
-              <h1 className="serif-heading mt-4 text-5xl leading-[0.96] text-[#173f36] sm:text-7xl">
+              <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-7xl sm:leading-[0.92]">
                 {event.title}
               </h1>
             </div>
             <div>
-              <p className="text-lg leading-8 text-[#5f574c]">{event.shortDescription[locale]}</p>
+              <p className="max-w-2xl text-xl leading-8 text-[#5f574c]">{event.shortDescription[locale]}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {event.category.map((category) => (
                   <span key={category} className="border border-[#dfd4c1] bg-[#fffdf8] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#4f5b57]">
@@ -177,10 +178,10 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <Section>
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.36fr]">
-            <article className="grid gap-6">
-              <Card className="p-6">
-                <dl className="grid gap-4 text-sm sm:grid-cols-3">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.36fr]">
+            <article className="grid gap-10">
+              <div className="border-y border-[#dfd4c1] py-6">
+                <dl className="grid gap-5 text-sm sm:grid-cols-3">
                   {[
                     [labels.date, event.dateLabel],
                     [labels.location, event.location],
@@ -188,42 +189,43 @@ export default async function EventArticlePage({ params }: PageProps) {
                   ].map(([label, value]) => (
                     <div key={label}>
                       <dt className="text-[#6b5f50]">{label}</dt>
-                      <dd className="mt-1 font-semibold text-[#17313a]">{value}</dd>
+                      <dd className="mt-2 serif-heading break-words text-2xl leading-tight text-[#17313a]">{value}</dd>
                     </div>
                   ))}
                 </dl>
-                <p className="mt-5 border border-[#d9cdbd] bg-[#fff9f0] p-4 text-sm leading-6 text-[#5c5044]">
+                <p className="mt-6 border-l border-[#c6a66a] bg-[#fff9f0] p-4 text-sm leading-6 text-[#5c5044]">
                   <span className="font-bold text-[#173f36]">{labels.verify}: </span>
                   {labels.verifyText}
                 </p>
-              </Card>
+              </div>
 
-              <Card className="p-6">
-                <h2 className="serif-heading text-4xl text-[#173f36]">{labels.why}</h2>
-                <p className="mt-4 text-base leading-8 text-[#5c5044]">{event.whyShowOnSite[locale]}</p>
-              </Card>
+              <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.why}</h2>
+                <p className="font-serif text-2xl italic leading-9 text-[#315d53]">{event.whyShowOnSite[locale]}</p>
+              </div>
 
-              <Card className="p-6">
-                <h2 className="serif-heading text-4xl text-[#173f36]">{labels.plan}</h2>
-                <p className="mt-4 text-base leading-8 text-[#5c5044]">{event.bookingTip[locale]}</p>
-              </Card>
+              <div className="grid gap-5 border-b border-[#dfd4c1] pb-10 md:grid-cols-[0.36fr_1fr]">
+                <h2 className="serif-heading text-4xl leading-none text-[#173f36] sm:text-5xl">{labels.plan}</h2>
+                <p className="text-base leading-8 text-[#5c5044]">{event.bookingTip[locale]}</p>
+              </div>
             </article>
 
-            <aside className="grid h-fit gap-5">
-              <Card className="p-6">
-                <h2 className="text-xl font-semibold text-[#17313a]">{labels.links}</h2>
+            <aside className="grid h-fit gap-5 border border-[#dfd4c1] bg-[#fffdf8] p-6 lg:sticky lg:top-24">
+              <div>
+                <p className="editorial-label">Plan</p>
+                <h2 className="serif-heading mt-2 text-3xl leading-none text-[#17313a]">{labels.links}</h2>
                 <div className="mt-5 grid gap-3">
-                  <Link className="text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/check-availability` as Route}>
+                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/check-availability` as Route}>
                     {labels.availability}
                   </Link>
-                  <Link className="text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/apartments` as Route}>
+                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/apartments` as Route}>
                     {labels.viewApartments}
                   </Link>
                   <Link className="text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/menton-without-a-car` as Route}>
                     Menton without a car
                   </Link>
                 </div>
-              </Card>
+              </div>
             </aside>
           </div>
         </Container>

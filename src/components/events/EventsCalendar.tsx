@@ -16,6 +16,7 @@ import {
   type RivieraEvent,
 } from "@/content/riviera-events";
 import type { Locale } from "@/i18n/locales";
+import { getEventDateStatus, type EventDateStatus } from "@/lib/events";
 
 const locations: Array<"all" | EventLocation> = [
   "all",
@@ -56,6 +57,9 @@ const copy = {
     family: "Family suitability",
     all: "All",
     search: "Search events, places or interests",
+    clear: "Clear filters",
+    active: "Active filters",
+    showing: "Showing",
     results: "event ideas",
     eventDetails: "Event details",
     availability: "Check availability",
@@ -63,6 +67,17 @@ const copy = {
     bookingTip: "Booking tip",
     timeline: "Month-by-month calendar",
     noResults: "No events match these filters yet.",
+    noUpcoming: "No matching upcoming events. Try clearing filters or check the dates-to-confirm section.",
+    datesPendingTitle: "Dates to confirm",
+    datesPendingText:
+      "These events are useful for planning, but exact dates or details should be checked with official sources before booking travel.",
+    pastTitle: "Past events",
+    showPast: "Show past events",
+    hidePast: "Hide past events",
+    current: "Current now",
+    upcoming: "Upcoming",
+    datesPending: "Dates to confirm",
+    past: "Past event",
     familyTitle: "Family-friendly event ideas",
     familyText:
       "Choose daytime, colourful or low-pressure events for younger children. Monaco sports weekends can work better with older children who enjoy the theme.",
@@ -78,6 +93,9 @@ const copy = {
     family: "Adaptation famille",
     all: "Tous",
     search: "Rechercher un evenement, lieu ou interet",
+    clear: "Effacer filtres",
+    active: "Filtres actifs",
+    showing: "Affichage",
     results: "idees d'evenements",
     eventDetails: "Voir details",
     availability: "Verifier disponibilite",
@@ -85,6 +103,17 @@ const copy = {
     bookingTip: "Conseil reservation",
     timeline: "Calendrier mois par mois",
     noResults: "Aucun evenement ne correspond a ces filtres.",
+    noUpcoming: "Aucun evenement a venir ne correspond. Effacez les filtres ou consultez les dates a confirmer.",
+    datesPendingTitle: "Dates a confirmer",
+    datesPendingText:
+      "Ces evenements sont utiles pour planifier, mais les dates ou details exacts doivent etre verifies aupres des sources officielles avant de reserver.",
+    pastTitle: "Evenements passes",
+    showPast: "Afficher evenements passes",
+    hidePast: "Masquer evenements passes",
+    current: "En cours",
+    upcoming: "A venir",
+    datesPending: "Dates a confirmer",
+    past: "Evenement passe",
     familyTitle: "Idees d'evenements en famille",
     familyText:
       "Pour les enfants, privilegiez les evenements de jour, colores ou faciles. Les grands week-ends sportifs de Monaco conviennent mieux aux plus grands.",
@@ -100,6 +129,9 @@ const copy = {
     family: "Adatto a famiglie",
     all: "Tutti",
     search: "Cerca eventi, luoghi o interessi",
+    clear: "Cancella filtri",
+    active: "Filtri attivi",
+    showing: "Mostrati",
     results: "idee evento",
     eventDetails: "Dettagli evento",
     availability: "Controlla disponibilita",
@@ -107,6 +139,17 @@ const copy = {
     bookingTip: "Consiglio prenotazione",
     timeline: "Calendario mese per mese",
     noResults: "Nessun evento corrisponde ai filtri.",
+    noUpcoming: "Nessun evento futuro corrisponde. Cancella i filtri o controlla le date da confermare.",
+    datesPendingTitle: "Date da confermare",
+    datesPendingText:
+      "Questi eventi sono utili per pianificare, ma date e dettagli esatti vanno verificati con fonti ufficiali prima di prenotare.",
+    pastTitle: "Eventi passati",
+    showPast: "Mostra eventi passati",
+    hidePast: "Nascondi eventi passati",
+    current: "In corso",
+    upcoming: "In arrivo",
+    datesPending: "Date da confermare",
+    past: "Evento passato",
     familyTitle: "Idee per famiglie",
     familyText:
       "Per bambini piccoli scegli eventi diurni, colorati o facili. I weekend sportivi di Monaco sono migliori per ragazzi piu grandi.",
@@ -122,6 +165,9 @@ const copy = {
     family: "Для сімей",
     all: "Усі",
     search: "Шукати події, місця або інтереси",
+    clear: "Очистити фільтри",
+    active: "Активні фільтри",
+    showing: "Показано",
     results: "ідей подій",
     eventDetails: "Деталі події",
     availability: "Перевірити доступність",
@@ -129,6 +175,17 @@ const copy = {
     bookingTip: "Порада щодо бронювання",
     timeline: "Календар по місяцях",
     noResults: "За цими фільтрами подій немає.",
+    noUpcoming: "Немає відповідних майбутніх подій. Очистіть фільтри або перегляньте дати для підтвердження.",
+    datesPendingTitle: "Дати потрібно підтвердити",
+    datesPendingText:
+      "Ці події корисні для планування, але точні дати чи деталі варто перевірити в офіційних джерелах перед бронюванням подорожі.",
+    pastTitle: "Минулі події",
+    showPast: "Показати минулі події",
+    hidePast: "Сховати минулі події",
+    current: "Триває зараз",
+    upcoming: "Майбутня подія",
+    datesPending: "Дати підтверджуються",
+    past: "Минула подія",
     familyTitle: "Ідеї подій для сімей",
     familyText:
       "Для молодших дітей краще обирати денні, яскраві та прості події. Спортивні вікенди Монако більше підходять старшим дітям.",
@@ -209,37 +266,44 @@ function eventHref(locale: Locale, event: RivieraEvent) {
   return `/${locale}/events/${event.slug}` as Route;
 }
 
-function Badge({ children, tone = "light" }: { children: React.ReactNode; tone?: "light" | "gold" | "blue" }) {
+function statusLabel(locale: Locale, status: EventDateStatus) {
+  if (status === "current") return copy[locale].current;
+  if (status === "past") return copy[locale].past;
+  if (status === "dates_pending") return copy[locale].datesPending;
+  return copy[locale].upcoming;
+}
+
+function Badge({ children, tone = "light" }: { children: React.ReactNode; tone?: "light" | "gold" | "blue" | "dark" }) {
   const className =
     tone === "gold"
       ? "border-[#d2a748] bg-[#fff5d8] text-[#7b5515]"
       : tone === "blue"
         ? "border-[#9ac7d2] bg-[#edf8fb] text-[#245d6a]"
+        : tone === "dark"
+          ? "border-[#2b5a50] bg-[#173f36] text-white"
         : "border-[#dfd4c1] bg-[#fffdf8] text-[#4f5b57]";
 
   return (
-    <span className={`inline-flex border px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] ${className}`}>
+    <span className={`inline-flex items-center border px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] ${className}`}>
       {children}
     </span>
   );
 }
 
-function EventCard({ event, locale }: { event: RivieraEvent; locale: Locale }) {
+function EventCard({ event, locale, status }: { event: RivieraEvent; locale: Locale; status: EventDateStatus }) {
   const hasDetail = event.detailPage || event.slug === "summer-on-the-riviera";
+  const statusTone = status === "current" ? "dark" : status === "dates_pending" || status === "past" ? "gold" : "blue";
 
   return (
-    <article className="group grid border border-[#dfd4c1] bg-[#fffdf8]/88 transition hover:border-[#c6a66a] md:grid-rows-[auto_1fr]">
-      <div className="border-b border-[#dfd4c1] bg-[#f6efe3] p-5">
-        <div className="flex flex-wrap gap-2">
-          <Badge tone="gold">{event.dateLabel}</Badge>
-          <Badge tone="blue">{event.location}</Badge>
-        </div>
-        <h3 className="serif-heading mt-5 text-3xl leading-none text-[#173f36]">
-          {hasDetail ? <Link href={eventHref(locale, event)}>{event.title}</Link> : event.title}
-        </h3>
+    <article className="group grid border-t border-[#dfd4c1] bg-[#fffdf8]/82 transition md:grid-cols-[0.28fr_1fr]">
+      <div className="border-b border-[#dfd4c1] bg-[#f6efe3] p-5 md:border-b-0 md:border-r">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#b07820]">{event.location}</p>
+        <p className="mt-4 max-w-36 text-2xl font-semibold leading-tight text-[#173f36]">{event.dateLabel}</p>
       </div>
       <div className="flex flex-col p-5">
         <div className="flex flex-wrap gap-2">
+          <Badge tone={statusTone}>{statusLabel(locale, status)}</Badge>
+          <Badge tone="blue">{event.location}</Badge>
           {event.category.slice(0, 3).map((category) => (
             <Badge key={category}>{eventCategoryLabels[locale][category]}</Badge>
           ))}
@@ -248,11 +312,13 @@ function EventCard({ event, locale }: { event: RivieraEvent; locale: Locale }) {
             {sourceStatusLabels[locale][event.sourceStatus]}
           </Badge>
         </div>
-        <p className="mt-5 text-sm leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
+        <h3 className="serif-heading mt-4 break-words text-3xl leading-[0.98] text-[#173f36] sm:text-4xl sm:leading-[0.95]">
+          {hasDetail ? <Link href={eventHref(locale, event)}>{event.title}</Link> : event.title}
+        </h3>
+        <p className="mt-4 text-sm leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
         <div className="mt-5 grid gap-4 border-t border-[#dfd4c1] pt-5 text-sm leading-6">
-          <p>
-            <span className="font-bold text-[#173f36]">{copy[locale].whyStay}: </span>
-            <span className="text-[#5f574c]">{event.whyShowOnSite[locale]}</span>
+          <p className="font-serif text-lg italic leading-7 text-[#315d53]">
+            {event.whyShowOnSite[locale]}
           </p>
           <p>
             <span className="font-bold text-[#173f36]">{copy[locale].bookingTip}: </span>
@@ -280,30 +346,64 @@ function EventCard({ event, locale }: { event: RivieraEvent; locale: Locale }) {
   );
 }
 
-export function EventsCalendar({ events, locale }: { events: RivieraEvent[]; locale: Locale }) {
+type EventsCalendarProps = {
+  events: RivieraEvent[];
+  datesPendingEvents: RivieraEvent[];
+  pastEvents: RivieraEvent[];
+  locale: Locale;
+};
+
+function filterEvents(events: RivieraEvent[], locale: Locale, filters: {
+  month: MonthFilter;
+  location: (typeof locations)[number];
+  category: (typeof categories)[number];
+  family: (typeof familyOptions)[number];
+  query: string;
+}) {
+  return events.filter((event) => {
+    const monthMatch = filters.month === "all" || event.monthGroup === filters.month;
+    const locationMatch = filters.location === "all" || event.location === filters.location;
+    const categoryMatch = filters.category === "all" || event.category.includes(filters.category);
+    const familyMatch = filters.family === "all" || event.familySuitability === filters.family;
+
+    return (
+      monthMatch &&
+      locationMatch &&
+      categoryMatch &&
+      familyMatch &&
+      includesSearch(event, locale, filters.query.trim())
+    );
+  });
+}
+
+export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale }: EventsCalendarProps) {
   const [month, setMonth] = useState<MonthFilter>("all");
   const [location, setLocation] = useState<(typeof locations)[number]>("all");
   const [category, setCategory] = useState<(typeof categories)[number]>("all");
   const [family, setFamily] = useState<(typeof familyOptions)[number]>("all");
   const [query, setQuery] = useState("");
+  const [showPast, setShowPast] = useState(false);
   const labels = copy[locale];
+  const selectClass =
+    "min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none transition focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10";
+  const filters = useMemo(
+    () => ({ month, location, category, family, query }),
+    [category, family, location, month, query],
+  );
 
   const filtered = useMemo(
-    () =>
-      events.filter((event) => {
-        const monthMatch = month === "all" || event.monthGroup === month;
-        const locationMatch = location === "all" || event.location === location;
-        const categoryMatch = category === "all" || event.category.includes(category);
-        const familyMatch = family === "all" || event.familySuitability === family;
-        return (
-          monthMatch &&
-          locationMatch &&
-          categoryMatch &&
-          familyMatch &&
-          includesSearch(event, locale, query.trim())
-        );
-      }),
-    [category, events, family, locale, location, month, query],
+    () => filterEvents(events, locale, filters),
+    [events, filters, locale],
+  );
+
+  const filteredDatesPending = useMemo(
+    () => filterEvents(datesPendingEvents, locale, filters),
+    [datesPendingEvents, filters, locale],
+  );
+
+  const filteredPast = useMemo(
+    () => (showPast ? filterEvents(pastEvents, locale, filters) : []),
+    [filters, locale, pastEvents, showPast],
   );
 
   const grouped = useMemo(
@@ -318,87 +418,200 @@ export function EventsCalendar({ events, locale }: { events: RivieraEvent[]; loc
     [filtered],
   );
 
+  const activeFilters = [
+    month !== "all" ? monthLabels[locale][month] : null,
+    location !== "all" ? location : null,
+    category !== "all" ? eventCategoryLabels[locale][category] : null,
+    family !== "all" ? familySuitabilityLabels[locale][family] : null,
+    query.trim() ? query.trim() : null,
+  ].filter(Boolean) as string[];
+
+  const clearFilters = () => {
+    setMonth("all");
+    setLocation("all");
+    setCategory("all");
+    setFamily("all");
+    setQuery("");
+  };
+
+  const familyHighlights = [...events, ...datesPendingEvents].filter((event) =>
+    ["menton-lemon-festival-2027", "nice-carnival-2027", "menton-music-festival-2026", "monaco-grand-prix-2026"].includes(event.id),
+  );
+
+  const sportsPrestige = [...events, ...datesPendingEvents].filter((event) =>
+    [
+      "monaco-grand-prix-2026",
+      "new-vision-nice-open-2026",
+      "jumping-international-monte-carlo-2026",
+      "meeting-herculis-ebs-2026",
+      "la-vuelta-monaco-start-2026",
+      "tour-de-france-femmes-nice-finish-2026",
+      "nice-cannes-marathon-2026",
+      "monaco-yacht-show-2026",
+    ].includes(event.id),
+  );
+
   return (
     <div className="grid gap-14">
-      <section className="border border-[#dfd4c1] bg-[#f6efe3] p-5 sm:p-6" aria-label={labels.filters}>
-        <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr_1fr]">
-          <label className="grid gap-2 text-sm font-semibold text-[#173f36]">
+      <section className="border-y border-[#dfd4c1] bg-[#fbf7ef] py-6" aria-label={labels.filters}>
+        <div className="flex flex-col justify-between gap-4 border-b border-[#dfd4c1] pb-5 md:flex-row md:items-end">
+          <div>
+            <p className="editorial-label">{labels.filters}</p>
+            <h2 className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{labels.timeline}</h2>
+          </div>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#5f574c]">
+            {labels.showing} {filtered.length} / {events.length}
+          </p>
+        </div>
+
+        <div className="mt-5 grid gap-4 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr]">
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.month}
-            <select className="min-h-11 border border-[#dfd4c1] bg-white px-3 text-sm" value={month} onChange={(event) => setMonth(event.target.value as MonthFilter)}>
+            <select className={selectClass} value={month} onChange={(event) => setMonth(event.target.value as MonthFilter)}>
               {monthFilterOptions.map((option) => (
                 <option key={option} value={option}>{monthLabels[locale][option]}</option>
               ))}
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#173f36]">
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.location}
-            <select className="min-h-11 border border-[#dfd4c1] bg-white px-3 text-sm" value={location} onChange={(event) => setLocation(event.target.value as typeof location)}>
+            <select className={selectClass} value={location} onChange={(event) => setLocation(event.target.value as typeof location)}>
               {locations.map((option) => (
                 <option key={option} value={option}>{option === "all" ? labels.all : option}</option>
               ))}
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#173f36]">
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.category}
-            <select className="min-h-11 border border-[#dfd4c1] bg-white px-3 text-sm" value={category} onChange={(event) => setCategory(event.target.value as typeof category)}>
+            <select className={selectClass} value={category} onChange={(event) => setCategory(event.target.value as typeof category)}>
               {categories.map((option) => (
                 <option key={option} value={option}>{option === "all" ? labels.all : eventCategoryLabels[locale][option]}</option>
               ))}
             </select>
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#173f36]">
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.family}
-            <select className="min-h-11 border border-[#dfd4c1] bg-white px-3 text-sm" value={family} onChange={(event) => setFamily(event.target.value as typeof family)}>
+            <select className={selectClass} value={family} onChange={(event) => setFamily(event.target.value as typeof family)}>
               {familyOptions.map((option) => (
                 <option key={option} value={option}>{option === "all" ? labels.all : familySuitabilityLabels[locale][option]}</option>
               ))}
             </select>
           </label>
         </div>
-        <input
-          className="mt-4 min-h-12 w-full border border-[#dfd4c1] bg-white px-4 text-sm"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder={labels.search}
-          type="search"
-        />
+        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+          <input
+            className="min-h-12 w-full border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={labels.search}
+            type="search"
+          />
+          <button
+            type="button"
+            onClick={clearFilters}
+            className="min-h-12 border border-[#173f36] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#173f36] hover:text-white"
+          >
+            {labels.clear}
+          </button>
+        </div>
+        {pastEvents.length ? (
+          <button
+            type="button"
+            onClick={() => setShowPast((value) => !value)}
+            className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#0b6f8f] underline-offset-4 hover:underline"
+          >
+            {showPast ? labels.hidePast : labels.showPast}
+          </button>
+        ) : null}
+        {activeFilters.length ? (
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#6b5f50]">{labels.active}</span>
+            {activeFilters.map((filter) => (
+              <Badge key={filter} tone="dark">{filter}</Badge>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <section aria-label={labels.results}>
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="serif-heading text-4xl text-[#173f36]">{filtered.length} {labels.results}</h2>
+        <div className="flex flex-col gap-3 border-b border-[#dfd4c1] pb-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="editorial-label">Calendar selection</p>
+            <h2 className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{filtered.length} {labels.results}</h2>
+          </div>
         </div>
         {filtered.length ? (
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div className="mt-8 grid gap-x-8 gap-y-6">
             {filtered.map((event) => (
-              <EventCard key={event.id} event={event} locale={locale} />
+              <EventCard key={event.id} event={event} locale={locale} status={getEventDateStatus(event)} />
             ))}
           </div>
         ) : (
-          <p className="mt-8 border border-[#dfd4c1] bg-[#fffdf8] p-6 text-[#5f574c]">{labels.noResults}</p>
+          <p className="mt-8 border border-[#dfd4c1] bg-[#fffdf8] p-6 text-[#5f574c]">{labels.noUpcoming}</p>
         )}
       </section>
 
+      {filteredDatesPending.length ? (
+        <section aria-labelledby="events-dates-pending" className="border-y border-[#dfd4c1] py-8">
+          <div className="grid gap-5 md:grid-cols-[0.36fr_1fr] md:items-end">
+            <div>
+              <p className="editorial-label">Planning guides</p>
+              <h2 id="events-dates-pending" className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">
+                {labels.datesPendingTitle}
+              </h2>
+            </div>
+            <p className="max-w-3xl text-sm leading-7 text-[#5f574c]">{labels.datesPendingText}</p>
+          </div>
+          <div className="mt-8 grid gap-x-8 gap-y-6">
+            {filteredDatesPending.map((event) => (
+              <EventCard key={event.id} event={event} locale={locale} status="dates_pending" />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {showPast && filteredPast.length ? (
+        <section aria-labelledby="events-past" className="border-y border-[#dfd4c1] py-8">
+          <div className="border-b border-[#dfd4c1] pb-5">
+            <p className="editorial-label">Archive</p>
+            <h2 id="events-past" className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">
+              {labels.pastTitle}
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-x-8 gap-y-6 opacity-85">
+            {filteredPast.map((event) => (
+              <EventCard key={event.id} event={event} locale={locale} status="past" />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section aria-labelledby="events-timeline">
-        <h2 id="events-timeline" className="serif-heading text-4xl text-[#173f36]">{labels.timeline}</h2>
-        <div className="mt-8 grid gap-6">
+        <div className="border-b border-[#dfd4c1] pb-6">
+          <p className="editorial-label">Seasonal rhythm</p>
+          <h2 id="events-timeline" className="serif-heading mt-2 text-3xl text-[#173f36] sm:text-4xl">{labels.timeline}</h2>
+        </div>
+        <div className="mt-8 grid gap-0">
           {grouped.map((group) => (
-            <div key={group.id} className="grid gap-4 border-t border-[#dfd4c1] pt-6 md:grid-cols-[0.32fr_1fr]">
-              <div>
-                <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-[#b07820]">
+            <div key={group.id} className="relative grid gap-5 border-l border-[#dfd4c1] pb-10 pl-6 last:pb-0 md:grid-cols-[0.32fr_1fr] md:pl-8">
+              <span className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-[#b07820]" aria-hidden="true" />
+              <div className="md:pr-8">
+                <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[#b07820]">
                   {monthLabels[locale][group.id]}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[#5f574c]">{timelineIntro[locale][group.id]}</p>
               </div>
               <div className="grid gap-3">
-                {group.events.map((event) => (
+                {group.events.map((event, index) => (
                   <Link
                     key={event.id}
                     href={event.detailPage ? eventHref(locale, event) : (`/${locale}/events` as Route)}
-                    className="grid gap-2 border border-[#dfd4c1] bg-[#fffdf8] p-4 transition hover:border-[#c6a66a] md:grid-cols-[0.24fr_1fr_0.26fr]"
+                    className={`grid gap-2 border border-[#dfd4c1] bg-[#fffdf8] p-4 transition hover:border-[#c6a66a] md:grid-cols-[0.24fr_1fr_0.26fr] ${
+                      index === 0 ? "md:py-5" : "opacity-90"
+                    }`}
                   >
                     <span className="text-sm font-bold text-[#173f36]">{event.dateLabel}</span>
-                    <span className="text-sm text-[#5f574c]">{event.title}</span>
+                    <span className={`text-sm text-[#5f574c] ${index === 0 ? "font-semibold text-[#173f36]" : ""}`}>{event.title}</span>
                     <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">{event.location}</span>
                   </Link>
                 ))}
@@ -408,16 +621,43 @@ export function EventsCalendar({ events, locale }: { events: RivieraEvent[]; loc
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="border border-[#dfd4c1] bg-[#173f36] p-7 text-white">
+      <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="border border-[#d9bf81] bg-[#fff3df] p-7">
           <p className="editorial-label text-[#d9b66b]">Families</p>
-          <h2 className="serif-heading mt-3 text-4xl">{labels.familyTitle}</h2>
-          <p className="mt-4 text-sm leading-7 text-white/75">{labels.familyText}</p>
+          <h2 className="serif-heading mt-3 text-3xl text-[#173f36] sm:text-4xl">{labels.familyTitle}</h2>
+          <p className="mt-4 text-sm leading-7 text-[#5f574c]">{labels.familyText}</p>
+          <div className="mt-6 grid gap-3">
+            {familyHighlights.map((event) => (
+              <Link
+                key={event.id}
+                href={event.detailPage ? eventHref(locale, event) : (`/${locale}/events` as Route)}
+                className="grid gap-1 border-t border-[#d9bf81] pt-3"
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">
+                  {familySuitabilityLabels[locale][event.familySuitability]}
+                </span>
+                <span className="serif-heading break-words text-2xl leading-none text-[#173f36]">{event.title}</span>
+                <span className="text-sm text-[#5f574c]">{event.dateLabel}</span>
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className="border border-[#dfd4c1] bg-[#fffdf8] p-7">
+        <div className="border border-[#dfd4c1] bg-[#173f36] p-7 text-white">
           <p className="editorial-label">Riviera calendar</p>
-          <h2 className="serif-heading mt-3 text-4xl text-[#173f36]">{labels.sportsTitle}</h2>
-          <p className="mt-4 text-sm leading-7 text-[#5f574c]">{labels.sportsText}</p>
+          <h2 className="serif-heading mt-3 text-3xl sm:text-4xl">{labels.sportsTitle}</h2>
+          <p className="mt-4 text-sm leading-7 text-white/75">{labels.sportsText}</p>
+          <div className="mt-6 grid gap-2 sm:grid-cols-2">
+            {sportsPrestige.map((event) => (
+              <Link
+                key={event.id}
+                href={event.detailPage ? eventHref(locale, event) : (`/${locale}/events` as Route)}
+                className="border border-white/15 bg-white/[0.03] p-3 transition hover:border-[#d9b66b]"
+              >
+                <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#d9b66b]">{event.location}</span>
+                <span className="mt-1 block text-sm font-semibold leading-5">{event.title}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

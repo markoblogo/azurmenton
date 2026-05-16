@@ -58,6 +58,9 @@ export type RivieraEvent = {
   };
 };
 
+// Admin note: review and add new Riviera events every 1-2 months.
+// The public calendar should aim to cover at least the next 6 months.
+// Confirmed events are hidden automatically after their end date; keep old data for future archive use.
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
 
 export const eventCategoryLabels: Record<Locale, Record<EventCategory, string>> = {
