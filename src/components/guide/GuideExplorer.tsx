@@ -90,12 +90,12 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <section aria-labelledby="featured-guides">
         <div className="flex items-end justify-between gap-4 border-b border-[#dfd2b8] pb-4">
           <h2 id="featured-guides" className="serif-heading text-3xl leading-none text-[#173f36]">{local.featured}</h2>
         </div>
-        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {featured.map((article, index) => (
             <GuideArticleCard key={article.slug} article={article} locale={locale} priority={index === 0} />
           ))}
@@ -118,7 +118,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
           <Select value={duration} onChange={setDuration} label={copy.duration[locale]} options={Object.entries(guideDurationLabels).map(([value, label]) => ({ value, label: label[locale] }))} allLabel={copy.all[locale]} />
           <Select value={location} onChange={setLocation} label={copy.location[locale]} options={guideLocationOptions.map((option) => ({ value: option.value, label: option.label[locale] }))} allLabel={copy.all[locale]} />
         </div>
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-[#71665b]">
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-[#71665b]">
           <p>{copy.showing[locale]} <span className="font-semibold text-[#173f36]">{filtered.length}</span> {copy.guides[locale]}</p>
           {activeFilters.length ? (
             <button className="border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" type="button" onClick={clearFilters}>
@@ -133,7 +133,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
           <h2 id="guide-results" className="serif-heading text-3xl leading-none text-[#173f36]">{local.articles}</h2>
         </div>
         {filtered.length ? (
-          <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} />)}
           </div>
         ) : (

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
-import { BookingCTA } from "@/components/content/BookingCTA";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
+import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -131,25 +131,37 @@ export default async function GuideLandingPage({ params }: PageProps) {
             </div>
             <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">
               <div className="grid grid-cols-2 gap-3">
-                {featuredArticles.map((article) => (
-                  <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="min-h-36 border border-[#dfd2b8] bg-[linear-gradient(135deg,#fff7e7,#e8f2ec_55%,#f7e6c5)] p-4 transition hover:border-[#173f36]">
-                    <p className="text-[0.58rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{localizeGuideArticle(article, safeLocale).categoryLabel}</p>
-                    <h2 className="mt-7 serif-heading text-xl leading-none text-[#173f36]">{localizeGuideArticle(article, safeLocale).title}</h2>
-                  </Link>
-                ))}
+                {featuredArticles.map((article) => {
+                  const localized = localizeGuideArticle(article, safeLocale);
+                  return (
+                    <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="group overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition hover:border-[#173f36]">
+                      <GuideVisual
+                        image={localized.coverImage}
+                        imageAlt={localized.coverImageAlt}
+                        locale={safeLocale}
+                        theme={localized.visualTheme ?? "sea"}
+                        label={localized.categoryLabel}
+                        className="aspect-[4/2.05]"
+                      />
+                      <div className="p-3.5">
+                        <h2 className="serif-heading text-lg leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{localized.title}</h2>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <Section className="bg-[#f8f3ea] py-12 sm:py-16">
+      <Section className="bg-[#f8f3ea] py-10 sm:py-14">
         <Container>
           <GuideExplorer locale={safeLocale} articles={articles} />
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-12 sm:py-16">
+      <Section className="bg-[#fffaf0] py-10 sm:py-14">
         <Container>
           <div className="mb-6 max-w-3xl">
             <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">Menton notes</p>
@@ -162,19 +174,19 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#173f36] py-12 text-white sm:py-16">
+      <Section className="bg-[#173f36] py-8 text-white sm:py-10">
         <Container>
-          <div className="grid gap-6 md:grid-cols-[0.8fr_1fr] md:items-center">
-            <h2 className="serif-heading text-4xl leading-none">{local.eventsTitle}</h2>
-            <div>
-              <p className="max-w-2xl text-sm leading-7 text-[#e8dcc9]">{local.eventsText}</p>
-              <Link className="mt-5 inline-flex border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
+          <div className="grid gap-5 md:grid-cols-[0.78fr_1fr] md:items-center">
+            <h2 className="serif-heading text-3xl leading-none sm:text-4xl">{local.eventsTitle}</h2>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-2xl text-sm leading-6 text-[#e8dcc9]">{local.eventsText}</p>
+              <Link className="inline-flex shrink-0 border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#f8f3ea] py-12 sm:py-16">
+      <Section className="bg-[#f8f3ea] py-10 sm:py-12">
         <Container>
           <div className="mb-6 max-w-3xl">
             <h2 className="serif-heading text-4xl leading-none text-[#173f36]">{local.apartmentsTitle}</h2>
@@ -183,12 +195,6 @@ export default async function GuideLandingPage({ params }: PageProps) {
           <div className="grid gap-4 lg:grid-cols-3">
             {apartments.map((apartment) => <ApartmentCard key={apartment.slug} apartment={apartment} locale={safeLocale} compact />)}
           </div>
-        </Container>
-      </Section>
-
-      <Section className="py-10 sm:py-14">
-        <Container>
-          <BookingCTA locale={safeLocale} title={copy.cta.title} primaryLabel={local.viewApartments} secondaryLabel={local.checkAvailability} primaryHref={`/${safeLocale}/apartments`} secondaryHref={`/${safeLocale}/check-availability`} />
         </Container>
       </Section>
     </>
