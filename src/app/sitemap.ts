@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { apartments } from "@/content/apartments";
-import { eventPages } from "@/content/events";
 import { guidePages } from "@/content/guide";
+import { eventDetailSlugs } from "@/content/riviera-events";
 import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes.map((path) => localizedPath(locale, path)),
     ...apartments.map((apartment) => localizedPath(locale, `apartments/${apartment.slug}`)),
     ...guidePages[locale].map((page) => localizedPath(locale, `guide/${page.slug}`)),
-    ...eventPages[locale].map((event) => localizedPath(locale, `events/${event.slug}`)),
+    ...eventDetailSlugs.map((slug) => localizedPath(locale, `events/${slug}`)),
   ]);
 
   return routes.map((route) => ({
