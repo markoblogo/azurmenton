@@ -47,6 +47,7 @@ const copy = {
     links: "Useful links",
     sidePlan: "Plan",
     relatedGuide: "Menton without a car",
+    transportGuide: "Public transport in Menton",
     availability: "Check availability",
     viewApartments: "View apartments",
   },
@@ -72,6 +73,7 @@ const copy = {
     links: "Liens utiles",
     sidePlan: "Plan",
     relatedGuide: "Menton sans voiture",
+    transportGuide: "Transports publics à Menton",
     availability: "Verifier disponibilite",
     viewApartments: "Voir appartements",
   },
@@ -97,6 +99,7 @@ const copy = {
     links: "Link utili",
     sidePlan: "Piano",
     relatedGuide: "Mentone senza auto",
+    transportGuide: "Trasporti pubblici a Mentone",
     availability: "Controlla disponibilita",
     viewApartments: "Vedi appartamenti",
   },
@@ -122,6 +125,7 @@ const copy = {
     links: "Корисні посилання",
     sidePlan: "План",
     relatedGuide: "Ментон без авто",
+    transportGuide: "Громадський транспорт у Ментоні",
     availability: "Перевірити доступність",
     viewApartments: "Переглянути апартаменти",
   },
@@ -355,6 +359,9 @@ export default async function EventArticlePage({ params }: PageProps) {
                   </Link>
                   <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/menton-without-a-car` as Route}>
                     {labels.relatedGuide}
+                  </Link>
+                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/public-transport-in-menton` as Route}>
+                    {labels.transportGuide}
                   </Link>
                   <p className="text-xs leading-5 text-[#6b5f50]">{labels.verifyText}</p>
                 </div>
