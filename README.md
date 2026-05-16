@@ -76,7 +76,7 @@ Current guest contact details:
 
 ## Weather Widget
 
-The homepage uses `src/lib/weather.ts` and `src/components/weather/WeatherWidget.tsx` to fetch Menton weather server-side from Open-Meteo with a two-hour cache. It shows current temperature, condition, wind, rain chance, a five-day forecast, provider label and a graceful fallback if the provider is unavailable.
+The homepage uses `src/lib/weather.ts` and `src/components/weather/WeatherWidget.tsx` to fetch Menton weather server-side from Open-Meteo with a two-hour cache. It shows current temperature, sea surface temperature, condition, wind, rain chance, a five-day forecast, provider label and a graceful fallback if the provider is unavailable. Sea temperature comes from the Open-Meteo Marine API and is treated as a planning indicator, not a swimming safety guarantee.
 
 Configure provider and Menton coordinates with:
 

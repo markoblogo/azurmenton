@@ -12,6 +12,7 @@ export type MentonWeather = {
   provider: string;
   updatedAt: string;
   temperature: number;
+  seaTemperature?: number;
   windSpeed: number;
   weatherCode: number;
   rainChance?: number;
@@ -35,6 +36,13 @@ type OpenMeteoResponse = {
     temperature_2m_min?: number[];
     weather_code?: number[];
     precipitation_probability_max?: number[];
+  };
+};
+
+type OpenMeteoMarineResponse = {
+  current?: {
+    time?: string;
+    sea_surface_temperature?: number;
   };
 };
 
@@ -121,11 +129,36 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
     provider: "Open-Meteo",
     updatedAt: data.current.time ?? new Date().toISOString(),
     temperature: Math.round(data.current.temperature_2m),
+    seaTemperature: await fetchOpenMeteoSeaTemperature(latitude, longitude),
     windSpeed: Math.round(data.current.wind_speed_10m),
     weatherCode: data.current.weather_code,
     rainChance: closestRainChance(data),
     forecast,
   };
+}
+
+async function fetchOpenMeteoSeaTemperature(latitude: string, longitude: string) {
+  const url = new URL("https://marine-api.open-meteo.com/v1/marine");
+
+  url.searchParams.set("latitude", latitude);
+  url.searchParams.set("longitude", longitude);
+  url.searchParams.set("timezone", "Europe/Paris");
+  url.searchParams.set("current", "sea_surface_temperature");
+
+  try {
+    const response = await fetch(url, {
+      next: { revalidate: 7200 },
+    });
+
+    if (!response.ok) return undefined;
+
+    const data = (await response.json()) as OpenMeteoMarineResponse;
+    const seaTemperature = data.current?.sea_surface_temperature;
+
+    return typeof seaTemperature === "number" ? Math.round(seaTemperature) : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 export const getMentonWeather = unstable_cache(

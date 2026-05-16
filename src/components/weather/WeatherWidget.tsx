@@ -9,6 +9,8 @@ const copy = {
     cta: "Check availability",
     wind: "Wind",
     rain: "Chance of rain",
+    sea: "Sea",
+    seaUnavailable: "Sea data unavailable",
     updated: "Last updated",
     provider: "Weather data provider",
     fallback: "Weather data is temporarily unavailable. Menton is waiting by the sea.",
@@ -19,6 +21,8 @@ const copy = {
     cta: "Verifier disponibilite",
     wind: "Vent",
     rain: "Risque de pluie",
+    sea: "Mer",
+    seaUnavailable: "Temperature mer indisponible",
     updated: "Mis a jour",
     provider: "Source meteo",
     fallback: "La meteo est temporairement indisponible. Menton vous attend au bord de la mer.",
@@ -29,6 +33,8 @@ const copy = {
     cta: "Controlla disponibilita",
     wind: "Vento",
     rain: "Probabilita di pioggia",
+    sea: "Mare",
+    seaUnavailable: "Temperatura mare non disponibile",
     updated: "Aggiornato",
     provider: "Fonte meteo",
     fallback: "I dati meteo non sono temporaneamente disponibili. Mentone ti aspetta sul mare.",
@@ -39,11 +45,40 @@ const copy = {
     cta: "Перевірити доступність",
     wind: "Вітер",
     rain: "Ймовірність дощу",
+    sea: "Море",
+    seaUnavailable: "Температура моря недоступна",
     updated: "Оновлено",
     provider: "Джерело погоди",
     fallback: "Дані про погоду тимчасово недоступні. Ментон чекає біля моря.",
   },
 } satisfies Record<Locale, Record<string, string>>;
+
+const swimComfortLabels = {
+  en: {
+    cool: "Cool for swimming",
+    fresh: "Fresh but possible",
+    pleasant: "Pleasant for a swim",
+    warm: "Warm sea",
+  },
+  fr: {
+    cool: "Fraiche pour nager",
+    fresh: "Fraiche mais possible",
+    pleasant: "Agreable pour se baigner",
+    warm: "Mer chaude",
+  },
+  it: {
+    cool: "Fresca per nuotare",
+    fresh: "Fresca ma possibile",
+    pleasant: "Piacevole per nuotare",
+    warm: "Mare caldo",
+  },
+  uk: {
+    cool: "Прохолодно для купання",
+    fresh: "Свіжо, але можливо",
+    pleasant: "Приємно для плавання",
+    warm: "Тепле море",
+  },
+} satisfies Record<Locale, Record<"cool" | "fresh" | "pleasant" | "warm", string>>;
 
 const conditionLabels = {
   en: {
@@ -118,6 +153,13 @@ function weatherTone(code: number) {
   if ([71, 73, 75, 77, 85, 86].includes(code)) return "snow";
   if ([95, 96, 99].includes(code)) return "storm";
   return "partly";
+}
+
+function swimComfortKey(temperature: number) {
+  if (temperature < 18) return "cool";
+  if (temperature < 21) return "fresh";
+  if (temperature < 25) return "pleasant";
+  return "warm";
 }
 
 function WeatherGlyph({ code, compact = false }: { code: number; compact?: boolean }) {
@@ -258,7 +300,7 @@ export async function WeatherWidget({ locale }: { locale: Locale }) {
                   </p>
                 </div>
               </div>
-              <dl className="mt-7 grid grid-cols-2 gap-3 text-sm text-[#40514d]">
+              <dl className="mt-7 grid gap-3 text-sm text-[#40514d] sm:grid-cols-3">
                 <div className="border border-white/70 bg-[#fff9ed]/76 px-4 py-3">
                   <dt className="editorial-label text-[#b07820]">{labels.wind}</dt>
                   <dd className="mt-1 text-lg font-semibold">{weather.windSpeed} km/h</dd>
@@ -267,6 +309,17 @@ export async function WeatherWidget({ locale }: { locale: Locale }) {
                   <dt className="editorial-label text-[#b07820]">{labels.rain}</dt>
                   <dd className="mt-1 text-lg font-semibold">
                     {typeof weather.rainChance === "number" ? `${weather.rainChance}%` : "—"}
+                  </dd>
+                </div>
+                <div className="border border-white/70 bg-[#eaf8fb]/78 px-4 py-3">
+                  <dt className="editorial-label text-[#0b6f8f]">{labels.sea}</dt>
+                  <dd className="mt-1 text-lg font-semibold">
+                    {typeof weather.seaTemperature === "number" ? `${weather.seaTemperature}°C` : "—"}
+                  </dd>
+                  <dd className="mt-1 text-xs leading-4 text-[#58706d]">
+                    {typeof weather.seaTemperature === "number"
+                      ? swimComfortLabels[locale][swimComfortKey(weather.seaTemperature)]
+                      : labels.seaUnavailable}
                   </dd>
                 </div>
               </dl>
