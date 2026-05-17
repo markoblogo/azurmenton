@@ -138,11 +138,11 @@ const previewOrder: Record<string, string[]> = {
     "11-balcony-sea-view.png",
   ],
   "beachside-family-apartment": [
-    "01-private-terrace-breakfast.jpeg",
-    "02-living-room-terrace-access.jpeg",
-    "03-comfortable-bedroom.jpeg",
-    "04-dining-area-equipped-kitchen.jpeg",
-    "05-living-room-sofa-bed.jpeg",
+    "01-private-terrace-breakfast.png",
+    "02-living-room-terrace-access.png",
+    "03-comfortable-bedroom.png",
+    "04-dining-area-equipped-kitchen.png",
+    "05-living-room-sofa-bed.png",
   ],
   "panoramic-sea-view-studio": [
     "01-balcony-breakfast-sea-view.png",

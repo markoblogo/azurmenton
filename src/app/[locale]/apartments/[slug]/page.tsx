@@ -697,9 +697,9 @@ function heroImages(apartment: Apartment) {
 
   if (apartment.slug === "beachside-family-apartment") {
     return [
-      imageByFile(apartment, "01-private-terrace-breakfast.jpeg"),
-      imageByFile(apartment, "02-living-room-terrace-access.jpeg"),
-      imageByFile(apartment, "03-comfortable-bedroom.jpeg"),
+      imageByFile(apartment, "01-private-terrace-breakfast.png"),
+      imageByFile(apartment, "02-living-room-terrace-access.png"),
+      imageByFile(apartment, "03-comfortable-bedroom.png"),
     ];
   }
 
