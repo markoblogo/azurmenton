@@ -705,8 +705,8 @@ function heroImages(apartment: Apartment) {
 
   return [
     imageByFile(apartment, "01-balcony-breakfast-sea-view.png"),
-    imageByFile(apartment, "02-wide-sea-view-from-balcony.png"),
-    imageByFile(apartment, "03-bright-studio-double-bed.png"),
+    imageByFile(apartment, "02-balcony-harbour-view.png"),
+    imageByFile(apartment, "16-living-room-sea-view.png"),
   ];
 }
 

@@ -211,10 +211,10 @@ const heroInsetSlides = [
   { src: "/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/02-living-room-terrace-access.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/panoramic-sea-view-studio/03-bright-studio-double-bed.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/11-balcony-sea-view.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/panoramic-sea-view-studio/02-wide-sea-view-from-balcony.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/02-balcony-harbour-view.png", objectPosition: "50% 50%" },
 ];
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
