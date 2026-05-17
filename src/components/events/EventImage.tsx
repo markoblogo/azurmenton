@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { RivieraEvent } from "@/content/riviera-events";
+import { getEventTitle, type RivieraEvent } from "@/content/riviera-events";
 import type { Locale } from "@/i18n/locales";
 
 type EventImageProps = {
@@ -11,6 +11,13 @@ type EventImageProps = {
   sizes?: string;
 };
 
+const projectIllustrationAlt: Record<Locale, (title: string) => string> = {
+  en: (title) => `Project illustration for ${title}`,
+  fr: (title) => `Illustration de projet pour ${title}`,
+  it: (title) => `Illustrazione di progetto per ${title}`,
+  uk: (title) => `Проєктна ілюстрація для ${title}`,
+};
+
 export function EventImage({
   event,
   locale,
@@ -20,7 +27,11 @@ export function EventImage({
   sizes = "(min-width: 1024px) 38vw, 92vw",
 }: EventImageProps) {
   const image = event.media?.mediaStatus === "available" ? event.media.image : undefined;
-  const alt = event.media?.imageAlt?.[locale] ?? `Project illustration for ${event.title}`;
+  const title = getEventTitle(event, locale);
+  const alt =
+    event.media?.mediaType === "project_illustration"
+      ? projectIllustrationAlt[locale](title)
+      : event.media?.imageAlt?.[locale] ?? projectIllustrationAlt[locale](title);
 
   return (
     <figure className={`relative overflow-hidden border border-[#dfd4c1] bg-[#efe6d8] ${className}`}>

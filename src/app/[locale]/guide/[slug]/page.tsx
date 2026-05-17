@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
 import { getPlaces } from "@/content/places";
-import { getRivieraEvent } from "@/content/riviera-events";
+import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
@@ -158,7 +158,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   <div className="mt-4 grid gap-2">
                     {article.relatedEvents.map((eventSlug) => {
                       const event = getRivieraEvent(eventSlug);
-                      return event ? <Link key={eventSlug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${locale}/events/${eventSlug}` as Route}>{event.title}</Link> : null;
+                      return event ? <Link key={eventSlug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${locale}/events/${eventSlug}` as Route}>{getEventTitle(event, locale)}</Link> : null;
                     })}
                   </div>
                 </div>

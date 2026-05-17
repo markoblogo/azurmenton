@@ -9,6 +9,8 @@ import { apartments } from "@/content/apartments";
 import {
   eventCategoryLabels,
   familySuitabilityLabels,
+  getEventDateLabel,
+  getEventTitle,
   rivieraEvents,
   type RivieraEvent,
 } from "@/content/riviera-events";
@@ -50,6 +52,9 @@ const copy = {
     finalTitle: "Coming for an event?",
     finalText:
       "Tell us your dates and we'll confirm availability and the best direct offer personally.",
+    seoTitle: "Events in Menton and nearby | Azur Menton",
+    seoDescription:
+      "Plan your Menton stay around the Lemon Festival, Monaco Grand Prix, Riviera music festivals, Nice exhibitions and family-friendly events.",
   },
   fr: {
     title: "Evenements a Menton et aux alentours",
@@ -76,6 +81,9 @@ const copy = {
     stayIntro: "Choisissez selon votre style de voyage: vue, famille pratique ou studio compact en bord de mer.",
     finalTitle: "Vous venez pour un evenement ?",
     finalText: "Envoyez vos dates et nous confirmerons disponibilite et meilleure offre directe personnellement.",
+    seoTitle: "Evenements a Menton et alentours | Azur Menton",
+    seoDescription:
+      "Planifiez votre sejour a Menton autour de la Fete du Citron, du Grand Prix de Monaco, des festivals de musique, des expositions a Nice et des evenements en famille.",
   },
   it: {
     title: "Eventi a Mentone e dintorni",
@@ -102,6 +110,9 @@ const copy = {
     stayIntro: "Scegli in base al viaggio: vista, famiglia pratica o studio compatto sul mare.",
     finalTitle: "Arrivi per un evento?",
     finalText: "Mandaci le date e confermeremo disponibilita e migliore offerta diretta personalmente.",
+    seoTitle: "Eventi a Mentone e dintorni | Azur Menton",
+    seoDescription:
+      "Organizza il soggiorno a Mentone intorno alla Festa del Limone, al Gran Premio di Monaco, ai festival musicali della Riviera, alle mostre di Nizza e agli eventi per famiglie.",
   },
   uk: {
     title: "Події в Ментоні та поруч",
@@ -128,6 +139,9 @@ const copy = {
     stayIntro: "Оберіть під стиль поїздки: вид, сімейна практичність або компактна студія біля моря.",
     finalTitle: "Їдете на подію?",
     finalText: "Надішліть дати, і ми особисто підтвердимо доступність та найкращу пряму пропозицію.",
+    seoTitle: "Події в Ментоні та поруч | Azur Menton",
+    seoDescription:
+      "Плануйте перебування в Ментоні навколо Фестивалю лимонів, Гран-прі Монако, музичних фестивалів Рив'єри, виставок у Ніцці та сімейних подій.",
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
 
@@ -138,15 +152,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createMetadata({
     locale: safeLocale,
     path: "events",
-    title: "Events in Menton and nearby | Azur Menton",
-    description:
-      "Plan your Menton stay around the Lemon Festival, Monaco Grand Prix, Riviera music festivals, Nice exhibitions and family-friendly events.",
+    title: copy[safeLocale].seoTitle as string,
+    description: copy[safeLocale].seoDescription as string,
   });
 }
 
 function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale }) {
   const labels = copy[locale];
   const href = event.detailPage ? (`/${locale}/events/${event.slug}` as Route) : (`/${locale}/events` as Route);
+  const title = getEventTitle(event, locale);
+  const dateLabel = getEventDateLabel(event, locale);
 
   return (
     <Link href={href} className="group grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a]">
@@ -154,13 +169,13 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
       <div className="grid gap-4 p-4">
         <div className="flex flex-wrap gap-2">
           <span className="border border-[#d2a748] bg-[#fff5d8] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#7b5515]">
-            {event.dateLabel}
+            {dateLabel}
           </span>
           <span className="border border-[#9ac7d2] bg-[#edf8fb] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#245d6a]">
             {event.location}
           </span>
         </div>
-        <h3 className="serif-heading break-words text-2xl leading-[0.98] text-[#173f36] sm:text-3xl sm:leading-[0.92]">{event.title}</h3>
+        <h3 className="serif-heading break-words text-2xl leading-[0.98] text-[#173f36] sm:text-3xl sm:leading-[0.92]">{title}</h3>
         <p className="line-clamp-2 border-l border-[#c6a66a] pl-4 font-serif text-base italic leading-6 text-[#315d53]">
           {event.whyShowOnSite[locale]}
         </p>

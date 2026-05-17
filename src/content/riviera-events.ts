@@ -30,9 +30,11 @@ export type RivieraEvent = {
   id: string;
   slug: string;
   title: string;
+  titleLocalized?: LocalizedText;
   location: EventLocation;
   monthGroup: string;
   dateLabel: string;
+  dateLabelLocalized?: LocalizedText;
   startDate?: string;
   endDate?: string;
   expectedSeason?: string;
@@ -75,6 +77,148 @@ export type RivieraEvent = {
 // The public calendar should aim to cover at least the next 6 months.
 // Confirmed events are hidden automatically after their end date; keep old data for future archive use.
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
+
+const eventTitleLabels: Record<string, LocalizedText> = {
+  "monaco-grand-prix-2026": t(
+    "Formula 1 Monaco Grand Prix",
+    "Grand Prix de Formule 1 de Monaco",
+    "Gran Premio di Formula 1 di Monaco",
+    "Гран-прі Формули-1 у Монако",
+  ),
+  "monte-carlo-television-festival-2026": t(
+    "Monte-Carlo Television Festival",
+    "Festival de Télévision de Monte-Carlo",
+    "Festival della Televisione di Monte-Carlo",
+    "Телевізійний фестиваль Монте-Карло",
+  ),
+  "commedia-dell-arte-nice-2026": t(
+    "Festival International de Commedia Dell'Arte",
+    "Festival international de Commedia Dell'Arte",
+    "Festival Internazionale di Commedia Dell'Arte",
+    "Міжнародний фестиваль Commedia Dell'Arte",
+  ),
+  "new-vision-nice-open-2026": t("New Vision Nice Open", "New Vision Nice Open", "New Vision Nice Open", "New Vision Nice Open"),
+  "matisse-yves-saint-laurent-nice-2026": t(
+    "Henri Matisse - Yves Saint Laurent",
+    "Henri Matisse - Yves Saint Laurent",
+    "Henri Matisse - Yves Saint Laurent",
+    "Анрі Матісс - Ів Сен-Лоран",
+  ),
+  "jumping-international-monte-carlo-2026": t(
+    "Jumping International de Monte-Carlo",
+    "Jumping International de Monte-Carlo",
+    "Jumping International de Monte-Carlo",
+    "Міжнародний конкур у Монте-Карло",
+  ),
+  "monte-carlo-summer-festival-2026": t(
+    "Monte-Carlo Summer Festival",
+    "Festival d'été de Monte-Carlo",
+    "Festival estivo di Monte-Carlo",
+    "Літній фестиваль Монте-Карло",
+  ),
+  "monaco-energy-boat-challenge-2026": t("Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge"),
+  "meeting-herculis-ebs-2026": t("Meeting Herculis EBS", "Meeting Herculis EBS", "Meeting Herculis EBS", "Meeting Herculis EBS"),
+  "nice-jazz-fest-2026": t("Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest"),
+  "menton-music-festival-2026": t(
+    "Menton Music Festival",
+    "Festival de Musique de Menton",
+    "Festival di Musica di Mentone",
+    "Музичний фестиваль Ментона",
+  ),
+  "la-vuelta-monaco-start-2026": t(
+    "Grand Départ / start of La Vuelta in Monaco",
+    "Grand Départ / départ de La Vuelta à Monaco",
+    "Grand Départ / partenza della Vuelta a Monaco",
+    "Grand Départ / старт La Vuelta у Монако",
+  ),
+  "tour-de-france-femmes-nice-finish-2026": t(
+    "Finish of the women's Tour de France in Nice",
+    "Arrivée du Tour de France Femmes à Nice",
+    "Arrivo del Tour de France Femmes a Nizza",
+    "Фініш жіночого Тур де Франс у Ніцці",
+  ),
+  "art3f-monaco-2026": t("ART3F Monaco", "ART3F Monaco", "ART3F Monaco", "ART3F Monaco"),
+  "monaco-yacht-show-2026": t("Monaco Yacht Show", "Monaco Yacht Show", "Monaco Yacht Show", "Яхт-шоу Монако"),
+  "matisse-yves-saint-laurent-autumn-2026": t(
+    "Henri Matisse - Yves Saint Laurent, final weeks",
+    "Henri Matisse - Yves Saint Laurent, dernières semaines",
+    "Henri Matisse - Yves Saint Laurent, ultime settimane",
+    "Анрі Матісс - Ів Сен-Лоран, останні тижні",
+  ),
+  "immersive-exhibitions-nice-2026": t(
+    "Ongoing exhibitions in Nice",
+    "Expositions en cours à Nice",
+    "Mostre in corso a Nizza",
+    "Актуальні виставки в Ніцці",
+  ),
+  "nice-cannes-marathon-2026": t(
+    "Alpes-Maritimes Nice-Cannes Marathon",
+    "Marathon des Alpes-Maritimes Nice-Cannes",
+    "Maratona Alpes-Maritimes Nice-Cannes",
+    "Марафон Alpes-Maritimes Ніцца-Канни",
+  ),
+  "major-sports-weekends-nice-autumn-2026": t(
+    "Major sports weekends in Nice",
+    "Grands week-ends sportifs à Nice",
+    "Grandi weekend sportivi a Nizza",
+    "Великі спортивні вікенди в Ніцці",
+  ),
+  "winter-on-the-riviera-2026-2027": t("Winter on the Riviera", "Hiver sur la Riviera", "Inverno in Riviera", "Зима на Рив'єрі"),
+  "local-menton-winter-events-2026-2027": t(
+    "Local winter events in Menton and nearby villages",
+    "Événements d'hiver à Menton et dans les villages voisins",
+    "Eventi invernali a Mentone e nei borghi vicini",
+    "Зимові події в Ментоні та сусідніх селах",
+  ),
+  "menton-lemon-festival-2027": t(
+    "Fête du Citron / Menton Lemon Festival",
+    "Fête du Citron / Festival du Citron de Menton",
+    "Festa del Limone / Festival del Limone di Mentone",
+    "Fête du Citron / Фестиваль лимонів у Ментоні",
+  ),
+  "nice-carnival-2027": t("Nice Carnival", "Carnaval de Nice", "Carnevale di Nizza", "Карнавал Ніцци"),
+  "summer-on-the-riviera": t("Summer on the Riviera", "Été sur la Riviera", "Estate in Riviera", "Літо на Рив'єрі"),
+};
+
+export function getEventTitle(event: Pick<RivieraEvent, "title" | "titleLocalized">, locale: Locale) {
+  return event.titleLocalized?.[locale] ?? event.title;
+}
+
+const eventDateLabels: Record<string, LocalizedText> = {
+  "monaco-grand-prix-2026": t("4-7 June 2026", "4-7 juin 2026", "4-7 giugno 2026", "4-7 червня 2026"),
+  "monte-carlo-television-festival-2026": t("12-16 June 2026", "12-16 juin 2026", "12-16 giugno 2026", "12-16 червня 2026"),
+  "commedia-dell-arte-nice-2026": t("5-18 June 2026", "5-18 juin 2026", "5-18 giugno 2026", "5-18 червня 2026"),
+  "new-vision-nice-open-2026": t("8-14 June 2026", "8-14 juin 2026", "8-14 giugno 2026", "8-14 червня 2026"),
+  "matisse-yves-saint-laurent-nice-2026": t("17 June-28 September 2026", "17 juin-28 septembre 2026", "17 giugno-28 settembre 2026", "17 червня-28 вересня 2026"),
+  "jumping-international-monte-carlo-2026": t("2-4 July 2026", "2-4 juillet 2026", "2-4 luglio 2026", "2-4 липня 2026"),
+  "monte-carlo-summer-festival-2026": t("3 July-15 August 2026", "3 juillet-15 août 2026", "3 luglio-15 agosto 2026", "3 липня-15 серпня 2026"),
+  "monaco-energy-boat-challenge-2026": t("8-11 July 2026", "8-11 juillet 2026", "8-11 luglio 2026", "8-11 липня 2026"),
+  "meeting-herculis-ebs-2026": t("10 July 2026", "10 juillet 2026", "10 luglio 2026", "10 липня 2026"),
+  "nice-jazz-fest-2026": t("23-26 July 2026", "23-26 juillet 2026", "23-26 luglio 2026", "23-26 липня 2026"),
+  "menton-music-festival-2026": t("25 July-7 August 2026", "25 juillet-7 août 2026", "25 luglio-7 agosto 2026", "25 липня-7 серпня 2026"),
+  "la-vuelta-monaco-start-2026": t("20-23 August 2026", "20-23 août 2026", "20-23 agosto 2026", "20-23 серпня 2026"),
+  "tour-de-france-femmes-nice-finish-2026": t("August 2026", "Août 2026", "Agosto 2026", "Серпень 2026"),
+  "art3f-monaco-2026": t("18-20 September 2026", "18-20 septembre 2026", "18-20 settembre 2026", "18-20 вересня 2026"),
+  "monaco-yacht-show-2026": t("23-26 September 2026", "23-26 septembre 2026", "23-26 settembre 2026", "23-26 вересня 2026"),
+  "matisse-yves-saint-laurent-autumn-2026": t("Until 28 September 2026", "Jusqu'au 28 septembre 2026", "Fino al 28 settembre 2026", "До 28 вересня 2026"),
+  "immersive-exhibitions-nice-2026": t("Seasonal / dates to verify", "Saisonnier / dates à vérifier", "Stagionale / date da verificare", "Сезонно / дати треба перевірити"),
+  "nice-cannes-marathon-2026": t("8 November 2026", "8 novembre 2026", "8 novembre 2026", "8 листопада 2026"),
+  "major-sports-weekends-nice-autumn-2026": t("Autumn 2026; dates to verify", "Automne 2026 ; dates à vérifier", "Autunno 2026; date da verificare", "Осінь 2026; дати треба перевірити"),
+  "winter-on-the-riviera-2026-2027": t("December 2026-January 2027", "Décembre 2026-janvier 2027", "Dicembre 2026-gennaio 2027", "Грудень 2026-січень 2027"),
+  "local-menton-winter-events-2026-2027": t("Winter calendar coming soon", "Calendrier d'hiver à venir", "Calendario invernale in arrivo", "Зимовий календар очікується"),
+  "menton-lemon-festival-2027": t(
+    "February-early March 2027; official dates to confirm",
+    "Février-début mars 2027 ; dates officielles à confirmer",
+    "Febbraio-inizio marzo 2027; date ufficiali da confermare",
+    "Лютий-початок березня 2027; офіційні дати треба підтвердити",
+  ),
+  "nice-carnival-2027": t("9-28 February 2027", "9-28 février 2027", "9-28 febbraio 2027", "9-28 лютого 2027"),
+  "summer-on-the-riviera": t("July-August 2026", "Juillet-août 2026", "Luglio-agosto 2026", "Липень-серпень 2026"),
+};
+
+export function getEventDateLabel(event: Pick<RivieraEvent, "dateLabel" | "dateLabelLocalized">, locale: Locale) {
+  return event.dateLabelLocalized?.[locale] ?? event.dateLabel;
+}
 
 export const eventCategoryLabels: Record<Locale, Record<EventCategory, string>> = {
   en: {
@@ -1073,6 +1217,8 @@ const rivieraEventsBase: RivieraEvent[] = [
 
 export const rivieraEvents: RivieraEvent[] = rivieraEventsBase.map((event) => ({
   ...event,
+  titleLocalized: eventTitleLabels[event.id] ?? event.titleLocalized,
+  dateLabelLocalized: eventDateLabels[event.id] ?? event.dateLabelLocalized,
   media: eventIllustrations[event.id] ?? event.media,
 }));
 
@@ -1104,9 +1250,11 @@ export const summerOnTheRivieraEvent: RivieraEvent = {
   id: "summer-on-the-riviera",
   slug: "summer-on-the-riviera",
   title: "Summer on the Riviera",
+  titleLocalized: eventTitleLabels["summer-on-the-riviera"],
   location: "French Riviera",
   monthGroup: "2026-07",
   dateLabel: "July-August 2026",
+  dateLabelLocalized: eventDateLabels["summer-on-the-riviera"],
   expectedSeason: "July-August 2026",
   category: ["seasonal", "music", "family"],
   familySuitability: "depends",

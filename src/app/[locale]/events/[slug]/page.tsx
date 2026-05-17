@@ -11,6 +11,8 @@ import {
   eventCategoryLabels,
   eventDetailSlugs,
   familySuitabilityLabels,
+  getEventDateLabel,
+  getEventTitle,
   getEventDetail,
   sourceStatusLabels,
 } from "@/content/riviera-events";
@@ -148,11 +150,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!event) {
     return {};
   }
+  const title = getEventTitle(event, safeLocale);
 
   return createMetadata({
     locale: safeLocale,
     path: `events/${event.slug}`,
-    title: `${event.title} | Azur Menton`,
+    title: `${title} | Azur Menton`,
     description: event.shortDescription[safeLocale],
     image: event.media?.image,
     imageAlt: event.media?.imageAlt?.[safeLocale],
@@ -174,6 +177,8 @@ export default async function EventArticlePage({ params }: PageProps) {
   }
 
   const labels = copy[locale];
+  const title = getEventTitle(event, locale);
+  const dateLabel = getEventDateLabel(event, locale);
   const pageUrl = absoluteUrl(localizedPath(locale, `events/${event.slug}`));
   const relatedApartmentKeys =
     event.relatedApartmentKeys ??
@@ -184,7 +189,7 @@ export default async function EventArticlePage({ params }: PageProps) {
     <>
       <JsonLdScript
         data={articleJsonLd({
-          title: event.title,
+          title,
           description: event.shortDescription[locale],
           url: pageUrl,
         })}
@@ -193,7 +198,7 @@ export default async function EventArticlePage({ params }: PageProps) {
         data={breadcrumbJsonLd([
           { name: "Home", url: absoluteUrl(localizedPath(locale)) },
           { name: "Events", url: absoluteUrl(localizedPath(locale, "events")) },
-          { name: event.title, url: pageUrl },
+          { name: title, url: pageUrl },
         ])}
       />
 
@@ -203,7 +208,7 @@ export default async function EventArticlePage({ params }: PageProps) {
             <div>
               <p className="editorial-label">{labels.eyebrow}</p>
               <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-6xl sm:leading-[0.92]">
-                {event.title}
+                {title}
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -255,7 +260,7 @@ export default async function EventArticlePage({ params }: PageProps) {
               <div className="border-y border-[#dfd4c1] bg-[#fffdf8] p-4 sm:p-5">
                 <dl className="grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
                   {[
-                    [labels.date, event.dateLabel],
+                    [labels.date, dateLabel],
                     [labels.location, event.location],
                     [labels.family, familySuitabilityLabels[locale][event.familySuitability]],
                     [labels.status, sourceStatusLabels[locale][event.sourceStatus]],
@@ -386,7 +391,7 @@ export default async function EventArticlePage({ params }: PageProps) {
         <Container>
           <BookingCTA
             locale={locale}
-            title={event.title}
+            title={title}
             text={event.bookingTip[locale]}
             primaryLabel={labels.availability}
             secondaryLabel={labels.viewApartments}

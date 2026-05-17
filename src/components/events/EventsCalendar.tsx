@@ -7,6 +7,8 @@ import { EventImage } from "@/components/events/EventImage";
 import {
   eventCategoryLabels,
   familySuitabilityLabels,
+  getEventDateLabel,
+  getEventTitle,
   monthFilterOptions,
   monthLabels,
   sourceStatusLabels,
@@ -270,8 +272,10 @@ function includesSearch(event: RivieraEvent, locale: Locale, query: string) {
 
   const haystack = [
     event.title,
+    getEventTitle(event, locale),
     event.location,
     event.dateLabel,
+    getEventDateLabel(event, locale),
     event.shortDescription[locale],
     event.whyShowOnSite[locale],
     event.audience.join(" "),
@@ -314,6 +318,8 @@ function Badge({ children, tone = "light" }: { children: React.ReactNode; tone?:
 function EventCard({ event, locale, status, compact = false }: { event: RivieraEvent; locale: Locale; status: EventDateStatus; compact?: boolean }) {
   const hasDetail = event.detailPage || event.slug === "summer-on-the-riviera";
   const statusTone = status === "current" ? "dark" : status === "dates_pending" || status === "past" ? "gold" : "blue";
+  const title = getEventTitle(event, locale);
+  const dateLabel = getEventDateLabel(event, locale);
 
   return (
     <article className={`group grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a] ${compact ? "md:grid-cols-[0.34fr_1fr]" : "lg:grid-cols-[0.42fr_1fr]"}`}>
@@ -327,11 +333,11 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
         <div className="flex flex-wrap gap-2">
           <Badge tone={statusTone}>{statusLabel(locale, status)}</Badge>
           <Badge tone="blue">{event.location}</Badge>
-          <Badge tone="gold">{event.dateLabel}</Badge>
+          <Badge tone="gold">{dateLabel}</Badge>
           <Badge>{familySuitabilityLabels[locale][event.familySuitability]}</Badge>
         </div>
         <h3 className={`${compact ? "text-2xl" : "text-3xl sm:text-4xl"} serif-heading mt-4 break-words leading-[0.98] text-[#173f36]`}>
-          {hasDetail ? <Link href={eventHref(locale, event)}>{event.title}</Link> : event.title}
+          {hasDetail ? <Link href={eventHref(locale, event)}>{title}</Link> : title}
         </h3>
         <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#5f574c]">{event.shortDescription[locale]}</p>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -638,8 +644,8 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
                   >
                     <EventImage event={event} locale={locale} className="min-h-28 border-0 border-b sm:border-b-0 sm:border-r" sizes="140px" />
                     <span className="grid gap-1.5 p-3">
-                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{event.dateLabel}</span>
-                      <span className="serif-heading text-2xl leading-none text-[#173f36]">{event.title}</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{getEventDateLabel(event, locale)}</span>
+                      <span className="serif-heading text-2xl leading-none text-[#173f36]">{getEventTitle(event, locale)}</span>
                       <span className="line-clamp-2 text-sm leading-6 text-[#5f574c]">{event.shortDescription[locale]}</span>
                     </span>
                     <span className="flex items-end p-4 text-xs font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">{event.location}</span>
@@ -668,8 +674,8 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
                   <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#b07820]">
                     {familySuitabilityLabels[locale][event.familySuitability]}
                   </span>
-                  <span className="serif-heading break-words text-2xl leading-none text-[#173f36]">{event.title}</span>
-                  <span className="text-sm text-[#5f574c]">{event.dateLabel}</span>
+                  <span className="serif-heading break-words text-2xl leading-none text-[#173f36]">{getEventTitle(event, locale)}</span>
+                  <span className="text-sm text-[#5f574c]">{getEventDateLabel(event, locale)}</span>
                 </span>
               </Link>
             ))}
@@ -689,7 +695,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
                 <EventImage event={event} locale={locale} className="min-h-24 border-0 border-b border-white/15 sm:border-b-0 sm:border-r" sizes="110px" />
                 <span className="p-3">
                   <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#d9b66b]">{event.location}</span>
-                  <span className="mt-1 block text-sm font-semibold leading-5">{event.title}</span>
+                  <span className="mt-1 block text-sm font-semibold leading-5">{getEventTitle(event, locale)}</span>
                 </span>
               </Link>
             ))}
