@@ -43,9 +43,9 @@ export function HeroImageSlides({ mainSlides, insetSlides }: HeroImageSlidesProp
   const insetIndex = useRotatingIndex(insetSlides.length, 4300, 1800);
 
   return (
-    <div className="relative" aria-hidden="true">
-      <div className="relative ml-auto max-w-[540px] overflow-hidden border border-[#dfd4c1] bg-white p-3">
-        <div className="relative aspect-[4/3] w-full overflow-hidden">
+    <div className="relative lg:pt-[3.35rem] xl:pt-[3.7rem]" aria-hidden="true">
+      <div className="relative ml-auto max-w-[680px] overflow-hidden border border-[#dfd4c1] bg-white p-3">
+        <div className="relative aspect-[4/3] w-full overflow-hidden lg:aspect-[1/1]">
           {mainSlides.map((slide, index) => (
             <Image
               key={slide.src}
@@ -54,14 +54,14 @@ export function HeroImageSlides({ mainSlides, insetSlides }: HeroImageSlidesProp
               fill
               priority={index === 0}
               quality={90}
-              sizes="(min-width: 1024px) 48vw, 100vw"
+              sizes="(min-width: 1280px) 54vw, (min-width: 1024px) 50vw, 100vw"
               className={`object-cover transition-opacity duration-[1600ms] ease-out ${index === mainIndex ? "opacity-100" : "opacity-0"}`}
               style={{ objectPosition: slide.objectPosition ?? "50% 50%" }}
             />
           ))}
         </div>
       </div>
-      <div className="absolute -bottom-6 -left-2 hidden w-56 overflow-hidden border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)] md:block">
+      <div className="absolute -bottom-7 -left-7 hidden w-60 overflow-hidden border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)] md:block xl:-left-9 xl:w-64">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           {insetSlides.map((slide, index) => (
             <Image

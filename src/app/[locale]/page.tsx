@@ -200,12 +200,9 @@ const guideTeaserImages: Record<string, { src: string; alt: string }> = {
 };
 
 const heroMainSlides = [
-  { src: "/images/guide/best-beaches-in-menton.png", objectPosition: "50% 50%" },
-  { src: "/images/guide/menton-old-town.png", objectPosition: "52% 50%" },
-  { src: "/images/guide/day-trips-from-menton.png", objectPosition: "50% 50%" },
-  { src: "/images/guide/menton-without-a-car.png", objectPosition: "50% 50%" },
-  { src: "/images/guide/local-food-menton.png", objectPosition: "50% 50%" },
-  { src: "/images/guide/promenade-du-soleil.png", objectPosition: "50% 50%" },
+  { src: "/images/home/SeaViewBalconyStudio.png", objectPosition: "50% 50%" },
+  { src: "/images/home/TerraceParkingApartment.png", objectPosition: "50% 50%" },
+  { src: "/images/home/BeachfrontStudio-portret.png", objectPosition: "50% 50%" },
 ];
 
 const heroInsetSlides = [
@@ -270,7 +267,7 @@ export default async function LocaleHome({ params }: PageProps) {
       <JsonLdScript data={lodgingBusinessJsonLd()} />
       <section className="relative overflow-hidden border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
-          <div className="grid min-h-[760px] items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:py-20">
+          <div className="grid min-h-[760px] items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:py-20">
             <div>
               <h1 className="serif-heading max-w-3xl text-5xl leading-[0.95] text-[#173f36] sm:text-7xl lg:text-8xl">
                 {copy.title}
