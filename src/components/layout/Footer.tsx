@@ -4,23 +4,28 @@ import type { Route } from "next";
 import { siteConfig } from "@/config/site";
 import { routeLabels } from "@/content/navigation";
 import type { Locale } from "@/i18n/locales";
+import { FooterLanguageSwitcher } from "@/components/layout/FooterLanguageSwitcher";
 
-const footerCopy: Record<Locale, { intro: string; directContact: string }> = {
+const footerCopy: Record<Locale, { intro: string; directContact: string; languages: string }> = {
   en: {
     intro: "Family-run short-term rentals in central Menton. Direct bookings are handled by manual request and confirmation.",
     directContact: "Direct contact",
+    languages: "Languages",
   },
   fr: {
     intro: "Locations familiales de courte duree dans le centre de Menton. Les demandes directes sont traitees manuellement.",
     directContact: "Contact direct",
+    languages: "Langues",
   },
   it: {
     intro: "Affitti brevi a gestione familiare nel centro di Mentone. Le richieste dirette sono confermate manualmente.",
     directContact: "Contatto diretto",
+    languages: "Lingue",
   },
   uk: {
     intro: "Сімейні короткострокові апартаменти в центрі Ментона. Прямі запити обробляються вручну.",
     directContact: "Прямий контакт",
+    languages: "Мови",
   },
 };
 
@@ -76,6 +81,7 @@ export function Footer({ locale }: { locale: Locale }) {
           >
             {labels.availability}
           </Link>
+          <FooterLanguageSwitcher locale={locale} label={copy.languages} />
         </div>
       </div>
     </footer>
