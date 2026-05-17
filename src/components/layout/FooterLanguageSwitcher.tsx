@@ -28,9 +28,8 @@ export function FooterLanguageSwitcher({ locale, label }: { locale: Locale; labe
   const pathname = usePathname();
 
   return (
-    <nav aria-label={label} className="mt-5">
-      <p className="editorial-label text-white/55">{label}</p>
-      <div className="mt-3 flex flex-wrap gap-2">
+    <nav aria-label={label} className="mt-3">
+      <div className="flex flex-wrap gap-1.5">
         {locales.map((item) => {
           const isActive = item === locale;
 
@@ -41,11 +40,11 @@ export function FooterLanguageSwitcher({ locale, label }: { locale: Locale; labe
               aria-current={isActive ? "page" : undefined}
               aria-label={localeLabels[item]}
               className={[
-                "inline-flex h-9 w-9 items-center justify-center border text-lg transition",
+                "inline-flex h-5 w-7 items-center justify-center border text-sm leading-none transition",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4b474]",
                 isActive
-                  ? "border-[#d4b474] bg-[#fbf7ef] shadow-[0_0_0_1px_rgba(212,180,116,0.2)]"
-                  : "border-white/15 bg-white/5 opacity-72 hover:border-white/35 hover:bg-white/10 hover:opacity-100",
+                  ? "border-[#d4b474] bg-[#fbf7ef]/95"
+                  : "border-white/15 bg-transparent opacity-65 hover:border-white/35 hover:opacity-100",
               ].join(" ")}
             >
               <span aria-hidden="true">{flagByLocale[item]}</span>
