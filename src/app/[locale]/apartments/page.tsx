@@ -33,6 +33,7 @@ const copy = {
     "Усі апартаменти розташовані в центральних районах Ментона поруч із морем, пляжами, кав’ярнями та маршрутами Рив’єрою.",
   ),
   howTitle: text("How the apartments differ", "Ce qui différencie les appartements", "Come si differenziano gli appartamenti", "Чим відрізняються апартаменти"),
+  howEyebrow: text("Apartment guide", "Guide des appartements", "Guida agli appartamenti", "Гід по апартаментах"),
   howIntro: text(
     "Choose by stay style first: view, space, terrace, parking or the easiest no-car seaside rhythm.",
     "Choisissez d’abord selon votre style de séjour : vue, espace, terrasse, parking ou rythme balnéaire sans voiture.",
@@ -77,7 +78,7 @@ const copy = {
   ),
 };
 
-const positioning: Record<string, { short: Localized; best: Localized; good: Localized; tags: Localized[]; hero: string }> = {
+const positioning: Record<string, { short: Localized; best: Localized; good: Localized; tags: Localized[]; compareImage: string }> = {
   "sea-view-balcony-studio": {
     short: text("Couples & beachfront mornings", "Couples & matins face à la mer", "Coppie e mattine sul mare", "Пари та ранки біля моря"),
     best: text("Couples, solo travellers and shorter Riviera stays", "Couples, voyageurs solo et courts séjours Riviera", "Coppie, viaggiatori singoli e brevi soggiorni in Riviera", "Пари, соло-мандрівники й коротші перебування на Рив’єрі"),
@@ -88,7 +89,7 @@ const positioning: Record<string, { short: Localized; best: Localized; good: Loc
       text("Morning sea views", "Vues mer le matin", "Vista mare al mattino", "Ранковий вид на море"),
       text("Promenade nearby", "Promenade proche", "Lungomare vicino", "Набережна поруч"),
     ],
-    hero: "/images/home/SeaViewBalconyStudio.png",
+    compareImage: "/images/apartments/sea-view-balcony-studio/04-bedroom-balcony-view.png",
   },
   "beachside-family-apartment": {
     short: text("Families & longer Riviera stays", "Familles & longs séjours Riviera", "Famiglie e soggiorni Riviera più lunghi", "Сім’ї та довші перебування на Рив’єрі"),
@@ -100,7 +101,7 @@ const positioning: Record<string, { short: Localized; best: Localized; good: Loc
       text("Parking request", "Parking sur demande", "Parcheggio su richiesta", "Паркування за запитом"),
       text("Larger living area", "Espace plus grand", "Zona giorno più ampia", "Більше простору"),
     ],
-    hero: "/images/home/TerraceParkingApartment.png",
+    compareImage: "/images/apartments/beachside-family-apartment/21-living-room-tv-terrace.png",
   },
   "panoramic-sea-view-studio": {
     short: text("Mediterranean views & Monaco weekends", "Vues Méditerranée & week-ends Monaco", "Vista Mediterraneo e weekend a Monaco", "Види на море та вікенди в Монако"),
@@ -112,8 +113,14 @@ const positioning: Record<string, { short: Localized; best: Localized; good: Loc
       text("Beach access", "Accès plage", "Accesso spiaggia", "Пляж поруч"),
       text("Monaco/Nice trips", "Excursions Monaco/Nice", "Gite Monaco/Nizza", "Поїздки до Монако/Ніцци"),
     ],
-    hero: "/images/home/BeachfrontStudio-portret.png",
+    compareImage: "/images/apartments/panoramic-sea-view-studio/06-bright-studio-double-bed.png",
   },
+};
+
+const heroCollageImages = {
+  large: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.png",
+  medium: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.png",
+  small: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.png",
 };
 
 const recommendations = [
@@ -184,20 +191,20 @@ export default async function ApartmentsPage({ params }: PageProps) {
             <div className="relative min-h-[430px]">
               <div className="absolute right-0 top-0 w-[72%] border border-[#dfd4c1] bg-white p-3">
                 <Image
-                  src="/images/home/BeachfrontStudio-portret.png"
-                  alt="Panoramic sea-view balcony at Azur Menton"
+                  src={heroCollageImages.large}
+                  alt="Living area with Mediterranean sea view at Azur Menton"
                   width={864}
                   height={1184}
                   priority
                   quality={90}
                   sizes="(min-width: 1024px) 35vw, 70vw"
-                  className="aspect-[4/5] w-full object-cover object-[50%_40%]"
+                  className="aspect-[4/5] w-full object-cover object-[50%_50%]"
                 />
               </div>
               <div className="absolute left-0 top-16 w-[46%] border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)]">
                 <Image
-                  src="/images/home/TerraceParkingApartment.png"
-                  alt="Terrace breakfast at Azur Menton"
+                  src={heroCollageImages.medium}
+                  alt="Dining area and equipped kitchen in the terrace apartment"
                   width={900}
                   height={1200}
                   quality={90}
@@ -207,8 +214,8 @@ export default async function ApartmentsPage({ params }: PageProps) {
               </div>
               <div className="absolute bottom-0 left-[24%] w-[38%] border border-[#dfd4c1] bg-white p-3 shadow-[0_18px_45px_rgba(23,63,54,0.10)]">
                 <Image
-                  src="/images/home/SeaViewBalconyStudio.png"
-                  alt="Sea-view balcony table at Azur Menton"
+                  src={heroCollageImages.small}
+                  alt="Living room with balcony view in the sea view studio"
                   width={900}
                   height={1200}
                   quality={90}
@@ -240,7 +247,7 @@ export default async function ApartmentsPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-8 border-b border-[#dfd4c1] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <p className="editorial-label">{copy.howTitle[safeLocale]}</p>
+              <p className="editorial-label">{copy.howEyebrow[safeLocale]}</p>
               <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.howTitle[safeLocale]}</h2>
             </div>
             <p className="max-w-3xl text-lg leading-8 text-[#5f574c]">{copy.howIntro[safeLocale]}</p>
@@ -251,7 +258,7 @@ export default async function ApartmentsPage({ params }: PageProps) {
                 <Card className="h-full overflow-hidden bg-[#fffdf8] transition group-hover:border-[#c6a66a]">
                   <div className="relative aspect-[16/10] overflow-hidden border-b border-[#dfd4c1] bg-[#efe4d1]">
                     <Image
-                      src={positioning[apartment.slug].hero}
+                      src={positioning[apartment.slug].compareImage}
                       alt={apartment.shortName[safeLocale]}
                       fill
                       quality={90}
