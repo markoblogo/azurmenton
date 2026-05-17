@@ -1,21 +1,75 @@
 # Azur Menton
 
-Production website for Azur Menton, a small family-run short-term rental brand for three beachfront or beachside apartments in central Menton, France.
+Production website for **Azur Menton**, a family-run direct booking site for three beachfront or beachside apartments in central Menton, France.
 
-The site is static-first, multilingual, SEO-focused, and designed for a temporary direct request-to-book flow before a channel manager such as Smoobu or Lodgify is connected.
+The site is multilingual, SEO-focused, image-led, and built around a manual direct booking request flow. It also includes an editorial Menton guide, a Riviera events calendar, apartment comparison pages, legal pages, and practical planning content for guests visiting Menton, Monaco, Nice and the nearby Riviera.
 
 ## Stack
 
-- Next.js App Router
+- Next.js `16.2.6` App Router
+- React `19.2.4`
 - TypeScript
-- Tailwind CSS
-- Static pages where possible
-- Simple TypeScript content files
+- Tailwind CSS `4`
+- Local TypeScript content files
+- Static generation where possible
+- Daily revalidation for events pages
 - Vercel-compatible deployment
 
-## Routes
+Important: this project uses a newer Next.js version with changed conventions. Before changing Next.js APIs or framework behavior, read the relevant local docs in `node_modules/next/dist/docs/`.
 
-- `/en`, `/fr`, `/it`, `/uk`
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`. The root path redirects to `/en`.
+
+Useful checks:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+Production preview after a build:
+
+```bash
+npm run start -- --hostname 127.0.0.1 --port 3000
+```
+
+## Environment
+
+Create a local `.env.local` from `.env.example` when needed.
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://azurmenton.com
+
+WEATHER_PROVIDER=open-meteo
+WEATHER_LATITUDE=43.7745
+WEATHER_LONGITUDE=7.4975
+
+RESEND_API_KEY=
+BOOKING_REQUEST_TO_EMAIL=petraetpaul@gmail.com
+BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@azurmenton.com>"
+```
+
+`RESEND_API_KEY` must never be committed. In production, booking request delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` set in Vercel.
+
+## Locales and Routes
+
+Supported locales:
+
+- `/en`
+- `/fr`
+- `/it`
+- `/uk`
+
+Main routes:
+
+- `/[locale]`
 - `/[locale]/apartments`
 - `/[locale]/apartments/[slug]`
 - `/[locale]/check-availability`
@@ -30,108 +84,249 @@ The site is static-first, multilingual, SEO-focused, and designed for a temporar
 - `/[locale]/cookies`
 - `/[locale]/booking-terms`
 
-## Local Development
+The localized layout renders the main navigation, footer, sticky CTA and locale-aware content. The footer includes a subtle flag-based language switcher that preserves the current path when changing language.
 
-```bash
-npm install
-npm run dev
-```
+## Apartments
 
-Open http://localhost:3000. The root path redirects to `/en`.
+The apartment collection is defined in `src/content/apartments.ts`.
 
-## Checks
+Current apartment slugs:
 
-```bash
-npm run lint
-npm run typecheck
-npm run build
-```
+- `sea-view-balcony-studio`
+- `beachside-family-apartment`
+- `panoramic-sea-view-studio`
 
-## Booking Flow
+Apartment pages include:
 
-The booking page is a manual request form, not instant booking. It collects:
+- image-led hero and gallery
+- localized descriptions and SEO
+- amenities and practical positioning
+- related guide links
+- direct booking CTAs
 
-- apartment
+Apartment photography is stored under:
+
+- `public/images/apartments/sea-view-balcony-studio/`
+- `public/images/apartments/beachside-family-apartment/`
+- `public/images/apartments/panoramic-sea-view-studio/`
+
+Homepage hero and apartment cards also use selected apartment images from `public/images/home/` and apartment galleries. Avoid reusing the same title images in both the main hero slideshow and the small inset slideshow.
+
+## Direct Booking Flow
+
+The booking page is a manual request flow, not instant booking. It collects:
+
+- requested apartment
 - check-in and check-out dates
 - adults and children
 - parking need
 - preferred language
 - name, email, phone or WhatsApp
 - message
-- required privacy acknowledgement for responding to the booking request
+- required privacy acknowledgement
 
-The current implementation uses:
+Key files:
 
-- server action: `src/app/actions/booking-request.ts`
-- API route: `src/app/api/booking-request/route.ts`
-- email helper: `src/lib/resend.ts`
+- `src/components/booking/BookingRequestForm.tsx`
+- `src/app/actions/booking-request.ts`
+- `src/app/api/booking-request/route.ts`
+- `src/lib/booking-request.ts`
+- `src/lib/resend.ts`
 
-In production, request delivery requires `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` to be set in Vercel. If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp instead of pretending the request was delivered. The booking logic remains isolated so it can later connect to Telegram, Airtable, Supabase, Smoobu, Lodgify, or another booking engine.
+If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp. The site must not pretend that a request was delivered when delivery failed.
 
-Current guest contact details:
+Guest contact details are configured in `src/config/site.ts`:
+
 - Email: `petraetpaul@gmail.com`
-- Phone / WhatsApp: `+33 6 24 71 65 65`
+- WhatsApp: `+33 6 24 71 65 65`
+
+## Menton Guide
+
+The guide section is a searchable, filterable editorial guide and local blog for guests.
+
+Key files:
+
+- `src/content/guide.ts`
+- `src/content/places.ts`
+- `src/content/walking-distances.ts`
+- `src/content/transport.ts`
+- `src/components/guide/GuideExplorer.tsx`
+- `src/components/guide/GuideVisual.tsx`
+- `src/components/guide/PlaceCard.tsx`
+- `src/components/guide/WalkingDistanceGuide.tsx`
+- `src/components/guide/PublicTransportGuide.tsx`
+
+Guide articles include beaches, food, markets, old town walks, day trips, no-car planning, public transport, nightlife and practical stay planning.
+
+Place cards support:
+
+- name, type and area/address
+- Google Maps search links
+- cautious opening-hours labels
+- related guide article links
+- owned local imagery or editorial placeholders
+
+Do not scrape Google Maps photos, hotlink third-party images, use unofficial screenshots, or invent ratings/opening hours. See `GUIDE_IMAGE_STRATEGY.md` for the current image policy and future Google Places API notes.
+
+Guide images are stored in:
+
+- `public/images/guide/`
+- `GUIDE_IMAGE_MAPPING.md`
+
+## Events Calendar
+
+The events section is an interactive Riviera calendar for Menton, Monaco, Nice and nearby destinations.
+
+Key files:
+
+- `src/content/riviera-events.ts`
+- `src/content/events.ts`
+- `src/lib/events.ts`
+- `src/components/events/EventsCalendar.tsx`
+- `src/components/events/EventImage.tsx`
+- `src/app/[locale]/events/page.tsx`
+- `src/app/[locale]/events/[slug]/page.tsx`
+
+Event behavior:
+
+- confirmed upcoming/current events appear in the main calendar
+- events with exact dates are hidden after they end
+- undated planning guides appear in a separate dates-to-confirm section
+- past confirmed events are available through helper logic, but are not shown in the main list by default
+- events pages revalidate daily
+
+Date status logic lives in `src/lib/events.ts` and uses date-only comparison to avoid timezone bugs.
+
+Event data includes source status fields:
+
+- `verified`
+- `needs_verification`
+- `official_source_needed`
+
+Do not invent exact dates, ticket prices, routes, opening hours or official rules. If details are not verified, keep public wording cautious.
+
+Event illustrations are stored in:
+
+- `public/images/events/`
+- `EVENT_IMAGE_MAPPING_NOTES.md`
+- `IMAGE_EVENT_AUDIT.md`
+
+They are project illustrations, not documentary event photos.
 
 ## Weather Widget
 
-The homepage uses `src/lib/weather.ts` and `src/components/weather/WeatherWidget.tsx` to fetch Menton weather server-side from Open-Meteo with a two-hour cache. It shows current temperature, sea surface temperature, condition, wind, rain chance, a five-day forecast, provider label and a graceful fallback if the provider is unavailable. Sea temperature comes from the Open-Meteo Marine API and is treated as a planning indicator, not a swimming safety guarantee.
+The homepage weather widget uses:
 
-Configure provider and Menton coordinates with:
+- `src/lib/weather.ts`
+- `src/components/weather/WeatherWidget.tsx`
 
-```bash
-WEATHER_PROVIDER=open-meteo
-WEATHER_LATITUDE=43.7745
-WEATHER_LONGITUDE=7.4975
-```
+It fetches Menton weather server-side from Open-Meteo with a two-hour cache and includes:
 
-Open-Meteo is the first provider because it does not require a key for prototyping. Review provider terms before production launch or heavier commercial use.
+- current air temperature
+- sea surface temperature
+- condition
+- wind
+- rain chance
+- five-day forecast
+- graceful fallback
 
-## Legal Pages
+Sea temperature comes from the Open-Meteo Marine API and is a planning indicator, not a swimming safety guarantee.
 
-The site includes locale routes for:
+## Images and Media Policy
 
-- Legal Notice: `/[locale]/legal`
-- Privacy Policy: `/[locale]/privacy`
-- Cookie Policy: `/[locale]/cookies`
-- Booking Terms: `/[locale]/booking-terms`
+Local images live under `public/images/`.
 
-The French version is treated as the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business confirmation before production launch.
+Current image groups:
 
-## Content
+- `public/images/home/`
+- `public/images/apartments/`
+- `public/images/guide/`
+- `public/images/events/`
 
-- `src/config/site.ts` - domain and site-level config
-- `src/content/apartments.ts` - apartment data and image gallery metadata
-- `src/content/guide.ts` - Menton guide landing and article content
-- `src/content/events.ts` - event landing and evergreen event-planning content
-- `src/content/pages.ts` - FAQ and simple contact/legal content
-- `src/content/navigation.ts` - navigation labels
-- `src/content/translations.ts` - reusable interface text
-- `public/images/` - local brand, apartment and guide assets
+Use `next/image` for site imagery. Do not hotlink third-party images, scrape Google Maps, add unsafe external scripts, embed random social widgets, or imply that illustrations are official event photos.
 
-English is the source language. French, Italian, and Ukrainian use the same content structure and should be refined by a native speaker before final launch. Exact event dates are intentionally omitted until sourced dates can be added with a `sourceUrl`.
+Image audit and mapping documents:
 
-## SEO
+- `IMAGE_AUDIT.md`
+- `IMAGE_AUDIT_AFTER_RECOPY.md`
+- `IMAGE_SOURCE_COMPARISON.md`
+- `HOME_IMAGE_COMPARISON.md`
+- `GUIDE_IMAGE_MAPPING.md`
+- `GUIDE_IMAGE_STRATEGY.md`
+- `EVENT_IMAGE_MAPPING_NOTES.md`
+- `IMAGE_EVENT_AUDIT.md`
+
+## SEO and Structured Data
+
+SEO utilities live in:
+
+- `src/lib/seo.ts`
+- `src/lib/structured-data.ts`
+- `src/components/seo/JsonLd.tsx`
+- `src/app/sitemap.ts`
+- `src/app/robots.ts`
 
 The app includes:
 
 - localized metadata
 - canonical URLs for `https://azurmenton.com`
 - hreflang alternates including `x-default`
-- `sitemap.xml`
-- `robots.txt`
-- JSON-LD for the home page, apartment pages, guide/event articles, FAQ and breadcrumbs
-- `next/image` for local brand, apartment and guide assets
+- sitemap and robots routes
+- JSON-LD for relevant page types
+- breadcrumbs where useful
+- Article/WebPage-style schema for guide and seasonal event guides
 
-After deployment, verify the domain in Google Search Console, submit `https://azurmenton.com/sitemap.xml`, and check indexing coverage, hreflang issues, mobile usability and Core Web Vitals. Do not add analytics or tracking pixels unless cookie compliance is handled.
+Do not add Event schema unless exact official event date/location/source data is verified.
 
-See `LAUNCH_CHECKLIST.md` for the production SEO and launch checklist.
+After deployment, verify the domain in Google Search Console, submit `https://azurmenton.com/sitemap.xml`, and monitor indexing, hreflang, mobile usability and Core Web Vitals.
+
+## Legal Pages
+
+Legal content lives in `src/content/legal.ts`.
+
+Routes:
+
+- `/[locale]/legal`
+- `/[locale]/privacy`
+- `/[locale]/cookies`
+- `/[locale]/booking-terms`
+
+The French version is the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business review before production launch.
+
+## Project Structure
+
+```text
+src/app/                 App Router routes, metadata, sitemap and API route
+src/components/          UI, layout, content, booking, guide, events and weather components
+src/config/              Site-level config
+src/content/             Typed content data for apartments, guide, events, places and legal pages
+src/i18n/                Locale definitions
+src/lib/                 SEO, structured data, events freshness, weather, booking and email helpers
+public/images/           Local project images and illustrations
+scripts/                 Utility scripts
+```
+
+## Content Editing Notes
+
+- English is the source editorial language.
+- French, Italian and Ukrainian should remain natural localized versions, not placeholder or mixed-language text.
+- Do not leave `TODO_TRANSLATE` or visible placeholder strings.
+- Do not delete old event data just because it has expired; freshness logic hides it from the public upcoming list.
+- Do not invent dates, prices, ratings, schedules or opening hours.
+- Prefer structured content updates over hardcoded page text.
+- When replacing apartment photos, update gallery metadata, preview order, hero image references and any homepage slideshow references.
 
 ## Deployment
 
-- Expected target: Vercel
-- Domain: `azurmenton.com`
-- DNS managed through Cloudflare
+Expected target: Vercel  
+Production domain: `azurmenton.com`  
+DNS: Cloudflare
 
 See `DEPLOYMENT.md` for first production deployment steps.
 
-Do not configure DNS, deploy, or connect production services from local development unless explicitly requested.
+Do not configure DNS, deploy, connect production services or add tracking from local development unless explicitly requested.
+
+## Current Public Credit
+
+The footer contains a subtle site credit link to `https://abvx.xyz`.
+
