@@ -167,8 +167,8 @@ export default async function ContactPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/home/contacts-hero.png"
-                alt="Warm Riviera contact scene for Azur Menton guests"
+                src="/images/apartments/panoramic-sea-view-studio/02-balcony-harbour-view.png"
+                alt="Mediterranean harbour and seafront view from an Azur Menton apartment"
                 width={1462}
                 height={1076}
                 priority
