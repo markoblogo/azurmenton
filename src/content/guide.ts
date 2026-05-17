@@ -72,6 +72,10 @@ export type GuidePageContent = {
   seoDescription: string;
   intro: string;
   heroImage?: string;
+  coverImage?: string;
+  coverImageAlt?: string;
+  categoryLabel?: string;
+  durationLabel?: string;
   sections: GuideSection[];
   practicalTips?: string[];
   relatedLinks: RelatedLink[];
@@ -691,6 +695,10 @@ export function getGuidePage(locale: Locale, slug: string): GuidePageContent | u
     seoDescription: localized.seoDescription,
     intro: localized.excerpt,
     heroImage: localized.heroImage,
+    coverImage: localized.coverImage,
+    coverImageAlt: localized.coverImageAlt,
+    categoryLabel: localized.categoryLabel,
+    durationLabel: localized.durationLabel,
     sections: localized.sections,
     practicalTips: localized.practicalTips,
     relatedLinks: (article.relatedArticles ?? []).map((relatedSlug) => {

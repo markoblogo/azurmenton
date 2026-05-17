@@ -1,29 +1,50 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { siteConfig } from "@/config/site";
 import { routeLabels } from "@/content/navigation";
 import type { Locale } from "@/i18n/locales";
 
+const footerCopy: Record<Locale, { intro: string; directContact: string }> = {
+  en: {
+    intro: "Family-run short-term rentals in central Menton. Direct bookings are handled by manual request and confirmation.",
+    directContact: "Direct contact",
+  },
+  fr: {
+    intro: "Locations familiales de courte duree dans le centre de Menton. Les demandes directes sont traitees manuellement.",
+    directContact: "Contact direct",
+  },
+  it: {
+    intro: "Affitti brevi a gestione familiare nel centro di Mentone. Le richieste dirette sono confermate manualmente.",
+    directContact: "Contatto diretto",
+  },
+  uk: {
+    intro: "Сімейні короткострокові апартаменти в центрі Ментона. Прямі запити обробляються вручну.",
+    directContact: "Прямий контакт",
+  },
+};
+
 export function Footer({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
+  const copy = footerCopy[locale];
 
   return (
     <footer className="border-t border-[#243c35] bg-[#111615] text-white">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-14 sm:px-6 md:grid-cols-[1.15fr_1fr_0.8fr] lg:px-8">
+      <div className="mx-auto grid w-full max-w-6xl gap-7 px-5 py-8 sm:px-6 sm:py-10 md:grid-cols-[1.1fr_1fr_0.75fr] lg:px-8">
         <div>
-          <p className="font-serif-display text-3xl font-semibold tracking-[-0.02em]">Azur Menton</p>
-          <p className="mt-4 max-w-md text-sm leading-7 text-white/70">
-            Family-run short-term rentals in central Menton. Direct bookings are handled by manual request and confirmation.
-          </p>
-          <p className="mt-5 text-sm leading-7 text-white/70">
-            <a className="hover:text-white" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            <br />
-            <a className="hover:text-white" href={siteConfig.whatsappHref} rel="noopener noreferrer" target="_blank">
-              WhatsApp {siteConfig.whatsappDisplay}
-            </a>
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src={siteConfig.iconPath}
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9 border border-white/15 bg-[#fbf7ef]"
+            />
+            <p className="font-serif-display text-2xl font-semibold tracking-[-0.02em]">Azur Menton</p>
+          </div>
+          <p className="mt-3 max-w-md text-sm leading-6 text-white/70">{copy.intro}</p>
         </div>
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-3 text-sm text-white/70">
+        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-white/70">
           {[
             ["apartments", "/apartments"],
             ["availability", "/check-availability"],
@@ -39,14 +60,19 @@ export function Footer({ locale }: { locale: Locale }) {
             </Link>
           ))}
         </nav>
-        <div className="border border-white/15 p-5">
-          <p className="editorial-label">Direct request</p>
-          <p className="mt-3 text-sm leading-6 text-white/70">
-            Tell us your dates and we will confirm availability personally.
+        <div className="text-sm leading-6 text-white/70">
+          <p className="editorial-label">{copy.directContact}</p>
+          <p className="mt-3">
+            <a className="hover:text-white" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </p>
+          <p className="mt-1">
+            <a className="hover:text-white" href={siteConfig.whatsappHref} rel="noopener noreferrer" target="_blank">
+              WhatsApp {siteConfig.whatsappDisplay}
+            </a>
           </p>
           <Link
             href={`/${locale}/check-availability` as Route}
-            className="mt-5 inline-flex border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10"
+            className="mt-4 inline-flex text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#d4b474] underline decoration-[#d4b474]/35 underline-offset-4 hover:text-white"
           >
             {labels.availability}
           </Link>

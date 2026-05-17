@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
@@ -146,6 +148,52 @@ const sectionCopy = {
   },
 } satisfies Record<Locale, Record<string, string | string[]>>;
 
+const guideTeaserLabels: Record<Locale, Record<string, string>> = {
+  en: {
+    "best-beaches-in-menton": "Beaches",
+    "menton-old-town": "Old town",
+    "day-trips-from-menton": "Day trips",
+    "../events": "Riviera calendar",
+  },
+  fr: {
+    "best-beaches-in-menton": "Plages",
+    "menton-old-town": "Vieille ville",
+    "day-trips-from-menton": "Excursions",
+    "../events": "Calendrier Riviera",
+  },
+  it: {
+    "best-beaches-in-menton": "Spiagge",
+    "menton-old-town": "Centro storico",
+    "day-trips-from-menton": "Gite",
+    "../events": "Calendario Riviera",
+  },
+  uk: {
+    "best-beaches-in-menton": "Пляжі",
+    "menton-old-town": "Старе місто",
+    "day-trips-from-menton": "Поїздки",
+    "../events": "Календар Рив'єри",
+  },
+};
+
+const guideTeaserImages: Record<string, { src: string; alt: string }> = {
+  "best-beaches-in-menton": {
+    src: "/images/guide/best-beaches-in-menton.png",
+    alt: "Illustration of Menton beaches and the Mediterranean",
+  },
+  "menton-old-town": {
+    src: "/images/guide/menton-old-town.png",
+    alt: "Illustration of colourful old town streets in Menton",
+  },
+  "day-trips-from-menton": {
+    src: "/images/guide/day-trips-from-menton.png",
+    alt: "Illustration of Riviera day trips from Menton",
+  },
+  "../events": {
+    src: "/images/events/menton-lemon-festival.png",
+    alt: "Illustration of Menton Lemon Festival and Riviera events",
+  },
+};
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "en";
@@ -171,6 +219,9 @@ export default async function LocaleHome({ params }: PageProps) {
       slug: "../events",
       title: safeLocale === "en" ? "Events" : safeLocale === "fr" ? "Evenements" : safeLocale === "it" ? "Eventi" : "Події",
       intro: String(sections.eventsIntro),
+      coverImage: guideTeaserImages["../events"].src,
+      coverImageAlt: guideTeaserImages["../events"].alt,
+      categoryLabel: guideTeaserLabels[safeLocale]["../events"],
     },
   ].flatMap((item) => (item ? [item] : []));
   const homeCardImages: Record<string, { src: string; alt: string }> = {
@@ -242,7 +293,7 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section>
+      <Section className="py-14 sm:py-20">
         <Container>
           <div className="grid gap-8 border-b border-[#dfd4c1] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -266,7 +317,7 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#173f36] text-white">
+      <Section className="bg-[#173f36] py-14 text-white sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
@@ -289,7 +340,7 @@ export default async function LocaleHome({ params }: PageProps) {
 
       <WeatherWidget locale={safeLocale} />
 
-      <Section>
+      <Section className="py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="grid grid-cols-2 gap-3">
@@ -319,12 +370,38 @@ export default async function LocaleHome({ params }: PageProps) {
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#5f574c]">{sections.mentonIntro}</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {guideTeasers.map((item) => (
-                  <Card key={item.slug} className="p-5">
-                    <h3 className="serif-heading text-2xl text-[#173f36]">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-[#5f574c]">{item.intro}</p>
-                  </Card>
-                ))}
+                {guideTeasers.map((item) => {
+                  const visual = guideTeaserImages[item.slug] ?? (item.coverImage ? { src: item.coverImage, alt: item.coverImageAlt ?? item.title } : undefined);
+                  const href = item.slug === "../events" ? `/${safeLocale}/events` : `/${safeLocale}/guide/${item.slug}`;
+
+                  return (
+                    <Link
+                      key={item.slug}
+                      href={href as Route}
+                      className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#173f36]"
+                    >
+                      <Card className="h-full overflow-hidden bg-[#fffdf8] transition group-hover:border-[#c6a66a]">
+                        {visual ? (
+                          <div className="relative aspect-[16/9] overflow-hidden border-b border-[#dfd4c1] bg-[#efe4d1]">
+                            <Image
+                              src={visual.src}
+                              alt={visual.alt}
+                              fill
+                              quality={90}
+                              sizes="(min-width: 1024px) 250px, (min-width: 640px) 50vw, 100vw"
+                              className="object-cover transition duration-500 group-hover:scale-[1.025]"
+                            />
+                          </div>
+                        ) : null}
+                        <div className="p-4">
+                          <p className="editorial-label">{guideTeaserLabels[safeLocale][item.slug] ?? item.categoryLabel}</p>
+                          <h3 className="serif-heading mt-2 text-[1.35rem] leading-tight text-[#173f36]">{item.title}</h3>
+                          <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#5f574c]">{item.intro}</p>
+                        </div>
+                      </Card>
+                    </Link>
+                  );
+                })}
               </div>
               <div className="mt-8">
                 <Button href={`/${safeLocale}/guide`} variant="secondary">
@@ -336,28 +413,37 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3]">
+      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3] py-12 sm:py-16">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <div>
               <p className="editorial-label">Riviera calendar</p>
               <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-5xl">
                 {sections.eventsTitle}
               </h2>
-            </div>
-            <div>
-              <p className="text-lg leading-8 text-[#5f574c]">{sections.eventsIntro}</p>
+              <p className="mt-5 text-lg leading-8 text-[#5f574c]">{sections.eventsIntro}</p>
               <div className="mt-7">
                 <Button href={`/${safeLocale}/events`} variant="secondary">
                   {sections.eventsCta}
                 </Button>
               </div>
             </div>
+            <div className="relative overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-3">
+              <Image
+                src="/images/events/menton-lemon-festival.png"
+                alt="Illustration of Menton Lemon Festival and Riviera events"
+                width={1270}
+                height={900}
+                quality={90}
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </div>
           </div>
         </Container>
       </Section>
 
-      <Section>
+      <Section className="py-14 sm:py-20">
         <Container>
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
@@ -380,7 +466,7 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#111615]">
+      <Section className="bg-[#111615] py-14 sm:py-16">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="serif-heading text-4xl leading-tight text-white sm:text-6xl">
