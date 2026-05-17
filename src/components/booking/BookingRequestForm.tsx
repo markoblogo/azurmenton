@@ -15,9 +15,14 @@ const initialState: BookingRequestState = {
 
 const formCopy = {
   en: {
+    formLabel: "Direct booking request form",
+    stayDetails: "Stay details",
+    preferences: "Preferences",
+    contactDetails: "Contact details",
     apartment: "Apartment",
     selectApartment: "Select an apartment",
     notSure: "Not sure, please recommend",
+    apartmentHelp: "Not sure yet? We can help you choose.",
     checkIn: "Check-in date",
     checkOut: "Check-out date",
     adults: "Adults",
@@ -31,17 +36,24 @@ const formCopy = {
     email: "Email",
     phone: "Phone or WhatsApp",
     message: "Message",
+    parkingHelp: "Useful mostly for longer stays, arrival by car or Riviera day trips.",
+    messageHelp: "You can mention Riviera events, arrival time or apartment preferences.",
     manual:
-      "To avoid double bookings while we connect our channel manager, all direct requests are confirmed manually by the host.",
+      "Azur Menton currently confirms requests manually to ensure accurate availability and apartment matching.",
     privacy: "I agree that Azur Menton may use my details to respond to this booking request.",
     privacyLink: "Privacy Policy",
     sending: "Sending request...",
     send: "Send request",
   },
   fr: {
+    formLabel: "Formulaire de demande directe",
+    stayDetails: "Détails du séjour",
+    preferences: "Préférences",
+    contactDetails: "Coordonnées",
     apartment: "Appartement",
     selectApartment: "Choisir un appartement",
     notSure: "Je ne sais pas, conseillez-moi",
+    apartmentHelp: "Pas encore sûr ? Nous pouvons vous aider à choisir.",
     checkIn: "Date d'arrivee",
     checkOut: "Date de depart",
     adults: "Adultes",
@@ -55,17 +67,24 @@ const formCopy = {
     email: "Email",
     phone: "Telephone ou WhatsApp",
     message: "Message",
+    parkingHelp: "Surtout utile pour les longs séjours, une arrivée en voiture ou des excursions Riviera.",
+    messageHelp: "Vous pouvez mentionner un événement Riviera, l’heure d’arrivée ou vos préférences.",
     manual:
-      "Pour eviter les doubles reservations pendant la connexion du channel manager, toutes les demandes directes sont confirmees manuellement par l'hote.",
+      "Azur Menton confirme actuellement les demandes manuellement afin de garantir une disponibilité fiable et le bon choix d’appartement.",
     privacy: "J'accepte qu'Azur Menton utilise mes informations pour repondre a cette demande de reservation.",
     privacyLink: "Politique de confidentialite",
     sending: "Envoi en cours...",
     send: "Envoyer la demande",
   },
   it: {
+    formLabel: "Modulo richiesta diretta",
+    stayDetails: "Dettagli del soggiorno",
+    preferences: "Preferenze",
+    contactDetails: "Contatti",
     apartment: "Appartamento",
     selectApartment: "Scegli un appartamento",
     notSure: "Non sono sicuro, consigliatemi voi",
+    apartmentHelp: "Non sei sicuro? Possiamo aiutarti a scegliere.",
     checkIn: "Data di arrivo",
     checkOut: "Data di partenza",
     adults: "Adulti",
@@ -79,17 +98,24 @@ const formCopy = {
     email: "Email",
     phone: "Telefono o WhatsApp",
     message: "Messaggio",
+    parkingHelp: "Utile soprattutto per soggiorni lunghi, arrivo in auto o gite in Riviera.",
+    messageHelp: "Puoi indicare eventi Riviera, orario di arrivo o preferenze sull’appartamento.",
     manual:
-      "Per evitare doppie prenotazioni mentre colleghiamo il channel manager, tutte le richieste dirette sono confermate manualmente dall'host.",
+      "Azur Menton conferma attualmente le richieste manualmente per garantire disponibilità accurata e scelta corretta dell’appartamento.",
     privacy: "Accetto che Azur Menton usi i miei dati per rispondere a questa richiesta di prenotazione.",
     privacyLink: "Informativa privacy",
     sending: "Invio in corso...",
     send: "Invia richiesta",
   },
   uk: {
+    formLabel: "Форма прямого запиту",
+    stayDetails: "Деталі перебування",
+    preferences: "Побажання",
+    contactDetails: "Контактні дані",
     apartment: "Апартаменти",
     selectApartment: "Оберіть апартаменти",
     notSure: "Не впевнений/впевнена, порадьте",
+    apartmentHelp: "Ще не впевнені? Ми допоможемо обрати.",
     checkIn: "Дата заїзду",
     checkOut: "Дата виїзду",
     adults: "Дорослі",
@@ -103,8 +129,10 @@ const formCopy = {
     email: "Email",
     phone: "Телефон або WhatsApp",
     message: "Повідомлення",
+    parkingHelp: "Особливо корисно для довших перебувань, приїзду авто або поїздок Рив’єрою.",
+    messageHelp: "Можна згадати події Рив’єри, час прибуття або побажання щодо апартаментів.",
     manual:
-      "Щоб уникнути подвійних бронювань до підключення channel manager, усі прямі запити підтверджує господар вручну.",
+      "Azur Menton наразі підтверджує запити вручну, щоб точно перевірити доступність і підібрати апартаменти.",
     privacy: "Я погоджуюся, що Azur Menton може використати мої дані, щоб відповісти на цей запит.",
     privacyLink: "Політика конфіденційності",
     sending: "Надсилаємо запит...",
@@ -124,94 +152,106 @@ export function BookingRequestForm({
   const labels = formCopy[locale];
 
   return (
-    <form action={formAction} className="grid gap-5" aria-label="Booking request form">
-      <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        {labels.apartment}
-        <select className="field" name="apartment" defaultValue="" required>
-          <option value="" disabled>
-            {labels.selectApartment}
-          </option>
-          {apartments.map((apartment) => (
-            <option key={apartment.slug} value={apartment.slug}>
-              {apartment.shortName[locale]}
+    <form action={formAction} className="grid gap-6" aria-label={labels.formLabel}>
+      <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
+        <legend className="serif-heading text-2xl text-[#173f36]">{labels.stayDetails}</legend>
+        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          {labels.apartment}
+          <select className="field" name="apartment" defaultValue="" required>
+            <option value="" disabled>
+              {labels.selectApartment}
             </option>
-          ))}
-          <option value="not-sure">{labels.notSure}</option>
-        </select>
-      </label>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.checkIn}
-          <input className="field" min={today} name="checkIn" type="date" required />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.checkOut}
-          <input className="field" min={today} name="checkOut" type="date" required />
-        </label>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.adults}
-          <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.children}
-          <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
-        </label>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.parking}
-          <select className="field" name="parking" defaultValue="not-sure" required>
-            <option value="yes">{labels.yes}</option>
-            <option value="no">{labels.no}</option>
-            <option value="not-sure">{labels.notSureShort}</option>
-          </select>
-        </label>
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.language}
-          <select className="field" name="preferredLanguage" defaultValue={locale} required>
-            {locales.map((item) => (
-              <option key={item} value={item}>
-                {localeLabels[item]}
+            {apartments.map((apartment) => (
+              <option key={apartment.slug} value={apartment.slug}>
+                {apartment.shortName[locale]}
               </option>
             ))}
+            <option value="not-sure">{labels.notSure}</option>
           </select>
+          <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.apartmentHelp}</span>
         </label>
-      </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.checkIn}
+            <input className="field" min={today} name="checkIn" type="date" required />
+          </label>
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.checkOut}
+            <input className="field" min={today} name="checkOut" type="date" required />
+          </label>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.adults}
+            <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
+          </label>
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.children}
+            <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
+        <legend className="serif-heading text-2xl text-[#173f36]">{labels.preferences}</legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.parking}
+            <select className="field" name="parking" defaultValue="not-sure" required>
+              <option value="yes">{labels.yes}</option>
+              <option value="no">{labels.no}</option>
+              <option value="not-sure">{labels.notSureShort}</option>
+            </select>
+            <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.parkingHelp}</span>
+          </label>
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.language}
+            <select className="field" name="preferredLanguage" defaultValue={locale} required>
+              {locales.map((item) => (
+                <option key={item} value={item}>
+                  {localeLabels[item]}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.name}
-          <input className="field" name="name" required />
+          {labels.message}
+          <textarea
+            className="field min-h-28"
+            name="message"
+          />
+          <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.messageHelp}</span>
         </label>
+      </fieldset>
+
+      <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
+        <legend className="serif-heading text-2xl text-[#173f36]">{labels.contactDetails}</legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.name}
+            <input className="field" name="name" required />
+          </label>
+          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+            {labels.email}
+            <input className="field" name="email" type="email" />
+          </label>
+        </div>
+
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-          {labels.email}
-          <input className="field" name="email" type="email" />
+          {labels.phone}
+          <input className="field" name="phone" />
         </label>
-      </div>
+      </fieldset>
 
-      <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        {labels.phone}
-        <input className="field" name="phone" />
-      </label>
-
-      <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
-        {labels.message}
-        <textarea
-          className="field min-h-32"
-          name="message"
-        />
-      </label>
-
-      <div className="rounded-md border border-[#d9cdbd] bg-[#fff3df] p-4 text-sm leading-6 text-[#5c5044]">
+      <div className="border border-[#dfd4c1] bg-[#fbf7ef] p-4 text-sm leading-6 text-[#5c5044]">
         {labels.manual}
       </div>
 
-      <label className="flex items-start gap-3 rounded-md border border-[#d9cdbd] bg-white/70 p-4 text-sm leading-6 text-[#5c5044]">
+      <label className="flex items-start gap-3 border border-[#d9cdbd] bg-white/70 p-4 text-sm leading-6 text-[#5c5044]">
         <input
           className="mt-1 h-4 w-4 rounded border-[#d9cdbd] text-[#0b6f8f]"
           name="privacyAcknowledgement"
@@ -234,8 +274,8 @@ export function BookingRequestForm({
         <div
           className={
             state.status === "success"
-              ? "rounded-md border border-[#8ab59b] bg-[#eef8f1] p-4 text-sm font-semibold text-[#27553a]"
-              : "rounded-md border border-[#d9a08f] bg-[#fff0eb] p-4 text-sm font-semibold text-[#8a3b26]"
+              ? "border border-[#8ab59b] bg-[#eef8f1] p-4 text-sm font-semibold text-[#27553a]"
+              : "border border-[#d9a08f] bg-[#fff0eb] p-4 text-sm font-semibold text-[#8a3b26]"
           }
           role="status"
         >
