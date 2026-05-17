@@ -28,7 +28,7 @@ export function FooterLanguageSwitcher({ locale, label }: { locale: Locale; labe
   const pathname = usePathname();
 
   return (
-    <nav aria-label={label} className="mt-3">
+    <nav aria-label={label} className="shrink-0">
       <div className="flex flex-wrap gap-1.5">
         {locales.map((item) => {
           const isActive = item === locale;

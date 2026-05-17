@@ -41,7 +41,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer className="border-t border-[#243c35] bg-[#111615] text-white">
       <div className="mx-auto grid w-full max-w-6xl gap-5 px-5 py-6 sm:px-6 sm:py-7 md:grid-cols-[1.1fr_1fr_0.75fr] lg:px-8">
         <div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <Image
               src={siteConfig.iconPath}
               alt=""
@@ -50,11 +50,11 @@ export function Footer({ locale }: { locale: Locale }) {
               className="h-9 w-9 border border-white/15 bg-[#fbf7ef]"
             />
             <p className="font-serif-display text-2xl font-semibold tracking-[-0.02em]">Azur Menton</p>
+            <FooterLanguageSwitcher locale={locale} label={copy.languages} />
           </div>
-          <p className="mt-3 max-w-md text-sm leading-6 text-white/70">{copy.intro}</p>
-          <FooterLanguageSwitcher locale={locale} label={copy.languages} />
-          <p className="mt-3 text-[0.68rem] leading-5 text-white/35">
-            {copy.siteBy}{" "}
+          <p className="mt-3 max-w-md text-sm leading-6 text-white/70">
+            {copy.intro}{" "}
+            <span className="text-white/35">{copy.siteBy}</span>{" "}
             <a
               href="https://abvx.xyz"
               target="_blank"
