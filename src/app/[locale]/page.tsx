@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
+import { HeroImageSlides } from "@/components/home/HeroImageSlides";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -198,6 +199,27 @@ const guideTeaserImages: Record<string, { src: string; alt: string }> = {
   },
 };
 
+const heroMainSlides = [
+  { src: "/images/guide/best-beaches-in-menton.png", objectPosition: "50% 50%" },
+  { src: "/images/guide/menton-old-town.png", objectPosition: "52% 50%" },
+  { src: "/images/guide/day-trips-from-menton.png", objectPosition: "50% 50%" },
+  { src: "/images/guide/menton-without-a-car.png", objectPosition: "50% 50%" },
+  { src: "/images/guide/local-food-menton.png", objectPosition: "50% 50%" },
+  { src: "/images/guide/promenade-du-soleil.png", objectPosition: "50% 50%" },
+];
+
+const heroInsetSlides = [
+  { src: "/images/apartments/sea-view-balcony-studio/01-balcony-coffee-sea-view.jpg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/01-private-terrace-breakfast.jpeg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/sea-view-balcony-studio/04-open-plan-studio-layout.jpg", objectPosition: "50% 48%" },
+  { src: "/images/apartments/beachside-family-apartment/02-living-room-terrace-access.jpeg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/03-bright-studio-double-bed.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/sea-view-balcony-studio/02-sea-view-from-balcony.jpg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.jpeg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/02-wide-sea-view-from-balcony.png", objectPosition: "50% 50%" },
+];
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale = isLocale(locale) ? locale : "en";
@@ -268,31 +290,7 @@ export default async function LocaleHome({ params }: PageProps) {
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative ml-auto max-w-[540px] border border-[#dfd4c1] bg-white p-3">
-                <Image
-                  src="/images/home/hero1.png"
-                  alt="Mediterranean coastline and old town view in Menton"
-                  width={1536}
-                  height={1024}
-                  priority
-                  quality={90}
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="aspect-[4/3] w-full object-cover object-[62%_50%]"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-2 hidden w-56 border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)] md:block">
-                <Image
-                  src="/images/home/hero2.png"
-                  alt="Bright sea-view apartment interior with balcony in Menton"
-                  width={1536}
-                  height={1024}
-                  quality={90}
-                  sizes="224px"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-              </div>
-            </div>
+            <HeroImageSlides mainSlides={heroMainSlides} insetSlides={heroInsetSlides} />
           </div>
         </Container>
       </section>
