@@ -131,11 +131,11 @@ const galleryCopy: Record<
 
 const previewOrder: Record<string, string[]> = {
   "sea-view-balcony-studio": [
-    "01-balcony-coffee-sea-view.jpg",
-    "02-sea-view-from-balcony.jpg",
-    "04-open-plan-studio-layout.jpg",
-    "05-double-bed-balcony-access.jpg",
-    "06-dining-area-by-balcony.jpg",
+    "01-balcony-breakfast-sea-view.png",
+    "02-living-room-balcony-view.png",
+    "03-open-plan-studio-layout.png",
+    "04-bedroom-balcony-view.png",
+    "11-balcony-sea-view.png",
   ],
   "beachside-family-apartment": [
     "01-private-terrace-breakfast.jpeg",
