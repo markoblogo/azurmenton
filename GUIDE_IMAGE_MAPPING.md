@@ -27,7 +27,19 @@ Project-owned guide illustrations were copied from `/Users/antonbiletskiy-volokh
 | `Port de Garavan.png` | `port-de-garavan.png` | Place: `port-de-garavan` | High | Used for useful-place card. |
 | `Jardin Botanique Val Rahmeh.png` | `jardin-botanique-val-rahmeh.png` | Place: `jardin-val-rahmeh` | High | Used for useful-place card. |
 
-Still using editorial placeholders unless new matching illustrations are provided:
+Additional project-owned place illustrations were copied from `/Users/antonbiletskiy-volokh/Desktop/guide2` into `public/images/guide/` without resizing, compression or re-export. All imported PNGs are 1536 x 1024 px.
 
-- Places: `biera-daqui`, `inky-bar`, `med-rooftop`, `les-incompris`, `bar-lescalier`, `cimetiere-vieux-chateau`, `jardin-serre-de-la-madone`, `plage-rondelli`, `plage-fossan`, `borrigo-beaches`.
-- No matching illustration was provided for `Palais de l’Europe` because it is not currently part of the useful places dataset.
+| Source filename | Destination filename | Matched article/place | Confidence | Replaced placeholder or older image? | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `Bar L’Escalier.png` | `bar-lescalier.png` | Place: `bar-lescalier` | High | Replaced placeholder | Used for place cards. |
+| `Biera d’Aquì.png` | `biera-daqui.png` | Place: `biera-daqui` | High | Replaced placeholder | Source filename used a decomposed accent; normalized. |
+| `Borrigo Beaches.png` | `borrigo-beaches.png` | Place: `borrigo-beaches` | High | Replaced placeholder | Used for beach place cards. |
+| `Cimetière du Vieux Château.png` | `cimetiere-du-vieux-chateau.png` | Place: `cimetiere-vieux-chateau` | High | Replaced older generic apartment/old-town photo | Source filename used decomposed accents; normalized. |
+| `Inky Bar.png` | `inky-bar.png` | Place: `inky-bar` | High | Replaced placeholder | Used for place cards. |
+| `Jardin Serre de la Madone.png` | `jardin-serre-de-la-madone.png` | Place: `jardin-serre-de-la-madone` | High | Replaced placeholder | Used for garden place cards. |
+| `Les Incompris.png` | `les-incompris.png` | Place: `les-incompris` | High | Replaced placeholder | Used for place cards. |
+| `Med Rooftop.png` | `med-rooftop.png` | Place: `med-rooftop` | High | Replaced placeholder | Used for place cards. |
+| `Plage Rondelli.png` | `plage-rondelli.png` | Place: `plage-rondelli` | High | Replaced placeholder | Used for beach place cards. |
+| `Plage du Fossan.png` | `plage-du-fossan.png` | Place: `plage-fossan` | High | Replaced older generic sea photo | Used for beach place cards. |
+
+No remaining useful-place card currently lacks a matching project illustration in the active places dataset. No matching illustration was provided for `Palais de l’Europe` because it is not currently part of the useful places dataset.

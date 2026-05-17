@@ -14,9 +14,18 @@ const labels = {
 export function PlaceCard({ place, locale, compact = false }: { place: Place; locale: Locale; compact?: boolean }) {
   const copy = labels[locale];
   const location = place.address ?? place.area?.[locale];
+  const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
+  const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;
 
   return (
-    <article className="group overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-colors hover:border-[#c6a66a]">
+    <article className={`group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a] ${compact && relatedHref ? "cursor-pointer hover:-translate-y-0.5" : ""}`}>
+      {compact && relatedHref ? (
+        <Link
+          aria-label={`${copy.related}: ${place.name}`}
+          className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a]"
+          href={relatedHref}
+        />
+      ) : null}
       <GuideVisual
         image={place.image}
         imageAlt={place.imageAlt?.[locale]}
@@ -32,7 +41,7 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
             <h3 className="mt-2 serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
           </div>
         </div>
-        <p className="mt-3 text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-line-clamp:3] [-webkit-box-orient:vertical] overflow-hidden">{place.shortNote[locale]}</p>
+        <p className="mt-3 overflow-hidden text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">{place.shortNote[locale]}</p>
         {location ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{location}</p> : null}
         {!compact && place.openingHoursLabel ? (
           <p className="mt-3 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.hours}: </span>{place.openingHoursLabel[locale]}</p>
@@ -42,13 +51,18 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
         ) : null}
         {place.sourceStatus === "needs_verification" ? <p className="mt-3 text-xs italic text-[#71665b]">{copy.note}</p> : null}
         <div className="mt-4 flex flex-wrap gap-2">
-          {(place.googleMapsSearchUrl ?? place.googleMapsUrl) ? (
-            <Link className="inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={(place.googleMapsSearchUrl ?? place.googleMapsUrl) as Route} target="_blank" rel="noopener noreferrer">
+          {compact && relatedHref ? (
+            <span aria-hidden="true" className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors group-hover:bg-[#f3ead7]">
+              {copy.related}
+            </span>
+          ) : null}
+          {mapsHref ? (
+            <Link className="relative z-20 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">
               {copy.map}
             </Link>
           ) : null}
-          {place.relatedArticleIds[0] ? (
-            <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/guide/${place.relatedArticleIds[0]}` as Route}>
+          {!compact && relatedHref ? (
+            <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={relatedHref}>
               {copy.related}
             </Link>
           ) : null}

@@ -268,6 +268,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
+  "biera-daqui": {
+    image: "/images/guide/biera-daqui.png",
+    imageAlt: text("Illustration of Biera d’Aquì in Menton", "Illustration de Biera d’Aquì a Menton", "Illustrazione di Biera d’Aquì a Mentone", "Ілюстрація Biera d’Aquì у Ментоні"),
+    visualTheme: "bar",
+  },
+  "inky-bar": {
+    image: "/images/guide/inky-bar.png",
+    imageAlt: text("Illustration of Inky Bar by Plage des Sablettes in Menton", "Illustration d'Inky Bar pres des Sablettes a Menton", "Illustrazione di Inky Bar vicino alle Sablettes a Mentone", "Ілюстрація Inky Bar біля Plage des Sablettes у Ментоні"),
+    visualTheme: "bar",
+  },
+  "med-rooftop": {
+    image: "/images/guide/med-rooftop.png",
+    imageAlt: text("Illustration of Med Rooftop in Menton", "Illustration de Med Rooftop a Menton", "Illustrazione di Med Rooftop a Mentone", "Ілюстрація Med Rooftop у Ментоні"),
+    visualTheme: "rooftop",
+  },
+  "les-incompris": {
+    image: "/images/guide/les-incompris.png",
+    imageAlt: text("Illustration of Les Incompris in Menton", "Illustration des Incompris a Menton", "Illustrazione di Les Incompris a Mentone", "Ілюстрація Les Incompris у Ментоні"),
+    visualTheme: "bar",
+  },
+  "bar-lescalier": {
+    image: "/images/guide/bar-lescalier.png",
+    imageAlt: text("Illustration of Bar L’Escalier in Menton", "Illustration du Bar L’Escalier a Menton", "Illustrazione del Bar L’Escalier a Mentone", "Ілюстрація Bar L’Escalier у Ментоні"),
+    visualTheme: "bar",
+  },
   "rampes-saint-michel": {
     image: "/images/guide/les-rampes-saint-michel.png",
     imageAlt: text("Illustration of Les Rampes Saint-Michel in Menton", "Illustration des Rampes Saint-Michel a Menton", "Illustrazione delle Rampes Saint-Michel a Mentone", "Ілюстрація Les Rampes Saint-Michel у Ментоні"),
@@ -284,9 +309,14 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     visualTheme: "port",
   },
   "cimetiere-vieux-chateau": {
-    image: "/images/apartments/beachside-family-apartment/17-menton-old-town.jpeg",
-    imageAlt: text("Colourful old town near the hill viewpoint", "Vieille ville coloree pres du point de vue", "Centro storico colorato vicino al belvedere", "Кольорове старе місто біля оглядової точки"),
+    image: "/images/guide/cimetiere-du-vieux-chateau.png",
+    imageAlt: text("Illustration of Cimetière du Vieux Château in Menton", "Illustration du Cimetiere du Vieux Chateau a Menton", "Illustrazione del Cimetière du Vieux Château a Mentone", "Ілюстрація Cimetière du Vieux Château у Ментоні"),
     visualTheme: "viewpoint",
+  },
+  "jardin-serre-de-la-madone": {
+    image: "/images/guide/jardin-serre-de-la-madone.png",
+    imageAlt: text("Illustration of Jardin Serre de la Madone in Menton", "Illustration du Jardin Serre de la Madone a Menton", "Illustrazione del Jardin Serre de la Madone a Mentone", "Ілюстрація Jardin Serre de la Madone у Ментоні"),
+    visualTheme: "garden",
   },
   "jardin-val-rahmeh": {
     image: "/images/guide/jardin-botanique-val-rahmeh.png",
@@ -298,9 +328,19 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Plage des Sablettes in Menton", "Illustration de la Plage des Sablettes a Menton", "Illustrazione della Plage des Sablettes a Mentone", "Ілюстрація Plage des Sablettes у Ментоні"),
     visualTheme: "beach",
   },
+  "plage-rondelli": {
+    image: "/images/guide/plage-rondelli.png",
+    imageAlt: text("Illustration of Plage Rondelli in Menton", "Illustration de la Plage Rondelli a Menton", "Illustrazione della Plage Rondelli a Mentone", "Ілюстрація Plage Rondelli у Ментоні"),
+    visualTheme: "beach",
+  },
   "plage-fossan": {
-    image: "/images/apartments/beachside-family-apartment/15-mediterranean-sea-nearby.jpeg",
-    imageAlt: text("Mediterranean water near central Menton", "Mer Mediterranee pres du centre de Menton", "Mediterraneo vicino al centro di Mentone", "Середземне море біля центру Ментона"),
+    image: "/images/guide/plage-du-fossan.png",
+    imageAlt: text("Illustration of Plage du Fossan in Menton", "Illustration de la Plage du Fossan a Menton", "Illustrazione della Plage du Fossan a Mentone", "Ілюстрація Plage du Fossan у Ментоні"),
+    visualTheme: "beach",
+  },
+  "borrigo-beaches": {
+    image: "/images/guide/borrigo-beaches.png",
+    imageAlt: text("Illustration of the Borrigo beaches in Menton", "Illustration des plages du Borrigo a Menton", "Illustrazione delle spiagge di Borrigo a Mentone", "Ілюстрація пляжів Borrigo у Ментоні"),
     visualTheme: "beach",
   },
 };
