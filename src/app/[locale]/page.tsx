@@ -271,22 +271,22 @@ export default async function LocaleHome({ params }: PageProps) {
             <div className="relative">
               <div className="relative ml-auto max-w-[540px] border border-[#dfd4c1] bg-white p-3">
                 <Image
-                  src="/images/home/BeachfrontStudio-portret.png"
-                  alt="Private balcony with breakfast table and Mediterranean sea view in Menton"
-                  width={864}
-                  height={1184}
+                  src="/images/home/hero1.png"
+                  alt="Mediterranean coastline and old town view in Menton"
+                  width={1536}
+                  height={1024}
                   priority
                   quality={90}
                   sizes="(min-width: 1024px) 48vw, 100vw"
-                  className="aspect-[4/5] w-full object-cover object-[50%_42%]"
+                  className="aspect-[4/3] w-full object-cover object-[62%_50%]"
                 />
               </div>
               <div className="absolute -bottom-6 -left-2 hidden w-56 border border-[#dfd4c1] bg-[#fbf7ef] p-3 shadow-[0_18px_45px_rgba(23,63,54,0.12)] md:block">
                 <Image
                   src="/images/home/hero2.png"
-                  alt="Bright beachfront studio with balcony access in Menton"
-                  width={1344}
-                  height={768}
+                  alt="Bright sea-view apartment interior with balcony in Menton"
+                  width={1536}
+                  height={1024}
                   quality={90}
                   sizes="224px"
                   className="aspect-[4/3] w-full object-cover"
