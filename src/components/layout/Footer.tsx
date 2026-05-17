@@ -52,9 +52,9 @@ export function Footer({ locale }: { locale: Locale }) {
             <p className="font-serif-display text-2xl font-semibold tracking-[-0.02em]">Azur Menton</p>
             <FooterLanguageSwitcher locale={locale} label={copy.languages} />
           </div>
-          <p className="mt-3 max-w-md text-sm leading-6 text-white/70">
-            {copy.intro}{" "}
-            <span className="text-white/35">{copy.siteBy}</span>{" "}
+          <p className="mt-3 max-w-md text-sm leading-6 text-white/70">{copy.intro}</p>
+          <p className="mt-1 max-w-md text-sm leading-6 text-white/45">
+            {copy.siteBy}{" "}
             <a
               href="https://abvx.xyz"
               target="_blank"
