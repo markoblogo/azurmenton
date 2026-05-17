@@ -249,14 +249,14 @@ export default async function FaqPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/home/BeachfrontStudio-portret.png"
-                alt="Sea-view balcony breakfast at an Azur Menton apartment"
-                width={864}
-                height={1184}
+                src="/images/home/faq-hero.png"
+                alt="Riviera planning scene for Azur Menton guest questions"
+                width={1602}
+                height={981}
                 priority
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="aspect-[4/3] w-full object-cover object-[50%_38%]"
+                className="aspect-[4/3] w-full object-cover object-[50%_50%]"
               />
             </div>
           </div>

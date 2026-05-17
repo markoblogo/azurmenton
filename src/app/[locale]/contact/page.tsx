@@ -167,14 +167,14 @@ export default async function ContactPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/home/TerraceParkingApartment.png"
-                alt="Terrace table at an Azur Menton apartment"
-                width={900}
-                height={1200}
+                src="/images/home/contacts-hero.png"
+                alt="Warm Riviera contact scene for Azur Menton guests"
+                width={1462}
+                height={1076}
                 priority
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="aspect-[4/3] w-full object-cover object-[50%_42%]"
+                className="aspect-[4/3] w-full object-cover object-[50%_50%]"
               />
             </div>
           </div>
