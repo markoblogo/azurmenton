@@ -351,8 +351,8 @@ const articles: GuideArticle[] = [
     slug: "halles-du-marche-menton",
     title: t("Halles du Marché: Menton's morning market", "Halles du Marche: le marche du matin de Menton", "Halles du Marché: il mercato del mattino di Mentone", "Halles du Marché: ранковий ринок Ментона"),
     seoTitle: t("Halles du Marché Menton | Morning Market Guide", "Halles du Marche Menton | Guide du marche", "Halles du Marché Mentone | Guida al mercato", "Halles du Marché Menton | Гід по ранковому ринку"),
-    seoDescription: t("A practical guide to Menton's morning market for local food, picnic ingredients and an old-town walk.", "Guide pratique du marche du matin de Menton pour produits locaux, pique-nique et balade en vieille ville.", "Guida pratica al mercato mattutino di Mentone per prodotti locali, picnic e passeggiata nel centro storico.", "Практичний гід по ранковому ринку Ментона: локальна їжа, продукти для пікніка й прогулянка старим містом."),
-    excerpt: t("Go in the morning for olives, citrus products, cheeses, bread, pastries, fruit and picnic ingredients before a beach or old-town walk.", "Allez-y le matin pour olives, agrumes, fromages, pain, patisseries, fruits et ingredients de pique-nique.", "Vai al mattino per olive, agrumi, formaggi, pane, dolci, frutta e ingredienti da picnic.", "Приходьте зранку за оливками, цитрусовими продуктами, сирами, хлібом, випічкою, фруктами й продуктами для пікніка."),
+    seoDescription: t("A practical guide to Halles du Marché in Menton: when to go, what to taste, market picnic ideas and simple apartment meals.", "Guide pratique des Halles du Marche a Menton: quand venir, quoi gouter, idees de pique-nique et repas simples a l'appartement.", "Guida pratica alle Halles du Marché di Mentone: quando andare, cosa assaggiare, picnic e pasti semplici in appartamento.", "Практичний гід по Halles du Marché у Ментоні: коли йти, що куштувати, пікнік і прості страви в апартаментах."),
+    excerpt: t("Halles du Marché is the easiest way to feel Menton waking up: fruit, citrus, cheeses, olives, pastries and small local bites before the old town or Sablettes.", "Les Halles du Marche sont l'une des facons les plus simples de sentir Menton se reveiller: fruits, agrumes, fromages, olives, patisseries et petites specialites avant la vieille ville ou Sablettes.", "Le Halles du Marché sono uno dei modi piu semplici per sentire Mentone che si sveglia: frutta, agrumi, formaggi, olive, dolci e piccoli assaggi locali prima del centro storico o di Sablettes.", "Halles du Marché - один із найпростіших способів відчути, як прокидається Ментон: фрукти, цитрусові, сири, оливки, випічка й невеликі місцеві закуски перед старим містом або Sablettes."),
     category: "food-markets",
     coverImage: "/images/guide/halles-du-marche-menton.png",
     coverImageAlt: t("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
@@ -365,10 +365,127 @@ const articles: GuideArticle[] = [
     sourceStatus: "needs_verification",
     featured: true,
     sections: [
-      { heading: t("Why go early", "Pourquoi venir tot", "Perche andare presto", "Чому варто прийти рано"), body: [t("The market works best as a morning stop, when the town is waking up and it is easy to combine food shopping with the old town or the beach.", "Le marche fonctionne surtout le matin, quand la ville se reveille et qu'il est facile de le combiner avec la vieille ville ou la plage.", "Il mercato rende al meglio al mattino, quando la citta si sveglia ed e facile unirlo al centro storico o alla spiaggia.", "Ринок найкраще відвідувати зранку, коли місто прокидається і його легко поєднати зі старим містом або пляжем.")], relatedPlaceIds: ["halles-du-marche"] },
-      { heading: t("What to look for", "Que regarder", "Cosa cercare", "На що звернути увагу"), body: [t("Think olives, citrus products, local cheeses, bread, pastries, seasonal fruit and simple ingredients for lunch back at the apartment.", "Pensez olives, produits aux agrumes, fromages locaux, pain, patisseries, fruits de saison et ingredients simples pour dejeuner a l'appartement.", "Pensa a olive, prodotti agli agrumi, formaggi locali, pane, dolci, frutta di stagione e ingredienti semplici per pranzo in appartamento.", "Оливки, цитрусові продукти, локальні сири, хліб, випічка, сезонні фрукти й прості інгредієнти для обіду в апартаментах.")], bullets: [t("Opening hours can change; check current hours before visiting.", "Les horaires peuvent changer; verifiez avant de venir.", "Gli orari possono cambiare; controllali prima della visita.", "Години роботи можуть змінюватися; перевірте їх перед візитом."), t("Pair it with Rampes Saint-Michel or a Sablettes beach morning.", "Associez-le aux Rampes Saint-Michel ou a une matinee aux Sablettes.", "Abbinalo alle Rampes Saint-Michel o a una mattina alle Sablettes.", "Поєднайте з Rampes Saint-Michel або ранком на Sablettes.")] },
+      {
+        heading: t("Why go in the morning", "Pourquoi y aller le matin", "Perche andare al mattino", "Чому варто йти зранку"),
+        body: [
+          t(
+            "Halles du Marché is one of the easiest ways to feel Menton waking up: a covered Belle Epoque market filled with fruit, vegetables, citrus products, cheeses, olives, bread and pastries.",
+            "Les Halles du Marche sont l'une des facons les plus simples de sentir Menton se reveiller : un marche couvert Belle Epoque rempli de fruits, legumes, agrumes, fromages, olives, pains et patisseries.",
+            "Le Halles du Marché sono uno dei modi piu semplici per sentire Mentone che si sveglia: un mercato coperto Belle Epoque pieno di frutta, verdura, agrumi, formaggi, olive, pane e dolci.",
+            "Halles du Marché - один із найпростіших способів відчути, як прокидається Ментон: критий ринок Belle Epoque з фруктами, овочами, цитрусовими продуктами, сирами, оливками, хлібом і випічкою.",
+          ),
+          t(
+            "It works best as a morning stop, when stalls are full, locals are shopping and you can combine the visit with the old town, Les Rampes Saint-Michel or a few hours at Plage des Sablettes.",
+            "Il fonctionne surtout comme halte matinale, quand les etals sont pleins, les habitants font leurs courses et vous pouvez combiner la visite avec la vieille ville, les Rampes Saint-Michel ou quelques heures a la Plage des Sablettes.",
+            "Funziona al meglio come tappa del mattino, quando i banchi sono pieni, i residenti fanno la spesa e puoi abbinarlo al centro storico, a Les Rampes Saint-Michel o a qualche ora a Plage des Sablettes.",
+            "Найкраще приходити зранку, коли ятки повні, місцеві роблять покупки, а візит легко поєднати зі старим містом, Les Rampes Saint-Michel або кількома годинами на Plage des Sablettes.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes"],
+      },
+      {
+        heading: t("When it is open and how it works", "Horaires et fonctionnement", "Quando e aperto e come funziona", "Коли відкрито і як це працює"),
+        body: [
+          t(
+            "The market usually runs in the morning, with most activity from around 8:00 to 12:30, and is often liveliest from Tuesday to Saturday. Hours and the number of stalls can change by season and day, so check current information or simply aim to arrive earlier rather than later.",
+            "Le marche fonctionne generalement le matin, avec le plus d'activite autour de 8h00-12h30, et il est souvent le plus vivant du mardi au samedi. Les horaires et le nombre d'etals peuvent changer selon la saison et le jour : verifiez les informations actuelles ou arrivez simplement plutot tot.",
+            "Il mercato di solito funziona al mattino, con la maggior parte dell'attivita intorno alle 8:00-12:30, ed e spesso piu vivace dal martedi al sabato. Orari e numero di banchi possono cambiare secondo stagione e giorno: controlla le informazioni aggiornate o arriva semplicemente presto.",
+            "Ринок зазвичай працює зранку, з найбільшою активністю приблизно з 8:00 до 12:30, і часто найжвавіший із вівторка по суботу. Години й кількість яток можуть змінюватися залежно від сезону та дня, тому перевіряйте актуальну інформацію або просто приходьте раніше.",
+          ),
+          t(
+            "After lunchtime, the hall becomes much quieter and some stands close completely. From central Menton and the seafront, you can walk here in a few minutes, then continue on foot towards the old town or the old port.",
+            "Apres le dejeuner, la halle devient beaucoup plus calme et certains stands ferment completement. Depuis le centre de Menton et le front de mer, vous pouvez venir a pied en quelques minutes, puis continuer vers la vieille ville ou le vieux port.",
+            "Dopo pranzo, la hall diventa molto piu tranquilla e alcuni banchi chiudono del tutto. Dal centro di Mentone e dal lungomare puoi arrivare a piedi in pochi minuti, poi continuare verso il centro storico o il vecchio porto.",
+            "Після обіду ринкова зала стає значно тихішою, а частина яток повністю закривається. З центру Ментона й набережної сюди можна дійти за кілька хвилин, а потім продовжити пішки до старого міста або старого порту.",
+          ),
+          t(
+            "If you arrive by car, nearby streets and underground car parks may offer paid parking, but morning spaces can fill quickly on market days and in summer.",
+            "Si vous venez en voiture, les rues voisines et parkings souterrains peuvent proposer du stationnement payant, mais les places du matin se remplissent vite les jours de marche et en ete.",
+            "Se arrivi in auto, le strade vicine e i parcheggi sotterranei possono offrire posti a pagamento, ma al mattino si riempiono rapidamente nei giorni di mercato e in estate.",
+            "Якщо ви приїжджаєте авто, на сусідніх вулицях і в підземних паркінгах може бути платне паркування, але зранку місця швидко заповнюються в ринкові дні та влітку.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("What to look for", "Que chercher", "Cosa cercare", "Що шукати"),
+        body: [
+          t(
+            "Think of Halles du Marché as a starting point for simple local food rather than a formal tourist attraction. Look for Menton lemons and other citrus, seasonal fruit, tomatoes, salad greens, olives and tapenades, local cheeses, cured meats, fresh pasta and prepared dishes to take away.",
+            "Pensez aux Halles du Marche comme a un point de depart pour une cuisine locale simple plutot qu'a une attraction touristique formelle. Cherchez les citrons de Menton et autres agrumes, fruits de saison, tomates, salades, olives et tapenades, fromages locaux, charcuteries, pates fraiches et plats prepares a emporter.",
+            "Pensa alle Halles du Marché come a un punto di partenza per cibo locale semplice, non come a un'attrazione turistica formale. Cerca limoni di Mentone e altri agrumi, frutta di stagione, pomodori, insalate, olive e tapenade, formaggi locali, salumi, pasta fresca e piatti pronti da portare via.",
+            "Сприймайте Halles du Marché як стартову точку для простої локальної їжі, а не як формальну туристичну пам'ятку. Шукайте лимони Ментона й інші цитрусові, сезонні фрукти, помідори, зелень, оливки й тапенади, локальні сири, м'ясні делікатеси, свіжу пасту та готові страви на виніс.",
+          ),
+          t(
+            "Several stalls may also sell ready-to-eat specialities: slices of pichade and pissaladière, socca when it comes out hot, barbajuans filled with greens, cheese and rice, and sometimes fougasse mentonnaise for a sweet breakfast back at the apartment.",
+            "Plusieurs stands peuvent aussi proposer des specialites pretes a manger : parts de pichade et pissaladiere, socca quand elle sort chaude, barbajuans farcis de blettes, fromage et riz, et parfois fougasse mentonnaise pour un petit-dejeuner sucre a l'appartement.",
+            "Diversi banchi possono vendere anche specialita pronte da mangiare: fette di pichade e pissaladière, socca quando esce calda, barbajuans ripieni di verdure, formaggio e riso, e a volte fougasse mentonnaise per una colazione dolce in appartamento.",
+            "Деякі ятки можуть продавати готові місцеві закуски: шматки pichade і pissaladière, socca, коли вона гаряча, barbajuans із зеленню, сиром і рисом, а іноді fougasse mentonnaise для солодкого сніданку в апартаментах.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("What to taste on the spot", "Quoi gouter sur place", "Cosa assaggiare sul posto", "Що скуштувати на місці"),
+        body: [
+          t(
+            "If you are hungry, treat the market as your first small meal of the day. Buy one or two slices of pichade or pissaladière, a portion of socca if it is hot, and a few barbajuans, then eat them just outside the hall or on a nearby bench.",
+            "Si vous avez faim, traitez le marche comme votre premier petit repas de la journee. Achetez une ou deux parts de pichade ou pissaladiere, une portion de socca si elle est chaude, et quelques barbajuans, puis mangez-les juste dehors ou sur un banc proche.",
+            "Se hai fame, considera il mercato come il primo piccolo pasto della giornata. Compra una o due fette di pichade o pissaladière, una porzione di socca se e calda e qualche barbajuan, poi mangiali appena fuori dalla hall o su una panchina vicina.",
+            "Якщо ви голодні, зробіть ринок першою невеликою трапезою дня. Купіть один-два шматки pichade або pissaladière, порцію socca, якщо вона гаряча, і кілька barbajuans, а потім з'їжте їх просто біля зали або на сусідній лавці.",
+          ),
+          t(
+            "For something sweet, add a pastry, a piece of fougasse or a citrus tart from a bakery counter. For drinks, look for fresh juice, coffee from nearby cafes or bottled citrus syrups and juices to take away.",
+            "Pour une note sucree, ajoutez une patisserie, un morceau de fougasse ou une tartelette aux agrumes d'un comptoir de boulangerie. Cote boissons, cherchez un jus frais, un cafe dans les cafes voisins ou des sirops et jus d'agrumes en bouteille a emporter.",
+            "Per qualcosa di dolce, aggiungi un dolce, un pezzo di fougasse o una crostatina agli agrumi da un banco di panetteria. Per bere, cerca spremute, caffe nei locali vicini o sciroppi e succhi agli agrumi in bottiglia da portare via.",
+            "Для солодкого додайте випічку, шматок fougasse або цитрусовий тарт із пекарського прилавка. З напоїв шукайте свіжий сік, каву в сусідніх кафе або пляшкові цитрусові сиропи й соки на виніс.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Picnics and simple apartment meals", "Pique-niques et repas simples a l'appartement", "Picnic e pasti semplici in appartamento", "Пікніки й прості страви в апартаментах"),
+        body: [
+          t(
+            "One advantage of staying in an apartment is being able to use the market as your fridge. Bring a small reusable bag and think in simple combinations: bread, cheese, charcuterie, olives, cherry tomatoes, fruit and one or two lemon-based products make an easy lunch or dinner.",
+            "L'un des avantages d'un sejour en appartement est de pouvoir utiliser le marche comme votre garde-manger. Prenez un petit sac reutilisable et pensez en combinaisons simples : pain, fromage, charcuterie, olives, tomates cerises, fruits et un ou deux produits au citron font un dejeuner ou diner facile.",
+            "Uno dei vantaggi di stare in appartamento e poter usare il mercato come dispensa. Porta una piccola borsa riutilizzabile e pensa a combinazioni semplici: pane, formaggio, salumi, olive, pomodorini, frutta e uno o due prodotti al limone diventano un pranzo o una cena facili.",
+            "Одна з переваг проживання в апартаментах - можна використовувати ринок як власний холодильник. Візьміть невелику багаторазову сумку й мисліть простими поєднаннями: хліб, сир, м'ясні делікатеси, оливки, чері, фрукти й один-два лимонні продукти вже складають легкий обід або вечерю.",
+          ),
+          t(
+            "You can bring everything back to the apartment, or assemble a picnic and walk a few minutes to the seafront or Plage des Sablettes. This can be more flexible than a restaurant, especially with children or when you want to keep the day light.",
+            "Vous pouvez tout rapporter a l'appartement, ou composer un pique-nique et marcher quelques minutes vers le front de mer ou la Plage des Sablettes. C'est souvent plus flexible qu'un restaurant, surtout avec des enfants ou quand vous voulez garder la journee legere.",
+            "Puoi riportare tutto in appartamento, oppure preparare un picnic e camminare pochi minuti fino al lungomare o a Plage des Sablettes. Spesso e piu flessibile di un ristorante, soprattutto con bambini o quando vuoi mantenere la giornata leggera.",
+            "Можна занести все в апартаменти або скласти пікнік і за кілька хвилин дійти до набережної чи Plage des Sablettes. Це часто гнучкіше за ресторан, особливо з дітьми або коли хочеться легкого дня.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "plage-sablettes"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Small hacks for a better visit", "Petites astuces pour mieux en profiter", "Piccoli trucchi per una visita migliore", "Невеликі поради для кращого візиту"),
+        body: [
+          t(
+            "Arrive before 10:00 if you want the best choice and a calmer atmosphere, especially on Saturdays and in high season. Do one quick lap first, then return to the stalls that appeal to you instead of buying everything at the first counter.",
+            "Arrivez avant 10h00 si vous voulez le meilleur choix et une ambiance plus calme, surtout le samedi et en haute saison. Faites d'abord un tour rapide, puis revenez aux stands qui vous attirent au lieu de tout acheter au premier comptoir.",
+            "Arriva prima delle 10:00 se vuoi piu scelta e un'atmosfera piu calma, soprattutto il sabato e in alta stagione. Fai prima un giro veloce, poi torna ai banchi che ti attirano invece di comprare tutto al primo banco.",
+            "Приходьте до 10:00, якщо хочете кращий вибір і спокійнішу атмосферу, особливо в суботу й у високий сезон. Спершу зробіть швидке коло, а потім поверніться до яток, які сподобалися, замість купувати все на першому прилавку.",
+          ),
+          t(
+            "If you are unsure what to choose, ask vendors what is local, homemade or from Menton today. For longer walks or beach hours afterwards, prioritise food that travels well: bread, fruit, nuts and sweets rather than delicate fresh cheeses or meats.",
+            "Si vous ne savez pas quoi choisir, demandez aux vendeurs ce qui est local, fait maison ou de Menton ce jour-la. Pour une longue balade ou plusieurs heures de plage ensuite, privilegiez ce qui voyage bien : pain, fruits, fruits secs et douceurs plutot que fromages frais ou charcuteries fragiles.",
+            "Se non sai cosa scegliere, chiedi ai venditori cosa e locale, fatto in casa o di Mentone quel giorno. Se dopo hai una lunga passeggiata o ore di spiaggia, preferisci prodotti che viaggiano bene: pane, frutta, frutta secca e dolci invece di formaggi freschi o salumi delicati.",
+            "Якщо не знаєте, що обрати, запитайте продавців, що сьогодні місцеве, домашнє або саме з Ментона. Якщо після ринку плануєте довгу прогулянку чи кілька годин на пляжі, обирайте те, що добре переносить дорогу: хліб, фрукти, горіхи й солодощі, а не делікатні свіжі сири чи м'ясні продукти.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
     ],
-    practicalTips: [t("Bring a small bag for picnic ingredients.", "Prenez un petit sac pour les achats.", "Porta una borsa piccola per la spesa.", "Візьміть маленьку сумку для покупок."), t("Check current hours before visiting.", "Verifiez les horaires actuels.", "Controlla gli orari aggiornati.", "Перевірте актуальні години роботи.")],
+    practicalTips: [
+      t("Arrive before 10:00 for better choice and a calmer visit.", "Arrivez avant 10h00 pour plus de choix et une visite plus calme.", "Arriva prima delle 10:00 per piu scelta e una visita piu calma.", "Приходьте до 10:00 для кращого вибору й спокійнішого візиту."),
+      t("Check current hours before visiting.", "Verifiez les horaires actuels avant de venir.", "Controlla gli orari aggiornati prima della visita.", "Перед візитом перевірте актуальні години роботи."),
+      t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
+    ],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes"],
     relatedArticles: ["local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
