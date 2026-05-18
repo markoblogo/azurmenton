@@ -816,8 +816,8 @@ export const guideArticles: GuideArticle[] = [
     slug: "menton-one-day-itinerary",
     title: t("Menton in one day: a relaxed walking itinerary", "Menton en une journee: itineraire a pied detendu", "Mentone in un giorno: itinerario a piedi rilassato", "Ментон за один день: спокійний пішохідний маршрут"),
     seoTitle: t("Menton in One Day | Walking Itinerary", "Menton en une journee | Itineraire a pied", "Mentone in un giorno | Itinerario a piedi", "Ментон за один день | Пішохідний маршрут"),
-    seoDescription: t("A flexible one-day Menton itinerary with the market, old town, Sablettes beach, gardens and an easy seafront evening.", "Itineraire flexible d'une journee a Menton: marche, vieille ville, Sablettes, jardins et soiree en bord de mer.", "Itinerario flessibile di un giorno: mercato, centro storico, Sablettes, giardini e serata sul lungomare.", "Гнучкий маршрут на день: ринок, старе місто, Sablettes, сади й вечір на набережній."),
-    excerpt: t("Morning market and old town, midday by Sablettes, a flexible garden stop, then a relaxed promenade evening.", "Marche et vieille ville le matin, Sablettes a midi, jardin si les horaires conviennent, puis soiree promenade.", "Mercato e centro storico al mattino, Sablettes a mezzogiorno, giardino se gli orari vanno bene, poi passeggiata serale.", "Зранку ринок і старе місто, вдень Sablettes, сад за наявності часу, ввечері прогулянка набережною."),
+    seoDescription: t("A relaxed one-day walking itinerary in Menton with coffee, the market, old town viewpoints, Sablettes beach, gardens and a seafront evening.", "Itineraire detendu d'une journee a pied a Menton avec cafe, marche, vues de la vieille ville, Sablettes, jardins et soiree au bord de mer.", "Itinerario rilassato di un giorno a piedi a Mentone con caffe, mercato, panorami del centro storico, Sablettes, giardini e sera sul lungomare.", "Спокійний пішохідний маршрут Ментоном на день: кава, ринок, краєвиди старого міста, Sablettes, сади й вечір біля моря."),
+    excerpt: t("A full day in Menton works best when it stays simple: market, old streets, Sablettes, one flexible garden option and an evening by the sea.", "Une journee a Menton fonctionne mieux si elle reste simple: marche, vieilles rues, Sablettes, une option jardin flexible et une soiree en bord de mer.", "Una giornata a Mentone funziona meglio se resta semplice: mercato, strade antiche, Sablettes, un giardino opzionale e una sera sul mare.", "Один день у Ментоні найкраще працює просто: ринок, старі вулиці, Sablettes, один гнучкий варіант із садом і вечір біля моря."),
     category: "itineraries",
     coverImage: "/images/guide/menton-one-day-itinerary.png",
     coverImageAlt: t("Illustration of a one-day Menton walking itinerary", "Illustration d'un itineraire d'une journee a Menton", "Illustrazione di un itinerario di un giorno a Mentone", "Ілюстрація маршруту Ментоном на один день"),
@@ -833,8 +833,114 @@ export const guideArticles: GuideArticle[] = [
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
-      { heading: t("Morning: market and old town", "Matin: marche et vieille ville", "Mattina: mercato e centro storico", "Ранок: ринок і старе місто"), body: [t("Start at Halles du Marché, then climb gently toward the old town and Rampes Saint-Michel before the day becomes too hot or busy.", "Commencez aux Halles du Marche, puis montez doucement vers la vieille ville et les Rampes Saint-Michel avant la chaleur ou la foule.", "Inizia alle Halles du Marché, poi sali verso il centro storico e Rampes Saint-Michel prima del caldo o della folla.", "Почніть з Halles du Marché, потім повільно підніміться до старого міста й Rampes Saint-Michel, поки не стало спекотно або людно.")], relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel"] },
-      { heading: t("Afternoon and evening", "Apres-midi et soiree", "Pomeriggio e sera", "День і вечір"), body: [t("Keep the afternoon flexible: Sablettes for the beach, a garden if opening hours work, then Promenade du Soleil for the evening light.", "Gardez l'apres-midi flexible: Sablettes pour la plage, un jardin si les horaires conviennent, puis Promenade du Soleil pour la lumiere du soir.", "Lascia il pomeriggio flessibile: Sablettes per la spiaggia, un giardino se aperto, poi Promenade du Soleil con la luce serale.", "Залиште день гнучким: Sablettes для пляжу, сад якщо працює, а потім Promenade du Soleil у вечірньому світлі.")], relatedPlaceIds: ["plage-sablettes", "jardin-val-rahmeh", "promenade-du-soleil"] },
+      {
+        heading: t("How to pace one day in Menton", "Comment rythmer une journee a Menton", "Come dare ritmo a un giorno a Mentone", "Як розподілити один день у Ментоні"),
+        body: [
+          t(
+            "One full day is enough to feel Menton if you keep the plan simple: start with the market, give yourself time in the old streets, slow down around Sablettes and finish by the sea. This route focuses on food, easy views and flexible options you can adjust to the weather and your energy.",
+            "Une journee complete suffit pour sentir Menton si le programme reste simple : commencer par le marche, prendre le temps dans les vieilles rues, ralentir autour de Sablettes et finir au bord de mer. Cet itineraire mise sur la nourriture, les vues faciles et des options flexibles selon la meteo et votre energie.",
+            "Un giorno intero basta per capire Mentone se mantieni il programma semplice: inizia dal mercato, prenditi tempo nelle vie antiche, rallenta intorno a Sablettes e finisci sul mare. Questo itinerario punta su cibo, viste facili e opzioni flessibili secondo meteo ed energia.",
+            "Одного повного дня достатньо, щоб відчути Ментон, якщо не ускладнювати маршрут: почніть із ринку, дайте собі час у старих вулицях, сповільніться біля Sablettes і завершіть день біля моря. Маршрут побудований навколо їжі, легких краєвидів і гнучких варіантів залежно від погоди та сил.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Morning: coffee, market and old town", "Matin: cafe, marche et vieille ville", "Mattina: caffe, mercato e centro storico", "Ранок: кава, ринок і старе місто"),
+        body: [
+          t(
+            "Begin with coffee and something sweet near the seafront or market area, then move straight into Halles du Marché while the morning is active. A simple breakfast can be espresso or cafe creme with a croissant, pain au chocolat, fresh juice or tartine.",
+            "Commencez par un cafe et quelque chose de sucre pres du front de mer ou du marche, puis entrez directement aux Halles du Marche quand le matin est vivant. Un petit-dejeuner simple peut etre un espresso ou cafe creme avec croissant, pain au chocolat, jus frais ou tartine.",
+            "Inizia con un caffe e qualcosa di dolce vicino al lungomare o al mercato, poi entra direttamente alle Halles du Marché quando il mattino e vivace. Una colazione semplice puo essere espresso o cafe creme con croissant, pain au chocolat, spremuta o tartine.",
+            "Почніть із кави й чогось солодкого біля набережної або ринку, а потім одразу заходьте до Halles du Marché, поки ранок живий. Простий сніданок - espresso або cafe creme з круасаном, pain au chocolat, свіжий сік чи tartine.",
+          ),
+          t(
+            "Use the market for small tastes: a slice of pichade or pissaladière, hot socca if available, and a couple of barbajuans from different stalls. Eat some there and keep a little aside for a mid-morning snack.",
+            "Utilisez le marche pour de petites degustations : une part de pichade ou pissaladiere, de la socca chaude si elle est disponible, et quelques barbajuans de differents stands. Mangez-en une partie sur place et gardez un peu pour plus tard dans la matinee.",
+            "Usa il mercato per piccoli assaggi: una fetta di pichade o pissaladière, socca calda se disponibile e un paio di barbajuans da banchi diversi. Mangiane un po' subito e tieni qualcosa per uno spuntino a meta mattina.",
+            "Використайте ринок для невеликих дегустацій: шматок pichade або pissaladière, гарячу socca, якщо є, і кілька barbajuans з різних яток. Частину з'їжте на місці, а трохи залиште для перекусу пізніше.",
+          ),
+          t(
+            "When you are ready, head towards Les Rampes Saint-Michel and climb slowly through the old town, pausing on the landings to look back at the bay and the tiled roofs around the Basilica.",
+            "Quand vous etes pret, dirigez-vous vers les Rampes Saint-Michel et montez doucement dans la vieille ville, en faisant des pauses sur les paliers pour regarder la baie et les toits autour de la basilique.",
+            "Quando sei pronto, dirigiti verso Les Rampes Saint-Michel e sali lentamente nel centro storico, fermandoti sui pianerottoli per guardare la baia e i tetti intorno alla Basilica.",
+            "Коли будете готові, йдіть до Les Rampes Saint-Michel і повільно піднімайтеся старим містом, зупиняючись на майданчиках, щоб подивитися на бухту й черепичні дахи навколо базиліки.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel"],
+      },
+      {
+        heading: t("Late morning: viewpoints and a simple lunch", "Fin de matinee: vues et dejeuner simple", "Tarda mattina: panorami e pranzo semplice", "Пізній ранок: краєвиди й простий обід"),
+        body: [
+          t(
+            "From the top of the rampes, continue a little higher to the Cimetière du Vieux Château if you want one of the widest views over Menton and the Italian coast. The climb is easier before midday, before the strongest heat and the busiest tour moments.",
+            "Depuis le haut des rampes, continuez un peu plus haut vers le Cimetière du Vieux Château si vous voulez l'une des vues les plus larges sur Menton et la cote italienne. La montee est plus agreable avant midi, avant la chaleur forte et les moments les plus frequentes.",
+            "Dalla cima delle rampes, continua un po' piu in alto verso il Cimetière du Vieux Château se vuoi una delle viste piu ampie su Mentone e sulla costa italiana. La salita e piu piacevole prima di mezzogiorno, prima del caldo forte e dei momenti piu affollati.",
+            "Від верхньої частини rampes можна піднятися ще трохи до Cimetière du Vieux Château, якщо хочете один із найширших видів на Ментон та італійське узбережжя. Підйом краще робити до полудня, до сильної спеки й найлюдніших годин.",
+          ),
+          t(
+            "For lunch, keep it easy: sit down near the old port and Plage des Sablettes, or make a picnic from the morning market. Bread, cheese, olives, pichade and fruit on a bench by the sea can be just as memorable as a formal restaurant stop.",
+            "Pour le dejeuner, restez simple : installez-vous pres du vieux port et de la Plage des Sablettes, ou composez un pique-nique avec le marche du matin. Pain, fromage, olives, pichade et fruits sur un banc face a la mer peuvent etre aussi memorables qu'un restaurant.",
+            "Per pranzo resta semplice: siediti vicino al vecchio porto e a Plage des Sablettes, oppure prepara un picnic con gli acquisti del mattino. Pane, formaggio, olive, pichade e frutta su una panchina sul mare possono essere memorabili quanto un ristorante.",
+            "На обід не ускладнюйте: сядьте біля старого порту й Plage des Sablettes або складіть пікнік із ранкових покупок. Хліб, сир, оливки, pichade і фрукти на лавці біля моря можуть запам'ятатися не гірше за ресторан.",
+          ),
+        ],
+        relatedPlaceIds: ["cimetiere-vieux-chateau", "plage-sablettes"],
+      },
+      {
+        heading: t("Early afternoon: Sablettes and a garden", "Debut d'apres-midi: Sablettes et jardin", "Primo pomeriggio: Sablettes e un giardino", "Початок дня: Sablettes і сад"),
+        body: [
+          t(
+            "After lunch, drift naturally to Plage des Sablettes below the old town. Swim, read or simply pause for an hour or two with the church towers and coloured facades behind you and the bay opening towards Italy.",
+            "Apres le dejeuner, glissez naturellement vers la Plage des Sablettes sous la vieille ville. Baignez-vous, lisez ou faites simplement une pause d'une heure ou deux avec les clochers et facades colorees derriere vous, et la baie ouverte vers l'Italie.",
+            "Dopo pranzo, scendi naturalmente verso Plage des Sablettes sotto il centro storico. Nuota, leggi o fai semplicemente una pausa di un'ora o due con campanili e facciate colorate alle spalle e la baia aperta verso l'Italia.",
+            "Після обіду природно спускайтеся до Plage des Sablettes під старим містом. Поплавайте, почитайте або просто зробіть паузу на годину-дві з вежами й кольоровими фасадами позаду та бухтою, що відкривається в бік Італії.",
+          ),
+          t(
+            "If you want a garden stop, choose according to energy. Jardin Botanique Val Rahmeh is the easier walking option from the old town / Garavan side, while Jardin Serre de la Madone is farther inland and suits visitors who especially enjoy gardens. Check current opening hours before building the afternoon around either one.",
+            "Si vous voulez ajouter un jardin, choisissez selon votre energie. Le Jardin Botanique Val Rahmeh est l'option la plus facile a pied depuis la vieille ville / Garavan, tandis que le Jardin Serre de la Madone est plus en retrait et convient surtout aux amateurs de jardins. Verifiez les horaires avant d'organiser l'apres-midi autour de l'un ou l'autre.",
+            "Se vuoi aggiungere un giardino, scegli in base all'energia. Jardin Botanique Val Rahmeh e l'opzione piu facile a piedi dal centro storico / Garavan, mentre Jardin Serre de la Madone e piu interno e adatto a chi ama davvero i giardini. Controlla gli orari prima di costruire il pomeriggio intorno a uno dei due.",
+            "Якщо хочете додати сад, обирайте за силами. Jardin Botanique Val Rahmeh простіше дістатися пішки зі старого міста / Garavan, тоді як Jardin Serre de la Madone далі вглиб і більше підходить тим, хто справді любить сади. Перед плануванням перевірте актуальні години роботи.",
+          ),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+      },
+      {
+        heading: t("Late afternoon: seafront walk and a drink", "Fin d'apres-midi: promenade et verre", "Tardo pomeriggio: passeggiata e drink", "Пізній день: набережна й напій"),
+        body: [
+          t(
+            "Towards the end of the afternoon, return to the sea and join Promenade du Soleil. Walk at your own pace, watch the beach rhythm and decide where you want to stop later for an aperitif.",
+            "En fin d'apres-midi, revenez vers la mer et rejoignez la Promenade du Soleil. Marchez a votre rythme, observez la vie des plages et choisissez ou vous aurez envie de vous arreter plus tard pour l'aperitif.",
+            "Verso fine pomeriggio, torna al mare e raggiungi la Promenade du Soleil. Cammina al tuo ritmo, osserva la vita delle spiagge e decidi dove fermarti piu tardi per l'aperitivo.",
+            "Наприкінці дня поверніться до моря й вийдіть на Promenade du Soleil. Ідіть у своєму темпі, спостерігайте за пляжним ритмом і вирішіть, де пізніше зупинитися на аперитив.",
+          ),
+          t(
+            "If you want a craft beer, a bar such as Biera d'Aquì can work well before dinner. If you prefer a higher view, plan ahead for a rooftop drink such as Med Rooftop. Opening days and reservations can change, especially in high season.",
+            "Si vous voulez une biere artisanale, une adresse comme Biera d'Aqui peut bien fonctionner avant le diner. Si vous preferez une vue plus haute, prevoyez un verre en rooftop comme au Med Rooftop. Les jours d'ouverture et reservations peuvent changer, surtout en haute saison.",
+            "Se vuoi una birra artigianale, un posto come Biera d'Aquì puo funzionare bene prima di cena. Se preferisci una vista dall'alto, organizza un drink in rooftop come Med Rooftop. Giorni di apertura e prenotazioni possono cambiare, soprattutto in alta stagione.",
+            "Якщо хочеться крафтового пива, перед вечерею може підійти Biera d'Aquì або схоже місце. Якщо більше хочеться виду згори, заплануйте rooftop-напій, наприклад у Med Rooftop. Дні роботи й бронювання можуть змінюватися, особливо у високий сезон.",
+          ),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "biera-daqui", "med-rooftop"],
+      },
+      {
+        heading: t("Evening: dinner and a quiet finish", "Soir: diner et fin calme", "Sera: cena e chiusura tranquilla", "Вечір: вечеря й спокійне завершення"),
+        body: [
+          t(
+            "For dinner, the old town and Sablettes area give the broadest choice: seafood and pasta on the esplanade, a bistro-style meal near the market, or a table you noticed during the day. If you still want something sweet, look for lemon desserts or a small Menton lemon liqueur as a digestif.",
+            "Pour le diner, la vieille ville et Sablettes offrent le plus large choix : fruits de mer et pates sur l'esplanade, table bistro pres du marche, ou adresse reperee dans la journee. Si vous voulez une touche sucree, cherchez un dessert au citron ou une petite liqueur de citron de Menton en digestif.",
+            "Per cena, centro storico e Sablettes offrono la scelta piu ampia: pesce e pasta sull'esplanade, un bistro vicino al mercato o un tavolo notato durante il giorno. Se vuoi ancora qualcosa di dolce, cerca un dessert al limone o un piccolo liquore al limone di Mentone come digestivo.",
+            "На вечерю старе місто й район Sablettes дають найширший вибір: морепродукти й паста на еспланаді, бістро біля ринку або місце, яке ви помітили вдень. Якщо хочеться солодкого, шукайте лимонний десерт або невеликий лимонний лікер Ментона як digestif.",
+          ),
+          t(
+            "After dinner, a slow walk along Promenade du Soleil or towards Port de Garavan is enough to close the loop. Sit on a bench, look back at the old town and the curve of the bay, then walk home by the water if you are staying in a central seafront apartment.",
+            "Apres le diner, une marche lente sur la Promenade du Soleil ou vers le Port de Garavan suffit pour boucler la journee. Asseyez-vous sur un banc, regardez la vieille ville et la courbe de la baie, puis rentrez par le bord de mer si vous logez dans un appartement central cote mer.",
+            "Dopo cena, una passeggiata lenta sulla Promenade du Soleil o verso Port de Garavan basta per chiudere il giro. Siediti su una panchina, guarda il centro storico e la curva della baia, poi rientra lungo l'acqua se soggiorni in un appartamento centrale sul mare.",
+            "Після вечері достатньо повільної прогулянки Promenade du Soleil або в бік Port de Garavan, щоб замкнути коло. Сядьте на лавку, подивіться на старе місто й вигин бухти, а потім повертайтеся додому вздовж води, якщо зупинилися в центральних апартаментах біля моря.",
+          ),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "port-de-garavan"],
+      },
     ],
   }),
   shortArticle({
