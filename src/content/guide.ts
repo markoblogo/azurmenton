@@ -1278,8 +1278,8 @@ export const guideArticles: GuideArticle[] = [
     slug: "menton-three-day-itinerary",
     title: t("Menton in three days: sea, Monaco and the Italian Riviera", "Menton en trois jours: mer, Monaco et Riviera italienne", "Mentone in tre giorni: mare, Monaco e Riviera italiana", "Ментон за три дні: море, Монако й Італійська Рив'єра"),
     seoTitle: t("Menton in Three Days | Monaco, Nice and Italian Riviera", "Menton en trois jours | Monaco, Nice et Riviera italienne", "Mentone in tre giorni | Monaco, Nizza e Riviera italiana", "Ментон за три дні | Монако, Ніцца й Італійська Рив'єра"),
-    seoDescription: t("A three-day Menton itinerary with local essentials, Monaco, Nice or Ventimiglia and easy seaside evenings.", "Itineraire de trois jours: essentiels de Menton, Monaco, Nice ou Vintimille et soirees en bord de mer.", "Itinerario di tre giorni: Mentone essenziale, Monaco, Nizza o Ventimiglia e serate sul mare.", "Маршрут на три дні: головне в Ментоні, Монако, Ніцца або Вентімілья й вечори біля моря."),
-    excerpt: t("Use Menton as a calm base: one local day, one Monaco day, then Nice or the Italian Riviera depending on mood.", "Utilisez Menton comme base calme: un jour local, un jour Monaco, puis Nice ou la Riviera italienne selon l'envie.", "Usa Mentone come base calma: un giorno locale, uno a Monaco, poi Nizza o Riviera italiana.", "Використайте Ментон як спокійну базу: день у місті, день у Монако, потім Ніцца або Італійська Рив'єра."),
+    seoDescription: t("A relaxed three-day Menton itinerary with one local day, a Monaco day trip, and a choice between Nice or Ventimiglia and the Italian Riviera.", "Itineraire detendu de trois jours a Menton: une journee locale, une excursion a Monaco, puis Nice ou Vintimille et la Riviera italienne.", "Itinerario rilassato di tre giorni a Mentone: un giorno locale, una gita a Monaco, poi Nizza oppure Ventimiglia e la Riviera italiana.", "Спокійний маршрут Ментоном на три дні: день у місті, поїздка до Монако, потім Ніцца або Вентімілья й Італійська Рив'єра."),
+    excerpt: t("Use Menton as a calm base: one day for the town, one for Monaco, then choose Nice or the Italian Riviera without packing and unpacking.", "Utilisez Menton comme base calme: un jour pour la ville, un pour Monaco, puis Nice ou la Riviera italienne sans refaire les bagages.", "Usa Mentone come base tranquilla: un giorno per la citta, uno per Monaco, poi Nizza o Riviera italiana senza fare e disfare le valigie.", "Використайте Ментон як спокійну базу: день для міста, день для Монако, потім Ніцца або Італійська Рив'єра без постійного пакування."),
     category: "itineraries",
     coverImage: "/images/guide/menton-three-day-itinerary.png",
     coverImageAlt: t("Illustration of a three-day Menton, Monaco and Italian Riviera itinerary", "Illustration d'un itineraire de trois jours entre Menton, Monaco et Riviera italienne", "Illustrazione di un itinerario di tre giorni tra Mentone, Monaco e Riviera italiana", "Ілюстрація маршруту на три дні: Ментон, Монако й Італійська Рив'єра"),
@@ -1289,11 +1289,137 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "2-3 days",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
-    relatedArticles: ["day-trips-from-menton", "menton-without-a-car", "best-beaches-in-menton"],
+    relatedArticles: ["day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "best-beaches-in-menton", "menton-one-day-itinerary"],
     relatedApartments: allApartments,
     sections: [
-      { heading: t("Day 1: Menton essentials", "Jour 1: les essentiels de Menton", "Giorno 1: Mentone essenziale", "День 1: головне в Ментоні"), body: [t("Market, old town, beach and a seaside evening give the first day a local rhythm without rushing.", "Marche, vieille ville, plage et soiree en bord de mer donnent un rythme local sans courir.", "Mercato, centro storico, spiaggia e serata sul mare danno ritmo locale senza fretta.", "Ринок, старе місто, пляж і вечір біля моря задають місцевий ритм без поспіху.")] },
-      { heading: t("Days 2 and 3: choose your Riviera", "Jours 2 et 3: choisir votre Riviera", "Giorni 2 e 3: scegli la tua Riviera", "Дні 2 і 3: оберіть свою Рив'єру"), body: [t("Make one Monaco day, then choose Nice or Ventimiglia / the Italian Riviera. Check current train times before travelling.", "Prevoyez une journee a Monaco, puis choisissez Nice ou Vintimille / la Riviera italienne. Verifiez les trains avant de partir.", "Dedica un giorno a Monaco, poi scegli Nizza o Ventimiglia / Riviera italiana. Controlla i treni prima di partire.", "Один день присвятіть Монако, потім оберіть Ніццу або Вентімілью / Італійську Рив'єру. Перед поїздкою перевірте розклад потягів.")] },
+      {
+        heading: t("Why Menton works for three days", "Pourquoi Menton fonctionne pour trois jours", "Perche Mentone funziona per tre giorni", "Чому Ментон добре працює на три дні"),
+        body: [
+          t(
+            "Menton works well as a calm base: spend one day getting to know the town properly, then use the next two days for Monaco, Nice or the Italian Riviera without constant packing and unpacking.",
+            "Menton fonctionne tres bien comme base calme : passez une journee a vraiment connaitre la ville, puis utilisez les deux suivantes pour Monaco, Nice ou la Riviera italienne sans faire et defaire les bagages sans cesse.",
+            "Mentone funziona bene come base tranquilla: dedica un giorno a conoscere davvero la citta, poi usa i due giorni successivi per Monaco, Nizza o la Riviera italiana senza fare e disfare continuamente le valigie.",
+            "Ментон добре працює як спокійна база: один день присвятіть самому місту, а наступні два використайте для Монако, Ніцци або Італійської Рив'єри без постійного пакування й переїздів.",
+          ),
+          t(
+            "The outline below keeps walking reasonable and leaves space for slow meals, swims and unplanned stops. Check current train times before each day trip, especially for evening returns.",
+            "Le parcours ci-dessous garde des marches raisonnables et laisse de la place aux repas lents, baignades et pauses improvisees. Verifiez les horaires de train actuels avant chaque excursion, surtout pour les retours du soir.",
+            "Il percorso qui sotto mantiene camminate ragionevoli e lascia spazio a pasti lenti, bagni e soste non programmate. Controlla gli orari aggiornati dei treni prima di ogni gita, soprattutto per i rientri serali.",
+            "Маршрут нижче тримає піші відстані розумними й залишає простір для повільних обідів, купання та незапланованих зупинок. Перед кожною поїздкою перевіряйте актуальний розклад потягів, особливо для вечірнього повернення.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Day 1: Menton essentials", "Jour 1: les essentiels de Menton", "Giorno 1: Mentone essenziale", "День 1: головне в Ментоні"),
+        body: [
+          t(
+            "Start with breakfast near Halles du Marché so you are only a few steps from the market afterwards. Buy small portions of local specialities such as pichade, hot socca if available, barbajuans and seasonal fruit, then treat them as a second breakfast while you wander between stalls.",
+            "Commencez par un petit-dejeuner pres des Halles du Marche pour etre a quelques pas du marche ensuite. Achetez de petites portions de specialites locales comme pichade, socca chaude si disponible, barbajuans et fruits de saison, puis faites-en un second petit-dejeuner en circulant entre les etals.",
+            "Inizia con colazione vicino alle Halles du Marché, cosi sei gia a pochi passi dal mercato. Compra piccole porzioni di specialita locali come pichade, socca calda se disponibile, barbajuans e frutta di stagione, poi usale come seconda colazione mentre giri tra i banchi.",
+            "Почніть зі сніданку біля Halles du Marché, щоб потім бути за кілька кроків від ринку. Купіть маленькі порції місцевих смаків: pichade, гарячу socca, якщо є, barbajuans і сезонні фрукти, а потім зробіть із цього другий сніданок між ятками.",
+          ),
+          t(
+            "From the market, climb Les Rampes Saint-Michel into the old town, stopping for photos of the bay and facades. Continue to the Cimetière du Vieux Château for wide views over Menton and the Italian coast, then drift back down through narrow streets for coffee or lemonade on a shaded terrace.",
+            "Depuis le marche, montez les Rampes Saint-Michel vers la vieille ville en vous arretant pour photographier la baie et les facades. Continuez jusqu'au Cimetière du Vieux Château pour les grandes vues sur Menton et la cote italienne, puis redescendez par les ruelles pour un cafe ou une limonade en terrasse ombragee.",
+            "Dal mercato, sali Les Rampes Saint-Michel nel centro storico, fermandoti per foto della baia e delle facciate. Continua fino al Cimetière du Vieux Château per ampie viste su Mentone e sulla costa italiana, poi scendi tra le vie strette per un caffe o una limonata su una terrazza ombreggiata.",
+            "Від ринку підніміться Les Rampes Saint-Michel до старого міста, зупиняючись для фото бухти й фасадів. Продовжуйте до Cimetière du Vieux Château за широкими видами на Ментон та італійське узбережжя, а потім спускайтеся вузькими вулицями на каву або лимонад у затінку.",
+          ),
+          t(
+            "For lunch, either sit near the old port and Plage des Sablettes or build a picnic from market finds. In the afternoon, use Sablettes for a swim and rest, or add Jardin Botanique Val Rahmeh if you prefer shade and greenery after checking opening hours.",
+            "Pour le dejeuner, installez-vous pres du vieux port et de la Plage des Sablettes, ou composez un pique-nique avec le marche. L'apres-midi, profitez de Sablettes pour nager et vous reposer, ou ajoutez le Jardin Botanique Val Rahmeh si vous preferez l'ombre et la verdure apres avoir verifie les horaires.",
+            "Per pranzo, siediti vicino al vecchio porto e a Plage des Sablettes oppure prepara un picnic con gli acquisti del mercato. Nel pomeriggio usa Sablettes per nuotare e riposare, oppure aggiungi Jardin Botanique Val Rahmeh se preferisci ombra e verde dopo aver controllato gli orari.",
+            "На обід сядьте біля старого порту та Plage des Sablettes або складіть пікнік із ринку. Вдень використайте Sablettes для купання й відпочинку або додайте Jardin Botanique Val Rahmeh, якщо хочеться тіні й зелені після перевірки годин роботи.",
+          ),
+          t(
+            "Towards evening, walk Promenade du Soleil as the light softens. Stop for an aperitif near Sablettes or along the promenade, then choose a calm finish near Port de Garavan or a rooftop such as Med Rooftop if it is open and you want one cocktail with a wider view.",
+            "Vers le soir, marchez sur la Promenade du Soleil quand la lumiere devient plus douce. Arretez-vous pour l'aperitif pres de Sablettes ou le long de la promenade, puis choisissez une fin calme vers le Port de Garavan ou un rooftop comme Med Rooftop s'il est ouvert et que vous voulez un cocktail avec vue large.",
+            "Verso sera, cammina sulla Promenade du Soleil quando la luce si ammorbidisce. Fermati per un aperitivo vicino a Sablettes o lungo la passeggiata, poi scegli un finale calmo verso Port de Garavan o un rooftop come Med Rooftop se e aperto e vuoi un cocktail con vista piu ampia.",
+            "Увечері пройдіться Promenade du Soleil, коли світло м'якшає. Зупиніться на аперитив біля Sablettes або вздовж набережної, а потім оберіть спокійне завершення біля Port de Garavan або rooftop на кшталт Med Rooftop, якщо він відкритий і хочеться коктейлю з ширшим видом.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "plage-sablettes", "jardin-val-rahmeh", "promenade-du-soleil", "port-de-garavan", "med-rooftop"],
+      },
+      {
+        heading: t("Day 2: Monaco from a Menton base", "Jour 2: Monaco depuis Menton", "Giorno 2: Monaco da Mentone", "День 2: Монако з базою в Ментоні"),
+        body: [
+          t(
+            "Have a simple breakfast near your apartment or by the seafront, then take a morning train or bus to Monaco. Journey times vary, so check current schedules, but the distance is short enough for an easy day trip.",
+            "Prenez un petit-dejeuner simple pres de votre appartement ou du front de mer, puis prenez un train ou bus du matin pour Monaco. Les temps de trajet varient, donc verifiez les horaires actuels, mais la distance est assez courte pour une excursion facile.",
+            "Fai una colazione semplice vicino all'appartamento o sul lungomare, poi prendi un treno o bus del mattino per Monaco. I tempi di viaggio variano, quindi controlla gli orari aggiornati, ma la distanza e abbastanza breve per una gita facile.",
+            "Поснідайте біля апартаментів або набережної, а потім сідайте на ранковий потяг чи автобус до Монако. Час у дорозі змінюється, тому перевіряйте актуальний розклад, але відстань достатньо коротка для легкої поїздки на день.",
+          ),
+          t(
+            "Start in Monaco-Ville, the Rock, for harbour views and narrow streets, then walk around the palace area and cathedral before it gets too hot or crowded. For lunch, head towards Port Hercule and Condamine for harbour views or simpler places slightly away from the water.",
+            "Commencez a Monaco-Ville, le Rocher, pour les vues sur le port et les ruelles, puis passez par le palais et la cathedrale avant la chaleur ou la foule. Pour le dejeuner, descendez vers le Port Hercule et la Condamine pour les vues portuaires ou des adresses plus simples un peu en retrait.",
+            "Inizia da Monaco-Ville, la Rocca, per viste sul porto e strade strette, poi passa nella zona del palazzo e della cattedrale prima del caldo o della folla. Per pranzo scendi verso Port Hercule e Condamine per viste sul porto o posti piu semplici leggermente arretrati.",
+            "Почніть із Monaco-Ville, Rock, за видами на порт і вузькими вулицями, потім пройдіться районом палацу й собору до спеки або натовпів. На обід спускайтеся до Port Hercule і Condamine: або види на порт, або простіші місця трохи далі від води.",
+          ),
+          t(
+            "In the afternoon, explore the Casino area and surrounding gardens. Even from outside, the square gives classic Monaco images: Belle Epoque architecture, luxury cars and sea in the background. Add a museum, shopping or a cafe break depending on your energy.",
+            "L'apres-midi, explorez le secteur du Casino et les jardins autour. Meme de l'exterieur, la place donne les images classiques de Monaco : architecture Belle Epoque, voitures de luxe et mer en arriere-plan. Ajoutez un musee, du shopping ou une pause cafe selon votre energie.",
+            "Nel pomeriggio esplora la zona del Casino e i giardini intorno. Anche da fuori, la piazza offre immagini classiche di Monaco: architettura Belle Epoque, auto di lusso e mare sullo sfondo. Aggiungi un museo, shopping o una pausa caffe secondo energia.",
+            "Вдень дослідіть район Casino й навколишні сади. Навіть зовні площа дає класичні кадри Монако: архітектура Belle Epoque, розкішні авто й море на фоні. Додайте музей, шопінг або кавову паузу залежно від сил.",
+          ),
+          t(
+            "For the evening, either stay for a livelier Monaco night around the harbour, checking current programmes for places such as La Rascasse, or have an early dinner and return to Menton for a quieter drink by the sea.",
+            "Pour le soir, restez pour une soiree plus animee autour du port de Monaco, en verifiant les programmes actuels d'adresses comme La Rascasse, ou dinez tot et rentrez a Menton pour un verre plus calme au bord de mer.",
+            "Per la sera, resta per una notte piu vivace intorno al porto di Monaco, controllando i programmi aggiornati di posti come La Rascasse, oppure cena presto e torna a Mentone per un drink piu calmo sul mare.",
+            "На вечір або залишайтеся на жвавіше Монако біля порту, перевіривши актуальні програми таких місць, як La Rascasse, або повечеряйте раніше й повертайтеся до Ментона на спокійніший напій біля моря.",
+          ),
+        ],
+      },
+      {
+        heading: t("Day 3 option A: Nice, the big-city Riviera", "Jour 3 option A: Nice, la grande ville Riviera", "Giorno 3 opzione A: Nizza, Riviera da grande citta", "День 3 варіант A: Ніцца, міська Рив'єра"),
+        body: [
+          t(
+            "For a French Riviera city day, take a morning train to Nice and start in Vieux Nice and Cours Saleya. The market streets, cafes and narrow lanes give colour, second coffee options and a stronger city rhythm than Menton.",
+            "Pour une journee Riviera plus urbaine, prenez un train du matin pour Nice et commencez par le Vieux Nice et le Cours Saleya. Les rues du marche, cafes et ruelles donnent des couleurs, une option second cafe et un rythme plus urbain que Menton.",
+            "Per una giornata da citta della Riviera, prendi un treno del mattino per Nizza e inizia da Vieux Nice e Cours Saleya. Strade di mercato, caffe e vicoli danno colore, opzioni per un secondo caffe e un ritmo piu urbano rispetto a Mentone.",
+            "Для міського дня на Французькій Рив'єрі сідайте на ранковий потяг до Ніцци й починайте з Vieux Nice та Cours Saleya. Ринкові вулиці, кафе й вузькі провулки дають колір, другий кавовий стоп і більш міський ритм, ніж у Ментоні.",
+          ),
+          t(
+            "Stay in the old town for lunch, or walk to Promenade des Anglais for a more open seaside feel. In the afternoon, climb Colline du Château for panoramic views over Baie des Anges and the old town roofs, then swim, rest on the beach or stroll the promenade.",
+            "Restez dans la vieille ville pour dejeuner, ou marchez vers la Promenade des Anglais pour une ambiance plus ouverte au bord de mer. L'apres-midi, montez a la Colline du Château pour les panoramas sur la Baie des Anges et les toits de la vieille ville, puis nagez, reposez-vous sur la plage ou longez la promenade.",
+            "Resta nel centro storico per pranzo oppure vai verso Promenade des Anglais per un'atmosfera piu aperta sul mare. Nel pomeriggio sali alla Colline du Château per panorami sulla Baie des Anges e sui tetti del centro, poi nuota, riposa in spiaggia o passeggia sul lungomare.",
+            "На обід залишайтеся в старому місті або йдіть до Promenade des Anglais для відкритішого морського настрою. Вдень підніміться на Colline du Château за панорамами Baie des Anges і дахів старого міста, потім купайтеся, відпочивайте на пляжі або гуляйте променадом.",
+          ),
+          t(
+            "If you want one bigger night before leaving the Riviera, Nice has more bars, pubs and clubs than Menton. Otherwise, have an early dinner in Nice and return by train for a last quiet walk along Promenade du Soleil.",
+            "Si vous voulez une soiree plus grande avant de quitter la Riviera, Nice offre plus de bars, pubs et clubs que Menton. Sinon, dinez tot a Nice et rentrez en train pour une derniere promenade calme sur la Promenade du Soleil.",
+            "Se vuoi una serata piu grande prima di lasciare la Riviera, Nizza ha piu bar, pub e club di Mentone. Altrimenti cena presto a Nizza e torna in treno per un'ultima passeggiata tranquilla sulla Promenade du Soleil.",
+            "Якщо хочете один більший вечір перед від'їздом із Рив'єри, у Ніцці більше барів, pubs і клубів, ніж у Ментоні. Інакше повечеряйте раніше в Ніцці й повертайтеся потягом на останню тиху прогулянку Promenade du Soleil.",
+          ),
+        ],
+      },
+      {
+        heading: t("Day 3 option B: Ventimiglia and the Italian coast", "Jour 3 option B: Vintimille et la cote italienne", "Giorno 3 opzione B: Ventimiglia e costa italiana", "День 3 варіант B: Вентімілья та італійське узбережжя"),
+        body: [
+          t(
+            "For a change of country, take a morning train east to Ventimiglia. On market days the town is busy with stalls; on quieter days, use it for Italian coffee, a pastry and a walk through the old centre.",
+            "Pour changer de pays, prenez un train du matin vers Vintimille. Les jours de marche, la ville est animee par les etals ; les jours plus calmes, profitez-en pour un cafe italien, une patisserie et une balade dans le vieux centre.",
+            "Per cambiare Paese, prendi un treno del mattino verso Ventimiglia. Nei giorni di mercato la citta e piena di banchi; nei giorni piu tranquilli usala per un caffe italiano, un dolce e una passeggiata nel centro storico.",
+            "Щоб змінити країну, сідайте на ранковий потяг на схід до Вентімільї. У ринкові дні місто жваве через ятки; у спокійніші дні використайте його для італійської кави, випічки й прогулянки старим центром.",
+          ),
+          t(
+            "Stay for lunch in Ventimiglia or a nearby coastal town, leaning into Italian flavours: fresh pasta, focaccia, seafood and gelato. If you enjoy food markets, check current schedules before planning around them.",
+            "Restez dejeuner a Vintimille ou dans une ville cotiere proche, avec des saveurs italiennes : pates fraiches, focaccia, fruits de mer et gelato. Si vous aimez les marches alimentaires, verifiez les horaires actuels avant de construire la journee autour d'eux.",
+            "Fermati a pranzo a Ventimiglia o in una cittadina costiera vicina, puntando sui sapori italiani: pasta fresca, focaccia, pesce e gelato. Se ami i mercati alimentari, controlla gli orari aggiornati prima di organizzarci la giornata.",
+            "Залишайтеся на обід у Вентімільї або сусідньому прибережному містечку, обираючи італійські смаки: свіжу пасту, focaccia, морепродукти й gelato. Якщо любите продуктові ринки, перевірте актуальні графіки перед плануванням.",
+          ),
+          t(
+            "In the afternoon, either return early to Menton for another swim at Sablettes or Fossan, or continue a little farther along the Ligurian coast before coming back. Finish with a final Menton dinner near the market, Sablettes or Port de Garavan.",
+            "L'apres-midi, rentrez tot a Menton pour une autre baignade a Sablettes ou Fossan, ou continuez un peu plus loin sur la cote ligure avant de revenir. Terminez par un dernier diner a Menton pres du marche, de Sablettes ou du Port de Garavan.",
+            "Nel pomeriggio, torna presto a Mentone per un altro bagno a Sablettes o Fossan, oppure continua un po' lungo la costa ligure prima di rientrare. Chiudi con un'ultima cena a Mentone vicino al mercato, a Sablettes o a Port de Garavan.",
+            "Вдень або повертайтеся раніше до Ментона для ще одного купання на Sablettes чи Fossan, або проїдьте трохи далі Лігурійським узбережжям перед поверненням. Завершіть останньою вечерею в Ментоні біля ринку, Sablettes або Port de Garavan.",
+          ),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check current train times before Monaco, Nice or Ventimiglia days.", "Verifiez les horaires de train actuels avant Monaco, Nice ou Vintimille.", "Controlla gli orari aggiornati dei treni prima di Monaco, Nizza o Ventimiglia.", "Перед поїздками до Монако, Ніцци або Вентімільї перевіряйте актуальний розклад потягів."),
+      t("Keep Day 1 local and slow so the next two day trips do not feel rushed.", "Gardez le jour 1 local et lent pour que les deux excursions suivantes ne semblent pas pressees.", "Mantieni il Giorno 1 locale e lento, cosi le due gite successive non sembrano affrettate.", "Залиште День 1 локальним і повільним, щоб наступні дві поїздки не здавалися поспішними."),
+      t("Choose Nice for a bigger city day, Ventimiglia for an Italian rhythm.", "Choisissez Nice pour une journee plus urbaine, Vintimille pour un rythme italien.", "Scegli Nizza per una giornata piu urbana, Ventimiglia per un ritmo italiano.", "Обирайте Ніццу для більш міського дня, Вентімілью - для італійського ритму."),
     ],
   }),
   shortArticle({
