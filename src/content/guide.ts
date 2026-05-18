@@ -755,22 +755,131 @@ export const guideArticles: GuideArticle[] = [
     slug: "nightlife-in-menton",
     title: t("Evening drinks and nightlife in Menton", "Verres du soir et vie nocturne a Menton", "Drink serali e vita notturna a Mentone", "Вечірні напої та нічне життя в Ментоні"),
     seoTitle: t("Nightlife in Menton | Evening Drinks Guide", "Vie nocturne a Menton | Guide des verres du soir", "Vita notturna a Mentone | Guida ai drink serali", "Нічне життя в Ментоні | Гід по вечірніх напоях"),
-    seoDescription: t("A realistic guide to Menton's relaxed cocktail bars, rooftops, beachside evenings and quiet aperitif options.", "Guide realiste des cocktails, rooftops, bars de plage et aperitifs calmes a Menton.", "Guida realistica a cocktail bar, rooftop, serate sul mare e aperitivi tranquilli a Mentone.", "Реалістичний гід по коктейль-барах, rooftop, вечорах біля моря й тихих аперитивах у Ментоні."),
-    excerpt: t("Menton evenings are more about relaxed drinks and the seafront than clubbing. Choose cocktails, rooftop views or a quiet aperitif.", "Les soirees de Menton parlent plus de verres detendus et de front de mer que de clubs.", "Le serate di Mentone sono piu drink rilassati e lungomare che club.", "Вечори Ментона більше про спокійні напої й набережну, ніж про клуби."),
+    seoDescription: t("A realistic guide to Menton's low-key nightlife, beachside drinks, rooftop aperitifs, central bars and bigger nights out in Monaco or Nice.", "Guide realiste de la vie nocturne douce de Menton: verres en bord de plage, rooftops, bars centraux et grandes soirees possibles a Monaco ou Nice.", "Guida realistica alla vita notturna tranquilla di Mentone: drink sul mare, rooftop, bar centrali e serate piu grandi a Monaco o Nizza.", "Реалістичний гід по спокійному нічному життю Ментона: напої біля пляжу, rooftop, центральні бари й більші вечори в Монако або Ніцці."),
+    excerpt: t("Menton nightlife is low-key and seaside-focused: aperitif, dinner, a walk and one or two well-chosen spots, with Monaco or Nice for a bigger night.", "La vie nocturne de Menton reste douce et tournee vers la mer: aperitif, diner, promenade et une ou deux bonnes adresses, avec Monaco ou Nice pour sortir plus fort.", "La vita notturna di Mentone e tranquilla e legata al mare: aperitivo, cena, passeggiata e uno o due posti scelti bene, con Monaco o Nizza per una serata piu intensa.", "Нічне життя Ментона спокійне й морське: аперитив, вечеря, прогулянка й одне-два вдало обрані місця, а для більшого вечора - Монако або Ніцца."),
     category: "nightlife-drinks",
     coverImage: "/images/guide/nightlife-in-menton.png",
     coverImageAlt: t("Illustration of evening drinks and nightlife in Menton", "Illustration des verres du soir a Menton", "Illustrazione dei drink serali a Mentone", "Ілюстрація вечірніх напоїв у Ментоні"),
     visualTheme: "nightlife",
     visualStatus: "project_illustration",
-    tags: [t("cocktails", "cocktails", "cocktail", "коктейлі"), t("aperitif", "aperitif", "aperitivo", "аперитив")],
+    tags: [t("cocktails", "cocktails", "cocktail", "коктейлі"), t("aperitif", "aperitif", "aperitivo", "аперитив"), t("Monaco", "Monaco", "Monaco", "Монако"), t("Nice", "Nice", "Nizza", "Ніцца")],
     bestFor: [guideBestForOptions[0].label, guideBestForOptions[6].label],
     duration: "evening",
-    locationTags: ["menton-centre", "seafront"],
+    locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton"],
+    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
-      { heading: t("A relaxed seaside night", "Une nuit detendue au bord de mer", "Una sera rilassata sul mare", "Спокійний вечір біля моря"), body: [t("Think aperitif, dinner, a short walk and one well-chosen drink. Seasonal music or DJ nights should be checked locally before planning around them.", "Pensez aperitif, diner, petite promenade et un verre bien choisi. Les soirees musicales saisonnieres sont a verifier localement.", "Pensa ad aperitivo, cena, breve passeggiata e un drink scelto bene. Musica e DJ set stagionali vanno verificati sul posto.", "Думайте про аперитив, вечерю, коротку прогулянку й один вдалий напій. Сезонну музику чи DJ-вечори перевіряйте на місці.")], relatedPlaceIds: ["inky-bar", "med-rooftop", "les-incompris"] },
+      {
+        heading: t("What nightlife in Menton feels like", "A quoi ressemble la vie nocturne a Menton", "Che atmosfera ha la sera a Mentone", "Яким є нічне життя в Ментоні"),
+        body: [
+          t(
+            "Menton nightlife is low-key and seaside-focused: think aperitif, dinner, a walk and one or two well-chosen spots rather than a long bar crawl.",
+            "La vie nocturne de Menton reste douce et tournee vers la mer : pensez aperitif, diner, promenade et une ou deux adresses bien choisies plutot qu'une longue tournee des bars.",
+            "La vita notturna di Mentone e tranquilla e legata al mare: pensa ad aperitivo, cena, passeggiata e uno o due posti scelti bene, non a un lungo giro di bar.",
+            "Нічне життя Ментона спокійне й прив'язане до моря: радше аперитив, вечеря, прогулянка й одне-два добре обрані місця, ніж довгий бар-хопінг.",
+          ),
+          t(
+            "Even in summer, a typical night is more likely to be a terrace drink, Promenade du Soleil, a rooftop or a small music evening than clubbing until dawn. Seasonal DJ sets, live music and one-off events happen, but they change often, so check posters, hotel boards or social media once you arrive.",
+            "Meme en ete, une soiree type ressemble davantage a un verre en terrasse, la Promenade du Soleil, un rooftop ou une petite soiree musicale qu'a une nuit en club jusqu'a l'aube. DJ sets, concerts et evenements ponctuels existent, mais changent souvent : verifiez affiches, panneaux d'hotels ou reseaux sociaux sur place.",
+            "Anche in estate, una serata tipica e piu spesso un drink in terrazza, Promenade du Soleil, un rooftop o una piccola serata musicale che una notte in club fino all'alba. DJ set, musica live ed eventi singoli ci sono, ma cambiano spesso: controlla locandine, bacheche degli hotel o social quando arrivi.",
+            "Навіть улітку типовий вечір тут частіше означає напій на терасі, Promenade du Soleil, rooftop або невеликий музичний вечір, а не клуби до світанку. Сезонні DJ-сети, жива музика й разові події бувають, але часто змінюються, тому перевіряйте афіші, дошки в готелях або соцмережі вже на місці.",
+          ),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil"],
+      },
+      {
+        heading: t("Beachside and rooftop evenings in Menton", "Soirees plage et rooftop a Menton", "Serate sul mare e rooftop a Mentone", "Пляжні й rooftop-вечори в Ментоні"),
+        body: [
+          t(
+            "Around Plage des Sablettes, Inky Bar is one of the livelier seasonal options when its programme is running. Come for sea air, cocktails, tapas-style snacks and, on some nights, music while people move between tables and the beach.",
+            "Autour de la Plage des Sablettes, Inky Bar fait partie des options saisonnieres les plus animees quand son programme est actif. On y vient pour l'air marin, les cocktails, les petites assiettes type tapas et, certains soirs, la musique pendant que les gens circulent entre les tables et la plage.",
+            "Intorno a Plage des Sablettes, Inky Bar e una delle opzioni stagionali piu vivaci quando il programma e attivo. Si viene per aria di mare, cocktail, piccoli piatti tipo tapas e, in alcune sere, musica mentre le persone si muovono tra tavoli e spiaggia.",
+            "Біля Plage des Sablettes Inky Bar може бути одним із жвавіших сезонних варіантів, коли працює його програма. Сюди йдуть за морським повітрям, коктейлями, закусками в стилі tapas і, в окремі вечори, музикою, поки люди переміщуються між столиками й пляжем.",
+          ),
+          t(
+            "For an elevated start, Med Rooftop on top of Best Western Hotel Mediterranee gives the classic Riviera mix: cocktails, finger food and a view over rooftops and the Mediterranean. The mood can be calm or livelier depending on season and guests, but it is still more about the setting than heavy partying.",
+            "Pour commencer en hauteur, Med Rooftop au-dessus du Best Western Hotel Mediterranee offre le melange Riviera classique : cocktails, finger food et vue sur les toits et la Mediterranee. L'ambiance peut etre calme ou plus animee selon la saison et la clientele, mais reste davantage centree sur le cadre que sur la fete intense.",
+            "Per iniziare dall'alto, Med Rooftop sul Best Western Hotel Mediterranee offre il classico mix Riviera: cocktail, finger food e vista su tetti e Mediterraneo. L'atmosfera puo essere calma o piu vivace secondo stagione e ospiti, ma resta piu legata al contesto che alla festa pesante.",
+            "Для початку вечора з висоти Med Rooftop на Best Western Hotel Mediterranee дає класичну Рив'єру: коктейлі, finger food і вид на дахи та Середземне море. Атмосфера може бути спокійною або жвавішою залежно від сезону й гостей, але це все одно більше про краєвид, ніж про гучну вечірку.",
+          ),
+        ],
+        relatedPlaceIds: ["inky-bar", "med-rooftop", "plage-sablettes"],
+      },
+      {
+        heading: t("Central bars, dancing and karaoke", "Bars du centre, danse et karaoke", "Bar centrali, ballo e karaoke", "Центральні бари, танці й караоке"),
+        body: [
+          t(
+            "Near the old port, Les Incompris is a useful address if you want proper cocktails and more bar energy. Expect a mix of locals and visitors, music, and some evenings that become more festive as the night goes on, especially in summer.",
+            "Pres du vieux port, Les Incompris est une adresse utile si vous cherchez de vrais cocktails et une energie plus bar. Attendez-vous a un melange d'habitants et de visiteurs, de la musique, et certains soirs qui deviennent plus festifs au fil de la nuit, surtout en ete.",
+            "Vicino al vecchio porto, Les Incompris e un indirizzo utile se vuoi cocktail seri e piu energia da bar. Aspettati un mix di locali e visitatori, musica e alcune sere che diventano piu festive con il passare delle ore, soprattutto in estate.",
+            "Біля старого порту Les Incompris може бути корисною адресою, якщо хочеться справжніх коктейлів і більш барної енергії. Очікуйте суміш місцевих і гостей, музику та вечори, які можуть ставати жвавішими ближче до ночі, особливо влітку.",
+          ),
+          t(
+            "For a quieter aperitif, Bar L'Escalier can work as a lower-key stop with simple drinks and a more local feel. Actual dancing or karaoke is more limited in Menton: some bars and restaurants organise themed nights, but programmes change often, so check recent listings or ask locally.",
+            "Pour un aperitif plus calme, Bar L'Escalier peut convenir avec des verres simples et une ambiance plus locale. La danse ou le karaoke sont plus limites a Menton : certains bars et restaurants organisent des soirees a theme, mais les programmes changent souvent, donc verifiez les annonces recentes ou demandez sur place.",
+            "Per un aperitivo piu tranquillo, Bar L'Escalier puo funzionare con drink semplici e un'atmosfera piu locale. Ballo e karaoke sono piu limitati a Mentone: alcuni bar e ristoranti organizzano serate a tema, ma i programmi cambiano spesso, quindi controlla gli annunci recenti o chiedi sul posto.",
+            "Для тихішого аперитиву Bar L'Escalier може підійти як більш локальна й спокійна зупинка з простими напоями. Танців або караоке в Ментоні менше: деякі бари й ресторани проводять тематичні вечори, але програми часто змінюються, тому перевіряйте актуальні оголошення або питайте на місці.",
+          ),
+        ],
+        relatedPlaceIds: ["les-incompris", "bar-lescalier"],
+      },
+      {
+        heading: t("When Menton feels too quiet: Monaco", "Quand Menton semble trop calme: Monaco", "Quando Mentone sembra troppo tranquilla: Monaco", "Коли Ментон здається надто тихим: Монако"),
+        body: [
+          t(
+            "If you want a later, more energetic night, Monaco is the easiest upgrade from Menton. Regional transport links the two, and taxis or ride-hailing can fill gaps late at night, but always check return options before you go.",
+            "Si vous voulez une soiree plus tardive et plus energique, Monaco est l'option la plus simple depuis Menton. Les transports regionaux relient les deux, et taxis ou VTC peuvent completer tard le soir, mais verifiez toujours les retours avant de partir.",
+            "Se vuoi una serata piu tarda e piu energica, Monaco e l'opzione piu semplice da Mentone. I trasporti regionali collegano le due citta, e taxi o ride-hailing possono coprire gli orari tardi, ma controlla sempre il ritorno prima di uscire.",
+            "Якщо хочеться пізнішого й енергійнішого вечора, Монако - найпростіший крок угору з Ментона. Регіональний транспорт з'єднує ці місця, а таксі чи ride-hailing можуть допомогти пізно ввечері, але завжди перевіряйте повернення перед виїздом.",
+          ),
+          t(
+            "A famous harbour address is La Rascasse, known around the Monaco Grand Prix corner and for a mix of terrace drinks, live music, DJs or themed nights depending on the programme. Monaco has more cocktail bars and clubs near the port and Casino area, with higher prices and sometimes smarter dress expectations.",
+            "Une adresse connue du port est La Rascasse, celebre autour du virage du Grand Prix de Monaco et pour son melange de terrasse, musique live, DJs ou soirees a theme selon le programme. Monaco compte aussi d'autres bars a cocktails et clubs pres du port et du Casino, avec des prix plus eleves et parfois une tenue plus habillee attendue.",
+            "Un indirizzo famoso al porto e La Rascasse, noto per la curva del Gran Premio di Monaco e per un mix di terrazza, musica live, DJ o serate a tema secondo programma. Monaco ha anche altri cocktail bar e club vicino al porto e alla zona Casino, con prezzi piu alti e a volte aspettative di abbigliamento piu elegante.",
+            "Відоме місце біля порту - La Rascasse, пов'язане з поворотом Grand Prix de Monaco і форматом тераси, живої музики, DJ або тематичних вечорів залежно від програми. У Монако також більше коктейль-барів і клубів біля порту та Casino, але ціни вищі, а іноді очікується більш smart-casual одяг.",
+          ),
+        ],
+      },
+      {
+        heading: t("When Menton feels too quiet: Nice", "Quand Menton semble trop calme: Nice", "Quando Mentone sembra troppo tranquilla: Nizza", "Коли Ментон здається надто тихим: Ніцца"),
+        body: [
+          t(
+            "Nice has the broadest nightlife nearby, from wine bars and pubs in Vieux Nice to hotel bars and beach clubs along Promenade des Anglais. It is the better choice if you want more variety, louder music or a bigger-city evening.",
+            "Nice offre la vie nocturne la plus variee a proximite, des bars a vin et pubs du Vieux Nice aux bars d'hotels et clubs de plage de la Promenade des Anglais. C'est le meilleur choix si vous voulez plus de variete, de musique forte ou une soiree plus urbaine.",
+            "Nizza offre la vita notturna piu varia nei dintorni, dai wine bar e pub del Vieux Nice ai bar d'hotel e beach club lungo Promenade des Anglais. E la scelta migliore se vuoi piu varieta, musica piu alta o una serata da citta grande.",
+            "Ніцца має найрізноманітніше нічне життя поблизу: wine bars і pubs у Vieux Nice, готельні бари й beach clubs уздовж Promenade des Anglais. Це кращий вибір, якщо хочеться більше варіантів, гучнішої музики або вечора великого міста.",
+          ),
+          t(
+            "Going out in Nice from Menton can work the same night if you plan the return carefully. Check last trains and late transport before you start the evening, and keep a taxi or ride-share option in mind as backup.",
+            "Sortir a Nice depuis Menton peut fonctionner le meme soir si vous planifiez bien le retour. Verifiez les derniers trains et transports tardifs avant de commencer la soiree, et gardez une option taxi ou VTC en secours.",
+            "Uscire a Nizza da Mentone puo funzionare nella stessa sera se pianifichi bene il ritorno. Controlla ultimi treni e trasporti serali prima di iniziare, e tieni taxi o ride-share come opzione di riserva.",
+            "Поїхати на вечір у Ніццу з Ментона реально, якщо добре спланувати повернення. Перевірте останні потяги й пізній транспорт до початку вечора, а таксі або ride-share залиште як запасний варіант.",
+          ),
+        ],
+      },
+      {
+        heading: t("Practical tips for nights out", "Conseils pratiques pour sortir", "Consigli pratici per uscire la sera", "Практичні поради для вечора"),
+        body: [
+          t(
+            "Treat Menton as a base for relaxed evenings, with the option of dialling up the nightlife in Monaco or Nice once in a while. In Menton itself, evenings tend to start earlier and wind down earlier than in large cities, so 19:00-20:00 is usually a better starting rhythm than waiting until very late.",
+            "Considerez Menton comme une base pour des soirees detendues, avec la possibilite de monter d'un cran a Monaco ou Nice de temps en temps. A Menton meme, les soirees commencent et se terminent plus tot que dans les grandes villes : 19h00-20h00 est souvent un meilleur rythme de depart qu'attendre tres tard.",
+            "Considera Mentone come base per serate rilassate, con la possibilita di alzare il livello a Monaco o Nizza ogni tanto. A Mentone stessa le serate iniziano e finiscono prima che nelle grandi citta: 19:00-20:00 e di solito un ritmo migliore che aspettare molto tardi.",
+            "Сприймайте Ментон як базу для спокійних вечорів із можливістю іноді підняти рівень у Монако або Ніцці. У самому Ментоні вечори зазвичай починаються й завершуються раніше, ніж у великих містах, тому 19:00-20:00 часто кращий старт, ніж очікування до пізньої ночі.",
+          ),
+          t(
+            "Always check current hours and seasonal programmes for beach bars, rooftops, karaoke or music nights. Opening times, guest energy and event schedules can shift from year to year.",
+            "Verifiez toujours les horaires actuels et programmes saisonniers des bars de plage, rooftops, karaokes ou soirees musicales. Horaires, ambiance et calendriers changent d'une annee a l'autre.",
+            "Controlla sempre orari aggiornati e programmi stagionali per beach bar, rooftop, karaoke o serate musicali. Orari, atmosfera e calendari possono cambiare da un anno all'altro.",
+            "Завжди перевіряйте актуальні години й сезонні програми пляжних барів, rooftop, караоке або музичних вечорів. Графіки, атмосфера й події можуть змінюватися щороку.",
+          ),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Start earlier in Menton than you would in a big city.", "Commencez plus tot a Menton que dans une grande ville.", "Inizia prima a Mentone rispetto a una grande citta.", "У Ментоні починайте вечір раніше, ніж у великому місті."),
+      t("Check last return options before going to Monaco or Nice at night.", "Verifiez les retours tardifs avant de sortir a Monaco ou Nice.", "Controlla i ritorni serali prima di uscire a Monaco o Nizza.", "Перед вечором у Монако або Ніцці перевірте варіанти пізнього повернення."),
+      t("Seasonal music, DJ and karaoke nights should be checked locally.", "Les soirees musique, DJ et karaoke saisonnieres sont a verifier sur place.", "Musica, DJ e karaoke stagionali vanno controllati sul posto.", "Сезонні музичні, DJ- і караоке-вечори перевіряйте на місці."),
     ],
   }),
   shortArticle({
