@@ -687,8 +687,8 @@ export const guideArticles: GuideArticle[] = [
     slug: "best-beaches-in-menton",
     title: t("Best beaches in Menton: which one to choose", "Meilleures plages de Menton: laquelle choisir", "Migliori spiagge di Mentone: quale scegliere", "Найкращі пляжі Ментона: який обрати"),
     seoTitle: t("Best Beaches in Menton | Azur Menton", "Meilleures plages de Menton | Azur Menton", "Migliori spiagge di Mentone | Azur Menton", "Найкращі пляжі Ментона | Azur Menton"),
-    seoDescription: t("Compare Sablettes, Fossan, central promenade beaches and Borrigo beaches for families, couples and car-free stays.", "Comparez Sablettes, Fossan, plages centrales et Borrigo pour familles, couples et sejours sans voiture.", "Confronta Sablettes, Fossan, spiagge centrali e Borrigo per famiglie, coppie e soggiorni senza auto.", "Порівняйте Sablettes, Fossan, центральні пляжі й Borrigo для сімей, пар і відпочинку без авто."),
-    excerpt: t("Sablettes for families, Fossan for a calmer mood, central beaches for easy access, and Borrigo for longer seafront walks.", "Sablettes pour les familles, Fossan pour une ambiance plus calme, plages centrales pour l'acces facile, Borrigo pour les longues balades.", "Sablettes per famiglie, Fossan per un'atmosfera piu calma, spiagge centrali per accesso facile, Borrigo per lunghe passeggiate.", "Sablettes для сімей, Fossan для спокійнішого настрою, центральні пляжі для легкого доступу, Borrigo для довших прогулянок."),
+    seoDescription: t("Compare Sablettes, Fossan, central promenade beaches and Borrigo beaches for families, couples, quick swims and car-free beach days.", "Comparez Sablettes, Fossan, les plages de la promenade et Borrigo pour familles, couples, baignades rapides et sejours sans voiture.", "Confronta Sablettes, Fossan, le spiagge della passeggiata e Borrigo per famiglie, coppie, bagni rapidi e soggiorni senza auto.", "Порівняйте Sablettes, Fossan, пляжі вздовж набережної та Borrigo для сімей, пар, швидкого купання й відпочинку без авто."),
+    excerpt: t("Menton has no single best beach: choose Sablettes for postcard views, Fossan for a calmer central swim, promenade beaches for convenience and Borrigo for space.", "Menton n'a pas une seule meilleure plage: choisissez Sablettes pour la vue carte postale, Fossan pour une baignade centrale plus calme, la promenade pour la facilite et Borrigo pour l'espace.", "Mentone non ha una sola spiaggia migliore: scegli Sablettes per la vista da cartolina, Fossan per un bagno centrale piu calmo, la passeggiata per comodita e Borrigo per lo spazio.", "У Ментоні немає одного найкращого пляжу: Sablettes для листівкового виду, Fossan для спокійнішого купання в центрі, пляжі набережної для зручності, Borrigo для простору."),
     category: "beaches",
     coverImage: "/images/guide/best-beaches-in-menton.png",
     coverImageAlt: t("Illustration of Menton beaches", "Illustration des plages de Menton", "Illustrazione delle spiagge di Mentone", "Ілюстрація пляжів Ментона"),
@@ -703,8 +703,112 @@ export const guideArticles: GuideArticle[] = [
     relatedArticles: ["menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartments: allApartments,
     sections: [
-      { heading: t("Choose by mood", "Choisir selon l'ambiance", "Scegli in base all'umore", "Обирайте за настроєм"), body: [t("Menton beaches are less about one perfect answer and more about the day you want: family-friendly, central, quieter or built around a long walk.", "Les plages de Menton ne se resument pas a une seule reponse: choisissez selon la journee voulue, familiale, centrale, calme ou propice a la balade.", "Le spiagge di Mentone non hanno una sola risposta: scegli in base alla giornata, famiglia, centro, calma o lunga passeggiata.", "Пляжі Ментона не мають однієї правильної відповіді: обирайте за настроєм дня - сімейний, центральний, тихий або для прогулянок.")], relatedPlaceIds: ["plage-sablettes", "plage-fossan", "borrigo-beaches"] },
-      { heading: t("Practical beach notes", "Notes pratiques plage", "Note pratiche per la spiaggia", "Практичні пляжні нотатки"), body: [t("Beach services and sea conditions vary by season and weather. Beach shoes can be useful on pebbles or mixed surfaces.", "Les services de plage et l'etat de la mer varient selon saison et meteo. Des chaussures d'eau peuvent etre utiles.", "Servizi e condizioni del mare cambiano con stagione e meteo. Le scarpe da scoglio possono essere utili.", "Пляжні сервіси й стан моря залежать від сезону та погоди. Взуття для води може бути корисним.")], bullets: [t("Check seasonal services locally.", "Verifiez les services saisonniers sur place.", "Controlla i servizi stagionali sul posto.", "Перевіряйте сезонні сервіси на місці."), t("Summer weekends can be busy.", "Les week-ends d'ete peuvent etre tres frequentes.", "I weekend estivi possono essere affollati.", "Літні вихідні можуть бути людними.")] },
+      {
+        heading: t("Choose by the kind of beach day", "Choisir selon le type de journee", "Scegli in base alla giornata", "Обирайте за типом пляжного дня"),
+        body: [
+          t(
+            "Menton does not have one single best beach. It has a small set of different spots that work for different moods: Sablettes for the postcard view and family setup, Fossan for a calmer central swim, the promenade beaches for convenience and Borrigo for longer walks and more space.",
+            "Menton n'a pas une seule meilleure plage. La ville offre plutot un petit ensemble de lieux adaptes a des envies differentes : Sablettes pour la vue carte postale et le cote familial, Fossan pour une baignade centrale plus calme, les plages de la promenade pour la facilite et Borrigo pour les longues marches et l'espace.",
+            "Mentone non ha una sola spiaggia migliore. Ha invece un piccolo gruppo di luoghi adatti a giornate diverse: Sablettes per la vista da cartolina e l'atmosfera familiare, Fossan per un bagno centrale piu tranquillo, le spiagge della passeggiata per comodita e Borrigo per camminare di piu e avere spazio.",
+            "У Ментоні немає одного найкращого пляжу. Тут є кілька різних місць для різного настрою: Sablettes для листівкового виду й сімейного формату, Fossan для спокійнішого купання в центрі, пляжі вздовж набережної для зручності, Borrigo для довших прогулянок і простору.",
+          ),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "plage-fossan", "borrigo-beaches"],
+      },
+      {
+        heading: t("Plage des Sablettes: families and Menton views", "Plage des Sablettes: familles et vues de Menton", "Plage des Sablettes: famiglie e viste su Mentone", "Plage des Sablettes: сім'ї та краєвиди Ментона"),
+        body: [
+          t(
+            "Plage des Sablettes is the beach many visitors imagine first: a curve of sand and fine shingle at the foot of the old town, with church towers and coloured facades behind you. It is a strong all-round choice for families and first-time visitors, with views towards Italy and a mix of public beach space and seasonal private beach options.",
+            "La Plage des Sablettes est souvent l'image que les visiteurs ont de Menton : une courbe de sable et petits galets au pied de la vieille ville, avec clochers et facades colorees en arriere-plan. C'est un tres bon choix polyvalent pour les familles et les premiers sejours, avec vue vers l'Italie et un melange d'espace public et d'options privees saisonnieres.",
+            "Plage des Sablettes e spesso la spiaggia che i visitatori immaginano per prima: una curva di sabbia e ghiaia fine ai piedi del centro storico, con campanili e facciate colorate dietro. E una scelta molto completa per famiglie e prime visite, con vista verso l'Italia e un mix di spiaggia pubblica e opzioni private stagionali.",
+            "Plage des Sablettes - це пляж, який багато гостей уявляють першим: дуга піску й дрібної гальки біля підніжжя старого міста, з вежами церков і кольоровими фасадами позаду. Це сильний універсальний варіант для сімей і першого знайомства з Ментоном, з видом у бік Італії та поєднанням громадської зони й сезонних приватних пляжних опцій.",
+          ),
+          t(
+            "Behind the beach, Esplanade des Sablettes has restaurants and bars for a relaxed post-swim meal or evening drink. Names and opening patterns change by season, so treat places such as Pecora Negra, Mediterraneo, Les Incompris or Les Sablettes Beach Club as addresses to check before you plan around them.",
+            "Derriere la plage, l'Esplanade des Sablettes reunit restaurants et bars pour un repas detendu apres la baignade ou un verre en soiree. Les noms et horaires changent selon la saison : considerez des adresses comme Pecora Negra, Mediterraneo, Les Incompris ou Les Sablettes Beach Club comme des lieux a verifier avant de construire votre programme.",
+            "Dietro la spiaggia, l'Esplanade des Sablettes ha ristoranti e bar per un pasto rilassato dopo il bagno o un drink serale. Nomi e orari cambiano con la stagione: considera indirizzi come Pecora Negra, Mediterraneo, Les Incompris o Les Sablettes Beach Club come posti da controllare prima di organizzarti.",
+            "За пляжем Esplanade des Sablettes має ресторани й бари для спокійного обіду після купання або вечірнього напою. Назви й години роботи змінюються за сезоном, тому такі місця, як Pecora Negra, Mediterraneo, Les Incompris або Les Sablettes Beach Club, краще перевіряти перед плануванням.",
+          ),
+          t(
+            "A simple plan is to spend a few hours on the public part of the beach, then move to a terrace on the esplanade for an early dinner as the old town lights come on.",
+            "Un programme simple : passer quelques heures sur la partie publique de la plage, puis rejoindre une terrasse de l'esplanade pour diner tot quand les lumieres de la vieille ville s'allument.",
+            "Un piano semplice: passa qualche ora nella parte pubblica della spiaggia, poi spostati su una terrazza dell'esplanade per una cena presto mentre si accendono le luci del centro storico.",
+            "Простий план: провести кілька годин на громадській частині пляжу, а потім перейти на терасу на еспланаді для ранньої вечері, коли в старому місті вмикаються вогні.",
+          ),
+        ],
+        relatedPlaceIds: ["plage-sablettes"],
+      },
+      {
+        heading: t("Plage du Fossan: a calmer central curve", "Plage du Fossan: une courbe centrale plus calme", "Plage du Fossan: una curva centrale piu calma", "Plage du Fossan: спокійніша центральна дуга"),
+        body: [
+          t(
+            "Plage du Fossan sits closer to the town centre, near Esplanade Francis Palmero and the Jean Cocteau / Bastion area. It has a slightly calmer feel and a wide wooden esplanade that can work almost like a seaside amphitheatre for sunbathing and watching the water.",
+            "La Plage du Fossan est plus proche du centre, pres de l'Esplanade Francis Palmero et du secteur Jean Cocteau / Bastion. Son ambiance est un peu plus calme, avec une large esplanade en bois qui fonctionne presque comme un amphitheatre face a la mer.",
+            "Plage du Fossan si trova piu vicino al centro, presso l'Esplanade Francis Palmero e la zona Jean Cocteau / Bastion. Ha un'atmosfera un po' piu tranquilla e una larga esplanade in legno che funziona quasi come un anfiteatro sul mare.",
+            "Plage du Fossan розташований ближче до центру, біля Esplanade Francis Palmero та зони Jean Cocteau / Bastion. Тут трохи спокійніша атмосфера й широка дерев'яна еспланада, яка працює майже як амфітеатр біля моря.",
+          ),
+          t(
+            "Because it is central, Fossan is easy to combine with a coffee, an ice cream, a museum stop if open, or a slow walk along the beginning of Promenade du Soleil. If you are sensitive to crowds, try a weekday morning outside peak summer weekends.",
+            "Comme elle est centrale, Fossan se combine facilement avec un cafe, une glace, une visite de musee si les horaires conviennent, ou une promenade lente au debut de la Promenade du Soleil. Si vous evitez la foule, essayez un matin de semaine hors grands week-ends d'ete.",
+            "Essendo centrale, Fossan si combina facilmente con un caffe, un gelato, una visita al museo se aperto o una passeggiata tranquilla all'inizio della Promenade du Soleil. Se non ami la folla, prova una mattina infrasettimanale fuori dai weekend estivi di punta.",
+            "Завдяки центральному розташуванню Fossan легко поєднати з кавою, морозивом, музеєм, якщо він відкритий, або повільною прогулянкою початком Promenade du Soleil. Якщо не любите натовпи, обирайте будній ранок поза піковими літніми вихідними.",
+          ),
+        ],
+        relatedPlaceIds: ["plage-fossan", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Central promenade beaches: easy access", "Plages centrales de la promenade: acces facile", "Spiagge centrali della passeggiata: accesso facile", "Центральні пляжі набережної: максимум зручності"),
+        body: [
+          t(
+            "Between the Casino and the Borrigo river, Promenade du Soleil is lined with smaller central beaches, mostly pebbles or mixed surfaces, directly below the main seafront road. They are practical rather than spectacular, but very convenient for a quick swim near cafes, shops and central apartments.",
+            "Entre le Casino et le Borrigo, la Promenade du Soleil longe plusieurs petites plages centrales, surtout en galets ou surfaces mixtes, juste sous la route du front de mer. Elles sont plus pratiques que spectaculaires, mais tres commodes pour une baignade rapide pres des cafes, commerces et appartements centraux.",
+            "Tra il Casino e il torrente Borrigo, la Promenade du Soleil costeggia piccole spiagge centrali, per lo piu di ciottoli o superfici miste, direttamente sotto la strada del lungomare. Sono piu pratiche che scenografiche, ma molto comode per un bagno veloce vicino a caffe, negozi e appartamenti centrali.",
+            "Між Casino і річкою Borrigo вздовж Promenade du Soleil тягнуться менші центральні пляжі, переважно з галькою або змішаною поверхнею, просто під головною дорогою набережної. Вони радше практичні, ніж видовищні, зате дуже зручні для швидкого купання біля кав'ярень, магазинів і центральних апартаментів.",
+          ),
+          t(
+            "This stretch works well if you want to alternate between the water, a sunbed or towel spot, and a proper sit-down meal without moving far. Beach restaurants and private areas vary by season, so walk the promenade, see what is open, and choose the mood that fits the day.",
+            "Ce secteur fonctionne bien si vous voulez alterner entre l'eau, une serviette ou un transat, et un vrai repas assis sans trop bouger. Les restaurants de plage et zones privees varient selon la saison : marchez le long de la promenade, regardez ce qui est ouvert et choisissez l'ambiance du jour.",
+            "Questo tratto funziona bene se vuoi alternare acqua, asciugamano o lettino, e un vero pasto seduto senza spostarti molto. Ristoranti di spiaggia e aree private cambiano con la stagione: cammina sulla passeggiata, guarda cosa e aperto e scegli l'atmosfera giusta.",
+            "Ця ділянка добре підходить, якщо хочеться чергувати воду, рушник або лежак і повноцінний обід без довгих переміщень. Пляжні ресторани й приватні зони залежать від сезону: пройдіться набережною, подивіться, що відкрито, і оберіть атмосферу дня.",
+          ),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil"],
+      },
+      {
+        heading: t("Borrigo beaches: space and long walks", "Plages du Borrigo: espace et longues marches", "Spiagge del Borrigo: spazio e lunghe camminate", "Пляжі Borrigo: простір і довгі прогулянки"),
+        body: [
+          t(
+            "Further west, towards Roquebrune-Cap-Martin, the Borrigo beaches feel wider and more open. They are mostly pebbly, usually less postcard-perfect than Sablettes, but often better if you value breathing room and a longer seafront walk.",
+            "Plus a l'ouest, vers Roquebrune-Cap-Martin, les plages du Borrigo semblent plus larges et ouvertes. Elles sont surtout en galets, moins carte postale que Sablettes, mais souvent plus agreables si vous cherchez de l'espace et une vraie marche au bord de mer.",
+            "Piu a ovest, verso Roquebrune-Cap-Martin, le spiagge del Borrigo sono piu ampie e aperte. Sono soprattutto di ciottoli, meno da cartolina rispetto a Sablettes, ma spesso migliori se cerchi respiro e una passeggiata piu lunga sul mare.",
+            "Далі на захід, у бік Roquebrune-Cap-Martin, пляжі Borrigo здаються ширшими й відкритішими. Вони переважно галькові й менш листівкові, ніж Sablettes, але часто кращі, якщо вам потрібні простір і довша прогулянка вздовж моря.",
+          ),
+          t(
+            "Because Borrigo is slightly less central, it can feel calmer and more local while still staying connected to the promenade. Bring beach shoes for pebbles and consider staying for sunset, when the light softens over the bay and Cap Martin.",
+            "Comme Borrigo est un peu moins central, l'ambiance peut etre plus calme et plus locale tout en restant reliee a la promenade. Prenez des chaussures d'eau pour les galets et envisagez d'y rester jusqu'au coucher du soleil, quand la lumiere devient douce sur la baie et le Cap Martin.",
+            "Poiche Borrigo e un po' meno centrale, puo sembrare piu calmo e locale pur restando collegato alla passeggiata. Porta scarpe da mare per i ciottoli e valuta di restare fino al tramonto, quando la luce si ammorbidisce sulla baia e Cap Martin.",
+            "Оскільки Borrigo трохи менш центральний, атмосфера тут може бути спокійнішою й більш локальною, але набережна все одно поруч. Візьміть взуття для гальки й подумайте про захід сонця, коли світло м'якшає над бухтою та Cap Martin.",
+          ),
+        ],
+        relatedPlaceIds: ["borrigo-beaches", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Practical beach notes", "Notes pratiques plage", "Note pratiche per la spiaggia", "Практичні пляжні нотатки"),
+        body: [
+          t(
+            "Across Menton's beaches, lifeguards, showers, sunbeds, private beach clubs and restaurant services vary by season, weather and operator. Check what is open when you arrive rather than assuming every service is available every day.",
+            "Sur les plages de Menton, surveillance, douches, transats, plages privees et restaurants varient selon la saison, la meteo et les exploitants. Verifiez ce qui est ouvert en arrivant plutot que de supposer que tous les services sont disponibles chaque jour.",
+            "Sulle spiagge di Mentone, bagnini, docce, lettini, stabilimenti privati e ristoranti cambiano con stagione, meteo e gestione. Controlla cosa e aperto quando arrivi invece di dare per scontato che ogni servizio sia disponibile ogni giorno.",
+            "На пляжах Ментона рятувальники, душі, лежаки, приватні пляжні клуби й ресторани залежать від сезону, погоди та операторів. Перевіряйте, що відкрито після прибуття, а не вважайте, що всі сервіси доступні щодня.",
+          ),
+        ],
+        bullets: [
+          t("Arrive earlier on summer weekends, especially for Sablettes and the central stretches.", "Arrivez plus tot les week-ends d'ete, surtout a Sablettes et sur les plages centrales.", "Arriva prima nei weekend estivi, soprattutto a Sablettes e nei tratti centrali.", "У літні вихідні приходьте раніше, особливо на Sablettes і центральні ділянки."),
+          t("Beach shoes help on pebbles and mixed surfaces.", "Des chaussures d'eau sont utiles sur les galets et surfaces mixtes.", "Le scarpe da mare aiutano su ciottoli e superfici miste.", "Взуття для води корисне на гальці та змішаних поверхнях."),
+          t("For most central Menton stays, the main beaches are reachable on foot without a car.", "Pour la plupart des sejours dans le centre de Menton, les principales plages sont accessibles a pied sans voiture.", "Per la maggior parte dei soggiorni nel centro di Mentone, le spiagge principali sono raggiungibili a piedi senza auto.", "Для більшості зупинок у центрі Ментона головні пляжі доступні пішки без авто."),
+        ],
+      },
     ],
   }),
   shortArticle({
