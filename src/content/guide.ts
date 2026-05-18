@@ -195,14 +195,14 @@ const articles: GuideArticle[] = [
     slug: "local-food-menton",
     title: t("Local food in Menton: what to try first", "Cuisine locale a Menton: quoi gouter d'abord", "Cibo locale a Mentone: cosa provare per primo", "Локальна їжа в Ментоні: що спробувати спочатку"),
     seoTitle: t("Local Food in Menton | Azur Menton Guide", "Cuisine locale a Menton | Guide Azur Menton", "Cibo locale a Mentone | Guida Azur Menton", "Локальна їжа в Ментоні | Гід Azur Menton"),
-    seoDescription: t("From pichade and socca to citrus sweets and market snacks, discover Menton's French, Provençal and Italian food influences.", "De la pichade a la socca, decouvrez les influences francaises, provencales et italiennes de Menton.", "Dalla pichade alla socca, scopri le influenze francesi, provenzali e italiane di Mentone.", "Від pichade і socca до цитрусових смаколиків: знайомство з французькими, прованськими та італійськими впливами Ментона."),
-    excerpt: t("From pichade and socca to citrus sweets and market snacks, Menton's food culture blends Provençal, French and Italian influences in a relaxed seaside way.", "De la pichade a la socca, jusqu'aux douceurs au citron, la cuisine de Menton melange influences provencales, francaises et italiennes.", "Dalla pichade alla socca e ai dolci agli agrumi, Mentone unisce influenze provenzali, francesi e italiane in modo rilassato.", "Від pichade і socca до цитрусових солодощів: кухня Ментона спокійно поєднує прованські, французькі й італійські впливи."),
+    seoDescription: t("From pichade, socca and barbajuans to fougasse mentonnaise and citrus sweets, discover what to try first in Menton.", "De la pichade, socca et barbajuans a la fougasse mentonnaise et aux douceurs aux agrumes, decouvrez quoi gouter a Menton.", "Da pichade, socca e barbajuans alla fougasse mentonnaise e ai dolci agli agrumi, scopri cosa assaggiare a Mentone.", "Від pichade, socca і barbajuans до fougasse mentonnaise та цитрусових солодощів: що спробувати в Ментоні спочатку."),
+    excerpt: t("A practical first tasting list for Menton: pichade, socca, barbajuans, fougasse mentonnaise and lemon-based sweets from the market.", "Une premiere liste simple a gouter a Menton: pichade, socca, barbajuans, fougasse mentonnaise et douceurs au citron du marche.", "Una prima lista pratica da assaggiare a Mentone: pichade, socca, barbajuans, fougasse mentonnaise e dolci al limone del mercato.", "Практичний список для першої дегустації в Ментоні: pichade, socca, barbajuans, fougasse mentonnaise і лимонні солодощі з ринку."),
     category: "food-markets",
     coverImage: "/images/guide/local-food-menton.png",
     coverImageAlt: t("Illustration of local food in Menton", "Illustration de la cuisine locale a Menton", "Illustrazione del cibo locale a Mentone", "Ілюстрація локальної їжі в Ментоні"),
     visualTheme: "food",
     visualStatus: "project_illustration",
-    tags: [t("pichade", "pichade", "pichade", "pichade"), t("socca", "socca", "socca", "socca"), t("citrus", "agrumes", "agrumi", "цитрусові"), t("market", "marche", "mercato", "ринок")],
+    tags: [t("pichade", "pichade", "pichade", "pichade"), t("socca", "socca", "socca", "socca"), t("barbajuans", "barbajuans", "barbajuans", "barbajuans"), t("citrus", "agrumes", "agrumi", "цитрусові")],
     bestFor: [guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront"],
@@ -210,26 +210,138 @@ const articles: GuideArticle[] = [
     featured: true,
     sections: [
       {
-        heading: t("What to try first", "Quoi gouter d'abord", "Cosa provare per primo", "Що спробувати спочатку"),
+        heading: t("Start with a short tasting list", "Commencer par une petite liste", "Inizia con una lista breve", "Почніть із короткого списку"),
         body: [
-          t("Start with simple Menton flavours rather than a formal checklist: pichade, socca, fougasse mentonnaise, citrus sweets and seasonal market snacks are all good entry points.", "Commencez par des saveurs simples de Menton: pichade, socca, fougasse mentonnaise, douceurs aux agrumes et produits de saison du marche.", "Inizia da sapori semplici: pichade, socca, fougasse mentonnaise, dolci agli agrumi e spuntini stagionali del mercato.", "Почніть із простих смаків Ментона: pichade, socca, fougasse mentonnaise, цитрусові солодощі й сезонні продукти з ринку."),
-          t("Availability changes by season and by stall or restaurant, so the best approach is to ask locally and visit the market in the morning.", "L'offre change selon la saison, les etals et les restaurants: le plus simple est de demander sur place et de visiter le marche le matin.", "La disponibilita cambia con stagione, banchi e ristoranti: conviene chiedere sul posto e passare al mercato al mattino.", "Наявність змінюється залежно від сезону, ятки чи ресторану, тому краще питати на місці й приходити на ринок зранку."),
+          t(
+            "Menton's food sits between French Riviera and Italian border traditions. Instead of trying to chase every dish, focus on a small first list: pichade, socca, barbajuans, fougasse mentonnaise and citrus sweets already give you a good sense of the town.",
+            "La cuisine de Menton se situe entre traditions de la Riviera francaise et influences de la frontiere italienne. Plutot que de courir apres tous les plats, concentrez-vous sur une petite premiere liste : pichade, socca, barbajuans, fougasse mentonnaise et douceurs aux agrumes donnent deja une bonne idee de la ville.",
+            "La cucina di Mentone sta tra tradizioni della Riviera francese e influenze del confine italiano. Invece di inseguire ogni piatto, concentrati su una prima lista breve: pichade, socca, barbajuans, fougasse mentonnaise e dolci agli agrumi danno gia un buon assaggio della citta.",
+            "Кухня Ментона поєднує традиції Французької Рив'єри та італійського прикордоння. Замість того щоб гнатися за всіма стравами, почніть із короткого списку: pichade, socca, barbajuans, fougasse mentonnaise і цитрусові солодощі вже добре передають смак міста.",
+          ),
+          t(
+            "Availability changes by season, day and stall, so use this article as a tasting map rather than a fixed checklist.",
+            "L'offre change selon la saison, le jour et l'etal: utilisez ce guide comme une carte de degustation plutot qu'une liste rigide.",
+            "La disponibilita cambia con stagione, giorno e banco: usa questa guida come mappa di assaggi, non come elenco rigido.",
+            "Наявність змінюється залежно від сезону, дня й ятки, тому сприймайте цей гід як карту дегустації, а не як жорсткий список.",
+          ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "promenade-du-soleil"],
+        relatedPlaceIds: ["halles-du-marche"],
         relatedApartmentKeys: allApartments,
       },
       {
-        heading: t("Between France and Italy", "Entre France et Italie", "Tra Francia e Italia", "Між Францією та Італією"),
+        heading: t("Pichade and pissaladière", "Pichade et pissaladiere", "Pichade e pissaladière", "Pichade і pissaladière"),
         body: [
-          t("Menton sits close to the Italian border, and that shows in pasta traditions, market products and relaxed seaside meals. Keep heritage claims flexible until official sources are checked.", "Menton est proche de la frontiere italienne, ce qui se voit dans les pates, les produits de marche et les repas simples au bord de mer. Les details patrimoniaux restent a verifier.", "Mentone e vicina al confine italiano: lo si sente nelle paste locali, nei prodotti di mercato e nei pasti semplici sul mare. I dettagli storici vanno verificati.", "Ментон поруч з італійським кордоном, і це відчутно в пасті, ринкових продуктах та простих морських вечерях. Історичні твердження варто ще перевірити."),
+          t(
+            "Pichade is one of Menton's signature savoury bites: a thick olive-oil dough topped with tomato, slow-cooked onions, anchovies, garlic and olives. It feels somewhere between a pizza and a southern tart, often eaten at aperitif time or as a quick bakery snack.",
+            "La pichade est l'une des bouchees salees typiques de Menton : une pate epaisse a l'huile d'olive garnie de tomate, oignons longuement cuits, anchois, ail et olives. Elle se situe entre pizza et tarte du Sud, souvent mangee a l'aperitif ou comme encas de boulangerie.",
+            "La pichade e uno degli assaggi salati tipici di Mentone: un impasto spesso all'olio d'oliva con pomodoro, cipolle cotte lentamente, acciughe, aglio e olive. Sta tra pizza e torta salata del Sud, spesso mangiata all'aperitivo o come snack da forno.",
+            "Pichade - одна з характерних солоних закусок Ментона: товсте тісто на оливковій олії з томатом, повільно тушкованою цибулею, анчоусами, часником і оливками. Це щось між піцою та південною тартою, яку часто їдять на аперитив або як швидку закуску з пекарні.",
+          ),
+          t(
+            "A related classic is pissaladière, usually more focused on caramelised onions and anchovies. In Menton, you may find both on the same counter. Ask what has just come out of the oven and take a slice to the seafront or back to the apartment for a simple lunch.",
+            "Un classique voisin est la pissaladiere, souvent davantage centree sur les oignons confits et les anchois. A Menton, vous pouvez trouver les deux sur le meme comptoir. Demandez ce qui sort du four et prenez une part vers le front de mer ou l'appartement pour un dejeuner simple.",
+            "Un classico vicino e la pissaladière, di solito piu centrata su cipolle caramellate e acciughe. A Mentone potresti trovare entrambe sullo stesso banco. Chiedi cosa e appena uscito dal forno e porta una fetta sul lungomare o in appartamento per un pranzo semplice.",
+            "Схожа класика - pissaladière, де акцент зазвичай на карамелізованій цибулі й анчоусах. У Ментоні обидва варіанти можуть бути на одному прилавку. Запитайте, що щойно з печі, і візьміть шматок до набережної або в апартаменти для простого обіду.",
+          ),
         ],
-        bullets: [
-          t("Look for lemon and citrus products, especially around festival and market periods.", "Cherchez les produits au citron et aux agrumes, surtout pendant les periodes de marche et festival.", "Cerca prodotti al limone e agli agrumi, soprattutto nei periodi di mercato e festival.", "Звертайте увагу на лимонні й цитрусові продукти, особливо під час ринків і фестивалів."),
-          t("For a simple apartment meal, gather bread, cheese, olives, fruit and something citrus-based at the market.", "Pour un repas simple a l'appartement, prenez pain, fromage, olives, fruits et un produit aux agrumes au marche.", "Per un pasto semplice in appartamento, prendi pane, formaggi, olive, frutta e qualcosa agli agrumi al mercato.", "Для простої вечері в апартаментах візьміть на ринку хліб, сир, оливки, фрукти й щось цитрусове."),
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("Socca and warm street food", "Socca et street food chaude", "Socca e street food calda", "Socca й тепла вулична їжа"),
+        body: [
+          t(
+            "Socca is a large, thin chickpea pancake made with chickpea flour, olive oil, water and salt, traditionally baked until crisp at the edges and soft in the middle. It comes from nearby Nice, but it is easy to associate with a Menton market morning too.",
+            "La socca est une grande galette fine a base de farine de pois chiche, huile d'olive, eau et sel, traditionnellement cuite pour etre croustillante sur les bords et moelleuse au centre. Elle vient de Nice, mais s'invite facilement dans une matinee de marche a Menton.",
+            "La socca e una grande crêpe sottile di farina di ceci, olio d'oliva, acqua e sale, tradizionalmente cotta finche i bordi sono croccanti e il centro morbido. Arriva da Nizza, ma si abbina benissimo anche a una mattina al mercato di Mentone.",
+            "Socca - це великий тонкий млинець із нутового борошна, оливкової олії, води й солі, який традиційно печуть до хрустких країв і м'якої середини. Вона походить із Ніцци, але цілком природно вписується і в ранковий ринок Ментона.",
+          ),
+          t(
+            "The best first taste is hot and simple: cut into wide strips, eaten with fingers and black pepper. If you see socca chaude on a board, order a portion while it is still warm.",
+            "La meilleure premiere degustation est chaude et simple : coupee en larges morceaux, mangee avec les doigts et du poivre noir. Si vous voyez socca chaude sur une ardoise, commandez une portion tant qu'elle est encore chaude.",
+            "Il primo assaggio migliore e caldo e semplice: tagliata a strisce larghe, mangiata con le dita e pepe nero. Se vedi socca chaude su una lavagna, ordina una porzione mentre e ancora calda.",
+            "Найкраща перша дегустація - гаряча й проста: широкі шматки, руками, з чорним перцем. Якщо бачите на дошці socca chaude, беріть порцію, поки вона ще тепла.",
+          ),
         ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("Barbajuans and market picnic bites", "Barbajuans et pique-nique de marche", "Barbajuans e assaggi da picnic", "Barbajuans і ринковий пікнік"),
+        body: [
+          t(
+            "Barbajuans are fried pastries often filled with chard or spinach, fresh cheese, rice and herbs. They appear on market stands, in some bakeries and as starters in casual restaurants. One or two are a good salty snack with a glass of wine or beer.",
+            "Les barbajuans sont des beignets sales souvent farcis de blettes ou epinards, fromage frais, riz et herbes. On les voit sur les stands de marche, dans certaines boulangeries et en entree dans des adresses simples. Un ou deux font un bon encas sale avec un verre de vin ou de biere.",
+            "I barbajuans sono fagottini fritti spesso ripieni di bietole o spinaci, formaggio fresco, riso ed erbe. Compaiono sui banchi del mercato, in alcune panetterie e come antipasti in locali semplici. Uno o due sono uno snack salato perfetto con vino o birra.",
+            "Barbajuans - це смажені пиріжки, часто з начинкою з мангольду або шпинату, свіжого сиру, рису й трав. Вони трапляються на ринкових ятках, у деяких пекарнях і як закуска в простих ресторанах. Один-два добре підходять як солона закуска до вина або пива.",
+          ),
+          t(
+            "A useful market hack is to buy a mix of barbajuans, socca and pichade from different stalls, then build your own tasting picnic by the seafront instead of sitting down immediately.",
+            "Astuce pratique au marche : achetez un melange de barbajuans, socca et pichade sur plusieurs stands, puis composez votre propre pique-nique de degustation au bord de mer au lieu de vous asseoir tout de suite au restaurant.",
+            "Un trucco utile al mercato: compra un mix di barbajuans, socca e pichade da banchi diversi, poi crea il tuo picnic di assaggi sul lungomare invece di sederti subito al ristorante.",
+            "Корисний ринковий прийом: купіть трохи barbajuans, socca і pichade в різних ятках, а потім зробіть власний дегустаційний пікнік біля моря замість того, щоб одразу сідати в ресторан.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Fougasse mentonnaise and citrus sweets", "Fougasse mentonnaise et douceurs aux agrumes", "Fougasse mentonnaise e dolci agli agrumi", "Fougasse mentonnaise і цитрусові солодощі"),
+        body: [
+          t(
+            "Fougasse mentonnaise is the sweet side of local baking: a soft enriched bread often scented with orange blossom and dotted with candied fruit, almonds or sugared almonds. It is best kept simple, sliced for breakfast with coffee or in the afternoon with tea.",
+            "La fougasse mentonnaise represente le cote sucre de la boulangerie locale : une brioche moelleuse souvent parfumee a la fleur d'oranger et garnie de fruits confits, amandes ou pralines. Elle se deguste simplement, tranchee au petit-dejeuner avec un cafe ou l'apres-midi avec un the.",
+            "La fougasse mentonnaise e il lato dolce della panificazione locale: un pane morbido e arricchito, spesso profumato ai fiori d'arancio e con frutta candita, mandorle o confetti. Meglio gustarla semplicemente, a fette a colazione con caffe o nel pomeriggio con te.",
+            "Fougasse mentonnaise - солодкий бік місцевої випічки: м'який здобний хліб, часто з ароматом флердоранжу, цукатами, мигдалем або цукрованим мигдалем. Найкраще їсти просто: скибками на сніданок із кавою або вдень із чаєм.",
+          ),
+          t(
+            "Menton's citrus identity also appears in lemon tarts, cakes, jams, candied peel, biscuits and liqueurs. Shops specialising in lemon products are good places to look for portable souvenirs that travel better than fresh pastries.",
+            "L'identite citronnee de Menton apparait aussi dans les tartes au citron, cakes, confitures, ecorces confites, biscuits et liqueurs. Les boutiques specialisees dans les produits au citron sont de bonnes adresses pour des souvenirs faciles a transporter.",
+            "L'identita agrumata di Mentone si ritrova anche in crostate al limone, cake, marmellate, scorze candite, biscotti e liquori. I negozi specializzati in prodotti al limone sono buoni posti per souvenir facili da portare a casa.",
+            "Цитрусова ідентичність Ментона також помітна в лимонних тартах, кексах, джемах, цукатах, печиві й лікерах. Спеціалізовані крамниці з лимонними продуктами добре підходять для сувенірів, які легше везти додому, ніж свіжу випічку.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("Citrus drinks and apartment pairings", "Boissons aux agrumes et repas a l'appartement", "Bevande agli agrumi e abbinamenti in appartamento", "Цитрусові напої й прості поєднання в апартаментах"),
+        body: [
+          t(
+            "For drinks, lemon is the obvious Menton flavour. A small chilled glass of lemon liqueur or limoncello can finish a meal, while citrus beers, syrups or soft drinks work for an afternoon option without a full aperitif.",
+            "Cote boissons, le citron est la saveur evidente de Menton. Un petit verre frais de liqueur de citron ou de limoncello peut terminer un repas, tandis que bieres aux agrumes, sirops ou boissons sans alcool fonctionnent l'apres-midi.",
+            "Per le bevande, il limone e il sapore piu evidente di Mentone. Un piccolo bicchiere freddo di liquore al limone o limoncello puo chiudere un pasto, mentre birre agli agrumi, sciroppi o bibite funzionano bene nel pomeriggio.",
+            "У напоях лимон - очевидний смак Ментона. Невеликий охолоджений келих лимонного лікеру або limoncello може завершити вечерю, а цитрусове пиво, сиропи чи безалкогольні напої добре працюють удень.",
+          ),
+          t(
+            "When shopping, ask which products are made with Menton lemons and which are broader Riviera recipes. A simple apartment meal can be fresh bread, cheese, olives, seasonal fruit and one or two lemon-based products such as jam, tapenade or mustard.",
+            "Quand vous faites vos achats, demandez quels produits sont faits avec des citrons de Menton et lesquels sont plutot des recettes Riviera plus generales. Un repas simple a l'appartement peut etre pain frais, fromage, olives, fruits de saison et un ou deux produits au citron comme confiture, tapenade ou moutarde.",
+            "Quando fai la spesa, chiedi quali prodotti sono fatti con limoni di Mentone e quali sono ricette piu generali della Riviera. Un pasto semplice in appartamento puo essere pane fresco, formaggio, olive, frutta di stagione e uno o due prodotti al limone come marmellata, tapenade o senape.",
+            "Купуючи продукти, запитуйте, що зроблено саме з лимонів Ментона, а що є ширшими рецептами Рив'єри. Проста вечеря в апартаментах може складатися зі свіжого хліба, сиру, оливок, сезонних фруктів і одного-двох лимонних продуктів, наприклад джему, тапенади або гірчиці.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Where and when to look", "Ou et quand chercher", "Dove e quando cercare", "Де й коли шукати"),
+        body: [
+          t(
+            "For most of these foods, Halles du Marché is the best starting point in the morning: prepared savoury slices, socca when available, barbajuans, olives, fruit and citrus products all sit under one Belle Epoque roof.",
+            "Pour la plupart de ces produits, les Halles du Marche sont le meilleur point de depart le matin : parts salees, socca quand elle est disponible, barbajuans, olives, fruits et produits aux agrumes sous un meme toit Belle Epoque.",
+            "Per la maggior parte di questi assaggi, le Halles du Marché sono il punto di partenza migliore al mattino: tranci salati, socca quando disponibile, barbajuans, olive, frutta e prodotti agli agrumi sotto un unico tetto Belle Epoque.",
+            "Для більшості цих смаків найкращий старт - Halles du Marché зранку: солоні шматки випічки, socca, якщо є, barbajuans, оливки, фрукти й цитрусові продукти під одним дахом Belle Époque.",
+          ),
+          t(
+            "Beyond the market, explore small bakeries in the old town and watch cafe boards for socca or barbajuans as specials. Ask vendors what is local, homemade or especially good today.",
+            "Au-dela du marche, explorez les petites boulangeries de la vieille ville et regardez les ardoises des cafes pour la socca ou les barbajuans en suggestion. Demandez aux vendeurs ce qui est local, fait maison ou particulierement bon ce jour-la.",
+            "Oltre al mercato, esplora le piccole panetterie del centro storico e guarda le lavagne dei caffe per socca o barbajuans del giorno. Chiedi ai venditori cosa e locale, fatto in casa o particolarmente buono quel giorno.",
+            "Окрім ринку, заглядайте в невеликі пекарні старого міста й дивіться дошки кафе, де socca або barbajuans можуть бути в спеціальних пропозиціях. Запитуйте продавців, що місцеве, домашнє або особливо вдале саме сьогодні.",
+          ),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
       },
     ],
-    practicalTips: [t("Visit the market in the morning.", "Visitez le marche le matin.", "Visita il mercato al mattino.", "Ідіть на ринок зранку."), t("Ask locally: seasonal availability changes.", "Demandez sur place: l'offre change selon la saison.", "Chiedi sul posto: la disponibilita cambia con la stagione.", "Питайте на місці: сезонна наявність змінюється.")],
+    practicalTips: [
+      t("Visit the market in the morning for the widest choice.", "Visitez le marche le matin pour le plus grand choix.", "Visita il mercato al mattino per avere piu scelta.", "Ідіть на ринок зранку, коли вибір найбільший."),
+      t("Ask what is homemade, local or just out of the oven.", "Demandez ce qui est fait maison, local ou tout juste sorti du four.", "Chiedi cosa e fatto in casa, locale o appena uscito dal forno.", "Запитуйте, що домашнє, місцеве або щойно з печі."),
+      t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
+    ],
     relatedPlaces: ["halles-du-marche", "promenade-du-soleil"],
     relatedArticles: ["halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
