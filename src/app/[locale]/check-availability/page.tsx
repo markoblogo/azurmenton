@@ -146,7 +146,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/home/BeachfrontStudio-portret.png"
+                src="/images/home/BeachfrontStudio-portret.jpg"
                 alt="Sea-view balcony breakfast at an Azur Menton apartment"
                 width={864}
                 height={1184}
@@ -229,9 +229,9 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
               <Card className="overflow-hidden bg-[#fffdf8]">
                 <div className="grid grid-cols-3 gap-0 border-b border-[#dfd4c1]">
                   {[
-                    "/images/home/SeaViewBalconyStudio.png",
-                    "/images/home/TerraceParkingApartment.png",
-                    "/images/home/BeachfrontStudio-portret.png",
+                    "/images/home/SeaViewBalconyStudio.jpg",
+                    "/images/home/TerraceParkingApartment.jpg",
+                    "/images/home/BeachfrontStudio-portret.jpg",
                   ].map((src) => (
                     <div key={src} className="relative aspect-[4/3] overflow-hidden bg-[#efe4d1]">
                       <Image

@@ -40,6 +40,21 @@ const validApartments = new Set([
 
 const validParking = new Set(["yes", "no", "not-sure"]);
 const validLanguages = new Set(["en", "fr", "it", "uk"]);
+const honeypotFields = ["website", "company", "url", "homepage"];
+
+export function isHoneypotTriggeredFromFormData(formData: FormData) {
+  return honeypotFields.some((field) => String(formData.get(field) ?? "").trim().length > 0);
+}
+
+export function isHoneypotTriggeredFromUnknown(input: unknown) {
+  if (!input || typeof input !== "object") {
+    return false;
+  }
+
+  const record = input as Record<string, unknown>;
+
+  return honeypotFields.some((field) => String(record[field] ?? "").trim().length > 0);
+}
 
 export function formDataToBookingPayload(formData: FormData): BookingRequestPayload {
   return {
@@ -105,6 +120,26 @@ export function validateBookingRequest(payload: BookingRequestPayload): BookingR
       ok: false,
       error: "Please provide either an email address or a phone/WhatsApp number.",
     };
+  }
+
+  if (payload.name.length > 120) {
+    return { ok: false, error: "Please shorten your name field." };
+  }
+
+  if (payload.email.length > 254) {
+    return { ok: false, error: "Please enter a shorter email address." };
+  }
+
+  if (payload.phone.length > 80) {
+    return { ok: false, error: "Please enter a shorter phone/WhatsApp number." };
+  }
+
+  if (payload.message.length > 2_000) {
+    return { ok: false, error: "Please shorten your message before sending." };
+  }
+
+  if (payload.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+    return { ok: false, error: "Please enter a valid email address." };
   }
 
   if (!validApartments.has(payload.apartment)) {

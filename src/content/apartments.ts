@@ -70,8 +70,8 @@ const panoramicSeaViewImagePath = "/images/apartments/panoramic-sea-view-studio"
 export const apartments: Apartment[] = [
   {
     slug: "sea-view-balcony-studio",
-    heroImage: `${seaViewImagePath}/01-balcony-breakfast-sea-view.png`,
-    cardImage: `${seaViewImagePath}/01-balcony-breakfast-sea-view.png`,
+    heroImage: `${seaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
+    cardImage: `${seaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
     name: localized(
       "Beachfront Studio with Balcony & Sea View, Menton",
       "Studio en bord de mer avec balcon et vue mer, Menton",
@@ -142,14 +142,14 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: `${seaViewImagePath}/01-balcony-breakfast-sea-view.png`,
+        src: `${seaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
         alt: enFallback("Private balcony table with coffee and Mediterranean sea view in Menton"),
         caption: enFallback("Morning coffee with the Mediterranean in front of you"),
         category: "balcony",
         priority: true,
       },
       {
-        src: `${seaViewImagePath}/02-living-room-balcony-view.png`,
+        src: `${seaViewImagePath}/02-living-room-balcony-view.jpg`,
         alt: enFallback("Bright living area with sofa and balcony view toward the Mediterranean"),
         caption: enFallback("Living area facing the sea-view balcony"),
         category: "living",
@@ -204,43 +204,43 @@ export const apartments: Apartment[] = [
         category: "bathroom",
       },
       {
-        src: `${seaViewImagePath}/11-balcony-sea-view.png`,
+        src: `${seaViewImagePath}/11-balcony-sea-view.jpg`,
         alt: enFallback("Private balcony overlooking the beach and Mediterranean sea in Menton"),
         caption: enFallback("Private balcony overlooking the seafront"),
         category: "balcony",
       },
       {
-        src: `${seaViewImagePath}/12-beachfront-palm-view.png`,
+        src: `${seaViewImagePath}/12-beachfront-palm-view.jpg`,
         alt: enFallback("Beachfront promenade, palm trees and Mediterranean water below the apartment"),
         caption: enFallback("Beachfront promenade and sea below"),
         category: "location",
       },
       {
-        src: `${seaViewImagePath}/13-evening-seafront-view.png`,
+        src: `${seaViewImagePath}/13-evening-seafront-view.jpg`,
         alt: enFallback("Evening colours over the Menton seafront from the apartment side"),
         caption: enFallback("Evening colours over the seafront"),
         category: "view",
       },
       {
-        src: `${seaViewImagePath}/14-building-exterior.png`,
+        src: `${seaViewImagePath}/14-building-exterior.jpg`,
         alt: enFallback("Beachfront residence exterior in central Menton"),
         caption: enFallback("Beachfront residence exterior"),
         category: "exterior",
       },
       {
-        src: `${seaViewImagePath}/15-residence-entrance.png`,
+        src: `${seaViewImagePath}/15-residence-entrance.jpg`,
         alt: enFallback("Entrance area of the residence in central Menton"),
         caption: enFallback("Residence entrance"),
         category: "exterior",
       },
       {
-        src: `${seaViewImagePath}/16-building-entrance.png`,
+        src: `${seaViewImagePath}/16-building-entrance.jpg`,
         alt: enFallback("Building entrance for the sea-view balcony studio in Menton"),
         caption: enFallback("Building entrance"),
         category: "exterior",
       },
       {
-        src: `${seaViewImagePath}/17-lemon-festival-promenade.png`,
+        src: `${seaViewImagePath}/17-lemon-festival-promenade.jpg`,
         alt: enFallback("Menton Lemon Festival atmosphere near the seafront"),
         caption: enFallback("Menton Lemon Festival atmosphere nearby"),
         category: "location",
@@ -278,8 +278,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "beachside-family-apartment",
-    heroImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.png`,
-    cardImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.png`,
+    heroImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpg`,
+    cardImage: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpg`,
     name: localized(
       "Beachside Apartment with Terrace & Parking, Menton",
       "Appartement près de la plage avec terrasse et parking, Menton",
@@ -354,14 +354,14 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.png`,
+        src: `${beachsideFamilyImagePath}/01-private-terrace-breakfast.jpg`,
         alt: enFallback("Private terrace with outdoor dining table and garden view in central Menton"),
         caption: enFallback("Private terrace for breakfast outdoors"),
         category: "terrace",
         priority: true,
       },
       {
-        src: `${beachsideFamilyImagePath}/02-living-room-terrace-access.png`,
+        src: `${beachsideFamilyImagePath}/02-living-room-terrace-access.jpg`,
         alt: enFallback("Living room with sofa, TV and direct access to the private terrace"),
         caption: enFallback("Living room with direct access to the terrace"),
         category: "living",
@@ -374,13 +374,13 @@ export const apartments: Apartment[] = [
         category: "bedroom",
       },
       {
-        src: `${beachsideFamilyImagePath}/04-dining-area-equipped-kitchen.png`,
+        src: `${beachsideFamilyImagePath}/04-dining-area-equipped-kitchen.jpg`,
         alt: enFallback("Dining area beside an equipped kitchen in the beachside apartment"),
         caption: enFallback("Dining area and equipped kitchen"),
         category: "kitchen",
       },
       {
-        src: `${beachsideFamilyImagePath}/05-living-room-sofa-bed.png`,
+        src: `${beachsideFamilyImagePath}/05-living-room-sofa-bed.jpg`,
         alt: enFallback("Living room with sofa bed, dining table and light from the terrace"),
         caption: enFallback("Living room with sofa bed and dining area"),
         category: "living",
@@ -410,25 +410,25 @@ export const apartments: Apartment[] = [
         category: "bathroom",
       },
       {
-        src: `${beachsideFamilyImagePath}/10-garden-courtyard-view.png`,
+        src: `${beachsideFamilyImagePath}/10-garden-courtyard-view.jpg`,
         alt: enFallback("Garden and inner courtyard view from the apartment terrace"),
         caption: enFallback("Garden and inner courtyard view"),
         category: "view",
       },
       {
-        src: `${beachsideFamilyImagePath}/11-parking-entrance.png`,
+        src: `${beachsideFamilyImagePath}/11-parking-entrance.jpg`,
         alt: enFallback("Parking entrance near the apartment building in central Menton"),
         caption: enFallback("Parking access near the residence"),
         category: "parking",
       },
       {
-        src: `${beachsideFamilyImagePath}/12-building-entrance.png`,
+        src: `${beachsideFamilyImagePath}/12-building-entrance.jpg`,
         alt: enFallback("Entrance to the apartment building near the beach in Menton"),
         caption: enFallback("Building entrance"),
         category: "exterior",
       },
       {
-        src: `${beachsideFamilyImagePath}/13-beachside-building-exterior.png`,
+        src: `${beachsideFamilyImagePath}/13-beachside-building-exterior.jpg`,
         alt: enFallback("Exterior of the beachside apartment building in Menton"),
         caption: enFallback("Beachside building exterior"),
         category: "exterior",
@@ -470,7 +470,7 @@ export const apartments: Apartment[] = [
         category: "location",
       },
       {
-        src: `${beachsideFamilyImagePath}/20-bedroom-detail.png`,
+        src: `${beachsideFamilyImagePath}/20-bedroom-detail.jpg`,
         alt: enFallback("Bedroom detail with storage and soft light"),
         caption: enFallback("Bedroom detail"),
         category: "bedroom",
@@ -482,7 +482,7 @@ export const apartments: Apartment[] = [
         category: "living",
       },
       {
-        src: `${beachsideFamilyImagePath}/22-dining-kitchen-wide.png`,
+        src: `${beachsideFamilyImagePath}/22-dining-kitchen-wide.jpg`,
         alt: enFallback("Wide view of the dining area and equipped kitchen"),
         caption: enFallback("Dining area and kitchen"),
         category: "kitchen",
@@ -494,19 +494,19 @@ export const apartments: Apartment[] = [
         category: "parking",
       },
       {
-        src: `${beachsideFamilyImagePath}/24-residence-entrance.png`,
+        src: `${beachsideFamilyImagePath}/24-residence-entrance.jpg`,
         alt: enFallback("Residence entrance near the beach in Menton"),
         caption: enFallback("Residence entrance"),
         category: "exterior",
       },
       {
-        src: `${beachsideFamilyImagePath}/25-courtyard-balcony-view.png`,
+        src: `${beachsideFamilyImagePath}/25-courtyard-balcony-view.jpg`,
         alt: enFallback("Courtyard and balcony view from the residence"),
         caption: enFallback("Courtyard and balcony view"),
         category: "view",
       },
       {
-        src: `${beachsideFamilyImagePath}/26-living-room-balcony-view.png`,
+        src: `${beachsideFamilyImagePath}/26-living-room-balcony-view.jpg`,
         alt: enFallback("Living room with sofa and open doors toward the terrace"),
         caption: enFallback("Living room opening to the terrace"),
         category: "living",
@@ -532,8 +532,8 @@ export const apartments: Apartment[] = [
   },
   {
     slug: "panoramic-sea-view-studio",
-    heroImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.png`,
-    cardImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.png`,
+    heroImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
+    cardImage: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
     name: localized(
       "Beachfront Studio with Balcony & Panoramic Sea View, Menton",
       "Studio en bord de mer avec balcon et vue mer panoramique, Menton",
@@ -597,21 +597,21 @@ export const apartments: Apartment[] = [
     ],
     gallery: [
       {
-        src: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.png`,
+        src: `${panoramicSeaViewImagePath}/01-balcony-breakfast-sea-view.jpg`,
         alt: enFallback("Private balcony with breakfast table overlooking the Mediterranean sea in Menton"),
         caption: enFallback("Balcony with breakfast and Mediterranean sea view"),
         category: "balcony",
         priority: true,
       },
       {
-        src: `${panoramicSeaViewImagePath}/02-balcony-harbour-view.png`,
+        src: `${panoramicSeaViewImagePath}/02-balcony-harbour-view.jpg`,
         alt: enFallback("Balcony view toward the beach, harbour and Mediterranean sea in Menton"),
         caption: enFallback("Balcony view toward the harbour"),
         category: "balcony",
         priority: true,
       },
       {
-        src: `${panoramicSeaViewImagePath}/03-balcony-seafront-view.png`,
+        src: `${panoramicSeaViewImagePath}/03-balcony-seafront-view.jpg`,
         alt: enFallback("Wide seafront and Mediterranean view from the apartment balcony"),
         caption: enFallback("Wide seafront view from the balcony"),
         category: "view",
@@ -647,25 +647,25 @@ export const apartments: Apartment[] = [
         category: "bathroom",
       },
       {
-        src: `${panoramicSeaViewImagePath}/09-harbour-sea-view.png`,
+        src: `${panoramicSeaViewImagePath}/09-harbour-sea-view.jpg`,
         alt: enFallback("Mediterranean sea and harbour view from the apartment balcony"),
         caption: enFallback("Mediterranean view towards the harbour"),
         category: "view",
       },
       {
-        src: `${panoramicSeaViewImagePath}/10-seafront-mountain-view.png`,
+        src: `${panoramicSeaViewImagePath}/10-seafront-mountain-view.jpg`,
         alt: enFallback("View of Menton seafront, palm trees and mountains near the apartment"),
         caption: enFallback("Seafront and mountain view"),
         category: "location",
       },
       {
-        src: `${panoramicSeaViewImagePath}/11-balcony-marina-view.png`,
+        src: `${panoramicSeaViewImagePath}/11-balcony-marina-view.jpg`,
         alt: enFallback("Balcony view over palm trees, marina and the Mediterranean"),
         caption: enFallback("Balcony view over the marina"),
         category: "view",
       },
       {
-        src: `${panoramicSeaViewImagePath}/12-menton-old-town-nearby.png`,
+        src: `${panoramicSeaViewImagePath}/12-menton-old-town-nearby.jpg`,
         alt: enFallback("Colourful old town buildings and church tower in Menton"),
         caption: enFallback("Menton old town nearby"),
         category: "location",
@@ -683,13 +683,13 @@ export const apartments: Apartment[] = [
         category: "view",
       },
       {
-        src: `${panoramicSeaViewImagePath}/15-additional-sea-view.png`,
+        src: `${panoramicSeaViewImagePath}/15-additional-sea-view.jpg`,
         alt: enFallback("Vertical Mediterranean sea view from the apartment with boats and palm trees"),
         caption: enFallback("Additional sea view from the apartment"),
         category: "view",
       },
       {
-        src: `${panoramicSeaViewImagePath}/16-living-room-sea-view.png`,
+        src: `${panoramicSeaViewImagePath}/16-living-room-sea-view.jpg`,
         alt: enFallback("Living area with sofa, TV and wide sea view through the balcony doors"),
         caption: enFallback("Living area with sea view"),
         category: "living",

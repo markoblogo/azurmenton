@@ -3,12 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
 import { isLocale, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -118,9 +120,9 @@ const positioning: Record<string, { short: Localized; best: Localized; good: Loc
 };
 
 const heroCollageImages = {
-  large: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.png",
-  medium: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.png",
-  small: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.png",
+  large: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.jpg",
+  medium: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.jpg",
+  small: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.jpg",
 };
 
 const recommendations = [
@@ -170,9 +172,24 @@ function localPath(locale: Locale, href: string) {
 export default async function ApartmentsPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
+  const pageUrl = absoluteUrl(localizedPath(safeLocale, "apartments"));
 
   return (
     <>
+      <JsonLdScript data={collectionPageJsonLd({ name: copy.title[safeLocale], description: copy.seoDescription[safeLocale], url: pageUrl, locale: safeLocale })} />
+      <JsonLdScript
+        data={itemListJsonLd({
+          name: copy.title[safeLocale],
+          description: copy.seoDescription[safeLocale],
+          url: pageUrl,
+          items: apartments.map((apartment) => ({
+            name: apartment.name[safeLocale],
+            description: apartment.seoDescription[safeLocale],
+            url: absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`)),
+            image: absoluteUrl(apartment.heroImage),
+          })),
+        })}
+      />
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
           <div className="grid gap-10 py-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-16">
@@ -341,9 +358,9 @@ export default async function ApartmentsPage({ params }: PageProps) {
             </div>
             <div className="grid grid-cols-3 gap-3">
               {[
-                "/images/guide/menton-old-town.png",
-                "/images/guide/promenade-du-soleil.png",
-                "/images/guide/port-de-garavan.png",
+                "/images/guide/menton-old-town.jpg",
+                "/images/guide/promenade-du-soleil.jpg",
+                "/images/guide/port-de-garavan.jpg",
               ].map((src, index) => (
                 <div key={src} className={`relative aspect-[3/4] overflow-hidden border border-[#dfd4c1] bg-white p-2 ${index === 1 ? "mt-8" : ""}`}>
                   <Image src={src} alt="" fill quality={90} sizes="(min-width: 1024px) 14vw, 33vw" className="object-cover p-2" />

@@ -153,6 +153,13 @@ export function BookingRequestForm({
 
   return (
     <form action={formAction} className="grid gap-6" aria-label={labels.formLabel}>
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
         <legend className="serif-heading text-2xl text-[#173f36]">{labels.stayDetails}</legend>
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
@@ -222,6 +229,7 @@ export function BookingRequestForm({
           {labels.message}
           <textarea
             className="field min-h-28"
+            maxLength={2000}
             name="message"
           />
           <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.messageHelp}</span>
@@ -233,17 +241,17 @@ export function BookingRequestForm({
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
             {labels.name}
-            <input className="field" name="name" required />
+            <input className="field" maxLength={120} name="name" required />
           </label>
           <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
             {labels.email}
-            <input className="field" name="email" type="email" />
+            <input className="field" maxLength={254} name="email" type="email" />
           </label>
         </div>
 
         <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
           {labels.phone}
-          <input className="field" name="phone" />
+          <input className="field" maxLength={80} name="phone" />
         </label>
       </fieldset>
 

@@ -249,7 +249,7 @@ export default async function FaqPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/home/faq-hero.png"
+                src="/images/home/faq-hero.jpg"
                 alt="Riviera planning scene for Azur Menton guest questions"
                 width={1602}
                 height={981}

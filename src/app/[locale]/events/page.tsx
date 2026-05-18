@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { EventsCalendar } from "@/components/events/EventsCalendar";
 import { EventImage } from "@/components/events/EventImage";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
@@ -16,7 +17,8 @@ import {
 } from "@/content/riviera-events";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { getVisibleEvents } from "@/lib/events";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -199,6 +201,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = copy[safeLocale];
+  const pageUrl = absoluteUrl(localizedPath(safeLocale, "events"));
   const visibleEvents = getVisibleEvents(rivieraEvents);
   const featured = [...visibleEvents.upcoming, ...visibleEvents.datesPending].filter((event) => event.featured).slice(0, 6);
   const apartmentsForEvents = apartments.filter((apartment) =>
@@ -207,6 +210,22 @@ export default async function EventsLandingPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLdScript data={collectionPageJsonLd({ name: labels.title as string, description: labels.seoDescription as string, url: pageUrl, locale: safeLocale })} />
+      <JsonLdScript
+        data={itemListJsonLd({
+          name: labels.title as string,
+          description: labels.seoDescription as string,
+          url: pageUrl,
+          items: [...visibleEvents.upcoming, ...visibleEvents.datesPending]
+            .filter((event) => event.detailPage)
+            .map((event) => ({
+              name: getEventTitle(event, safeLocale),
+              description: event.shortDescription[safeLocale],
+              url: absoluteUrl(localizedPath(safeLocale, `events/${event.slug}`)),
+              image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
+            })),
+        })}
+      />
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
           <div className="grid gap-8 py-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:py-14">

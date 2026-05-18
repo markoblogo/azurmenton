@@ -10,6 +10,38 @@ type MetadataInput = {
   image?: string;
   imageAlt?: string;
   type?: "website" | "article";
+  keywords?: string[];
+};
+
+const defaultKeywords: Record<Locale, string[]> = {
+  en: [
+    "Menton apartments",
+    "beachfront apartments Menton",
+    "Azur Menton",
+    "direct booking Menton",
+    "French Riviera apartments",
+  ],
+  fr: [
+    "appartements Menton",
+    "appartements bord de mer Menton",
+    "Azur Menton",
+    "reservation directe Menton",
+    "appartements Riviera francaise",
+  ],
+  it: [
+    "appartamenti Mentone",
+    "appartamenti fronte mare Mentone",
+    "Azur Menton",
+    "prenotazione diretta Mentone",
+    "appartamenti Costa Azzurra",
+  ],
+  uk: [
+    "апартаменти Ментон",
+    "апартаменти біля моря Ментон",
+    "Azur Menton",
+    "пряме бронювання Ментон",
+    "апартаменти Французька Рив'єра",
+  ],
 };
 
 function normalizePath(path = "") {
@@ -43,6 +75,7 @@ export function createMetadata({
   image = siteConfig.defaultOgImage,
   imageAlt = siteConfig.name,
   type = "website",
+  keywords,
 }: MetadataInput): Metadata {
   const currentPath = localizedPath(locale, path);
   const metadataTitle = title ?? siteConfig.defaultTitle;
@@ -56,6 +89,21 @@ export function createMetadata({
         : `${metadataTitle} | ${siteConfig.name}`,
     },
     description,
+    keywords: keywords ?? defaultKeywords[locale],
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
     alternates: {
       canonical: absoluteUrl(currentPath),
       languages: {

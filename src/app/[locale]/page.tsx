@@ -15,8 +15,8 @@ import { guidePages } from "@/content/guide";
 import { faqItems, homeCopy } from "@/content/pages";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
-import { lodgingBusinessJsonLd } from "@/lib/structured-data";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { lodgingBusinessJsonLd, websiteJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -182,15 +182,15 @@ const guideTeaserLabels: Record<Locale, Record<string, string>> = {
 
 const guideTeaserImages: Record<string, { src: string; alt: string }> = {
   "best-beaches-in-menton": {
-    src: "/images/guide/best-beaches-in-menton.png",
+    src: "/images/guide/best-beaches-in-menton.jpg",
     alt: "Illustration of Menton beaches and the Mediterranean",
   },
   "menton-old-town": {
-    src: "/images/guide/menton-old-town.png",
+    src: "/images/guide/menton-old-town.jpg",
     alt: "Illustration of colourful old town streets in Menton",
   },
   "day-trips-from-menton": {
-    src: "/images/guide/day-trips-from-menton.png",
+    src: "/images/guide/day-trips-from-menton.jpg",
     alt: "Illustration of Riviera day trips from Menton",
   },
   "../events": {
@@ -200,27 +200,27 @@ const guideTeaserImages: Record<string, { src: string; alt: string }> = {
 };
 
 const heroMainSlides = [
-  { src: "/images/home/SeaViewBalconyStudio.png", objectPosition: "50% 50%" },
-  { src: "/images/home/TerraceParkingApartment.png", objectPosition: "50% 50%" },
-  { src: "/images/home/BeachfrontStudio-portret.png", objectPosition: "50% 50%" },
+  { src: "/images/home/SeaViewBalconyStudio.jpg", objectPosition: "50% 50%" },
+  { src: "/images/home/TerraceParkingApartment.jpg", objectPosition: "50% 50%" },
+  { src: "/images/home/BeachfrontStudio-portret.jpg", objectPosition: "50% 50%" },
 ];
 
 const heroInsetSlides = [
-  { src: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/sea-view-balcony-studio/02-living-room-balcony-view.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/03-open-plan-studio-layout.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/04-bedroom-balcony-view.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/07-sofa-seating-area.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/sea-view-balcony-studio/11-balcony-sea-view.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/beachside-family-apartment/02-living-room-terrace-access.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/sea-view-balcony-studio/11-balcony-sea-view.jpg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/02-living-room-terrace-access.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/03-comfortable-bedroom.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/beachside-family-apartment/05-living-room-sofa-bed.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.jpg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/05-living-room-sofa-bed.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/21-living-room-tv-terrace.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/panoramic-sea-view-studio/02-balcony-harbour-view.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/panoramic-sea-view-studio/03-balcony-seafront-view.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/02-balcony-harbour-view.jpg", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/03-balcony-seafront-view.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/panoramic-sea-view-studio/04-kitchenette-dining-corner.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/panoramic-sea-view-studio/06-bright-studio-double-bed.png", objectPosition: "50% 50%" },
-  { src: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.jpg", objectPosition: "50% 50%" },
 ];
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -255,15 +255,15 @@ export default async function LocaleHome({ params }: PageProps) {
   ].flatMap((item) => (item ? [item] : []));
   const homeCardImages: Record<string, { src: string; alt: string }> = {
     "sea-view-balcony-studio": {
-      src: "/images/home/SeaViewBalconyStudio.png",
+      src: "/images/home/SeaViewBalconyStudio.jpg",
       alt: "Private balcony table with coffee and Mediterranean sea view in Menton",
     },
     "beachside-family-apartment": {
-      src: "/images/home/TerraceParkingApartment.png",
+      src: "/images/home/TerraceParkingApartment.jpg",
       alt: "Private terrace with outdoor dining table and garden view in central Menton",
     },
     "panoramic-sea-view-studio": {
-      src: "/images/home/BeachfrontStudio-portret.png",
+      src: "/images/home/BeachfrontStudio-portret.jpg",
       alt: "Private balcony breakfast table with Mediterranean sea view in Menton",
     },
   };
@@ -271,6 +271,7 @@ export default async function LocaleHome({ params }: PageProps) {
   return (
     <>
       <JsonLdScript data={lodgingBusinessJsonLd()} />
+      <JsonLdScript data={websiteJsonLd({ locale: safeLocale, url: absoluteUrl(localizedPath(safeLocale)), description: copy.seoDescription })} />
       <section className="relative overflow-hidden border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
           <div className="grid min-h-[760px] items-center gap-12 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:py-20">
@@ -352,7 +353,7 @@ export default async function LocaleHome({ params }: PageProps) {
               <div className="absolute left-0 top-8 w-[66%] overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-2">
                 <div className="relative aspect-[4/5] overflow-hidden bg-[#efe4d1]">
                   <Image
-                    src="/images/guide/menton-old-town.png"
+                    src="/images/guide/menton-old-town.jpg"
                     alt="Illustration of colourful old town streets and sea views in Menton"
                     fill
                     quality={90}
@@ -364,7 +365,7 @@ export default async function LocaleHome({ params }: PageProps) {
               <div className="absolute bottom-4 right-0 w-[58%] overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-2">
                 <div className="relative aspect-[4/5] overflow-hidden bg-[#efe4d1]">
                   <Image
-                    src="/images/guide/best-beaches-in-menton-alt.png"
+                    src="/images/guide/best-beaches-in-menton-alt.jpg"
                     alt="Illustration of Menton beaches, palm trees and the Mediterranean coast"
                     fill
                     quality={90}

@@ -5,13 +5,15 @@ import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { getPlaces } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
 const labels = {
   en: {
@@ -75,6 +77,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
+  const pageUrl = absoluteUrl(localizedPath(safeLocale, "guide"));
   const articles = guideArticles.map((article) => {
     const localized = localizeGuideArticle(article, safeLocale);
     const relatedPlaces = getPlaces(article.relatedPlaces ?? []);
@@ -117,6 +120,20 @@ export default async function GuideLandingPage({ params }: PageProps) {
 
   return (
     <>
+      <JsonLdScript data={collectionPageJsonLd({ name: copy.title, description: copy.seoDescription, url: pageUrl, locale: safeLocale })} />
+      <JsonLdScript
+        data={itemListJsonLd({
+          name: copy.title,
+          description: copy.seoDescription,
+          url: pageUrl,
+          items: articles.map((article) => ({
+            name: article.title,
+            description: article.excerpt,
+            url: absoluteUrl(localizedPath(safeLocale, `guide/${article.slug}`)),
+            image: article.coverImage ? absoluteUrl(article.coverImage) : undefined,
+          })),
+        })}
+      />
       <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.78fr] lg:items-end">

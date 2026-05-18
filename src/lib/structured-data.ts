@@ -15,7 +15,7 @@ export function lodgingBusinessJsonLd() {
     taxID: "983 423 898 R.C.S. Nice",
     url: "https://azurmenton.com",
     logo: "https://azurmenton.com/icon.png",
-    image: "https://azurmenton.com/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.png",
+    image: "https://azurmenton.com/images/apartments/panoramic-sea-view-studio/01-balcony-breakfast-sea-view.jpg",
     description:
       "Family-run beachfront and beachside apartments in central Menton, France. Direct booking requests are confirmed manually by the host.",
     email: "petraetpaul@gmail.com",
@@ -34,6 +34,71 @@ export function lodgingBusinessJsonLd() {
       addressRegion: "Provence-Alpes-Cote d'Azur",
       addressCountry: "FR",
     },
+  };
+}
+
+export function websiteJsonLd(input: { locale: string; url: string; description: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Azur Menton",
+    url: "https://azurmenton.com",
+    mainEntityOfPage: input.url,
+    inLanguage: input.locale,
+    description: input.description,
+    publisher: {
+      "@type": "Organization",
+      name: "Azur Menton",
+      url: "https://azurmenton.com",
+      logo: "https://azurmenton.com/icon.png",
+    },
+  };
+}
+
+export function collectionPageJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  locale: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    inLanguage: input.locale,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Azur Menton",
+      url: "https://azurmenton.com",
+    },
+  };
+}
+
+export function itemListJsonLd(input: {
+  name: string;
+  description?: string;
+  url: string;
+  items: Array<{ name: string; url: string; description?: string; image?: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    itemListElement: input.items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Thing",
+        name: item.name,
+        url: item.url,
+        description: item.description,
+        image: item.image,
+      },
+    })),
   };
 }
 
@@ -85,6 +150,7 @@ export function articleJsonLd(input: {
   description: string;
   url: string;
   image?: string;
+  locale?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -93,6 +159,7 @@ export function articleJsonLd(input: {
     description: input.description,
     url: input.url,
     image: input.image,
+    inLanguage: input.locale,
     publisher: {
       "@type": "Organization",
       name: "Azur Menton",

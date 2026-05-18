@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!article) return {};
   const localized = localizeGuideArticle(article, safeLocale);
 
-  return createMetadata({ locale: safeLocale, path: `guide/${article.slug}`, title: localized.seoTitle, description: localized.seoDescription, type: "article", image: localized.heroImage });
+  return createMetadata({ locale: safeLocale, path: `guide/${article.slug}`, title: localized.seoTitle, description: localized.seoDescription, type: "article", image: localized.coverImage ?? localized.heroImage });
 }
 
 export default async function GuideArticlePage({ params }: PageProps) {
@@ -60,7 +60,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLdScript data={articleJsonLd({ title: localized.title, description: localized.seoDescription, url: pageUrl, image: localized.heroImage ? absoluteUrl(localized.heroImage) : undefined })} />
+      <JsonLdScript data={articleJsonLd({ title: localized.title, description: localized.seoDescription, url: pageUrl, image: localized.coverImage ? absoluteUrl(localized.coverImage) : localized.heroImage ? absoluteUrl(localized.heroImage) : undefined, locale })} />
       <JsonLdScript data={breadcrumbJsonLd([
         { name: copy.home, url: absoluteUrl(localizedPath(locale)) },
         { name: copy.guide, url: absoluteUrl(localizedPath(locale, "guide")) },

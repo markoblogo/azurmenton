@@ -1,13 +1,38 @@
 import { NextResponse } from "next/server";
 import {
   createBookingRequestLog,
+  isHoneypotTriggeredFromUnknown,
   unknownToBookingPayload,
   validateBookingRequest,
 } from "@/lib/booking-request";
+import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
 
 export async function POST(request: Request) {
+  const rateLimit = checkBookingRequestRateLimit(getClientIdentifierFromHeaders(request.headers));
+
+  if (!rateLimit.ok) {
+    return NextResponse.json(
+      { error: "Too many booking requests. Please wait a few minutes and try again." },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)),
+        },
+      },
+    );
+  }
+
   const body = await request.json().catch(() => null);
+
+  if (isHoneypotTriggeredFromUnknown(body)) {
+    return NextResponse.json({
+      ok: true,
+      message:
+        "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
+    });
+  }
+
   const payload = unknownToBookingPayload(body);
 
   if (!payload) {

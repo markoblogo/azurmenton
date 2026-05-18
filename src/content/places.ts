@@ -264,12 +264,12 @@ const rawPlaces: Place[] = [
 
 const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualTheme">> = {
   "halles-du-marche": {
-    image: "/images/guide/halles-du-marche-place.png",
+    image: "/images/guide/halles-du-marche-place.jpg",
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
   "biera-daqui": {
-    image: "/images/guide/biera-daqui.png",
+    image: "/images/guide/biera-daqui.jpg",
     imageAlt: text("Illustration of Biera d’Aquì in Menton", "Illustration de Biera d’Aquì a Menton", "Illustrazione di Biera d’Aquì a Mentone", "Ілюстрація Biera d’Aquì у Ментоні"),
     visualTheme: "bar",
   },
@@ -294,17 +294,17 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     visualTheme: "bar",
   },
   "rampes-saint-michel": {
-    image: "/images/guide/les-rampes-saint-michel.png",
+    image: "/images/guide/les-rampes-saint-michel.jpg",
     imageAlt: text("Illustration of Les Rampes Saint-Michel in Menton", "Illustration des Rampes Saint-Michel a Menton", "Illustrazione delle Rampes Saint-Michel a Mentone", "Ілюстрація Les Rampes Saint-Michel у Ментоні"),
     visualTheme: "viewpoint",
   },
   "promenade-du-soleil": {
-    image: "/images/guide/promenade-du-soleil.png",
+    image: "/images/guide/promenade-du-soleil.jpg",
     imageAlt: text("Illustration of Promenade du Soleil in Menton", "Illustration de la Promenade du Soleil a Menton", "Illustrazione della Promenade du Soleil a Mentone", "Ілюстрація Promenade du Soleil у Ментоні"),
     visualTheme: "sea",
   },
   "port-de-garavan": {
-    image: "/images/guide/port-de-garavan.png",
+    image: "/images/guide/port-de-garavan.jpg",
     imageAlt: text("Illustration of Port de Garavan in Menton", "Illustration du Port de Garavan a Menton", "Illustrazione del Port de Garavan a Mentone", "Ілюстрація Port de Garavan у Ментоні"),
     visualTheme: "port",
   },
@@ -314,27 +314,27 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     visualTheme: "viewpoint",
   },
   "jardin-serre-de-la-madone": {
-    image: "/images/guide/jardin-serre-de-la-madone.png",
+    image: "/images/guide/jardin-serre-de-la-madone.jpg",
     imageAlt: text("Illustration of Jardin Serre de la Madone in Menton", "Illustration du Jardin Serre de la Madone a Menton", "Illustrazione del Jardin Serre de la Madone a Mentone", "Ілюстрація Jardin Serre de la Madone у Ментоні"),
     visualTheme: "garden",
   },
   "jardin-val-rahmeh": {
-    image: "/images/guide/jardin-botanique-val-rahmeh.png",
+    image: "/images/guide/jardin-botanique-val-rahmeh.jpg",
     imageAlt: text("Illustration of Jardin Botanique Val Rahmeh in Menton", "Illustration du Jardin Botanique Val Rahmeh a Menton", "Illustrazione del Jardin Botanique Val Rahmeh a Mentone", "Ілюстрація Jardin Botanique Val Rahmeh у Ментоні"),
     visualTheme: "garden",
   },
   "plage-sablettes": {
-    image: "/images/guide/plage-des-sablettes.png",
+    image: "/images/guide/plage-des-sablettes.jpg",
     imageAlt: text("Illustration of Plage des Sablettes in Menton", "Illustration de la Plage des Sablettes a Menton", "Illustrazione della Plage des Sablettes a Mentone", "Ілюстрація Plage des Sablettes у Ментоні"),
     visualTheme: "beach",
   },
   "plage-rondelli": {
-    image: "/images/guide/plage-rondelli.png",
+    image: "/images/guide/plage-rondelli.jpg",
     imageAlt: text("Illustration of Plage Rondelli in Menton", "Illustration de la Plage Rondelli a Menton", "Illustrazione della Plage Rondelli a Mentone", "Ілюстрація Plage Rondelli у Ментоні"),
     visualTheme: "beach",
   },
   "plage-fossan": {
-    image: "/images/guide/plage-du-fossan.png",
+    image: "/images/guide/plage-du-fossan.jpg",
     imageAlt: text("Illustration of Plage du Fossan in Menton", "Illustration de la Plage du Fossan a Menton", "Illustrazione della Plage du Fossan a Mentone", "Ілюстрація Plage du Fossan у Ментоні"),
     visualTheme: "beach",
   },

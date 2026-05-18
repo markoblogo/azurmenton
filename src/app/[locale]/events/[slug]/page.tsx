@@ -50,6 +50,8 @@ const copy = {
     sidePlan: "Plan",
     relatedGuide: "Menton without a car",
     transportGuide: "Public transport in Menton",
+    homeCrumb: "Home",
+    eventsCrumb: "Events",
     availability: "Check availability",
     viewApartments: "View apartments",
   },
@@ -76,6 +78,8 @@ const copy = {
     sidePlan: "Plan",
     relatedGuide: "Menton sans voiture",
     transportGuide: "Transports publics à Menton",
+    homeCrumb: "Accueil",
+    eventsCrumb: "Evenements",
     availability: "Verifier disponibilite",
     viewApartments: "Voir appartements",
   },
@@ -102,6 +106,8 @@ const copy = {
     sidePlan: "Piano",
     relatedGuide: "Mentone senza auto",
     transportGuide: "Trasporti pubblici a Mentone",
+    homeCrumb: "Home",
+    eventsCrumb: "Eventi",
     availability: "Controlla disponibilita",
     viewApartments: "Vedi appartamenti",
   },
@@ -128,6 +134,8 @@ const copy = {
     sidePlan: "План",
     relatedGuide: "Ментон без авто",
     transportGuide: "Громадський транспорт у Ментоні",
+    homeCrumb: "Головна",
+    eventsCrumb: "Події",
     availability: "Перевірити доступність",
     viewApartments: "Переглянути апартаменти",
   },
@@ -192,12 +200,14 @@ export default async function EventArticlePage({ params }: PageProps) {
           title,
           description: event.shortDescription[locale],
           url: pageUrl,
+          image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
+          locale,
         })}
       />
       <JsonLdScript
         data={breadcrumbJsonLd([
-          { name: "Home", url: absoluteUrl(localizedPath(locale)) },
-          { name: "Events", url: absoluteUrl(localizedPath(locale, "events")) },
+          { name: labels.homeCrumb, url: absoluteUrl(localizedPath(locale)) },
+          { name: labels.eventsCrumb, url: absoluteUrl(localizedPath(locale, "events")) },
           { name: title, url: pageUrl },
         ])}
       />
