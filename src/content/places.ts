@@ -114,7 +114,7 @@ const rawPlaces: Place[] = [
     id: "med-rooftop",
     name: "Med Rooftop",
     type: "rooftop",
-    address: "Best Western Hôtel Méditerranée, 2 Rue de la République, Menton; details to verify",
+    address: "Best Western Hôtel Méditerranée, 2 Rue de la République, Menton",
     googleMapsUrl: mapsSearch("Med Rooftop", "2 Rue de la République, Menton"),
     openingHoursLabel: checkHours,
     sourceStatus: "needs_verification",
