@@ -682,32 +682,52 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   });
 }
 
-function imageByFile(apartment: Apartment, fileName: string) {
-  return apartment.gallery.find((image) => image.src.endsWith(fileName)) ?? apartment.gallery[0];
+function imageStem(fileName: string) {
+  return fileName.replace(/\.(png|jpe?g|webp)$/i, "");
+}
+
+function imageByFile(apartment: Apartment, fileName: string, excluded = new Set<string>()) {
+  const stem = imageStem(fileName);
+  const match = apartment.gallery.find((image) => imageStem(image.src).endsWith(stem) && !excluded.has(image.src));
+
+  return match ?? apartment.gallery.find((image) => !excluded.has(image.src)) ?? apartment.gallery[0];
+}
+
+function pickHeroCollage(apartment: Apartment, fileNames: [string, string, string]) {
+  const selected: Apartment["gallery"] = [];
+  const excluded = new Set<string>();
+
+  for (const fileName of fileNames) {
+    const image = imageByFile(apartment, fileName, excluded);
+    selected.push(image);
+    excluded.add(image.src);
+  }
+
+  return selected;
 }
 
 function heroImages(apartment: Apartment) {
   if (apartment.slug === "sea-view-balcony-studio") {
-    return [
-      imageByFile(apartment, "01-balcony-breakfast-sea-view.png"),
-      imageByFile(apartment, "02-living-room-balcony-view.png"),
-      imageByFile(apartment, "11-balcony-sea-view.png"),
-    ];
+    return pickHeroCollage(apartment, [
+      "01-balcony-breakfast-sea-view.jpg",
+      "02-living-room-balcony-view.jpg",
+      "11-balcony-sea-view.jpg",
+    ]);
   }
 
   if (apartment.slug === "beachside-family-apartment") {
-    return [
-      imageByFile(apartment, "01-private-terrace-breakfast.png"),
-      imageByFile(apartment, "02-living-room-terrace-access.png"),
-      imageByFile(apartment, "03-comfortable-bedroom.png"),
-    ];
+    return pickHeroCollage(apartment, [
+      "01-private-terrace-breakfast.jpg",
+      "02-living-room-terrace-access.jpg",
+      "03-comfortable-bedroom.png",
+    ]);
   }
 
-  return [
-    imageByFile(apartment, "01-balcony-breakfast-sea-view.png"),
-    imageByFile(apartment, "02-balcony-harbour-view.png"),
-    imageByFile(apartment, "16-living-room-sea-view.png"),
-  ];
+  return pickHeroCollage(apartment, [
+    "01-balcony-breakfast-sea-view.jpg",
+    "02-balcony-harbour-view.jpg",
+    "16-living-room-sea-view.jpg",
+  ]);
 }
 
 export default async function ApartmentPage({ params }: PageProps) {
