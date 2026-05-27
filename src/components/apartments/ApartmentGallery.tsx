@@ -131,27 +131,37 @@ const galleryCopy: Record<
 
 const previewOrder: Record<string, string[]> = {
   "sea-view-balcony-studio": [
-    "01-balcony-breakfast-sea-view.png",
-    "02-living-room-balcony-view.png",
+    "01-balcony-breakfast-sea-view.jpg",
+    "02-living-room-balcony-view.jpg",
     "03-open-plan-studio-layout.png",
     "04-bedroom-balcony-view.png",
-    "11-balcony-sea-view.png",
+    "11-balcony-sea-view.jpg",
   ],
   "beachside-family-apartment": [
-    "01-private-terrace-breakfast.png",
-    "02-living-room-terrace-access.png",
+    "01-private-terrace-breakfast.jpg",
+    "02-living-room-terrace-access.jpg",
     "03-comfortable-bedroom.png",
-    "04-dining-area-equipped-kitchen.png",
-    "05-living-room-sofa-bed.png",
+    "04-dining-area-equipped-kitchen.jpg",
+    "05-living-room-sofa-bed.jpg",
   ],
   "panoramic-sea-view-studio": [
-    "01-balcony-breakfast-sea-view.png",
-    "02-balcony-harbour-view.png",
-    "03-balcony-seafront-view.png",
+    "01-balcony-breakfast-sea-view.jpg",
+    "02-balcony-harbour-view.jpg",
+    "03-balcony-seafront-view.jpg",
     "06-bright-studio-double-bed.png",
-    "16-living-room-sea-view.png",
+    "16-living-room-sea-view.jpg",
   ],
 };
+
+function imageStem(fileName: string) {
+  return fileName.replace(/\.(png|jpe?g|webp)$/i, "");
+}
+
+function findImageByFile(apartment: Apartment, fileName: string, selected = new Set<string>()) {
+  const stem = imageStem(fileName);
+
+  return apartment.gallery.find((image) => imageStem(image.src).endsWith(stem) && !selected.has(image.src));
+}
 
 export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -163,12 +173,20 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
       return apartment.gallery.slice(0, 5);
     }
 
-    const images = preferred
-      .map((fileName) => apartment.gallery.find((image) => image.src.endsWith(fileName)))
-      .filter((image): image is Apartment["gallery"][number] => Boolean(image));
+    const selected = new Set<string>();
+    const images = preferred.flatMap((fileName) => {
+      const image = findImageByFile(apartment, fileName, selected);
+      if (!image) return [];
+      selected.add(image.src);
+      return [image];
+    });
 
-    return images.length > 0 ? images : apartment.gallery.slice(0, 5);
-  }, [apartment.gallery, apartment.slug]);
+    return images.length >= 4 ? images : apartment.gallery.slice(0, 5);
+  }, [apartment]);
+  const composedPreviewImages = previewImages.slice(0, 4);
+  const moreImage = previewImages[4] ?? apartment.gallery.find((image) => !composedPreviewImages.some((preview) => preview.src === image.src)) ?? composedPreviewImages[0];
+  const moreStartIndex = moreImage ? apartment.gallery.findIndex((image) => image.src === moreImage.src) : 0;
+  const moreCount = Math.max(apartment.gallery.length - composedPreviewImages.length, 0);
   const activeImage = activeIndex === null ? null : apartment.gallery[activeIndex];
   const visibleIndex = activeIndex ?? 0;
 
@@ -252,60 +270,86 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
         </button>
       </div>
 
-      <div className="mt-7 grid gap-4 md:grid-cols-4 md:grid-rows-2">
-        {previewImages.map((image, index) => {
+      <div className="mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-[1.25fr_0.72fr_0.72fr] lg:grid-rows-2">
+        {composedPreviewImages.map((image, index) => {
           const galleryIndex = apartment.gallery.findIndex((galleryImage) => galleryImage.src === image.src);
           const safeGalleryIndex = galleryIndex >= 0 ? galleryIndex : index;
-          const remainingPhotos = apartment.gallery.length - previewImages.length;
-          const showMoreOverlay = index === previewImages.length - 1 && remainingPhotos > 0;
 
           return (
-          <figure
-            key={image.src}
-            className={
-              index === 0
-                ? "overflow-hidden border border-[#dfd4c1] bg-white md:col-span-2 md:row-span-2"
-                : "overflow-hidden border border-[#dfd4c1] bg-white"
-            }
-          >
+            <figure
+              key={image.src}
+              className={
+                index === 0
+                  ? "overflow-hidden border border-[#dfd4c1] bg-white md:col-span-2 lg:col-span-1 lg:row-span-2"
+                  : "overflow-hidden border border-[#dfd4c1] bg-white"
+              }
+            >
+              <button
+                type="button"
+                onClick={() => openGallery(safeGalleryIndex)}
+                className="group block h-full w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f]"
+                aria-label={`${copy.viewAll}: ${captionFor(image, safeGalleryIndex)}`}
+              >
+                <div className="relative h-full overflow-hidden">
+                  <Image
+                    src={image.src}
+                    alt={image.alt[locale]}
+                    width={1200}
+                    height={850}
+                    quality={90}
+                    sizes={
+                      index === 0
+                        ? "(min-width: 1024px) 46vw, 100vw"
+                        : "(min-width: 1024px) 22vw, (min-width: 768px) 50vw, 100vw"
+                    }
+                    className={`h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] ${
+                      index === 0 ? "aspect-[4/3] lg:aspect-auto" : "aspect-[4/3]"
+                    } ${imageObjectPosition(apartment, image)}`}
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#10262d]/72 via-[#10262d]/28 to-transparent p-3 text-white">
+                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#f0d49c]">
+                      {copy.categoryLabels[image.category]}
+                    </p>
+                    <figcaption className="mt-1 line-clamp-2 text-sm leading-5">
+                      {captionFor(image, safeGalleryIndex)}
+                    </figcaption>
+                  </div>
+                </div>
+              </button>
+            </figure>
+          );
+        })}
+        {moreImage ? (
+          <figure className="overflow-hidden border border-[#dfd4c1] bg-white">
             <button
               type="button"
-              onClick={() => openGallery(showMoreOverlay ? previewImages.length : safeGalleryIndex)}
-              className="group block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f]"
-              aria-label={`${showMoreOverlay ? copy.openMore : copy.viewAll}: ${captionFor(image, safeGalleryIndex)}`}
+              onClick={() => openGallery(moreStartIndex >= 0 ? moreStartIndex : 0)}
+              className="group block h-full w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f]"
+              aria-label={`${copy.openMore}: +${moreCount} ${copy.morePhotos}`}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative h-full overflow-hidden">
                 <Image
-                  src={image.src}
-                  alt={image.alt[locale]}
-                  width={1200}
-                  height={850}
+                  src={moreImage.src}
+                  alt={moreImage.alt[locale]}
+                  width={1000}
+                  height={760}
                   quality={90}
-                  sizes={
-                    index === 0
-                      ? "(min-width: 1024px) 520px, 100vw"
-                      : "(min-width: 1024px) 260px, (min-width: 768px) 33vw, 100vw"
-                  }
-                  className={`w-full object-cover transition duration-300 group-hover:scale-[1.02] ${
-                    index === 0 ? "aspect-[4/3]" : "aspect-[4/3]"
-                  } ${imageObjectPosition(apartment, image)}`}
+                  sizes="(min-width: 1024px) 22vw, (min-width: 768px) 50vw, 100vw"
+                  className={`aspect-[4/3] h-full w-full object-cover transition duration-500 group-hover:scale-[1.025] ${imageObjectPosition(apartment, moreImage)}`}
                 />
-                {showMoreOverlay ? (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#10262d]/62 text-center text-white">
-                    <span className="font-serif-display text-4xl font-semibold">
-                      +{remainingPhotos}
-                    </span>
-                    <span className="sr-only">{copy.morePhotos}</span>
-                  </div>
-                ) : null}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#10262d]/64 px-4 text-center text-white transition group-hover:bg-[#10262d]/58">
+                  <span className="font-serif-display text-5xl leading-none">+{moreCount}</span>
+                  <span className="mt-2 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-[#f0d49c]">
+                    {copy.morePhotos}
+                  </span>
+                </div>
               </div>
               <figcaption className="px-4 py-3 text-sm leading-6 text-[#5c5044]">
-                {showMoreOverlay ? `${copy.openMore} · +${remainingPhotos} ${copy.morePhotos}` : captionFor(image, safeGalleryIndex)}
+                {copy.openMore} · +{moreCount} {copy.morePhotos}
               </figcaption>
             </button>
           </figure>
-          );
-        })}
+        ) : null}
       </div>
 
       {activeImage ? (
