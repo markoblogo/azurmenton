@@ -161,8 +161,8 @@ export function BookingRequestForm({
       </div>
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
-        <legend className="serif-heading text-2xl text-[#173f36]">{labels.stayDetails}</legend>
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+        <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.stayDetails}</legend>
+        <label className="grid gap-2 text-base font-semibold text-[#17313a]">
           {labels.apartment}
           <select className="field" name="apartment" defaultValue="" required>
             <option value="" disabled>
@@ -175,26 +175,26 @@ export function BookingRequestForm({
             ))}
             <option value="not-sure">{labels.notSure}</option>
           </select>
-          <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.apartmentHelp}</span>
+          <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.apartmentHelp}</span>
         </label>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.checkIn}
             <input className="field" min={today} name="checkIn" type="date" required />
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.checkOut}
             <input className="field" min={today} name="checkOut" type="date" required />
           </label>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.adults}
             <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.children}
             <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
           </label>
@@ -202,18 +202,18 @@ export function BookingRequestForm({
       </fieldset>
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
-        <legend className="serif-heading text-2xl text-[#173f36]">{labels.preferences}</legend>
+        <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.preferences}</legend>
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.parking}
             <select className="field" name="parking" defaultValue="not-sure" required>
               <option value="yes">{labels.yes}</option>
               <option value="no">{labels.no}</option>
               <option value="not-sure">{labels.notSureShort}</option>
             </select>
-            <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.parkingHelp}</span>
+            <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.parkingHelp}</span>
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.language}
             <select className="field" name="preferredLanguage" defaultValue={locale} required>
               {locales.map((item) => (
@@ -225,43 +225,43 @@ export function BookingRequestForm({
           </label>
         </div>
 
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+        <label className="grid gap-2 text-base font-semibold text-[#17313a]">
           {labels.message}
           <textarea
             className="field min-h-28"
             maxLength={2000}
             name="message"
           />
-          <span className="text-xs font-normal leading-5 text-[#756a5d]">{labels.messageHelp}</span>
+          <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.messageHelp}</span>
         </label>
       </fieldset>
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
-        <legend className="serif-heading text-2xl text-[#173f36]">{labels.contactDetails}</legend>
+        <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.contactDetails}</legend>
         <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.name}
             <input className="field" maxLength={120} name="name" required />
           </label>
-          <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.email}
             <input className="field" maxLength={254} name="email" type="email" />
           </label>
         </div>
 
-        <label className="grid gap-2 text-sm font-semibold text-[#17313a]">
+        <label className="grid gap-2 text-base font-semibold text-[#17313a]">
           {labels.phone}
           <input className="field" maxLength={80} name="phone" />
         </label>
       </fieldset>
 
-      <div className="border border-[#dfd4c1] bg-[#fbf7ef] p-4 text-sm leading-6 text-[#5c5044]">
+      <div className="border border-[#dfd4c1] bg-[#fbf7ef] p-4 text-base leading-7 text-[#5c5044]">
         {labels.manual}
       </div>
 
-      <label className="flex items-start gap-3 border border-[#d9cdbd] bg-white/70 p-4 text-sm leading-6 text-[#5c5044]">
+      <label className="flex items-start gap-3 border border-[#d9cdbd] bg-white/70 p-4 text-base leading-7 text-[#5c5044]">
         <input
-          className="mt-1 h-4 w-4 rounded border-[#d9cdbd] text-[#0b6f8f]"
+          className="mt-1.5 h-4 w-4 rounded border-[#d9cdbd] text-[#0b6f8f]"
           name="privacyAcknowledgement"
           required
           type="checkbox"
@@ -282,8 +282,8 @@ export function BookingRequestForm({
         <div
           className={
             state.status === "success"
-              ? "border border-[#8ab59b] bg-[#eef8f1] p-4 text-sm font-semibold text-[#27553a]"
-              : "border border-[#d9a08f] bg-[#fff0eb] p-4 text-sm font-semibold text-[#8a3b26]"
+              ? "border border-[#8ab59b] bg-[#eef8f1] p-4 text-base font-semibold leading-7 text-[#27553a]"
+              : "border border-[#d9a08f] bg-[#fff0eb] p-4 text-base font-semibold leading-7 text-[#8a3b26]"
           }
           role="status"
         >

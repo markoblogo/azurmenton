@@ -138,7 +138,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                 {copy.title[safeLocale]}
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-[#5f574c]">{copy.intro[safeLocale]}</p>
-              <p className="mt-5 max-w-xl border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">{copy.note[safeLocale]}</p>
+              <p className="mt-5 max-w-xl border-l border-[#c6a66a] pl-4 text-base leading-7 text-[#6b5f50]">{copy.note[safeLocale]}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">{copy.apartments[safeLocale]}</Button>
                 <Button href={`/${safeLocale}/guide`} variant="secondary">{copy.guide[safeLocale]}</Button>
@@ -160,7 +160,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
+      <section className="py-10 sm:py-14">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <aside className="grid gap-5 lg:sticky lg:top-28">
@@ -171,8 +171,8 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                     <div key={step.number} className="grid grid-cols-[2.8rem_1fr] gap-4 border-t border-[#eadfce] pt-4 first:border-t-0 first:pt-0">
                       <span className="font-serif-display text-3xl leading-none text-[#c6a66a]">{step.number}</span>
                       <div>
-                        <h2 className="text-sm font-semibold text-[#173f36]">{step.title[safeLocale]}</h2>
-                        <p className="mt-1 text-sm leading-6 text-[#5f574c]">{step.body[safeLocale]}</p>
+                        <h2 className="text-base font-semibold leading-snug text-[#173f36]">{step.title[safeLocale]}</h2>
+                        <p className="mt-1 text-base leading-7 text-[#5f574c]">{step.body[safeLocale]}</p>
                       </div>
                     </div>
                   ))}
@@ -202,9 +202,9 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                         />
                       </div>
                       <div>
-                        <h3 className="text-sm font-semibold leading-5 text-[#173f36]">{apartment.shortName[safeLocale]}</h3>
-                        <p className="mt-1 text-xs leading-5 text-[#5f574c]">{apartmentPositioning[apartment.slug][safeLocale]}</p>
-                        <p className="mt-2 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
+                        <h3 className="text-base font-semibold leading-snug text-[#173f36]">{apartment.shortName[safeLocale]}</h3>
+                        <p className="mt-1 text-sm leading-6 text-[#5f574c]">{apartmentPositioning[apartment.slug][safeLocale]}</p>
+                        <p className="mt-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
                           {labels.upTo} {apartment.maxGuests} {copy.guests[safeLocale]} · {apartment.sizeSqm} m²
                         </p>
                       </div>
@@ -217,7 +217,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                 <p className="editorial-label">{copy.reassuranceTitle[safeLocale]}</p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   {reassurance.map((item) => (
-                    <p key={item.en} className="border border-[#eadfce] bg-white/70 px-3 py-2 text-xs font-semibold leading-5 text-[#5f574c]">
+                    <p key={item.en} className="border border-[#eadfce] bg-white/70 px-3 py-2 text-sm font-semibold leading-6 text-[#5f574c]">
                       {item[safeLocale]}
                     </p>
                   ))}
@@ -249,7 +249,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   <div className="mb-6">
                     <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
                     <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.formTitle[safeLocale]}</h2>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
+                    <p className="mt-3 max-w-2xl text-base leading-7 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
                   </div>
                   <BookingRequestForm apartments={apartments} locale={safeLocale} />
                 </div>
@@ -257,7 +257,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
 
               <div className="mt-6 border-t border-[#dfd4c1] pt-6">
                 <h2 className="serif-heading text-3xl leading-tight text-[#173f36]">{copy.afterTitle[safeLocale]}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#5f574c]">{copy.afterText[safeLocale]}</p>
+                <p className="mt-3 text-base leading-7 text-[#5f574c]">{copy.afterText[safeLocale]}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <Button href={`/${safeLocale}/apartments`} variant="secondary">{copy.compare[safeLocale]}</Button>
                   <Button href={`/${safeLocale}/guide`} variant="secondary">{copy.guide[safeLocale]}</Button>

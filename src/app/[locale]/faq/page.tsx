@@ -235,7 +235,7 @@ export default async function FaqPage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
-          <div className="grid gap-10 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-16">
+          <div className="grid gap-8 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-12">
             <div>
               <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
               <h1 className="serif-heading mt-4 max-w-3xl text-5xl leading-[0.95] text-[#173f36] sm:text-6xl">
@@ -263,33 +263,33 @@ export default async function FaqPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
+      <section className="py-10 sm:py-12">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
             <div>
               <p className="editorial-label">{faqSections[0].title[safeLocale]}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.title[safeLocale]}</h2>
+              <h2 className="serif-heading mt-3 max-w-sm text-4xl leading-tight text-[#173f36]">{copy.title[safeLocale]}</h2>
             </div>
-            <div className="grid gap-6">
+            <div className="grid gap-5">
               {faqSections.map((section) => (
-                <section key={section.title.en} className="border-t border-[#dfd4c1] pt-6">
-                  <div className="grid gap-5 md:grid-cols-[0.38fr_0.62fr]">
+                <section key={section.title.en} className="border-t border-[#dfd4c1] pt-5 first:border-t-0 first:pt-0">
+                  <div className="grid gap-4 md:grid-cols-[0.32fr_0.68fr]">
                     <div>
-                      <h3 className="serif-heading text-3xl leading-tight text-[#173f36]">{section.title[safeLocale]}</h3>
-                      <p className="mt-3 text-sm leading-6 text-[#6b5f50]">{section.intro[safeLocale]}</p>
+                      <h3 className="serif-heading text-[1.85rem] leading-tight text-[#173f36]">{section.title[safeLocale]}</h3>
+                      <p className="mt-3 text-base leading-7 text-[#6b5f50]">{section.intro[safeLocale]}</p>
                     </div>
                     <div className="grid gap-3">
                       {section.questions.map((item) => (
-                        <Card key={item.question.en} className="p-5">
-                          <h4 className="text-base font-semibold text-[#173f36]">{item.question[safeLocale]}</h4>
-                          <p className="mt-2 text-sm leading-6 text-[#5f574c]">{item.answer[safeLocale]}</p>
+                        <Card key={item.question.en} className="p-4 sm:p-5">
+                          <h4 className="text-lg font-semibold leading-snug text-[#173f36]">{item.question[safeLocale]}</h4>
+                          <p className="mt-2 text-base leading-7 text-[#5f574c]">{item.answer[safeLocale]}</p>
                           {item.links ? (
                             <div className="mt-3 flex flex-wrap gap-2">
                               {item.links.map((link) => (
                                 <Link
                                   key={link.href}
                                   href={localPath(safeLocale, link.href)}
-                                  className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#0b6f8f] underline decoration-[#0b6f8f]/25 underline-offset-4 hover:text-[#173f36]"
+                                  className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#0b6f8f] underline decoration-[#0b6f8f]/25 underline-offset-4 hover:text-[#173f36]"
                                 >
                                   {link.label[safeLocale]}
                                 </Link>
@@ -307,16 +307,16 @@ export default async function FaqPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="border-y border-[#dfd4c1] bg-[#f6efe3] py-12 sm:py-16">
+      <section className="border-y border-[#dfd4c1] bg-[#f6efe3] py-10 sm:py-12">
         <Container>
-          <div className="flex flex-col justify-between gap-5 border-b border-[#dfd4c1] pb-8 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-5 border-b border-[#dfd4c1] pb-6 md:flex-row md:items-end">
             <div>
               <p className="editorial-label">{copy.compareTitle[safeLocale]}</p>
               <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.compareTitle[safeLocale]}</h2>
             </div>
-            <p className="max-w-2xl text-sm leading-6 text-[#5f574c]">{copy.compareIntro[safeLocale]}</p>
+            <p className="max-w-2xl text-base leading-7 text-[#5f574c]">{copy.compareIntro[safeLocale]}</p>
           </div>
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          <div className="mt-6 grid gap-5 lg:grid-cols-3">
             {apartments.map((apartment) => (
               <ApartmentCard key={apartment.slug} apartment={apartment} locale={safeLocale} compact />
             ))}
@@ -324,7 +324,7 @@ export default async function FaqPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
+      <section className="py-10 sm:py-12">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
@@ -350,11 +350,11 @@ export default async function FaqPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="bg-[#111615] py-12 text-white sm:py-14">
+      <section className="bg-[#111615] py-10 text-white sm:py-12">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="serif-heading text-4xl leading-tight sm:text-5xl">{copy.finalTitle[safeLocale]}</h2>
-            <p className="mt-4 text-sm leading-7 text-white/72">{copy.finalText[safeLocale]}</p>
+            <p className="mt-4 text-base leading-7 text-white/72">{copy.finalText[safeLocale]}</p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
               <Button href={`/${safeLocale}/check-availability`}>{copy.checkAvailability[safeLocale]}</Button>
               <Button href={`/${safeLocale}/apartments`} variant="secondary">{copy.exploreApartments[safeLocale]}</Button>
