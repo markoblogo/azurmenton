@@ -94,3 +94,57 @@ label:has(.field:user-invalid) {
   font-weight: 600;
   letter-spacing: -0.025em;
 }
+
+.photo-shine-surface {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.photo-shine-surface::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: -35%;
+  z-index: 2;
+  opacity: 0;
+  transform: translate3d(-70%, 18%, 0) rotate(18deg);
+  background:
+    linear-gradient(
+      100deg,
+      transparent 42%,
+      rgba(255, 255, 255, 0.08) 47%,
+      rgba(255, 255, 255, 0.26) 50%,
+      rgba(255, 255, 255, 0.08) 53%,
+      transparent 59%
+    );
+  mix-blend-mode: screen;
+}
+
+.photo-shine-visible::after {
+  animation: photo-shine-sweep 8.5s ease-in-out 1.4s infinite;
+}
+
+@keyframes photo-shine-sweep {
+  0%,
+  58%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-70%, 18%, 0) rotate(18deg);
+  }
+
+  64% {
+    opacity: 0.62;
+  }
+
+  75% {
+    opacity: 0;
+    transform: translate3d(70%, -18%, 0) rotate(18deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-shine-visible::after {
+    animation: none;
+  }
+}
