@@ -61,6 +61,26 @@ textarea {
   background: #ffffff;
 }
 
+.field:user-invalid {
+  border-color: #b76b4f;
+  box-shadow: 0 0 0 3px rgba(183, 107, 79, 0.14);
+}
+
+label:has(.field:user-invalid) {
+  color: #8a3b26;
+}
+
+@media (prefers-contrast: more) {
+  .field {
+    border-width: 2px;
+  }
+
+  .field:focus,
+  .field:user-invalid {
+    box-shadow: 0 0 0 4px rgba(11, 111, 143, 0.22);
+  }
+}
+
 .editorial-label {
   font-size: 0.68rem;
   font-weight: 700;

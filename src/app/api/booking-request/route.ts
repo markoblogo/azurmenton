@@ -8,11 +8,29 @@ import {
 import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
 
+const maxRequestBytes = 32_000;
+
+function jsonResponse(body: Record<string, unknown>, init?: ResponseInit) {
+  return NextResponse.json(body, {
+    ...init,
+    headers: {
+      "Cache-Control": "no-store",
+      ...init?.headers,
+    },
+  });
+}
+
 export async function POST(request: Request) {
+  const contentLength = Number(request.headers.get("content-length") ?? "0");
+
+  if (contentLength > maxRequestBytes) {
+    return jsonResponse({ error: "Booking request is too large." }, { status: 413 });
+  }
+
   const rateLimit = checkBookingRequestRateLimit(getClientIdentifierFromHeaders(request.headers));
 
   if (!rateLimit.ok) {
-    return NextResponse.json(
+    return jsonResponse(
       { error: "Too many booking requests. Please wait a few minutes and try again." },
       {
         status: 429,
@@ -26,7 +44,7 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
 
   if (isHoneypotTriggeredFromUnknown(body)) {
-    return NextResponse.json({
+    return jsonResponse({
       ok: true,
       message:
         "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
@@ -36,13 +54,13 @@ export async function POST(request: Request) {
   const payload = unknownToBookingPayload(body);
 
   if (!payload) {
-    return NextResponse.json({ error: "Invalid JSON payload" }, { status: 400 });
+    return jsonResponse({ error: "Invalid JSON payload" }, { status: 400 });
   }
 
   const validation = validateBookingRequest(payload);
 
   if (!validation.ok) {
-    return NextResponse.json({ error: validation.error }, { status: 400 });
+    return jsonResponse({ error: validation.error }, { status: 400 });
   }
 
   console.info("Azur Menton booking request API received", createBookingRequestLog(payload));
@@ -55,13 +73,13 @@ export async function POST(request: Request) {
       error: emailResult.error,
     });
 
-    return NextResponse.json(
+    return jsonResponse(
       { error: "Email delivery is not configured or failed. Please contact the host directly by email or WhatsApp." },
       { status: 502 },
     );
   }
 
-  return NextResponse.json({
+  return jsonResponse({
     ok: true,
     message:
       "Thank you. We received your request and will confirm availability and the best direct offer shortly.",

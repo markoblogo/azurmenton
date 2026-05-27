@@ -6,6 +6,7 @@ type ButtonProps = {
   href?: string;
   variant?: "primary" | "secondary";
   type?: "button" | "submit";
+  disabled?: boolean;
 };
 
 const variants = {
@@ -17,11 +18,12 @@ const variants = {
 
 export function Button({
   children,
+  disabled = false,
   href,
   variant = "primary",
   type = "button",
 }: ButtonProps) {
-  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]}`;
+  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]}`;
 
   if (href) {
     return (
@@ -32,7 +34,7 @@ export function Button({
   }
 
   return (
-    <button className={className} type={type}>
+    <button className={className} disabled={disabled} type={type}>
       {children}
     </button>
   );

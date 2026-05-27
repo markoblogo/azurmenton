@@ -84,6 +84,30 @@ function buildEmailHtml(payload: BookingRequestPayload) {
   `;
 }
 
+function buildEmailText(payload: BookingRequestPayload) {
+  const rows = [
+    ["Apartment", apartmentLabel(payload.apartment)],
+    ["Check-in", payload.checkIn],
+    ["Check-out", payload.checkOut],
+    ["Adults", payload.adults],
+    ["Children", payload.children],
+    ["Need parking", parkingLabel(payload.parking)],
+    ["Preferred language", languageLabel(payload.preferredLanguage)],
+    ["Name", payload.name],
+    ["Email", payload.email || "Not provided"],
+    ["Phone / WhatsApp", payload.phone || "Not provided"],
+    ["Message", payload.message || "No message"],
+    ["Privacy acknowledgement", payload.privacyAcknowledgement === "accepted" ? "Accepted" : "Missing"],
+  ];
+
+  return [
+    "New Azur Menton booking request",
+    "This is a manual request-to-book enquiry. Confirm availability before replying with an offer.",
+    "",
+    ...rows.map(([label, value]) => `${label}: ${value}`),
+  ].join("\n");
+}
+
 export async function sendBookingRequestEmail(
   payload: BookingRequestPayload,
 ): Promise<ResendResult> {
@@ -110,6 +134,7 @@ export async function sendBookingRequestEmail(
       to,
       subject: `Azur Menton request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
       html: buildEmailHtml(payload),
+      text: buildEmailText(payload),
       reply_to: payload.email || undefined,
     }),
   });

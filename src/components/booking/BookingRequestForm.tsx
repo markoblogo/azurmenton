@@ -152,7 +152,7 @@ export function BookingRequestForm({
   const labels = formCopy[locale];
 
   return (
-    <form action={formAction} className="grid gap-6" aria-label={labels.formLabel}>
+    <form action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel}>
       <div className="hidden" aria-hidden="true">
         <label>
           Website
@@ -192,11 +192,11 @@ export function BookingRequestForm({
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.adults}
-            <input className="field" max="8" min="1" name="adults" type="number" defaultValue="2" required />
+            <input className="field" inputMode="numeric" max="8" min="1" name="adults" type="number" defaultValue="2" required />
           </label>
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.children}
-            <input className="field" max="8" min="0" name="children" type="number" defaultValue="0" required />
+            <input className="field" inputMode="numeric" max="8" min="0" name="children" type="number" defaultValue="0" required />
           </label>
         </div>
       </fieldset>
@@ -241,17 +241,17 @@ export function BookingRequestForm({
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.name}
-            <input className="field" maxLength={120} name="name" required />
+            <input className="field" autoComplete="name" maxLength={120} name="name" required />
           </label>
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.email}
-            <input className="field" maxLength={254} name="email" type="email" />
+            <input className="field" autoComplete="email" inputMode="email" maxLength={254} name="email" type="email" />
           </label>
         </div>
 
         <label className="grid gap-2 text-base font-semibold text-[#17313a]">
           {labels.phone}
-          <input className="field" maxLength={80} name="phone" />
+          <input className="field" autoComplete="tel" inputMode="tel" maxLength={80} name="phone" />
         </label>
       </fieldset>
 
@@ -286,12 +286,13 @@ export function BookingRequestForm({
               : "border border-[#d9a08f] bg-[#fff0eb] p-4 text-base font-semibold leading-7 text-[#8a3b26]"
           }
           role="status"
+          aria-live="polite"
         >
           {state.message}
         </div>
       ) : null}
 
-      <Button type="submit">{pending ? labels.sending : labels.send}</Button>
+      <Button type="submit" disabled={pending}>{pending ? labels.sending : labels.send}</Button>
     </form>
   );
 }

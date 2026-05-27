@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return entries.map(({ route, path, image }) => ({
     url: absoluteUrl(route),
-    lastModified: new Date("2026-05-18"),
+    lastModified: new Date("2026-05-27"),
     changeFrequency: changeFrequencyForRoute(route),
     priority: priorityForRoute(route),
     alternates: {

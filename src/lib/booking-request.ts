@@ -220,10 +220,10 @@ export function createBookingRequestLog(payload: BookingRequestPayload) {
       hasMessage: Boolean(payload.message),
       privacyAcknowledgement: payload.privacyAcknowledgement === "accepted",
     },
-    futureIntegrations: {
-      resendEmail: "TODO: send host and guest email notification",
-      telegramNotification: "TODO: notify host channel/chat",
-      airtableOrSupabasePersistence: "TODO: persist request for follow-up",
+    delivery: {
+      hostEmail: "attempted_when_configured",
+      guestConfirmation: "not_configured",
+      persistence: "not_configured",
     },
   };
 }

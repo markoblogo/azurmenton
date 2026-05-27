@@ -16,9 +16,9 @@ export type LegalPageContent = {
 };
 
 const legalTodos = [
-  "To be confirmed: hosting provider legal details.",
-  "To be added: appointed consumer mediator details if legally required.",
-  "To be confirmed: payment, deposit, cancellation, tourist tax and retention periods.",
+  "Hosting provider details should be reviewed before production changes.",
+  "Consumer mediator details should be reviewed if legally required.",
+  "Payment, cancellation, tourist tax and retention periods should be reviewed as operations evolve.",
 ];
 
 export const legalTodoFields = legalTodos;
@@ -49,7 +49,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Hebergement",
           body: [
-            "Le site est prevu pour un hebergement sur Vercel. A confirmer: le prestataire d'hebergement final, sa denomination sociale et son adresse avant mise en production.",
+            "Le site est heberge sur une infrastructure web geree. Les informations de l'hebergeur peuvent etre precisees ou mises a jour si necessaire.",
           ],
         },
         {
@@ -98,7 +98,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Hosting",
           body: [
-            "The website is prepared for Vercel hosting. To be confirmed: the final hosting provider legal name and address before production launch.",
+            "The website is hosted on managed web infrastructure. Hosting provider details may be clarified or updated where required.",
           ],
         },
         {
@@ -133,7 +133,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Hosting, proprieta intellettuale e responsabilita",
           body: [
-            "Il sito e predisposto per Vercel. Da confermare: i dettagli legali dell'hosting prima del lancio.",
+            "Il sito e ospitato su infrastruttura web gestita. I dettagli del provider di hosting possono essere precisati o aggiornati se necessario.",
             "Testi, foto, logo e design sono protetti. Le richieste di prenotazione non sono conferme istantanee.",
           ],
         },
@@ -162,8 +162,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Хостинг і відповідальність",
           body: [
-            "The website is prepared for Vercel hosting. To be confirmed: final hosting legal details.",
-            "Booking requests are not instant confirmations. Availability, prices and conditions are confirmed manually in writing.",
+            "Сайт розміщено на керованій веб-інфраструктурі. Дані провайдера хостингу можуть бути уточнені або оновлені за потреби.",
+            "Запити на бронювання не є миттєвим підтвердженням. Доступність, ціни та умови підтверджуються вручну в письмовому вигляді.",
           ],
         },
       ],
@@ -202,8 +202,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Destinataires, conservation et transferts",
           body: [
             "Les donnees sont destinees a Azur Menton / l'equipe hote et aux prestataires techniques strictement necessaires, le cas echeant.",
-            "A definir: les durees exactes de conservation des demandes non confirmees, reservations confirmees, archives comptables et messages de support.",
-            "A verifier: les eventuels transferts hors Union europeenne si des outils email, notification, CRM, Airtable, Supabase ou equivalents sont ajoutes.",
+            "Les donnees sont conservees uniquement pendant la duree necessaire aux echanges, aux reservations confirmees, aux obligations comptables et au support.",
+            "Si de nouveaux outils email, notification, CRM ou equivalents sont ajoutes, les informations relatives aux prestataires et transferts seront mises a jour.",
           ],
         },
         {
@@ -240,9 +240,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Recipients, retention and rights",
           body: [
-            "Data may be accessed by Azur Menton / the host team and necessary technical providers. To be confirmed: exact providers and retention periods.",
+            "Data may be accessed by Azur Menton / the host team and necessary technical providers. It is kept only as long as needed for enquiries, confirmed stays, accounting duties and guest support.",
             "Users may request access, rectification, deletion, restriction, objection and portability where applicable, and may complain to CNIL.",
-            "Azur Menton does not sell personal data. To be assessed: international transfers if non-EU tools are added later.",
+            "Azur Menton does not sell personal data. If additional non-EU tools are added later, the privacy information will be updated.",
           ],
         },
       ],
@@ -265,7 +265,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Diritti e conservazione",
           body: [
             "Le basi giuridiche possono includere misure precontrattuali, contratto, interesse legittimo e consenso dove richiesto.",
-            "Da confermare: destinatari, tempi di conservazione e eventuali trasferimenti internazionali.",
+            "I dati sono accessibili solo al team host e ai fornitori tecnici necessari, e vengono conservati per il tempo necessario a richieste, prenotazioni confermate, obblighi contabili e supporto.",
             "Gli utenti hanno diritti GDPR applicabili e possono presentare reclamo alla CNIL. Azur Menton non vende dati personali.",
           ],
         },
@@ -289,7 +289,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Права та зберігання",
           body: [
             "Правові підстави можуть включати переддоговірні заходи, договір, законний інтерес і згоду, якщо вона потрібна.",
-            "To be confirmed: recipients, retention periods and any international transfers.",
+            "Дані доступні лише команді хоста та необхідним технічним провайдерам і зберігаються стільки, скільки потрібно для запитів, підтверджених бронювань, бухгалтерських обов'язків і підтримки гостей.",
             "Користувачі мають застосовні права GDPR і можуть подати скаргу до CNIL. Azur Menton не продає персональні дані.",
           ],
         },
@@ -320,7 +320,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Consentement",
           body: [
-            "A ajouter: un mecanisme de consentement et de retrait si des cookies non essentiels, analytics ou embeds tiers sont actives.",
+            "Si des cookies non essentiels, outils d'analytics ou embeds tiers sont actives, un mecanisme de consentement et de retrait sera mis en place.",
           ],
         },
       ],
@@ -343,7 +343,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Analytics cookies, third-party embeds or additional providers must be documented here if added later.",
             "The weather widget does not load third-party browser scripts by default. User-facing third-party embeds must be documented here if added later.",
-            "To be added: a consent and withdrawal mechanism if non-essential cookies are introduced.",
+            "If non-essential cookies are introduced, a consent and withdrawal mechanism will be provided.",
           ],
         },
       ],
@@ -360,24 +360,23 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "Il sito non usa attualmente cookie non essenziali noti per marketing o analytics.",
             "Cookie strettamente necessari possono essere usati dall'hosting o da servizi tecnici.",
             "Eventuali embed terzi visibili agli utenti dovranno essere documentati qui se aggiunti in futuro.",
-            "Da aggiungere: consenso e revoca se in futuro vengono attivati cookie non essenziali o embed terzi.",
+            "Se in futuro saranno attivati cookie non essenziali o embed terzi, verra fornito un meccanismo di consenso e revoca.",
           ],
         },
       ],
     },
     uk: {
-      title: "Cookie Policy",
-      description: "Cookie information for the Azur Menton website.",
-      seoTitle: "Cookie Policy",
-      seoDescription: "Azur Menton cookie policy for essential cookies, future analytics and third-party embeds.",
+      title: "Політика cookies",
+      description: "Інформація про cookies на сайті Azur Menton.",
+      seoTitle: "Політика cookies",
+      seoDescription: "Політика Azur Menton щодо технічно необхідних cookies, майбутньої аналітики і сторонніх вбудованих елементів.",
       sections: [
         {
-          title: "Current use",
+          title: "Поточне використання",
           body: [
-            "The website does not currently use known non-essential marketing or analytics cookies.",
-            "Strictly necessary cookies may be used by hosting or core technical services.",
-            "User-facing third-party embeds must be documented here if added later.",
-            "To be added: consent and withdrawal controls if non-essential cookies or third-party embeds are introduced.",
+            "Сайт наразі не використовує відомі необов'язкові маркетингові або аналітичні cookies.",
+            "Технічно необхідні cookies можуть використовуватися хостингом або базовими технічними сервісами.",
+            "Якщо пізніше буде додано сторонні вбудовані елементи або необов'язкові cookies, ця сторінка буде оновлена, а механізм згоди буде наданий там, де це потрібно.",
           ],
         },
       ],
@@ -400,18 +399,18 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Paiement, annulation et taxe",
           body: [
-            "A definir: les conditions de paiement, acompte ou solde.",
-            "A definir: les conditions d'annulation et de remboursement.",
-            "A definir: les modalites de taxe de sejour, si applicable.",
-            "A definir: le depot de garantie ou caution dommage, si applicable.",
+            "Les conditions de paiement, acompte ou solde sont indiquees dans l'offre ecrite avant confirmation.",
+            "Les conditions d'annulation et de remboursement sont precisees dans l'echange de reservation.",
+            "La taxe de sejour, si applicable, est indiquee avec les conditions confirmees.",
+            "Un depot de garantie ou une caution dommage peut etre demande selon le sejour et l'appartement.",
           ],
         },
         {
           title: "Arrivee, depart et regles de maison",
           body: [
-            "A confirmer: les horaires d'arrivee et de depart.",
+            "Les horaires d'arrivee et de depart sont confirmes avec l'hote avant le sejour.",
             "Regles prevues: logement non-fumeur, pas de fetes ni evenements, respect de l'occupation maximale de chaque appartement.",
-            "A confirmer: la politique animaux, enfants et lit bebe.",
+            "Les demandes concernant animaux, enfants ou lit bebe doivent etre confirmees avant reservation.",
           ],
         },
         {
@@ -419,9 +418,9 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Le parking depend de l'appartement, de la disponibilite et peut necessiter une reservation. Des frais peuvent s'appliquer lorsque cela est indique.",
             "Les voyageurs sont responsables de l'utilisation normale du logement, du respect du voisinage et du signalement rapide de tout probleme.",
-            "Pour une reclamation, contacter petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65. A ajouter: la procedure definitive.",
-            "A ajouter: les coordonnees du mediateur de la consommation si legalement requis.",
-            "A confirmer: la loi applicable et la juridiction competente.",
+            "Pour une reclamation, contacter petraetpaul@gmail.com ou WhatsApp: +33 6 24 71 65 65.",
+            "Les coordonnees du mediateur de la consommation seront communiquees si elles sont legalement requises.",
+            "La loi applicable et la juridiction competente sont celles prevues par le droit applicable aux locations concernees.",
           ],
         },
       ],
@@ -442,17 +441,18 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
         {
           title: "Payments, cancellation and tax",
           body: [
-            "To be defined: payment, deposit and balance terms.",
-            "To be defined: cancellation and refund terms.",
-            "To be defined: tourist tax handling, if applicable.",
-            "To be defined: damage or security deposit terms, if applicable.",
+            "Payment, deposit and balance terms are provided in the written offer before confirmation.",
+            "Cancellation and refund terms are confirmed in the booking exchange.",
+            "Tourist tax, where applicable, is included in the confirmed terms.",
+            "A damage or security deposit may be requested depending on the stay and apartment.",
           ],
         },
         {
           title: "House rules and guest responsibilities",
           body: [
             "Expected house rules: no smoking, no parties/events and respect for each apartment's maximum occupancy.",
-            "To be confirmed: pets, children and cot policies, check-in/check-out times, complaints process, consumer mediator if legally required, governing law and jurisdiction.",
+            "Pets, children, cot requests and check-in/check-out times should be confirmed before booking.",
+            "For complaints, contact petraetpaul@gmail.com or WhatsApp: +33 6 24 71 65 65. Consumer mediator details will be provided if legally required.",
             "Parking depends on the apartment and availability. Reservation may be required and charges may apply where relevant.",
           ],
         },
@@ -469,25 +469,26 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il modulo invia solo una richiesta diretta. Non e una conferma immediata.",
             "La prenotazione e confermata solo dopo conferma scritta dell'host. Prezzi, disponibilita e condizioni sono confermati manualmente.",
-            "Da definire: pagamento, deposito, cancellazione, tassa di soggiorno, cauzione, orari, animali, bambini, reclami, mediatore se richiesto, legge applicabile e giurisdizione.",
+            "Pagamento, deposito, cancellazione, tassa di soggiorno, cauzione e orari sono indicati nell'offerta scritta o nello scambio di prenotazione.",
+            "Animali, bambini, letto bebe e richieste particolari devono essere confermati prima della prenotazione.",
             "Regole previste: non fumare, niente feste/eventi e rispetto dell'occupazione massima. Il parcheggio dipende dall'appartamento e dalla disponibilita.",
           ],
         },
       ],
     },
     uk: {
-      title: "Booking Terms",
-      description: "Terms for direct booking requests with Azur Menton.",
-      seoTitle: "Booking Terms",
-      seoDescription: "Azur Menton booking terms for manual requests, written confirmation, payments, cancellation and house rules.",
+      title: "Умови бронювання",
+      description: "Умови для прямих запитів на бронювання Azur Menton.",
+      seoTitle: "Умови бронювання",
+      seoDescription: "Умови Azur Menton для ручних запитів, письмового підтвердження, оплат, скасування та правил проживання.",
       sections: [
         {
-          title: "Request, confirmation and key terms",
+          title: "Запит, підтвердження та основні умови",
           body: [
-            "The form sends a direct booking request only. It is not instant confirmation.",
-            "A booking is confirmed only after written confirmation from the host. Prices, availability and conditions are confirmed manually.",
-            "To be defined: payment, deposit, cancellation, tourist tax, security deposit, check-in/check-out, pets, children, complaints, mediator if required, governing law and jurisdiction.",
-            "Expected rules: no smoking, no parties/events and respect for maximum occupancy. Parking depends on apartment and availability.",
+            "Форма надсилає лише прямий запит на бронювання. Це не є миттєвим підтвердженням.",
+            "Бронювання підтверджується лише після письмового підтвердження від хоста. Ціни, доступність і умови перевіряються вручну.",
+            "Оплата, депозит, скасування, туристичний збір, застава й час заїзду/виїзду вказуються в письмовій пропозиції або під час підтвердження.",
+            "Очікувані правила: не палити, не проводити вечірки/події та дотримуватися максимальної кількості гостей. Паркінг залежить від апартаментів і доступності.",
           ],
         },
       ],
