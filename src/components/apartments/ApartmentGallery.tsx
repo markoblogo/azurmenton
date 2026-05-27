@@ -251,13 +251,13 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
   }
 
   return (
-    <section aria-labelledby="photo-gallery" className="mt-12">
+    <section aria-labelledby="photo-gallery">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <h2 id="photo-gallery" className="serif-heading text-4xl text-[#173f36]">
+          <h2 id="photo-gallery" className="serif-heading text-4xl text-[#173f36] sm:text-5xl">
             {copy.title}
           </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5c5044]">
+          <p className="mt-3 max-w-3xl text-base leading-7 text-[#5c5044]">
             {copy.intro}
           </p>
         </div>
@@ -270,7 +270,7 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
         </button>
       </div>
 
-      <div className="mt-7 grid gap-3 md:grid-cols-2 lg:grid-cols-[1.25fr_0.72fr_0.72fr] lg:grid-rows-2">
+      <div className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-[1.25fr_0.72fr_0.72fr] lg:grid-rows-2">
         {composedPreviewImages.map((image, index) => {
           const galleryIndex = apartment.gallery.findIndex((galleryImage) => galleryImage.src === image.src);
           const safeGalleryIndex = galleryIndex >= 0 ? galleryIndex : index;

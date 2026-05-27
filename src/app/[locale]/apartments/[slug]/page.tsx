@@ -842,22 +842,22 @@ export default async function ApartmentPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section>
+      <Section className="py-10 sm:py-14">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.66fr_0.34fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.62fr_0.38fr] lg:items-start">
             <div>
               <p className="editorial-label">{copy.experienceTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-6xl">
+              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-5xl">
                 {apartment.shortName[safeLocale]}
               </h2>
-              <p className="mt-7 max-w-3xl text-lg leading-9 text-[#5f574c]">{story.experience}</p>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5f574c]">{story.experience}</p>
             </div>
-            <aside className="border-y border-[#dfd4c1] py-6">
+            <aside className="border-y border-[#dfd4c1] py-5">
               <h2 className="serif-heading text-3xl text-[#173f36]">{copy.atAGlance}</h2>
-              <dl className="mt-5 grid gap-4 text-sm">
+              <dl className="mt-4 grid gap-3 text-base">
                 {glanceItems.map((item) => (
-                  <div key={`${item.label}-${item.value}`} className="grid grid-cols-[0.36fr_0.64fr] gap-4 border-b border-[#eadfce] pb-3 last:border-b-0">
-                    <dt className="text-[#756a5a]">{item.label}</dt>
+                  <div key={`${item.label}-${item.value}`} className="grid grid-cols-[0.38fr_0.62fr] gap-4 border-b border-[#eadfce] pb-3 last:border-b-0">
+                    <dt className="text-sm uppercase tracking-[0.08em] text-[#756a5a]">{item.label}</dt>
                     <dd className="font-semibold text-[#173f36]">{item.value}</dd>
                   </div>
                 ))}
@@ -867,20 +867,20 @@ export default async function ApartmentPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3]">
+      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3] py-10 sm:py-14">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
             <div>
               <p className="editorial-label">{copy.insideTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-5xl">
+              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-[3.15rem]">
                 {copy.insideHeading}
               </h2>
             </div>
-            <div className="grid gap-7 md:grid-cols-2">
-              <p className="text-base leading-8 text-[#5f574c]">{story.inside}</p>
-              <div className="border-l border-[#c6a66a] pl-6">
+            <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr]">
+              <p className="text-lg leading-8 text-[#5f574c]">{story.inside}</p>
+              <div className="border-l border-[#c6a66a] pl-5">
                 <h3 className="serif-heading text-3xl text-[#173f36]">{copy.appreciateTitle}</h3>
-                <ul className="mt-4 space-y-3 text-sm leading-6 text-[#5f574c]">
+                <ul className="mt-4 space-y-3 text-base leading-7 text-[#5f574c]">
                   {story.appreciate.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -891,26 +891,26 @@ export default async function ApartmentPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="py-10 sm:py-14">
         <Container>
           <ApartmentGallery apartment={apartment} locale={safeLocale} />
         </Container>
       </Section>
 
-      <Section className="bg-[#fff3df]">
+      <Section className="bg-[#fff3df] py-10 sm:py-14">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.32fr_0.68fr] lg:items-start">
             <div>
               <p className="editorial-label">{copy.amenitiesTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-5xl">
+              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-[3.15rem]">
                 {copy.amenitiesHeading}
               </h2>
             </div>
             <div className="grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] md:grid-cols-2">
               {story.amenityGroups.map((group) => (
-                <div key={group.title} className="bg-[#fbf7ef] p-6">
-                  <h3 className="serif-heading text-2xl text-[#173f36]">{group.title}</h3>
-                  <ul className="mt-4 space-y-2 text-sm leading-6 text-[#5f574c]">
+                <div key={group.title} className="bg-[#fbf7ef] p-5 sm:p-6">
+                  <h3 className="serif-heading text-3xl text-[#173f36]">{group.title}</h3>
+                  <ul className="mt-4 space-y-2.5 text-base leading-7 text-[#5f574c]">
                     {group.items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
@@ -922,23 +922,23 @@ export default async function ApartmentPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="py-10 sm:py-14">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-[0.54fr_0.46fr] lg:items-start">
             <div>
               <p className="editorial-label">{copy.locationTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-5xl">
+              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-[3.15rem]">
                 {copy.locationHeading}
               </h2>
-              <ul className="mt-6 space-y-4 text-base leading-8 text-[#5f574c]">
+              <ul className="mt-5 space-y-3 text-lg leading-8 text-[#5f574c]">
                 {story.location.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>
-            <div className="border border-[#dfd4c1] bg-[#fffdf8] p-6">
+            <div className="border border-[#dfd4c1] bg-[#fffdf8] p-5 sm:p-7">
               <h2 className="serif-heading text-3xl text-[#173f36]">{copy.goodToKnowTitle}</h2>
-              <ul className="mt-5 space-y-4 text-sm leading-7 text-[#5f574c]">
+              <ul className="mt-4 space-y-3 text-base leading-7 text-[#5f574c]">
                 {story.goodToKnow.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -948,18 +948,18 @@ export default async function ApartmentPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3]">
+      <Section className="border-y border-[#dfd4c1] bg-[#f6efe3] py-10 sm:py-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.42fr_0.58fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.36fr_0.64fr] lg:items-start">
             <div>
               <p className="editorial-label">{copy.relatedTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl text-[#173f36]">{copy.faqTitle}</h2>
+              <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36] sm:text-[3.15rem]">{copy.faqTitle}</h2>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-3">
               {story.faq.map((item) => (
-                <div key={item.question} className="border-b border-[#dfd4c1] pb-5">
-                  <h3 className="font-semibold text-[#173f36]">{item.question}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#5f574c]">{item.answer}</p>
+                <div key={item.question} className="border-b border-[#dfd4c1] pb-4">
+                  <h3 className="font-serif text-xl font-semibold text-[#173f36]">{item.question}</h3>
+                  <p className="mt-2 text-base leading-7 text-[#5f574c]">{item.answer}</p>
                 </div>
               ))}
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
