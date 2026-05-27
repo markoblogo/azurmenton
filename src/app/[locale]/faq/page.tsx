@@ -337,7 +337,7 @@ export default async function FaqPage({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
               <Image
-                src="/images/events/menton-lemon-festival.png"
+                src="/images/events/menton-lemon-festival.jpg"
                 alt="Illustration of Menton Lemon Festival and Riviera events"
                 width={1270}
                 height={900}

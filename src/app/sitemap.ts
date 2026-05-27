@@ -65,7 +65,7 @@ function imageForStaticRoute(path: string) {
   }
 
   if (path === "events") {
-    return "/images/events/menton-lemon-festival.png";
+    return "/images/events/menton-lemon-festival.jpg";
   }
 
   return undefined;

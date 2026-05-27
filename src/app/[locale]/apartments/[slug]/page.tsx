@@ -719,7 +719,7 @@ function heroImages(apartment: Apartment) {
     return pickHeroCollage(apartment, [
       "01-private-terrace-breakfast.jpg",
       "02-living-room-terrace-access.jpg",
-      "03-comfortable-bedroom.png",
+      "03-comfortable-bedroom.jpg",
     ]);
   }
 

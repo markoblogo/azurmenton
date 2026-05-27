@@ -194,7 +194,7 @@ const guideTeaserImages: Record<string, { src: string; alt: string }> = {
     alt: "Illustration of Riviera day trips from Menton",
   },
   "../events": {
-    src: "/images/events/menton-lemon-festival.png",
+    src: "/images/events/menton-lemon-festival.jpg",
     alt: "Illustration of Menton Lemon Festival and Riviera events",
   },
 };
@@ -212,7 +212,7 @@ const heroInsetSlides = [
   { src: "/images/apartments/sea-view-balcony-studio/07-sofa-seating-area.png", objectPosition: "50% 50%" },
   { src: "/images/apartments/sea-view-balcony-studio/11-balcony-sea-view.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/02-living-room-terrace-access.jpg", objectPosition: "50% 50%" },
-  { src: "/images/apartments/beachside-family-apartment/03-comfortable-bedroom.png", objectPosition: "50% 50%" },
+  { src: "/images/apartments/beachside-family-apartment/03-comfortable-bedroom.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/04-dining-area-equipped-kitchen.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/05-living-room-sofa-bed.jpg", objectPosition: "50% 50%" },
   { src: "/images/apartments/beachside-family-apartment/21-living-room-tv-terrace.png", objectPosition: "50% 50%" },
@@ -454,7 +454,7 @@ export default async function LocaleHome({ params }: PageProps) {
             </div>
             <div className="relative overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-3">
               <Image
-                src="/images/events/menton-lemon-festival.png"
+                src="/images/events/menton-lemon-festival.jpg"
                 alt="Illustration of Menton Lemon Festival and Riviera events"
                 width={1270}
                 height={900}

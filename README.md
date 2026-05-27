@@ -135,6 +135,8 @@ Key files:
 
 If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp. The site must not pretend that a request was delivered when delivery failed.
 
+For production Resend setup and the manual test checklist, see `RESEND_SETUP.md`.
+
 Guest contact details are configured in `src/config/site.ts`:
 
 - Email: `petraetpaul@gmail.com`
@@ -245,6 +247,8 @@ Current image groups:
 
 Use `next/image` for site imagery. Do not hotlink third-party images, scrape Google Maps, add unsafe external scripts, embed random social widgets, or imply that illustrations are official event photos.
 
+Large opaque PNGs should be converted to quality JPEG only after visual comparison. As of 2026-05-27, the heaviest apartment/event PNGs were converted and `public/images` is about 62 MB with no image over 1.5 MB.
+
 Image audit and mapping documents:
 
 - `IMAGE_AUDIT.md`
@@ -329,4 +333,3 @@ Do not configure DNS, deploy, connect production services or add tracking from l
 ## Current Public Credit
 
 The footer contains a subtle site credit link to `https://abvx.xyz`.
-

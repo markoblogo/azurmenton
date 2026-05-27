@@ -174,7 +174,7 @@ export const apartments: Apartment[] = [
         category: "bedroom",
       },
       {
-        src: `${seaViewImagePath}/06-dining-corner.png`,
+        src: `${seaViewImagePath}/06-dining-corner.jpg`,
         alt: enFallback("Small dining table by the balcony in the sea view studio"),
         caption: enFallback("Dining area by the balcony"),
         category: "living",
@@ -246,13 +246,13 @@ export const apartments: Apartment[] = [
         category: "location",
       },
       {
-        src: `${seaViewImagePath}/18-lemon-festival-gardens.png`,
+        src: `${seaViewImagePath}/18-lemon-festival-gardens.jpg`,
         alt: enFallback("Citrus sculptures during Menton's Lemon Festival"),
         caption: enFallback("A special location during Menton's Lemon Festival"),
         category: "location",
       },
       {
-        src: `${seaViewImagePath}/19-lemon-festival-town-view.png`,
+        src: `${seaViewImagePath}/19-lemon-festival-town-view.jpg`,
         alt: enFallback("Menton Lemon Festival installations with the town and sea nearby"),
         caption: enFallback("Festival atmosphere in Menton"),
         category: "location",
@@ -368,7 +368,7 @@ export const apartments: Apartment[] = [
         priority: true,
       },
       {
-        src: `${beachsideFamilyImagePath}/03-comfortable-bedroom.png`,
+        src: `${beachsideFamilyImagePath}/03-comfortable-bedroom.jpg`,
         alt: enFallback("Comfortable bedroom with double bed, armchair and soft lighting"),
         caption: enFallback("Comfortable bedroom with double bed"),
         category: "bedroom",
@@ -488,7 +488,7 @@ export const apartments: Apartment[] = [
         category: "kitchen",
       },
       {
-        src: `${beachsideFamilyImagePath}/23-parking-nearby.png`,
+        src: `${beachsideFamilyImagePath}/23-parking-nearby.jpg`,
         alt: enFallback("Parking sign near the apartment building in central Menton"),
         caption: enFallback("Parking nearby, available by reservation"),
         category: "parking",
@@ -623,7 +623,7 @@ export const apartments: Apartment[] = [
         category: "kitchen",
       },
       {
-        src: `${panoramicSeaViewImagePath}/05-bathroom-washing-machine.png`,
+        src: `${panoramicSeaViewImagePath}/05-bathroom-washing-machine.jpg`,
         alt: enFallback("Private bathroom with sink, shower and washing machine"),
         caption: enFallback("Private bathroom with washing machine"),
         category: "bathroom",
@@ -677,7 +677,7 @@ export const apartments: Apartment[] = [
         category: "living",
       },
       {
-        src: `${panoramicSeaViewImagePath}/14-evening-mediterranean-colours.png`,
+        src: `${panoramicSeaViewImagePath}/14-evening-mediterranean-colours.jpg`,
         alt: enFallback("Evening colours over the Mediterranean sea near Menton"),
         caption: enFallback("Evening colours over the Mediterranean"),
         category: "view",
