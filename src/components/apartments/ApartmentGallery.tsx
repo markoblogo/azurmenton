@@ -402,7 +402,8 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
                       apartment,
                       activeImage,
                     )}`}
-                    priority={activeImage.priority}
+                    fetchPriority={activeImage.priority ? "high" : "auto"}
+                    loading={activeImage.priority ? "eager" : "lazy"}
                   />
                 </div>
                 <figcaption className="mx-auto max-w-3xl text-center text-base leading-7 text-white/82">

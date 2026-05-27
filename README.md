@@ -292,6 +292,8 @@ Large opaque PNGs should be converted to quality JPEG only after visual comparis
 
 `next.config.ts` restricts allowed image qualities to `75` and `90`; use one of those values when adding `next/image` calls with explicit quality.
 
+For Next.js 16 hero/LCP imagery, prefer `preload` or `fetchPriority="high"` over the deprecated `priority` prop. Use `loading="eager"` only for the first visible slideshow image or other true above-the-fold candidates.
+
 Image audit and mapping documents:
 
 - `IMAGE_AUDIT.md`
@@ -328,6 +330,8 @@ Current baseline:
 The CSP currently allows inline scripts/styles because Next.js and the current styling pipeline require them. If this is tightened later, test all App Router pages, metadata, fonts and interactive forms carefully.
 
 Run `npm audit --omit=dev` periodically. The project currently uses a `postcss` override to keep the dependency tree on a patched version.
+
+Latest maintenance pass: 2026-05-27. `npm audit --omit=dev` returned no vulnerabilities, production booking API smoke tests returned expected `200` for honeypot and `400` for invalid payloads, and no local images above 1.5 MB were found.
 
 ## SEO and Structured Data
 

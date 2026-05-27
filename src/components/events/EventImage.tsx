@@ -40,7 +40,7 @@ export function EventImage({
           src={image}
           alt={alt}
           fill
-          priority={priority}
+          preload={priority}
           quality={90}
           sizes={sizes}
           className={`object-cover ${imageClassName}`}

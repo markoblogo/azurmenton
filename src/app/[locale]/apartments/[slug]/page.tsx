@@ -810,7 +810,7 @@ export default async function ApartmentPage({ params }: PageProps) {
                   width={900}
                   height={680}
                   quality={90}
-                  priority
+                  preload
                   sizes="(min-width: 1024px) 560px, 100vw"
                   className={`aspect-[4/3] w-full object-cover ${imageObjectPosition(apartment, hero)}`}
                 />

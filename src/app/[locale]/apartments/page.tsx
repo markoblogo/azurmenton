@@ -212,7 +212,7 @@ export default async function ApartmentsPage({ params }: PageProps) {
                   alt="Living area with Mediterranean sea view at Azur Menton"
                   width={864}
                   height={1184}
-                  priority
+                  preload
                   quality={90}
                   sizes="(min-width: 1024px) 35vw, 70vw"
                   className="aspect-[4/5] w-full object-cover object-[50%_50%]"

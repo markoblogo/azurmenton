@@ -253,7 +253,7 @@ export default async function FaqPage({ params }: PageProps) {
                 alt="Riviera planning scene for Azur Menton guest questions"
                 width={1602}
                 height={981}
-                priority
+                preload
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="aspect-[4/3] w-full object-cover object-[50%_50%]"

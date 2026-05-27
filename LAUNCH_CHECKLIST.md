@@ -27,10 +27,12 @@
 
 ## Booking
 
-- [ ] Booking request form submits successfully in production.
+- [x] Booking request form submits successfully in production.
 - [ ] Privacy acknowledgement checkbox is required and not pre-checked.
-- [ ] Host receives booking request notifications.
-- [ ] Resend sender/domain is verified if Resend is used.
+- [ ] Host receives booking request notifications in `petraetpaul@gmail.com` after final inbox confirmation.
+- [x] Resend sender/domain is configured in Vercel Production if Resend is used.
+- [x] Booking API returns the expected success response for honeypot submissions without sending a real request.
+- [x] Booking API returns the expected validation error for incomplete payloads.
 - [ ] No fake prices, ratings, reviews or availability are displayed.
 
 ## Legal And Content
@@ -59,3 +61,6 @@
 - [ ] Sitemap is submitted in Google Search Console.
 - [ ] Indexing coverage, hreflang issues, mobile usability and Core Web Vitals are reviewed after launch.
 - [ ] Analytics is added only if needed and only with cookie compliance.
+- [x] Dependency audit has no production vulnerabilities as of 2026-05-27.
+- [x] Public images have no files above 1.5 MB as of 2026-05-27.
+- [x] Next.js 16 image priority usage was updated to `preload` / `fetchPriority` for hero imagery.

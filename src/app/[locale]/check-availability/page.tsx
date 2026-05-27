@@ -150,7 +150,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                 alt="Sea-view balcony breakfast at an Azur Menton apartment"
                 width={864}
                 height={1184}
-                priority
+                preload
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="aspect-[4/3] w-full object-cover object-[50%_38%]"

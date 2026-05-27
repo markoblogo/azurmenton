@@ -27,6 +27,16 @@ export async function POST(request: Request) {
     return jsonResponse({ error: "Booking request is too large." }, { status: 413 });
   }
 
+  const body = await request.json().catch(() => null);
+
+  if (isHoneypotTriggeredFromUnknown(body)) {
+    return jsonResponse({
+      ok: true,
+      message:
+        "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
+      });
+  }
+
   const rateLimit = checkBookingRequestRateLimit(getClientIdentifierFromHeaders(request.headers));
 
   if (!rateLimit.ok) {
@@ -39,16 +49,6 @@ export async function POST(request: Request) {
         },
       },
     );
-  }
-
-  const body = await request.json().catch(() => null);
-
-  if (isHoneypotTriggeredFromUnknown(body)) {
-    return jsonResponse({
-      ok: true,
-      message:
-        "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
-    });
   }
 
   const payload = unknownToBookingPayload(body);

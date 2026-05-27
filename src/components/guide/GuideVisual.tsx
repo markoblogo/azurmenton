@@ -84,7 +84,7 @@ export function GuideVisual({
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
           quality={90}
-          priority={priority}
+          preload={priority}
         />
       ) : (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#fff7d6_0,#f4dec0_26%,transparent_50%),linear-gradient(135deg,#f8f3ea,#dfeee9_58%,#f0d7a7)]" />
