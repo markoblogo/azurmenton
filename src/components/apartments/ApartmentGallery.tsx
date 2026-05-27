@@ -354,20 +354,25 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
 
       {activeImage ? (
         <div
-          className="fixed inset-0 z-50 overflow-y-auto bg-[#10262d]/95 p-4 text-white sm:p-6"
+          className="fixed inset-0 z-50 overflow-y-auto bg-[#081917]/98 p-4 text-white sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-label={`${apartment.shortName[locale]} photo gallery`}
         >
-          <div className="mx-auto flex min-h-full max-w-6xl flex-col">
-            <div className="flex items-center justify-between gap-4 py-2">
-              <p className="text-sm font-semibold text-white/80">
-                {copy.photo} {visibleIndex + 1} {copy.of} {apartment.gallery.length}
-              </p>
+          <div className="mx-auto flex min-h-full max-w-7xl flex-col">
+            <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-white/10 bg-[#081917]/95 py-3 backdrop-blur">
+              <div>
+                <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#d2b16e]">
+                  {apartment.shortName[locale]}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-white/78">
+                  {copy.photo} {visibleIndex + 1} {copy.of} {apartment.gallery.length}
+                </p>
+              </div>
               <button
                 type="button"
                 onClick={() => setActiveIndex(null)}
-                className="inline-flex min-h-11 items-center justify-center bg-white px-4 py-2 text-sm font-semibold text-[#17313a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex min-h-10 items-center justify-center border border-white/35 bg-white px-4 py-2 text-sm font-bold text-[#17313a] transition hover:bg-[#f8f3ea] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 aria-label={copy.close}
                 autoFocus
               >
@@ -375,43 +380,89 @@ export function ApartmentGallery({ apartment, locale }: ApartmentGalleryProps) {
               </button>
             </div>
 
-            <div className="grid flex-1 items-center gap-4 py-4 md:grid-cols-[auto_1fr_auto]">
+            <div className="relative grid flex-1 items-center py-5">
               <button
                 type="button"
                 onClick={showPrevious}
-                className="min-h-11 rounded-md border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="absolute left-0 top-1/2 z-10 hidden min-h-12 -translate-y-1/2 border border-white/25 bg-[#081917]/72 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:inline-flex md:items-center"
                 aria-label={copy.previous}
               >
                 {copy.previous}
               </button>
-              <figure className="min-w-0 overflow-hidden rounded-lg bg-black/20">
-                <div className="relative mx-auto max-h-[72vh]">
+              <figure className="mx-auto grid w-full max-w-6xl gap-3">
+                <div className="relative flex min-h-[48vh] items-center justify-center bg-black/16">
                   <Image
                     src={activeImage.src}
                     alt={activeImage.alt[locale]}
                     width={1600}
                     height={1100}
                     quality={90}
-                    sizes="100vw"
-                    className={`mx-auto max-h-[72vh] w-auto max-w-full object-contain ${imageObjectPosition(
+                    sizes="(min-width: 1024px) 82vw, 96vw"
+                    className={`max-h-[74vh] w-auto max-w-full object-contain shadow-[0_24px_70px_rgba(0,0,0,0.28)] ${imageObjectPosition(
                       apartment,
                       activeImage,
                     )}`}
                     priority={activeImage.priority}
                   />
                 </div>
-                <figcaption className="bg-black/25 px-4 py-3 text-sm leading-6 text-white/85">
+                <figcaption className="mx-auto max-w-3xl text-center text-base leading-7 text-white/82">
+                  <span className="mr-2 text-[0.66rem] font-bold uppercase tracking-[0.16em] text-[#d2b16e]">
+                    {copy.categoryLabels[activeImage.category]}
+                  </span>
                   {captionFor(activeImage, visibleIndex)}
                 </figcaption>
               </figure>
               <button
                 type="button"
                 onClick={showNext}
-                className="min-h-11 rounded-md border border-white/30 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="absolute right-0 top-1/2 z-10 hidden min-h-12 -translate-y-1/2 border border-white/25 bg-[#081917]/72 px-4 py-2 text-sm font-bold text-white backdrop-blur transition hover:bg-white/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:inline-flex md:items-center"
                 aria-label={copy.next}
               >
                 {copy.next}
               </button>
+            </div>
+
+            <div className="flex items-center justify-between gap-3 border-t border-white/10 py-3 md:hidden">
+              <button
+                type="button"
+                onClick={showPrevious}
+                className="min-h-11 border border-white/25 px-4 py-2 text-sm font-bold text-white"
+                aria-label={copy.previous}
+              >
+                {copy.previous}
+              </button>
+              <button
+                type="button"
+                onClick={showNext}
+                className="min-h-11 border border-white/25 px-4 py-2 text-sm font-bold text-white"
+                aria-label={copy.next}
+              >
+                {copy.next}
+              </button>
+            </div>
+
+            <div className="hidden border-t border-white/10 py-3 lg:block">
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {apartment.gallery.map((image, index) => (
+                  <button
+                    key={image.src}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    className={`relative h-16 w-24 shrink-0 border transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                      index === visibleIndex ? "border-[#d2b16e]" : "border-white/18 opacity-62 hover:opacity-100"
+                    }`}
+                    aria-label={`${copy.photo} ${index + 1}`}
+                  >
+                    <Image
+                      src={image.src}
+                      alt=""
+                      fill
+                      sizes="96px"
+                      className={`object-cover ${imageObjectPosition(apartment, image)}`}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
