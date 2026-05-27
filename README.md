@@ -4,6 +4,8 @@ Production website for **Azur Menton**, a family-run direct booking site for thr
 
 The site is multilingual, SEO-focused, image-led, and built around a manual direct booking request flow. It also includes an editorial Menton guide, a Riviera events calendar, apartment comparison pages, legal pages, and practical planning content for guests visiting Menton, Monaco, Nice and the nearby Riviera.
 
+Current production domain: `https://azurmenton.com`
+
 ## Stack
 
 - Next.js `16.2.6` App Router
@@ -13,6 +15,8 @@ The site is multilingual, SEO-focused, image-led, and built around a manual dire
 - Local TypeScript content files
 - Static generation where possible
 - Daily revalidation for events pages
+- Resend-based email delivery for booking requests
+- Open-Meteo weather and marine forecast data
 - Vercel-compatible deployment
 
 Important: this project uses a newer Next.js version with changed conventions. Before changing Next.js APIs or framework behavior, read the relevant local docs in `node_modules/next/dist/docs/`.
@@ -40,6 +44,8 @@ Production preview after a build:
 npm run start -- --hostname 127.0.0.1 --port 3000
 ```
 
+Do not commit generated build output, local `.env.local` files or private API keys.
+
 ## Environment
 
 Create a local `.env.local` from `.env.example` when needed.
@@ -57,6 +63,8 @@ BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@azurmenton.com>"
 ```
 
 `RESEND_API_KEY` must never be committed. In production, booking request delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` set in Vercel.
+
+For Resend, the sending domain must be verified in Resend before `BOOKING_REQUEST_FROM_EMAIL` can use that domain reliably. Keep `RESEND_SETUP.md` updated with the current production sender and manual test result.
 
 ## Locales and Routes
 
@@ -86,6 +94,8 @@ Main routes:
 
 The localized layout renders the main navigation, footer, sticky CTA and locale-aware content. The footer includes a subtle flag-based language switcher that preserves the current path when changing language.
 
+The root path redirects to `/en`.
+
 ## Apartments
 
 The apartment collection is defined in `src/content/apartments.ts`.
@@ -103,6 +113,7 @@ Apartment pages include:
 - amenities and practical positioning
 - related guide links
 - direct booking CTAs
+- subtle viewport-only photo shine animation on visible imagery
 
 Apartment photography is stored under:
 
@@ -111,6 +122,15 @@ Apartment photography is stored under:
 - `public/images/apartments/panoramic-sea-view-studio/`
 
 Homepage hero and apartment cards also use selected apartment images from `public/images/home/` and apartment galleries. Avoid reusing the same title images in both the main hero slideshow and the small inset slideshow.
+
+When replacing apartment photos, keep these surfaces in sync:
+
+- apartment `gallery` metadata in `src/content/apartments.ts`
+- apartment hero/supporting collage image selection
+- apartment comparison cards
+- homepage hero slideshows
+- homepage/apartments page collage imagery
+- gallery preview composition
 
 ## Direct Booking Flow
 
@@ -131,11 +151,21 @@ Key files:
 - `src/app/actions/booking-request.ts`
 - `src/app/api/booking-request/route.ts`
 - `src/lib/booking-request.ts`
+- `src/lib/rate-limit.ts`
 - `src/lib/resend.ts`
 
 If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp. The site must not pretend that a request was delivered when delivery failed.
 
 For production Resend setup and the manual test checklist, see `RESEND_SETUP.md`.
+
+The API route includes:
+
+- JSON body size limit
+- no-store JSON responses
+- in-memory per-client rate limiting
+- a honeypot field for bot submissions
+- server-side validation with localized client-facing messages
+- safe logging that avoids dumping full guest messages into logs
 
 Guest contact details are configured in `src/config/site.ts`:
 
@@ -215,6 +245,17 @@ Event illustrations are stored in:
 
 They are project illustrations, not documentary event photos.
 
+## Visual Effects
+
+Subtle image shine is handled by:
+
+- `src/components/media/PhotoShineObserver.tsx`
+- `.photo-shine-*` rules in `src/app/globals.css`
+
+The observer targets large `next/image` photos inside `main`, skips header/footer/navigation imagery, and toggles animation only when a photo surface is visible. It also respects `prefers-reduced-motion`.
+
+Keep this effect restrained. It should feel like an occasional Mediterranean light glint, not a constant animation layer.
+
 ## Weather Widget
 
 The homepage weather widget uses:
@@ -249,6 +290,8 @@ Use `next/image` for site imagery. Do not hotlink third-party images, scrape Goo
 
 Large opaque PNGs should be converted to quality JPEG only after visual comparison. As of 2026-05-27, the heaviest apartment/event PNGs were converted and `public/images` is about 62 MB with no image over 1.5 MB.
 
+`next.config.ts` restricts allowed image qualities to `75` and `90`; use one of those values when adding `next/image` calls with explicit quality.
+
 Image audit and mapping documents:
 
 - `IMAGE_AUDIT.md`
@@ -259,6 +302,32 @@ Image audit and mapping documents:
 - `GUIDE_IMAGE_STRATEGY.md`
 - `EVENT_IMAGE_MAPPING_NOTES.md`
 - `IMAGE_EVENT_AUDIT.md`
+
+## Security and Reliability
+
+Security-related configuration lives primarily in:
+
+- `next.config.ts`
+- `src/app/api/booking-request/route.ts`
+- `src/lib/booking-request.ts`
+- `src/lib/rate-limit.ts`
+- `src/lib/resend.ts`
+
+Current baseline:
+
+- `poweredByHeader` disabled
+- Content Security Policy
+- HSTS
+- frame denial
+- strict referrer policy
+- restrictive permissions policy
+- immutable cache headers for local images
+- no third-party embeds except explicitly reviewed services
+- no public API keys committed
+
+The CSP currently allows inline scripts/styles because Next.js and the current styling pipeline require them. If this is tightened later, test all App Router pages, metadata, fonts and interactive forms carefully.
+
+Run `npm audit --omit=dev` periodically. The project currently uses a `postcss` override to keep the dependency tree on a patched version.
 
 ## SEO and Structured Data
 
