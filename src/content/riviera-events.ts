@@ -157,6 +157,12 @@ const eventTitleLabels: Record<string, LocalizedText> = {
     "Maratona Alpes-Maritimes Nice-Cannes",
     "Марафон Alpes-Maritimes Ніцца-Канни",
   ),
+  "monte-carlo-jazz-festival-2026": t(
+    "Monte-Carlo Jazz Festival",
+    "Monte-Carlo Jazz Festival",
+    "Monte-Carlo Jazz Festival",
+    "Джазовий фестиваль Монте-Карло",
+  ),
   "major-sports-weekends-nice-autumn-2026": t(
     "Major sports weekends in Nice",
     "Grands week-ends sportifs à Nice",
@@ -203,6 +209,7 @@ const eventDateLabels: Record<string, LocalizedText> = {
   "matisse-yves-saint-laurent-autumn-2026": t("Until 28 September 2026", "Jusqu'au 28 septembre 2026", "Fino al 28 settembre 2026", "До 28 вересня 2026"),
   "immersive-exhibitions-nice-2026": t("Seasonal / dates to verify", "Saisonnier / dates à vérifier", "Stagionale / date da verificare", "Сезонно / дати треба перевірити"),
   "nice-cannes-marathon-2026": t("8 November 2026", "8 novembre 2026", "8 novembre 2026", "8 листопада 2026"),
+  "monte-carlo-jazz-festival-2026": t("20 November-4 December 2026", "20 novembre-4 decembre 2026", "20 novembre-4 dicembre 2026", "20 листопада-4 грудня 2026"),
   "major-sports-weekends-nice-autumn-2026": t("Autumn 2026; dates to verify", "Automne 2026 ; dates à vérifier", "Autunno 2026; date da verificare", "Осінь 2026; дати треба перевірити"),
   "winter-on-the-riviera-2026-2027": t("December 2026-January 2027", "Décembre 2026-janvier 2027", "Dicembre 2026-gennaio 2027", "Грудень 2026-січень 2027"),
   "local-menton-winter-events-2026-2027": t("Winter calendar coming soon", "Calendrier d'hiver à venir", "Calendario invernale in arrivo", "Зимовий календар очікується"),
@@ -440,6 +447,7 @@ const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
   "matisse-yves-saint-laurent-autumn-2026": eventIllustration("henri-matisse-yves-saint-laurent.png", "Henri Matisse - Yves Saint Laurent"),
   "immersive-exhibitions-nice-2026": eventIllustration("ongoing-exhibitions-nice.png", "Ongoing exhibitions in Nice"),
   "nice-cannes-marathon-2026": eventIllustration("nice-cannes-marathon.jpg", "Alpes-Maritimes Nice-Cannes Marathon"),
+  "monte-carlo-jazz-festival-2026": eventIllustration("monte-carlo-jazz-festival.jpg", "Monte-Carlo Jazz Festival"),
   "major-sports-weekends-nice-autumn-2026": eventIllustration("major-sports-weekends-nice.jpg", "Major sports weekends in Nice"),
   "winter-on-the-riviera-2026-2027": eventIllustration("winter-on-the-riviera.jpg", "Winter on the Riviera"),
   "local-menton-winter-events-2026-2027": eventIllustration("local-winter-events-menton-nearby-villages.jpg", "Local winter events in Menton and nearby villages"),
@@ -1051,6 +1059,42 @@ const rivieraEventsBase: RivieraEvent[] = [
     featured: true,
   },
   {
+    id: "monte-carlo-jazz-festival-2026",
+    slug: "monte-carlo-jazz-festival",
+    title: "Monte-Carlo Jazz Festival",
+    location: "Monaco",
+    monthGroup: "2026-11",
+    dateLabel: "20 November-4 December 2026",
+    startDate: "2026-11-20",
+    endDate: "2026-12-04",
+    category: ["music", "prestige"],
+    familySuitability: "mostly_adults",
+    audience: ["jazz lovers", "couples", "culture travellers", "Monaco evening visitors"],
+    shortDescription: t(
+      "A prestigious late-autumn jazz festival in Monte-Carlo, pairing international artists with elegant Monaco venues.",
+      "Un prestigieux festival de jazz de fin d'automne a Monte-Carlo, entre artistes internationaux et lieux elegants de Monaco.",
+      "Un prestigioso festival jazz di fine autunno a Monte-Carlo, tra artisti internazionali e sedi eleganti di Monaco.",
+      "Престижний джазовий фестиваль пізньої осені в Монте-Карло з міжнародними артистами та елегантними локаціями Монако.",
+    ),
+    whyShowOnSite: t(
+      "Perfect for music lovers who want a calm seaside base in Menton and refined evening concerts in Monaco.",
+      "Parfait pour les amateurs de musique qui veulent une base calme en bord de mer a Menton et des concerts raffines a Monaco le soir.",
+      "Perfetto per amanti della musica che vogliono una base tranquilla sul mare a Mentone e concerti eleganti a Monaco la sera.",
+      "Ідеально для меломанів, які хочуть спокійну морську базу в Ментоні та вишукані вечірні концерти в Монако.",
+    ),
+    bookingTip: t(
+      "Stay in Menton for quieter mornings by the sea, then take the train to Monaco for selected festival evenings.",
+      "Logez a Menton pour des matins plus calmes au bord de mer, puis prenez le train vers Monaco pour certaines soirees du festival.",
+      "Soggiorna a Mentone per mattine piu tranquille sul mare, poi prendi il treno per Monaco nelle serate scelte del festival.",
+      "Зупиніться в Ментоні для спокійніших ранків біля моря, а на вибрані вечори фестивалю їдьте поїздом до Монако.",
+    ),
+    sourceStatus: "needs_verification",
+    sourceUrl: "https://www.montecarlosbm.com/en/shows-monaco/monte-carlo-jazz-festival",
+    featured: true,
+    detailPage: true,
+    relatedApartmentKeys: relatedAll,
+  },
+  {
     id: "major-sports-weekends-nice-autumn-2026",
     slug: "major-sports-weekends-nice-autumn",
     title: "Major sports weekends in Nice",
@@ -1233,6 +1277,7 @@ export const eventDetailSlugs = [
   "monte-carlo-summer-festival",
   "monaco-yacht-show",
   "nice-jazz-fest",
+  "monte-carlo-jazz-festival",
   "menton-music-festival",
   "nice-carnival",
   "summer-on-the-riviera",
@@ -1459,6 +1504,73 @@ const eventDetailsBySlug: Partial<Record<string, NonNullable<RivieraEvent["detai
     ],
     officialLinks: [
       { label: t("Monte-Carlo SBM festival page", "Page festival Monte-Carlo SBM", "Pagina festival Monte-Carlo SBM", "Сторінка фестивалю Monte-Carlo SBM"), href: "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival" },
+    ],
+  },
+  "monte-carlo-jazz-festival": {
+    overview: [
+      t(
+        "Monte-Carlo Jazz Festival is one of the Riviera's most prestigious late-autumn music events, bringing international jazz, soul and related artists to Monaco in an intimate concert format.",
+        "Le Monte-Carlo Jazz Festival est l'un des rendez-vous musicaux les plus prestigieux de la Riviera en fin d'automne, avec des artistes internationaux de jazz, soul et styles voisins dans un format de concerts intimistes.",
+        "Il Monte-Carlo Jazz Festival e uno degli appuntamenti musicali piu prestigiosi della Riviera a fine autunno, con artisti internazionali di jazz, soul e generi affini in un formato intimo.",
+        "Monte-Carlo Jazz Festival - одна з найпрестижніших музичних подій Рив'єри наприкінці осені, з міжнародними джазовими, соул та суміжними артистами в камерному концертному форматі.",
+      ),
+      t(
+        "For Menton guests, it works especially well as an elegant evening plan: stay by the sea, keep daytime slow and bright, then travel to Monaco for selected concerts.",
+        "Pour les visiteurs logeant a Menton, c'est une excellente idee de soiree elegante : rester au bord de mer, garder des journees calmes et lumineuses, puis aller a Monaco pour certains concerts.",
+        "Per chi soggiorna a Mentone, funziona molto bene come serata elegante: vivere il mare di giorno, con ritmo lento e luminoso, poi andare a Monaco per i concerti scelti.",
+        "Для гостей у Ментоні це добре працює як елегантний вечірній план: жити біля моря, проводити день спокійно і світло, а потім їхати до Монако на вибрані концерти.",
+      ),
+    ],
+    venues: [
+      t(
+        "Main venue information should be checked on the official Monte-Carlo SBM page. Recent editions have used the Opéra Garnier Monte-Carlo / Salle Garnier setting.",
+        "Les lieux doivent etre verifies sur la page officielle Monte-Carlo SBM. Les editions recentes utilisent notamment l'Opera Garnier Monte-Carlo / Salle Garnier.",
+        "Le sedi vanno verificate sulla pagina ufficiale Monte-Carlo SBM. Le edizioni recenti si svolgono anche all'Opera Garnier Monte-Carlo / Salle Garnier.",
+        "Локації треба перевіряти на офіційній сторінці Monte-Carlo SBM. Останні випуски проходили, зокрема, в Opéra Garnier Monte-Carlo / Salle Garnier.",
+      ),
+      t(
+        "From Menton, Monaco-Monte-Carlo station is usually about 15 minutes by train. By car, allow about 25 minutes in normal traffic, plus parking and event access time.",
+        "Depuis Menton, la gare Monaco-Monte-Carlo est generalement a environ 15 minutes en train. En voiture, comptez environ 25 minutes en circulation normale, plus parking et acces.",
+        "Da Mentone, la stazione Monaco-Monte-Carlo e di solito a circa 15 minuti in treno. In auto, calcola circa 25 minuti con traffico normale, piu parcheggio e accesso.",
+        "З Ментона до станції Monaco-Monte-Carlo зазвичай близько 15 хвилин поїздом. Автомобілем орієнтовно 25 хвилин за нормального трафіку, плюс час на паркування і доступ.",
+      ),
+    ],
+    family: t(
+      "Mostly adults. Teenagers who genuinely enjoy live music may like selected concerts, but late timings, formal venues and ticket prices make it less suitable for small children.",
+      "Plutot adultes. Les adolescents qui aiment vraiment la musique live peuvent apprecier certains concerts, mais horaires tardifs, lieux formels et tarifs conviennent moins aux petits enfants.",
+      "Soprattutto adulti. Adolescenti che amano davvero la musica dal vivo possono apprezzare alcune serate, ma orari tardivi, sedi formali e prezzi sono meno adatti ai bambini piccoli.",
+      "Переважно для дорослих. Підліткам, які справді люблять живу музику, можуть підійти окремі концерти, але пізній час, формальні локації та ціни менш зручні для малих дітей.",
+    ),
+    tickets: [
+      t(
+        "Check the official Monte-Carlo SBM page for the final programme, venue, ticket categories and prices. Line-up and access rules can change by edition.",
+        "Consultez la page officielle Monte-Carlo SBM pour le programme final, les lieux, categories de billets et tarifs. Programmation et conditions d'acces changent selon l'edition.",
+        "Controlla la pagina ufficiale Monte-Carlo SBM per programma finale, sedi, categorie biglietti e prezzi. Line-up e regole di accesso possono cambiare secondo edizione.",
+        "Перевіряйте офіційну сторінку Monte-Carlo SBM щодо фінальної програми, локацій, категорій квитків і цін. Склад артистів і правила доступу можуть змінюватися.",
+      ),
+    ],
+    tips: [
+      t(
+        "Choose concert nights before requesting accommodation dates if a specific artist matters to you.",
+        "Choisissez les soirees de concert avant de demander le logement si un artiste precis compte pour vous.",
+        "Scegli prima le serate dei concerti se ti interessa un artista specifico, poi richiedi l'alloggio.",
+        "Якщо вам важливий конкретний артист, спочатку оберіть концертні вечори, а потім надсилайте запит на проживання.",
+      ),
+      t(
+        "For late returns to Menton, check evening train times or arrange a transfer before going to Monaco.",
+        "Pour un retour tardif a Menton, verifiez les trains du soir ou organisez un transfert avant d'aller a Monaco.",
+        "Per rientri tardi a Mentone, controlla i treni serali o organizza un transfer prima di andare a Monaco.",
+        "Для пізнього повернення в Ментон перевірте вечірні поїзди або організуйте трансфер до поїздки в Монако.",
+      ),
+      t(
+        "Late November and early December evenings can feel cool by the sea; bring a jacket for the return.",
+        "Fin novembre et debut decembre, les soirees peuvent etre fraiches au bord de mer ; prevoyez une veste pour le retour.",
+        "A fine novembre e inizio dicembre le sere sul mare possono essere fresche; porta una giacca per il rientro.",
+        "Наприкінці листопада та на початку грудня вечори біля моря можуть бути прохолодними; візьміть куртку на повернення.",
+      ),
+    ],
+    officialLinks: [
+      { label: t("Official Monte-Carlo Jazz Festival page", "Page officielle Monte-Carlo Jazz Festival", "Pagina ufficiale Monte-Carlo Jazz Festival", "Офіційна сторінка Monte-Carlo Jazz Festival"), href: "https://www.montecarlosbm.com/en/shows-monaco/monte-carlo-jazz-festival" },
     ],
   },
   "menton-lemon-festival": {
