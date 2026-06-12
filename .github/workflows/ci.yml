@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches:
@@ -33,6 +36,9 @@ jobs:
 
       - name: Unit tests
         run: npm test
+
+      - name: Image derivative manifest
+        run: npm run images:check
 
       - name: Build
         run: npm run build

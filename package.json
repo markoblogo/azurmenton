@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "images:generate": "node scripts/generate-image-derivatives.mjs"
+    "images:generate": "node scripts/generate-image-derivatives.mjs",
+    "images:check": "node scripts/check-image-derivatives.mjs",
+    "seo:validate": "node scripts/validate-live-seo.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -24,6 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cheerio": "^1.2.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "sharp": "^0.35.1",
