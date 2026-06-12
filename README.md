@@ -54,6 +54,7 @@ Create a local `.env.local` from `.env.example` when needed.
 NEXT_PUBLIC_SITE_URL=https://azurmenton.com
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
 NEXT_PUBLIC_PLAUSIBLE_API_HOST=
+NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 
@@ -67,7 +68,7 @@ BOOKING_REQUEST_FROM_EMAIL=
 ```
 
 `RESEND_API_KEY` must never be committed. In production, booking request delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` set in Vercel.
-Turnstile is enabled only when both `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are configured. Plausible is enabled only when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is configured.
+Turnstile is enabled only when both `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are configured. Plausible is enabled when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or a site-specific `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC` is configured.
 
 For Resend, the sending domain must be verified in Resend before `BOOKING_REQUEST_FROM_EMAIL` can use that domain reliably. Keep `RESEND_SETUP.md` updated with the current production sender and manual test result.
 
