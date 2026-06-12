@@ -44,7 +44,7 @@ export function ImageLightboxButton({ src, alt, locale = "en" }: ImageLightboxBu
           event.stopPropagation();
           setOpen(true);
         }}
-        className="absolute right-3 top-3 z-30 inline-flex h-10 w-10 items-center justify-center border border-white/70 bg-[#173f36]/82 text-white opacity-100 shadow-[0_8px_22px_rgba(0,0,0,0.18)] backdrop-blur transition hover:bg-[#173f36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100"
+        className="absolute right-3 top-3 z-30 inline-flex h-10 w-10 items-center justify-center border border-white/70 bg-[#173f36]/82 text-white shadow-[0_8px_22px_rgba(0,0,0,0.18)] backdrop-blur transition hover:bg-[#173f36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="10.5" cy="10.5" r="5.5" />

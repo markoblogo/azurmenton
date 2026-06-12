@@ -18,14 +18,7 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
   const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;
 
   return (
-    <article className={`group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a] ${compact && relatedHref ? "cursor-pointer hover:-translate-y-0.5" : ""}`}>
-      {compact && relatedHref ? (
-        <Link
-          aria-label={`${copy.related}: ${place.name}`}
-          className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a]"
-          href={relatedHref}
-        />
-      ) : null}
+    <article className="group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">
       <GuideVisual
         image={place.image}
         imageAlt={place.imageAlt?.[locale]}
@@ -53,9 +46,9 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
         {place.sourceStatus === "needs_verification" ? <p className="mt-3 text-xs italic text-[#71665b]">{copy.note}</p> : null}
         <div className="mt-4 flex flex-wrap gap-2">
           {compact && relatedHref ? (
-            <span aria-hidden="true" className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors group-hover:bg-[#f3ead7]">
+            <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors hover:bg-[#f3ead7]" href={relatedHref}>
               {copy.related}
-            </span>
+            </Link>
           ) : null}
           {mapsHref ? (
             <Link className="relative z-20 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">
