@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ImageLightboxButton } from "@/components/media/ImageLightboxButton";
 import type { Locale } from "@/i18n/locales";
 
 export type GuideVisualTheme =
@@ -63,6 +64,7 @@ export function GuideVisual({
   label,
   priority = false,
   className = "",
+  expandable = false,
 }: {
   image?: string;
   imageAlt?: string;
@@ -71,15 +73,17 @@ export function GuideVisual({
   label?: string;
   priority?: boolean;
   className?: string;
+  expandable?: boolean;
 }) {
   const visualLabel = label ?? themeLabels[locale][theme];
+  const alt = imageAlt ?? visualLabel;
 
   return (
     <div className={`relative overflow-hidden border-b border-[#dfd2b8] bg-[#f7efe1] ${className}`}>
       {image ? (
         <Image
           src={image}
-          alt={imageAlt ?? visualLabel}
+          alt={alt}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
@@ -89,6 +93,7 @@ export function GuideVisual({
       ) : (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#fff7d6_0,#f4dec0_26%,transparent_50%),linear-gradient(135deg,#f8f3ea,#dfeee9_58%,#f0d7a7)]" />
       )}
+      {image && expandable ? <ImageLightboxButton src={image} alt={alt} locale={locale} /> : null}
       <div className="absolute inset-0 bg-gradient-to-t from-[#173f36]/45 via-transparent to-white/10" />
       <div className="relative flex h-full min-h-[9rem] flex-col justify-between p-4">
         <p className="w-fit bg-[#fffaf0]/90 px-2 py-1 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#173f36]">{visualLabel}</p>

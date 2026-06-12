@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
+import { ShareActions } from "@/components/content/ShareActions";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
@@ -87,6 +88,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 label={localized.categoryLabel}
                 priority
                 className="-m-5 mb-5 aspect-[4/2.2]"
+                expandable
               />
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <Fact label={copy.category} value={guideCategoryLabels[article.category][locale]} />
@@ -97,6 +99,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${locale}/check-availability` as Route}>{copy.check}</Link>
                 <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
+              </div>
+              <div className="mt-4">
+                <ShareActions locale={locale} title={localized.title} url={pageUrl} />
               </div>
             </aside>
           </div>

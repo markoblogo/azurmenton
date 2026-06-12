@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
+import { ShareActions } from "@/components/content/ShareActions";
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
@@ -251,12 +252,16 @@ export default async function EventArticlePage({ params }: PageProps) {
                 event={event}
                 locale={locale}
                 priority
+                expandable
                 className="min-h-[18rem] bg-[#fffdf8] p-2 lg:min-h-[26rem]"
                 sizes="(min-width: 1024px) 48vw, 92vw"
               />
               {event.media?.imageCaption ? (
                 <p className="mt-3 text-xs leading-5 text-[#6b5f50]">{event.media.imageCaption[locale]}</p>
               ) : null}
+              <div className="mt-4">
+                <ShareActions locale={locale} title={title} url={pageUrl} />
+              </div>
             </div>
           </div>
         </Container>

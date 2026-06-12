@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
+import { ShareActions } from "@/components/content/ShareActions";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -800,6 +801,9 @@ export default async function ApartmentPage({ params }: PageProps) {
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">
                   {copy.compare}
                 </Button>
+              </div>
+              <div className="mt-5 max-w-2xl">
+                <ShareActions locale={safeLocale} title={apartment.name[safeLocale]} url={apartmentUrl} />
               </div>
             </div>
 

@@ -33,6 +33,7 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
         theme={place.visualTheme ?? "walk"}
         label={place.type.replaceAll("-", " ")}
         className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"}
+        expandable
       />
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
