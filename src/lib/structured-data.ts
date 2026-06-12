@@ -138,6 +138,7 @@ export function itemListJsonLd(input: {
 }
 
 export function vacationRentalJsonLd(input: {
+  identifier: string;
   name: string;
   description: string;
   url: string;
@@ -151,7 +152,7 @@ export function vacationRentalJsonLd(input: {
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
-    additionalType: "https://schema.org/Accommodation",
+    identifier: input.identifier,
     name: input.name,
     description: input.description,
     url: input.url,
@@ -177,6 +178,26 @@ export function vacationRentalJsonLd(input: {
       addressLocality: "Menton",
       addressRegion: "Provence-Alpes-Cote d'Azur",
       addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 43.7745,
+      longitude: 7.4975,
+    },
+    containsPlace: {
+      "@type": "Place",
+      name: "Menton, French Riviera",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Menton",
+        addressRegion: "Provence-Alpes-Cote d'Azur",
+        addressCountry: "FR",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 43.7745,
+        longitude: 7.4975,
+      },
     },
     containedInPlace: {
       "@type": "LodgingBusiness",

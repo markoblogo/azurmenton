@@ -48,6 +48,7 @@ describe("structured data builders", () => {
 
   it("links vacation rentals back to the lodging business entity", () => {
     const data = vacationRentalJsonLd({
+      identifier: "azur-menton-sea-view-balcony-studio",
       name: "Sea View Balcony Studio",
       description: "A sea-view studio.",
       url: "https://azurmenton.com/en/apartments/sea-view-balcony-studio",
@@ -61,11 +62,18 @@ describe("structured data builders", () => {
 
     expect(data).toMatchObject({
       "@type": "VacationRental",
-      additionalType: "https://schema.org/Accommodation",
+      identifier: "azur-menton-sea-view-balcony-studio",
+      geo: {
+        "@type": "GeoCoordinates",
+      },
+      containsPlace: {
+        "@type": "Place",
+      },
       containedInPlace: {
         "@id": "https://azurmenton.com/#lodging-business",
       },
     });
+    expect(data).not.toHaveProperty("additionalType");
   });
 
   it("marks check availability as a contact page with reserve intent", () => {
