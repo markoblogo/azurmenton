@@ -758,6 +758,7 @@ export default async function ApartmentPage({ params }: PageProps) {
     <>
       <JsonLdScript
         data={vacationRentalJsonLd({
+          identifier: `azur-menton-${apartment.slug}`,
           name: apartment.name[safeLocale],
           description: apartment.seoDescription[safeLocale],
           url: apartmentUrl,
