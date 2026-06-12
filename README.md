@@ -13,7 +13,7 @@ Current production domain: `https://azurmenton.com`
 - TypeScript
 - Tailwind CSS `4`
 - Local TypeScript content files
-- Static generation where possible
+- Static generation where compatible with request-time security headers
 - Daily revalidation for events pages
 - Resend-based email delivery for booking requests
 - Open-Meteo weather and marine forecast data
@@ -426,7 +426,7 @@ Routes:
 - `/[locale]/cookies`
 - `/[locale]/booking-terms`
 
-The French version is the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business review before production launch.
+The French version is the primary compliance draft. Owner, publisher, registration and registered office details are populated from the SCI Petra et Paul Kbis extract. Hosting provider details, mediator, payment, cancellation, tourist tax, deposit and retention periods still require final legal/business review as operations evolve.
 
 ## Project Structure
 
@@ -440,6 +440,8 @@ src/lib/                 SEO, structured data, events freshness, weather, bookin
 public/images/           Local project images and illustrations
 scripts/                 Utility scripts
 tests/                   Unit and Playwright smoke tests
+docs/                    Operational docs and archived working notes
+.github/workflows/       CI workflow
 ```
 
 ## Content Editing Notes
