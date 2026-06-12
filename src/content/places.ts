@@ -464,6 +464,41 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of the Borrigo beaches in Menton", "Illustration des plages du Borrigo a Menton", "Illustrazione delle spiagge di Borrigo a Mentone", "Ілюстрація пляжів Borrigo у Ментоні"),
     visualTheme: "beach",
   },
+  "monaco-monte-carlo": {
+    image: "/images/guide/monaco-and-monte-carlo.jpg",
+    imageAlt: text("Illustration of Monaco and Monte-Carlo", "Illustration de Monaco et Monte-Carlo", "Illustrazione di Monaco e Monte-Carlo", "Ілюстрація Монако та Монте-Карло"),
+    visualTheme: "old-town",
+  },
+  "villefranche-sur-mer": {
+    image: "/images/guide/villefranche-sur-mer.jpg",
+    imageAlt: text("Illustration of Villefranche-sur-Mer", "Illustration de Villefranche-sur-Mer", "Illustrazione di Villefranche-sur-Mer", "Ілюстрація Villefranche-sur-Mer"),
+    visualTheme: "port",
+  },
+  "eze-village": {
+    image: "/images/guide/eze-village.jpg",
+    imageAlt: text("Illustration of Èze Village", "Illustration d'Eze Village", "Illustrazione di Èze Village", "Ілюстрація Èze Village"),
+    visualTheme: "viewpoint",
+  },
+  "sentier-douaniers-menton": {
+    image: "/images/guide/sentier-des-douaniers.jpg",
+    imageAlt: text("Illustration of Sentier des Douaniers near Menton", "Illustration du Sentier des Douaniers pres de Menton", "Illustrazione del Sentier des Douaniers vicino a Mentone", "Ілюстрація Sentier des Douaniers біля Ментона"),
+    visualTheme: "walk",
+  },
+  "roquebrune-cap-martin-coastal-walk": {
+    image: "/images/guide/roquebrune-cap-martin-coastal-walk.jpg",
+    imageAlt: text("Illustration of the Roquebrune-Cap-Martin coastal walk", "Illustration de la balade cotiere de Roquebrune-Cap-Martin", "Illustrazione della passeggiata costiera di Roquebrune-Cap-Martin", "Ілюстрація прибережної прогулянки Roquebrune-Cap-Martin"),
+    visualTheme: "sea",
+  },
+  "mont-gros-viewpoint": {
+    image: "/images/guide/mont-gros-viewpoint.jpg",
+    imageAlt: text("Illustration of Mont Gros viewpoint above Menton", "Illustration du point de vue du Mont Gros au-dessus de Menton", "Illustrazione del punto panoramico Mont Gros sopra Mentone", "Ілюстрація оглядової точки Mont Gros над Ментоном"),
+    visualTheme: "viewpoint",
+  },
+  "roquebrune-medieval-village": {
+    image: "/images/guide/roquebrune-medieval-village.jpg",
+    imageAlt: text("Illustration of Roquebrune medieval village", "Illustration du village medieval de Roquebrune", "Illustrazione del borgo medievale di Roquebrune", "Ілюстрація середньовічного села Roquebrune"),
+    visualTheme: "old-town",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {
