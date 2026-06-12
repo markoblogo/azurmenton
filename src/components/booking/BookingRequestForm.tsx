@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
+import { bookingFunnelEvents, trackBookingFunnelEvent } from "@/lib/analytics";
 
 const initialState: BookingRequestState = {
   status: "idle",
@@ -142,17 +143,39 @@ const formCopy = {
 
 export function BookingRequestForm({
   apartments,
+  children,
   locale,
 }: {
   apartments: Apartment[];
+  children?: React.ReactNode;
   locale: Locale;
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
   const today = new Date().toISOString().slice(0, 10);
   const labels = formCopy[locale];
+  const hasTrackedStart = useRef(false);
+
+  function trackFormStart() {
+    if (hasTrackedStart.current) {
+      return;
+    }
+
+    hasTrackedStart.current = true;
+    trackBookingFunnelEvent(bookingFunnelEvents.bookingFormStart, { locale });
+  }
+
+  useEffect(() => {
+    if (state.status === "success") {
+      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitSuccess, { locale });
+    }
+
+    if (state.status === "error") {
+      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitError, { locale });
+    }
+  }, [locale, state.status]);
 
   return (
-    <form action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel}>
+    <form action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel} onChange={trackFormStart} onFocus={trackFormStart}>
       <div className="hidden" aria-hidden="true">
         <label>
           Website
@@ -277,6 +300,8 @@ export function BookingRequestForm({
           </Link>
         </span>
       </label>
+
+      {children}
 
       {state.message ? (
         <div

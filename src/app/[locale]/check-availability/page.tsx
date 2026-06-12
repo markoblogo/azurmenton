@@ -2,14 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
+import { BookingFunnelViewTracker } from "@/components/analytics/BookingFunnelViewTracker";
 import { BookingRequestForm } from "@/components/booking/BookingRequestForm";
+import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
-import { createMetadata } from "@/lib/seo";
+import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
+import { contactPageJsonLd } from "@/lib/structured-data";
+import { JsonLdScript } from "@/components/seo/JsonLd";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -126,9 +130,19 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = t[safeLocale];
+  const pageUrl = absoluteUrl(localizedPath(safeLocale, "check-availability"));
 
   return (
     <>
+      <BookingFunnelViewTracker locale={safeLocale} />
+      <JsonLdScript
+        data={contactPageJsonLd({
+          name: copy.seoTitle[safeLocale],
+          description: copy.seoDescription[safeLocale],
+          url: pageUrl,
+          locale: safeLocale,
+        })}
+      />
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
           <div className="grid gap-10 py-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:py-16">
@@ -151,6 +165,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                 width={864}
                 height={1184}
                 preload
+                loading="eager"
                 quality={90}
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="aspect-[4/3] w-full object-cover object-[50%_38%]"
@@ -238,6 +253,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                         src={src}
                         alt=""
                         fill
+                        loading={src === "/images/home/BeachfrontStudio-portret.jpg" ? "eager" : "lazy"}
                         quality={90}
                         sizes="(min-width: 1024px) 16vw, 33vw"
                         className="object-cover"
@@ -251,7 +267,9 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                     <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.formTitle[safeLocale]}</h2>
                     <p className="mt-3 max-w-2xl text-base leading-7 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
                   </div>
-                  <BookingRequestForm apartments={apartments} locale={safeLocale} />
+                  <BookingRequestForm apartments={apartments} locale={safeLocale}>
+                    <TurnstileWidget />
+                  </BookingRequestForm>
                 </div>
               </Card>
 

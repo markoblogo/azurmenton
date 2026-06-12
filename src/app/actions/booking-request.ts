@@ -9,6 +9,7 @@ import {
 } from "@/lib/booking-request";
 import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 import { isLocale, type Locale } from "@/i18n/locales";
 
 export type BookingRequestState = {
@@ -24,6 +25,7 @@ const messages = {
     success:
       "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
     tooMany: "Too many booking requests. Please wait a few minutes and try again.",
+    botCheck: "Please complete the anti-spam check and try again.",
   },
   fr: {
     check: "Veuillez verifier votre demande et reessayer.",
@@ -32,6 +34,7 @@ const messages = {
     success:
       "Merci. Nous avons bien recu votre demande et confirmerons rapidement la disponibilite et la meilleure offre directe.",
     tooMany: "Trop de demandes envoyees. Veuillez attendre quelques minutes puis reessayer.",
+    botCheck: "Veuillez completer la verification anti-spam puis reessayer.",
   },
   it: {
     check: "Controlla la richiesta e riprova.",
@@ -40,6 +43,7 @@ const messages = {
     success:
       "Grazie. Abbiamo ricevuto la richiesta e confermeremo presto disponibilita e migliore offerta diretta.",
     tooMany: "Troppe richieste inviate. Attendi qualche minuto e riprova.",
+    botCheck: "Completa il controllo anti-spam e riprova.",
   },
   uk: {
     check: "Перевірте запит і спробуйте ще раз.",
@@ -48,6 +52,7 @@ const messages = {
     success:
       "Дякуємо. Ми отримали ваш запит і незабаром підтвердимо доступність та найкращу пряму пропозицію.",
     tooMany: "Забагато запитів. Зачекайте кілька хвилин і спробуйте ще раз.",
+    botCheck: "Пройдіть антиспам-перевірку й спробуйте ще раз.",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -147,7 +152,8 @@ export async function submitBookingRequest(
   }
 
   const requestHeaders = await headers();
-  const rateLimit = checkBookingRequestRateLimit(getClientIdentifierFromHeaders(requestHeaders));
+  const clientIdentifier = getClientIdentifierFromHeaders(requestHeaders);
+  const rateLimit = checkBookingRequestRateLimit(clientIdentifier);
 
   if (!rateLimit.ok) {
     return {
@@ -163,6 +169,18 @@ export async function submitBookingRequest(
     return {
       status: "error",
       message: localizedValidationMessage(validation.error, locale),
+    };
+  }
+
+  const turnstileResult = await verifyTurnstileToken(
+    String(formData.get("cf-turnstile-response") ?? "").trim(),
+    clientIdentifier,
+  );
+
+  if (!turnstileResult.ok) {
+    return {
+      status: "error",
+      message: messages[locale].botCheck,
     };
   }
 

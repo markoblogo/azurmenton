@@ -7,6 +7,7 @@ import {
 } from "@/lib/booking-request";
 import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 
 const maxRequestBytes = 32_000;
 
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
       });
   }
 
-  const rateLimit = checkBookingRequestRateLimit(getClientIdentifierFromHeaders(request.headers));
+  const clientIdentifier = getClientIdentifierFromHeaders(request.headers);
+  const rateLimit = checkBookingRequestRateLimit(clientIdentifier);
 
   if (!rateLimit.ok) {
     return jsonResponse(
@@ -61,6 +63,16 @@ export async function POST(request: Request) {
 
   if (!validation.ok) {
     return jsonResponse({ error: validation.error }, { status: 400 });
+  }
+
+  const token =
+    body && typeof body === "object"
+      ? String((body as Record<string, unknown>)["cf-turnstile-response"] ?? "").trim()
+      : "";
+  const turnstileResult = await verifyTurnstileToken(token, clientIdentifier);
+
+  if (!turnstileResult.ok) {
+    return jsonResponse({ error: "Please complete the anti-spam check and try again." }, { status: 400 });
   }
 
   console.info("Azur Menton booking request API received", createBookingRequestLog(payload));
