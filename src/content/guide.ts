@@ -658,6 +658,86 @@ function shortArticle(input: {
 export const guideArticles: GuideArticle[] = [
   ...articles,
   shortArticle({
+    id: "menton-in-autumn",
+    slug: "menton-in-autumn",
+    title: t("Menton in autumn: October and November on the Riviera", "Menton en automne: octobre et novembre sur la Riviera", "Mentone in autunno: ottobre e novembre in Riviera", "Ментон восени: жовтень і листопад на Рив'єрі"),
+    seoTitle: t("Menton in Autumn: October and November Travel Guide", "Menton en automne: guide d'octobre et novembre", "Mentone in autunno: guida a ottobre e novembre", "Ментон восени: гід на жовтень і листопад"),
+    seoDescription: t("Why October and November are a smart time to visit Menton: mild weather, quiet beaches, gardens, Riviera events and day trips from a seaside apartment.", "Pourquoi octobre et novembre sont parfaits pour Menton: douceur, plages calmes, jardins, evenements Riviera et excursions depuis un appartement en bord de mer.", "Perche ottobre e novembre sono ideali a Mentone: clima mite, spiagge tranquille, giardini, eventi in Riviera e gite da un appartamento sul mare.", "Чому жовтень і листопад добре підходять для Ментона: м'яка погода, тихі пляжі, сади, події Рив'єри й поїздки з апартаментів біля моря."),
+    excerpt: t("October and November bring mild days, quieter streets, autumn gardens, beach walks and easy access to Riviera events from Menton.", "Octobre et novembre apportent douceur, rues plus calmes, jardins d'automne, promenades en bord de mer et evenements Riviera faciles depuis Menton.", "Ottobre e novembre portano giornate miti, strade piu tranquille, giardini autunnali, passeggiate sul mare ed eventi in Riviera da Mentone.", "Жовтень і листопад приносять м'які дні, тихіші вулиці, осінні сади, прогулянки біля моря й легкий доступ до подій Рив'єри з Ментона."),
+    category: "practical",
+    coverImage: "/images/guide/menton-in-autumn.jpg",
+    coverImageAlt: t("Autumn view over Menton and the Mediterranean", "Vue d'automne sur Menton et la Mediterranee", "Vista autunnale su Mentone e il Mediterraneo", "Осінній краєвид Ментона й Середземного моря"),
+    visualTheme: "itinerary",
+    visualStatus: "project_illustration",
+    tags: [t("autumn", "automne", "autunno", "осінь"), t("October", "octobre", "ottobre", "жовтень"), t("November", "novembre", "novembre", "листопад"), t("Riviera events", "evenements Riviera", "eventi in Riviera", "події Рив'єри")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "2-3 days",
+    locationTags: ["menton-centre", "seafront", "monaco", "nice", "italian-riviera"],
+    featured: true,
+    sourceStatus: "editorial",
+    relatedPlaces: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "promenade-du-soleil", "plage-sablettes", "monaco-monte-carlo", "nice-old-town"],
+    relatedArticles: ["best-beaches-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car"],
+    relatedEvents: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
+    relatedApartments: seaViewApartments,
+    sections: [
+      {
+        heading: t("Why autumn works so well in Menton", "Pourquoi l'automne fonctionne si bien a Menton", "Perche l'autunno funziona cosi bene a Mentone", "Чому осінь так добре працює в Ментоні"),
+        body: [
+          t("Most visitors connect Menton with summer beaches, lemon trees and long Mediterranean days. Locals often enjoy a different rhythm: October and November, when the town is still bright but the streets, restaurants and seafront feel calmer.", "La plupart des visiteurs associent Menton aux plages d'ete, aux citronniers et aux longues journees mediterraneennes. Les habitants apprecient souvent un autre rythme: octobre et novembre, quand la ville reste lumineuse mais que rues, restaurants et front de mer sont plus calmes.", "Molti visitatori associano Mentone alle spiagge estive, ai limoni e alle lunghe giornate mediterranee. Chi vive qui spesso apprezza un ritmo diverso: ottobre e novembre, quando la citta resta luminosa ma strade, ristoranti e lungomare sono piu tranquilli.", "Більшість гостей пов'язують Ментон із літніми пляжами, лимонами й довгими середземноморськими днями. Місцеві часто цінують інший ритм: жовтень і листопад, коли місто ще світле, але вулиці, ресторани й набережна спокійніші."),
+          t("For travellers who want sunshine, culture and a more local atmosphere, autumn is one of the best-kept secrets on the Cote d'Azur.", "Pour les voyageurs qui cherchent soleil, culture et ambiance plus locale, l'automne est l'un des secrets les mieux gardes de la Cote d'Azur.", "Per chi cerca sole, cultura e un'atmosfera piu locale, l'autunno e uno dei segreti meglio custoditi della Costa Azzurra.", "Для мандрівників, які хочуть сонця, культури й більш локальної атмосфери, осінь - один із найкращих секретів Лазурного узбережжя."),
+        ],
+      },
+      {
+        heading: t("Weather in October and November", "Meteo en octobre et novembre", "Meteo a ottobre e novembre", "Погода в жовтні та листопаді"),
+        body: [
+          t("October days in Menton often sit around 18-24C, while November usually remains around 14-20C. The sea keeps warmth from summer, sunny spells are common, and outdoor cafes or day trips still feel natural.", "En octobre, les journees a Menton tournent souvent autour de 18-24C, tandis que novembre reste souvent autour de 14-20C. La mer garde la chaleur de l'ete, les eclaircies restent frequentes et les cafes en terrasse ou excursions restent naturels.", "A ottobre le giornate a Mentone sono spesso intorno a 18-24C, mentre novembre resta di solito intorno a 14-20C. Il mare conserva il calore estivo, il sole e ancora frequente e cafe all'aperto o gite restano piacevoli.", "У жовтні денна температура в Ментоні часто близько 18-24C, а в листопаді зазвичай близько 14-20C. Море зберігає літнє тепло, сонячні періоди часті, а кав'ярні надворі й поїздки все ще природні."),
+          t("You may not swim every day, but Menton rarely feels truly cold before winter. Pack layers for evenings and keep plans flexible around rain.", "Vous ne nagerez peut-etre pas tous les jours, mais Menton semble rarement vraiment froid avant l'hiver. Prevoyez des couches pour le soir et gardez vos plans flexibles en cas de pluie.", "Forse non nuoterai ogni giorno, ma Mentone raramente sembra davvero fredda prima dell'inverno. Porta strati per la sera e mantieni i programmi flessibili se piove.", "Можливо, ви не плаватимете щодня, але Ментон рідко здається справді холодним до зими. Візьміть шари одягу на вечір і залишайте плани гнучкими на випадок дощу."),
+        ],
+      },
+      {
+        heading: t("Gardens in softer autumn light", "Jardins dans la lumiere douce d'automne", "Giardini nella luce morbida d'autunno", "Сади в м'якому осінньому світлі"),
+        body: [
+          t("Menton's subtropical gardens stay interesting year-round, but autumn makes them easier to enjoy. Softer light, fewer visitors and mild temperatures suit Jardin Botanique Val Rahmeh and Jardin Serre de la Madone especially well.", "Les jardins subtropicaux de Menton restent interessants toute l'annee, mais l'automne les rend plus faciles a apprecier. Lumiere plus douce, moins de visiteurs et temperatures agreables conviennent tres bien au Jardin Botanique Val Rahmeh et au Jardin Serre de la Madone.", "I giardini subtropicali di Mentone sono interessanti tutto l'anno, ma l'autunno li rende piu facili da vivere. Luce piu morbida, meno visitatori e temperature miti funzionano molto bene per Jardin Botanique Val Rahmeh e Jardin Serre de la Madone.", "Субтропічні сади Ментона цікаві цілий рік, але восени їх легше відчути. М'якше світло, менше відвідувачів і комфортна температура особливо пасують Jardin Botanique Val Rahmeh та Jardin Serre de la Madone."),
+        ],
+        relatedPlaceIds: ["jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+      },
+      {
+        heading: t("Beaches without the summer crowds", "Plages sans la foule d'ete", "Spiagge senza folla estiva", "Пляжі без літніх натовпів"),
+        body: [
+          t("Autumn gives the coastline back to walkers. Promenade du Soleil becomes quieter, Plage des Sablettes is easier to enjoy, and sunrise or sunset photography often feels better than in peak summer.", "L'automne rend le littoral aux marcheurs. La Promenade du Soleil devient plus calme, la Plage des Sablettes est plus facile a apprecier et les photos au lever ou coucher du soleil sont souvent plus agreables qu'en plein ete.", "L'autunno restituisce la costa a chi cammina. La Promenade du Soleil diventa piu tranquilla, Plage des Sablettes e piu facile da godere e le foto all'alba o al tramonto sono spesso migliori che in piena estate.", "Восени узбережжя повертається до прогулянок. Promenade du Soleil стає тихішою, Plage des Sablettes легше відчути, а фото на світанку чи заході сонця часто кращі, ніж у пік літа."),
+          t("Even when swimming is not the goal, the seafront works for morning walks, benches by the water, cafes, cycling and slow evenings.", "Meme si la baignade n'est pas l'objectif, le front de mer fonctionne pour les promenades du matin, les bancs face a l'eau, les cafes, le velo et les soirees lentes.", "Anche quando il bagno non e l'obiettivo, il lungomare funziona per passeggiate al mattino, panchine sull'acqua, cafe, bici e serate lente.", "Навіть якщо плавання не головна мета, набережна працює для ранкових прогулянок, лавок біля води, кафе, велосипедів і повільних вечорів."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-sablettes", "plage-fossan"],
+      },
+      {
+        heading: t("Autumn events from a Menton base", "Evenements d'automne depuis Menton", "Eventi d'autunno da una base a Mentone", "Осінні події з базою в Ментоні"),
+        body: [
+          t("Menton sits between Monaco, Nice, Cannes and the Italian Riviera, so October and November can combine a quiet seaside stay with major events. Monte-Carlo Jazz Festival, the Nice-Cannes Marathon and Cannes business fairs such as MIPCOM, MAPIC, IGTM and MarediModa are all realistic from a Menton base if you plan transport.", "Menton se situe entre Monaco, Nice, Cannes et la Riviera italienne: octobre et novembre peuvent donc combiner sejour calme en bord de mer et grands evenements. Monte-Carlo Jazz Festival, Marathon Nice-Cannes et salons cannois comme MIPCOM, MAPIC, IGTM et MarediModa restent realistes depuis Menton si vous planifiez le transport.", "Mentone si trova tra Monaco, Nizza, Cannes e Riviera italiana: ottobre e novembre possono quindi unire soggiorno tranquillo sul mare e grandi eventi. Monte-Carlo Jazz Festival, Marathon Nice-Cannes e fiere di Cannes come MIPCOM, MAPIC, IGTM e MarediModa sono realistici da Mentone se pianifichi i trasporti.", "Ментон розташований між Монако, Ніццою, Каннами та Італійською Рив'єрою, тому жовтень і листопад можуть поєднати тихий морський відпочинок із великими подіями. Monte-Carlo Jazz Festival, Marathon Nice-Cannes і каннські виставки MIPCOM, MAPIC, IGTM та MarediModa реалістичні з базою в Ментоні, якщо спланувати транспорт."),
+        ],
+        relatedEventIds: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
+      },
+      {
+        heading: t("Day trips at a slower pace", "Excursions a un rythme plus lent", "Gite a ritmo piu lento", "Поїздки в повільнішому ритмі"),
+        body: [
+          t("Summer can make day trips feel rushed. In autumn, trains are usually calmer and places such as Monaco and Monte-Carlo, Nice Old Town, Villefranche-sur-Mer, Eze Village, Ventimiglia and Sanremo are easier to enjoy.", "L'ete peut rendre les excursions pressees. En automne, les trains sont souvent plus calmes et Monaco-Monte-Carlo, le Vieux Nice, Villefranche-sur-Mer, Eze Village, Vintimille et Sanremo se visitent plus facilement.", "L'estate puo rendere le gite affrettate. In autunno i treni sono spesso piu tranquilli e Monaco-Monte-Carlo, Vieux Nice, Villefranche-sur-Mer, Eze Village, Ventimiglia e Sanremo sono piu facili da godere.", "Влітку поїздки на день можуть здаватися поспішними. Восени потяги зазвичай спокійніші, а Monaco-Monte-Carlo, Nice Old Town, Villefranche-sur-Mer, Eze Village, Ventimiglia та Sanremo легше відчути."),
+        ],
+        relatedPlaceIds: ["monaco-monte-carlo", "nice-old-town", "villefranche-sur-mer", "eze-village", "ventimiglia", "sanremo"],
+      },
+      {
+        heading: t("Why stay in an apartment in autumn", "Pourquoi choisir un appartement en automne", "Perche scegliere un appartamento in autunno", "Чому восени варто жити в апартаментах"),
+        body: [
+          t("Autumn rewards a slower base: breakfast at home, flexible evenings, sea views when the weather changes and easier value than peak season. A central apartment lets you use sunny days for gardens and trips, then return to Menton for a quiet dinner by the water.", "L'automne recompense une base plus lente: petit-dejeuner a la maison, soirees flexibles, vue mer quand la meteo change et meilleur rapport qualite-prix qu'en haute saison. Un appartement central permet d'utiliser les jours de soleil pour jardins et excursions, puis de rentrer diner calmement au bord de l'eau.", "L'autunno premia una base piu lenta: colazione a casa, serate flessibili, vista mare quando il tempo cambia e valore migliore rispetto all'alta stagione. Un appartamento centrale permette di usare i giorni di sole per giardini e gite, poi tornare a Mentone per una cena tranquilla sull'acqua.", "Осінь винагороджує повільну базу: сніданок удома, гнучкі вечори, вид на море, коли погода змінюється, і кращу цінність, ніж у пік сезону. Центральні апартаменти дозволяють використовувати сонячні дні для садів і поїздок, а потім повертатися в Ментон на тиху вечерю біля води."),
+        ],
+        relatedApartmentKeys: seaViewApartments,
+      },
+    ],
+    practicalTips: [
+      t("Pack light layers: days can be warm, evenings cooler.", "Prevoyez des couches legeres: les journees peuvent etre douces, les soirees plus fraiches.", "Porta strati leggeri: le giornate possono essere miti, le sere piu fresche.", "Візьміть легкі шари: вдень може бути тепло, ввечері прохолодніше."),
+      t("Check train times before Monaco, Nice, Cannes or Italy plans.", "Verifiez les horaires de train avant Monaco, Nice, Cannes ou l'Italie.", "Controlla i treni prima di programmare Monaco, Nizza, Cannes o Italia.", "Перевіряйте розклад потягів перед планами на Монако, Ніццу, Канни чи Італію."),
+      t("Book earlier around major Monaco and Cannes event dates.", "Reservez plus tot autour des grands evenements a Monaco et Cannes.", "Prenota prima intorno ai grandi eventi di Monaco e Cannes.", "Бронюйте раніше навколо великих дат подій у Монако та Каннах."),
+    ],
+  }),
+  shortArticle({
     id: "quiet-evening-in-menton",
     slug: "quiet-evening-in-menton",
     title: t("A quiet evening in Menton: walks, views and calm corners", "Une soiree calme a Menton: balades, vues et coins paisibles", "Una serata tranquilla a Mentone: passeggiate, viste e angoli calmi", "Тихий вечір у Ментоні: прогулянки, краєвиди й спокійні місця"),

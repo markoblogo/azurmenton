@@ -108,7 +108,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
     "jardin-val-rahmeh",
     "port-de-garavan",
   ]);
-  const featuredPriority = ["menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
+  const featuredPriority = ["menton-in-autumn", "menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
   const featuredArticles = guideArticles
     .filter((article) => article.featured)
     .sort((a, b) => {

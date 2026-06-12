@@ -71,7 +71,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
     });
   }, [articles, bestFor, category, duration, location, query]);
 
-  const featuredPriority = ["menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
+  const featuredPriority = ["menton-in-autumn", "menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
   const featured = articles
     .filter((article) => article.featured)
     .sort((a, b) => {
