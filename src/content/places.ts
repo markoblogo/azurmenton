@@ -469,6 +469,11 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Monaco and Monte-Carlo", "Illustration de Monaco et Monte-Carlo", "Illustrazione di Monaco e Monte-Carlo", "Ілюстрація Монако та Монте-Карло"),
     visualTheme: "old-town",
   },
+  "nice-old-town": {
+    image: "/images/guide/nice-old-town.jpg",
+    imageAlt: text("Illustration of Nice Old Town", "Illustration du Vieux Nice", "Illustrazione del centro storico di Nizza", "Ілюстрація старого міста Ніцци"),
+    visualTheme: "old-town",
+  },
   "villefranche-sur-mer": {
     image: "/images/guide/villefranche-sur-mer.jpg",
     imageAlt: text("Illustration of Villefranche-sur-Mer", "Illustration de Villefranche-sur-Mer", "Illustrazione di Villefranche-sur-Mer", "Ілюстрація Villefranche-sur-Mer"),
@@ -497,6 +502,21 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
   "roquebrune-medieval-village": {
     image: "/images/guide/roquebrune-medieval-village.jpg",
     imageAlt: text("Illustration of Roquebrune medieval village", "Illustration du village medieval de Roquebrune", "Illustrazione del borgo medievale di Roquebrune", "Ілюстрація середньовічного села Roquebrune"),
+    visualTheme: "old-town",
+  },
+  ventimiglia: {
+    image: "/images/guide/ventimiglia.jpg",
+    imageAlt: text("Illustration of Ventimiglia on the Italian Riviera", "Illustration de Vintimille sur la Riviera italienne", "Illustrazione di Ventimiglia sulla Riviera italiana", "Ілюстрація Вентімільї на Італійській Рив'єрі"),
+    visualTheme: "market",
+  },
+  bordighera: {
+    image: "/images/guide/bordighera.jpg",
+    imageAlt: text("Illustration of Bordighera on the Italian Riviera", "Illustration de Bordighera sur la Riviera italienne", "Illustrazione di Bordighera sulla Riviera italiana", "Ілюстрація Бордігери на Італійській Рив'єрі"),
+    visualTheme: "sea",
+  },
+  sanremo: {
+    image: "/images/guide/sanremo.jpg",
+    imageAlt: text("Illustration of Sanremo on the Italian Riviera", "Illustration de Sanremo sur la Riviera italienne", "Illustrazione di Sanremo sulla Riviera italiana", "Ілюстрація Санремо на Італійській Рив'єрі"),
     visualTheme: "old-town",
   },
 };
