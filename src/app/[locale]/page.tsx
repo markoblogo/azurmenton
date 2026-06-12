@@ -358,7 +358,7 @@ export default async function LocaleHome({ params }: PageProps) {
                     fill
                     quality={90}
                     sizes="(min-width: 1024px) 360px, 62vw"
-                    className="object-cover"
+                    className="next-fill-cover object-cover"
                   />
                 </div>
               </div>
@@ -370,7 +370,7 @@ export default async function LocaleHome({ params }: PageProps) {
                     fill
                     quality={90}
                     sizes="(min-width: 1024px) 320px, 56vw"
-                    className="object-cover"
+                    className="next-fill-cover object-cover"
                   />
                 </div>
               </div>
@@ -382,7 +382,7 @@ export default async function LocaleHome({ params }: PageProps) {
                     fill
                     quality={90}
                     sizes="(min-width: 1024px) 180px, 34vw"
-                    className="object-cover"
+                    className="next-fill-cover object-cover"
                   />
                 </div>
               </div>
@@ -413,7 +413,7 @@ export default async function LocaleHome({ params }: PageProps) {
                               fill
                               quality={90}
                               sizes="(min-width: 1024px) 250px, (min-width: 640px) 50vw, 100vw"
-                              className="object-cover transition duration-500 group-hover:scale-[1.025]"
+                              className="next-fill-cover object-cover transition duration-500 group-hover:scale-[1.025]"
                             />
                           </div>
                         ) : null}

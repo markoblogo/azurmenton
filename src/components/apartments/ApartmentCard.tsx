@@ -40,7 +40,7 @@ export function ApartmentCard({
             fill
             quality={90}
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imageOverride ? "" : imageObjectPosition(apartment, contentImage)}`}
+            className={`next-fill-cover object-cover transition duration-500 group-hover:scale-[1.025] ${imageOverride ? "" : imageObjectPosition(apartment, contentImage)}`}
           />
         </div>
         <div className={compact ? "p-4" : "p-5 sm:p-6"}>

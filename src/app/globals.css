@@ -104,6 +104,18 @@ label:has(.field:user-invalid) {
   object-position: center !important;
 }
 
+.next-fill-cover[data-nimg="fill"] {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+}
+
 .photo-shine-surface {
   position: relative;
   overflow: hidden;
