@@ -17,6 +17,11 @@ Current production domain: `https://azurmenton.com`
 - Daily revalidation for events pages
 - Resend-based email delivery for booking requests
 - Open-Meteo weather and marine forecast data
+- Cloudflare Turnstile bot protection for booking requests
+- Plausible and Vercel Analytics
+- Vitest unit tests and Playwright smoke tests
+- Sharp-based image derivative pipeline
+- GitHub Actions CI
 - Vercel-compatible deployment
 
 Important: this project uses a newer Next.js version with changed conventions. Before changing Next.js APIs or framework behavior, read the relevant local docs in `node_modules/next/dist/docs/`.
@@ -35,7 +40,17 @@ Useful checks:
 ```bash
 npm run lint
 npm run typecheck
+npm test
+npm run images:check
 npm run build
+```
+
+Optional checks:
+
+```bash
+npm run test:e2e
+npm run images:generate
+npm run seo:validate
 ```
 
 Production preview after a build:
@@ -68,7 +83,7 @@ BOOKING_REQUEST_FROM_EMAIL=
 ```
 
 `RESEND_API_KEY` must never be committed. In production, booking request delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` set in Vercel.
-Turnstile is enabled only when both `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are configured. Plausible is enabled when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or a site-specific `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC` is configured.
+Turnstile is enabled only when both `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are configured. Plausible is enabled when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or a site-specific `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC` is configured. Production currently uses Plausible's managed script URL through `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC`; do not paste raw analytics snippets into layout files.
 
 For Resend, the sending domain must be verified in Resend before `BOOKING_REQUEST_FROM_EMAIL` can use that domain reliably. Keep `RESEND_SETUP.md` updated with the current production sender and manual test result.
 
@@ -159,6 +174,7 @@ Key files:
 - `src/lib/booking-request.ts`
 - `src/lib/rate-limit.ts`
 - `src/lib/resend.ts`
+- `src/lib/turnstile.ts`
 
 If email delivery is not configured or fails, the form returns an error and asks the guest to contact by email or WhatsApp. The site must not pretend that a request was delivered when delivery failed.
 
@@ -170,6 +186,7 @@ The API route includes:
 - no-store JSON responses
 - in-memory per-client rate limiting
 - a honeypot field for bot submissions
+- optional Cloudflare Turnstile validation when production keys are configured
 - server-side validation with localized client-facing messages
 - safe logging that avoids dumping full guest messages into logs
 
@@ -295,8 +312,9 @@ Current image groups:
 
 Use `next/image` for site imagery. Do not hotlink third-party images, scrape Google Maps, add unsafe external scripts, embed random social widgets, or imply that illustrations are official event photos.
 
-Large opaque PNGs should be converted to quality JPEG only after visual comparison. As of 2026-05-27, the heaviest apartment/event PNGs were converted and `public/images` is about 62 MB with no image over 1.5 MB.
+Large opaque PNGs should be converted to quality JPEG only after visual comparison. As of 2026-06-12, `public/images` is about 65 MB, has 134 local image files, includes 12 generated WebP/AVIF derivative files, and has no local image over 1.5 MB.
 Use `npm run images:generate` to create WebP and AVIF derivatives for selected hero/LCP images under `generated/` folders before wiring them into rendering paths.
+Use `npm run images:check` in CI or before deployment to verify the derivative manifest still matches the committed generated files.
 
 `next.config.ts` restricts allowed image qualities to `75` and `90`; use one of those values when adding `next/image` calls with explicit quality.
 
@@ -318,10 +336,13 @@ Image audit and mapping documents:
 Security-related configuration lives primarily in:
 
 - `next.config.ts`
+- `src/proxy.ts`
 - `src/app/api/booking-request/route.ts`
 - `src/lib/booking-request.ts`
 - `src/lib/rate-limit.ts`
 - `src/lib/resend.ts`
+- `src/lib/security-headers.ts`
+- `src/lib/turnstile.ts`
 
 Current baseline:
 
@@ -335,11 +356,11 @@ Current baseline:
 - no third-party embeds except explicitly reviewed services: Cloudflare Turnstile, Plausible and Vercel Analytics
 - no public API keys committed
 
-The CSP must not use `unsafe-inline` in production. If script or style behavior changes, test all App Router pages, metadata, fonts, analytics and interactive forms carefully.
+The CSP must not use `unsafe-inline` in production. Nonce-based CSP is generated per request in `src/proxy.ts`; this makes App Router page responses dynamic, which is the expected tradeoff for strict nonce CSP in this project. If script or style behavior changes, test all App Router pages, metadata, fonts, analytics and interactive forms carefully.
 
 Run `npm audit --omit=dev` periodically. The project currently uses a `postcss` override to keep the dependency tree on a patched version.
 
-Latest maintenance pass: 2026-05-27. `npm audit --omit=dev` returned no vulnerabilities, production booking API smoke tests returned expected `200` for honeypot and `400` for invalid payloads, and no local images above 1.5 MB were found.
+CI runs on pushes and pull requests to `main` and currently covers install, lint, typecheck, unit tests, image derivative manifest validation and production build.
 
 ## SEO and Structured Data
 
@@ -357,13 +378,42 @@ The app includes:
 - canonical URLs for `https://azurmenton.com`
 - hreflang alternates including `x-default`
 - sitemap and robots routes
-- JSON-LD for relevant page types
+- JSON-LD for relevant page types, including `LodgingBusiness`, `VacationRental`, `FAQPage`, `CollectionPage`, `ItemList`, `ContactPage`, articles and breadcrumbs
 - breadcrumbs where useful
 - Article/WebPage-style schema for guide and seasonal event guides
 
+Apartment `VacationRental` schema must keep Google-required fields valid: stable `identifier`, `geo`, and `containsPlace`. Do not add `review` or `aggregateRating` unless real review/rating data exists and can be kept accurate.
+
 Do not add Event schema unless exact official event date/location/source data is verified.
 
-After deployment, verify the domain in Google Search Console, submit `https://azurmenton.com/sitemap.xml`, and monitor indexing, hreflang, mobile usability and Core Web Vitals.
+The `azurmenton.com` domain property is verified in Google Search Console through Cloudflare DNS. After deployment, resubmit `https://azurmenton.com/sitemap.xml` when schema or route coverage changes, inspect priority URLs, and monitor indexing, hreflang, mobile usability and Core Web Vitals. Use `docs/search-console-validation.md` for the validation checklist and `npm run seo:validate` for a quick live schema/canonical/hreflang smoke test.
+
+## Analytics and Funnel Events
+
+Analytics is intentionally limited to privacy-friendly product signals:
+
+- Plausible pageviews and funnel events
+- Vercel Analytics for Core Web Vitals
+- no broad third-party marketing tags
+
+Canonical funnel event names:
+
+- `check_availability_view`
+- `booking_form_start`
+- `booking_request_submit_success`
+- `booking_request_submit_error`
+
+Keep event names stable and locale-agnostic.
+
+## Tests and CI
+
+Automated coverage is intentionally small and focused on commercial risk:
+
+- Vitest unit tests for booking validation and structured data builders
+- Playwright smoke tests for homepage-to-booking navigation, CSP, booking validation UI and a localized booking route
+- GitHub Actions workflow in `.github/workflows/ci.yml`
+
+Run `npm run test:e2e` locally only when a browser-backed smoke check is needed; normal CI does not run Playwright yet.
 
 ## Legal Pages
 
@@ -389,6 +439,7 @@ src/i18n/                Locale definitions
 src/lib/                 SEO, structured data, events freshness, weather, booking and email helpers
 public/images/           Local project images and illustrations
 scripts/                 Utility scripts
+tests/                   Unit and Playwright smoke tests
 ```
 
 ## Content Editing Notes
@@ -407,7 +458,7 @@ Expected target: Vercel
 Production domain: `azurmenton.com`  
 DNS: Cloudflare
 
-See `DEPLOYMENT.md` for first production deployment steps.
+See `DEPLOYMENT.md` for first production deployment steps and `docs/search-console-validation.md` for post-deploy SEO validation.
 
 Do not configure DNS, deploy, connect production services or add tracking from local development unless explicitly requested.
 
