@@ -738,6 +738,84 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "best-walks-and-hikes-around-menton",
+    slug: "best-walks-and-hikes-around-menton",
+    title: t("The best walks and hikes around Menton", "Les meilleures balades et randonnees autour de Menton", "Le migliori passeggiate ed escursioni intorno a Mentone", "Найкращі прогулянки й походи навколо Ментона"),
+    seoTitle: t("Best Walks and Hikes Around Menton | Coastal Trails", "Meilleures balades et randonnees autour de Menton", "Migliori passeggiate ed escursioni intorno a Mentone", "Найкращі прогулянки й походи навколо Ментона"),
+    seoDescription: t("A practical guide to Menton's best coastal walks and hikes: Sentier des Douaniers, Cap Martin, Mont Gros and Roquebrune medieval village, with car-free tips.", "Guide pratique des meilleures balades et randonnees autour de Menton: Sentier des Douaniers, Cap Martin, Mont Gros, Roquebrune medieval et conseils sans voiture.", "Guida pratica alle migliori passeggiate ed escursioni intorno a Mentone: Sentier des Douaniers, Cap Martin, Mont Gros, borgo medievale di Roquebrune e consigli senza auto.", "Практичний гід найкращими прогулянками й походами навколо Ментона: Sentier des Douaniers, Cap Martin, Mont Gros, середньовічний Roquebrune і поради без авто."),
+    excerpt: t("Menton is a strong hiking base: coastal paths, olive groves, pine slopes and panoramic viewpoints begin close to the seafront.", "Menton est une excellente base de marche: sentiers cotiers, oliveraies, pentes de pins et panoramas commencent pres du front de mer.", "Mentone e un'ottima base per camminare: sentieri costieri, uliveti, pendii di pini e panorami partono vicino al lungomare.", "Ментон - сильна база для піших маршрутів: прибережні стежки, оливкові гаї, соснові схили й панорами починаються поруч із морем."),
+    category: "walks-views",
+    coverImage: "/images/guide/best-walks-and-hikes-around-menton.jpg",
+    coverImageAlt: t("Illustration of coastal walks and hikes around Menton", "Illustration des balades et randonnees autour de Menton", "Illustrazione di passeggiate ed escursioni intorno a Mentone", "Ілюстрація прогулянок і походів навколо Ментона"),
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    tags: [t("hiking", "randonnee", "escursionismo", "походи"), t("coastal walks", "balades cotieres", "passeggiate costiere", "прибережні прогулянки"), t("views", "vues", "viste", "краєвиди"), t("without a car", "sans voiture", "senza auto", "без авто")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[7].label],
+    duration: "half-day",
+    locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
+    sourceStatus: "editorial",
+    relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "promenade-du-soleil", "port-de-garavan"],
+    relatedArticles: ["menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Menton as a hiking base", "Menton comme base de randonnee", "Mentone come base per camminare", "Ментон як база для походів"),
+        body: [
+          t("Most visitors come for beaches and the colourful old town, then discover that Menton is also one of the Riviera's most convenient walking bases. Within minutes of the seafront, routes climb into olive groves, pine slopes, cliffs and viewpoints over France, Monaco and Italy.", "La plupart des visiteurs viennent pour les plages et la vieille ville coloree, puis decouvrent que Menton est aussi l'une des bases les plus pratiques pour marcher sur la Riviera. En quelques minutes depuis le front de mer, les itineraires montent vers oliveraies, pins, falaises et vues sur France, Monaco et Italie.", "Molti visitatori arrivano per spiagge e centro storico colorato, poi scoprono che Mentone e anche una delle basi piu comode per camminare in Riviera. In pochi minuti dal lungomare, i percorsi salgono tra ulivi, pini, scogliere e viste su Francia, Monaco e Italia.", "Більшість гостей приїздить за пляжами й кольоровим старим містом, а потім відкриває, що Ментон ще й одна з найзручніших баз для прогулянок на Рив'єрі. За кілька хвилин від моря маршрути піднімаються до оливкових гаїв, соснових схилів, скель і видів на Францію, Монако та Італію."),
+        ],
+      },
+      {
+        heading: t("Sentier des Douaniers: the coastal border walk", "Sentier des Douaniers: balade cotiere vers la frontiere", "Sentier des Douaniers: passeggiata costiera verso il confine", "Sentier des Douaniers: прибережна стежка до кордону"),
+        body: [
+          t("Difficulty: easy. Duration: 1-2 hours. Start from Garavan for a scenic customs officers' path near the Italian border, with constant Mediterranean views, rocky coves and quieter sections away from traffic.", "Difficulte: facile. Duree: 1-2 heures. Partez de Garavan pour suivre l'ancien sentier des douaniers pres de la frontiere italienne, avec vues mediterraneennes, criques rocheuses et sections calmes loin du trafic.", "Difficolta: facile. Durata: 1-2 ore. Parti da Garavan per seguire l'antico sentiero dei doganieri vicino al confine italiano, con viste sul Mediterraneo, calette rocciose e tratti tranquilli lontani dal traffico.", "Складність: легко. Тривалість: 1-2 години. Починайте з Garavan і йдіть колишньою стежкою митників біля італійського кордону: море, скелясті бухти й тихі ділянки без трафіку."),
+          t("This is the best first route if you want strong scenery without a hard climb.", "C'est le meilleur premier itineraire si vous voulez de beaux paysages sans montee difficile.", "E il miglior primo percorso se vuoi paesaggi forti senza una salita dura.", "Це найкращий перший маршрут, якщо хочеться сильних краєвидів без важкого підйому."),
+        ],
+        relatedPlaceIds: ["sentier-douaniers-menton", "port-de-garavan"],
+      },
+      {
+        heading: t("Roquebrune-Cap-Martin coastal walk", "Balade cotiere de Roquebrune-Cap-Martin", "Passeggiata costiera di Roquebrune-Cap-Martin", "Прибережна прогулянка Roquebrune-Cap-Martin"),
+        body: [
+          t("Difficulty: easy to moderate. Duration: 2-3 hours. The route between Menton and Roquebrune-Cap-Martin combines beaches, sea cliffs, pine trees, historic villas and classic Cap Martin viewpoints.", "Difficulte: facile a moderee. Duree: 2-3 heures. L'itineraire entre Menton et Roquebrune-Cap-Martin combine plages, falaises, pins, villas historiques et vues classiques du Cap Martin.", "Difficolta: facile-moderata. Durata: 2-3 ore. Il percorso tra Mentone e Roquebrune-Cap-Martin unisce spiagge, scogliere, pini, ville storiche e viste classiche di Cap Martin.", "Складність: легко-помірно. Тривалість: 2-3 години. Маршрут між Ментоном і Roquebrune-Cap-Martin поєднує пляжі, морські скелі, сосни, історичні вілли й класичні види Cap Martin."),
+          t("You can walk out and back, or use Roquebrune-Cap-Martin station for an easier return.", "Vous pouvez faire l'aller-retour a pied ou utiliser la gare de Roquebrune-Cap-Martin pour un retour plus simple.", "Puoi fare andata e ritorno a piedi oppure usare la stazione di Roquebrune-Cap-Martin per rientrare piu facilmente.", "Можна пройти туди й назад або скористатися станцією Roquebrune-Cap-Martin для простішого повернення."),
+        ],
+        relatedPlaceIds: ["roquebrune-cap-martin-coastal-walk", "borrigo-beaches", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Mont Gros for panoramic views", "Mont Gros pour les panoramas", "Mont Gros per i panorami", "Mont Gros для панорам"),
+        body: [
+          t("Difficulty: moderate. Duration: 3-4 hours. Mont Gros is one of the most rewarding options close to town if you want elevation. The climb moves through quieter slopes and viewpoints above Menton.", "Difficulte: moderee. Duree: 3-4 heures. Mont Gros est l'une des options les plus gratifiantes pres de la ville si vous cherchez du denivele. La montee traverse des pentes plus calmes et des points de vue au-dessus de Menton.", "Difficolta: moderata. Durata: 3-4 ore. Mont Gros e una delle opzioni piu gratificanti vicino alla citta se cerchi dislivello. La salita passa per pendii tranquilli e punti panoramici sopra Mentone.", "Складність: помірно. Тривалість: 3-4 години. Mont Gros - один із найвдячніших варіантів поруч із містом, якщо хочеться висоти. Підйом проходить тихішими схилами й оглядовими точками над Ментоном."),
+          t("On clear days the view can include Menton Old Town, Monaco, Cap Martin, the Italian Riviera and the mountains behind the coast.", "Par temps clair, la vue peut inclure la vieille ville de Menton, Monaco, Cap Martin, la Riviera italienne et les montagnes derriere la cote.", "Nelle giornate limpide puoi vedere il centro storico di Mentone, Monaco, Cap Martin, Riviera italiana e montagne dietro la costa.", "У ясні дні видно старе місто Ментона, Монако, Cap Martin, Італійську Рив'єру й гори за узбережжям."),
+        ],
+        relatedPlaceIds: ["mont-gros-viewpoint", "cimetiere-vieux-chateau"],
+      },
+      {
+        heading: t("Roquebrune medieval village walk", "Montee vers le village medieval de Roquebrune", "Salita al borgo medievale di Roquebrune", "Прогулянка до середньовічного Roquebrune"),
+        body: [
+          t("Difficulty: moderate. Duration: 2-4 hours. This walk climbs from the coast towards the medieval village of Roquebrune, passing olive trees, stone paths and viewpoints before reaching narrow streets, cafes and the historic castle area.", "Difficulte: moderee. Duree: 2-4 heures. Cette balade monte depuis la cote vers le village medieval de Roquebrune, entre oliviers, chemins de pierre et points de vue avant les ruelles, cafes et le secteur du chateau.", "Difficolta: moderata. Durata: 2-4 ore. Questa passeggiata sale dalla costa al borgo medievale di Roquebrune, tra ulivi, sentieri in pietra e punti panoramici prima di arrivare a vicoli, cafe e zona del castello.", "Складність: помірно. Тривалість: 2-4 години. Ця прогулянка піднімається від узбережжя до середньовічного Roquebrune через оливи, кам'яні стежки й оглядові точки до вузьких вулиць, кафе й району замку."),
+        ],
+        relatedPlaceIds: ["roquebrune-medieval-village", "roquebrune-cap-martin-coastal-walk"],
+      },
+      {
+        heading: t("Walking without a car", "Marcher sans voiture", "Camminare senza auto", "Пішки без авто"),
+        body: [
+          t("Several routes can begin directly from Menton Old Town, Garavan, Promenade du Soleil or the train station. For farther walks, trains make Roquebrune-Cap-Martin, Monaco, Eze and Villefranche-sur-Mer practical without driving.", "Plusieurs itineraires peuvent commencer directement depuis la vieille ville, Garavan, la Promenade du Soleil ou la gare. Pour les balades plus loin, le train rend Roquebrune-Cap-Martin, Monaco, Eze et Villefranche-sur-Mer pratiques sans voiture.", "Diversi percorsi possono iniziare direttamente da centro storico, Garavan, Promenade du Soleil o stazione. Per camminate piu lontane, il treno rende pratici Roquebrune-Cap-Martin, Monaco, Eze e Villefranche-sur-Mer senza auto.", "Кілька маршрутів можна почати прямо зі старого міста, Garavan, Promenade du Soleil або вокзалу. Для дальших прогулянок потяг робить Roquebrune-Cap-Martin, Монако, Eze та Villefranche-sur-Mer практичними без авто."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "monaco-monte-carlo", "eze-village", "villefranche-sur-mer"],
+      },
+      {
+        heading: t("What to bring and when to go", "Que prendre et quand partir", "Cosa portare e quando andare", "Що взяти й коли йти"),
+        body: [
+          t("Even short Mediterranean walks need preparation: comfortable shoes, water, sun protection, a light windproof layer, offline maps and enough phone battery. In summer, start early or late; for the best hiking conditions, spring and autumn are usually stronger than peak heat.", "Meme les courtes balades mediterraneennes demandent un minimum: bonnes chaussures, eau, protection solaire, couche coupe-vent legere, cartes hors ligne et batterie suffisante. En ete, partez tot ou tard; pour les meilleures conditions, printemps et automne sont souvent meilleurs que la pleine chaleur.", "Anche le brevi passeggiate mediterranee richiedono preparazione: scarpe comode, acqua, protezione solare, strato antivento leggero, mappe offline e batteria sufficiente. In estate parti presto o tardi; primavera e autunno sono spesso migliori del pieno caldo.", "Навіть короткі середземноморські прогулянки потребують підготовки: зручне взуття, вода, захист від сонця, легкий вітрозахисний шар, офлайн-мапи й достатній заряд телефона. Влітку виходьте рано або пізно; найкращі умови часто навесні й восени."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check route conditions before committing to cliff or mountain paths.", "Verifiez l'etat des sentiers avant les chemins de falaise ou de montagne.", "Controlla le condizioni dei sentieri prima di percorsi su scogliere o montagna.", "Перевіряйте стан маршрутів перед скелями або гірськими стежками."),
+      t("Carry water even on easy coastal walks.", "Prenez de l'eau meme pour les balades cotieres faciles.", "Porta acqua anche sulle passeggiate costiere facili.", "Беріть воду навіть на легкі прибережні прогулянки."),
+      t("Use trains for one-way routes back to Menton.", "Utilisez le train pour revenir a Menton apres un itineraire en aller simple.", "Usa il treno per rientrare a Mentone sui percorsi a senso unico.", "Використовуйте потяги для повернення до Ментона після маршрутів в один бік."),
+    ],
+  }),
+  shortArticle({
     id: "quiet-evening-in-menton",
     slug: "quiet-evening-in-menton",
     title: t("A quiet evening in Menton: walks, views and calm corners", "Une soiree calme a Menton: balades, vues et coins paisibles", "Una serata tranquilla a Mentone: passeggiate, viste e angoli calmi", "Тихий вечір у Ментоні: прогулянки, краєвиди й спокійні місця"),
