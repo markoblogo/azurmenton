@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@/components/analytics/Analytics";
 import { PhotoShineObserver } from "@/components/media/PhotoShineObserver";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         {children}
         <PhotoShineObserver />
+        <Analytics />
       </body>
     </html>
   );

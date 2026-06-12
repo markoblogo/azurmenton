@@ -52,17 +52,22 @@ Create a local `.env.local` from `.env.example` when needed.
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://azurmenton.com
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
+NEXT_PUBLIC_PLAUSIBLE_API_HOST=
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
 
 WEATHER_PROVIDER=open-meteo
 WEATHER_LATITUDE=43.7745
 WEATHER_LONGITUDE=7.4975
 
 RESEND_API_KEY=
-BOOKING_REQUEST_TO_EMAIL=petraetpaul@gmail.com
-BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@azurmenton.com>"
+BOOKING_REQUEST_TO_EMAIL=
+BOOKING_REQUEST_FROM_EMAIL=
 ```
 
 `RESEND_API_KEY` must never be committed. In production, booking request delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` set in Vercel.
+Turnstile is enabled only when both `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY` are configured. Plausible is enabled only when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is configured.
 
 For Resend, the sending domain must be verified in Resend before `BOOKING_REQUEST_FROM_EMAIL` can use that domain reliably. Keep `RESEND_SETUP.md` updated with the current production sender and manual test result.
 
@@ -198,12 +203,12 @@ Place cards support:
 - related guide article links
 - owned local imagery or editorial placeholders
 
-Do not scrape Google Maps photos, hotlink third-party images, use unofficial screenshots, or invent ratings/opening hours. See `GUIDE_IMAGE_STRATEGY.md` for the current image policy and future Google Places API notes.
+Do not scrape Google Maps photos, hotlink third-party images, use unofficial screenshots, or invent ratings/opening hours. See `docs/archive/GUIDE_IMAGE_STRATEGY.md` for the current image policy and future Google Places API notes.
 
 Guide images are stored in:
 
 - `public/images/guide/`
-- `GUIDE_IMAGE_MAPPING.md`
+- `docs/archive/GUIDE_IMAGE_MAPPING.md`
 
 ## Events Calendar
 
@@ -240,8 +245,8 @@ Do not invent exact dates, ticket prices, routes, opening hours or official rule
 Event illustrations are stored in:
 
 - `public/images/events/`
-- `EVENT_IMAGE_MAPPING_NOTES.md`
-- `IMAGE_EVENT_AUDIT.md`
+- `docs/archive/EVENT_IMAGE_MAPPING_NOTES.md`
+- `docs/archive/IMAGE_EVENT_AUDIT.md`
 
 They are project illustrations, not documentary event photos.
 
@@ -274,6 +279,7 @@ It fetches Menton weather server-side from Open-Meteo with a two-hour cache and 
 - graceful fallback
 
 Sea temperature comes from the Open-Meteo Marine API and is a planning indicator, not a swimming safety guarantee.
+The cache duration is centralized in `weatherRevalidateSeconds` and should stay aligned across weather and marine fetches.
 
 ## Images and Media Policy
 
@@ -289,6 +295,7 @@ Current image groups:
 Use `next/image` for site imagery. Do not hotlink third-party images, scrape Google Maps, add unsafe external scripts, embed random social widgets, or imply that illustrations are official event photos.
 
 Large opaque PNGs should be converted to quality JPEG only after visual comparison. As of 2026-05-27, the heaviest apartment/event PNGs were converted and `public/images` is about 62 MB with no image over 1.5 MB.
+Use `npm run images:generate` to create WebP and AVIF derivatives for selected hero/LCP images under `generated/` folders before wiring them into rendering paths.
 
 `next.config.ts` restricts allowed image qualities to `75` and `90`; use one of those values when adding `next/image` calls with explicit quality.
 
@@ -296,14 +303,14 @@ For Next.js 16 hero/LCP imagery, prefer `preload` or `fetchPriority="high"` over
 
 Image audit and mapping documents:
 
-- `IMAGE_AUDIT.md`
-- `IMAGE_AUDIT_AFTER_RECOPY.md`
-- `IMAGE_SOURCE_COMPARISON.md`
-- `HOME_IMAGE_COMPARISON.md`
-- `GUIDE_IMAGE_MAPPING.md`
-- `GUIDE_IMAGE_STRATEGY.md`
-- `EVENT_IMAGE_MAPPING_NOTES.md`
-- `IMAGE_EVENT_AUDIT.md`
+- `docs/archive/IMAGE_AUDIT.md`
+- `docs/archive/IMAGE_AUDIT_AFTER_RECOPY.md`
+- `docs/archive/IMAGE_SOURCE_COMPARISON.md`
+- `docs/archive/HOME_IMAGE_COMPARISON.md`
+- `docs/archive/GUIDE_IMAGE_MAPPING.md`
+- `docs/archive/GUIDE_IMAGE_STRATEGY.md`
+- `docs/archive/EVENT_IMAGE_MAPPING_NOTES.md`
+- `docs/archive/IMAGE_EVENT_AUDIT.md`
 
 ## Security and Reliability
 
@@ -318,16 +325,16 @@ Security-related configuration lives primarily in:
 Current baseline:
 
 - `poweredByHeader` disabled
-- Content Security Policy
+- nonce-based Content Security Policy generated in `proxy.ts`
 - HSTS
 - frame denial
 - strict referrer policy
 - restrictive permissions policy
 - immutable cache headers for local images
-- no third-party embeds except explicitly reviewed services
+- no third-party embeds except explicitly reviewed services: Cloudflare Turnstile, Plausible and Vercel Analytics
 - no public API keys committed
 
-The CSP currently allows inline scripts/styles because Next.js and the current styling pipeline require them. If this is tightened later, test all App Router pages, metadata, fonts and interactive forms carefully.
+The CSP must not use `unsafe-inline` in production. If script or style behavior changes, test all App Router pages, metadata, fonts, analytics and interactive forms carefully.
 
 Run `npm audit --omit=dev` periodically. The project currently uses a `postcss` override to keep the dependency tree on a patched version.
 

@@ -187,6 +187,8 @@ export default async function ApartmentsPage({ params }: PageProps) {
             description: apartment.seoDescription[safeLocale],
             url: absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`)),
             image: absoluteUrl(apartment.heroImage),
+            type: "Accommodation",
+            occupancy: apartment.maxGuests,
           })),
         })}
       />

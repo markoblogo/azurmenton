@@ -22,8 +22,8 @@ Required production variables:
 
 ```txt
 RESEND_API_KEY=...
-BOOKING_REQUEST_TO_EMAIL=petraetpaul@gmail.com
-BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@azurmenton.com>"
+BOOKING_REQUEST_TO_EMAIL=...
+BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@your-verified-domain.example>"
 ```
 
 ## 3. Set variables in Vercel

@@ -10,6 +10,7 @@ export function lodgingBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
+    "@id": "https://azurmenton.com/#lodging-business",
     name: "Azur Menton",
     legalName: "SCI Petra et Paul",
     taxID: "983 423 898 R.C.S. Nice",
@@ -20,6 +21,12 @@ export function lodgingBusinessJsonLd() {
       "Family-run beachfront and beachside apartments in central Menton, France. Direct booking requests are confirmed manually by the host.",
     email: "petraetpaul@gmail.com",
     telephone: "+33 6 24 71 65 65",
+    priceRange: "Direct quote after availability request",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 43.7745,
+      longitude: 7.4975,
+    },
     areaServed: {
       "@type": "City",
       name: "Menton",
@@ -33,6 +40,21 @@ export function lodgingBusinessJsonLd() {
       addressLocality: "Menton",
       addressRegion: "Provence-Alpes-Cote d'Azur",
       addressCountry: "FR",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Azur Menton apartment stays",
+      itemListElement: [
+        "Sea View Balcony Studio",
+        "Terrace & Parking Apartment",
+        "Panoramic Sea View Studio",
+      ].map((name) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Accommodation",
+          name,
+        },
+      })),
     },
   };
 }
@@ -80,7 +102,14 @@ export function itemListJsonLd(input: {
   name: string;
   description?: string;
   url: string;
-  items: Array<{ name: string; url: string; description?: string; image?: string }>;
+  items: Array<{
+    name: string;
+    url: string;
+    description?: string;
+    image?: string;
+    type?: string;
+    occupancy?: number;
+  }>;
 }) {
   return {
     "@context": "https://schema.org",
@@ -92,11 +121,17 @@ export function itemListJsonLd(input: {
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "Thing",
+        "@type": item.type ?? "Thing",
         name: item.name,
         url: item.url,
         description: item.description,
         image: item.image,
+        occupancy: item.occupancy
+          ? {
+              "@type": "QuantitativeValue",
+              value: item.occupancy,
+            }
+          : undefined,
       },
     })),
   };
@@ -116,6 +151,7 @@ export function vacationRentalJsonLd(input: {
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
+    additionalType: "https://schema.org/Accommodation",
     name: input.name,
     description: input.description,
     url: input.url,
@@ -141,6 +177,43 @@ export function vacationRentalJsonLd(input: {
       addressLocality: "Menton",
       addressRegion: "Provence-Alpes-Cote d'Azur",
       addressCountry: "FR",
+    },
+    containedInPlace: {
+      "@type": "LodgingBusiness",
+      "@id": "https://azurmenton.com/#lodging-business",
+      name: "Azur Menton",
+    },
+  };
+}
+
+export function contactPageJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  locale: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    inLanguage: input.locale,
+    about: {
+      "@type": "LodgingBusiness",
+      "@id": "https://azurmenton.com/#lodging-business",
+      name: "Azur Menton",
+    },
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: input.url,
+      result: {
+        "@type": "LodgingReservation",
+        reservationFor: {
+          "@type": "Accommodation",
+          name: "Azur Menton apartment stay",
+        },
+      },
     },
   };
 }

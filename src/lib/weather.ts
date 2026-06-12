@@ -48,6 +48,7 @@ type OpenMeteoMarineResponse = {
 
 const defaultLatitude = "43.7745";
 const defaultLongitude = "7.4975";
+export const weatherRevalidateSeconds = 7200;
 
 export function weatherLabel(code: number) {
   if (code === 0) return "Clear";
@@ -100,7 +101,7 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
   url.searchParams.set("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max");
 
   const response = await fetch(url, {
-    next: { revalidate: 7200 },
+    next: { revalidate: weatherRevalidateSeconds },
   });
 
   if (!response.ok) {
@@ -147,7 +148,7 @@ async function fetchOpenMeteoSeaTemperature(latitude: string, longitude: string)
 
   try {
     const response = await fetch(url, {
-      next: { revalidate: 7200 },
+      next: { revalidate: weatherRevalidateSeconds },
     });
 
     if (!response.ok) return undefined;
@@ -176,5 +177,5 @@ export const getMentonWeather = unstable_cache(
     }
   },
   ["menton-weather"],
-  { revalidate: 7200 },
+  { revalidate: weatherRevalidateSeconds },
 );
