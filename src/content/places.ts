@@ -313,7 +313,18 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("The closest Italian rail stop from Menton, useful for markets, Ligurian food and an easy cross-border walk day.", "La gare italienne la plus proche de Menton, utile pour les marches, la cuisine ligure et une journee facile de l'autre cote de la frontiere.", "La fermata italiana piu vicina a Mentone, utile per mercati, cucina ligure e una facile giornata oltre confine.", "Найближча італійська залізнична зупинка від Ментона, зручна для ринків, лігурійської їжі й легкої поїздки через кордон."),
     bestFor: [text("markets", "marches", "mercati", "ринки"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton"],
+  },
+  {
+    id: "bordighera",
+    name: "Bordighera",
+    type: "walk",
+    area: text("Italian Riviera", "Riviera italienne", "Riviera italiana", "Італійська Рив'єра"),
+    googleMapsUrl: mapsSearch("Bordighera", "Italy"),
+    sourceStatus: "editorial",
+    shortNote: text("An elegant Italian Riviera stop beyond Ventimiglia, known for palm-lined promenades, villas, beaches and a quieter local mood.", "Une halte elegante de la Riviera italienne apres Vintimille, connue pour ses promenades de palmiers, villas, plages et ambiance plus locale.", "Una tappa elegante della Riviera italiana oltre Ventimiglia, nota per lungomare con palme, ville, spiagge e atmosfera piu locale.", "Елегантна зупинка Італійської Рив'єри за Вентімільєю: пальмові набережні, вілли, пляжі й тихіший локальний ритм."),
+    bestFor: [text("seafront walks", "promenades en bord de mer", "passeggiate sul mare", "прогулянки набережною"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton"],
   },
   {
     id: "sanremo",
@@ -324,7 +335,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A longer Italian Riviera day trip for promenades, old streets, cafes and a different Ligurian rhythm.", "Une excursion plus longue sur la Riviera italienne pour promenades, ruelles, cafes et un autre rythme ligure.", "Una gita piu lunga in Riviera italiana per passeggiate, vie antiche, cafe e un ritmo ligure diverso.", "Довша поїздка Італійською Рив'єрою заради променадів, старих вулиць, кафе й іншого лігурійського ритму."),
     bestFor: [text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію"), text("slow travel", "voyage lent", "viaggio lento", "повільна подорож")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton"],
   },
   {
     id: "sentier-douaniers-menton",

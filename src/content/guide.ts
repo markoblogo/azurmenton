@@ -816,6 +816,83 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "italian-riviera-day-trip-from-menton",
+    slug: "italian-riviera-day-trip-from-menton",
+    title: t("Ventimiglia and Bordighera: a day in Italy from Menton", "Vintimille et Bordighera: une journee en Italie depuis Menton", "Ventimiglia e Bordighera: una giornata in Italia da Mentone", "Вентімілья й Бордігера: день в Італії з Ментона"),
+    seoTitle: t("Italian Riviera Day Trip from Menton | Ventimiglia & Bordighera", "Excursion en Italie depuis Menton | Vintimille & Bordighera", "Gita in Italia da Mentone | Ventimiglia e Bordighera", "Поїздка в Італію з Ментона | Вентімілья й Бордігера"),
+    seoDescription: t("Plan an easy Italian Riviera day trip from Menton by train: Ventimiglia markets and old town, Bordighera promenade, Sanremo option and practical tips.", "Preparez une excursion facile en Italie depuis Menton en train: marches et vieille ville de Vintimille, promenade de Bordighera, option Sanremo et conseils pratiques.", "Organizza una facile gita in Riviera italiana da Mentone in treno: mercati e centro storico di Ventimiglia, lungomare di Bordighera, opzione Sanremo e consigli pratici.", "Сплануйте легку поїздку Італійською Рив'єрою з Ментона потягом: ринки й старе місто Вентімільї, набережна Бордігери, варіант Санремо й практичні поради."),
+    excerpt: t("Italy is one train stop from Menton: spend the morning in France, have lunch in Ventimiglia or Bordighera and return before sunset.", "L'Italie est a un arret de train de Menton: matin en France, dejeuner a Vintimille ou Bordighera, retour avant le coucher du soleil.", "L'Italia e a una fermata di treno da Mentone: mattina in Francia, pranzo a Ventimiglia o Bordighera e ritorno prima del tramonto.", "Італія за одну зупинку потягом від Ментона: ранок у Франції, обід у Вентімільї або Бордігері й повернення до заходу сонця."),
+    category: "day-trips",
+    coverImage: "/images/guide/italian-riviera-day-trip-from-menton.jpg",
+    coverImageAlt: t("Illustration of Ventimiglia and Bordighera day trip from Menton", "Illustration d'une excursion a Vintimille et Bordighera depuis Menton", "Illustrazione di una gita a Ventimiglia e Bordighera da Mentone", "Ілюстрація поїздки до Вентімільї й Бордігери з Ментона"),
+    visualTheme: "itinerary",
+    visualStatus: "project_illustration",
+    tags: [t("Italy", "Italie", "Italia", "Італія"), t("Ventimiglia", "Vintimille", "Ventimiglia", "Вентімілья"), t("Bordighera", "Bordighera", "Bordighera", "Бордігера"), t("train day trip", "excursion en train", "gita in treno", "поїздка потягом")],
+    bestFor: [guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[0].label],
+    duration: "full-day",
+    locationTags: ["italian-riviera", "menton-centre", "seafront"],
+    sourceStatus: "editorial",
+    relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
+    relatedArticles: ["day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Italy is one train stop away", "L'Italie est a un arret de train", "L'Italia e a una fermata di treno", "Італія за одну зупинку потягом"),
+        body: [
+          t("One of Menton's biggest advantages is easy access to Italy. While many Riviera plans focus on Monaco, Nice or Cannes, Menton lets you spend the morning in France, have lunch in Italy and return to your apartment before sunset.", "L'un des grands avantages de Menton est l'acces facile a l'Italie. Beaucoup d'itineraires Riviera regardent Monaco, Nice ou Cannes, mais Menton permet de passer la matinee en France, de dejeuner en Italie et de rentrer a l'appartement avant le coucher du soleil.", "Uno dei grandi vantaggi di Mentone e l'accesso facile all'Italia. Molti itinerari in Riviera guardano a Monaco, Nizza o Cannes, ma Mentone permette di passare la mattina in Francia, pranzare in Italia e tornare in appartamento prima del tramonto.", "Одна з головних переваг Ментона - легкий доступ до Італії. Багато планів на Рив'єрі дивляться на Монако, Ніццу чи Канни, але Ментон дозволяє провести ранок у Франції, пообідати в Італії й повернутися в апартаменти до заходу сонця."),
+          t("For food lovers, market visitors and travellers looking for a more local Mediterranean mood, Ventimiglia, Bordighera and Sanremo make some of the most memorable day trips from Menton.", "Pour les amateurs de cuisine, de marches et d'ambiance mediterraneenne plus locale, Vintimille, Bordighera et Sanremo offrent des excursions tres memorables depuis Menton.", "Per chi ama cibo, mercati e un'atmosfera mediterranea piu locale, Ventimiglia, Bordighera e Sanremo sono tra le gite piu memorabili da Mentone.", "Для любителів їжі, ринків і більш локального середземноморського настрою Вентімілья, Бордігера й Санремо - одні з найпам'ятніших поїздок із Ментона."),
+        ],
+      },
+      {
+        heading: t("How to get to Italy from Menton", "Comment aller en Italie depuis Menton", "Come andare in Italia da Mentone", "Як дістатися до Італії з Ментона"),
+        body: [
+          t("Regional trains run from Menton station along the Italian Riviera. Typical journey times are short: around 10 minutes to Ventimiglia, around 20 minutes to Bordighera and around 35-40 minutes to Sanremo, depending on the service.", "Des trains regionaux partent de la gare de Menton vers la Riviera italienne. Les temps de trajet sont courts: environ 10 minutes pour Vintimille, 20 minutes pour Bordighera et 35-40 minutes pour Sanremo selon le service.", "I treni regionali partono dalla stazione di Mentone verso la Riviera italiana. I tempi sono brevi: circa 10 minuti per Ventimiglia, 20 minuti per Bordighera e 35-40 minuti per Sanremo secondo il servizio.", "Регіональні потяги йдуть зі станції Ментона вздовж Італійської Рив'єри. Час у дорозі короткий: близько 10 хвилин до Вентімільї, 20 хвилин до Бордігери й 35-40 хвилин до Санремо залежно від рейсу."),
+          t("Tickets are usually available at the station or through SNCF and Trenitalia apps. Passport checks are not normally part of Schengen travel, but carrying identification is still recommended.", "Les billets s'achetent generalement en gare ou via les apps SNCF et Trenitalia. Les controles de passeport ne sont normalement pas prevus dans l'espace Schengen, mais il reste recommande d'avoir une piece d'identite.", "I biglietti si comprano di solito in stazione o tramite le app SNCF e Trenitalia. I controlli passaporto normalmente non fanno parte dei viaggi Schengen, ma e consigliato portare un documento.", "Квитки зазвичай можна купити на станції або через додатки SNCF і Trenitalia. Паспортних перевірок у Шенгені зазвичай немає, але документ варто мати з собою."),
+        ],
+      },
+      {
+        heading: t("Ventimiglia: markets, old streets and local food", "Vintimille: marches, vieille ville et cuisine locale", "Ventimiglia: mercati, centro storico e cucina locale", "Вентімілья: ринки, старі вулиці й локальна їжа"),
+        body: [
+          t("Ventimiglia is the first Italian town across the border. The atmosphere changes quickly: Italian cafes, bakeries, Ligurian food, different architecture and a more traditional market rhythm.", "Vintimille est la premiere ville italienne apres la frontiere. L'ambiance change vite: cafes italiens, boulangeries, cuisine ligure, architecture differente et rythme de marche plus traditionnel.", "Ventimiglia e la prima citta italiana oltre il confine. L'atmosfera cambia subito: cafe italiani, panetterie, cucina ligure, architettura diversa e ritmo di mercato piu tradizionale.", "Вентімілья - перше італійське місто за кордоном. Атмосфера швидко змінюється: італійські кафе, пекарні, лігурійська їжа, інша архітектура й більш традиційний ринковий ритм."),
+          t("The Friday market is the busiest classic, with stalls for clothing, leather goods, food products, olive oil, cheeses and household goods. Ventimiglia Alta adds the old-town contrast: medieval lanes, stone buildings, the cathedral area and sea views.", "Le marche du vendredi est le grand classique, avec vetements, cuir, produits alimentaires, huile d'olive, fromages et objets du quotidien. Vintimille Alta ajoute le contraste historique: ruelles medievales, pierres, secteur de la cathedrale et vues mer.", "Il mercato del venerdi e il grande classico, con abbigliamento, pelle, prodotti alimentari, olio d'oliva, formaggi e articoli per la casa. Ventimiglia Alta aggiunge il contrasto storico: vicoli medievali, pietra, zona della cattedrale e viste mare.", "П'ятничний ринок - головна класика: одяг, шкіра, продукти, оливкова олія, сири й побутові речі. Ventimiglia Alta додає історичний контраст: середньовічні вулички, кам'яні будівлі, район собору й види на море."),
+        ],
+        relatedPlaceIds: ["ventimiglia"],
+      },
+      {
+        heading: t("Bordighera: palms and seaside elegance", "Bordighera: palmiers et elegance en bord de mer", "Bordighera: palme ed eleganza sul mare", "Бордігера: пальми й морська елегантність"),
+        body: [
+          t("A short ride beyond Ventimiglia, Bordighera feels quieter and more local than many French Riviera resorts. Its palm-lined promenade, villas, beaches and sea views make it a good second stop after a market morning.", "A quelques minutes apres Vintimille, Bordighera semble plus calme et locale que beaucoup de stations de la Riviera francaise. Sa promenade bordee de palmiers, ses villas, plages et vues mer en font une bonne seconde halte apres une matinee de marche.", "Poco oltre Ventimiglia, Bordighera sembra piu tranquilla e locale di molte localita della Costa Azzurra. Il lungomare con palme, le ville, le spiagge e le viste mare la rendono una buona seconda tappa dopo una mattina al mercato.", "За кілька хвилин після Вентімільї Бордігера здається тихішою й локальнішою за багато курортів Французької Рив'єри. Пальмова набережна, вілли, пляжі й море роблять її доброю другою зупинкою після ринкового ранку."),
+          t("The town also has an artistic association with Claude Monet, who painted Bordighera's gardens and coastal light. Even without a museum plan, the waterfront is strong for a slow walk, cafes and sunset photos.", "La ville est aussi liee a Claude Monet, qui a peint les jardins et la lumiere cotiere de Bordighera. Meme sans programme musee, le front de mer est parfait pour une balade lente, des cafes et des photos au coucher du soleil.", "La citta e legata anche a Claude Monet, che dipinse giardini e luce costiera di Bordighera. Anche senza programma museale, il lungomare e forte per una passeggiata lenta, cafe e foto al tramonto.", "Місто також пов'язане з Claude Monet, який писав сади й прибережне світло Бордігери. Навіть без музейного плану набережна добре працює для повільної прогулянки, кафе й фото на заході сонця."),
+        ],
+        relatedPlaceIds: ["bordighera"],
+      },
+      {
+        heading: t("Continue to Sanremo if you have a full day", "Continuer vers Sanremo si vous avez la journee", "Prosegui verso Sanremo se hai tutta la giornata", "Продовжуйте до Санремо, якщо маєте повний день"),
+        body: [
+          t("Sanremo is larger and more energetic, known for flowers, shopping streets, the casino, beaches, restaurants and cafes. It works best when you want a fuller Italian Riviera day rather than a short border hop.", "Sanremo est plus grande et plus animee, connue pour les fleurs, les rues commerçantes, le casino, les plages, restaurants et cafes. Elle convient si vous voulez une vraie journee Riviera italienne plutot qu'un simple passage de frontiere.", "Sanremo e piu grande e vivace, nota per fiori, vie dello shopping, casino, spiagge, ristoranti e cafe. Funziona se vuoi una giornata piu completa in Riviera italiana invece di un breve salto oltre confine.", "Санремо більше й жвавіше: квіти, торгові вулиці, казино, пляжі, ресторани й кафе. Воно підходить, якщо хочеться повнішого дня на Італійській Рив'єрі, а не лише короткого перетину кордону."),
+        ],
+        relatedPlaceIds: ["sanremo"],
+      },
+      {
+        heading: t("Why Italy feels different", "Pourquoi l'Italie semble differente", "Perche l'Italia sembra diversa", "Чому Італія відчувається інакше"),
+        body: [
+          t("Although the distance from Menton is short, the mood changes quickly: Italian cafe culture, stronger market habits, different lunch hours, Ligurian cooking and often lower restaurant prices. That contrast is the reason the excursion works so well.", "Meme si la distance depuis Menton est courte, l'ambiance change vite: culture du cafe italien, marches plus presents, horaires de dejeuner differents, cuisine ligure et souvent des prix de restaurant plus doux. Ce contraste fait tout l'interet de l'excursion.", "Anche se la distanza da Mentone e breve, l'atmosfera cambia in fretta: cultura del cafe italiano, mercati piu forti, orari di pranzo diversi, cucina ligure e spesso prezzi piu bassi al ristorante. Questo contrasto rende la gita cosi riuscita.", "Хоч відстань від Ментона коротка, настрій швидко змінюється: італійська культура кафе, сильніша ринкова традиція, інші години обіду, лігурійська кухня і часто нижчі ціни в ресторанах. Саме цей контраст робить поїздку вдалою."),
+        ],
+      },
+      {
+        heading: t("Practical tips", "Conseils pratiques", "Consigli pratici", "Практичні поради"),
+        body: [
+          t("Italy uses the euro, so no currency exchange is needed. EU roaming usually works for European mobile plans, but visitors from outside Europe should check their provider. Friday is best for the Ventimiglia market; for a quieter trip, choose a weekday outside peak summer.", "L'Italie utilise l'euro, donc pas besoin de change. Le roaming UE fonctionne generalement pour les forfaits europeens, mais les visiteurs hors Europe doivent verifier leur operateur. Le vendredi est ideal pour le marche de Vintimille; pour plus de calme, choisissez un jour de semaine hors plein ete.", "L'Italia usa l'euro, quindi non serve cambio. Il roaming UE di solito funziona per piani europei, ma chi arriva da fuori Europa deve controllare il proprio operatore. Il venerdi e ideale per il mercato di Ventimiglia; per piu calma scegli un giorno feriale fuori alta stagione.", "Італія використовує євро, тому обмін не потрібен. EU roaming зазвичай працює для європейських тарифів, але гостям з-поза Європи варто перевірити оператора. П'ятниця найкраща для ринку Вентімільї; для спокійнішої поїздки обирайте будній день поза піком літа."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check the return train before extending the day to Sanremo.", "Verifiez le train retour avant de prolonger jusqu'a Sanremo.", "Controlla il treno di ritorno prima di proseguire fino a Sanremo.", "Перевірте потяг назад перед продовженням до Санремо."),
+      t("Carry ID even though Schengen border checks are not normally part of the trip.", "Gardez une piece d'identite meme si les controles Schengen ne sont normalement pas prevus.", "Porta un documento anche se i controlli Schengen normalmente non fanno parte del viaggio.", "Майте документ, хоча шенгенські перевірки зазвичай не є частиною поїздки."),
+      t("For the Ventimiglia Friday market, go earlier for more choice and fewer crowds.", "Pour le marche du vendredi a Vintimille, partez plus tot pour plus de choix et moins de foule.", "Per il mercato del venerdi a Ventimiglia, vai presto per piu scelta e meno folla.", "На п'ятничний ринок у Вентімільї їдьте раніше: більше вибору й менше натовпу."),
+    ],
+  }),
+  shortArticle({
     id: "quiet-evening-in-menton",
     slug: "quiet-evening-in-menton",
     title: t("A quiet evening in Menton: walks, views and calm corners", "Une soiree calme a Menton: balades, vues et coins paisibles", "Una serata tranquilla a Mentone: passeggiate, viste e angoli calmi", "Тихий вечір у Ментоні: прогулянки, краєвиди й спокійні місця"),
