@@ -14,6 +14,12 @@ Production domain: `https://azurmenton.com`
 
 ![Menton seafront and old town](public/images/home/hero1.jpg)
 
+## Positioning
+
+For guests, the site offers a direct-booking path with human contact, clearer local context and no platform-first upsell flow. The guide and events sections help guests plan a Menton stay around beaches, walks, Monaco/Nice day trips and seasonal Riviera events.
+
+For owners, the site reduces dependence on Booking/Airbnb-style marketplaces, keeps the booking conversation direct, supports lower commission pressure and builds long-term search visibility around the apartments and local stay intent.
+
 ## Stack
 
 - Next.js `16.2.6` App Router, React `19`, TypeScript, Tailwind CSS `4`
@@ -223,6 +229,7 @@ docs/               Operational docs and archived working notes
 - Use cautious wording when details are not verified.
 - Prefer structured content updates over hardcoded page text.
 - Do not remove old event content solely because the date passed.
+- Future content scale work should move guide/events toward schema-validated JSON or YAML sources before introducing any CMS.
 
 ## Deployment
 
