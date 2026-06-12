@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-import { mkdir } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
 const projectRoot = process.cwd();
+const manifestPath = path.join(projectRoot, "public/images/generated-manifest.json");
 const targets = [
   "public/images/home/SeaViewBalconyStudio.jpg",
   "public/images/home/TerraceParkingApartment.jpg",
@@ -23,6 +24,7 @@ async function generateDerivatives(relativePath) {
   const source = path.join(projectRoot, relativePath);
   const parsed = path.parse(relativePath);
   const outputDirectory = path.join(projectRoot, parsed.dir, "generated");
+  const outputs = [];
 
   await mkdir(outputDirectory, { recursive: true });
 
@@ -34,11 +36,24 @@ async function generateDerivatives(relativePath) {
         .resize({ width: 1600, withoutEnlargement: true })
         .toFormat(format.extension, format.options)
         .toFile(output);
-      console.log(`generated ${path.relative(projectRoot, output)}`);
+      const relativeOutput = path.relative(projectRoot, output);
+      outputs.push(relativeOutput);
+      console.log(`generated ${relativeOutput}`);
     }),
   );
+
+  return {
+    source: relativePath,
+    outputs: outputs.sort(),
+  };
 }
 
+const manifest = [];
+
 for (const target of targets) {
-  await generateDerivatives(target);
+  manifest.push(await generateDerivatives(target));
 }
+
+await writeFile(`${manifestPath}.tmp`, `${JSON.stringify(manifest, null, 2)}\n`);
+await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+console.log(`generated ${path.relative(projectRoot, manifestPath)}`);

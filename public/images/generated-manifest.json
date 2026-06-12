@@ -1,0 +1,44 @@
+[
+  {
+    "source": "public/images/home/SeaViewBalconyStudio.jpg",
+    "outputs": [
+      "public/images/home/generated/SeaViewBalconyStudio.avif",
+      "public/images/home/generated/SeaViewBalconyStudio.webp"
+    ]
+  },
+  {
+    "source": "public/images/home/TerraceParkingApartment.jpg",
+    "outputs": [
+      "public/images/home/generated/TerraceParkingApartment.avif",
+      "public/images/home/generated/TerraceParkingApartment.webp"
+    ]
+  },
+  {
+    "source": "public/images/home/BeachfrontStudio-portret.jpg",
+    "outputs": [
+      "public/images/home/generated/BeachfrontStudio-portret.avif",
+      "public/images/home/generated/BeachfrontStudio-portret.webp"
+    ]
+  },
+  {
+    "source": "public/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.jpg",
+    "outputs": [
+      "public/images/apartments/panoramic-sea-view-studio/generated/16-living-room-sea-view.avif",
+      "public/images/apartments/panoramic-sea-view-studio/generated/16-living-room-sea-view.webp"
+    ]
+  },
+  {
+    "source": "public/images/apartments/sea-view-balcony-studio/01-balcony-breakfast-sea-view.jpg",
+    "outputs": [
+      "public/images/apartments/sea-view-balcony-studio/generated/01-balcony-breakfast-sea-view.avif",
+      "public/images/apartments/sea-view-balcony-studio/generated/01-balcony-breakfast-sea-view.webp"
+    ]
+  },
+  {
+    "source": "public/images/apartments/beachside-family-apartment/01-private-terrace-breakfast.jpg",
+    "outputs": [
+      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.avif",
+      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.webp"
+    ]
+  }
+]
