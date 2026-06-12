@@ -893,6 +893,72 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "morning-walk-france-to-italy",
+    slug: "morning-walk-france-to-italy",
+    title: t("A morning walk from France to Italy", "Une promenade du matin de la France a l'Italie", "Una passeggiata mattutina dalla Francia all'Italia", "Ранкова прогулянка з Франції до Італії"),
+    seoTitle: t("Morning Walk from Menton to Italy | Border Coffee Guide", "Promenade de Menton vers l'Italie | Cafe a la frontiere", "Passeggiata da Mentone all'Italia | Caffe al confine", "Прогулянка з Ментона до Італії | Кава на кордоні"),
+    seoDescription: t("A simple Menton ritual: walk east along the seafront through Garavan, cross into Italy on foot, stop for espresso and return before lunch.", "Un rituel simple a Menton: marcher vers l'est par Garavan, passer en Italie a pied, boire un espresso et rentrer avant le dejeuner.", "Un rito semplice a Mentone: cammina verso est lungo Garavan, entra in Italia a piedi, fermati per un espresso e torna prima di pranzo.", "Простий ритуал у Ментоні: йти на схід через Garavan, перейти пішки до Італії, зупинитися на espresso й повернутися до обіду."),
+    excerpt: t("Leave your apartment, follow the seafront east through Garavan and cross from France to Italy on foot for a quick espresso ritual.", "Quittez l'appartement, longez la mer vers l'est par Garavan et passez de France en Italie a pied pour un espresso.", "Esci dall'appartamento, segui il lungomare verso est da Garavan e passa dalla Francia all'Italia a piedi per un espresso.", "Вийдіть з апартаментів, ідіть уздовж моря на схід через Garavan і перейдіть з Франції до Італії пішки заради espresso."),
+    category: "walks-views",
+    coverImage: "/images/guide/morning-walk-france-to-italy.jpg",
+    coverImageAlt: t("Illustration of a morning walk from Menton to Italy", "Illustration d'une promenade du matin de Menton vers l'Italie", "Illustrazione di una passeggiata mattutina da Mentone all'Italia", "Ілюстрація ранкової прогулянки з Ментона до Італії"),
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    tags: [t("Italy", "Italie", "Italia", "Італія"), t("morning walk", "promenade du matin", "passeggiata mattutina", "ранкова прогулянка"), t("Garavan", "Garavan", "Garavan", "Garavan"), t("coffee", "cafe", "caffe", "кава")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "1-2 hours",
+    locationTags: ["seafront", "garavan", "italian-riviera"],
+    sourceStatus: "editorial",
+    relatedPlaces: ["promenade-du-soleil", "port-de-garavan", "sentier-douaniers-menton", "ventimiglia"],
+    relatedArticles: ["best-walks-and-hikes-around-menton", "italian-riviera-day-trip-from-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("A small border ritual", "Un petit rituel de frontiere", "Un piccolo rito di confine", "Маленький прикордонний ритуал"),
+        body: [
+          t("One of the best things about staying in Menton is not a beach, restaurant or famous landmark. It is the fact that you can leave the apartment, start walking along the seafront and reach another country before the morning is over.", "L'une des meilleures choses a Menton n'est pas une plage, un restaurant ou un monument connu. C'est le fait de quitter l'appartement, marcher le long de la mer et rejoindre un autre pays avant la fin de la matinee.", "Una delle cose migliori di Mentone non e una spiaggia, un ristorante o un monumento famoso. E il fatto di uscire dall'appartamento, camminare lungo il mare e arrivare in un altro paese prima che la mattina finisca.", "Одна з найкращих речей у Ментоні - не пляж, ресторан чи відома пам'ятка. Це можливість вийти з апартаментів, піти вздовж моря й дістатися іншої країни ще до завершення ранку."),
+          t("The route is simple: follow the Mediterranean east through the quieter Garavan district, past beaches, palms and sea views, until France quietly becomes Italy.", "L'itineraire est simple: suivez la Mediterranee vers l'est par le quartier plus calme de Garavan, entre plages, palmiers et vues mer, jusqu'a ce que la France devienne doucement l'Italie.", "Il percorso e semplice: segui il Mediterraneo verso est attraverso il quartiere piu tranquillo di Garavan, tra spiagge, palme e viste mare, finche la Francia diventa discretamente Italia.", "Маршрут простий: ідіть уздовж Середземного моря на схід через тихіший район Garavan, повз пляжі, пальми й море, доки Франція непомітно не стане Італією."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "port-de-garavan"],
+      },
+      {
+        heading: t("Crossing the border on foot", "Passer la frontiere a pied", "Attraversare il confine a piedi", "Перетнути кордон пішки"),
+        body: [
+          t("There is no dramatic checkpoint experience here: normally just a sign, a change of language and a different atmosphere. French becomes Italian, the coffee rhythm changes and the walk suddenly feels like a mini adventure.", "Il n'y a pas de grand moment de controle ici: normalement seulement un panneau, un changement de langue et une autre ambiance. Le francais devient italien, le rythme du cafe change et la promenade devient une mini-aventure.", "Non c'e un grande momento di controllo qui: di solito solo un cartello, un cambio di lingua e un'altra atmosfera. Il francese diventa italiano, il ritmo del caffe cambia e la passeggiata diventa una mini-avventura.", "Тут немає драматичного пункту контролю: зазвичай лише знак, зміна мови й інша атмосфера. Французька стає італійською, кавовий ритм змінюється, і прогулянка раптом стає маленькою пригодою."),
+          t("This is why the route is so memorable: no car, no train, no ticket and no schedule. Just comfortable shoes and enough time to enjoy the sea.", "C'est ce qui rend l'itineraire memorable: pas de voiture, pas de train, pas de billet et pas d'horaire. Juste de bonnes chaussures et assez de temps pour profiter de la mer.", "E questo che rende il percorso memorabile: niente auto, niente treno, niente biglietto e niente orario. Solo scarpe comode e abbastanza tempo per godersi il mare.", "Саме це робить маршрут пам'ятним: без авто, без потяга, без квитка й без розкладу. Лише зручне взуття й достатньо часу, щоб насолодитися морем."),
+        ],
+        relatedPlaceIds: ["sentier-douaniers-menton"],
+      },
+      {
+        heading: t("The coffee is worth the walk", "Le cafe vaut la marche", "Il caffe vale la passeggiata", "Кава варта прогулянки"),
+        body: [
+          t("Just across the border, small local stops serve the kind of espresso that makes the walk feel worthwhile. It is usually richer, stronger and often cheaper than many visitors expect on the Riviera.", "Juste apres la frontiere, de petites adresses locales servent un espresso qui justifie la marche. Il est souvent plus riche, plus intense et moins cher que beaucoup de visiteurs ne l'imaginent sur la Riviera.", "Appena oltre il confine, piccoli locali servono un espresso che rende la passeggiata utile. Di solito e piu ricco, piu intenso e spesso piu economico di quanto molti visitatori si aspettino in Riviera.", "Одразу за кордоном невеликі локальні місця подають espresso, заради якого прогулянка має сенс. Він часто насиченіший, міцніший і дешевший, ніж багато хто очікує на Рив'єрі."),
+          t("Order an espresso or ristretto, sit outside if you can, and watch walkers, cyclists and locals pass by. It is not complicated or touristy; it is a small travel moment that often becomes a favourite memory.", "Commandez un espresso ou un ristretto, asseyez-vous dehors si possible et regardez marcheurs, cyclistes et habitants passer. Rien de complique ni de trop touristique: juste un petit moment de voyage qui devient souvent un souvenir favori.", "Ordina un espresso o un ristretto, siediti fuori se puoi e guarda passare camminatori, ciclisti e locali. Non e complicato ne turistico: e un piccolo momento di viaggio che spesso diventa un ricordo preferito.", "Замовте espresso або ristretto, сядьте надворі, якщо можливо, і спостерігайте за пішоходами, велосипедистами й місцевими. Це не складно й не туристично: маленький момент подорожі, який часто стає улюбленим спогадом."),
+        ],
+        relatedPlaceIds: ["ventimiglia"],
+      },
+      {
+        heading: t("Practical information", "Informations pratiques", "Informazioni pratiche", "Практична інформація"),
+        body: [
+          t("Start from Menton Old Town, Promenade du Soleil or the central seafront. The walk usually takes about 45-60 minutes each way depending on pace and pauses. Difficulty is easy, but bring water, comfortable shoes and sun protection.", "Partez de la vieille ville, de la Promenade du Soleil ou du front de mer central. La marche prend souvent 45-60 minutes par trajet selon le rythme et les pauses. La difficulte est facile, mais prenez eau, bonnes chaussures et protection solaire.", "Parti dal centro storico, dalla Promenade du Soleil o dal lungomare centrale. La camminata richiede circa 45-60 minuti per tratta secondo ritmo e pause. La difficolta e facile, ma porta acqua, scarpe comode e protezione solare.", "Починайте зі старого міста, Promenade du Soleil або центральної набережної. Прогулянка зазвичай займає 45-60 хвилин в один бік залежно від темпу й пауз. Складність легка, але візьміть воду, зручне взуття й захист від сонця."),
+          t("Morning and late afternoon are the most comfortable times. Carry ID for cross-border travel, even though Schengen checks are not normally part of this walk.", "Le matin et la fin d'apres-midi sont les moments les plus confortables. Gardez une piece d'identite pour le passage de frontiere, meme si les controles Schengen ne sont normalement pas prevus.", "Mattina e tardo pomeriggio sono i momenti piu comodi. Porta un documento per il passaggio di confine, anche se i controlli Schengen normalmente non fanno parte della passeggiata.", "Найкомфортніший час - ранок або пізній день. Майте документ для перетину кордону, навіть якщо шенгенські перевірки зазвичай не є частиною цієї прогулянки."),
+        ],
+      },
+      {
+        heading: t("Why this is a Menton secret", "Pourquoi c'est un secret de Menton", "Perche e un segreto di Mentone", "Чому це секрет Ментона"),
+        body: [
+          t("Monaco is famous, Nice is busy and Cannes is glamorous. Menton offers something quieter: wake up in France, drink morning coffee in Italy and return to the sea before lunch.", "Monaco est celebre, Nice est animee et Cannes est glamour. Menton offre quelque chose de plus discret: se reveiller en France, boire le cafe du matin en Italie et revenir au bord de mer avant le dejeuner.", "Monaco e famosa, Nizza e vivace e Cannes e glamour. Mentone offre qualcosa di piu discreto: svegliarsi in Francia, bere il caffe del mattino in Italia e tornare al mare prima di pranzo.", "Монако знамените, Ніцца жвава, Канни гламурні. Ментон пропонує тихіше: прокинутися у Франції, випити ранкову каву в Італії й повернутися до моря до обіду."),
+          t("Sometimes the best Riviera experiences are not the most famous ones. They are the ones that feel impossible until you discover they are only a short walk away.", "Parfois, les meilleures experiences de la Riviera ne sont pas les plus connues. Ce sont celles qui semblent impossibles jusqu'a ce que l'on decouvre qu'elles sont a une courte marche.", "A volte le migliori esperienze in Riviera non sono le piu famose. Sono quelle che sembrano impossibili finche scopri che sono a una breve passeggiata.", "Іноді найкращі досвіди Рив'єри не найвідоміші. Це ті, що здаються неможливими, доки не з'ясується, що вони лише за коротку прогулянку."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Start early in summer to avoid heat on the exposed seafront.", "Partez tot en ete pour eviter la chaleur sur le front de mer expose.", "Parti presto in estate per evitare il caldo sul lungomare esposto.", "Влітку виходьте рано, щоб уникнути спеки на відкритій набережній."),
+      t("Carry ID when crossing into Italy on foot.", "Gardez une piece d'identite pour passer en Italie a pied.", "Porta un documento quando entri in Italia a piedi.", "Майте документ, коли переходите до Італії пішки."),
+      t("Keep the plan flexible: coffee in Italy is the destination, not a strict itinerary.", "Gardez le plan flexible: le cafe en Italie est la destination, pas un itineraire strict.", "Tieni il programma flessibile: il caffe in Italia e la meta, non un itinerario rigido.", "Залишайте план гнучким: кава в Італії - це мета, а не жорсткий маршрут."),
+    ],
+  }),
+  shortArticle({
     id: "quiet-evening-in-menton",
     slug: "quiet-evening-in-menton",
     title: t("A quiet evening in Menton: walks, views and calm corners", "Une soiree calme a Menton: balades, vues et coins paisibles", "Una serata tranquilla a Mentone: passeggiate, viste e angoli calmi", "Тихий вечір у Ментоні: прогулянки, краєвиди й спокійні місця"),
