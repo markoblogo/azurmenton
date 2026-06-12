@@ -1,5 +1,13 @@
 # Azur Menton
 
+[![CI](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml)
+![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)
+![Privacy Analytics](https://img.shields.io/badge/Analytics-Plausible%20%2B%20Vercel-173f36)
+
 Production site for **Azur Menton**: a multilingual direct-booking website for three beachfront or beachside apartments in central Menton, France.
 
 Production domain: `https://azurmenton.com`
