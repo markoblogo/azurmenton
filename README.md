@@ -4,6 +4,8 @@ Production site for **Azur Menton**: a multilingual direct-booking website for t
 
 Production domain: `https://azurmenton.com`
 
+![Menton seafront and old town](public/images/home/hero1.jpg)
+
 ## Stack
 
 - Next.js `16.2.6` App Router, React `19`, TypeScript, Tailwind CSS `4`
