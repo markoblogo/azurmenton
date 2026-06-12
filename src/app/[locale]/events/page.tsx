@@ -249,7 +249,6 @@ export default async function EventsLandingPage({ params }: PageProps) {
                   locale={safeLocale}
                   priority={index === 0}
                   className={`${index === 0 ? "col-span-2 min-h-60 lg:col-span-1 lg:row-span-2 lg:min-h-full" : "min-h-40"} bg-[#fffdf8] p-2`}
-                  imageClassName="p-2"
                   sizes={index === 0 ? "(min-width: 1024px) 34vw, 92vw" : "(min-width: 1024px) 22vw, 44vw"}
                 />
               ))}

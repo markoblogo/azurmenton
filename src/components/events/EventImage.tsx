@@ -43,7 +43,8 @@ export function EventImage({
           preload={priority}
           quality={90}
           sizes={sizes}
-          className={`object-cover ${imageClassName}`}
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          className={`event-image-cover object-cover ${imageClassName}`}
         />
       ) : (
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_20%,rgba(217,182,107,0.44),transparent_32%),linear-gradient(135deg,#f8efe1,#dbe9e5_54%,#173f36)]" />

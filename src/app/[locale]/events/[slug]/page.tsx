@@ -252,7 +252,6 @@ export default async function EventArticlePage({ params }: PageProps) {
                 locale={locale}
                 priority
                 className="min-h-[18rem] bg-[#fffdf8] p-2 lg:min-h-[26rem]"
-                imageClassName="p-2"
                 sizes="(min-width: 1024px) 48vw, 92vw"
               />
               {event.media?.imageCaption ? (
