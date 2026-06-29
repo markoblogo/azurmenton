@@ -163,24 +163,28 @@ const sectionCopy = {
 
 const guideTeaserLabels: Record<Locale, Record<string, string>> = {
   en: {
+    "stay-cool-in-menton-summer": "Seasonal guide",
     "best-beaches-in-menton": "Beaches",
     "menton-old-town": "Old town",
     "day-trips-from-menton": "Day trips",
     "../events": "Riviera calendar",
   },
   fr: {
+    "stay-cool-in-menton-summer": "Guide saisonnier",
     "best-beaches-in-menton": "Plages",
     "menton-old-town": "Vieille ville",
     "day-trips-from-menton": "Excursions",
     "../events": "Calendrier Riviera",
   },
   it: {
+    "stay-cool-in-menton-summer": "Guida stagionale",
     "best-beaches-in-menton": "Spiagge",
     "menton-old-town": "Centro storico",
     "day-trips-from-menton": "Gite",
     "../events": "Calendario Riviera",
   },
   uk: {
+    "stay-cool-in-menton-summer": "Сезонний гід",
     "best-beaches-in-menton": "Пляжі",
     "menton-old-town": "Старе місто",
     "day-trips-from-menton": "Поїздки",
@@ -189,6 +193,10 @@ const guideTeaserLabels: Record<Locale, Record<string, string>> = {
 };
 
 const guideTeaserImages: Record<string, { src: string; alt: string }> = {
+  "stay-cool-in-menton-summer": {
+    src: "/images/guide/promenade-du-soleil.jpg",
+    alt: "Promenade du Soleil and the Mediterranean seafront in Menton",
+  },
   "best-beaches-in-menton": {
     src: "/images/guide/best-beaches-in-menton.jpg",
     alt: "Illustration of Menton beaches and the Mediterranean",
@@ -249,6 +257,7 @@ export default async function LocaleHome({ params }: PageProps) {
   const labels = t[safeLocale];
   const sections = sectionCopy[safeLocale];
   const guideTeasers = [
+    guidePages[safeLocale].find((page) => page.slug === "stay-cool-in-menton-summer"),
     guidePages[safeLocale].find((page) => page.slug === "best-beaches-in-menton"),
     guidePages[safeLocale].find((page) => page.slug === "menton-old-town"),
     guidePages[safeLocale].find((page) => page.slug === "day-trips-from-menton"),

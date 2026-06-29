@@ -1487,6 +1487,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     duration: "reference",
     locationTags: ["menton-centre", "seafront", "old-town", "garavan"],
+    featured: true,
     sourceStatus: "needs_verification",
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-fossan", "halles-du-marche", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
