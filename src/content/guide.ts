@@ -131,6 +131,8 @@ export const guideBestForOptions = [
   { value: "rainy day", label: t("Rainy day", "Jour de pluie", "Giorno di pioggia", "Дощовий день") },
   { value: "evening plans", label: t("Evening plans", "Soiree", "Serata", "Вечірні плани") },
   { value: "instagram photos", label: t("Instagram / photos", "Instagram / photos", "Instagram / foto", "Instagram / фото") },
+  { value: "summer visitors", label: t("Summer visitors", "Voyageurs d'ete", "Visitatori estivi", "Літні гості") },
+  { value: "older travellers", label: t("Older travellers", "Voyageurs plus ages", "Viaggiatori senior", "Старші мандрівники") },
 ];
 
 export const guideDurationLabels: Record<GuideDuration, LocalizedText> = {
@@ -1331,7 +1333,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-rondelli", "plage-fossan", "borrigo-beaches", "promenade-du-soleil"],
-    relatedArticles: ["menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
+    relatedArticles: ["stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1440,6 +1442,276 @@ export const guideArticles: GuideArticle[] = [
           t("For most central Menton stays, the main beaches are reachable on foot without a car.", "Pour la plupart des sejours dans le centre de Menton, les principales plages sont accessibles a pied sans voiture.", "Per la maggior parte dei soggiorni nel centro di Mentone, le spiagge principali sono raggiungibili a piedi senza auto.", "Для більшості зупинок у центрі Ментона головні пляжі доступні пішки без авто."),
         ],
       },
+    ],
+  }),
+  shortArticle({
+    id: "stay-cool-in-menton-summer",
+    slug: "stay-cool-in-menton-summer",
+    title: t("How to stay cool in Menton during summer", "Comment rester au frais a Menton en ete", "Come stare al fresco a Mentone in estate", "Як не перегрітися в Ментоні влітку"),
+    seoTitle: t("How to Stay Cool in Menton During Summer | Azur Menton Guide", "Comment rester au frais a Menton en ete | Guide Azur Menton", "Come stare al fresco a Mentone in estate | Guida Azur Menton", "Як не перегрітися в Ментоні влітку | Гід Azur Menton"),
+    seoDescription: t(
+      "A practical summer guide to staying cool in Menton: early walks, shaded beaches, indoor breaks, gardens, sea breezes and air-conditioned apartments by the Mediterranean.",
+      "Guide pratique pour rester au frais a Menton en ete: balades tot le matin, plages avec ombre, pauses interieures, jardins, brise marine et appartements climatises pres de la Mediterranee.",
+      "Una guida pratica per stare al fresco a Mentone in estate: passeggiate presto, spiagge con ombra, pause al chiuso, giardini, brezza marina e appartamenti climatizzati sul Mediterraneo.",
+      "Практичний літній гід, як не перегрітися в Ментоні: ранні прогулянки, пляжі з тінню, перерви в приміщенні, сади, морський бриз і апартаменти з кондиціонером біля Середземного моря.",
+    ),
+    excerpt: t(
+      "Hot summer days in Menton are easier with a slower rhythm: walk early, choose beaches with easy shade, rest at midday and return to the seafront in the evening.",
+      "Les journees tres chaudes a Menton se vivent mieux avec un rythme plus lent: sortir tot, choisir des plages avec des coins d'ombre, se reposer a midi et revenir au front de mer le soir.",
+      "Le giornate molto calde a Mentone funzionano meglio con un ritmo lento: uscire presto, scegliere spiagge con ombra facile, riposare a meta giornata e tornare sul lungomare la sera.",
+      "У спекотні літні дні Ментон краще відкривається в повільному ритмі: виходьте рано, обирайте пляжі з доступною тінню, відпочивайте опівдні й повертайтеся до моря ввечері.",
+    ),
+    category: "practical",
+    coverImage: "/images/guide/promenade-du-soleil.jpg",
+    coverImageAlt: t("Promenade du Soleil and the Mediterranean seafront in Menton", "Promenade du Soleil et front de mer mediterraneen a Menton", "Promenade du Soleil e lungomare mediterraneo a Mentone", "Promenade du Soleil і середземноморська набережна в Ментоні"),
+    visualTheme: "sea",
+    visualStatus: "real_image",
+    tags: [
+      t("summer", "ete", "estate", "літо"),
+      t("heatwave", "canicule", "ondata di caldo", "спека"),
+      t("beaches", "plages", "spiagge", "пляжі"),
+      t("air conditioning", "climatisation", "aria condizionata", "кондиціонер"),
+      t("with children", "avec enfants", "con bambini", "з дітьми"),
+      t("without a car", "sans voiture", "senza auto", "без авто"),
+      t("Menton summer", "ete a Menton", "estate a Mentone", "літо в Ментоні"),
+      t("hot days", "jours chauds", "giorni caldi", "спекотні дні"),
+      t("practical tips", "conseils pratiques", "consigli pratici", "практичні поради"),
+    ],
+    bestFor: [
+      guideBestForOptions[1].label,
+      guideBestForOptions[8].label,
+      guideBestForOptions[3].label,
+      guideBestForOptions[4].label,
+      guideBestForOptions[0].label,
+      guideBestForOptions[9].label,
+    ],
+    duration: "reference",
+    locationTags: ["menton-centre", "seafront", "old-town", "garavan"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-fossan", "halles-du-marche", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+    relatedArticles: [
+      "menton-without-a-car",
+      "public-transport-in-menton",
+      "best-beaches-in-menton",
+      "halles-du-marche-menton",
+      "menton-old-town",
+      "best-photo-spots-menton",
+      "quiet-evening-in-menton",
+      "bars-and-beer-in-menton",
+      "nightlife-in-menton",
+      "day-trips-from-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Start early", "Commencer tot", "Inizia presto", "Починайте рано"),
+        body: [
+          t(
+            "Menton is made for summer: bright mornings, long Mediterranean evenings, beaches below the promenade and cafes facing the sea. During a heatwave, the best way to enjoy it is to adjust your rhythm.",
+            "Menton est faite pour l'ete: matins lumineux, longues soirees mediterraneennes, plages sous la promenade et cafes tournes vers la mer. Pendant une canicule, le meilleur choix est d'adapter le rythme.",
+            "Mentone sembra fatta per l'estate: mattine luminose, lunghe serate mediterranee, spiagge sotto la passeggiata e caffe rivolti al mare. Durante un'ondata di caldo, conviene cambiare ritmo.",
+            "Ментон створений для літа: світлі ранки, довгі середземноморські вечори, пляжі під набережною й кав'ярні біля моря. Під час спеки найкраще просто змінити ритм дня.",
+          ),
+          t(
+            "The most comfortable hours are usually before 10:00. Walk along Promenade du Soleil, continue toward Plage des Sablettes, stop for coffee near the old town, visit the market before lunchtime and return before the hottest hours.",
+            "Les heures les plus agreables sont souvent avant 10h00. Marchez le long de la Promenade du Soleil, continuez vers la Plage des Sablettes, prenez un cafe pres de la vieille ville, passez au marche avant midi puis rentrez avant les heures les plus chaudes.",
+            "Le ore piu piacevoli sono spesso prima delle 10:00. Cammina lungo Promenade du Soleil, continua verso Plage des Sablettes, fermati per un caffe vicino al centro storico, passa al mercato prima di pranzo e rientra prima delle ore piu calde.",
+            "Найкомфортніший час зазвичай до 10:00. Пройдіться Promenade du Soleil, продовжіть до Plage des Sablettes, зупиніться на каву біля старого міста, зайдіть на ринок до обіду й поверніться до найспекотніших годин.",
+          ),
+        ],
+        bullets: [
+          t("If you stay near the seafront, this morning plan works without a car.", "Si vous logez pres du front de mer, ce programme du matin se fait sans voiture.", "Se soggiorni vicino al lungomare, questo programma del mattino funziona senza auto.", "Якщо ви живете біля набережної, цей ранковий план легко виконати без авто."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-sablettes", "halles-du-marche"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Choose beaches that make cooling down easy", "Choisir des plages ou se rafraichir facilement", "Scegli spiagge dove rinfrescarsi e facile", "Обирайте пляжі, де легко охолонути"),
+        body: [
+          t(
+            "Not all beaches feel the same during extreme heat. For hot days, choose places where you can easily reach shade, water, cafes or your apartment.",
+            "Toutes les plages ne se vivent pas de la meme facon pendant les fortes chaleurs. Les jours chauds, choisissez des lieux ou l'ombre, l'eau, les cafes ou l'appartement restent faciles a rejoindre.",
+            "Non tutte le spiagge sono uguali con caldo intenso. Nei giorni caldi scegli luoghi dove sia facile raggiungere ombra, acqua, caffe o l'appartamento.",
+            "Під час сильної спеки пляжі відчуваються по-різному. У спекотні дні обирайте місця, де легко дістатися тіні, води, кав'ярні або апартаментів.",
+          ),
+          t(
+            "Plage des Sablettes is useful for families and morning swims because it is close to the old town, cafes and the seafront. Plage du Casino works for quick central swims, Plage du Fossan suits shorter beach breaks near the port, and the Garavan side is good for quieter mornings and sea-view walks.",
+            "La Plage des Sablettes est pratique pour les familles et les baignades du matin, car elle est proche de la vieille ville, des cafes et du front de mer. La Plage du Casino convient aux baignades rapides au centre, Fossan aux pauses courtes pres du port, et le cote Garavan aux matins plus calmes avec vues mer.",
+            "Plage des Sablettes e pratica per famiglie e bagni del mattino perche e vicina al centro storico, ai caffe e al lungomare. Plage du Casino va bene per bagni rapidi in centro, Fossan per pause brevi vicino al porto, mentre il lato Garavan funziona per mattine piu tranquille e passeggiate vista mare.",
+            "Plage des Sablettes зручний для сімей і ранкового купання, бо поруч старе місто, кав'ярні й набережна. Plage du Casino підходить для швидкого купання в центрі, Plage du Fossan - для коротких пляжних пауз біля порту, а бік Garavan - для тихіших ранків і прогулянок з видом на море.",
+          ),
+        ],
+        bullets: [
+          t("Best for families: Plage des Sablettes.", "Pour les familles: Plage des Sablettes.", "Per famiglie: Plage des Sablettes.", "Для сімей: Plage des Sablettes."),
+          t("Best for quick central swims: Plage du Casino and the promenade beaches.", "Pour une baignade rapide au centre: Plage du Casino et les plages de la promenade.", "Per bagni rapidi in centro: Plage du Casino e le spiagge della passeggiata.", "Для швидкого купання в центрі: Plage du Casino і пляжі набережної."),
+          t("Best near the old town and port: Plage du Fossan.", "Pres de la vieille ville et du port: Plage du Fossan.", "Vicino al centro storico e al porto: Plage du Fossan.", "Біля старого міста й порту: Plage du Fossan."),
+          t("Best for quieter sea views: Rondelli and the Garavan side.", "Pour des vues mer plus calmes: Rondelli et le cote Garavan.", "Per viste mare piu tranquille: Rondelli e il lato Garavan.", "Для спокійніших морських краєвидів: Rondelli і бік Garavan."),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "plage-fossan", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Avoid the old town climb at midday", "Eviter la montee de la vieille ville a midi", "Evita la salita del centro storico a mezzogiorno", "Не піднімайтеся в старе місто опівдні"),
+        body: [
+          t(
+            "Menton's old town is beautiful, but it climbs. Les Rampes Saint-Michel, the basilica area and the Cimetière du Vieux Château give some of the best views in town, but they involve stairs and elevation.",
+            "La vieille ville de Menton est magnifique, mais elle monte. Les Rampes Saint-Michel, le secteur de la basilique et le Cimetière du Vieux Château offrent de tres belles vues, avec marches et denivele.",
+            "Il centro storico di Mentone e bellissimo, ma sale. Les Rampes Saint-Michel, la zona della basilica e il Cimetière du Vieux Château offrono alcune delle viste migliori, ma richiedono scale e dislivello.",
+            "Старе місто Ментона прекрасне, але воно піднімається вгору. Les Rampes Saint-Michel, район базиліки й Cimetière du Vieux Château дають одні з найкращих видів, але там є сходи й набір висоти.",
+          ),
+          t(
+            "On a very hot day, go before 9:30 or after 18:00. Take water, wear comfortable shoes and avoid making this the middle of the day plan during a heatwave.",
+            "Par tres forte chaleur, allez-y avant 9h30 ou apres 18h00. Prenez de l'eau, portez de bonnes chaussures et evitez d'en faire le programme de milieu de journee pendant une canicule.",
+            "In una giornata molto calda, vai prima delle 9:30 o dopo le 18:00. Porta acqua, indossa scarpe comode ed evita di farne il programma di meta giornata durante un'ondata di caldo.",
+            "У дуже спекотний день ідіть до 9:30 або після 18:00. Візьміть воду, вдягніть зручне взуття й не плануйте цей підйом на середину дня під час спеки.",
+          ),
+        ],
+        relatedPlaceIds: ["rampes-saint-michel"],
+      },
+      {
+        heading: t("Use the market and indoor stops", "Utiliser le marche et les pauses interieures", "Usa il mercato e le pause al chiuso", "Використовуйте ринок і перерви в приміщенні"),
+        body: [
+          t(
+            "Halles du Marché is a useful morning stop on a hot day. It is covered, central and close to the old town and seafront, so you can pick up fruit, water, picnic ingredients or something light before the hottest part of the day.",
+            "Les Halles du Marché sont une halte utile le matin quand il fait chaud. Le marche est couvert, central, proche de la vieille ville et du front de mer: pratique pour acheter fruits, eau, produits de pique-nique ou quelque chose de leger avant les heures les plus chaudes.",
+            "Halles du Marché e una tappa utile al mattino quando fa caldo. E coperto, centrale e vicino al centro storico e al lungomare: perfetto per prendere frutta, acqua, ingredienti per un picnic o qualcosa di leggero prima delle ore piu calde.",
+            "Halles du Marché - корисна ранкова зупинка у спекотний день. Ринок критий, центральний і поруч зі старим містом та набережною, тож там зручно взяти фрукти, воду, продукти для пікніка або щось легке до найспекотнішої частини дня.",
+          ),
+          t(
+            "If the heat becomes too much, plan an indoor cultural pause at Musée Jean Cocteau - Le Bastion near the old port. Published opening details can change, so check the current schedule before you go.",
+            "Si la chaleur devient trop forte, prevoyez une pause culturelle au frais au Musée Jean Cocteau - Le Bastion, pres du vieux port. Les horaires publies peuvent changer: verifiez le programme actuel avant d'y aller.",
+            "Se il caldo diventa troppo forte, programma una pausa culturale al chiuso al Musée Jean Cocteau - Le Bastion, vicino al vecchio porto. Gli orari pubblicati possono cambiare: controlla il programma aggiornato prima di andare.",
+            "Якщо спека стає надто сильною, заплануйте культурну перерву в приміщенні в Musée Jean Cocteau - Le Bastion біля старого порту. Опубліковані години можуть змінюватися, тому перевіряйте актуальний розклад перед візитом.",
+          ),
+        ],
+        bullets: [
+          t("Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton."),
+          t("Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton."),
+        ],
+        relatedPlaceIds: ["halles-du-marche"],
+      },
+      {
+        heading: t("Visit gardens in the morning", "Visiter les jardins le matin", "Visita i giardini al mattino", "Відвідуйте сади вранці"),
+        body: [
+          t(
+            "Menton's gardens are one of the town's great pleasures, but on very hot days they should be planned carefully. Go early or later in the day, bring water and avoid uphill garden visits during the hottest hours.",
+            "Les jardins de Menton font partie des grands plaisirs de la ville, mais les jours tres chauds demandent un peu de prudence. Allez-y tot ou plus tard, prenez de l'eau et evitez les visites avec montee pendant les heures les plus chaudes.",
+            "I giardini di Mentone sono uno dei grandi piaceri della citta, ma nei giorni molto caldi vanno pianificati con attenzione. Vai presto o piu tardi, porta acqua ed evita visite in salita nelle ore piu calde.",
+            "Сади Ментона - одна з великих радостей міста, але в дуже спекотні дні їх варто планувати обережно. Ідіть рано або пізніше, беріть воду й уникайте підйомів до садів у найгарячіші години.",
+          ),
+          t(
+            "Jardin Botanique Val Rahmeh is lush and useful for a quieter morning near Garavan. Jardin Serre de la Madone sits higher above town and is better treated as a planned outing, not a casual midday walk.",
+            "Le Jardin Botanique Val Rahmeh est luxuriant et agreable pour une matinee plus calme pres de Garavan. Le Jardin Serre de la Madone se trouve plus haut au-dessus de la ville: mieux vaut le traiter comme une sortie preparee, pas comme une marche improvisee a midi.",
+            "Jardin Botanique Val Rahmeh e rigoglioso e adatto a una mattina piu tranquilla vicino a Garavan. Jardin Serre de la Madone si trova piu in alto sopra la citta: meglio considerarlo un'uscita pianificata, non una passeggiata casuale a mezzogiorno.",
+            "Jardin Botanique Val Rahmeh зелений і добре підходить для спокійнішого ранку біля Garavan. Jardin Serre de la Madone розташований вище над містом, тому це радше запланована поїздка, а не випадкова прогулянка опівдні.",
+          ),
+        ],
+        relatedPlaceIds: ["jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+      },
+      {
+        heading: t("Make your apartment part of the cooling plan", "Integrer l'appartement dans le plan fraicheur", "Inserisci l'appartamento nel piano per rinfrescarsi", "Зробіть апартаменти частиною плану охолодження"),
+        body: [
+          t(
+            "During a real heatwave, your apartment is not just where you sleep. It becomes part of the day plan.",
+            "Pendant une vraie canicule, l'appartement n'est pas seulement l'endroit ou dormir. Il fait partie de l'organisation de la journee.",
+            "Durante una vera ondata di caldo, l'appartamento non e solo il posto dove dormire. Diventa parte del programma della giornata.",
+            "Під час справжньої спеки апартаменти - це не лише місце для сну. Вони стають частиною денного плану.",
+          ),
+          t(
+            "All Azur Menton apartments are equipped with air conditioning, which is especially useful in July, August and during unusually hot periods.",
+            "Tous les appartements Azur Menton sont equipes de la climatisation, particulierement utile en juillet, en aout et pendant les periodes de chaleur inhabituelle.",
+            "Tutti gli appartamenti Azur Menton sono dotati di aria condizionata, particolarmente utile a luglio, agosto e durante periodi di caldo insolito.",
+            "Усі апартаменти Azur Menton обладнані кондиціонером, що особливо корисно в липні, серпні та під час незвично спекотних періодів.",
+          ),
+          t(
+            "A good hot-day rhythm is simple: morning walk, market or beach; midday rest with shutters closed; late afternoon museum, shaded garden or short swim; evening promenade, dinner or sunset walk.",
+            "Un bon rythme par forte chaleur reste simple: marche, marche ou plage le matin; repos a midi avec volets fermes; musee, jardin ombrage ou petite baignade en fin d'apres-midi; promenade, diner ou coucher de soleil le soir.",
+            "Un buon ritmo nei giorni caldi e semplice: passeggiata, mercato o spiaggia al mattino; riposo a meta giornata con le persiane chiuse; museo, giardino ombreggiato o bagno breve nel tardo pomeriggio; passeggiata, cena o tramonto la sera.",
+            "Добрий ритм спекотного дня простий: ранкова прогулянка, ринок або пляж; опівдні відпочинок із закритими віконницями; ближче до вечора музей, тіньовий сад або коротке купання; увечері набережна, вечеря або прогулянка на заході сонця.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Save longer trips for cooler hours", "Garder les longues sorties pour les heures plus fraiches", "Tieni le uscite lunghe per le ore piu fresche", "Залишайте довші поїздки на прохолодніший час"),
+        body: [
+          t(
+            "On very hot days, avoid overloading the schedule. Monaco, Nice, Ventimiglia and hill villages are possible from Menton, but transport, walking and waiting in the sun can quickly become tiring.",
+            "Les jours tres chauds, evitez de trop charger le programme. Monaco, Nice, Vintimille et les villages perches sont possibles depuis Menton, mais transports, marche et attente au soleil fatiguent vite.",
+            "Nei giorni molto caldi evita programmi troppo pieni. Monaco, Nizza, Ventimiglia e i borghi collinari sono possibili da Mentone, ma trasporti, camminate e attese al sole diventano stancanti in fretta.",
+            "У дуже спекотні дні не перевантажуйте розклад. Монако, Ніцца, Вентімілья й гірські села можливі з Ментона, але транспорт, ходьба й очікування на сонці швидко втомлюють.",
+          ),
+          t(
+            "If you do take a day trip, leave early, check train times in advance, carry water and plan one main activity rather than five.",
+            "Si vous partez en excursion, partez tot, verifiez les trains a l'avance, prenez de l'eau et prevoyez une activite principale plutot que cinq.",
+            "Se fai una gita, parti presto, controlla i treni in anticipo, porta acqua e programma una sola attivita principale invece di cinque.",
+            "Якщо все ж їдете на день, вирушайте рано, перевірте потяги заздалегідь, беріть воду й плануйте одну головну активність, а не п'ять.",
+          ),
+        ],
+      },
+      {
+        heading: t("Return to the seafront in the evening", "Revenir au front de mer le soir", "Torna sul lungomare la sera", "Повертайтеся до моря ввечері"),
+        body: [
+          t(
+            "Evening is when Menton comes alive again. After 18:00, the seafront becomes more comfortable, the light is softer and the town feels relaxed rather than intense.",
+            "Le soir, Menton reprend vie. Apres 18h00, le front de mer devient plus agreable, la lumiere plus douce et la ville plus detendue.",
+            "La sera Mentone riprende vita. Dopo le 18:00, il lungomare e piu piacevole, la luce piu morbida e la citta piu rilassata.",
+            "Увечері Ментон знову оживає. Після 18:00 набережна стає комфортнішою, світло м'якшим, а місто спокійнішим.",
+          ),
+          t(
+            "Good evening ideas include Promenade du Soleil, Plage des Sablettes, a slow climb toward Rampes Saint-Michel, drinks near the beach, a balcony with sea view or watching the colour change over the Mediterranean.",
+            "Bonnes idees de soiree: Promenade du Soleil, Plage des Sablettes, montee lente vers les Rampes Saint-Michel, verre pres de la plage, balcon avec vue mer ou couleurs changeantes sur la Mediterranee.",
+            "Buone idee serali: Promenade du Soleil, Plage des Sablettes, una salita lenta verso Rampes Saint-Michel, un drink vicino alla spiaggia, un balcone vista mare o i colori che cambiano sul Mediterraneo.",
+            "Добрі вечірні ідеї: Promenade du Soleil, Plage des Sablettes, повільний підйом до Rampes Saint-Michel, напій біля пляжу, балкон з видом на море або спостереження за кольорами над Середземним морем.",
+          ),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-sablettes", "rampes-saint-michel"],
+      },
+      {
+        heading: t("Heatwave safety basics", "Bases de securite en cas de canicule", "Sicurezza di base durante un'ondata di caldo", "Основи безпеки під час спеки"),
+        body: [
+          t(
+            "During extreme heat, keep the day simple. French public guidance recommends staying cool, drinking water regularly, avoiding alcohol, limiting physical activity, eating light meals, closing shutters and windows during the hottest hours, and checking on vulnerable people.",
+            "Pendant les fortes chaleurs, gardez une journee simple. Les recommandations publiques francaises conseillent de rester au frais, boire de l'eau regulierement, eviter l'alcool, limiter l'activite physique, manger leger, fermer volets et fenetres aux heures les plus chaudes et prendre des nouvelles des personnes fragiles.",
+            "Con caldo estremo, semplifica la giornata. Le indicazioni pubbliche francesi raccomandano di restare al fresco, bere acqua regolarmente, evitare alcol, limitare l'attivita fisica, mangiare leggero, chiudere persiane e finestre nelle ore piu calde e controllare le persone vulnerabili.",
+            "Під час сильної спеки спрощуйте день. Французькі публічні рекомендації радять залишатися в прохолоді, регулярно пити воду, уникати алкоголю, обмежувати фізичну активність, їсти легше, закривати віконниці й вікна в найспекотніші години та перевіряти вразливих людей.",
+          ),
+          t(
+            "If someone feels unwell, confused, unusually tired, dizzy or shows signs of heatstroke, call emergency services. If you are unsure which number to call in an emergency, 112 is the safest option.",
+            "Si une personne se sent mal, confuse, tres fatiguee, prise de vertiges ou montre des signes de coup de chaleur, appelez les secours. En cas de doute sur le numero a composer, le 112 est l'option la plus sure.",
+            "Se qualcuno si sente male, confuso, insolitamente stanco, ha vertigini o mostra segni di colpo di calore, chiama i servizi di emergenza. Se non sai quale numero chiamare, il 112 e l'opzione piu sicura.",
+            "Якщо комусь зле, людина розгублена, незвично втомлена, має запаморочення або ознаки теплового удару, телефонуйте до екстрених служб. Якщо не знаєте, який номер обрати, 112 - найбезпечніший варіант.",
+          ),
+        ],
+        bullets: [
+          t("15 - SAMU / medical emergency", "15 - SAMU / urgence medicale", "15 - SAMU / emergenza medica", "15 - SAMU / медична невідкладна допомога"),
+          t("112 - European emergency number", "112 - numero d'urgence europeen", "112 - numero europeo di emergenza", "112 - європейський номер екстреної допомоги"),
+          t("18 - firefighters", "18 - pompiers", "18 - vigili del fuoco", "18 - пожежники"),
+          t("17 - police", "17 - police", "17 - polizia", "17 - поліція"),
+        ],
+      },
+      {
+        heading: t("A simple hot-day itinerary", "Un itineraire simple par forte chaleur", "Un itinerario semplice per giornate calde", "Простий маршрут для спекотного дня"),
+        body: [
+          t(
+            "If the forecast is very hot, keep your day light and local: 7:30 seafront walk, 8:30 coffee and market, 10:00 beach time, 12:30 return to the apartment, 16:30 indoor or shaded activity, 19:00 promenade and dinner, 21:00 balcony, drinks or sunset walk.",
+            "Si la meteo annonce une tres forte chaleur, gardez une journee legere et locale: 7h30 promenade en bord de mer, 8h30 cafe et marche, 10h00 plage, 12h30 retour a l'appartement, 16h30 activite interieure ou ombragee, 19h00 promenade et diner, 21h00 balcon, verre ou marche au coucher du soleil.",
+            "Se le previsioni sono molto calde, mantieni la giornata leggera e locale: 7:30 passeggiata sul mare, 8:30 caffe e mercato, 10:00 spiaggia, 12:30 rientro in appartamento, 16:30 attivita al chiuso o all'ombra, 19:00 passeggiata e cena, 21:00 balcone, drink o camminata al tramonto.",
+            "Якщо прогноз дуже спекотний, залишайте день легким і локальним: 7:30 прогулянка біля моря, 8:30 кава й ринок, 10:00 пляж, 12:30 повернення в апартаменти, 16:30 приміщення або тінь, 19:00 набережна й вечеря, 21:00 балкон, напої або прогулянка на заході сонця.",
+          ),
+          t(
+            "Menton is still beautiful in the heat, but it rewards a slower rhythm: walk early, swim before the beach gets too hot, rest in the middle of the day, use the sea breeze in the evening and choose shaded places, indoor pauses and air-conditioned accommodation.",
+            "Menton reste belle sous la chaleur, mais elle recompense un rythme plus lent: marcher tot, se baigner avant que la plage chauffe trop, se reposer au milieu de la journee, profiter de la brise marine le soir et choisir ombre, pauses interieures et logement climatise.",
+            "Mentone resta bella anche con il caldo, ma premia un ritmo piu lento: cammina presto, nuota prima che la spiaggia diventi troppo calda, riposa a meta giornata, usa la brezza marina la sera e scegli ombra, pause al chiuso e alloggio climatizzato.",
+            "Ментон прекрасний навіть у спеку, але винагороджує повільніший ритм: гуляйте рано, купайтеся до перегріву пляжу, відпочивайте посеред дня, користуйтеся морським бризом увечері та обирайте тінь, перерви в приміщенні й житло з кондиціонером.",
+          ),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Walk and climb early, before the strongest heat.", "Marchez et montez tot, avant la chaleur la plus forte.", "Cammina e sali presto, prima del caldo piu intenso.", "Гуляйте й піднімайтеся рано, до найсильнішої спеки."),
+      t("Choose beaches with easy exits to shade, cafes or your apartment.", "Choisissez des plages d'ou l'ombre, les cafes ou l'appartement restent faciles a rejoindre.", "Scegli spiagge con uscita facile verso ombra, caffe o appartamento.", "Обирайте пляжі, звідки легко вийти до тіні, кав'ярні або апартаментів."),
+      t("Keep day trips simple during heatwaves.", "Gardez les excursions simples pendant les canicules.", "Mantieni semplici le gite durante le ondate di caldo.", "Під час спеки робіть поїздки простішими."),
+      t("Emergency numbers in France: 15, 112, 18 and 17.", "Numeros d'urgence en France: 15, 112, 18 et 17.", "Numeri di emergenza in Francia: 15, 112, 18 e 17.", "Екстрені номери у Франції: 15, 112, 18 і 17."),
     ],
   }),
   shortArticle({
@@ -1745,7 +2017,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1920,7 +2192,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "halles-du-marche", "plage-sablettes", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -1974,7 +2246,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["stay-cool-in-menton-summer", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [

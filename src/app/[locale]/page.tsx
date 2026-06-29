@@ -28,6 +28,8 @@ const sectionCopy = {
     apartmentTitle: "Three beachfront stays in central Menton",
     apartmentIntro:
       "Each apartment offers a different way to experience Menton — from panoramic sea-view studios to a larger terrace apartment near the beach, all within walking distance of the seafront, cafés and the old town.",
+    apartmentComfort:
+      "All apartments are equipped with air conditioning for comfortable stays throughout the Mediterranean summer.",
     directTitle: "Why book direct",
     directIntro:
       "Direct requests keep the conversation personal. Tell us your dates and we will confirm availability and the best direct offer ourselves.",
@@ -60,6 +62,8 @@ const sectionCopy = {
     apartmentTitle: "Trois séjours en bord de mer au centre de Menton",
     apartmentIntro:
       "Chaque appartement propose une façon différente de vivre Menton — des studios avec vue panoramique sur la mer à un appartement plus spacieux avec terrasse près de la plage, tous à distance de marche du front de mer, des cafés et de la vieille ville.",
+    apartmentComfort:
+      "Tous les appartements sont équipés de la climatisation pour des séjours confortables tout au long de l’été méditerranéen.",
     directTitle: "Pourquoi reserver en direct",
     directIntro:
       "La demande directe garde l'echange simple et personnel. Envoyez vos dates, nous verifierons la disponibilite et la meilleure offre directe.",
@@ -92,6 +96,8 @@ const sectionCopy = {
     apartmentTitle: "Tre soggiorni fronte mare nel centro di Mentone",
     apartmentIntro:
       "Ogni appartamento offre un modo diverso di vivere Mentone — dai monolocali con vista panoramica sul mare a un appartamento più ampio con terrazza vicino alla spiaggia, tutti a pochi passi dal lungomare, dai caffè e dal centro storico.",
+    apartmentComfort:
+      "Tutti gli appartamenti sono dotati di aria condizionata per soggiorni confortevoli durante l’estate mediterranea.",
     directTitle: "Perche prenotare in diretto",
     directIntro:
       "La richiesta diretta mantiene il contatto personale. Inviaci le date e confermeremo disponibilita e migliore offerta diretta.",
@@ -124,6 +130,8 @@ const sectionCopy = {
     apartmentTitle: "Три варіанти проживання біля моря в центрі Ментона",
     apartmentIntro:
       "Кожні апартаменти відкривають Ментон по-своєму — від студій із панорамним видом на море до просторішої квартири з терасою поруч із пляжем; усі розташовані на пішій відстані від набережної, кав’ярень і старого міста.",
+    apartmentComfort:
+      "Усі апартаменти обладнані кондиціонером для комфортного перебування протягом середземноморського літа.",
     directTitle: "Чому варто звернутися напряму",
     directIntro:
       "Прямий запит зберігає спілкування особистим. Надішліть дати, і ми вручну підтвердимо доступність та найкращу пряму пропозицію.",
@@ -308,7 +316,10 @@ export default async function LocaleHome({ params }: PageProps) {
                 {sections.apartmentTitle}
               </h2>
             </div>
-            <p className="max-w-3xl text-lg leading-8 text-[#5f574c]">{sections.apartmentIntro}</p>
+            <div className="max-w-3xl">
+              <p className="text-lg leading-8 text-[#5f574c]">{sections.apartmentIntro}</p>
+              <p className="mt-4 border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">{sections.apartmentComfort}</p>
+            </div>
           </div>
           <div className="mt-10 grid gap-8 lg:grid-cols-3">
             {apartments.map((apartment) => (

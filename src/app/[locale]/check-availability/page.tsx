@@ -106,6 +106,7 @@ const apartmentPositioning: Record<string, Localized> = {
 const reassurance = [
   text("Direct communication", "Communication directe", "Comunicazione diretta", "Пряме спілкування"),
   text("Apartment guidance", "Conseil appartement", "Consiglio sull’appartamento", "Допомога з вибором"),
+  text("Air conditioning", "Climatisation", "Aria condizionata", "Кондиціонер"),
   text("Riviera event planning help", "Aide pour les événements Riviera", "Aiuto per eventi Riviera", "Поради щодо подій"),
   text("No fake instant availability", "Pas de fausse disponibilité instantanée", "Nessuna falsa disponibilità istantanea", "Без фейкової миттєвої доступності"),
 ];

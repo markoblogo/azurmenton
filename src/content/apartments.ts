@@ -702,10 +702,10 @@ export const apartments: Apartment[] = [
       "Студія біля моря з панорамним видом у Ментоні | Azur Menton",
     ),
     seoDescription: localized(
-      "Compact beachfront studio in Menton with balcony and panoramic Mediterranean sea view. Ideal for couples looking for a simple seaside stay close to the beach.",
-      "Studio compact en bord de mer à Menton avec balcon et vue panoramique sur la Méditerranée. Idéal pour couples cherchant un séjour simple près de la plage.",
-      "Monolocale compatto fronte mare a Mentone con balcone e vista panoramica sul Mediterraneo. Ideale per coppie che cercano un soggiorno semplice vicino alla spiaggia.",
-      "Компактна студія біля моря в Ментоні з балконом і панорамним видом на Середземне море. Ідеально для пар, які шукають просте перебування біля пляжу.",
+      "Compact beachfront studio in Menton with balcony, panoramic Mediterranean sea view and air conditioning. Ideal for couples close to the beach.",
+      "Studio compact en bord de mer à Menton avec balcon, vue panoramique sur la Méditerranée et climatisation. Idéal pour couples près de la plage.",
+      "Monolocale compatto fronte mare a Mentone con balcone, vista panoramica sul Mediterraneo e aria condizionata. Ideale per coppie vicino alla spiaggia.",
+      "Компактна студія біля моря в Ментоні з балконом, панорамним видом на Середземне море й кондиціонером. Ідеально для пар біля пляжу.",
     ),
     structuredData: {
       accommodationCategory: "Studio apartment",

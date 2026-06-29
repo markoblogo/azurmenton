@@ -181,6 +181,24 @@ const faqSections: FaqSection[] = [
           "Так. Апартаменти з терасою зазвичай найпрактичніші для сімей; студії краще підходять парам або невеликим групам.",
         ),
       },
+      {
+        question: text(
+          "Do the apartments have air conditioning?",
+          "Les appartements ont-ils la climatisation ?",
+          "Gli appartamenti hanno l’aria condizionata?",
+          "Чи є в апартаментах кондиціонер?",
+        ),
+        answer: text(
+          "Yes. Every Azur Menton apartment is equipped with air conditioning, making summer stays comfortable even during the hottest months.",
+          "Oui. Chaque appartement Azur Menton est équipé de la climatisation, pour des séjours d’été confortables même pendant les mois les plus chauds.",
+          "Sì. Ogni appartamento Azur Menton è dotato di aria condizionata, per soggiorni estivi confortevoli anche nei mesi più caldi.",
+          "Так. Кожні апартаменти Azur Menton обладнані кондиціонером, тож літнє перебування залишається комфортним навіть у найспекотніші місяці.",
+        ),
+        links: [
+          { label: text("Explore apartments", "Explorer les appartements", "Esplora gli appartamenti", "Переглянути апартаменти"), href: "/apartments" },
+          { label: text("Staying cool in summer", "Rester au frais en ete", "Stare al fresco in estate", "Як не перегрітися влітку"), href: "/guide/stay-cool-in-menton-summer" },
+        ],
+      },
     ],
   },
 ];
