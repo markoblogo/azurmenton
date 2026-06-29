@@ -102,7 +102,7 @@ const rawPlaces: Place[] = [
       "Компактна культурна зупинка біля старого порту, корисна для перерви в приміщенні під час сильної післяобідньої спеки.",
     ),
     bestFor: [text("indoor pause", "pause interieure", "pausa al chiuso", "перерва в приміщенні"), text("culture", "culture", "cultura", "культура")],
-    relatedArticleIds: ["stay-cool-in-menton-summer"],
+    relatedArticleIds: ["stay-cool-in-menton-summer", "best-beaches-in-menton"],
   },
   {
     id: "biera-daqui",
@@ -254,7 +254,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A practical central beach for quick swims between the promenade, cafes and the apartment.", "Une plage centrale pratique pour une baignade rapide entre la promenade, les cafes et l'appartement.", "Una spiaggia centrale pratica per bagni rapidi tra passeggiata, cafe e appartamento.", "Практичний центральний пляж для швидкого купання між набережною, кав'ярнями й апартаментами."),
     bestFor: [text("quick swim", "baignade rapide", "bagno rapido", "швидке купання"), text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "best-beaches-in-menton"],
+    relatedArticleIds: ["best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "rondelli-garavan-side",
@@ -287,7 +287,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A central beach option for an easier, calmer beach mood when conditions suit.", "Une plage centrale pour une ambiance plus simple et calme selon les conditions.", "Una spiaggia centrale per un'atmosfera piu semplice e calma quando le condizioni sono buone.", "Центральний пляж для простішого й спокійнішого настрою, коли умови підходять."),
     bestFor: [text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "best-beaches-in-menton"],
+    relatedArticleIds: ["best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "borrigo-beaches",

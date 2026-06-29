@@ -1332,7 +1332,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
-    relatedPlaces: ["plage-sablettes", "plage-rondelli", "plage-fossan", "borrigo-beaches", "promenade-du-soleil"],
+    relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "musee-jean-cocteau-bastion"],
     relatedArticles: ["stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartments: allApartments,
     sections: [
@@ -1346,7 +1346,7 @@ export const guideArticles: GuideArticle[] = [
             "У Ментоні немає одного найкращого пляжу. Тут є кілька різних місць для різного настрою: Sablettes для листівкового виду й сімейного формату, Fossan для спокійнішого купання в центрі, пляжі вздовж набережної для зручності, Borrigo для довших прогулянок і простору.",
           ),
         ],
-        relatedPlaceIds: ["plage-sablettes", "plage-fossan", "borrigo-beaches"],
+        relatedPlaceIds: ["plage-sablettes", "plage-casino", "plage-fossan", "borrigo-beaches"],
       },
       {
         heading: t("Plage des Sablettes: families and Menton views", "Plage des Sablettes: familles et vues de Menton", "Plage des Sablettes: famiglie e viste su Mentone", "Plage des Sablettes: сім'ї та краєвиди Ментона"),
@@ -1388,7 +1388,7 @@ export const guideArticles: GuideArticle[] = [
             "Завдяки центральному розташуванню Fossan легко поєднати з кавою, морозивом, музеєм, якщо він відкритий, або повільною прогулянкою початком Promenade du Soleil. Якщо не любите натовпи, обирайте будній ранок поза піковими літніми вихідними.",
           ),
         ],
-        relatedPlaceIds: ["plage-fossan", "promenade-du-soleil"],
+        relatedPlaceIds: ["plage-fossan", "musee-jean-cocteau-bastion", "promenade-du-soleil"],
       },
       {
         heading: t("Central promenade beaches: easy access", "Plages centrales de la promenade: acces facile", "Spiagge centrali della passeggiata: accesso facile", "Центральні пляжі набережної: максимум зручності"),
@@ -1406,7 +1406,7 @@ export const guideArticles: GuideArticle[] = [
             "Ця ділянка добре підходить, якщо хочеться чергувати воду, рушник або лежак і повноцінний обід без довгих переміщень. Пляжні ресторани й приватні зони залежать від сезону: пройдіться набережною, подивіться, що відкрито, і оберіть атмосферу дня.",
           ),
         ],
-        relatedPlaceIds: ["promenade-du-soleil"],
+        relatedPlaceIds: ["plage-casino", "promenade-du-soleil"],
       },
       {
         heading: t("Borrigo beaches: space and long walks", "Plages du Borrigo: espace et longues marches", "Spiagge del Borrigo: spazio e lunghe camminate", "Пляжі Borrigo: простір і довгі прогулянки"),
@@ -2192,7 +2192,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
-    relatedPlaces: ["promenade-du-soleil", "halles-du-marche", "plage-sablettes", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
+    relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
     relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
@@ -2203,7 +2203,7 @@ export const guideArticles: GuideArticle[] = [
           t("Walking times are approximate and use Promenade du Soleil / Casino Barrière as a central reference point. Hills, heat, luggage and festival access changes can affect real travel time.", "Les temps de marche sont approximatifs et utilisent Promenade du Soleil / Casino Barriere comme repere central. Cotes, chaleur, bagages et changements d'acces pendant les festivals peuvent modifier le temps reel.", "I tempi a piedi sono approssimativi e usano Promenade du Soleil / Casino Barrière come riferimento centrale. Salite, caldo, bagagli e cambi di accesso durante eventi possono cambiare i tempi reali.", "Час прогулянок орієнтовний і рахується від Promenade du Soleil / Casino Barrière як центральної точки. Пагорби, спека, багаж і зміни доступу під час фестивалів можуть впливати на реальний час."),
           t("The promenade is the easiest orientation line. Once you move into the old town, expect stairs and elevation, especially around Saint-Michel and the panoramic viewpoints.", "La promenade est le repere le plus simple. Des que vous entrez dans la vieille ville, prevoyez marches et denivele, surtout autour de Saint-Michel et des points de vue.", "Il lungomare e la linea di orientamento piu semplice. Entrando nel centro storico, aspettati scale e dislivello, soprattutto intorno a Saint-Michel e ai belvedere.", "Набережна - найпростіша лінія орієнтації. У старому місті будуть сходи й підйоми, особливо біля Saint-Michel та панорамних точок."),
         ],
-        relatedPlaceIds: ["promenade-du-soleil", "rampes-saint-michel", "halles-du-marche"],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "rampes-saint-michel", "halles-du-marche"],
         relatedApartmentKeys: allApartments,
       },
       {
@@ -2403,7 +2403,7 @@ export const guideArticles: GuideArticle[] = [
           t("Best for daily swims, couples, families and car-free stays.", "Ideal pour les baignades quotidiennes, couples, familles et sejours sans voiture.", "Ideale per bagni quotidiani, coppie, famiglie e soggiorni senza auto.", "Найкраще для щоденного купання, пар, сімей і перебування без авто."),
           t("Works well if you want cafes, ice cream, the promenade and the town centre close by.", "Fonctionne bien si vous voulez cafes, glaces, promenade et centre-ville a proximite.", "Funziona bene se vuoi caffe, gelati, passeggiata e centro vicino.", "Добре підходить, якщо хочете мати поруч кав'ярні, морозиво, променад і центр міста."),
         ],
-        relatedPlaceIds: ["promenade-du-soleil", "plage-fossan"],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "plage-fossan"],
         relatedApartmentKeys: ["sea-view-balcony-studio", "beachside-family-apartment"],
       },
       {
@@ -2431,7 +2431,7 @@ export const guideArticles: GuideArticle[] = [
           t("Azur Menton's Garavan apartment is on the first line here, facing the sea. It suits guests who want a calmer end-of-the-bay atmosphere, easy marina walks and access towards the Italian border.", "L'appartement Azur Menton a Garavan est en premiere ligne, face a la mer. Il convient aux voyageurs qui veulent une atmosphere plus calme en bout de baie, des promenades faciles vers la marina et un acces vers la frontiere italienne.", "L'appartamento Azur Menton a Garavan e in prima linea, fronte mare. E adatto a chi cerca un'atmosfera piu calma a fine baia, passeggiate facili alla marina e accesso verso il confine italiano.", "Апартаменти Azur Menton у Garavan розташовані на першій лінії, обличчям до моря. Вони підходять гостям, які хочуть спокійнішої атмосфери «на краю бухти», легких прогулянок до маріни й доступу в бік італійського кордону."),
           t("From Garavan, you can walk along the seafront to Sablettes and the old town, take a bus when useful, or simply stay in the area and enjoy a more local rhythm.", "Depuis Garavan, vous pouvez marcher le long de la mer vers Sablettes et la vieille ville, prendre un bus quand c'est utile, ou simplement rester dans le quartier et profiter d'un rythme plus local.", "Da Garavan puoi camminare lungo il mare verso Sablettes e il centro storico, prendere un bus quando serve, oppure restare in zona e goderti un ritmo piu locale.", "З Garavan можна йти вздовж моря до Sablettes і старого міста, користуватися автобусом, коли зручно, або просто залишатися в районі й насолоджуватися більш локальним ритмом."),
         ],
-        relatedPlaceIds: ["port-de-garavan", "plage-rondelli", "plage-sablettes"],
+        relatedPlaceIds: ["port-de-garavan", "rondelli-garavan-side", "plage-sablettes"],
         relatedApartmentKeys: ["panoramic-sea-view-studio"],
       },
       {
