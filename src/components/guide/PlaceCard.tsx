@@ -5,10 +5,10 @@ import type { Place } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 
 const labels = {
-  en: { map: "Open in Google Maps", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
-  fr: { map: "Ouvrir dans Google Maps", hours: "Horaires", price: "Tarifs", note: "Vérifiez les horaires actuels avant la visite", related: "Guide lié" },
-  it: { map: "Apri in Google Maps", hours: "Orari", price: "Prezzo", note: "Controlla gli orari aggiornati prima della visita", related: "Guida correlata" },
-  uk: { map: "Відкрити в Google Maps", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
+  en: { map: "Open in Google Maps", programme: "View current programme", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
+  fr: { map: "Ouvrir dans Google Maps", programme: "Voir le programme actuel", hours: "Horaires", price: "Tarifs", note: "Vérifiez les horaires actuels avant la visite", related: "Guide lié" },
+  it: { map: "Apri in Google Maps", programme: "Vedi il programma attuale", hours: "Orari", price: "Prezzo", note: "Controlla gli orari aggiornati prima della visita", related: "Guida correlata" },
+  uk: { map: "Відкрити в Google Maps", programme: "Переглянути актуальну програму", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
 };
 
 export function PlaceCard({ place, locale, compact = false }: { place: Place; locale: Locale; compact?: boolean }) {
@@ -48,6 +48,11 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
           {compact && relatedHref ? (
             <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors hover:bg-[#f3ead7]" href={relatedHref}>
               {copy.related}
+            </Link>
+          ) : null}
+          {place.programmeUrl ? (
+            <Link className="relative z-20 inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl as Route} target="_blank" rel="noopener noreferrer">
+              {copy.programme}
             </Link>
           ) : null}
           {mapsHref ? (

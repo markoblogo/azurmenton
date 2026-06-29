@@ -1072,7 +1072,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "evening",
     locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "public-transport-in-menton", "day-trips-from-menton"],
+    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1495,6 +1495,7 @@ export const guideArticles: GuideArticle[] = [
     relatedArticles: [
       "menton-without-a-car",
       "supermarkets-in-menton",
+      "cinemas-in-menton-nice-monaco",
       "public-transport-in-menton",
       "best-beaches-in-menton",
       "halles-du-marche-menton",
@@ -1716,6 +1717,101 @@ export const guideArticles: GuideArticle[] = [
       t("Choose beaches with easy exits to shade, cafes or your apartment.", "Choisissez des plages d'ou l'ombre, les cafes ou l'appartement restent faciles a rejoindre.", "Scegli spiagge con uscita facile verso ombra, caffe o appartamento.", "Обирайте пляжі, звідки легко вийти до тіні, кав'ярні або апартаментів."),
       t("Keep day trips simple during heatwaves.", "Gardez les excursions simples pendant les canicules.", "Mantieni semplici le gite durante le ondate di caldo.", "Під час спеки робіть поїздки простішими."),
       t("Emergency numbers in France: 15, 112, 18 and 17.", "Numeros d'urgence en France: 15, 112, 18 et 17.", "Numeri di emergenza in Francia: 15, 112, 18 e 17.", "Екстрені номери у Франції: 15, 112, 18 і 17."),
+    ],
+  }),
+  shortArticle({
+    id: "cinemas-in-menton-nice-monaco",
+    slug: "cinemas-in-menton-nice-monaco",
+    title: t("Cinemas near Menton: where to watch a film in Menton, Monaco and Nice", "Cinemas pres de Menton: ou voir un film a Menton, Monaco et Nice", "Cinema vicino a Mentone: dove vedere un film a Mentone, Monaco e Nizza", "Кінотеатри біля Ментона: де подивитися фільм у Ментоні, Монако та Ніцці"),
+    seoTitle: t("Cinemas Near Menton: Menton, Monaco and Nice Movie Theatres", "Cinemas pres de Menton: Menton, Monaco et Nice", "Cinema vicino a Mentone: Mentone, Monaco e Nizza", "Кінотеатри біля Ментона: Ментон, Монако та Ніцца"),
+    seoDescription: t("A practical guide to cinemas near Menton: Cinéma Eden in Menton, Monaco cinemas, open-air summer screenings and the best cinemas in Nice for rainy days, hot afternoons and evening plans.", "Guide pratique des cinemas pres de Menton: Cinema Eden, cinemas de Monaco, seances d'ete en plein air et cinemas de Nice pour pluie, chaleur ou soiree.", "Guida pratica ai cinema vicino a Mentone: Cinéma Eden, cinema di Monaco, proiezioni estive all'aperto e cinema di Nizza per pioggia, caldo o sera.", "Практичний гід по кінотеатрах біля Ментона: Cinéma Eden, кінотеатри Монако, літні покази просто неба та кіно в Ніцці для дощу, спеки й вечора."),
+    excerpt: t("Cinemas are useful on the Riviera when the day is too hot, rainy or simply ready for a quieter evening: Menton has Eden, while Monaco and Nice add more programme choice.", "Le cinema est utile sur la Riviera quand il fait trop chaud, qu'il pleut ou qu'une soiree calme suffit: Menton a l'Eden, Monaco et Nice ajoutent plus de choix.", "Il cinema e utile in Riviera quando fa troppo caldo, piove o basta una serata piu tranquilla: Mentone ha l'Eden, Monaco e Nizza aggiungono scelta.", "Кіно на Рив'єрі корисне, коли надто спекотно, дощить або хочеться спокійнішого вечора: у Ментоні є Eden, а Монако й Ніцца дають більше вибору."),
+    category: "practical",
+    visualTheme: "event",
+    visualStatus: "editorial_placeholder",
+    tags: [
+      t("cinema", "cinema", "cinema", "кіно"),
+      t("rainy day", "jour de pluie", "giorno di pioggia", "дощовий день"),
+      t("hot day", "jour de chaleur", "giorno caldo", "спекотний день"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца"),
+      t("VO/VOST", "VO/VOST", "VO/VOST", "VO/VOST"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[5].label, guideBestForOptions[8].label, guideBestForOptions[0].label, guideBestForOptions[6].label, guideBestForOptions[4].label, guideBestForOptions[3].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "cinema-eden-menton",
+      "cinema-beaux-arts-monaco",
+      "monaco-open-air-cinema",
+      "pathe-massena-nice",
+      "pathe-gare-du-sud-nice",
+      "cinema-varietes-nice",
+      "cinema-rialto-nice",
+      "cinema-jean-paul-belmondo-nice",
+      "cinematheque-de-nice",
+      "megarama-nice",
+    ],
+    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why cinema is useful from Menton", "Pourquoi le cinema est utile depuis Menton", "Perche il cinema e utile da Mentone", "Чому кіно корисне з Ментона"),
+        body: [
+          t("A cinema plan is not only for bad weather. In July, August and early September it can be one of the easiest ways to pause during a hot afternoon, especially with children or after several beach days.", "Le cinema n'est pas seulement une idee de pluie. En juillet, aout et debut septembre, c'est l'une des pauses les plus simples pendant un apres-midi chaud, surtout avec enfants ou apres plusieurs jours de plage.", "Il cinema non e solo un piano da pioggia. A luglio, agosto e inizio settembre puo essere una pausa semplice in un pomeriggio caldo, soprattutto con bambini o dopo vari giorni di mare.", "Кіно - не лише план на дощ. У липні, серпні та на початку вересня це один із найпростіших способів зробити паузу в спекотний день, особливо з дітьми або після кількох пляжних днів."),
+          t("Menton has its own cinema in the centre. Monaco and Nice are close enough for a wider choice of films, original-language screenings and evening plans if you check train times before committing.", "Menton a son propre cinema au centre. Monaco et Nice sont assez proches pour offrir plus de films, de seances en version originale et d'idees de soiree si vous verifiez les trains avant.", "Mentone ha il suo cinema in centro. Monaco e Nizza sono abbastanza vicine per piu film, proiezioni in lingua originale e serate, se controlli i treni prima.", "У центрі Ментона є власний кінотеатр. Монако й Ніцца достатньо близько для ширшого вибору фільмів, показів мовою оригіналу та вечірніх планів, якщо заздалегідь перевірити потяги."),
+        ],
+      },
+      {
+        heading: t("Film versions: VF, VO and VOST", "Versions des films: VF, VO et VOST", "Versioni dei film: VF, VO e VOST", "Версії фільмів: VF, VO та VOST"),
+        body: [
+          t("In France and Monaco, VF usually means a French-dubbed version. VO means original version, while VOST or VOSTFR normally means original language with French subtitles. For English-speaking visitors, VO/VOSTFR listings are the ones to look for.", "En France et a Monaco, VF signifie generalement version francaise doublee. VO signifie version originale, et VOST ou VOSTFR version originale sous-titree en francais. Pour les visiteurs anglophones, cherchez VO/VOSTFR.", "In Francia e Monaco, VF indica di solito versione doppiata in francese. VO e versione originale, mentre VOST o VOSTFR e lingua originale con sottotitoli francesi. Per chi parla inglese, cerca VO/VOSTFR.", "У Франції та Монако VF зазвичай означає французький дубляж. VO - оригінальна версія, VOST або VOSTFR - оригінальна мова з французькими субтитрами. Англомовним гостям варто шукати VO/VOSTFR."),
+        ],
+      },
+      {
+        heading: t("In Menton: Cinéma Eden", "A Menton: Cinema Eden", "A Mentone: Cinéma Eden", "У Ментоні: Cinéma Eden"),
+        body: [
+          t("Cinéma Eden is the natural first choice because it keeps the plan local. It works well for a rainy afternoon, a hot-day pause, a family film or a simple evening when you do not want to travel after dinner.", "Le Cinema Eden est le premier choix naturel parce qu'il garde le programme local. Il convient pour une apres-midi pluvieuse, une pause par forte chaleur, un film en famille ou une soiree simple sans trajet apres diner.", "Cinéma Eden e la prima scelta naturale perche resta locale. Funziona per un pomeriggio di pioggia, una pausa col caldo, un film in famiglia o una serata semplice senza viaggio dopo cena.", "Cinéma Eden - найприродніший перший вибір, бо план залишається локальним. Він підходить для дощового дня, паузи у спеку, сімейного фільму або простого вечора без поїздки після вечері."),
+        ],
+        relatedPlaceIds: ["cinema-eden-menton"],
+      },
+      {
+        heading: t("In Monaco: indoor and open-air options", "A Monaco: options interieures et plein air", "A Monaco: opzioni al chiuso e all'aperto", "У Монако: приміщення та покази просто неба"),
+        body: [
+          t("Monaco is close enough for a planned evening from Menton. Cinéma des Beaux-Arts is the main indoor option to check, while the Monaco Open Air Cinema can be a memorable summer plan when the seasonal programme is running.", "Monaco est assez proche pour une soiree preparee depuis Menton. Le Cinema des Beaux-Arts est l'option interieure principale, tandis que le Monaco Open Air Cinema peut etre une belle idee d'ete quand la saison fonctionne.", "Monaco e abbastanza vicina per una serata programmata da Mentone. Cinéma des Beaux-Arts e l'opzione al chiuso principale, mentre il Monaco Open Air Cinema puo essere una bella idea estiva quando la stagione e attiva.", "Монако достатньо близько для запланованого вечора з Ментона. Cinéma des Beaux-Arts - головний варіант у приміщенні, а Monaco Open Air Cinema може бути особливим літнім планом, коли триває сезон."),
+          t("For open-air screenings, bring a light layer and check the return journey before booking. Summer evenings can feel fresh by the sea even after a very hot day.", "Pour les seances en plein air, prenez une couche legere et verifiez le retour avant de reserver. Les soirees d'ete peuvent etre fraiches pres de la mer meme apres une journee tres chaude.", "Per proiezioni all'aperto porta uno strato leggero e controlla il ritorno prima di prenotare. Le sere estive possono essere fresche vicino al mare anche dopo una giornata molto calda.", "Для показів просто неба візьміть легкий шар одягу й перевірте повернення до бронювання. Літні вечори біля моря можуть бути прохолодними навіть після дуже спекотного дня."),
+        ],
+        relatedPlaceIds: ["cinema-beaux-arts-monaco", "monaco-open-air-cinema"],
+      },
+      {
+        heading: t("In Nice: the widest choice", "A Nice: le plus grand choix", "A Nizza: la scelta piu ampia", "У Ніцці: найширший вибір"),
+        body: [
+          t("Nice has the broadest cinema choice nearby. Pathé Masséna is convenient in the city centre; Pathé Gare du Sud works well with a food-hall stop; Variétés and Rialto can be useful for more varied programming; Jean-Paul Belmondo fits naturally around Place Garibaldi, the port and Old Nice.", "Nice offre le plus grand choix de cinemas a proximite. Pathe Massena est pratique au centre; Pathe Gare du Sud se combine avec la halle gourmande; Varietes et Rialto peuvent offrir une programmation plus variee; Jean-Paul Belmondo va bien avec Place Garibaldi, le port et le Vieux Nice.", "Nizza offre la scelta piu ampia nei dintorni. Pathé Masséna e comodo in centro; Pathé Gare du Sud funziona con la food hall; Variétés e Rialto possono offrire programmazione piu varia; Jean-Paul Belmondo si combina con Place Garibaldi, porto e Vieux Nice.", "Ніцца має найширший вибір кіно поблизу. Pathé Masséna зручний у центрі; Pathé Gare du Sud поєднується з food hall; Variétés і Rialto можуть мати різноманітнішу програму; Jean-Paul Belmondo природно підходить до Place Garibaldi, порту й старої Ніцци."),
+          t("For film culture, check Cinémathèque de Nice. For a larger multiplex choice, Megarama Nice can be useful when the film or timing matters more than atmosphere.", "Pour une approche cinephile, regardez la Cinematheque de Nice. Pour un plus grand multiplexe, Megarama Nice peut etre utile quand le film ou l'horaire compte plus que l'ambiance.", "Per un taglio cinefilo controlla la Cinémathèque de Nice. Per un multiplex piu grande, Megarama Nice puo essere utile quando film o orario contano piu dell'atmosfera.", "Для кіно-культури перевіряйте Cinémathèque de Nice. Для більшого мультиплексу Megarama Nice корисний, коли фільм або час важливіші за атмосферу."),
+        ],
+        relatedPlaceIds: ["pathe-massena-nice", "pathe-gare-du-sud-nice", "cinema-varietes-nice", "cinema-rialto-nice", "cinema-jean-paul-belmondo-nice", "cinematheque-de-nice", "megarama-nice"],
+      },
+      {
+        heading: t("Which cinema should you choose?", "Quel cinema choisir?", "Quale cinema scegliere?", "Який кінотеатр обрати?"),
+        body: [
+          t("Choose Cinéma Eden if you want the simplest local plan. Choose Monaco for a more polished evening or seasonal open-air screening. Choose Nice if you want more films, more VO/VOST options or a cinema stop folded into a larger city day.", "Choisissez le Cinema Eden pour le plan local le plus simple. Choisissez Monaco pour une soiree plus composee ou une seance plein air saisonniere. Choisissez Nice pour plus de films, plus de VO/VOST ou une pause cinema dans une journee urbaine.", "Scegli Cinéma Eden per il piano locale piu semplice. Scegli Monaco per una serata piu curata o una proiezione estiva all'aperto. Scegli Nizza per piu film, piu VO/VOST o una pausa cinema dentro una giornata in citta.", "Обирайте Cinéma Eden для найпростішого локального плану. Монако - для більш оформленого вечора або сезонного показу просто неба. Ніццу - для більшого вибору фільмів, VO/VOST або кіно-паузи в межах міського дня."),
+        ],
+      },
+      {
+        heading: t("Hot days, rainy days and return plans", "Chaleur, pluie et retour", "Caldo, pioggia e ritorno", "Спека, дощ і повернення"),
+        body: [
+          t("On very hot days, cinema works best after lunch, when walking and beaches are least comfortable. Pair it with a slow morning, an apartment rest and an air-conditioned evening base rather than trying to fill every hour outside.", "Par forte chaleur, le cinema fonctionne mieux apres dejeuner, quand marche et plage sont les moins confortables. Associez-le a une matinee lente, une pause appartement et une base climatisee le soir plutot que de remplir chaque heure dehors.", "Nei giorni molto caldi, il cinema funziona meglio dopo pranzo, quando camminare e stare in spiaggia pesa di piu. Abbinalo a una mattina lenta, pausa in appartamento e base climatizzata la sera, invece di riempire ogni ora fuori.", "У дуже спекотні дні кіно найкраще працює після обіду, коли прогулянки й пляж найменш комфортні. Поєднуйте його з повільним ранком, відпочинком в апартаментах і кондиціонованою вечірньою базою, а не спробою весь день бути надворі."),
+          t("For Monaco or Nice, check the last train or backup taxi before buying late tickets. A relaxed film plan becomes less relaxing if the return to Menton is an afterthought.", "Pour Monaco ou Nice, verifiez le dernier train ou un taxi de secours avant d'acheter des billets tardifs. Une sortie cinema detendue l'est moins si le retour a Menton est improvise.", "Per Monaco o Nizza controlla ultimo treno o taxi di backup prima di comprare biglietti tardi. Un cinema rilassato lo e meno se il ritorno a Mentone e improvvisato.", "Для Монако або Ніцци перевірте останній потяг або запасне таксі до купівлі пізніх квитків. Спокійний похід у кіно стає менш спокійним, якщо повернення до Ментона не продумане."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check VF, VO, VOST or VOSTFR before booking.", "Verifiez VF, VO, VOST ou VOSTFR avant de reserver.", "Controlla VF, VO, VOST o VOSTFR prima di prenotare.", "Перед бронюванням перевіряйте VF, VO, VOST або VOSTFR."),
+      t("Book online for popular films, weekend evenings and open-air summer screenings.", "Reservez en ligne pour films populaires, week-ends soir et seances plein air d'ete.", "Prenota online per film popolari, weekend sera e proiezioni estive all'aperto.", "Бронюйте онлайн для популярних фільмів, вечорів вихідного дня та літніх показів просто неба."),
+      t("For Nice or Monaco, check return trains before choosing a late screening.", "Pour Nice ou Monaco, verifiez les trains retour avant une seance tardive.", "Per Nizza o Monaco controlla i treni di ritorno prima di scegliere uno spettacolo tardi.", "Для Ніцци або Монако перевіряйте потяги назад перед вибором пізнього сеансу."),
+      t("For families, check age guidance and language before promising a film to children.", "En famille, verifiez age conseille et langue avant de promettre un film aux enfants.", "Con bambini controlla eta consigliata e lingua prima di promettere un film.", "Для сімей перевіряйте вікові рекомендації та мову, перш ніж обіцяти дітям фільм."),
     ],
   }),
   shortArticle({
@@ -2322,7 +2418,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -2376,7 +2472,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -2425,7 +2521,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["supermarkets-in-menton", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "cinemas-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
