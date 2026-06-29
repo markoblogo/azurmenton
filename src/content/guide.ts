@@ -1462,8 +1462,8 @@ export const guideArticles: GuideArticle[] = [
       "У спекотні літні дні Ментон краще відкривається в повільному ритмі: виходьте рано, обирайте пляжі з доступною тінню, відпочивайте опівдні й повертайтеся до моря ввечері.",
     ),
     category: "practical",
-    coverImage: "/images/guide/promenade-du-soleil.jpg",
-    coverImageAlt: t("Promenade du Soleil and the Mediterranean seafront in Menton", "Promenade du Soleil et front de mer mediterraneen a Menton", "Promenade du Soleil e lungomare mediterraneo a Mentone", "Promenade du Soleil і середземноморська набережна в Ментоні"),
+    coverImage: "/images/guide/stay-cool-in-menton-summer.jpg",
+    coverImageAlt: t("Illustration of staying cool in Menton during summer", "Illustration pour rester au frais a Menton pendant l'ete", "Illustrazione su come stare al fresco a Mentone in estate", "Ілюстрація про те, як не перегрітися в Ментоні влітку"),
     visualTheme: "sea",
     visualStatus: "real_image",
     tags: [
@@ -1489,7 +1489,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "garavan"],
     featured: true,
     sourceStatus: "needs_verification",
-    relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-fossan", "halles-du-marche", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+    relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "menton-without-a-car",
       "public-transport-in-menton",
@@ -1548,7 +1548,7 @@ export const guideArticles: GuideArticle[] = [
           t("Best near the old town and port: Plage du Fossan.", "Pres de la vieille ville et du port: Plage du Fossan.", "Vicino al centro storico e al porto: Plage du Fossan.", "Біля старого міста й порту: Plage du Fossan."),
           t("Best for quieter sea views: Rondelli and the Garavan side.", "Pour des vues mer plus calmes: Rondelli et le cote Garavan.", "Per viste mare piu tranquille: Rondelli e il lato Garavan.", "Для спокійніших морських краєвидів: Rondelli і бік Garavan."),
         ],
-        relatedPlaceIds: ["plage-sablettes", "plage-fossan", "promenade-du-soleil"],
+        relatedPlaceIds: ["plage-sablettes", "plage-casino", "plage-fossan", "rondelli-garavan-side"],
       },
       {
         heading: t("Avoid the old town climb at midday", "Eviter la montee de la vieille ville a midi", "Evita la salita del centro storico a mezzogiorno", "Не піднімайтеся в старе місто опівдні"),
@@ -1566,7 +1566,7 @@ export const guideArticles: GuideArticle[] = [
             "У дуже спекотний день ідіть до 9:30 або після 18:00. Візьміть воду, вдягніть зручне взуття й не плануйте цей підйом на середину дня під час спеки.",
           ),
         ],
-        relatedPlaceIds: ["rampes-saint-michel"],
+        relatedPlaceIds: ["rampes-saint-michel", "cimetiere-vieux-chateau"],
       },
       {
         heading: t("Use the market and indoor stops", "Utiliser le marche et les pauses interieures", "Usa il mercato e le pause al chiuso", "Використовуйте ринок і перерви в приміщенні"),
@@ -1588,7 +1588,7 @@ export const guideArticles: GuideArticle[] = [
           t("Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton.", "Halles du Marché, 5 Quai de Monléon, 06500 Menton."),
           t("Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton.", "Musée Jean Cocteau - Le Bastion, Quai Napoléon III - Bastion du Vieux Port, 06500 Menton."),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "musee-jean-cocteau-bastion"],
       },
       {
         heading: t("Visit gardens in the morning", "Visiter les jardins le matin", "Visita i giardini al mattino", "Відвідуйте сади вранці"),

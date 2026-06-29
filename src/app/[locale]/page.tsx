@@ -194,8 +194,8 @@ const guideTeaserLabels: Record<Locale, Record<string, string>> = {
 
 const guideTeaserImages: Record<string, { src: string; alt: string }> = {
   "stay-cool-in-menton-summer": {
-    src: "/images/guide/promenade-du-soleil.jpg",
-    alt: "Promenade du Soleil and the Mediterranean seafront in Menton",
+    src: "/images/guide/stay-cool-in-menton-summer.jpg",
+    alt: "Illustration of staying cool in Menton during summer",
   },
   "best-beaches-in-menton": {
     src: "/images/guide/best-beaches-in-menton.jpg",
