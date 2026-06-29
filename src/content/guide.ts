@@ -133,6 +133,8 @@ export const guideBestForOptions = [
   { value: "instagram photos", label: t("Instagram / photos", "Instagram / photos", "Instagram / foto", "Instagram / фото") },
   { value: "summer visitors", label: t("Summer visitors", "Voyageurs d'ete", "Visitatori estivi", "Літні гості") },
   { value: "older travellers", label: t("Older travellers", "Voyageurs plus ages", "Viaggiatori senior", "Старші мандрівники") },
+  { value: "longer stays", label: t("Longer stays", "Sejours plus longs", "Soggiorni piu lunghi", "Довші перебування") },
+  { value: "apartment guests", label: t("Apartment guests", "Voyageurs en appartement", "Ospiti in appartamento", "Гості апартаментів") },
 ];
 
 export const guideDurationLabels: Record<GuideDuration, LocalizedText> = {
@@ -1713,6 +1715,130 @@ export const guideArticles: GuideArticle[] = [
       t("Choose beaches with easy exits to shade, cafes or your apartment.", "Choisissez des plages d'ou l'ombre, les cafes ou l'appartement restent faciles a rejoindre.", "Scegli spiagge con uscita facile verso ombra, caffe o appartamento.", "Обирайте пляжі, звідки легко вийти до тіні, кав'ярні або апартаментів."),
       t("Keep day trips simple during heatwaves.", "Gardez les excursions simples pendant les canicules.", "Mantieni semplici le gite durante le ondate di caldo.", "Під час спеки робіть поїздки простішими."),
       t("Emergency numbers in France: 15, 112, 18 and 17.", "Numeros d'urgence en France: 15, 112, 18 et 17.", "Numeri di emergenza in Francia: 15, 112, 18 e 17.", "Екстрені номери у Франції: 15, 112, 18 і 17."),
+    ],
+  }),
+  shortArticle({
+    id: "supermarkets-in-menton",
+    slug: "supermarkets-in-menton",
+    title: t("Supermarkets in Menton: where to shop, cool down and stock your apartment", "Supermarches a Menton: ou faire ses courses, se rafraichir et remplir l'appartement", "Supermercati a Mentone: dove fare la spesa, rinfrescarsi e riempire l'appartamento", "Супермаркети в Ментоні: де купувати продукти, охолонути й запасти апартаменти"),
+    seoTitle: t("Supermarkets in Menton: Where to Shop, Cool Down and Stock Your Apartment", "Supermarches a Menton: ou faire ses courses et remplir l'appartement", "Supermercati a Mentone: dove fare la spesa e riempire l'appartamento", "Супермаркети в Ментоні: де купувати продукти для апартаментів"),
+    seoDescription: t("A practical guide to supermarkets in Menton, Monaco, Nice and nearby Italy: where to buy groceries, picnic food, local products and take a cool break on hot summer days.", "Guide pratique des supermarches a Menton, Monaco, Nice et en Italie proche: courses, pique-nique, produits locaux et courte pause au frais en ete.", "Guida pratica ai supermercati a Mentone, Monaco, Nizza e nella vicina Italia: spesa, picnic, prodotti locali e pause al fresco in estate.", "Практичний гід по супермаркетах Ментона, Монако, Ніцци та поруч в Італії: продукти, пікнік, локальні товари й коротка прохолодна пауза влітку."),
+    excerpt: t("Supermarkets are not sightseeing, but in summer they are useful for cold water, fruit, simple apartment meals and a short indoor pause between beach, market and evening walks.", "Les supermarches ne sont pas des visites touristiques, mais en ete ils aident pour l'eau fraiche, les fruits, les repas simples et une courte pause interieure.", "I supermercati non sono attrazioni, ma in estate sono utili per acqua fredda, frutta, pasti semplici in appartamento e una breve pausa al chiuso.", "Супермаркети не є пам'ятками, але влітку вони корисні для холодної води, фруктів, простих страв в апартаментах і короткої перерви в приміщенні."),
+    category: "practical",
+    visualTheme: "market",
+    visualStatus: "editorial_placeholder",
+    tags: [
+      t("supermarkets", "supermarches", "supermercati", "супермаркети"),
+      t("groceries", "courses", "spesa", "продукти"),
+      t("summer", "ete", "estate", "літо"),
+      t("heatwave", "canicule", "ondata di caldo", "спека"),
+      t("Italy", "Italie", "Italia", "Італія"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[8].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[10].label, guideBestForOptions[11].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "seafront", "garavan", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "intermarche-hyper-menton",
+      "intermarche-super-borrigo",
+      "u-express-menton-centre",
+      "u-express-menton-garavan",
+      "carrefour-city-felix-faure",
+      "carrefour-express-menton",
+      "petit-casino-saint-michel",
+      "carrefour-monaco-fontvieille",
+      "carrefour-nice-tnl",
+      "monoprix-nice-garibaldi",
+      "nice-etoile",
+      "conad-city-ventimiglia-carso",
+      "conad-city-ventimiglia-corso-nizza",
+      "conad-superstore-vallecrosia",
+      "conad-city-bordighera",
+      "conad-city-sanremo",
+    ],
+    relatedArticles: [
+      "stay-cool-in-menton-summer",
+      "menton-without-a-car",
+      "public-transport-in-menton",
+      "halles-du-marche-menton",
+      "best-beaches-in-menton",
+      "italian-riviera-day-trip-from-menton",
+      "morning-walk-france-to-italy",
+      "day-trips-from-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why supermarkets matter in summer", "Pourquoi les supermarches comptent en ete", "Perche i supermercati contano in estate", "Чому супермаркети важливі влітку"),
+        body: [
+          t("Supermarkets rarely appear in travel guides, but during a hot summer stay in Menton they can become surprisingly useful. They are not tourist attractions and should not be treated as public cooling shelters, but they are often the easiest place to buy chilled water, fruit, sunscreen and simple food for the apartment.", "Les supermarches apparaissent rarement dans les guides, mais pendant un sejour tres chaud a Menton ils deviennent utiles. Ce ne sont pas des attractions ni des refuges climatises publics, mais ils permettent d'acheter eau fraiche, fruits, creme solaire et produits simples pour l'appartement.", "I supermercati compaiono raramente nelle guide, ma durante un soggiorno caldo a Mentone diventano utili. Non sono attrazioni ne rifugi climatizzati pubblici, pero sono pratici per acqua fredda, frutta, crema solare e cibo semplice per l'appartamento.", "Супермаркети рідко потрапляють у гіди, але під час спекотного літа в Ментоні вони стають дуже корисними. Це не туристичні пам'ятки й не громадські охолоджувальні пункти, але там зручно купити холодну воду, фрукти, сонцезахисний крем і просту їжу для апартаментів."),
+          t("For apartment guests, a small fridge with cold drinks, fruit, yogurt, cheese, salad and light dinner ingredients can make the whole stay feel easier, especially in July, August and early September.", "Pour les voyageurs en appartement, un petit frigo avec boissons fraiches, fruits, yaourt, fromage, salade et ingredients simples rend le sejour plus confortable, surtout en juillet, aout et debut septembre.", "Per chi soggiorna in appartamento, un piccolo frigo con bevande fredde, frutta, yogurt, formaggio, insalata e ingredienti semplici rende il soggiorno piu comodo, soprattutto a luglio, agosto e inizio settembre.", "Для гостей апартаментів невеликий холодильник із холодними напоями, фруктами, йогуртом, сиром, салатом і простими інгредієнтами сильно полегшує відпочинок, особливо в липні, серпні та на початку вересня."),
+        ],
+        bullets: [
+          t("Useful basics: water, fruit, picnic food, sunscreen, toiletries, breakfast supplies and ready meals.", "Bases utiles: eau, fruits, pique-nique, creme solaire, produits d'hygiene, petit-dejeuner et plats prepares.", "Basi utili: acqua, frutta, picnic, crema solare, prodotti da bagno, colazione e piatti pronti.", "Корисна база: вода, фрукти, їжа для пікніка, сонцезахисний крем, гігієна, сніданки й готові страви."),
+          t("In a heatwave, a light balcony meal can be better than a heavy restaurant lunch.", "Pendant une canicule, un repas leger au balcon peut etre preferable a un dejeuner lourd au restaurant.", "Durante un'ondata di caldo, un pasto leggero sul balcone puo essere meglio di un pranzo pesante al ristorante.", "Під час спеки легка їжа на балконі може бути кращою за важкий ресторанний обід."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("What to buy for a hot day", "Quoi acheter pour une journee chaude", "Cosa comprare per una giornata calda", "Що купити для спекотного дня"),
+        body: [
+          t("Think light, fresh and easy: still or sparkling water, peaches, apricots, melon, grapes, tomatoes, cucumbers, salad, yogurt, cold soups, mozzarella, goat cheese, olives, tapenade, bread, ice cream and after-sun lotion.", "Pensez leger, frais et simple: eau plate ou petillante, peches, abricots, melon, raisins, tomates, concombres, salade, yaourt, soupes froides, mozzarella, chevre, olives, tapenade, pain, glace et apres-soleil.", "Pensa leggero, fresco e semplice: acqua naturale o frizzante, pesche, albicocche, melone, uva, pomodori, cetrioli, insalata, yogurt, zuppe fredde, mozzarella, caprino, olive, tapenade, pane, gelato e doposole.", "Думайте про легке й свіже: вода, персики, абрикоси, диня, виноград, помідори, огірки, салат, йогурт, холодні супи, моцарела, козячий сир, оливки, тапенада, хліб, морозиво й засіб після сонця."),
+          t("For a balcony breakfast, keep coffee, juice, fruit, yogurt, croissants or brioche, jam and honey. For an easy apartment dinner, fresh pasta, tomato sauce, pesto, salad, cheese, cold rose or sparkling water and fruit are enough.", "Pour un petit-dejeuner au balcon, gardez cafe, jus, fruits, yaourt, croissants ou brioche, confiture et miel. Pour un diner simple, pates fraiches, sauce tomate, pesto, salade, fromage, rose frais ou eau petillante et fruits suffisent.", "Per una colazione sul balcone tieni caffe, succo, frutta, yogurt, croissant o brioche, marmellata e miele. Per una cena semplice bastano pasta fresca, salsa di pomodoro, pesto, insalata, formaggio, rose freddo o acqua frizzante e frutta.", "Для сніданку на балконі тримайте каву, сік, фрукти, йогурт, круасани або бріош, джем і мед. Для простої вечері вистачить свіжої пасти, томатного соусу, песто, салату, сиру, холодного розе або газованої води й фруктів."),
+        ],
+      },
+      {
+        heading: t("Best supermarkets in Menton", "Meilleurs supermarches a Menton", "Migliori supermercati a Mentone", "Найкорисніші супермаркети в Ментоні"),
+        body: [
+          t("For a larger apartment stock-up, Intermarché Hyper Menton is one of the most useful full-size supermarkets in the area, especially if you have a car or take a taxi. Intermarché Super Menton Borrigo is another practical option for guests on the western side or anyone shopping by car.", "Pour remplir l'appartement, Intermarche Hyper Menton est l'un des grands supermarches les plus utiles, surtout en voiture ou taxi. Intermarche Super Menton Borrigo est une autre option pratique cote ouest ou pour les courses en voiture.", "Per una spesa completa, Intermarché Hyper Menton e uno dei supermercati grandi piu utili, soprattutto in auto o taxi. Intermarché Super Menton Borrigo e un'altra opzione pratica sul lato ovest o per chi fa la spesa in auto.", "Для повної закупівлі в апартаменти Intermarché Hyper Menton один із найкорисніших великих супермаркетів, особливо з авто або таксі. Intermarché Super Menton Borrigo практичний для західного боку або покупок авто."),
+          t("For everyday central shopping, U Express Menton Centre, Carrefour City, Carrefour Express and Le Petit Casino around Rue Saint-Michel are easier for breakfast basics, cold drinks, snacks and forgotten items. On the Garavan side, U Express Menton Garavan is useful near the port.", "Pour les courses quotidiennes au centre, U Express Menton Centre, Carrefour City, Carrefour Express et Le Petit Casino vers Rue Saint-Michel sont pratiques pour petit-dejeuner, boissons fraiches, snacks et oublis. Cote Garavan, U Express Menton Garavan est utile pres du port.", "Per la spesa quotidiana in centro, U Express Menton Centre, Carrefour City, Carrefour Express e Le Petit Casino vicino a Rue Saint-Michel sono comodi per colazione, bevande fredde, snack e dimenticanze. Lato Garavan, U Express Menton Garavan e utile vicino al porto.", "Для щоденних покупок у центрі зручні U Express Menton Centre, Carrefour City, Carrefour Express і Le Petit Casino біля Rue Saint-Michel: сніданки, холодні напої, перекуси й забуті речі. З боку Garavan корисний U Express Menton Garavan біля порту."),
+        ],
+        relatedPlaceIds: ["intermarche-hyper-menton", "intermarche-super-borrigo", "u-express-menton-centre", "u-express-menton-garavan", "carrefour-city-felix-faure", "carrefour-express-menton", "petit-casino-saint-michel"],
+      },
+      {
+        heading: t("If you are going to Monaco", "Si vous allez a Monaco", "Se vai a Monaco", "Якщо їдете до Монако"),
+        body: [
+          t("If you are spending time in Monaco, Carrefour Monaco in Fontvieille is one of the most useful large supermarket options in the principality. It sits inside a shopping centre, so it can combine groceries with a longer indoor break on a very hot day.", "Si vous passez du temps a Monaco, Carrefour Monaco a Fontvieille est l'une des grandes options les plus utiles de la principaute. Il se trouve dans un centre commercial et peut combiner courses et pause interieure par forte chaleur.", "Se passi tempo a Monaco, Carrefour Monaco a Fontvieille e una delle opzioni grandi piu utili nel principato. Si trova in un centro commerciale, quindi puo unire spesa e pausa al chiuso nei giorni caldi.", "Якщо проводите час у Монако, Carrefour Monaco у Fontvieille - один із найкорисніших великих супермаркетів князівства. Він у торговому центрі, тож поєднує покупки й довшу перерву в приміщенні в спеку."),
+          t("Some old online listings still mention a Casino supermarket near Port Hercule. Check current information carefully before relying on it, as that location was reported closed in 2024.", "D'anciennes fiches en ligne mentionnent encore parfois un supermarche Casino pres du Port Hercule. Verifiez attentivement avant de compter dessus: cette adresse a ete signalee fermee en 2024.", "Alcune vecchie schede online citano ancora un supermercato Casino vicino a Port Hercule. Controlla bene prima di contarci: quella sede e stata segnalata chiusa nel 2024.", "Старі онлайн-записи іноді ще згадують Casino біля Port Hercule. Перевіряйте актуальність: цю локацію повідомляли як закриту у 2024 році."),
+        ],
+        relatedPlaceIds: ["carrefour-monaco-fontvieille"],
+      },
+      {
+        heading: t("If you are spending the day in Nice", "Si vous passez la journee a Nice", "Se passi la giornata a Nizza", "Якщо проводите день у Ніцці"),
+        body: [
+          t("Nice TNL is useful if you want a large Carrefour rather than a small city shop, especially by car or during a longer Nice day. Monoprix Nice Garibaldi is practical around Old Nice, the port and Place Garibaldi for ready meals, picnic food, drinks and toiletries.", "Nice TNL est utile si vous voulez un grand Carrefour plutot qu'une petite boutique, surtout en voiture ou pendant une longue journee a Nice. Monoprix Nice Garibaldi est pratique autour du Vieux Nice, du port et de Place Garibaldi.", "Nice TNL e utile se vuoi un Carrefour grande invece di un piccolo negozio, soprattutto in auto o durante una giornata lunga a Nizza. Monoprix Nice Garibaldi e pratico tra Vieux Nice, porto e Place Garibaldi.", "Nice TNL корисний, якщо потрібен великий Carrefour, а не маленький міський магазин, особливо авто або під час довшого дня в Ніцці. Monoprix Nice Garibaldi практичний біля старої Ніцци, порту та Place Garibaldi."),
+          t("Nice Étoile is not a supermarket guide stop in the strict sense, but during extreme heat it offers a larger indoor shopping environment in central Nice.", "Nice Etoile n'est pas un supermarche au sens strict, mais pendant les fortes chaleurs il offre un grand espace commercial interieur au centre de Nice.", "Nice Étoile non e un supermercato in senso stretto, ma con caldo intenso offre un grande spazio commerciale al chiuso nel centro di Nizza.", "Nice Étoile не супермаркет у строгому сенсі, але під час сильної спеки це велике приміщення для паузи в центрі Ніцци."),
+        ],
+        relatedPlaceIds: ["carrefour-nice-tnl", "monoprix-nice-garibaldi", "nice-etoile"],
+      },
+      {
+        heading: t("Across the border: Italy", "De l'autre cote de la frontiere: Italie", "Oltre confine: Italia", "Через кордон: Італія"),
+        body: [
+          t("One of Menton's advantages is that Italy is very close. Italian supermarkets are worth visiting for coffee, pasta, pesto, olive oil, grissini, biscuits, tomato sauces, mozzarella, Parmesan, local wine, limoncello and Italian mineral water.", "L'un des avantages de Menton est la proximite de l'Italie. Les supermarches italiens valent le detour pour cafe, pates, pesto, huile d'olive, grissini, biscuits, sauces tomate, mozzarella, parmesan, vin local, limoncello et eau minerale italienne.", "Uno dei vantaggi di Mentone e la vicinanza all'Italia. I supermercati italiani meritano per caffe, pasta, pesto, olio d'oliva, grissini, biscotti, sughi, mozzarella, Parmigiano, vino locale, limoncello e acqua minerale italiana.", "Одна з переваг Ментона - Італія зовсім поруч. Італійські супермаркети цікаві для кави, пасти, песто, оливкової олії, грісіні, печива, томатних соусів, моцарели, пармезану, місцевого вина, лімончело й мінеральної води."),
+          t("Ventimiglia is the easiest stop from Menton, with smaller central Conad options. Vallecrosia is more useful by car for a larger shop, while Bordighera and Sanremo work well when you are already spending the day there.", "Vintimille est l'arret le plus facile depuis Menton, avec de petites options Conad centrales. Vallecrosia est plus utile en voiture pour une grande course, tandis que Bordighera et Sanremo fonctionnent si vous y passez deja la journee.", "Ventimiglia e la tappa piu facile da Mentone, con piccoli Conad centrali. Vallecrosia e piu utile in auto per una spesa grande, mentre Bordighera e Sanremo funzionano se ci passi gia la giornata.", "Вентімілья - найпростіша зупинка з Ментона, з невеликими центральними Conad. Vallecrosia зручніша авто для більшої закупівлі, а Bordighera й Sanremo мають сенс, якщо ви вже проводите там день."),
+        ],
+        relatedPlaceIds: ["conad-city-ventimiglia-carso", "conad-city-ventimiglia-corso-nizza", "conad-superstore-vallecrosia", "conad-city-bordighera", "conad-city-sanremo"],
+      },
+      {
+        heading: t("France or Italy: what to buy where", "France ou Italie: quoi acheter ou", "Francia o Italia: cosa comprare dove", "Франція чи Італія: що де купувати"),
+        body: [
+          t("French supermarkets are best for cheese, yogurt, butter, baguette-style bread, tapenade, olives, ready salads, Provençal herbs, rosé wine, sunscreen and hygiene basics.", "Les supermarches francais sont excellents pour fromage, yaourt, beurre, pain type baguette, tapenade, olives, salades preparees, herbes de Provence, rose, creme solaire et produits d'hygiene.", "I supermercati francesi sono ottimi per formaggio, yogurt, burro, pane tipo baguette, tapenade, olive, insalate pronte, erbe provenzali, rose, crema solare e igiene.", "Французькі супермаркети найкращі для сиру, йогурту, масла, багетного хліба, тапенади, оливок, готових салатів, прованських трав, розе, сонцезахисту й гігієни."),
+          t("Italian supermarkets are best for coffee, pasta, pesto, olive oil, biscuits, tomato sauces, focaccia-style snacks, cured meats, mozzarella, limoncello and Italian mineral water. For several days in Menton, buy French breakfast and beach supplies locally, then bring back Italian pantry items from Ventimiglia or Bordighera.", "Les supermarches italiens sont parfaits pour cafe, pates, pesto, huile d'olive, biscuits, sauces tomate, snacks type focaccia, charcuterie, mozzarella, limoncello et eau minerale. Pour plusieurs jours, achetez petit-dejeuner et plage a Menton, puis rapportez les produits italiens de Vintimille ou Bordighera.", "I supermercati italiani sono perfetti per caffe, pasta, pesto, olio d'oliva, biscotti, sughi, snack tipo focaccia, salumi, mozzarella, limoncello e acqua minerale. Per piu giorni, compra colazione e spiaggia a Mentone, poi porta prodotti italiani da Ventimiglia o Bordighera.", "Італійські супермаркети найкращі для кави, пасти, песто, оливкової олії, печива, соусів, фокача-перекусів, м'ясних нарізок, моцарели, лімончело й мінеральної води. На кілька днів купуйте сніданки й пляжні речі в Ментоні, а італійську комору привозьте з Вентімільї або Бордігери."),
+        ],
+      },
+      {
+        heading: t("Practical supermarket tips", "Conseils pratiques pour les courses", "Consigli pratici per la spesa", "Практичні поради для супермаркетів"),
+        body: [
+          t("Bring a reusable bag, check Sunday and holiday hours, and shop early or after 17:00 when summer heat is easier. Use supermarkets as a short pause, not as the main destination of the day.", "Prenez un sac reutilisable, verifiez les horaires du dimanche et des jours feries, et faites les courses tot ou apres 17h quand la chaleur est plus facile. Utilisez les supermarches comme courte pause, pas comme destination principale.", "Porta una borsa riutilizzabile, controlla orari domenicali e festivi, e fai la spesa presto o dopo le 17 quando il caldo pesa meno. Usa i supermercati come breve pausa, non come destinazione principale.", "Візьміть багаторазову сумку, перевіряйте недільні та святкові години й купуйте рано або після 17:00, коли спека легша. Використовуйте супермаркети як коротку паузу, а не головну мету дня."),
+          t("A simple hot-day rhythm works well: buy fruit, water and breakfast supplies in the morning; swim before the day heats up; return to the apartment at midday with shutters closed and air conditioning on; shop lightly again late afternoon for salad, cheese, pasta or chilled foods.", "Un rythme simple fonctionne bien: achetez fruits, eau et petit-dejeuner le matin; nagez avant la chaleur; rentrez a midi avec volets fermes et climatisation; refaites une petite course en fin d'apres-midi pour salade, fromage, pates ou produits frais.", "Un ritmo semplice funziona bene: compra frutta, acqua e colazione al mattino; nuota prima del caldo; rientra a mezzogiorno con persiane chiuse e aria condizionata; fai una piccola spesa nel tardo pomeriggio per insalata, formaggio, pasta o prodotti freschi.", "Простий ритм спекотного дня добре працює: зранку купіть фрукти, воду й сніданок; поплавайте до спеки; опівдні поверніться в апартаменти із закритими віконницями та кондиціонером; ближче до вечора купіть салат, сир, пасту або охолоджені продукти."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Always check current store hours before planning around a specific supermarket.", "Verifiez toujours les horaires actuels avant de compter sur un supermarche precis.", "Controlla sempre gli orari aggiornati prima di organizzarti intorno a un supermercato specifico.", "Завжди перевіряйте актуальні години роботи перед плануванням навколо конкретного супермаркету."),
+      t("Most useful summer basics are cold water, fruit, yogurt, salad, sunscreen and simple dinner ingredients.", "Les bases d'ete les plus utiles: eau fraiche, fruits, yaourt, salade, creme solaire et ingredients simples pour le diner.", "Le basi estive piu utili: acqua fredda, frutta, yogurt, insalata, crema solare e ingredienti semplici per cena.", "Найкорисніша літня база: холодна вода, фрукти, йогурт, салат, сонцезахисний крем і прості інгредієнти для вечері."),
+      t("Use Italian supermarket stops for pantry items if you are already visiting Ventimiglia, Bordighera or Sanremo.", "Utilisez les supermarches italiens pour le placard si vous visitez deja Vintimille, Bordighera ou Sanremo.", "Usa i supermercati italiani per la dispensa se visiti gia Ventimiglia, Bordighera o Sanremo.", "Використовуйте італійські супермаркети для запасів, якщо вже їдете до Вентімільї, Бордігери або Санремо."),
     ],
   }),
   shortArticle({
