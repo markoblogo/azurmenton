@@ -626,6 +626,86 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
+  "intermarche-hyper-menton": {
+    image: "/images/guide/intermarche-hyper-menton.jpg",
+    imageAlt: text("Illustration of Intermarché Hyper Menton", "Illustration d'Intermarché Hyper Menton", "Illustrazione di Intermarché Hyper Menton", "Ілюстрація Intermarché Hyper Menton"),
+    visualTheme: "market",
+  },
+  "intermarche-super-borrigo": {
+    image: "/images/guide/intermarche-super-borrigo.jpg",
+    imageAlt: text("Illustration of Intermarché Super Menton Borrigo", "Illustration d'Intermarché Super Menton Borrigo", "Illustrazione di Intermarché Super Menton Borrigo", "Ілюстрація Intermarché Super Menton Borrigo"),
+    visualTheme: "market",
+  },
+  "u-express-menton-centre": {
+    image: "/images/guide/u-express-menton-centre.jpg",
+    imageAlt: text("Illustration of U Express Menton Centre", "Illustration d'U Express Menton Centre", "Illustrazione di U Express Menton Centre", "Ілюстрація U Express Menton Centre"),
+    visualTheme: "market",
+  },
+  "u-express-menton-garavan": {
+    image: "/images/guide/u-express-menton-garavan.jpg",
+    imageAlt: text("Illustration of U Express Menton Garavan", "Illustration d'U Express Menton Garavan", "Illustrazione di U Express Menton Garavan", "Ілюстрація U Express Menton Garavan"),
+    visualTheme: "market",
+  },
+  "carrefour-city-felix-faure": {
+    image: "/images/guide/carrefour-city-felix-faure.jpg",
+    imageAlt: text("Illustration of Carrefour City Menton Félix Faure", "Illustration de Carrefour City Menton Félix Faure", "Illustrazione di Carrefour City Menton Félix Faure", "Ілюстрація Carrefour City Menton Félix Faure"),
+    visualTheme: "market",
+  },
+  "carrefour-express-menton": {
+    image: "/images/guide/carrefour-express-menton.jpg",
+    imageAlt: text("Illustration of Carrefour Express Menton", "Illustration de Carrefour Express Menton", "Illustrazione di Carrefour Express Menton", "Ілюстрація Carrefour Express Menton"),
+    visualTheme: "market",
+  },
+  "petit-casino-saint-michel": {
+    image: "/images/guide/petit-casino-saint-michel.jpg",
+    imageAlt: text("Illustration of Le Petit Casino on Rue Saint-Michel", "Illustration du Petit Casino rue Saint-Michel", "Illustrazione di Le Petit Casino in Rue Saint-Michel", "Ілюстрація Le Petit Casino на Rue Saint-Michel"),
+    visualTheme: "market",
+  },
+  "carrefour-monaco-fontvieille": {
+    image: "/images/guide/carrefour-monaco-fontvieille.jpg",
+    imageAlt: text("Illustration of Carrefour Monaco Fontvieille", "Illustration de Carrefour Monaco Fontvieille", "Illustrazione di Carrefour Monaco Fontvieille", "Ілюстрація Carrefour Monaco Fontvieille"),
+    visualTheme: "market",
+  },
+  "carrefour-nice-tnl": {
+    image: "/images/guide/carrefour-nice-tnl.jpg",
+    imageAlt: text("Illustration of Carrefour Nice TNL", "Illustration de Carrefour Nice TNL", "Illustrazione di Carrefour Nice TNL", "Ілюстрація Carrefour Nice TNL"),
+    visualTheme: "market",
+  },
+  "monoprix-nice-garibaldi": {
+    image: "/images/guide/monoprix-nice-garibaldi.jpg",
+    imageAlt: text("Illustration of Monoprix Nice Garibaldi", "Illustration de Monoprix Nice Garibaldi", "Illustrazione di Monoprix Nice Garibaldi", "Ілюстрація Monoprix Nice Garibaldi"),
+    visualTheme: "market",
+  },
+  "nice-etoile": {
+    image: "/images/guide/nice-etoile.jpg",
+    imageAlt: text("Illustration of Nice Étoile shopping centre", "Illustration du centre commercial Nice Étoile", "Illustrazione del centro commerciale Nice Étoile", "Ілюстрація торгового центру Nice Étoile"),
+    visualTheme: "market",
+  },
+  "conad-city-ventimiglia-carso": {
+    image: "/images/guide/conad-city-ventimiglia-carso.jpg",
+    imageAlt: text("Illustration of Conad City Ventimiglia on Via Carso", "Illustration de Conad City Vintimille, Via Carso", "Illustrazione di Conad City Ventimiglia in Via Carso", "Ілюстрація Conad City Ventimiglia на Via Carso"),
+    visualTheme: "market",
+  },
+  "conad-city-ventimiglia-corso-nizza": {
+    image: "/images/guide/conad-city-ventimiglia-corso-nizza.jpg",
+    imageAlt: text("Illustration of Conad City Ventimiglia on Corso Nizza", "Illustration de Conad City Vintimille, Corso Nizza", "Illustrazione di Conad City Ventimiglia in Corso Nizza", "Ілюстрація Conad City Ventimiglia на Corso Nizza"),
+    visualTheme: "market",
+  },
+  "conad-superstore-vallecrosia": {
+    image: "/images/guide/conad-superstore-vallecrosia.jpg",
+    imageAlt: text("Illustration of Conad Superstore Vallecrosia", "Illustration de Conad Superstore Vallecrosia", "Illustrazione di Conad Superstore Vallecrosia", "Ілюстрація Conad Superstore Vallecrosia"),
+    visualTheme: "market",
+  },
+  "conad-city-bordighera": {
+    image: "/images/guide/conad-city-bordighera.jpg",
+    imageAlt: text("Illustration of Conad City Bordighera", "Illustration de Conad City Bordighera", "Illustrazione di Conad City Bordighera", "Ілюстрація Conad City Bordighera"),
+    visualTheme: "market",
+  },
+  "conad-city-sanremo": {
+    image: "/images/guide/conad-city-sanremo.jpg",
+    imageAlt: text("Illustration of Conad City Sanremo", "Illustration de Conad City Sanremo", "Illustrazione di Conad City Sanremo", "Ілюстрація Conad City Sanremo"),
+    visualTheme: "market",
+  },
   "musee-jean-cocteau-bastion": {
     image: "/images/guide/musee-jean-cocteau-bastion.jpg",
     imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),

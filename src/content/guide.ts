@@ -347,7 +347,7 @@ const articles: GuideArticle[] = [
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
     relatedPlaces: ["halles-du-marche", "promenade-du-soleil"],
-    relatedArticles: ["halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -491,7 +491,7 @@ const articles: GuideArticle[] = [
       t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
     ],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes"],
-    relatedArticles: ["local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -837,7 +837,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
     relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
-    relatedArticles: ["day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -914,7 +914,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "garavan", "italian-riviera"],
     sourceStatus: "editorial",
     relatedPlaces: ["promenade-du-soleil", "port-de-garavan", "sentier-douaniers-menton", "ventimiglia"],
-    relatedArticles: ["best-walks-and-hikes-around-menton", "italian-riviera-day-trip-from-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "best-walks-and-hikes-around-menton", "italian-riviera-day-trip-from-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1335,7 +1335,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1494,6 +1494,7 @@ export const guideArticles: GuideArticle[] = [
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "menton-without-a-car",
+      "supermarkets-in-menton",
       "public-transport-in-menton",
       "best-beaches-in-menton",
       "halles-du-marche-menton",
@@ -1725,8 +1726,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("A practical guide to supermarkets in Menton, Monaco, Nice and nearby Italy: where to buy groceries, picnic food, local products and take a cool break on hot summer days.", "Guide pratique des supermarches a Menton, Monaco, Nice et en Italie proche: courses, pique-nique, produits locaux et courte pause au frais en ete.", "Guida pratica ai supermercati a Mentone, Monaco, Nizza e nella vicina Italia: spesa, picnic, prodotti locali e pause al fresco in estate.", "Практичний гід по супермаркетах Ментона, Монако, Ніцци та поруч в Італії: продукти, пікнік, локальні товари й коротка прохолодна пауза влітку."),
     excerpt: t("Supermarkets are not sightseeing, but in summer they are useful for cold water, fruit, simple apartment meals and a short indoor pause between beach, market and evening walks.", "Les supermarches ne sont pas des visites touristiques, mais en ete ils aident pour l'eau fraiche, les fruits, les repas simples et une courte pause interieure.", "I supermercati non sono attrazioni, ma in estate sono utili per acqua fredda, frutta, pasti semplici in appartamento e una breve pausa al chiuso.", "Супермаркети не є пам'ятками, але влітку вони корисні для холодної води, фруктів, простих страв в апартаментах і короткої перерви в приміщенні."),
     category: "practical",
+    coverImage: "/images/guide/supermarkets-in-menton.jpg",
+    coverImageAlt: t("Illustration of supermarket shopping in Menton", "Illustration des courses au supermarche a Menton", "Illustrazione della spesa al supermercato a Mentone", "Ілюстрація покупок у супермаркеті в Ментоні"),
     visualTheme: "market",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("supermarkets", "supermarches", "supermercati", "супермаркети"),
       t("groceries", "courses", "spesa", "продукти"),
@@ -1859,7 +1862,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "old-town", "seafront"],
     featured: true,
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "promenade-du-soleil"],
-    relatedArticles: ["halles-du-marche-menton", "best-beaches-in-menton", "quiet-evening-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "halles-du-marche-menton", "best-beaches-in-menton", "quiet-evening-in-menton"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -1989,7 +1992,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "2-3 days",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
-    relatedArticles: ["day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "best-beaches-in-menton", "menton-one-day-itinerary"],
+    relatedArticles: ["supermarkets-in-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "best-beaches-in-menton", "menton-one-day-itinerary"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2319,7 +2322,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -2373,7 +2376,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["stay-cool-in-menton-summer", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -2422,7 +2425,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -2507,7 +2510,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
+    relatedArticles: ["supermarkets-in-menton", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
     relatedApartments: allApartments,
     sections: [
       {
