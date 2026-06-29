@@ -1727,8 +1727,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("A practical guide to cinemas near Menton: Cinéma Eden in Menton, Monaco cinemas, open-air summer screenings and the best cinemas in Nice for rainy days, hot afternoons and evening plans.", "Guide pratique des cinemas pres de Menton: Cinema Eden, cinemas de Monaco, seances d'ete en plein air et cinemas de Nice pour pluie, chaleur ou soiree.", "Guida pratica ai cinema vicino a Mentone: Cinéma Eden, cinema di Monaco, proiezioni estive all'aperto e cinema di Nizza per pioggia, caldo o sera.", "Практичний гід по кінотеатрах біля Ментона: Cinéma Eden, кінотеатри Монако, літні покази просто неба та кіно в Ніцці для дощу, спеки й вечора."),
     excerpt: t("Cinemas are useful on the Riviera when the day is too hot, rainy or simply ready for a quieter evening: Menton has Eden, while Monaco and Nice add more programme choice.", "Le cinema est utile sur la Riviera quand il fait trop chaud, qu'il pleut ou qu'une soiree calme suffit: Menton a l'Eden, Monaco et Nice ajoutent plus de choix.", "Il cinema e utile in Riviera quando fa troppo caldo, piove o basta una serata piu tranquilla: Mentone ha l'Eden, Monaco e Nizza aggiungono scelta.", "Кіно на Рив'єрі корисне, коли надто спекотно, дощить або хочеться спокійнішого вечора: у Ментоні є Eden, а Монако й Ніцца дають більше вибору."),
     category: "practical",
+    coverImage: "/images/guide/cinemas-in-menton-nice-monaco.jpg",
+    coverImageAlt: t("Illustration of cinemas near Menton, Monaco and Nice", "Illustration des cinemas pres de Menton, Monaco et Nice", "Illustrazione dei cinema vicino a Mentone, Monaco e Nizza", "Ілюстрація кінотеатрів біля Ментона, Монако та Ніцци"),
     visualTheme: "event",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("cinema", "cinema", "cinema", "кіно"),
       t("rainy day", "jour de pluie", "giorno di pioggia", "дощовий день"),

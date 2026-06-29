@@ -843,6 +843,56 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Conad City Sanremo", "Illustration de Conad City Sanremo", "Illustrazione di Conad City Sanremo", "Ілюстрація Conad City Sanremo"),
     visualTheme: "market",
   },
+  "cinema-eden-menton": {
+    image: "/images/guide/cinema-eden-menton.jpg",
+    imageAlt: text("Illustration of Cinéma Eden in Menton", "Illustration du Cinema Eden a Menton", "Illustrazione del Cinéma Eden a Mentone", "Ілюстрація Cinéma Eden у Ментоні"),
+    visualTheme: "event",
+  },
+  "cinema-beaux-arts-monaco": {
+    image: "/images/guide/cinema-beaux-arts-monaco.jpg",
+    imageAlt: text("Illustration of Cinéma des Beaux-Arts in Monaco", "Illustration du Cinema des Beaux-Arts a Monaco", "Illustrazione del Cinéma des Beaux-Arts a Monaco", "Ілюстрація Cinéma des Beaux-Arts у Монако"),
+    visualTheme: "event",
+  },
+  "monaco-open-air-cinema": {
+    image: "/images/guide/monaco-open-air-cinema.jpg",
+    imageAlt: text("Illustration of Monaco Open Air Cinema", "Illustration du Monaco Open Air Cinema", "Illustrazione del Monaco Open Air Cinema", "Ілюстрація Monaco Open Air Cinema"),
+    visualTheme: "event",
+  },
+  "pathe-massena-nice": {
+    image: "/images/guide/pathe-massena-nice.jpg",
+    imageAlt: text("Illustration of Pathé Masséna in Nice", "Illustration de Pathe Massena a Nice", "Illustrazione di Pathé Masséna a Nizza", "Ілюстрація Pathé Masséna в Ніцці"),
+    visualTheme: "event",
+  },
+  "pathe-gare-du-sud-nice": {
+    image: "/images/guide/pathe-gare-du-sud-nice.jpg",
+    imageAlt: text("Illustration of Pathé Gare du Sud in Nice", "Illustration de Pathe Gare du Sud a Nice", "Illustrazione di Pathé Gare du Sud a Nizza", "Ілюстрація Pathé Gare du Sud в Ніцці"),
+    visualTheme: "event",
+  },
+  "cinema-varietes-nice": {
+    image: "/images/guide/cinema-varietes-nice.jpg",
+    imageAlt: text("Illustration of Cinéma Variétés in Nice", "Illustration du Cinema Varietes a Nice", "Illustrazione del Cinéma Variétés a Nizza", "Ілюстрація Cinéma Variétés у Ніцці"),
+    visualTheme: "event",
+  },
+  "cinema-rialto-nice": {
+    image: "/images/guide/cinema-rialto-nice.jpg",
+    imageAlt: text("Illustration of Cinéma Rialto in Nice", "Illustration du Cinema Rialto a Nice", "Illustrazione del Cinéma Rialto a Nizza", "Ілюстрація Cinéma Rialto в Ніцці"),
+    visualTheme: "event",
+  },
+  "cinema-jean-paul-belmondo-nice": {
+    image: "/images/guide/cinema-jean-paul-belmondo-nice.jpg",
+    imageAlt: text("Illustration of Cinéma Jean-Paul Belmondo in Nice", "Illustration du Cinema Jean-Paul Belmondo a Nice", "Illustrazione del Cinéma Jean-Paul Belmondo a Nizza", "Ілюстрація Cinéma Jean-Paul Belmondo у Ніцці"),
+    visualTheme: "event",
+  },
+  "cinematheque-de-nice": {
+    image: "/images/guide/cinematheque-de-nice.jpg",
+    imageAlt: text("Illustration of Cinémathèque de Nice", "Illustration de la Cinematheque de Nice", "Illustrazione della Cinémathèque de Nice", "Ілюстрація Cinémathèque de Nice"),
+    visualTheme: "event",
+  },
+  "megarama-nice": {
+    image: "/images/guide/megarama-nice.jpg",
+    imageAlt: text("Illustration of Megarama Nice", "Illustration de Megarama Nice", "Illustrazione di Megarama Nice", "Ілюстрація Megarama Nice"),
+    visualTheme: "event",
+  },
   "musee-jean-cocteau-bastion": {
     image: "/images/guide/musee-jean-cocteau-bastion.jpg",
     imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),
