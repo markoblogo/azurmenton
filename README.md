@@ -16,7 +16,7 @@ Production domain: `https://azurmenton.com`
 
 ## Positioning
 
-For guests, the site offers a direct-booking path with human contact, clearer local context and no platform-first upsell flow. The guide and events sections help guests plan a Menton stay around beaches, walks, Monaco/Nice day trips and seasonal Riviera events.
+For guests, the site offers a direct-booking path with human contact, clearer local context and no platform-first upsell flow. The guide and events sections help guests plan a Menton stay around beaches, walks, museums, practical errands, Monaco/Nice day trips and seasonal Riviera events.
 
 For owners, the site reduces dependence on Booking/Airbnb-style marketplaces, keeps the booking conversation direct, supports lower commission pressure and builds long-term search visibility around the apartments and local stay intent.
 

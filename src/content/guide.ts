@@ -1496,6 +1496,7 @@ export const guideArticles: GuideArticle[] = [
       "menton-without-a-car",
       "supermarkets-in-menton",
       "cinemas-in-menton-nice-monaco",
+      "museums-in-menton-nice-monaco",
       "public-transport-in-menton",
       "best-beaches-in-menton",
       "halles-du-marche-menton",
@@ -1755,7 +1756,7 @@ export const guideArticles: GuideArticle[] = [
       "cinematheque-de-nice",
       "megarama-nice",
     ],
-    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1814,6 +1815,107 @@ export const guideArticles: GuideArticle[] = [
       t("Book online for popular films, weekend evenings and open-air summer screenings.", "Reservez en ligne pour films populaires, week-ends soir et seances plein air d'ete.", "Prenota online per film popolari, weekend sera e proiezioni estive all'aperto.", "Бронюйте онлайн для популярних фільмів, вечорів вихідного дня та літніх показів просто неба."),
       t("For Nice or Monaco, check return trains before choosing a late screening.", "Pour Nice ou Monaco, verifiez les trains retour avant une seance tardive.", "Per Nizza o Monaco controlla i treni di ritorno prima di scegliere uno spettacolo tardi.", "Для Ніцци або Монако перевіряйте потяги назад перед вибором пізнього сеансу."),
       t("For families, check age guidance and language before promising a film to children.", "En famille, verifiez age conseille et langue avant de promettre un film aux enfants.", "Con bambini controlla eta consigliata e lingua prima di promettere un film.", "Для сімей перевіряйте вікові рекомендації та мову, перш ніж обіцяти дітям фільм."),
+    ],
+  }),
+  shortArticle({
+    id: "museums-in-menton-nice-monaco",
+    slug: "museums-in-menton-nice-monaco",
+    title: t("Museums in Menton, Nice and Monaco: a practical guide from Menton", "Musees a Menton, Nice et Monaco: guide pratique depuis Menton", "Musei a Mentone, Nizza e Monaco: guida pratica da Mentone", "Музеї в Ментоні, Ніцці та Монако: практичний гід з Ментона"),
+    seoTitle: t("Museums in Menton, Nice and Monaco: A Practical Guide from Menton", "Musees a Menton, Nice et Monaco | Guide depuis Menton", "Musei a Mentone, Nizza e Monaco | Guida da Mentone", "Музеї в Ментоні, Ніцці та Монако | Гід з Ментона"),
+    seoDescription: t("A practical guide to museums near Menton, including Jean Cocteau, prehistory, Matisse, Chagall, Masséna, Monaco's Oceanographic Museum and the Prince's Car Collection.", "Guide pratique des musees pres de Menton: Jean Cocteau, prehistoire, Matisse, Chagall, Massena, Musee oceanographique de Monaco et collection automobile princiere.", "Guida pratica ai musei vicino a Mentone: Jean Cocteau, preistoria, Matisse, Chagall, Masséna, Museo Oceanografico di Monaco e collezione auto del Principe.", "Практичний гід по музеях біля Ментона: Жан Кокто, праісторія, Матісс, Шагал, Masséna, Океанографічний музей Монако та автомобільна колекція князя."),
+    excerpt: t("Use Menton as a calm base for museum days: stay local with Cocteau and prehistory, go to Monaco for ocean science and cars, or dedicate a full day to Nice.", "Utilisez Menton comme base calme pour les musees: Cocteau et prehistoire sur place, Monaco pour ocean et voitures, ou une journee complete a Nice.", "Usa Mentone come base tranquilla per i musei: Cocteau e preistoria in citta, Monaco per oceano e auto, oppure una giornata intera a Nizza.", "Використайте Ментон як спокійну базу для музеїв: Кокто й праісторія локально, Монако для океану та авто або повний день у Ніцці."),
+    category: "practical",
+    coverImage: "/images/guide/museums-in-menton-nice-monaco.jpg",
+    coverImageAlt: t("Illustration of museums in Menton, Nice and Monaco", "Illustration des musees a Menton, Nice et Monaco", "Illustrazione dei musei a Mentone, Nizza e Monaco", "Ілюстрація музеїв у Ментоні, Ніцці та Монако"),
+    visualTheme: "museum",
+    visualStatus: "project_illustration",
+    tags: [
+      t("museums", "musees", "musei", "музеї"),
+      t("art", "art", "arte", "мистецтво"),
+      t("culture", "culture", "cultura", "культура"),
+      t("rainy day", "jour de pluie", "giorno di pioggia", "дощовий день"),
+      t("hot day", "jour de chaleur", "giorno caldo", "спекотний день"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[5].label, guideBestForOptions[8].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "old-town", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "musee-jean-cocteau-bastion",
+      "musee-prehistoire-regionale-menton",
+      "salle-des-mariages-jean-cocteau",
+      "oceanographic-museum-monaco",
+      "prince-monaco-car-collection",
+      "museum-stamps-coins-monaco",
+      "prehistoric-anthropology-museum-monaco",
+      "musee-matisse-nice",
+      "musee-chagall-nice",
+      "musee-massena-nice",
+      "palais-lascaris-nice",
+      "musee-photographie-charles-negre-nice",
+      "musee-beaux-arts-jules-cheret-nice",
+      "musee-archeologie-cimiez-nice",
+      "musee-art-naif-jakovsky-nice",
+      "musee-arts-asiatiques-nice",
+      "musee-national-du-sport-nice",
+    ],
+    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why museums work from a Menton base", "Pourquoi les musees fonctionnent depuis Menton", "Perche i musei funzionano da Mentone", "Чому музеї добре працюють з базою в Ментоні"),
+        body: [
+          t("Menton is best known for beaches, old streets, gardens and the Italian border, but it is also a useful base for cultural days on the eastern Riviera. You can keep things local, take a short train to Monaco or spend a fuller day in Nice.", "Menton est surtout connue pour plages, vieille ville, jardins et frontiere italienne, mais c'est aussi une bonne base culturelle sur l'est de la Riviera. Vous pouvez rester local, prendre un court train vers Monaco ou passer une vraie journee a Nice.", "Mentone e nota per spiagge, centro storico, giardini e confine italiano, ma e anche una buona base culturale sulla Riviera orientale. Puoi restare in citta, prendere un breve treno per Monaco o dedicare una giornata a Nizza.", "Ментон відомий пляжами, старими вулицями, садами й італійським кордоном, але це також зручна база для культурних днів на східній Рив'єрі. Можна залишитися локально, швидко поїхати в Монако або присвятити день Ніцці."),
+          t("Museums are especially useful on rainy days, very hot afternoons or slower family days when one calm indoor stop is better than another full beach or walking plan.", "Les musees sont tres utiles les jours de pluie, les apres-midi tres chauds ou les journees en famille plus lentes, quand une pause interieure calme vaut mieux qu'un programme plage ou marche complet.", "I musei sono utili nei giorni di pioggia, nei pomeriggi molto caldi o nelle giornate familiari piu lente, quando una pausa al chiuso vale piu di un'altra spiaggia o lunga camminata.", "Музеї особливо корисні в дощ, у дуже спекотні пообіддя або для повільніших сімейних днів, коли одна спокійна пауза в приміщенні краща за ще один пляж чи довгу прогулянку."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Menton: Cocteau, prehistory and short cultural stops", "Menton: Cocteau, prehistoire et courtes haltes culturelles", "Mentone: Cocteau, preistoria e brevi soste culturali", "Ментон: Кокто, праісторія й короткі культурні зупинки"),
+        body: [
+          t("Menton's museum scene is compact but distinctive. Le Bastion is the most symbolic stop: a small fortress by the old port redesigned by Jean Cocteau to house his work. It combines easily with Sablettes, the old port, the market and the old town.", "Les musees de Menton sont compacts mais identitaires. Le Bastion est l'arret le plus symbolique: un petit fort pres du vieux port, repense par Jean Cocteau pour accueillir son oeuvre. Il se combine facilement avec Sablettes, le vieux port, le marche et la vieille ville.", "I musei di Mentone sono compatti ma riconoscibili. Le Bastion e la tappa piu simbolica: una piccola fortezza vicino al vecchio porto, ripensata da Jean Cocteau per la sua opera. Si combina facilmente con Sablettes, porto vecchio, mercato e centro storico.", "Музейна сцена Ментона компактна, але впізнавана. Le Bastion - найсимволічніша зупинка: невелика фортеця біля старого порту, переосмислена Жаном Кокто для його робіт. Її легко поєднати з Sablettes, старим портом, ринком і старим містом."),
+          t("The Regional Prehistory Museum is useful for families and curious visitors. La Salle des Mariages is a short Cocteau-related interior inside the town hall, while Palais de Carnolès should be treated as a future stop until renovation status is clear.", "Le Musee de Prehistoire Regionale convient aux familles et curieux. La Salle des Mariages est une courte visite Cocteau dans la mairie, tandis que le Palais de Carnoles reste plutot une adresse future tant que la renovation n'est pas clarifiee.", "Il Museo di Preistoria Regionale e utile per famiglie e curiosi. La Salle des Mariages e una breve visita legata a Cocteau nel municipio, mentre Palais de Carnolès va considerato una tappa futura finche i lavori non sono chiariti.", "Музей регіональної праісторії корисний для сімей і допитливих гостей. La Salle des Mariages - короткий інтер'єр Кокто в мерії, а Palais de Carnolès краще вважати майбутньою зупинкою, доки статус ремонту не стане ясним."),
+        ],
+        relatedPlaceIds: ["musee-jean-cocteau-bastion", "musee-prehistoire-regionale-menton", "salle-des-mariages-jean-cocteau", "halles-du-marche", "plage-sablettes", "cimetiere-vieux-chateau"],
+      },
+      {
+        heading: t("Monaco: families, ocean science and Fontvieille", "Monaco: familles, ocean et Fontvieille", "Monaco: famiglie, oceano e Fontvieille", "Монако: сім'ї, океан і Fontvieille"),
+        body: [
+          t("Monaco works well as a museum day from Menton because the train ride is short and several museums fit into a compact area. The Oceanographic Museum is the strongest family choice, with aquariums, marine science, historic collections and views from the Rock.", "Monaco fonctionne tres bien comme journee musee depuis Menton: le train est court et plusieurs musees se combinent dans un secteur compact. Le Musee oceanographique est le meilleur choix familial, avec aquariums, sciences marines, collections historiques et vues depuis le Rocher.", "Monaco funziona bene come giornata musei da Mentone: il treno e breve e vari musei stanno in un'area compatta. Il Museo Oceanografico e la scelta piu forte per famiglie, con acquari, scienza marina, collezioni storiche e viste dal Rocher.", "Монако добре працює як музейний день з Ментона: потяг їде недовго, а кілька музеїв зібрані компактно. Океанографічний музей - найсильніший сімейний вибір з акваріумами, морською наукою, історичними колекціями й видами з Rocher."),
+          t("Fontvieille adds the Prince's Car Collection and the smaller Museum of Stamps and Coins. The Museum of Prehistoric Anthropology is more specialised, while the Nouveau Musée National de Monaco is best checked by current exhibition calendar before travelling.", "Fontvieille ajoute la Collection automobile princiere et le petit Musee des Timbres et des Monnaies. Le Musee d'Anthropologie prehistorique est plus specialise, tandis que le Nouveau Musee National de Monaco se verifie selon les expositions en cours.", "Fontvieille aggiunge la Collezione auto del Principe e il piccolo Museo dei Francobolli e delle Monete. Il Museo di Antropologia Preistorica e piu specialistico, mentre il Nouveau Musée National de Monaco va controllato secondo le mostre in corso.", "Fontvieille додає автомобільну колекцію князя та менший Музей марок і монет. Музей доісторичної антропології більш спеціалізований, а Nouveau Musée National de Monaco варто перевіряти за актуальним календарем виставок."),
+        ],
+        relatedPlaceIds: ["oceanographic-museum-monaco", "prince-monaco-car-collection", "museum-stamps-coins-monaco", "prehistoric-anthropology-museum-monaco", "monaco-monte-carlo"],
+      },
+      {
+        heading: t("Nice: the strongest museum day near Menton", "Nice: la journee musees la plus riche pres de Menton", "Nizza: la giornata musei piu ricca vicino a Mentone", "Ніцца: найсильніший музейний день біля Ментона"),
+        body: [
+          t("Nice has the broadest museum offer near Menton. For a focused art day, combine Musée Matisse with Musée National Marc Chagall. For a central Old Nice afternoon, choose Palais Lascaris and the Charles Nègre Photography Museum, then add Cours Saleya or Castle Hill.", "Nice offre le choix museal le plus large pres de Menton. Pour une journee art ciblee, combinez le Musee Matisse et le Musee National Marc Chagall. Pour un apres-midi central au Vieux Nice, choisissez Palais Lascaris et le Musee de la Photographie Charles Negre, puis Cours Saleya ou la colline du Chateau.", "Nizza offre la scelta museale piu ampia vicino a Mentone. Per una giornata d'arte concentrata, combina Musée Matisse e Musée National Marc Chagall. Per un pomeriggio centrale nel Vieux Nice, scegli Palais Lascaris e il Museo della Fotografia Charles Nègre, poi Cours Saleya o Castle Hill.", "Ніцца має найширшу музейну пропозицію біля Ментона. Для сфокусованого дня мистецтва поєднайте Musée Matisse з Musée National Marc Chagall. Для центрального пообіддя в старій Ніцці оберіть Palais Lascaris і музей фотографії Charles Nègre, а потім Cours Saleya або Castle Hill."),
+          t("Musée Masséna suits Riviera history and Promenade des Anglais. Cimiez also has archaeology beside Matisse, while Jules Chéret, the Naïve Art Museum, Asian Arts Museum and National Sports Museum work better for specific interests or extra time.", "Le Musee Massena convient a l'histoire Riviera et a la Promenade des Anglais. Cimiez ajoute l'archeologie pres de Matisse, tandis que Jules Cheret, l'Art Naif, les Arts Asiatiques et le Musee National du Sport conviennent mieux a des envies precises ou du temps en plus.", "Musée Masséna e ideale per storia della Riviera e Promenade des Anglais. Cimiez aggiunge archeologia vicino a Matisse, mentre Jules Chéret, Arte Naif, Arti Asiatiche e Museo Nazionale dello Sport funzionano meglio per interessi specifici o tempo extra.", "Musée Masséna підходить для історії Рив'єри та Promenade des Anglais. Cimiez додає археологію поруч із Матіссом, а Jules Chéret, музей наївного мистецтва, азійського мистецтва та спорту краще для окремих інтересів або додаткового часу."),
+        ],
+        relatedPlaceIds: ["musee-matisse-nice", "musee-chagall-nice", "musee-massena-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "musee-beaux-arts-jules-cheret-nice", "musee-archeologie-cimiez-nice", "musee-art-naif-jakovsky-nice", "musee-arts-asiatiques-nice", "musee-national-du-sport-nice", "nice-old-town"],
+      },
+      {
+        heading: t("Suggested museum itineraries", "Idees d'itineraires musees", "Idee di itinerari museali", "Ідеї музейних маршрутів"),
+        body: [
+          t("For an easy local morning, start at Halles du Marché, visit Le Bastion, walk the old port and finish near Les Sablettes. For a family Monaco day, take the train, visit the Oceanographic Museum, then add the Prince's Car Collection if energy allows.", "Pour une matinee locale facile, commencez aux Halles du Marche, visitez Le Bastion, marchez vers le vieux port et terminez pres des Sablettes. Pour Monaco en famille, prenez le train, visitez le Musee oceanographique, puis ajoutez la Collection automobile si l'energie suit.", "Per una mattina locale facile, inizia alle Halles du Marché, visita Le Bastion, passeggia al vecchio porto e finisci vicino a Les Sablettes. Per Monaco in famiglia, prendi il treno, visita il Museo Oceanografico e aggiungi la Collezione auto se resta energia.", "Для легкого локального ранку почніть з Halles du Marché, відвідайте Le Bastion, пройдіться старим портом і завершіть біля Sablettes. Для сімейного дня в Монако їдьте потягом, відвідайте Океанографічний музей, а потім додайте автомобільну колекцію, якщо лишилися сили."),
+          t("For Nice, choose two museums rather than trying to collect everything. Matisse plus Chagall makes a strong art day; Palais Lascaris plus the Photography Museum makes an easier Old Nice afternoon; Masséna works well with a Promenade des Anglais walk.", "A Nice, choisissez deux musees plutot que de vouloir tout faire. Matisse plus Chagall donne une vraie journee art; Palais Lascaris plus Photographie rend le Vieux Nice plus simple; Massena va bien avec une marche sur la Promenade des Anglais.", "A Nizza scegli due musei invece di voler fare tutto. Matisse piu Chagall crea una forte giornata d'arte; Palais Lascaris piu Fotografia rende il Vieux Nice piu semplice; Masséna va bene con una passeggiata sulla Promenade des Anglais.", "У Ніцці обирайте два музеї замість спроби зібрати все. Матісс плюс Шагал дають сильний день мистецтва; Palais Lascaris плюс фотографія створюють легше пообіддя в старій Ніцці; Masséna добре поєднується з прогулянкою Promenade des Anglais."),
+        ],
+        relatedPlaceIds: ["halles-du-marche", "musee-jean-cocteau-bastion", "plage-sablettes", "oceanographic-museum-monaco", "prince-monaco-car-collection", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "musee-massena-nice"],
+      },
+      {
+        heading: t("Closures and status changes", "Fermetures et changements de statut", "Chiusure e cambi di stato", "Закриття та зміни статусу"),
+        body: [
+          t("Do not rely only on map hours for museums. Exhibitions, weekly closures, renovations and ticket rules change often enough that official pages should be checked before travel, especially for Palais de Carnolès, MAMAC, Terra Amata, Natural History Museum and exhibition-led Monaco venues.", "Ne vous fiez pas seulement aux horaires des cartes. Expositions, jours de fermeture, travaux et billets changent assez souvent pour verifier les pages officielles avant le depart, surtout pour le Palais de Carnoles, MAMAC, Terra Amata, le Museum d'Histoire Naturelle et les lieux d'exposition a Monaco.", "Non basarti solo sugli orari delle mappe. Mostre, chiusure settimanali, lavori e biglietti cambiano spesso: controlla i siti ufficiali, soprattutto per Palais de Carnolès, MAMAC, Terra Amata, Museo di Storia Naturale e sedi espositive di Monaco.", "Не покладайтеся лише на години в картах. Виставки, вихідні дні, ремонти й квиткові правила часто змінюються, тому перевіряйте офіційні сторінки, особливо для Palais de Carnolès, MAMAC, Terra Amata, Natural History Museum і виставкових майданчиків Монако."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check official opening days before travelling; many museums close one day per week.", "Verifiez les jours d'ouverture officiels avant de partir; beaucoup de musees ferment un jour par semaine.", "Controlla i giorni di apertura ufficiali prima di partire; molti musei chiudono un giorno a settimana.", "Перевіряйте офіційні дні роботи перед поїздкою; багато музеїв мають один вихідний на тиждень."),
+      t("For Nice, consider the museum pass if you plan several municipal museums.", "A Nice, regardez le pass musees si vous prevoyez plusieurs musees municipaux.", "A Nizza valuta il pass musei se prevedi vari musei municipali.", "У Ніцці розгляньте музейний pass, якщо плануєте кілька муніципальних музеїв."),
+      t("During summer heat, visit museums late morning or afternoon, then return to the seafront in the evening.", "Pendant les fortes chaleurs, visitez les musees en fin de matinee ou l'apres-midi, puis revenez au bord de mer le soir.", "Con caldo estivo, visita i musei in tarda mattina o pomeriggio, poi torna sul lungomare la sera.", "Під час літньої спеки відвідуйте музеї пізнім ранком або вдень, а ввечері повертайтеся до моря."),
+      t("For families, one museum plus a walk usually works better than three museums in one day.", "En famille, un musee plus une balade fonctionne souvent mieux que trois musees dans la journee.", "Con famiglie, un museo piu una passeggiata funziona meglio di tre musei in un giorno.", "Для сімей один музей плюс прогулянка зазвичай працює краще, ніж три музеї за день."),
     ],
   }),
   shortArticle({
@@ -2245,7 +2347,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -2420,7 +2522,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -2474,7 +2576,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -2523,7 +2625,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["supermarkets-in-menton", "cinemas-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
