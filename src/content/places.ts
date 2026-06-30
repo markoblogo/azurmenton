@@ -1106,6 +1106,81 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),
     visualTheme: "museum",
   },
+  "salle-des-mariages-jean-cocteau": {
+    image: "/images/guide/salle-des-mariages-jean-cocteau.jpg",
+    imageAlt: text("Illustration of La Salle des Mariages Jean Cocteau in Menton", "Illustration de la Salle des Mariages Jean Cocteau a Menton", "Illustrazione della Salle des Mariages Jean Cocteau a Mentone", "Ілюстрація La Salle des Mariages Jean Cocteau у Ментоні"),
+    visualTheme: "museum",
+  },
+  "oceanographic-museum-monaco": {
+    image: "/images/guide/oceanographic-museum-monaco.jpg",
+    imageAlt: text("Illustration of the Oceanographic Museum of Monaco", "Illustration du Musee oceanographique de Monaco", "Illustrazione del Museo Oceanografico di Monaco", "Ілюстрація Океанографічного музею Монако"),
+    visualTheme: "museum",
+  },
+  "prince-monaco-car-collection": {
+    image: "/images/guide/prince-monaco-car-collection.jpg",
+    imageAlt: text("Illustration of the Prince of Monaco's Car Collection", "Illustration de la Collection automobile du Prince de Monaco", "Illustrazione della Collezione auto del Principe di Monaco", "Ілюстрація автомобільної колекції князя Монако"),
+    visualTheme: "museum",
+  },
+  "museum-stamps-coins-monaco": {
+    image: "/images/guide/museum-stamps-coins-monaco.jpg",
+    imageAlt: text("Illustration of the Museum of Stamps and Coins in Monaco", "Illustration du Musee des Timbres et des Monnaies a Monaco", "Illustrazione del Museo dei Francobolli e delle Monete a Monaco", "Ілюстрація Музею марок і монет у Монако"),
+    visualTheme: "museum",
+  },
+  "prehistoric-anthropology-museum-monaco": {
+    image: "/images/guide/prehistoric-anthropology-museum-monaco.jpg",
+    imageAlt: text("Illustration of the Museum of Prehistoric Anthropology of Monaco", "Illustration du Musee d'Anthropologie prehistorique de Monaco", "Illustrazione del Museo di Antropologia Preistorica di Monaco", "Ілюстрація Музею доісторичної антропології Монако"),
+    visualTheme: "museum",
+  },
+  "musee-matisse-nice": {
+    image: "/images/guide/musee-matisse-nice.jpg",
+    imageAlt: text("Illustration of Musée Matisse in Nice", "Illustration du Musee Matisse a Nice", "Illustrazione del Musée Matisse a Nizza", "Ілюстрація Musée Matisse у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-chagall-nice": {
+    image: "/images/guide/musee-chagall-nice.jpg",
+    imageAlt: text("Illustration of Musée National Marc Chagall in Nice", "Illustration du Musee National Marc Chagall a Nice", "Illustrazione del Musée National Marc Chagall a Nizza", "Ілюстрація Musée National Marc Chagall у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-massena-nice": {
+    image: "/images/guide/musee-massena-nice.jpg",
+    imageAlt: text("Illustration of Musée Masséna in Nice", "Illustration du Musee Massena a Nice", "Illustrazione del Musée Masséna a Nizza", "Ілюстрація Musée Masséna у Ніцці"),
+    visualTheme: "museum",
+  },
+  "palais-lascaris-nice": {
+    image: "/images/guide/palais-lascaris-nice.jpg",
+    imageAlt: text("Illustration of Palais Lascaris in Nice", "Illustration du Palais Lascaris a Nice", "Illustrazione del Palais Lascaris a Nizza", "Ілюстрація Palais Lascaris у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-photographie-charles-negre-nice": {
+    image: "/images/guide/musee-photographie-charles-negre-nice.jpg",
+    imageAlt: text("Illustration of Musée de la Photographie Charles Nègre in Nice", "Illustration du Musee de la Photographie Charles Negre a Nice", "Illustrazione del Musée de la Photographie Charles Nègre a Nizza", "Ілюстрація Musée de la Photographie Charles Nègre у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-beaux-arts-jules-cheret-nice": {
+    image: "/images/guide/musee-beaux-arts-jules-cheret-nice.jpg",
+    imageAlt: text("Illustration of Musée des Beaux-Arts Jules Chéret in Nice", "Illustration du Musee des Beaux-Arts Jules Cheret a Nice", "Illustrazione del Musée des Beaux-Arts Jules Chéret a Nizza", "Ілюстрація Musée des Beaux-Arts Jules Chéret у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-archeologie-cimiez-nice": {
+    image: "/images/guide/musee-archeologie-cimiez-nice.jpg",
+    imageAlt: text("Illustration of Musée d'Archéologie de Nice / Cimiez", "Illustration du Musee d'Archeologie de Nice / Cimiez", "Illustrazione del Musée d'Archéologie de Nice / Cimiez", "Ілюстрація Musée d'Archéologie de Nice / Cimiez"),
+    visualTheme: "museum",
+  },
+  "musee-art-naif-jakovsky-nice": {
+    image: "/images/guide/musee-art-naif-jakovsky-nice.jpg",
+    imageAlt: text("Illustration of Musée International d'Art Naïf Anatole Jakovsky in Nice", "Illustration du Musee International d'Art Naif Anatole Jakovsky a Nice", "Illustrazione del Musée International d'Art Naïf Anatole Jakovsky a Nizza", "Ілюстрація Musée International d'Art Naïf Anatole Jakovsky у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-arts-asiatiques-nice": {
+    image: "/images/guide/musee-arts-asiatiques-nice.jpg",
+    imageAlt: text("Illustration of Musée Départemental des Arts Asiatiques in Nice", "Illustration du Musee Departemental des Arts Asiatiques a Nice", "Illustrazione del Musée Départemental des Arts Asiatiques a Nizza", "Ілюстрація Musée Départemental des Arts Asiatiques у Ніцці"),
+    visualTheme: "museum",
+  },
+  "musee-national-du-sport-nice": {
+    image: "/images/guide/musee-national-du-sport-nice.jpg",
+    imageAlt: text("Illustration of Musée National du Sport in Nice", "Illustration du Musee National du Sport a Nice", "Illustrazione del Musée National du Sport a Nizza", "Ілюстрація Musée National du Sport у Ніцці"),
+    visualTheme: "museum",
+  },
   "biera-daqui": {
     image: "/images/guide/biera-daqui.jpg",
     imageAlt: text("Illustration of Biera d’Aquì in Menton", "Illustration de Biera d’Aquì a Menton", "Illustrazione di Biera d’Aquì a Mentone", "Ілюстрація Biera d’Aquì у Ментоні"),
