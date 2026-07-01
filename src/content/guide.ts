@@ -1494,6 +1494,7 @@ export const guideArticles: GuideArticle[] = [
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "menton-without-a-car",
+      "useful-numbers-emergency-contacts-menton",
       "supermarkets-in-menton",
       "cinemas-in-menton-nice-monaco",
       "museums-in-menton-nice-monaco",
@@ -1718,6 +1719,116 @@ export const guideArticles: GuideArticle[] = [
       t("Choose beaches with easy exits to shade, cafes or your apartment.", "Choisissez des plages d'ou l'ombre, les cafes ou l'appartement restent faciles a rejoindre.", "Scegli spiagge con uscita facile verso ombra, caffe o appartamento.", "Обирайте пляжі, звідки легко вийти до тіні, кав'ярні або апартаментів."),
       t("Keep day trips simple during heatwaves.", "Gardez les excursions simples pendant les canicules.", "Mantieni semplici le gite durante le ondate di caldo.", "Під час спеки робіть поїздки простішими."),
       t("Emergency numbers in France: 15, 112, 18 and 17.", "Numeros d'urgence en France: 15, 112, 18 et 17.", "Numeri di emergenza in Francia: 15, 112, 18 e 17.", "Екстрені номери у Франції: 15, 112, 18 і 17."),
+    ],
+  }),
+  shortArticle({
+    id: "useful-numbers-emergency-contacts-menton",
+    slug: "useful-numbers-emergency-contacts-menton",
+    title: t("Useful numbers and emergency contacts in Menton", "Numeros utiles et contacts d'urgence a Menton", "Numeri utili e contatti di emergenza a Mentone", "Корисні номери та екстрені контакти в Ментоні"),
+    seoTitle: t("Useful Numbers and Emergency Contacts in Menton", "Numeros utiles et contacts d'urgence a Menton", "Numeri utili e contatti di emergenza a Mentone", "Корисні номери та екстрені контакти в Ментоні"),
+    seoDescription: t("Emergency numbers, hospitals, pharmacies, doctors, dentists, police, tourist office and practical contacts for visitors staying in Menton and nearby.", "Numeros d'urgence, hopitaux, pharmacies, medecins, dentistes, police, office de tourisme et contacts pratiques pour les visiteurs a Menton.", "Numeri di emergenza, ospedali, farmacie, medici, dentisti, polizia, ufficio turistico e contatti pratici per chi soggiorna a Mentone.", "Екстрені номери, лікарні, аптеки, лікарі, стоматологи, поліція, туристичний офіс і практичні контакти для гостей Ментона."),
+    excerpt: t("A calm practical reference for visitors: French emergency numbers, Menton hospital, nearby pediatric care, pharmacies, police, lost documents and useful phrases.", "Une reference pratique et calme pour les visiteurs: numeros d'urgence francais, hopital de Menton, pediatrie proche, pharmacies, police, documents perdus et phrases utiles.", "Un riferimento pratico e tranquillo per visitatori: numeri francesi di emergenza, ospedale di Mentone, pediatria vicina, farmacie, polizia, documenti persi e frasi utili.", "Спокійний практичний довідник для гостей: екстрені номери Франції, лікарня Ментона, дитяча допомога поруч, аптеки, поліція, втрачені документи й корисні фрази."),
+    category: "practical",
+    coverImage: "/images/guide/useful-numbers-emergency-contacts-menton.jpg",
+    coverImageAlt: t("Illustration of useful emergency contacts in Menton", "Illustration des contacts d'urgence utiles a Menton", "Illustrazione dei contatti utili di emergenza a Mentone", "Ілюстрація корисних екстрених контактів у Ментоні"),
+    visualTheme: "family",
+    visualStatus: "project_illustration",
+    tags: [
+      t("emergency", "urgence", "emergenza", "екстрені випадки"),
+      t("useful numbers", "numeros utiles", "numeri utili", "корисні номери"),
+      t("hospital", "hopital", "ospedale", "лікарня"),
+      t("pharmacy", "pharmacie", "farmacia", "аптека"),
+      t("police", "police", "polizia", "поліція"),
+      t("lost passport", "passeport perdu", "passaporto perso", "втрачений паспорт"),
+    ],
+    bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[8].label, guideBestForOptions[9].label, guideBestForOptions[4].label, guideBestForOptions[10].label, guideBestForOptions[11].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "centre-hospitalier-la-palmosa-menton",
+      "hopitaux-pediatriques-nice-lenval",
+      "centre-hospitalier-princesse-grace-monaco",
+      "chu-nice-hopital-pasteur",
+      "institut-medecine-bucco-dentaire-nice",
+      "ordre-chirurgiens-dentistes-alpes-maritimes",
+      "commissariat-police-menton",
+      "police-municipale-menton",
+      "mairie-menton",
+      "office-tourisme-menton-riviera-merveilles",
+    ],
+    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Emergency numbers in France", "Numeros d'urgence en France", "Numeri di emergenza in Francia", "Екстрені номери у Франції"),
+        body: [
+          t("For a serious or urgent situation, use the official French emergency numbers. If you are unsure which number to call, 112 is the safest general emergency number.", "Pour une situation grave ou urgente, utilisez les numeros d'urgence officiels en France. En cas de doute, le 112 est le numero d'urgence general le plus sur.", "Per una situazione grave o urgente usa i numeri ufficiali francesi. Se non sai quale chiamare, il 112 e il numero generale piu sicuro.", "У серйозній або невідкладній ситуації використовуйте офіційні французькі екстрені номери. Якщо не знаєте, куди дзвонити, 112 - найбезпечніший загальний номер."),
+          t("Calls to emergency services should be reserved for real emergencies. Do not hang up first; let the operator end the call.", "Les appels aux secours doivent rester reserves aux vraies urgences. Ne raccrochez pas en premier; laissez l'operateur terminer l'appel.", "Le chiamate ai servizi di emergenza vanno riservate alle vere emergenze. Non chiudere per primo; lascia terminare la chiamata all'operatore.", "Дзвінки до екстрених служб мають бути для реальних екстрених випадків. Не кладіть слухавку першими; дочекайтеся завершення розмови оператором."),
+        ],
+        bullets: [
+          t("15 - SAMU / medical emergency", "15 - SAMU / urgence medicale", "15 - SAMU / emergenza medica", "15 - SAMU / медична невідкладна допомога"),
+          t("17 - police emergency", "17 - police secours", "17 - emergenza polizia", "17 - поліція"),
+          t("18 - fire brigade / firefighters", "18 - pompiers", "18 - vigili del fuoco", "18 - пожежники"),
+          t("112 - European emergency number", "112 - numero d'urgence europeen", "112 - numero europeo di emergenza", "112 - європейський екстрений номер"),
+          t("114 - SMS / app emergency number for people who cannot speak or hear", "114 - urgence par SMS / application pour les personnes qui ne peuvent pas parler ou entendre", "114 - emergenza via SMS / app per persone che non possono parlare o sentire", "114 - екстрений номер SMS / app для людей, які не можуть говорити або чути"),
+        ],
+      },
+      {
+        heading: t("What to say when calling", "Que dire au telephone", "Cosa dire quando chiami", "Що сказати під час дзвінка"),
+        body: [
+          t("Try to stay calm and give clear information: where you are, what happened, how many people are involved, whether anyone is unconscious or having difficulty breathing, your phone number, and the nearest address or landmark.", "Essayez de rester calme et donnez des informations claires: ou vous etes, ce qui s'est passe, combien de personnes sont concernees, si quelqu'un est inconscient ou respire difficilement, votre numero et l'adresse ou le repere le plus proche.", "Cerca di restare calmo e dai informazioni chiare: dove sei, cosa e successo, quante persone sono coinvolte, se qualcuno e incosciente o respira male, il tuo numero e l'indirizzo o riferimento piu vicino.", "Намагайтеся говорити спокійно й чітко: де ви, що сталося, скільки людей залучено, чи хтось непритомний або важко дихає, ваш номер телефону та найближча адреса або орієнтир."),
+          t("Keep your apartment address easy to access. In an emergency call, the exact location matters more than a general description of the area.", "Gardez l'adresse de l'appartement facile a retrouver. Pendant un appel d'urgence, l'adresse exacte compte plus qu'une description generale du quartier.", "Tieni l'indirizzo dell'appartamento facile da trovare. In una chiamata d'emergenza, la posizione esatta conta piu di una descrizione generale della zona.", "Тримайте адресу апартаментів під рукою. Під час екстреного дзвінка точна адреса важливіша за загальний опис району."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Doctors, hospitals and children", "Medecins, hopitaux et enfants", "Medici, ospedali e bambini", "Лікарі, лікарні та діти"),
+        body: [
+          t("For a life-threatening emergency, call 15 or 112. For a non-life-threatening medical problem during the day, search for a general practitioner in Menton through Sante.fr, Doctolib or similar appointment platforms.", "Pour une urgence vitale, appelez le 15 ou le 112. Pour un probleme medical non vital en journee, cherchez un medecin generaliste a Menton via Sante.fr, Doctolib ou une plateforme similaire.", "Per un'emergenza vitale chiama 15 o 112. Per un problema medico non vitale durante il giorno cerca un medico di base a Mentone su Sante.fr, Doctolib o piattaforme simili.", "У загрозливій ситуації телефонуйте 15 або 112. Для не критичної медичної проблеми вдень шукайте сімейного лікаря в Ментоні через Sante.fr, Doctolib або подібні сервіси."),
+          t("Centre Hospitalier La Palmosa is the main hospital in Menton. For serious child symptoms, call 15 first; nearby pediatric emergency options include Lenval in Nice and Centre Hospitalier Princesse Grace in Monaco.", "Le Centre Hospitalier La Palmosa est l'hopital principal de Menton. Pour des symptomes graves chez un enfant, appelez d'abord le 15; les options pediatriques proches incluent Lenval a Nice et le Centre Hospitalier Princesse Grace a Monaco.", "Il Centre Hospitalier La Palmosa e l'ospedale principale di Mentone. Per sintomi gravi in un bambino chiama prima il 15; le opzioni pediatriche vicine includono Lenval a Nizza e il Centre Hospitalier Princesse Grace a Monaco.", "Centre Hospitalier La Palmosa - головна лікарня Ментона. За серйозних симптомів у дитини спершу телефонуйте 15; поруч є дитяча допомога Lenval у Ніцці та Centre Hospitalier Princesse Grace у Монако."),
+          t("Do not use the hospital emergency department for a simple cold, mild headache or routine prescription unless a healthcare professional tells you to go.", "N'utilisez pas les urgences pour un simple rhume, un leger mal de tete ou une ordonnance courante, sauf avis d'un professionnel de sante.", "Non usare il pronto soccorso per raffreddore semplice, lieve mal di testa o ricetta ordinaria, salvo indicazione di un professionista sanitario.", "Не звертайтеся до emergency hospital через звичайну застуду, легкий головний біль або плановий рецепт, якщо медичний фахівець не сказав іти."),
+        ],
+        relatedPlaceIds: ["centre-hospitalier-la-palmosa-menton", "hopitaux-pediatriques-nice-lenval", "centre-hospitalier-princesse-grace-monaco", "chu-nice-hopital-pasteur"],
+      },
+      {
+        heading: t("Pharmacies and dental emergencies", "Pharmacies et urgences dentaires", "Farmacie e urgenze dentali", "Аптеки та стоматологічні невідкладні випадки"),
+        body: [
+          t("For normal pharmacy needs, search for pharmacie Menton, pharmacie ouverte Menton or pharmacie de garde Menton. The on-duty pharmacy service is 3237, and access rules can vary late at night, on Sundays or public holidays.", "Pour une pharmacie, cherchez pharmacie Menton, pharmacie ouverte Menton ou pharmacie de garde Menton. Le service des pharmacies de garde est le 3237, et les regles d'acces peuvent varier la nuit, le dimanche ou les jours feries.", "Per una farmacia cerca pharmacie Menton, pharmacie ouverte Menton o pharmacie de garde Menton. Il servizio per farmacie di turno e 3237, e le regole di accesso possono variare di notte, domenica o festivi.", "Для аптеки шукайте pharmacie Menton, pharmacie ouverte Menton або pharmacie de garde Menton. Сервіс чергових аптек - 3237, а правила доступу можуть відрізнятися вночі, у неділю або свята."),
+          t("For dental problems during normal hours, search for dentiste Menton or urgence dentaire Menton. For severe swelling, fever, facial trauma, heavy bleeding, difficulty breathing or difficulty swallowing, call 15 or 112.", "Pour un probleme dentaire en horaires normaux, cherchez dentiste Menton ou urgence dentaire Menton. En cas de gonflement important, fievre, traumatisme facial, saignement abondant, gene respiratoire ou difficulte a avaler, appelez le 15 ou le 112.", "Per problemi dentali in orario normale cerca dentiste Menton o urgence dentaire Menton. Con gonfiore forte, febbre, trauma al viso, sanguinamento importante, difficolta a respirare o deglutire, chiama 15 o 112.", "Для стоматологічної проблеми в робочі години шукайте dentiste Menton або urgence dentaire Menton. За сильного набряку, температури, травми обличчя, значної кровотечі, утрудненого дихання або ковтання телефонуйте 15 або 112."),
+        ],
+        relatedPlaceIds: ["institut-medecine-bucco-dentaire-nice", "ordre-chirurgiens-dentistes-alpes-maritimes"],
+      },
+      {
+        heading: t("Police, lost property and documents", "Police, objets perdus et documents", "Polizia, oggetti smarriti e documenti", "Поліція, загублені речі та документи"),
+        body: [
+          t("For urgent police help, call 17 or 112. The National Police station in Menton is the place for theft, assault, burglary, official police reports and stolen documents.", "Pour une urgence police, appelez le 17 ou le 112. Le commissariat de police nationale de Menton concerne vols, agressions, cambriolages, declarations officielles et documents voles.", "Per emergenza polizia chiama 17 o 112. Il commissariato nazionale di Mentone serve per furti, aggressioni, effrazioni, denunce ufficiali e documenti rubati.", "Для термінової допомоги поліції телефонуйте 17 або 112. Національна поліція Ментона потрібна для крадіжок, нападів, зламів, офіційних заяв і викрадених документів."),
+          t("If you lose a passport or ID, check where you last had it, ask your accommodation or transport provider, report theft to the police, then contact your embassy or consulate for emergency travel documents.", "Si vous perdez passeport ou carte d'identite, verifiez le dernier endroit, demandez a votre hebergement ou transporteur, signalez le vol a la police, puis contactez votre ambassade ou consulat pour les documents de voyage d'urgence.", "Se perdi passaporto o carta d'identita, controlla l'ultimo posto, chiedi ad alloggio o trasporto, denuncia il furto alla polizia, poi contatta ambasciata o consolato per documenti di viaggio urgenti.", "Якщо втратили паспорт або ID, перевірте останнє місце, запитайте житло або транспорт, повідомте поліцію про крадіжку, а потім зверніться до посольства чи консульства за emergency travel documents."),
+        ],
+        relatedPlaceIds: ["commissariat-police-menton", "police-municipale-menton", "mairie-menton"],
+      },
+      {
+        heading: t("Tourist office and practical support", "Office de tourisme et aide pratique", "Ufficio turistico e supporto pratico", "Туристичний офіс і практична допомога"),
+        body: [
+          t("For maps, brochures, local events, guided tours and visitor guidance, use the Office de Tourisme Menton, Riviera & Merveilles at Palais de l'Europe. It is not an emergency service, but it is useful for practical visitor questions.", "Pour cartes, brochures, evenements locaux, visites guidees et conseils visiteurs, utilisez l'Office de Tourisme Menton, Riviera & Merveilles au Palais de l'Europe. Ce n'est pas un service d'urgence, mais c'est utile pour les questions pratiques.", "Per mappe, brochure, eventi locali, visite guidate e informazioni usa l'Office de Tourisme Menton, Riviera & Merveilles al Palais de l'Europe. Non e un servizio di emergenza, ma e utile per domande pratiche.", "Для карт, брошур, місцевих подій, екскурсій та порад звертайтеся до Office de Tourisme Menton, Riviera & Merveilles у Palais de l'Europe. Це не екстрена служба, але корисна для практичних питань."),
+          t("Before arriving, save this page, your apartment address, passport copy, travel insurance, emergency contacts, embassy details, nearest pharmacy and host contact.", "Avant d'arriver, sauvegardez cette page, l'adresse de l'appartement, copie du passeport, assurance voyage, contacts d'urgence, ambassade, pharmacie proche et contact de l'hote.", "Prima di arrivare salva questa pagina, indirizzo dell'appartamento, copia del passaporto, assicurazione, contatti d'emergenza, ambasciata, farmacia vicina e contatto dell'host.", "Перед приїздом збережіть цю сторінку, адресу апартаментів, копію паспорта, страховку, екстрені контакти, дані посольства, найближчу аптеку й контакт господаря."),
+        ],
+        relatedPlaceIds: ["office-tourisme-menton-riviera-merveilles"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Heatstroke and useful French phrases", "Coup de chaleur et phrases utiles", "Colpo di calore e frasi utili", "Тепловий удар і корисні французькі фрази"),
+        body: [
+          t("Summer heat in Menton can be intense. Call 15 if someone is confused, unusually drowsy, fainting, vomiting, very hot, behaving strangely or showing possible heatstroke signs. Move them to shade, cool the body with water or damp cloths, give small sips of water only if they are conscious and able to drink, and do not give alcohol.", "La chaleur d'ete a Menton peut etre intense. Appelez le 15 si une personne est confuse, tres somnolente, fait un malaise, vomit, est tres chaude, se comporte bizarrement ou montre des signes de coup de chaleur. Mettez-la a l'ombre, rafraichissez avec eau ou linges humides, donnez de petites gorgees d'eau seulement si elle est consciente et peut boire, et ne donnez pas d'alcool.", "Il caldo estivo a Mentone puo essere intenso. Chiama 15 se qualcuno e confuso, molto sonnolento, sviene, vomita, e molto caldo, si comporta in modo strano o mostra segni di colpo di calore. Spostalo all'ombra, raffredda con acqua o panni umidi, dai piccoli sorsi d'acqua solo se e cosciente e puo bere, e non dare alcol.", "Літня спека в Ментоні може бути сильною. Телефонуйте 15, якщо людина розгублена, надмірно сонна, непритомніє, блює, дуже гаряча, поводиться дивно або має ознаки теплового удару. Перенесіть у тінь, охолоджуйте водою або вологими тканинами, давайте маленькі ковтки води лише якщо людина притомна й може пити, не давайте алкоголь."),
+          t("Useful phrases: J'ai besoin d'aide - I need help. C'est une urgence - it is an emergency. Appelez une ambulance, s'il vous plait - call an ambulance, please. Je ne parle pas francais - I do not speak French. L'adresse est... - the address is...", "Phrases utiles: J'ai besoin d'aide - I need help. C'est une urgence - it is an emergency. Appelez une ambulance, s'il vous plait - call an ambulance, please. Je ne parle pas francais - I do not speak French. L'adresse est... - the address is...", "Frasi utili: J'ai besoin d'aide - ho bisogno di aiuto. C'est une urgence - e un'emergenza. Appelez une ambulance, s'il vous plait - chiamate un'ambulanza. Je ne parle pas francais - non parlo francese. L'adresse est... - l'indirizzo e...", "Корисні фрази: J'ai besoin d'aide - мені потрібна допомога. C'est une urgence - це екстрений випадок. Appelez une ambulance, s'il vous plait - викличте швидку. Je ne parle pas francais - я не говорю французькою. L'adresse est... - адреса..."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("In a serious emergency in France, call 15, 17, 18 or 112. If unsure, call 112.", "En cas d'urgence grave en France, appelez le 15, 17, 18 ou 112. En cas de doute, appelez le 112.", "In una grave emergenza in Francia chiama 15, 17, 18 o 112. Se hai dubbi, chiama 112.", "У серйозній екстреній ситуації у Франції телефонуйте 15, 17, 18 або 112. Якщо сумніваєтеся, телефонуйте 112."),
+      t("For serious child symptoms, call 15 before deciding where to go.", "Pour des symptomes graves chez un enfant, appelez le 15 avant de choisir ou aller.", "Per sintomi gravi in un bambino chiama il 15 prima di decidere dove andare.", "За серйозних симптомів у дитини телефонуйте 15, перш ніж вирішувати, куди їхати."),
+      t("For on-duty pharmacies, use 3237 and check access rules before going late at night.", "Pour les pharmacies de garde, utilisez le 3237 et verifiez les regles d'acces avant de partir tard le soir.", "Per farmacie di turno usa 3237 e controlla le regole di accesso prima di andare tardi la sera.", "Для чергових аптек використовуйте 3237 і перевіряйте правила доступу перед нічним виходом."),
+      t("Keep your apartment address, insurance and passport copy available offline.", "Gardez l'adresse de l'appartement, assurance et copie du passeport accessibles hors ligne.", "Tieni indirizzo dell'appartamento, assicurazione e copia del passaporto disponibili offline.", "Зберігайте адресу апартаментів, страховку й копію паспорта офлайн."),
     ],
   }),
   shortArticle({
@@ -2064,6 +2175,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "stay-cool-in-menton-summer",
+      "useful-numbers-emergency-contacts-menton",
       "menton-without-a-car",
       "public-transport-in-menton",
       "halles-du-marche-menton",
@@ -2625,7 +2737,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -2679,7 +2791,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -2813,7 +2925,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
+    relatedArticles: ["supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
     relatedApartments: allApartments,
     sections: [
       {
