@@ -1434,6 +1434,56 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
+  "centre-hospitalier-la-palmosa-menton": {
+    image: "/images/guide/centre-hospitalier-la-palmosa-menton.jpg",
+    imageAlt: text("Illustration of Centre Hospitalier La Palmosa in Menton", "Illustration du Centre Hospitalier La Palmosa a Menton", "Illustrazione del Centre Hospitalier La Palmosa a Mentone", "Ілюстрація Centre Hospitalier La Palmosa у Ментоні"),
+    visualTheme: "family",
+  },
+  "hopitaux-pediatriques-nice-lenval": {
+    image: "/images/guide/hopitaux-pediatriques-nice-lenval.jpg",
+    imageAlt: text("Illustration of Hôpitaux Pédiatriques de Nice CHU-Lenval", "Illustration des Hopitaux Pediatriques de Nice CHU-Lenval", "Illustrazione degli Hôpitaux Pédiatriques de Nice CHU-Lenval", "Ілюстрація Hôpitaux Pédiatriques de Nice CHU-Lenval"),
+    visualTheme: "family",
+  },
+  "centre-hospitalier-princesse-grace-monaco": {
+    image: "/images/guide/centre-hospitalier-princesse-grace-monaco.jpg",
+    imageAlt: text("Illustration of Centre Hospitalier Princesse Grace in Monaco", "Illustration du Centre Hospitalier Princesse Grace a Monaco", "Illustrazione del Centre Hospitalier Princesse Grace a Monaco", "Ілюстрація Centre Hospitalier Princesse Grace у Монако"),
+    visualTheme: "family",
+  },
+  "chu-nice-hopital-pasteur": {
+    image: "/images/guide/chu-nice-hopital-pasteur.jpg",
+    imageAlt: text("Illustration of CHU Nice - Hôpital Pasteur 2", "Illustration du CHU Nice - Hopital Pasteur 2", "Illustrazione di CHU Nice - Hôpital Pasteur 2", "Ілюстрація CHU Nice - Hôpital Pasteur 2"),
+    visualTheme: "family",
+  },
+  "institut-medecine-bucco-dentaire-nice": {
+    image: "/images/guide/institut-medecine-bucco-dentaire-nice.jpg",
+    imageAlt: text("Illustration of Institut de médecine bucco-dentaire in Nice", "Illustration de l'Institut de medecine bucco-dentaire a Nice", "Illustrazione dell'Institut de médecine bucco-dentaire a Nizza", "Ілюстрація Institut de médecine bucco-dentaire у Ніцці"),
+    visualTheme: "family",
+  },
+  "ordre-chirurgiens-dentistes-alpes-maritimes": {
+    image: "/images/guide/ordre-chirurgiens-dentistes-alpes-maritimes.jpg",
+    imageAlt: text("Illustration of Ordre des Chirurgiens-Dentistes des Alpes-Maritimes", "Illustration de l'Ordre des Chirurgiens-Dentistes des Alpes-Maritimes", "Illustrazione dell'Ordre des Chirurgiens-Dentistes des Alpes-Maritimes", "Ілюстрація Ordre des Chirurgiens-Dentistes des Alpes-Maritimes"),
+    visualTheme: "family",
+  },
+  "commissariat-police-menton": {
+    image: "/images/guide/commissariat-police-menton.jpg",
+    imageAlt: text("Illustration of Commissariat de Police de Menton", "Illustration du Commissariat de Police de Menton", "Illustrazione del Commissariat de Police de Menton", "Ілюстрація Commissariat de Police de Menton"),
+    visualTheme: "transport",
+  },
+  "police-municipale-menton": {
+    image: "/images/guide/police-municipale-menton.jpg",
+    imageAlt: text("Illustration of Police Municipale de Menton", "Illustration de la Police Municipale de Menton", "Illustrazione della Police Municipale de Menton", "Ілюстрація Police Municipale de Menton"),
+    visualTheme: "transport",
+  },
+  "mairie-menton": {
+    image: "/images/guide/mairie-menton.jpg",
+    imageAlt: text("Illustration of Mairie de Menton", "Illustration de la Mairie de Menton", "Illustrazione della Mairie de Menton", "Ілюстрація Mairie de Menton"),
+    visualTheme: "old-town",
+  },
+  "office-tourisme-menton-riviera-merveilles": {
+    image: "/images/guide/office-tourisme-menton-riviera-merveilles.jpg",
+    imageAlt: text("Illustration of Office de Tourisme Menton, Riviera & Merveilles", "Illustration de l'Office de Tourisme Menton, Riviera & Merveilles", "Illustrazione dell'Office de Tourisme Menton, Riviera & Merveilles", "Ілюстрація Office de Tourisme Menton, Riviera & Merveilles"),
+    visualTheme: "transport",
+  },
   "mirazur-menton": {
     image: "/images/guide/mirazur-menton.jpg",
     imageAlt: text("Illustration of Mirazur in Menton", "Illustration de Mirazur a Menton", "Illustrazione di Mirazur a Mentone", "Ілюстрація Mirazur у Ментоні"),
