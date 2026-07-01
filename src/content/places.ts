@@ -1369,6 +1369,76 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Elsa Marcel Ravin near Monaco", "Illustration d'Elsa Marcel Ravin pres de Monaco", "Illustrazione di Elsa Marcel Ravin vicino a Monaco", "Ілюстрація Elsa Marcel Ravin біля Монако"),
     visualTheme: "food",
   },
+  "flaveur-nice": {
+    image: "/images/guide/flaveur-nice.jpg",
+    imageAlt: text("Illustration of Flaveur in Nice", "Illustration de Flaveur a Nice", "Illustrazione di Flaveur a Nizza", "Ілюстрація Flaveur у Ніцці"),
+    visualTheme: "food",
+  },
+  "le-chantecler-nice": {
+    image: "/images/guide/le-chantecler-nice.jpg",
+    imageAlt: text("Illustration of Le Chantecler in Nice", "Illustration du Chantecler a Nice", "Illustrazione di Le Chantecler a Nizza", "Ілюстрація Le Chantecler у Ніцці"),
+    visualTheme: "food",
+  },
+  "epicentre-nice": {
+    image: "/images/guide/epicentre-nice.jpg",
+    imageAlt: text("Illustration of Épicentre in Nice", "Illustration d'Epicentre a Nice", "Illustrazione di Épicentre a Nizza", "Ілюстрація Épicentre у Ніцці"),
+    visualTheme: "food",
+  },
+  "racines-bruno-cirino-nice": {
+    image: "/images/guide/racines-bruno-cirino-nice.jpg",
+    imageAlt: text("Illustration of Racines - Bruno Cirino in Nice", "Illustration de Racines - Bruno Cirino a Nice", "Illustrazione di Racines - Bruno Cirino a Nizza", "Ілюстрація Racines - Bruno Cirino у Ніцці"),
+    visualTheme: "food",
+  },
+  "les-agitateurs-nice": {
+    image: "/images/guide/les-agitateurs-nice.jpg",
+    imageAlt: text("Illustration of Les Agitateurs in Nice", "Illustration des Agitateurs a Nice", "Illustrazione di Les Agitateurs a Nizza", "Ілюстрація Les Agitateurs у Ніцці"),
+    visualTheme: "food",
+  },
+  "laromate-nice": {
+    image: "/images/guide/laromate-nice.jpg",
+    imageAlt: text("Illustration of L'Aromate in Nice", "Illustration de L'Aromate a Nice", "Illustrazione di L'Aromate a Nizza", "Ілюстрація L'Aromate у Ніцці"),
+    visualTheme: "food",
+  },
+  "jan-nice": {
+    image: "/images/guide/jan-nice.jpg",
+    imageAlt: text("Illustration of JAN in Nice", "Illustration de JAN a Nice", "Illustrazione di JAN a Nizza", "Ілюстрація JAN у Ніцці"),
+    visualTheme: "food",
+  },
+  "onice-nice": {
+    image: "/images/guide/onice-nice.jpg",
+    imageAlt: text("Illustration of ONICE in Nice", "Illustration d'ONICE a Nice", "Illustrazione di ONICE a Nizza", "Ілюстрація ONICE у Ніцці"),
+    visualTheme: "food",
+  },
+  "la-merenda-nice": {
+    image: "/images/guide/la-merenda-nice.jpg",
+    imageAlt: text("Illustration of La Merenda in Nice", "Illustration de La Merenda a Nice", "Illustrazione di La Merenda a Nizza", "Ілюстрація La Merenda у Ніцці"),
+    visualTheme: "food",
+  },
+  "chez-davia-nice": {
+    image: "/images/guide/chez-davia-nice.jpg",
+    imageAlt: text("Illustration of Chez Davia in Nice", "Illustration de Chez Davia a Nice", "Illustrazione di Chez Davia a Nizza", "Ілюстрація Chez Davia у Ніцці"),
+    visualTheme: "food",
+  },
+  "cafe-des-musiciens-nice": {
+    image: "/images/guide/cafe-des-musiciens-nice.jpg",
+    imageAlt: text("Illustration of Café des Musiciens in Nice", "Illustration du Cafe des Musiciens a Nice", "Illustrazione di Café des Musiciens a Nizza", "Ілюстрація Café des Musiciens у Ніцці"),
+    visualTheme: "food",
+  },
+  "lalchimie-nice": {
+    image: "/images/guide/lalchimie-nice.jpg",
+    imageAlt: text("Illustration of L'Alchimie in Nice", "Illustration de L'Alchimie a Nice", "Illustrazione di L'Alchimie a Nizza", "Ілюстрація L'Alchimie у Ніцці"),
+    visualTheme: "food",
+  },
+  "olive-artichaut-nice": {
+    image: "/images/guide/olive-artichaut-nice.jpg",
+    imageAlt: text("Illustration of Olive & Artichaut in Nice", "Illustration d'Olive & Artichaut a Nice", "Illustrazione di Olive & Artichaut a Nizza", "Ілюстрація Olive & Artichaut у Ніцці"),
+    visualTheme: "food",
+  },
+  "bistrot-antoine-nice": {
+    image: "/images/guide/bistrot-antoine-nice.jpg",
+    imageAlt: text("Illustration of Bistrot d'Antoine in Nice", "Illustration du Bistrot d'Antoine a Nice", "Illustrazione di Bistrot d'Antoine a Nizza", "Ілюстрація Bistrot d'Antoine у Ніцці"),
+    visualTheme: "food",
+  },
   "intermarche-hyper-menton": {
     image: "/images/guide/intermarche-hyper-menton.jpg",
     imageAlt: text("Illustration of Intermarché Hyper Menton", "Illustration d'Intermarché Hyper Menton", "Illustrazione di Intermarché Hyper Menton", "Ілюстрація Intermarché Hyper Menton"),
