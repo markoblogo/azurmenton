@@ -1309,6 +1309,66 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
+  "mirazur-menton": {
+    image: "/images/guide/mirazur-menton.jpg",
+    imageAlt: text("Illustration of Mirazur in Menton", "Illustration de Mirazur a Menton", "Illustrazione di Mirazur a Mentone", "Ілюстрація Mirazur у Ментоні"),
+    visualTheme: "food",
+  },
+  "orangerie-menton": {
+    image: "/images/guide/orangerie-menton.jpg",
+    imageAlt: text("Illustration of L'Orangerie in Menton", "Illustration de L'Orangerie a Menton", "Illustrazione di L'Orangerie a Mentone", "Ілюстрація L'Orangerie у Ментоні"),
+    visualTheme: "food",
+  },
+  "casa-fuego-menton": {
+    image: "/images/guide/casa-fuego-menton.jpg",
+    imageAlt: text("Illustration of Casa Fuego in Menton", "Illustration de Casa Fuego a Menton", "Illustrazione di Casa Fuego a Mentone", "Ілюстрація Casa Fuego у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-louis-xv-monaco": {
+    image: "/images/guide/le-louis-xv-monaco.jpg",
+    imageAlt: text("Illustration of Le Louis XV in Monaco", "Illustration du Louis XV a Monaco", "Illustrazione di Le Louis XV a Monaco", "Ілюстрація Le Louis XV у Монако"),
+    visualTheme: "food",
+  },
+  "les-ambassadeurs-monaco": {
+    image: "/images/guide/les-ambassadeurs-monaco.jpg",
+    imageAlt: text("Illustration of Les Ambassadeurs in Monaco", "Illustration des Ambassadeurs a Monaco", "Illustrazione di Les Ambassadeurs a Monaco", "Ілюстрація Les Ambassadeurs у Монако"),
+    visualTheme: "food",
+  },
+  "blue-bay-marcel-ravin-monaco": {
+    image: "/images/guide/blue-bay-marcel-ravin-monaco.jpg",
+    imageAlt: text("Illustration of Blue Bay Marcel Ravin in Monaco", "Illustration de Blue Bay Marcel Ravin a Monaco", "Illustrazione di Blue Bay Marcel Ravin a Monaco", "Ілюстрація Blue Bay Marcel Ravin у Монако"),
+    visualTheme: "food",
+  },
+  "labysse-monte-carlo": {
+    image: "/images/guide/labysse-monte-carlo.jpg",
+    imageAlt: text("Illustration of L'Abysse Monte-Carlo", "Illustration de L'Abysse Monte-Carlo", "Illustrazione di L'Abysse Monte-Carlo", "Ілюстрація L'Abysse Monte-Carlo"),
+    visualTheme: "food",
+  },
+  "table-antonio-salvatore-rampoldi-monaco": {
+    image: "/images/guide/table-antonio-salvatore-rampoldi-monaco.jpg",
+    imageAlt: text("Illustration of La Table d'Antonio Salvatore au Rampoldi in Monaco", "Illustration de La Table d'Antonio Salvatore au Rampoldi a Monaco", "Illustrazione di La Table d'Antonio Salvatore au Rampoldi a Monaco", "Ілюстрація La Table d'Antonio Salvatore au Rampoldi у Монако"),
+    visualTheme: "food",
+  },
+  "pavyllon-monte-carlo": {
+    image: "/images/guide/pavyllon-monte-carlo.jpg",
+    imageAlt: text("Illustration of Pavyllon Monte-Carlo", "Illustration de Pavyllon Monte-Carlo", "Illustrazione di Pavyllon Monte-Carlo", "Ілюстрація Pavyllon Monte-Carlo"),
+    visualTheme: "food",
+  },
+  "le-grill-monaco": {
+    image: "/images/guide/le-grill-monaco.jpg",
+    imageAlt: text("Illustration of Le Grill in Monaco", "Illustration du Grill a Monaco", "Illustrazione di Le Grill a Monaco", "Ілюстрація Le Grill у Монако"),
+    visualTheme: "food",
+  },
+  "robuchon-monaco": {
+    image: "/images/guide/robuchon-monaco.jpg",
+    imageAlt: text("Illustration of Robuchon Monaco", "Illustration de Robuchon Monaco", "Illustrazione di Robuchon Monaco", "Ілюстрація Robuchon Monaco"),
+    visualTheme: "food",
+  },
+  "elsa-marcel-ravin-monaco": {
+    image: "/images/guide/elsa-marcel-ravin-monaco.jpg",
+    imageAlt: text("Illustration of Elsa Marcel Ravin near Monaco", "Illustration d'Elsa Marcel Ravin pres de Monaco", "Illustrazione di Elsa Marcel Ravin vicino a Monaco", "Ілюстрація Elsa Marcel Ravin біля Монако"),
+    visualTheme: "food",
+  },
   "intermarche-hyper-menton": {
     image: "/images/guide/intermarche-hyper-menton.jpg",
     imageAlt: text("Illustration of Intermarché Hyper Menton", "Illustration d'Intermarché Hyper Menton", "Illustrazione di Intermarché Hyper Menton", "Ілюстрація Intermarché Hyper Menton"),
