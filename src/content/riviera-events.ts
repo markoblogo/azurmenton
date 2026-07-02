@@ -518,7 +518,6 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "needs_verification",
     sourceUrl: "https://www.acm.mc",
-    featured: true,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
   },
@@ -555,6 +554,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.tvfestival.com/en",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "commedia-dell-arte-nice-2026",
@@ -589,6 +589,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "needs_verification",
     sourceUrl: "https://www.commedia-nice.com/festivaldecommedianice",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "new-vision-nice-open-2026",
@@ -623,6 +624,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "needs_verification",
     sourceUrl: "https://www.explorenicecotedazur.com/evenement/new-vision-nice-open/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "matisse-yves-saint-laurent-nice-2026",
@@ -658,6 +660,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "jumping-international-monte-carlo-2026",
@@ -692,6 +695,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "needs_verification",
     sourceUrl: "https://www.jumping-monaco.com/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "monte-carlo-summer-festival-2026",
@@ -727,6 +731,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "monaco-energy-boat-challenge-2026",
@@ -826,6 +831,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.nicejazzfestival.fr",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "menton-music-festival-2026",
@@ -992,6 +998,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "needs_verification",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "matisse-yves-saint-laurent-autumn-2026",
@@ -1088,6 +1095,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.lefestivaldulivre.fr/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "choir-festival-biot-2026",
@@ -1121,6 +1129,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "needs_verification",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "roc-d-azur-2026",
@@ -1156,6 +1165,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.rocazur.com/en/",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "mipcom-cannes-2026",
@@ -1190,6 +1200,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.mipcom.com/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "igtm-cannes-2026",
@@ -1224,6 +1235,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.igtmarket.com/en-gb.html",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "maredimoda-cannes-2026",
@@ -1258,6 +1270,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://maredimoda.com/en/home-en/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "halloween-eze-2026",
@@ -1293,6 +1306,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://ville-eze.fr/evenements/halloween-3/",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "nice-cannes-marathon-2026",
@@ -1363,6 +1377,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.mapic.com/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "amusement-park-monaco-2026",
@@ -1398,6 +1413,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.monaco-life.com/it/event/traditional-attractions-fair-2026",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "beaujolais-nouveau-celebration-2026",
@@ -1432,6 +1448,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://tasteoffrancemag.com/drink/france-food-and-drink-festivals-2026-full-calendar-of-events-by-month/",
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
   {
     id: "monte-carlo-jazz-festival-2026",
@@ -1631,6 +1648,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.nicecarnaval.com/en/",
     featured: true,
     detailPage: true,
+    relatedApartmentKeys: relatedAll,
   },
 ];
 

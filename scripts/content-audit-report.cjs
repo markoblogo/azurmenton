@@ -130,11 +130,18 @@ const orphanArticles = guideArticles
 
 const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
 const pendingEvents = allEvents
-  .filter((event) => getEventDateStatus(event, today) === "dates_pending" || event.sourceStatus !== "verified")
+  .filter((event) => {
+    const status = getEventDateStatus(event, today);
+    return status !== "past" && (status === "dates_pending" || event.sourceStatus !== "verified");
+  })
   .sort((left, right) => left.slug.localeCompare(right.slug));
 
 const expiredEvents = allEvents
   .filter((event) => getEventDateStatus(event, today) === "past")
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const expiredFeaturedEvents = expiredEvents
+  .filter((event) => event.featured)
   .sort((left, right) => left.slug.localeCompare(right.slug));
 
 const eventApartmentGaps = allEvents
@@ -161,6 +168,7 @@ printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name}
 printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
 printGroup("Pending or unverified events", pendingEvents, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
 printGroup("Expired events", expiredEvents, (event) => `${event.slug} (${event.dateLabel})`);
+printGroup("Expired featured events", expiredFeaturedEvents, (event) => `${event.slug} (${event.dateLabel})`);
 printGroup("Event detail pages without apartment links", eventApartmentGaps, (event) => event.slug);
 
 const totalActionItems =
@@ -172,6 +180,7 @@ const totalActionItems =
   orphanArticles.length +
   pendingEvents.length +
   expiredEvents.length +
+  expiredFeaturedEvents.length +
   eventApartmentGaps.length;
 
 console.log(`\nTotal review items: ${totalActionItems}`);

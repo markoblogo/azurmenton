@@ -127,6 +127,23 @@ describe("content graph audit", () => {
     expect(failures).toEqual([]);
   });
 
+  it("keeps event detail pages apartment-aware and avoids expired featured events", () => {
+    const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
+    const failures: string[] = [];
+
+    for (const event of allEvents) {
+      if (event.detailPage && !(event.relatedApartmentKeys ?? []).some((key) => apartmentSlugs.has(key))) {
+        failures.push(`${event.slug} missing relatedApartmentKeys`);
+      }
+
+      if (event.featured && getEventDateStatus(event) === "past") {
+        failures.push(`${event.slug} is expired and still featured`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   it("reports non-blocking content hygiene warnings", () => {
     const warnings: string[] = [];
     const placeById = new Map(places.map((place) => [place.id, place]));
