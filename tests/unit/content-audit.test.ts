@@ -5,7 +5,7 @@ import { apartments } from "../../src/content/apartments";
 import { guideArticles } from "../../src/content/guide";
 import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
 import { places } from "../../src/content/places";
-import { rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
+import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { getEventDateStatus } from "../../src/lib/events";
 
 const publicPathExists = (sitePath: string) => existsSync(join(process.cwd(), "public", sitePath.replace(/^\//, "")));
@@ -100,6 +100,11 @@ describe("content graph audit", () => {
 
   it("keeps guide link audit profiles attached to valid guides", () => {
     const failures = guideLinkAuditProfiles.filter((profile) => !guideSlugs.has(profile.slug)).map((profile) => profile.slug);
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps event freshness profiles attached to valid events", () => {
+    const failures = eventFreshnessProfiles.filter((profile) => !eventSlugs.has(profile.slug)).map((profile) => profile.slug);
     expect(failures).toEqual([]);
   });
 

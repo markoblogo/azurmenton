@@ -39,12 +39,13 @@ const { apartments } = require("../src/content/apartments.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { guideIntentClusters, guideLinkAuditProfiles } = require("../src/content/guide-intents.ts");
 const { places } = require("../src/content/places.ts");
-const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
+const { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { getEventDateStatus } = require("../src/lib/events.ts");
 
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 const guideLinkAuditProfileBySlug = new Map(guideLinkAuditProfiles.map((profile) => [profile.slug, profile]));
+const eventFreshnessProfileBySlug = new Map(eventFreshnessProfiles.map((profile) => [profile.slug, profile]));
 const today = new Date();
 
 function uniq(values) {
@@ -186,6 +187,14 @@ const pendingEvents = allEvents
   })
   .sort((left, right) => left.slug.localeCompare(right.slug));
 
+const pendingEventsAwaitingProgramme = pendingEvents
+  .filter((event) => eventFreshnessProfileBySlug.has(event.slug))
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const pendingEventsNeedingReview = pendingEvents
+  .filter((event) => !eventFreshnessProfileBySlug.has(event.slug))
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
 const expiredEvents = allEvents
   .filter((event) => getEventDateStatus(event, today) === "past")
   .sort((left, right) => left.slug.localeCompare(right.slug));
@@ -226,7 +235,13 @@ printGroup("Place backlink gaps", placeBacklinkGaps, (gap) => `${gap.placeId} mi
 printGroup("Intentional supporting-card backlink exclusions", placeBacklinkExclusions, (gap) => `${gap.placeId} / ${gap.articleSlug}: ${gap.reason}`, 10);
 printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name})`);
 printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
-printGroup("Pending or unverified events", pendingEvents, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
+printGroup("Pending or unverified events needing review", pendingEventsNeedingReview, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
+printGroup(
+  "Events awaiting official programme",
+  pendingEventsAwaitingProgramme,
+  (event) => `${event.slug} (${eventFreshnessProfileBySlug.get(event.slug).status}; ${eventFreshnessProfileBySlug.get(event.slug).reason})`,
+  15,
+);
 printGroup("Expired events needing source review", expiredEventsNeedingSourceReview, (event) => `${event.slug} (${event.dateLabel}, ${event.sourceStatus})`);
 printGroup("Verified expired event archive", expiredEventArchive, (event) => `${event.slug} (${event.dateLabel})`);
 printGroup("Expired featured events", expiredFeaturedEvents, (event) => `${event.slug} (${event.dateLabel})`);
@@ -239,7 +254,7 @@ const totalActionItems =
   placeBacklinkGaps.length +
   orphanPlaces.length +
   orphanArticles.length +
-  pendingEvents.length +
+  pendingEventsNeedingReview.length +
   expiredEventsNeedingSourceReview.length +
   expiredFeaturedEvents.length +
   eventApartmentGaps.length;

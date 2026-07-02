@@ -26,6 +26,12 @@ export type EventLocation = "Menton" | "Monaco" | "Nice" | "French Riviera" | "I
 
 export type LocalizedText = Record<Locale, string>;
 
+export type EventFreshnessProfile = {
+  slug: string;
+  status: "awaiting_official_program" | "seasonal_placeholder";
+  reason: string;
+};
+
 export type RivieraEvent = {
   id: string;
   slug: string;
@@ -77,6 +83,18 @@ export type RivieraEvent = {
 // The public calendar should aim to cover at least the next 6 months.
 // Confirmed events are hidden automatically after their end date; keep old data for future archive use.
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
+
+export const eventFreshnessProfiles: EventFreshnessProfile[] = [
+  { slug: "amusement-park-monaco", status: "awaiting_official_program", reason: "Monaco autumn fair is annual, but the official 2026 municipal programme is not yet published" },
+  { slug: "choir-festival-biot", status: "awaiting_official_program", reason: "third-party dates exist, but the official 2026 Biot programme still needs confirmation" },
+  { slug: "immersive-exhibitions-nice", status: "seasonal_placeholder", reason: "flexible indoor exhibitions placeholder until specific Nice museum programmes are selected" },
+  { slug: "local-menton-winter-events", status: "awaiting_official_program", reason: "local winter calendars are normally published closer to the season" },
+  { slug: "major-sports-weekends-nice-autumn", status: "seasonal_placeholder", reason: "autumn sports demand block pending specific official race/event dates" },
+  { slug: "menton-lemon-festival", status: "awaiting_official_program", reason: "Menton Lemon Festival is annual, but official 2027 dates are not yet published" },
+  { slug: "monte-carlo-jazz-festival", status: "awaiting_official_program", reason: "official SBM festival page exists, but the 2026 programme is not yet published" },
+  { slug: "summer-on-the-riviera", status: "seasonal_placeholder", reason: "seasonal umbrella event for summer demand, not a single official event programme" },
+  { slug: "winter-on-the-riviera", status: "seasonal_placeholder", reason: "seasonal winter umbrella block until individual town programmes are published" },
+];
 
 const eventTitleLabels: Record<string, LocalizedText> = {
   "monaco-grand-prix-2026": t(
@@ -1135,7 +1153,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Organizzalo come gita culturale e verifica il programma finale prima di partire.",
       "Плануйте як культурну денну поїздку та перевіряйте фінальну програму перед виїздом.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "official_source_needed",
     detailPage: true,
     relatedApartmentKeys: relatedAll,
   },
@@ -1417,8 +1435,8 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Usa il treno quando possibile; parcheggiare a Monaco puo essere lento nelle serate affollate.",
       "За можливості їдьте поїздом; паркування в Монако може бути повільним у жваві вечори ярмарку.",
     ),
-    sourceStatus: "needs_verification",
-    sourceUrl: "https://www.monaco-life.com/it/event/traditional-attractions-fair-2026",
+    sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.mairie.mc/agenda",
     featured: true,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -1488,7 +1506,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Soggiorna a Mentone per mattine piu tranquille sul mare, poi prendi il treno per Monaco nelle serate scelte del festival.",
       "Зупиніться в Ментоні для спокійніших ранків біля моря, а на вибрані вечори фестивалю їдьте поїздом до Монако.",
     ),
-    sourceStatus: "needs_verification",
+    sourceStatus: "official_source_needed",
     sourceUrl: "https://www.montecarlosbm.com/en/shows-monaco/monte-carlo-jazz-festival",
     featured: true,
     detailPage: true,
