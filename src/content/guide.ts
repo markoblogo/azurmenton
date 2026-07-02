@@ -38,6 +38,24 @@ export type LocalizedGuideSection = {
   relatedEventIds?: string[];
 };
 
+export type GuideAppTool = {
+  id: string;
+  name: string;
+  useFor: LocalizedText;
+  bestFor: LocalizedText;
+  image?: string;
+  imageAlt?: LocalizedText;
+  visualTheme?: GuideVisualTheme;
+  iosUrl?: string;
+  androidUrl?: string;
+};
+
+export type LocalizedGuideAppTool = Omit<GuideAppTool, "useFor" | "bestFor" | "imageAlt"> & {
+  useFor: string;
+  bestFor: string;
+  imageAlt?: string;
+};
+
 export type GuideArticle = {
   id: string;
   slug: string;
@@ -58,6 +76,7 @@ export type GuideArticle = {
   sourceStatus: SourceStatus;
   featured?: boolean;
   sections: LocalizedGuideSection[];
+  appTools?: GuideAppTool[];
   practicalTips?: LocalizedText[];
   relatedPlaces?: string[];
   relatedArticles?: string[];
@@ -648,6 +667,7 @@ function shortArticle(input: {
   relatedArticles?: string[];
   relatedEvents?: string[];
   relatedApartments?: string[];
+  appTools?: GuideAppTool[];
   sourceStatus?: SourceStatus;
   coverImage?: string;
   coverImageAlt?: LocalizedText;
@@ -1493,6 +1513,7 @@ export const guideArticles: GuideArticle[] = [
     sourceStatus: "needs_verification",
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
+      "useful-apps-websites-menton-monaco-italian-riviera",
       "menton-without-a-car",
       "useful-numbers-emergency-contacts-menton",
       "supermarkets-in-menton",
@@ -1757,7 +1778,7 @@ export const guideArticles: GuideArticle[] = [
       "mairie-menton",
       "office-tourisme-menton-riviera-merveilles",
     ],
-    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2081,7 +2102,7 @@ export const guideArticles: GuideArticle[] = [
       "olive-artichaut-nice",
       "bistrot-antoine-nice",
     ],
-    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "nightlife-in-menton", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "local-food-menton", "halles-du-marche-menton", "nightlife-in-menton", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2174,6 +2195,7 @@ export const guideArticles: GuideArticle[] = [
       "conad-city-sanremo",
     ],
     relatedArticles: [
+      "useful-apps-websites-menton-monaco-italian-riviera",
       "stay-cool-in-menton-summer",
       "useful-numbers-emergency-contacts-menton",
       "menton-without-a-car",
@@ -2617,6 +2639,239 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "useful-apps-websites-menton-monaco-italian-riviera",
+    slug: "useful-apps-websites-menton-monaco-italian-riviera",
+    title: t("Useful apps and websites for Menton, Monaco and the Italian Riviera", "Applications et sites utiles pour Menton, Monaco et la Riviera italienne", "App e siti utili per Mentone, Monaco e Riviera italiana", "Корисні застосунки й сайти для Ментона, Монако та Італійської Рив'єри"),
+    seoTitle: t("Useful Apps and Websites for Menton, Monaco and the Italian Riviera", "Applications et sites utiles pour Menton, Monaco et la Riviera italienne", "App e siti utili per Mentone, Monaco e Riviera italiana", "Корисні застосунки й сайти для Ментона, Монако та Італійської Рив'єри"),
+    seoDescription: t("A practical guide to the best apps and websites for visiting Menton: trains, buses, weather, parking, restaurants, events, translation, emergencies, Monaco, Nice and Italy.", "Guide pratique des meilleures applications et sites pour Menton: trains, bus, meteo, parking, restaurants, evenements, traduction, urgences, Monaco, Nice et Italie.", "Guida pratica alle migliori app e siti per Mentone: treni, bus, meteo, parcheggi, ristoranti, eventi, traduzione, emergenze, Monaco, Nizza e Italia.", "Практичний гід по найкорисніших застосунках і сайтах для Ментона: потяги, автобуси, погода, паркування, ресторани, події, переклад, екстрені контакти, Монако, Ніцца й Італія."),
+    excerpt: t("A simple digital toolkit for visitors: transport, maps, weather, restaurants, parking, events, translation and emergency information without downloading too many apps.", "Une boite a outils numerique simple pour les visiteurs: transports, cartes, meteo, restaurants, parking, evenements, traduction et urgences sans multiplier les applications.", "Un kit digitale semplice per visitatori: trasporti, mappe, meteo, ristoranti, parcheggi, eventi, traduzione ed emergenze senza scaricare troppe app.", "Простий цифровий набір для гостей: транспорт, карти, погода, ресторани, паркування, події, переклад і екстрена інформація без десятків зайвих застосунків."),
+    category: "practical",
+    coverImage: "/images/guide/useful-apps-websites-menton-monaco-italian-riviera.jpg",
+    coverImageAlt: t("Illustration of useful apps and websites for Menton", "Illustration des applications et sites utiles pour Menton", "Illustrazione di app e siti utili per Mentone", "Ілюстрація корисних застосунків і сайтів для Ментона"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    tags: [
+      t("apps", "applications", "app", "застосунки"),
+      t("websites", "sites web", "siti web", "сайти"),
+      t("transport", "transport", "trasporti", "транспорт"),
+      t("weather", "meteo", "meteo", "погода"),
+      t("parking", "parking", "parcheggio", "паркування"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Italy", "Italie", "Italia", "Італія"),
+    ],
+    bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[1].label, guideBestForOptions[8].label, guideBestForOptions[10].label, guideBestForOptions[11].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "office-tourisme-menton-riviera-merveilles",
+      "centre-hospitalier-la-palmosa-menton",
+      "commissariat-police-menton",
+      "monaco-monte-carlo",
+      "nice-old-town",
+      "ventimiglia",
+      "bordighera",
+      "sanremo",
+      "intermarche-hyper-menton",
+      "carrefour-city-felix-faure",
+    ],
+    relatedArticles: [
+      "public-transport-in-menton",
+      "how-to-get-to-menton-from-nice-airport",
+      "menton-without-a-car",
+      "italian-riviera-day-trip-from-menton",
+      "day-trips-from-menton",
+      "useful-numbers-emergency-contacts-menton",
+      "stay-cool-in-menton-summer",
+      "supermarkets-in-menton",
+      "michelin-restaurants-menton-nice-monaco",
+      "cinemas-in-menton-nice-monaco",
+      "museums-in-menton-nice-monaco",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    appTools: [
+      {
+        id: "sncf-connect",
+        name: "SNCF Connect",
+        useFor: t("French train times, tickets and live traffic between Menton, Monaco, Nice and the rest of France.", "Horaires, billets et trafic en direct pour les trains francais entre Menton, Monaco, Nice et le reste de la France.", "Orari, biglietti e traffico in tempo reale per i treni francesi tra Mentone, Monaco, Nizza e il resto della Francia.", "Розклад, квитки й live traffic для французьких потягів між Ментоном, Монако, Ніццою та рештою Франції."),
+        bestFor: t("Regional train days", "Journees en train regional", "Giornate in treno regionale", "Дні з регіональними потягами"),
+        visualTheme: "transport",
+        iosUrl: "https://apps.apple.com/app/sncf-connect-trains-routes/id343889987",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.vsct.vsc.mobile.horaireetresa.android",
+      },
+      {
+        id: "trenitalia",
+        name: "Trenitalia",
+        useFor: t("Italian regional trains for Ventimiglia, Bordighera, Sanremo and longer Ligurian trips.", "Trains regionaux italiens pour Vintimille, Bordighera, Sanremo et les trajets plus longs en Ligurie.", "Treni regionali italiani per Ventimiglia, Bordighera, Sanremo e viaggi liguri piu lunghi.", "Італійські регіональні потяги до Ventimiglia, Bordighera, Sanremo та довших поїздок Лігурією."),
+        bestFor: t("Italy day trips", "Excursions en Italie", "Gite in Italia", "Поїздки в Італію"),
+        visualTheme: "transport",
+        iosUrl: "https://apps.apple.com/app/trenitalia/id331050847",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.lynxspa.prontotreno",
+      },
+      {
+        id: "google-maps",
+        name: "Google Maps",
+        useFor: t("Offline maps, walking routes, restaurants, pharmacies, supermarkets and saved apartment addresses.", "Cartes hors ligne, itineraires a pied, restaurants, pharmacies, supermarches et adresses d'appartement sauvegardees.", "Mappe offline, percorsi a piedi, ristoranti, farmacie, supermercati e indirizzi appartamento salvati.", "Offline maps, пішохідні маршрути, ресторани, аптеки, супермаркети й збережені адреси апартаментів."),
+        bestFor: t("Everyday orientation", "Orientation quotidienne", "Orientamento quotidiano", "Щоденна навігація"),
+        visualTheme: "walk",
+        iosUrl: "https://apps.apple.com/app/google-maps/id585027354",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.google.android.apps.maps",
+      },
+      {
+        id: "meteo-france",
+        name: "Meteo-France",
+        useFor: t("Official French forecasts, Vigilance alerts, heat, storms and rain timing.", "Previsions officielles francaises, Vigilance, chaleur, orages et horaires de pluie.", "Previsioni ufficiali francesi, allerte Vigilance, caldo, temporali e pioggia.", "Офіційний французький прогноз, Vigilance alerts, спека, грози й час дощу."),
+        bestFor: t("Summer and storm planning", "Plans d'ete et d'orage", "Piani estivi e temporali", "Літні плани й грози"),
+        visualTheme: "sea",
+        iosUrl: "https://apps.apple.com/app/meteo-france/id376197239",
+        androidUrl: "https://play.google.com/store/apps/details?id=fr.meteo",
+      },
+      {
+        id: "windy",
+        name: "Windy",
+        useFor: t("Wind, sea, waves and rain radar when beach, boat or photography plans depend on conditions.", "Vent, mer, vagues et radar de pluie quand plage, bateau ou photos dependent des conditions.", "Vento, mare, onde e radar pioggia quando spiaggia, barca o foto dipendono dalle condizioni.", "Вітер, море, хвилі й rain radar, коли пляж, човен або фото залежать від умов."),
+        bestFor: t("Sea and weather detail", "Details mer et meteo", "Dettagli mare e meteo", "Море й детальна погода"),
+        visualTheme: "sea",
+        iosUrl: "https://apps.apple.com/app/windy-com-weather-radar/id1161387262",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.windyty.android",
+      },
+      {
+        id: "thefork",
+        name: "TheFork",
+        useFor: t("Restaurant availability, booking slots and a quick second check before calling directly.", "Disponibilites de restaurants, creneaux de reservation et verification rapide avant d'appeler directement.", "Disponibilita ristoranti, slot di prenotazione e controllo rapido prima di chiamare direttamente.", "Доступність ресторанів, слоти бронювання й швидка перевірка перед прямим дзвінком."),
+        bestFor: t("Easy restaurant booking", "Reservation simple", "Prenotazioni facili", "Прості бронювання ресторанів"),
+        visualTheme: "food",
+        iosUrl: "https://apps.apple.com/app/thefork-restaurant-bookings/id424850908",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.lafourchette.lafourchette",
+      },
+      {
+        id: "michelin-guide",
+        name: "MICHELIN Guide",
+        useFor: t("Selected restaurants, Bib Gourmand addresses, starred dining and hotel notes around Menton, Monaco and Nice.", "Restaurants selectionnes, Bib Gourmand, tables etoilees et notes d'hotels autour de Menton, Monaco et Nice.", "Ristoranti selezionati, Bib Gourmand, stellati e note hotel tra Mentone, Monaco e Nizza.", "Selected restaurants, Bib Gourmand, зіркові ресторани й готелі навколо Ментона, Монако та Ніцци."),
+        bestFor: t("Special meals", "Repas particuliers", "Pasti speciali", "Особливі вечері"),
+        visualTheme: "food",
+        iosUrl: "https://apps.apple.com/app/michelin-guide-hotels-restaurants/id1541129177",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.viamichelin.android.gm21",
+      },
+      {
+        id: "monapass",
+        name: "Monapass",
+        useFor: t("Monaco mobility, public transport and local ticketing in one official app.", "Mobilite, transport public et billetterie locale de Monaco dans une application officielle.", "Mobilita, trasporto pubblico e biglietteria locale di Monaco in un'app ufficiale.", "Мобільність Монако, громадський транспорт і локальні квитки в одному офіційному застосунку."),
+        bestFor: t("Monaco days", "Journees a Monaco", "Giornate a Monaco", "Дні в Монако"),
+        visualTheme: "transport",
+        iosUrl: "https://apps.apple.com/app/monapass/id1542802881",
+        androidUrl: "https://play.google.com/store/apps/details?id=group.flowbird.monaco",
+      },
+      {
+        id: "lignes-dazur",
+        name: "Lignes d'Azur",
+        useFor: t("Nice tram and bus planning when you go beyond the train station.", "Tram et bus a Nice quand vous allez au-dela de la gare.", "Tram e bus a Nizza quando vai oltre la stazione.", "Трамваї й автобуси Ніцци, якщо ви їдете далі за вокзал."),
+        bestFor: t("Nice city transport", "Transport urbain a Nice", "Trasporto urbano a Nizza", "Міський транспорт Ніцци"),
+        visualTheme: "transport",
+        iosUrl: "https://apps.apple.com/app/lignes-dazur-mobile/id423316741",
+        androidUrl: "https://play.google.com/store/apps/details?id=eu.mobeepass.nfcniceticket",
+      },
+      {
+        id: "paybyphone",
+        name: "PayByPhone",
+        useFor: t("Paid on-street parking sessions in Menton, Nice and other supported towns.", "Stationnement payant en voirie a Menton, Nice et autres villes compatibles.", "Parcheggio su strada a pagamento a Mentone, Nizza e altre citta supportate.", "Платне вуличне паркування в Ментоні, Ніцці та інших підтримуваних містах."),
+        bestFor: t("Drivers", "Conducteurs", "Chi guida", "Для водіїв"),
+        visualTheme: "transport",
+        iosUrl: "https://apps.apple.com/app/paybyphone-parking/id448474183",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.paybyphone",
+      },
+      {
+        id: "google-translate",
+        name: "Google Translate",
+        useFor: t("Camera translation, menus, pharmacy labels, offline language packs and quick spoken phrases.", "Traduction camera, menus, etiquettes de pharmacie, packs hors ligne et phrases rapides.", "Traduzione con camera, menu, etichette in farmacia, pacchetti offline e frasi rapide.", "Camera translation, меню, аптечні етикетки, offline мовні пакети й короткі фрази."),
+        bestFor: t("Fast practical translation", "Traduction pratique rapide", "Traduzione pratica veloce", "Швидкий практичний переклад"),
+        visualTheme: "itinerary",
+        iosUrl: "https://apps.apple.com/app/google-translate/id414706506",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.google.android.apps.translate",
+      },
+      {
+        id: "deepl",
+        name: "DeepL",
+        useFor: t("More natural written messages in French, Italian, English and Ukrainian.", "Messages ecrits plus naturels en francais, italien, anglais et ukrainien.", "Messaggi scritti piu naturali in francese, italiano, inglese e ucraino.", "Природніші письмові повідомлення французькою, італійською, англійською та українською."),
+        bestFor: t("Messages and longer text", "Messages et textes plus longs", "Messaggi e testi piu lunghi", "Повідомлення й довші тексти"),
+        visualTheme: "itinerary",
+        iosUrl: "https://apps.apple.com/app/deepl-translate/id1552407475",
+        androidUrl: "https://play.google.com/store/apps/details?id=com.deepl.mobiletranslator",
+      },
+    ],
+    sections: [
+      {
+        heading: t("The essential shortlist", "La selection essentielle", "La selezione essenziale", "Найважливіший короткий список"),
+        body: [
+          t("You do not need dozens of downloads for Menton. Start with a small toolkit that covers trains, buses, maps, weather, translation, restaurants, parking and emergency information.", "Vous n'avez pas besoin de dizaines d'applications pour Menton. Commencez par une petite boite a outils: trains, bus, cartes, meteo, traduction, restaurants, parking et urgences.", "Non servono decine di app per Mentone. Parti da un kit piccolo: treni, bus, mappe, meteo, traduzione, ristoranti, parcheggi ed emergenze.", "Для Ментона не потрібні десятки застосунків. Почніть із малого набору: потяги, автобуси, карти, погода, переклад, ресторани, паркування й екстрена інформація."),
+          t("For most guests, the core setup is SNCF Connect, Google Maps with offline maps, Meteo-France, Google Translate or DeepL, plus Trenitalia for Italy, ZOU or Bus 80 information for airport bus planning, and PayByPhone if you drive.", "Pour la plupart des voyageurs: SNCF Connect, Google Maps avec cartes hors ligne, Meteo-France, Google Translate ou DeepL, puis Trenitalia pour l'Italie, ZOU ou Bus 80 pour le bus aeroport, et PayByPhone si vous conduisez.", "Per la maggior parte degli ospiti: SNCF Connect, Google Maps con mappe offline, Meteo-France, Google Translate o DeepL, poi Trenitalia per l'Italia, ZOU o Bus 80 per l'aeroporto e PayByPhone se guidi.", "Для більшості гостей достатньо SNCF Connect, Google Maps з offline maps, Meteo-France, Google Translate або DeepL, Trenitalia для Італії, ZOU або Bus 80 для аеропорту та PayByPhone, якщо ви за кермом."),
+        ],
+        bullets: [
+          t("Transport: SNCF Connect, ZOU / Bus 80, Trenitalia, Lignes d'Azur", "Transport: SNCF Connect, ZOU / Bus 80, Trenitalia, Lignes d'Azur", "Trasporti: SNCF Connect, ZOU / Bus 80, Trenitalia, Lignes d'Azur", "Транспорт: SNCF Connect, ZOU / Bus 80, Trenitalia, Lignes d'Azur"),
+          t("Daily planning: Google Maps, Meteo-France, Windy", "Organisation: Google Maps, Meteo-France, Windy", "Organizzazione: Google Maps, Meteo-France, Windy", "Планування: Google Maps, Meteo-France, Windy"),
+          t("Restaurants: Google Maps, TheFork, MICHELIN Guide and restaurant websites", "Restaurants: Google Maps, TheFork, Guide MICHELIN et sites des restaurants", "Ristoranti: Google Maps, TheFork, Guida MICHELIN e siti dei ristoranti", "Ресторани: Google Maps, TheFork, MICHELIN Guide і сайти ресторанів"),
+          t("Safety and language: Service Public, Sante.fr, 3237, Google Translate, DeepL", "Securite et langue: Service Public, Sante.fr, 3237, Google Translate, DeepL", "Sicurezza e lingua: Service Public, Sante.fr, 3237, Google Translate, DeepL", "Безпека й мова: Service Public, Sante.fr, 3237, Google Translate, DeepL"),
+        ],
+      },
+      {
+        heading: t("Trains, buses and airport arrivals", "Trains, bus et arrivees aeroport", "Treni, bus e arrivi in aeroporto", "Потяги, автобуси й прибуття з аеропорту"),
+        body: [
+          t("SNCF Connect is the main tool for French trains from Menton to Monaco, Nice, Villefranche-sur-Mer, Antibes and Cannes. Use it to check timetables, buy tickets, watch delays and plan your return before a late dinner.", "SNCF Connect est l'outil principal pour les trains francais de Menton vers Monaco, Nice, Villefranche-sur-Mer, Antibes et Cannes. Utilisez-le pour horaires, billets, retards et retour avant un diner tardif.", "SNCF Connect e lo strumento principale per i treni francesi da Mentone a Monaco, Nizza, Villefranche-sur-Mer, Antibes e Cannes. Usalo per orari, biglietti, ritardi e ritorno prima di una cena tardi.", "SNCF Connect - головний інструмент для французьких потягів з Ментона до Монако, Ніцци, Villefranche-sur-Mer, Antibes і Cannes. Використовуйте його для розкладу, квитків, затримок і повернення після пізньої вечері."),
+          t("For Nice Airport, check current ZOU and Nice Airport Express / Bus 80 information before travelling. Airport routes, payment rules and terminal stops can change, so verify close to your arrival date.", "Pour l'aeroport de Nice, verifiez les informations actuelles ZOU et Nice Airport Express / Bus 80 avant le voyage. Lignes aeroport, paiement et arrets de terminal peuvent changer: controlez pres de la date.", "Per l'aeroporto di Nizza controlla ZOU e Nice Airport Express / Bus 80 prima del viaggio. Percorsi, pagamenti e fermate ai terminal possono cambiare: verifica vicino alla data.", "Для аеропорту Ніцци перевіряйте ZOU та Nice Airport Express / Bus 80 перед поїздкою. Маршрути, оплата й зупинки терміналів можуть змінюватися, тому перевіряйте ближче до дати."),
+          t("For Italy, Trenitalia is the practical app and website for Ventimiglia, Bordighera, Sanremo and longer Ligurian trips. Check current regional ticket rules before boarding.", "Pour l'Italie, Trenitalia est l'application et le site pratiques pour Vintimille, Bordighera, Sanremo et les trajets ligures plus longs. Verifiez les regles actuelles des billets regionaux avant de monter.", "Per l'Italia, Trenitalia e l'app e sito pratico per Ventimiglia, Bordighera, Sanremo e viaggi liguri piu lunghi. Controlla le regole attuali dei biglietti regionali prima di salire.", "Для Італії Trenitalia - практичний застосунок і сайт для Ventimiglia, Bordighera, Sanremo та довших лігурійських поїздок. Перед посадкою перевіряйте актуальні правила регіональних квитків."),
+        ],
+        relatedPlaceIds: ["monaco-monte-carlo", "nice-old-town", "ventimiglia", "bordighera", "sanremo"],
+      },
+      {
+        heading: t("Maps, driving and parking", "Cartes, conduite et parking", "Mappe, guida e parcheggi", "Карти, авто й паркування"),
+        body: [
+          t("Google Maps is the fastest everyday tool in Menton: save your apartment, train station, nearest supermarket, pharmacy, beach, tourist office, hospital and restaurants. Download offline maps for Menton, Monaco, Nice, Ventimiglia and Bordighera before arrival.", "Google Maps est l'outil quotidien le plus rapide a Menton: sauvegardez appartement, gare, supermarche proche, pharmacie, plage, office de tourisme, hopital et restaurants. Telechargez les cartes hors ligne de Menton, Monaco, Nice, Vintimille et Bordighera avant l'arrivee.", "Google Maps e lo strumento quotidiano piu rapido a Mentone: salva appartamento, stazione, supermercato vicino, farmacia, spiaggia, ufficio turistico, ospedale e ristoranti. Scarica mappe offline di Mentone, Monaco, Nizza, Ventimiglia e Bordighera prima dell'arrivo.", "Google Maps - найшвидший щоденний інструмент у Ментоні: збережіть апартаменти, вокзал, найближчий супермаркет, аптеку, пляж, туристичний офіс, лікарню і ресторани. Завантажте offline maps Ментона, Монако, Ніцци, Вентімільї та Бордігери до приїзду."),
+          t("If you drive, use Google Maps, Apple Maps or Waze for traffic, then official parking pages for the final decision. PayByPhone is useful for paid on-street parking in Menton or Nice, while Parkings.mc is the safer starting point for Monaco car parks.", "Si vous conduisez, utilisez Google Maps, Apple Maps ou Waze pour le trafic, puis les pages officielles de parking pour la decision finale. PayByPhone est utile pour le stationnement payant en voirie a Menton ou Nice; Parkings.mc est le meilleur depart pour Monaco.", "Se guidi, usa Google Maps, Apple Maps o Waze per il traffico, poi pagine ufficiali dei parcheggi per decidere. PayByPhone e utile per parcheggi su strada a Mentone o Nizza; Parkings.mc e il punto di partenza per Monaco.", "Якщо ви за кермом, використовуйте Google Maps, Apple Maps або Waze для трафіку, а фінально перевіряйте офіційні сторінки паркування. PayByPhone корисний для платних вуличних зон у Ментоні або Ніцці, Parkings.mc - для паркінгів Монако."),
+        ],
+        relatedPlaceIds: ["office-tourisme-menton-riviera-merveilles", "intermarche-hyper-menton", "carrefour-city-felix-faure", "monaco-monte-carlo"],
+      },
+      {
+        heading: t("Weather, heat and outdoor plans", "Meteo, chaleur et plans dehors", "Meteo, caldo e piani all'aperto", "Погода, спека й плани на вулиці"),
+        body: [
+          t("Meteo-France is the most important weather source for France, especially for Vigilance alerts, heatwaves, storms and rain. In summer, do not just check the temperature: look at alerts and the shape of the day.", "Meteo-France est la source meteo la plus importante en France, surtout pour Vigilance, canicules, orages et pluie. En ete, ne regardez pas seulement la temperature: regardez les alertes et le rythme de la journee.", "Meteo-France e la fonte meteo piu importante in Francia, soprattutto per Vigilance, caldo, temporali e pioggia. In estate non guardare solo la temperatura: controlla avvisi e andamento della giornata.", "Meteo-France - найважливіше джерело погоди у Франції, особливо для Vigilance, спеки, гроз і дощу. Влітку дивіться не лише температуру: перевіряйте попередження й ритм дня."),
+          t("Windy is useful when sea, wind, waves, rain radar or photography light matters. If wind or sea conditions look difficult, switch to a garden, museum, cinema or old-town plan instead of a beach-heavy day.", "Windy est utile quand mer, vent, vagues, radar de pluie ou lumiere photo comptent. Si vent ou mer semblent difficiles, choisissez jardin, musee, cinema ou vieille ville plutot qu'une journee tres plage.", "Windy e utile quando contano mare, vento, onde, radar pioggia o luce per foto. Se vento o mare sembrano difficili, scegli giardino, museo, cinema o centro storico invece di una giornata solo spiaggia.", "Windy корисний, коли важливі море, вітер, хвилі, radar дощу або світло для фото. Якщо вітер чи море складні, оберіть сад, музей, кіно або старе місто замість пляжного дня."),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "promenade-du-soleil", "jardin-val-rahmeh", "musee-jean-cocteau-bastion"],
+      },
+      {
+        heading: t("Restaurants, events and Monaco tools", "Restaurants, evenements et outils Monaco", "Ristoranti, eventi e strumenti Monaco", "Ресторани, події й інструменти Монако"),
+        body: [
+          t("For restaurants, use Google Maps for nearby choices and current hours, TheFork for quick availability, and the MICHELIN Guide for starred, Bib Gourmand or selected restaurants. For important meals, always check the restaurant's own website too.", "Pour les restaurants, utilisez Google Maps pour les choix proches et horaires actuels, TheFork pour disponibilites rapides et le Guide MICHELIN pour etoiles, Bib Gourmand ou selection. Pour les repas importants, verifiez aussi le site du restaurant.", "Per ristoranti usa Google Maps per scelte vicine e orari, TheFork per disponibilita rapida e Guida MICHELIN per stelle, Bib Gourmand o selezione. Per pasti importanti controlla sempre anche il sito del ristorante.", "Для ресторанів використовуйте Google Maps для найближчих варіантів і годин, TheFork для швидкої доступності та MICHELIN Guide для зірок, Bib Gourmand або selected. Для важливих вечерь завжди перевіряйте сайт ресторану."),
+          t("For Monaco, official tools are usually best: Visit Monaco for events, Monapass for mobility and ticketing, Monaco Bus for routes, and Parkings.mc for car parks. For Nice, use Lignes d'Azur when you need trams or buses beyond the train station.", "Pour Monaco, les outils officiels sont souvent les meilleurs: Visit Monaco pour evenements, Monapass pour mobilite et billetterie, Monaco Bus pour lignes, Parkings.mc pour parkings. Pour Nice, utilisez Lignes d'Azur pour trams et bus au-dela de la gare.", "Per Monaco gli strumenti ufficiali sono spesso migliori: Visit Monaco per eventi, Monapass per mobilita e biglietti, Monaco Bus per linee, Parkings.mc per parcheggi. Per Nizza usa Lignes d'Azur per tram e bus oltre la stazione.", "Для Монако найкращі офіційні інструменти: Visit Monaco для подій, Monapass для мобільності й квитків, Monaco Bus для маршрутів, Parkings.mc для паркінгів. Для Ніцци використовуйте Lignes d'Azur для трамваїв і автобусів за межами вокзалу."),
+        ],
+        relatedPlaceIds: ["mirazur-menton", "orangerie-menton", "le-louis-xv-monaco", "flaveur-nice", "monaco-monte-carlo", "nice-old-town"],
+      },
+      {
+        heading: t("Translation, emergency information and what to save", "Traduction, urgences et quoi sauvegarder", "Traduzione, emergenze e cosa salvare", "Переклад, екстрена інформація і що зберегти"),
+        body: [
+          t("Google Translate is useful for camera translation, offline packs, menus, pharmacy labels and quick conversations. DeepL is useful for more natural written messages in French, Italian, English and Ukrainian.", "Google Translate est utile pour traduction camera, packs hors ligne, menus, etiquettes de pharmacie et conversations rapides. DeepL est utile pour des messages ecrits plus naturels en francais, italien, anglais et ukrainien.", "Google Translate e utile per traduzione camera, pacchetti offline, menu, etichette in farmacia e conversazioni rapide. DeepL e utile per messaggi scritti piu naturali in francese, italiano, inglese e ucraino.", "Google Translate корисний для camera translation, offline packs, меню, аптечних етикеток і коротких розмов. DeepL корисний для природніших письмових повідомлень французькою, італійською, англійською та українською."),
+          t("For emergencies, do not waste time comparing travel apps. Save the French emergency numbers, Sante.fr, 3237 for on-duty pharmacies, the Menton hospital, police station, tourist office, apartment address, passport copy and insurance details before arrival.", "Pour les urgences, ne perdez pas de temps a comparer des apps de voyage. Sauvegardez numeros d'urgence francais, Sante.fr, 3237 pour pharmacies de garde, hopital de Menton, commissariat, office de tourisme, adresse de l'appartement, copie du passeport et assurance.", "Per emergenze non perdere tempo confrontando app di viaggio. Salva numeri francesi, Sante.fr, 3237 per farmacie di turno, ospedale di Mentone, polizia, ufficio turistico, indirizzo appartamento, copia passaporto e assicurazione.", "В екстрених ситуаціях не витрачайте час на travel apps. Заздалегідь збережіть французькі екстрені номери, Sante.fr, 3237 для чергових аптек, лікарню Ментона, поліцію, tourist office, адресу апартаментів, копію паспорта й страховку."),
+        ],
+        relatedPlaceIds: ["centre-hospitalier-la-palmosa-menton", "commissariat-police-menton", "office-tourisme-menton-riviera-merveilles"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Set up your phone before arrival", "Preparer son telephone avant l'arrivee", "Prepara il telefono prima dell'arrivo", "Підготуйте телефон до приїзду"),
+        body: [
+          t("Take 20 minutes before your trip: install the few apps you need, download offline maps for Menton-Monaco-Nice-Italy, save translation language packs, store your apartment address, travel insurance, passport copy and emergency contacts offline.", "Prenez 20 minutes avant le voyage: installez les quelques apps utiles, telechargez les cartes hors ligne Menton-Monaco-Nice-Italie, sauvegardez les langues de traduction, adresse de l'appartement, assurance, copie du passeport et contacts d'urgence hors ligne.", "Prenditi 20 minuti prima del viaggio: installa poche app utili, scarica mappe offline Mentone-Monaco-Nizza-Italia, salva lingue di traduzione, indirizzo appartamento, assicurazione, copia passaporto e contatti emergenza offline.", "Виділіть 20 хвилин до поїздки: встановіть кілька потрібних застосунків, завантажте offline maps Menton-Monaco-Nice-Italy, мовні пакети, адресу апартаментів, страховку, копію паспорта й екстрені контакти офлайн."),
+          t("The best apps are not the ones with the most features. They are the ones that answer real travel questions quickly: is the train running, is the bus useful, where is the nearest pharmacy, is the restaurant open, will the weather be too hot, and where can I park?", "Les meilleures apps ne sont pas celles qui ont le plus de fonctions. Ce sont celles qui repondent vite aux vraies questions: train, bus, pharmacie proche, restaurant ouvert, chaleur, parking.", "Le app migliori non sono quelle con piu funzioni. Sono quelle che rispondono rapidamente a domande reali: treno, bus, farmacia vicina, ristorante aperto, caldo, parcheggio.", "Найкращі застосунки - не ті, що мають найбільше функцій. Це ті, що швидко відповідають на реальні питання: чи йде потяг, чи корисний автобус, де найближча аптека, чи відкритий ресторан, чи буде надто спекотно, де припаркуватися."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Download offline maps before arrival, especially if you plan Monaco, Nice or Italy.", "Telechargez les cartes hors ligne avant l'arrivee, surtout pour Monaco, Nice ou l'Italie.", "Scarica mappe offline prima dell'arrivo, soprattutto per Monaco, Nizza o Italia.", "Завантажте offline maps до приїзду, особливо для Монако, Ніцци або Італії."),
+      t("Check official transport pages close to travel dates; airport bus and regional details can change.", "Verifiez les pages officielles de transport pres des dates; bus aeroport et informations regionales peuvent changer.", "Controlla le pagine ufficiali vicino alle date; bus aeroporto e dettagli regionali possono cambiare.", "Перевіряйте офіційні транспортні сторінки ближче до дати; airport bus і регіональні деталі можуть змінюватися."),
+      t("Save emergency numbers and apartment details offline, not only in messaging apps.", "Sauvegardez numeros d'urgence et details de l'appartement hors ligne, pas seulement dans les messageries.", "Salva numeri d'emergenza e dettagli appartamento offline, non solo nelle chat.", "Збережіть екстрені номери й дані апартаментів офлайн, не лише в месенджерах."),
+      t("For restaurants, compare app availability with the restaurant's own website.", "Pour les restaurants, comparez les disponibilites des apps avec le site du restaurant.", "Per ristoranti confronta la disponibilita app con il sito del ristorante.", "Для ресторанів порівнюйте доступність у застосунках із сайтом самого ресторану."),
+    ],
+  }),
+  shortArticle({
     id: "how-to-get-to-menton-from-nice-airport",
     slug: "how-to-get-to-menton-from-nice-airport",
     title: t("How to get to Menton from Nice Airport", "Comment aller a Menton depuis l'aeroport de Nice", "Come arrivare a Mentone dall'aeroporto di Nizza", "Як дістатися до Ментона з аеропорту Ніцци"),
@@ -2638,7 +2893,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2737,7 +2992,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -2791,7 +3046,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -3019,6 +3274,12 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       heading: section.heading[locale],
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),
+    })),
+    appTools: article.appTools?.map((tool) => ({
+      ...tool,
+      useFor: tool.useFor[locale],
+      bestFor: tool.bestFor[locale],
+      imageAlt: tool.imageAlt?.[locale],
     })),
     practicalTips: article.practicalTips?.map((tip) => tip[locale]),
   };
