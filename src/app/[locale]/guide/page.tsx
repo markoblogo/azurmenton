@@ -12,6 +12,7 @@ import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
 import { getPlaces } from "@/content/places";
+import { rivieraEvents, summerOnTheRivieraEvent } from "@/content/riviera-events";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -20,6 +21,14 @@ const labels = {
   en: {
     usefulPlaces: "Useful places in Menton",
     usefulIntro: "Addresses and local stops to help you plan food, walks, beaches and easy evenings. Check current hours before relying on a visit.",
+    clustersEyebrow: "Stay planning clusters",
+    clustersTitle: "Guide routes for common Menton trips",
+    clustersIntro: "Use these compact clusters when you are planning around a real travel need: children, no car, beaches, summer heat, day trips or practical errands.",
+    mainGuide: "Start with",
+    supportingGuides: "Related guides",
+    clusterPlaces: "Useful places",
+    clusterApartments: "Relevant apartments",
+    clusterEvents: "Related events",
     eventsTitle: "Planning around an event?",
     eventsText: "Menton and the nearby Riviera have a busy calendar, from the Lemon Festival and summer music to Monaco weekends and Nice events.",
     eventsCta: "View events calendar",
@@ -31,6 +40,14 @@ const labels = {
   fr: {
     usefulPlaces: "Adresses utiles a Menton",
     usefulIntro: "Lieux pratiques pour organiser cuisine, balades, plages et soirees faciles. Verifiez les horaires actuels avant de vous deplacer.",
+    clustersEyebrow: "Parcours de sejour",
+    clustersTitle: "Guides par besoin de voyage a Menton",
+    clustersIntro: "Utilisez ces groupes pour planifier un vrai besoin: enfants, sans voiture, plages, chaleur d'ete, excursions ou aspects pratiques.",
+    mainGuide: "Commencer par",
+    supportingGuides: "Guides lies",
+    clusterPlaces: "Lieux utiles",
+    clusterApartments: "Appartements pertinents",
+    clusterEvents: "Evenements lies",
     eventsTitle: "Vous venez pour un evenement?",
     eventsText: "Menton et la Riviera voisine ont un calendrier anime, de la Fete du Citron aux concerts d'ete, week-ends a Monaco et evenements a Nice.",
     eventsCta: "Voir le calendrier des evenements",
@@ -42,6 +59,14 @@ const labels = {
   it: {
     usefulPlaces: "Luoghi utili a Mentone",
     usefulIntro: "Indirizzi e tappe locali per organizzare cibo, passeggiate, spiagge e serate semplici. Controlla gli orari aggiornati prima della visita.",
+    clustersEyebrow: "Percorsi di soggiorno",
+    clustersTitle: "Guide per esigenze reali a Mentone",
+    clustersIntro: "Usa questi gruppi per pianificare bisogni concreti: bambini, senza auto, spiagge, caldo estivo, gite o aspetti pratici.",
+    mainGuide: "Inizia da",
+    supportingGuides: "Guide correlate",
+    clusterPlaces: "Luoghi utili",
+    clusterApartments: "Appartamenti pertinenti",
+    clusterEvents: "Eventi correlati",
     eventsTitle: "Stai pianificando per un evento?",
     eventsText: "Mentone e la Riviera vicina hanno un calendario vivace: Festa del Limone, musica estiva, weekend a Monaco ed eventi a Nizza.",
     eventsCta: "Vedi calendario eventi",
@@ -53,6 +78,14 @@ const labels = {
   uk: {
     usefulPlaces: "Корисні місця в Ментоні",
     usefulIntro: "Адреси й локальні зупинки для їжі, прогулянок, пляжів і спокійних вечорів. Перед візитом перевіряйте актуальні години роботи.",
+    clustersEyebrow: "Маршрути планування",
+    clustersTitle: "Гіди під реальні сценарії поїздки",
+    clustersIntro: "Використовуйте ці групи для практичного планування: діти, без авто, пляжі, літня спека, поїздки або побутові справи.",
+    mainGuide: "Почніть з",
+    supportingGuides: "Пов'язані гіди",
+    clusterPlaces: "Корисні місця",
+    clusterApartments: "Релевантні апартаменти",
+    clusterEvents: "Пов'язані події",
     eventsTitle: "Плануєте поїздку навколо події?",
     eventsText: "У Ментоні та на сусідній Рив'єрі насичений календар: Фестиваль лимонів, літня музика, вікенди в Монако та події в Ніцці.",
     eventsCta: "Переглянути календар подій",
@@ -119,6 +152,13 @@ export default async function GuideLandingPage({ params }: PageProps) {
       return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
     })
     .slice(0, 4);
+  const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
+  const getGuideTitle = (slug: string) => guideArticles.find((article) => article.slug === slug)?.title[safeLocale] ?? slug;
+  const getApartmentName = (slug: string) => apartments.find((apartment) => apartment.slug === slug)?.shortName[safeLocale] ?? slug;
+  const getEventTitle = (slug: string) => {
+    const event = allEvents.find((item) => item.slug === slug);
+    return event?.titleLocalized?.[safeLocale] ?? event?.title ?? slug;
+  };
 
   return (
     <>
@@ -202,6 +242,79 @@ export default async function GuideLandingPage({ params }: PageProps) {
       <Section className="bg-[#f8f3ea] py-10 sm:py-14">
         <Container>
           <GuideExplorer locale={safeLocale} articles={articles} />
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fffaf0] py-10 sm:py-14">
+        <Container>
+          <div className="mb-6 max-w-3xl">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{local.clustersEyebrow}</p>
+            <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{local.clustersTitle}</h2>
+            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.clustersIntro}</p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            {guideIntentClusters.map((cluster) => {
+              const places = getPlaces(cluster.relatedPlaceIds).slice(0, 4);
+              const events = (cluster.relatedEventSlugs ?? []).slice(0, 3);
+
+              return (
+                <section key={cluster.id} aria-labelledby={`guide-cluster-${cluster.id}`} className="border border-[#dfd2b8] bg-[#f8f3ea] p-5">
+                  <h3 id={`guide-cluster-${cluster.id}`} className="serif-heading text-2xl leading-none text-[#173f36]">{cluster.title[safeLocale]}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5c5044]">{cluster.excerpt[safeLocale]}</p>
+
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.mainGuide}</p>
+                      <Link className="mt-2 inline-flex text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}>
+                        {getGuideTitle(cluster.canonicalGuideSlug)}
+                      </Link>
+                    </div>
+                    <div>
+                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.supportingGuides}</p>
+                      <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5">
+                        {cluster.supportingGuideSlugs.slice(0, 4).map((slug) => (
+                          <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/guide/${slug}` as Route}>
+                            {getGuideTitle(slug)}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                    <div>
+                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterPlaces}</p>
+                      <ul className="mt-2 space-y-1.5 text-sm leading-5 text-[#5c5044]">
+                        {places.map((place) => <li key={place.id}>{place.name}</li>)}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterApartments}</p>
+                      <div className="mt-2 flex flex-col gap-1.5">
+                        {cluster.relatedApartmentKeys.slice(0, 3).map((slug) => (
+                          <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/apartments/${slug}` as Route}>
+                            {getApartmentName(slug)}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    {events.length ? (
+                      <div>
+                        <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterEvents}</p>
+                        <div className="mt-2 flex flex-col gap-1.5">
+                          {events.map((slug) => (
+                            <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/events/${slug}` as Route}>
+                              {getEventTitle(slug)}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
         </Container>
       </Section>
 
