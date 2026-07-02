@@ -74,6 +74,14 @@ const backlinkReviewExclusions = new Map(
     ["cimetiere-vieux-chateau", "museums-in-menton-nice-monaco", "supporting old-town context, covered by old-town/photo guides"],
     ["musee-massena-nice", "michelin-restaurants-menton-nice-monaco", "nearby Nice context, not restaurant content"],
     ["palais-lascaris-nice", "michelin-restaurants-menton-nice-monaco", "nearby Nice context, not restaurant content"],
+    ["plage-sablettes", "useful-apps-websites-menton-monaco-italian-riviera", "weather/offline-map example, covered by beach and family guides"],
+    ["promenade-du-soleil", "useful-apps-websites-menton-monaco-italian-riviera", "weather/offline-map example, covered by walk and stay guides"],
+    ["jardin-val-rahmeh", "useful-apps-websites-menton-monaco-italian-riviera", "weather fallback example, covered by garden and heat guides"],
+    ["musee-jean-cocteau-bastion", "useful-apps-websites-menton-monaco-italian-riviera", "indoor fallback example, covered by museum guides"],
+    ["mirazur-menton", "useful-apps-websites-menton-monaco-italian-riviera", "restaurant-app example, covered by restaurant guides"],
+    ["orangerie-menton", "useful-apps-websites-menton-monaco-italian-riviera", "restaurant-app example, covered by food and restaurant guides"],
+    ["le-louis-xv-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "restaurant-app example, covered by Monaco restaurant guides"],
+    ["flaveur-nice", "useful-apps-websites-menton-monaco-italian-riviera", "restaurant-app example, covered by Nice restaurant guides"],
   ].map(([placeId, articleSlug, reason]) => [`${placeId}|${articleSlug}`, reason]),
 );
 

@@ -101,7 +101,7 @@ const rawPlaces: Place[] = [
       "Природна перша зупинка для продуктів на пікнік, цитрусових смаколиків і ранкової атмосфери міста.",
     ),
     bestFor: [text("food lovers", "amateurs de cuisine", "amanti del cibo", "любителі їжі"), text("morning walk", "promenade du matin", "passeggiata mattutina", "ранкова прогулянка")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary"],
+    relatedArticleIds: ["stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-old-town", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "musee-jean-cocteau-bastion",
@@ -339,7 +339,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Main Menton hospital. For life-threatening situations, call 15 first; the hospital notes no dedicated pediatric emergency department.", "Principal hopital de Menton. En urgence vitale, appelez d'abord le 15; l'hopital indique ne pas avoir d'urgences pediatriques dediees.", "Ospedale principale di Mentone. In emergenza vitale chiama prima il 15; l'ospedale indica di non avere pronto soccorso pediatrico dedicato.", "Головна лікарня Ментона. У загрозливих ситуаціях спершу телефонуйте 15; лікарня зазначає, що не має окремого дитячого emergency."),
     bestFor: [text("urgent care", "soins urgents", "cure urgenti", "невідкладна допомога"), text("Menton", "Menton", "Mentone", "Ментон")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "stay-cool-in-menton-summer", "menton-without-a-car"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "hopitaux-pediatriques-nice-lenval",
@@ -411,7 +411,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("National police station for theft, assault, police reports and stolen documents.", "Commissariat national pour vols, agressions, declarations de police et documents voles.", "Commissariato nazionale per furti, aggressioni, denunce e documenti rubati.", "Національна поліція для крадіжок, нападів, заяв і викрадених документів."),
     bestFor: [text("police report", "declaration de police", "denuncia", "поліцейська заява"), text("lost or stolen documents", "documents perdus ou voles", "documenti persi o rubati", "втрачені або викрадені документи")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "police-municipale-menton",
@@ -447,7 +447,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Tourist office for maps, brochures, local events, guided tours and visitor information.", "Office de tourisme pour cartes, brochures, evenements locaux, visites guidees et informations visiteurs.", "Ufficio turistico per mappe, brochure, eventi locali, visite guidate e informazioni.", "Туристичний офіс для карт, брошур, подій, екскурсій та інформації для гостей."),
     bestFor: [text("visitor information", "information visiteurs", "informazioni turistiche", "туристична інформація"), text("maps", "cartes", "mappe", "карти")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "public-transport-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "mirazur-menton",
@@ -797,7 +797,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A larger supermarket for a proper apartment stock-up, especially useful by car or taxi.", "Un grand supermarche pour remplir l'appartement, surtout pratique en voiture ou taxi.", "Un supermercato grande per fare una spesa completa per l'appartamento, comodo soprattutto in auto o taxi.", "Більший супермаркет для повного запасу продуктів в апартаменти, особливо зручно авто або таксі."),
     bestFor: [text("large grocery shop", "grande course", "spesa grande", "велика закупівля"), text("families", "familles", "famiglie", "сім'ї")],
-    relatedArticleIds: ["menton-with-kids-family-guide", "supermarkets-in-menton"],
+    relatedArticleIds: ["menton-with-kids-family-guide", "supermarkets-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "intermarche-super-borrigo",
@@ -809,7 +809,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A practical western-side supermarket for regular groceries and household basics.", "Un supermarche pratique cote ouest pour courses courantes et produits de base.", "Un supermercato pratico sul lato ovest per spesa ordinaria e prodotti di base.", "Практичний супермаркет на західному боці для звичайних продуктів і базових речей."),
     bestFor: [text("general groceries", "courses courantes", "spesa quotidiana", "звичайні продукти"), text("guests with a car", "voyageurs avec voiture", "ospiti con auto", "гості з авто")],
-    relatedArticleIds: ["supermarkets-in-menton"],
+    relatedArticleIds: ["supermarkets-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "u-express-menton-centre",
@@ -845,7 +845,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A small central Carrefour for cold water, fruit, snacks and forgotten items.", "Un petit Carrefour central pour eau fraiche, fruits, snacks et oublis.", "Un piccolo Carrefour centrale per acqua fredda, frutta, snack e cose dimenticate.", "Невеликий центральний Carrefour для холодної води, фруктів, перекусів і забутих дрібниць."),
     bestFor: [text("quick top-ups", "petites courses", "piccoli acquisti", "швидкі покупки"), text("central errands", "courses centrales", "commissioni in centro", "справи в центрі")],
-    relatedArticleIds: ["supermarkets-in-menton"],
+    relatedArticleIds: ["supermarkets-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "carrefour-express-menton",
@@ -1148,7 +1148,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A rooftop-style option for a more elevated aperitif when open.", "Une option rooftop pour un aperitif plus panoramique lorsqu'elle est ouverte.", "Un'opzione rooftop per un aperitivo piu scenografico quando aperta.", "Rooftop-варіант для аперитиву з вищої точки, якщо він працює."),
     bestFor: [text("couples", "couples", "coppie", "пари"), text("evening view", "vue du soir", "vista serale", "вечірній краєвид")],
-    relatedArticleIds: ["bars-and-beer-in-menton", "nightlife-in-menton", "quiet-evening-in-menton", "menton-one-day-itinerary"],
+    relatedArticleIds: ["bars-and-beer-in-menton", "nightlife-in-menton", "quiet-evening-in-menton", "menton-one-day-itinerary", "menton-three-day-itinerary"],
   },
   {
     id: "les-incompris",
@@ -1183,7 +1183,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A classic old-town climb for colour, steps and sea-facing views.", "Une montee classique de la vieille ville, entre couleurs, marches et vues mer.", "Una salita classica nel centro storico tra colori, scale e vista mare.", "Класичний підйом старим містом: кольори, сходи й види на море."),
     bestFor: [text("views", "vues", "panorami", "краєвиди"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["quiet-evening-in-menton", "best-photo-spots-menton", "menton-one-day-itinerary", "menton-old-town", "halles-du-marche-menton", "stay-cool-in-menton-summer", "menton-three-day-itinerary"],
+    relatedArticleIds: ["quiet-evening-in-menton", "best-photo-spots-menton", "menton-one-day-itinerary", "menton-old-town", "halles-du-marche-menton", "stay-cool-in-menton-summer", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "promenade-du-soleil",
@@ -1207,6 +1207,11 @@ const rawPlaces: Place[] = [
       "nightlife-in-menton",
       "best-photo-spots-menton",
       "menton-one-day-itinerary",
+      "italian-riviera-day-trip-from-menton",
+      "menton-three-day-itinerary",
+      "menton-old-town",
+      "menton-without-a-car",
+      "where-to-stay-in-menton",
     ],
   },
   {
@@ -1218,7 +1223,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter marina walk for late afternoon or an easy evening detour.", "Une promenade de port plus calme pour la fin d'apres-midi ou le soir.", "Una passeggiata piu tranquilla al porto per il tardo pomeriggio o la sera.", "Спокійніша прогулянка біля марини наприкінці дня або ввечері."),
     bestFor: [text("quiet evening", "soiree calme", "serata tranquilla", "тихий вечір"), text("marina walk", "promenade au port", "passeggiata al porto", "прогулянка біля марини")],
-    relatedArticleIds: ["menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary"],
+    relatedArticleIds: ["menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "cimetiere-vieux-chateau",
@@ -1229,7 +1234,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quiet high viewpoint for panoramic Menton views; visit respectfully.", "Un belvedere calme en hauteur pour des vues panoramiques; a visiter avec respect.", "Un punto panoramico tranquillo in alto; da visitare con rispetto.", "Тиха висока точка з панорамою Ментона; відвідуйте з повагою."),
     bestFor: [text("panoramic views", "vues panoramiques", "vista panoramica", "панорамні краєвиди"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary"],
+    relatedArticleIds: ["stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "jardin-serre-de-la-madone",
@@ -1255,7 +1260,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A botanical stop to consider for garden lovers and slower itineraries.", "Une halte botanique a envisager pour les amateurs de jardins et les sejours lents.", "Una sosta botanica per chi ama i giardini e gli itinerari lenti.", "Ботанічна зупинка для любителів садів і повільних маршрутів."),
     bestFor: [text("gardens", "jardins", "giardini", "сади"), text("slow travel", "voyage lent", "viaggio lento", "повільна подорож")],
-    relatedArticleIds: ["best-photo-spots-menton", "menton-one-day-itinerary", "menton-in-autumn", "stay-cool-in-menton-summer", "michelin-restaurants-menton-nice-monaco"],
+    relatedArticleIds: ["best-photo-spots-menton", "menton-one-day-itinerary", "menton-in-autumn", "stay-cool-in-menton-summer", "michelin-restaurants-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car"],
   },
   {
     id: "plage-sablettes",
@@ -1277,6 +1282,9 @@ const rawPlaces: Place[] = [
       "nightlife-in-menton",
       "best-photo-spots-menton",
       "menton-three-day-itinerary",
+      "menton-old-town",
+      "menton-without-a-car",
+      "where-to-stay-in-menton",
     ],
   },
   {
@@ -1590,7 +1598,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A close autumn day or evening trip from Menton for harbour views, concerts, casino architecture and Riviera events.", "Une excursion proche depuis Menton en automne pour le port, les concerts, l'architecture du Casino et les evenements Riviera.", "Una gita vicina da Mentone in autunno per porto, concerti, architettura del Casino ed eventi in Riviera.", "Близька осіння поїздка з Ментона заради порту, концертів, архітектури Casino й подій Рив'єри."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("events", "evenements", "eventi", "події")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco"],
+    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "nice-old-town",
@@ -1601,7 +1609,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A compact Riviera day trip for lanes, cafes, Cours Saleya and a livelier city rhythm than Menton.", "Une excursion compacte pour ruelles, cafes, Cours Saleya et un rythme plus urbain que Menton.", "Una gita compatta per vicoli, cafe, Cours Saleya e un ritmo piu urbano di Mentone.", "Компактна поїздка на день заради вуличок, кафе, Cours Saleya й більш міського ритму, ніж у Ментоні."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("old town", "vieille ville", "centro storico", "старе місто")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "nightlife-in-menton", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco"],
+    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "nightlife-in-menton", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "villefranche-sur-mer",
@@ -1634,7 +1642,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("The closest Italian rail stop from Menton, useful for markets, Ligurian food and an easy cross-border walk day.", "La gare italienne la plus proche de Menton, utile pour les marches, la cuisine ligure et une journee facile de l'autre cote de la frontiere.", "La fermata italiana piu vicina a Mentone, utile per mercati, cucina ligure e una facile giornata oltre confine.", "Найближча італійська залізнична зупинка від Ментона, зручна для ринків, лігурійської їжі й легкої поїздки через кордон."),
     bestFor: [text("markets", "marches", "mercati", "ринки"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
-    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "bordighera",
@@ -1645,7 +1653,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("An elegant Italian Riviera stop beyond Ventimiglia, known for palm-lined promenades, villas, beaches and a quieter local mood.", "Une halte elegante de la Riviera italienne apres Vintimille, connue pour ses promenades de palmiers, villas, plages et ambiance plus locale.", "Una tappa elegante della Riviera italiana oltre Ventimiglia, nota per lungomare con palme, ville, spiagge e atmosfera piu locale.", "Елегантна зупинка Італійської Рив'єри за Вентімільєю: пальмові набережні, вілли, пляжі й тихіший локальний ритм."),
     bestFor: [text("seafront walks", "promenades en bord de mer", "passeggiate sul mare", "прогулянки набережною"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
-    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "sanremo",
@@ -1656,7 +1664,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A longer Italian Riviera day trip for promenades, old streets, cafes and a different Ligurian rhythm.", "Une excursion plus longue sur la Riviera italienne pour promenades, ruelles, cafes et un autre rythme ligure.", "Una gita piu lunga in Riviera italiana per passeggiate, vie antiche, cafe e un ritmo ligure diverso.", "Довша поїздка Італійською Рив'єрою заради променадів, старих вулиць, кафе й іншого лігурійського ритму."),
     bestFor: [text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію"), text("slow travel", "voyage lent", "viaggio lento", "повільна подорож")],
-    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "sentier-douaniers-menton",
