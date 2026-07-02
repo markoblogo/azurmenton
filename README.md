@@ -143,11 +143,14 @@ Photography lives under `public/images/apartments/` and selected homepage images
 Editorial guide content lives mainly in:
 
 - `src/content/guide.ts`
+- `src/content/guide-intents.ts`
 - `src/content/places.ts`
 - `src/components/guide/GuideExplorer.tsx`
 - `src/components/guide/PlaceCard.tsx`
 
 Place cards support local imagery, Google Maps links, related guide links and full-image lightbox previews. Do not scrape Google Maps photos, hotlink third-party images, invent ratings or publish unverified opening hours.
+
+Guide intent clusters in `src/content/guide-intents.ts` group existing articles around search intents such as family stays, car-free stays, beachfront stays, day trips, summer heat and practical errands. Keep cluster guide slugs, place ids and apartment keys synchronized with the article content graph.
 
 ### Events
 
@@ -229,7 +232,8 @@ docs/               Operational docs and archived working notes
 - Use cautious wording when details are not verified.
 - Prefer structured content updates over hardcoded page text.
 - Do not remove old event content solely because the date passed.
-- Future content scale work should move guide/events toward schema-validated JSON or YAML sources before introducing any CMS.
+- Run `npm run content:audit` after guide, place, event or apartment-linking changes.
+- TypeScript content modules remain the source of truth for now. Future content scale work should move guide/events toward schema-validated JSON or YAML sources before introducing any CMS.
 
 ## Deployment
 
