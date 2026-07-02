@@ -66,6 +66,20 @@ function guidePlaceCount(article) {
   return uniq([...(article.relatedPlaces ?? []), ...sectionPlaceIds(article)]).length;
 }
 
+const backlinkReviewExclusions = new Map(
+  [
+    ["halles-du-marche", "museums-in-menton-nice-monaco", "supporting old-town context near Menton museum stops"],
+    ["plage-sablettes", "museums-in-menton-nice-monaco", "supporting nearby stop, not a museum recommendation"],
+    ["cimetiere-vieux-chateau", "museums-in-menton-nice-monaco", "supporting old-town context, covered by old-town/photo guides"],
+    ["musee-massena-nice", "michelin-restaurants-menton-nice-monaco", "nearby Nice context, not restaurant content"],
+    ["palais-lascaris-nice", "michelin-restaurants-menton-nice-monaco", "nearby Nice context, not restaurant content"],
+  ].map(([placeId, articleSlug, reason]) => [`${placeId}|${articleSlug}`, reason]),
+);
+
+function backlinkExclusion(placeId, articleSlug) {
+  return backlinkReviewExclusions.get(`${placeId}|${articleSlug}`);
+}
+
 function printGroup(title, items, format = (item) => item, limit = 25) {
   console.log(`\n${title}: ${items.length}`);
   if (!items.length) {
@@ -96,10 +110,15 @@ const guidesWithoutApartmentCta = guideArticles
   .sort((left, right) => left.slug.localeCompare(right.slug));
 
 const placeBacklinkGaps = [];
+const placeBacklinkExclusions = [];
 for (const article of guideArticles) {
   for (const placeId of sectionPlaceIds(article)) {
     const place = places.find((candidate) => candidate.id === placeId);
-    if (place && !place.relatedArticleIds.includes(article.slug)) placeBacklinkGaps.push({ placeId, articleSlug: article.slug });
+    if (!place || place.relatedArticleIds.includes(article.slug)) continue;
+
+    const exclusion = backlinkExclusion(placeId, article.slug);
+    if (exclusion) placeBacklinkExclusions.push({ placeId, articleSlug: article.slug, reason: exclusion });
+    else placeBacklinkGaps.push({ placeId, articleSlug: article.slug });
   }
 }
 
@@ -164,6 +183,7 @@ printGroup(
 );
 printGroup("Guides without apartment CTA", guidesWithoutApartmentCta, (article) => article.slug);
 printGroup("Place backlink gaps", placeBacklinkGaps, (gap) => `${gap.placeId} missing ${gap.articleSlug}`);
+printGroup("Intentional supporting-card backlink exclusions", placeBacklinkExclusions, (gap) => `${gap.placeId} / ${gap.articleSlug}: ${gap.reason}`, 10);
 printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name})`);
 printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
 printGroup("Pending or unverified events", pendingEvents, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
