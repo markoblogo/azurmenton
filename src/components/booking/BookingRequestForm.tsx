@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { useActionState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import { useActionState, useCallback, useEffect, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
-import { bookingFunnelEvents, trackBookingFunnelEvent } from "@/lib/analytics";
+import { bookingFunnelEvents, daysBetweenDates, getBookingFunnelPageType, leadTimeDays, trackBookingFunnelEvent, type BookingFunnelProps } from "@/lib/analytics";
 
 const initialState: BookingRequestState = {
   status: "idle",
@@ -151,9 +152,39 @@ export function BookingRequestForm({
   locale: Locale;
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
+  const pathname = usePathname();
   const today = new Date().toISOString().slice(0, 10);
   const labels = formCopy[locale];
   const hasTrackedStart = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const bookingFunnelProps = useCallback((): BookingFunnelProps => {
+    const form = formRef.current;
+    const formData = form ? new FormData(form) : undefined;
+    const apartment = String(formData?.get("apartment") ?? "");
+    const checkIn = String(formData?.get("checkIn") ?? "");
+    const checkOut = String(formData?.get("checkOut") ?? "");
+    const adults = Number(formData?.get("adults") ?? 0);
+    const childrenCount = Number(formData?.get("children") ?? 0);
+    const nights = daysBetweenDates(checkIn, checkOut);
+    const leadDays = leadTimeDays(checkIn);
+
+    return {
+      locale,
+      page_path: pathname,
+      page_type: getBookingFunnelPageType(pathname),
+      apartment: apartment || "unset",
+      parking: String(formData?.get("parking") ?? "unset"),
+      preferred_language: String(formData?.get("preferredLanguage") ?? locale),
+      has_dates: Boolean(checkIn && checkOut),
+      has_email: Boolean(String(formData?.get("email") ?? "").trim()),
+      has_phone: Boolean(String(formData?.get("phone") ?? "").trim()),
+      has_message: Boolean(String(formData?.get("message") ?? "").trim()),
+      guests: (Number.isFinite(adults) ? adults : 0) + (Number.isFinite(childrenCount) ? childrenCount : 0),
+      ...(nights !== undefined ? { stay_nights: nights } : {}),
+      ...(leadDays !== undefined ? { lead_time_days: leadDays } : {}),
+    };
+  }, [locale, pathname]);
 
   function trackFormStart() {
     if (hasTrackedStart.current) {
@@ -161,21 +192,21 @@ export function BookingRequestForm({
     }
 
     hasTrackedStart.current = true;
-    trackBookingFunnelEvent(bookingFunnelEvents.bookingFormStart, { locale });
+    trackBookingFunnelEvent(bookingFunnelEvents.bookingFormStart, bookingFunnelProps());
   }
 
   useEffect(() => {
     if (state.status === "success") {
-      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitSuccess, { locale });
+      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitSuccess, bookingFunnelProps());
     }
 
     if (state.status === "error") {
-      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitError, { locale });
+      trackBookingFunnelEvent(bookingFunnelEvents.bookingRequestSubmitError, bookingFunnelProps());
     }
-  }, [locale, state.status]);
+  }, [bookingFunnelProps, state.status]);
 
   return (
-    <form action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel} onChange={trackFormStart} onFocus={trackFormStart}>
+    <form ref={formRef} action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel} onChange={trackFormStart} onFocus={trackFormStart} onSubmit={trackFormStart}>
       <div className="hidden" aria-hidden="true">
         <label>
           Website

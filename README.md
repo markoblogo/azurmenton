@@ -206,7 +206,9 @@ Canonical funnel event names:
 - `booking_request_submit_success`
 - `booking_request_submit_error`
 
-Keep event names stable and locale-agnostic.
+Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: `locale`, `page_type`, `page_path`, `apartment`, `parking`, `preferred_language`, `has_dates`, `has_email`, `has_phone`, `has_message`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
+
+Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, page type and apartment.
 
 ## Project Structure
 
