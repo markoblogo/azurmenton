@@ -162,20 +162,28 @@ async function fetchOpenMeteoSeaTemperature(latitude: string, longitude: string)
   }
 }
 
-export const getMentonWeather = unstable_cache(
+const getCachedOpenMeteoWeather = unstable_cache(
   async () => {
-    const provider = process.env.WEATHER_PROVIDER || "open-meteo";
-
-    if (provider !== "open-meteo") {
-      return null;
+    const weather = await fetchOpenMeteoWeather();
+    if (!weather) {
+      throw new Error("Open-Meteo weather unavailable");
     }
-
-    try {
-      return await fetchOpenMeteoWeather();
-    } catch {
-      return null;
-    }
+    return weather;
   },
-  ["menton-weather"],
+  ["menton-weather-v2"],
   { revalidate: weatherRevalidateSeconds },
 );
+
+export async function getMentonWeather() {
+  const provider = process.env.WEATHER_PROVIDER || "open-meteo";
+
+  if (provider !== "open-meteo") {
+    return null;
+  }
+
+  try {
+    return await getCachedOpenMeteoWeather();
+  } catch {
+    return null;
+  }
+}
