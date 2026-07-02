@@ -2694,6 +2694,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "sncf-connect",
         name: "SNCF Connect",
+        image: "/images/guide/app-sncf-connect.jpg",
+        imageAlt: t("SNCF Connect app card illustration", "Illustration de la carte de l'application SNCF Connect", "Illustrazione della scheda app SNCF Connect", "Ілюстрація картки застосунку SNCF Connect"),
         useFor: t("French train times, tickets and live traffic between Menton, Monaco, Nice and the rest of France.", "Horaires, billets et trafic en direct pour les trains francais entre Menton, Monaco, Nice et le reste de la France.", "Orari, biglietti e traffico in tempo reale per i treni francesi tra Mentone, Monaco, Nizza e il resto della Francia.", "Розклад, квитки й live traffic для французьких потягів між Ментоном, Монако, Ніццою та рештою Франції."),
         bestFor: t("Regional train days", "Journees en train regional", "Giornate in treno regionale", "Дні з регіональними потягами"),
         visualTheme: "transport",
@@ -2703,6 +2705,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "trenitalia",
         name: "Trenitalia",
+        image: "/images/guide/app-trenitalia.jpg",
+        imageAlt: t("Trenitalia app card illustration", "Illustration de la carte de l'application Trenitalia", "Illustrazione della scheda app Trenitalia", "Ілюстрація картки застосунку Trenitalia"),
         useFor: t("Italian regional trains for Ventimiglia, Bordighera, Sanremo and longer Ligurian trips.", "Trains regionaux italiens pour Vintimille, Bordighera, Sanremo et les trajets plus longs en Ligurie.", "Treni regionali italiani per Ventimiglia, Bordighera, Sanremo e viaggi liguri piu lunghi.", "Італійські регіональні потяги до Ventimiglia, Bordighera, Sanremo та довших поїздок Лігурією."),
         bestFor: t("Italy day trips", "Excursions en Italie", "Gite in Italia", "Поїздки в Італію"),
         visualTheme: "transport",
@@ -2712,6 +2716,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "google-maps",
         name: "Google Maps",
+        image: "/images/guide/app-google-maps.jpg",
+        imageAlt: t("Google Maps app card illustration", "Illustration de la carte de l'application Google Maps", "Illustrazione della scheda app Google Maps", "Ілюстрація картки застосунку Google Maps"),
         useFor: t("Offline maps, walking routes, restaurants, pharmacies, supermarkets and saved apartment addresses.", "Cartes hors ligne, itineraires a pied, restaurants, pharmacies, supermarches et adresses d'appartement sauvegardees.", "Mappe offline, percorsi a piedi, ristoranti, farmacie, supermercati e indirizzi appartamento salvati.", "Offline maps, пішохідні маршрути, ресторани, аптеки, супермаркети й збережені адреси апартаментів."),
         bestFor: t("Everyday orientation", "Orientation quotidienne", "Orientamento quotidiano", "Щоденна навігація"),
         visualTheme: "walk",
@@ -2721,6 +2727,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "meteo-france",
         name: "Meteo-France",
+        image: "/images/guide/app-meteo-france.jpg",
+        imageAlt: t("Meteo-France app card illustration", "Illustration de la carte de l'application Meteo-France", "Illustrazione della scheda app Meteo-France", "Ілюстрація картки застосунку Meteo-France"),
         useFor: t("Official French forecasts, Vigilance alerts, heat, storms and rain timing.", "Previsions officielles francaises, Vigilance, chaleur, orages et horaires de pluie.", "Previsioni ufficiali francesi, allerte Vigilance, caldo, temporali e pioggia.", "Офіційний французький прогноз, Vigilance alerts, спека, грози й час дощу."),
         bestFor: t("Summer and storm planning", "Plans d'ete et d'orage", "Piani estivi e temporali", "Літні плани й грози"),
         visualTheme: "sea",
@@ -2730,6 +2738,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "windy",
         name: "Windy",
+        image: "/images/guide/app-windy.jpg",
+        imageAlt: t("Windy app card illustration", "Illustration de la carte de l'application Windy", "Illustrazione della scheda app Windy", "Ілюстрація картки застосунку Windy"),
         useFor: t("Wind, sea, waves and rain radar when beach, boat or photography plans depend on conditions.", "Vent, mer, vagues et radar de pluie quand plage, bateau ou photos dependent des conditions.", "Vento, mare, onde e radar pioggia quando spiaggia, barca o foto dipendono dalle condizioni.", "Вітер, море, хвилі й rain radar, коли пляж, човен або фото залежать від умов."),
         bestFor: t("Sea and weather detail", "Details mer et meteo", "Dettagli mare e meteo", "Море й детальна погода"),
         visualTheme: "sea",
@@ -2739,6 +2749,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "thefork",
         name: "TheFork",
+        image: "/images/guide/app-thefork.jpg",
+        imageAlt: t("TheFork app card illustration", "Illustration de la carte de l'application TheFork", "Illustrazione della scheda app TheFork", "Ілюстрація картки застосунку TheFork"),
         useFor: t("Restaurant availability, booking slots and a quick second check before calling directly.", "Disponibilites de restaurants, creneaux de reservation et verification rapide avant d'appeler directement.", "Disponibilita ristoranti, slot di prenotazione e controllo rapido prima di chiamare direttamente.", "Доступність ресторанів, слоти бронювання й швидка перевірка перед прямим дзвінком."),
         bestFor: t("Easy restaurant booking", "Reservation simple", "Prenotazioni facili", "Прості бронювання ресторанів"),
         visualTheme: "food",
@@ -2748,6 +2760,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "michelin-guide",
         name: "MICHELIN Guide",
+        image: "/images/guide/app-michelin-guide.jpg",
+        imageAlt: t("MICHELIN Guide app card illustration", "Illustration de la carte de l'application Guide MICHELIN", "Illustrazione della scheda app Guida MICHELIN", "Ілюстрація картки застосунку MICHELIN Guide"),
         useFor: t("Selected restaurants, Bib Gourmand addresses, starred dining and hotel notes around Menton, Monaco and Nice.", "Restaurants selectionnes, Bib Gourmand, tables etoilees et notes d'hotels autour de Menton, Monaco et Nice.", "Ristoranti selezionati, Bib Gourmand, stellati e note hotel tra Mentone, Monaco e Nizza.", "Selected restaurants, Bib Gourmand, зіркові ресторани й готелі навколо Ментона, Монако та Ніцци."),
         bestFor: t("Special meals", "Repas particuliers", "Pasti speciali", "Особливі вечері"),
         visualTheme: "food",
@@ -2757,6 +2771,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "monapass",
         name: "Monapass",
+        image: "/images/guide/app-monapass.jpg",
+        imageAlt: t("Monapass app card illustration", "Illustration de la carte de l'application Monapass", "Illustrazione della scheda app Monapass", "Ілюстрація картки застосунку Monapass"),
         useFor: t("Monaco mobility, public transport and local ticketing in one official app.", "Mobilite, transport public et billetterie locale de Monaco dans une application officielle.", "Mobilita, trasporto pubblico e biglietteria locale di Monaco in un'app ufficiale.", "Мобільність Монако, громадський транспорт і локальні квитки в одному офіційному застосунку."),
         bestFor: t("Monaco days", "Journees a Monaco", "Giornate a Monaco", "Дні в Монако"),
         visualTheme: "transport",
@@ -2766,6 +2782,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "lignes-dazur",
         name: "Lignes d'Azur",
+        image: "/images/guide/app-lignes-dazur.jpg",
+        imageAlt: t("Lignes d'Azur app card illustration", "Illustration de la carte de l'application Lignes d'Azur", "Illustrazione della scheda app Lignes d'Azur", "Ілюстрація картки застосунку Lignes d'Azur"),
         useFor: t("Nice tram and bus planning when you go beyond the train station.", "Tram et bus a Nice quand vous allez au-dela de la gare.", "Tram e bus a Nizza quando vai oltre la stazione.", "Трамваї й автобуси Ніцци, якщо ви їдете далі за вокзал."),
         bestFor: t("Nice city transport", "Transport urbain a Nice", "Trasporto urbano a Nizza", "Міський транспорт Ніцци"),
         visualTheme: "transport",
@@ -2775,6 +2793,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "paybyphone",
         name: "PayByPhone",
+        image: "/images/guide/app-paybyphone.jpg",
+        imageAlt: t("PayByPhone app card illustration", "Illustration de la carte de l'application PayByPhone", "Illustrazione della scheda app PayByPhone", "Ілюстрація картки застосунку PayByPhone"),
         useFor: t("Paid on-street parking sessions in Menton, Nice and other supported towns.", "Stationnement payant en voirie a Menton, Nice et autres villes compatibles.", "Parcheggio su strada a pagamento a Mentone, Nizza e altre citta supportate.", "Платне вуличне паркування в Ментоні, Ніцці та інших підтримуваних містах."),
         bestFor: t("Drivers", "Conducteurs", "Chi guida", "Для водіїв"),
         visualTheme: "transport",
@@ -2784,6 +2804,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "google-translate",
         name: "Google Translate",
+        image: "/images/guide/app-google-translate.jpg",
+        imageAlt: t("Google Translate app card illustration", "Illustration de la carte de l'application Google Translate", "Illustrazione della scheda app Google Translate", "Ілюстрація картки застосунку Google Translate"),
         useFor: t("Camera translation, menus, pharmacy labels, offline language packs and quick spoken phrases.", "Traduction camera, menus, etiquettes de pharmacie, packs hors ligne et phrases rapides.", "Traduzione con camera, menu, etichette in farmacia, pacchetti offline e frasi rapide.", "Camera translation, меню, аптечні етикетки, offline мовні пакети й короткі фрази."),
         bestFor: t("Fast practical translation", "Traduction pratique rapide", "Traduzione pratica veloce", "Швидкий практичний переклад"),
         visualTheme: "itinerary",
@@ -2793,6 +2815,8 @@ export const guideArticles: GuideArticle[] = [
       {
         id: "deepl",
         name: "DeepL",
+        image: "/images/guide/app-deepl.jpg",
+        imageAlt: t("DeepL app card illustration", "Illustration de la carte de l'application DeepL", "Illustrazione della scheda app DeepL", "Ілюстрація картки застосунку DeepL"),
         useFor: t("More natural written messages in French, Italian, English and Ukrainian.", "Messages ecrits plus naturels en francais, italien, anglais et ukrainien.", "Messaggi scritti piu naturali in francese, italiano, inglese e ucraino.", "Природніші письмові повідомлення французькою, італійською, англійською та українською."),
         bestFor: t("Messages and longer text", "Messages et textes plus longs", "Messaggi e testi piu lunghi", "Повідомлення й довші тексти"),
         visualTheme: "itinerary",
