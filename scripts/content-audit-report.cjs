@@ -182,6 +182,14 @@ const expiredEvents = allEvents
   .filter((event) => getEventDateStatus(event, today) === "past")
   .sort((left, right) => left.slug.localeCompare(right.slug));
 
+const expiredEventsNeedingSourceReview = expiredEvents
+  .filter((event) => event.sourceStatus !== "verified")
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const expiredEventArchive = expiredEvents
+  .filter((event) => event.sourceStatus === "verified")
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
 const expiredFeaturedEvents = expiredEvents
   .filter((event) => event.featured)
   .sort((left, right) => left.slug.localeCompare(right.slug));
@@ -211,7 +219,8 @@ printGroup("Intentional supporting-card backlink exclusions", placeBacklinkExclu
 printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name})`);
 printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
 printGroup("Pending or unverified events", pendingEvents, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
-printGroup("Expired events", expiredEvents, (event) => `${event.slug} (${event.dateLabel})`);
+printGroup("Expired events needing source review", expiredEventsNeedingSourceReview, (event) => `${event.slug} (${event.dateLabel}, ${event.sourceStatus})`);
+printGroup("Verified expired event archive", expiredEventArchive, (event) => `${event.slug} (${event.dateLabel})`);
 printGroup("Expired featured events", expiredFeaturedEvents, (event) => `${event.slug} (${event.dateLabel})`);
 printGroup("Event detail pages without apartment links", eventApartmentGaps, (event) => event.slug);
 
@@ -223,7 +232,7 @@ const totalActionItems =
   orphanPlaces.length +
   orphanArticles.length +
   pendingEvents.length +
-  expiredEvents.length +
+  expiredEventsNeedingSourceReview.length +
   expiredFeaturedEvents.length +
   eventApartmentGaps.length;
 
