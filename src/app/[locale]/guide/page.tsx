@@ -10,6 +10,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
+import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
 import { getPlaces } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -77,6 +78,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
+  const intentCopy = guideIntentClusterLabels[safeLocale];
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "guide"));
   const articles = guideArticles.map((article) => {
     const localized = localizeGuideArticle(article, safeLocale);
@@ -171,6 +173,31 @@ export default async function GuideLandingPage({ params }: PageProps) {
           </div>
         </Container>
       </section>
+
+      <Section className="bg-[#fffaf0] py-8 sm:py-10">
+        <Container>
+          <div className="mb-5 max-w-3xl">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{intentCopy.eyebrow}</p>
+            <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{intentCopy.title}</h2>
+            <p className="mt-3 text-sm leading-7 text-[#5c5044]">{intentCopy.intro}</p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {guideIntentClusters.map((cluster) => (
+              <Link
+                key={cluster.id}
+                href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}
+                className="group flex min-h-36 flex-col justify-between border border-[#dfd2b8] bg-[#f8f3ea] p-4 transition hover:border-[#173f36] hover:bg-[#f3ead7]"
+              >
+                <div>
+                  <h3 className="serif-heading text-xl leading-[1.08] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
+                  <p className="mt-3 text-xs leading-5 text-[#5c5044]">{cluster.excerpt[safeLocale]}</p>
+                </div>
+                <span className="mt-5 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">{intentCopy.cta}</span>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       <Section className="bg-[#f8f3ea] py-10 sm:py-14">
         <Container>
