@@ -12,6 +12,7 @@
     "content:audit": "vitest run tests/unit/content-audit.test.ts",
     "content:report": "node scripts/content-audit-report.cjs",
     "booking:funnel": "node scripts/booking-funnel-report.cjs",
+    "perf:csp": "node scripts/csp-cache-audit.cjs",
     "test:e2e": "playwright test",
     "images:generate": "node scripts/generate-image-derivatives.mjs",
     "images:check": "node scripts/check-image-derivatives.mjs",

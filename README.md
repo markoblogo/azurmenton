@@ -192,6 +192,8 @@ Security configuration lives mainly in:
 
 The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Do not reintroduce `unsafe-inline` in production CSP.
 
+Run `npm run perf:csp` after `npm run build` for the current CSP/cache audit. Notes and follow-up options live in `docs/csp-cache-audit.md`.
+
 ### Analytics
 
 Analytics is intentionally limited:
