@@ -1355,7 +1355,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1514,6 +1514,7 @@ export const guideArticles: GuideArticle[] = [
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "useful-apps-websites-menton-monaco-italian-riviera",
+      "menton-with-kids-family-guide",
       "menton-without-a-car",
       "useful-numbers-emergency-contacts-menton",
       "supermarkets-in-menton",
@@ -1743,6 +1744,167 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "menton-with-kids-family-guide",
+    slug: "menton-with-kids-family-guide",
+    title: t("Menton with kids: a practical family guide", "Menton avec enfants: guide pratique en famille", "Mentone con bambini: guida pratica per famiglie", "Ментон з дітьми: практичний сімейний гід"),
+    seoTitle: t("Menton with Kids: Beaches, Play Areas and Easy Family Days", "Menton avec enfants: plages, jeux et journees faciles", "Mentone con bambini: spiagge, giochi e giornate facili", "Ментон з дітьми: пляжі, ігри та прості сімейні дні"),
+    seoDescription: t("A practical family guide to Menton with children: beaches, stroller walks, kids' parks, indoor play areas, supermarkets, museums, cinemas, water parks and family day trips near Monaco, Nice and Italy.", "Guide pratique de Menton avec enfants: plages, promenades en poussette, parcs, jeux indoor, supermarches, musees, cinemas, parcs aquatiques et excursions famille vers Monaco, Nice et l'Italie.", "Guida pratica a Mentone con bambini: spiagge, passeggiate con passeggino, parchi, giochi indoor, supermercati, musei, cinema, parchi acquatici e gite in famiglia verso Monaco, Nizza e Italia.", "Практичний гід по Ментону з дітьми: пляжі, прогулянки з візком, дитячі парки, indoor play, супермаркети, музеї, кіно, аквапарки та сімейні поїздки до Монако, Ніцци й Італії."),
+    excerpt: t("Menton works well with children when the rhythm is simple: an easy beach, a flat walk, cold drinks nearby, a cool pause and a backup plan for heat or rain.", "Menton fonctionne tres bien avec des enfants quand le rythme reste simple: plage facile, promenade plate, boissons fraiches proches, pause au frais et plan B pour chaleur ou pluie.", "Mentone funziona bene con bambini quando il ritmo e semplice: spiaggia facile, passeggiata piana, bevande fredde vicine, pausa al fresco e piano B per caldo o pioggia.", "Ментон добре підходить для дітей, якщо ритм простий: зручний пляж, рівна прогулянка, холодні напої поруч, прохолодна пауза й запасний план на спеку або дощ."),
+    category: "with-children",
+    coverImage: "/images/guide/menton-with-kids-family-guide.jpg",
+    coverImageAlt: t("Illustration of a family day in Menton with children", "Illustration d'une journee en famille a Menton avec enfants", "Illustrazione di una giornata in famiglia a Mentone con bambini", "Ілюстрація сімейного дня в Ментоні з дітьми"),
+    visualTheme: "family",
+    visualStatus: "project_illustration",
+    tags: [
+      t("children", "enfants", "bambini", "діти"),
+      t("families", "familles", "famiglie", "сім'ї"),
+      t("beaches", "plages", "spiagge", "пляжі"),
+      t("playgrounds", "aires de jeux", "parchi giochi", "майданчики"),
+      t("rainy day", "jour de pluie", "giorno di pioggia", "дощовий день"),
+      t("heatwave", "canicule", "ondata di caldo", "спека"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца"),
+      t("family apartment", "appartement famille", "appartamento famiglia", "сімейні апартаменти"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[5].label, guideBestForOptions[8].label, guideBestForOptions[10].label, guideBestForOptions[11].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "seafront", "garavan", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "plage-sablettes",
+      "plage-fossan",
+      "rondelli-garavan-side",
+      "promenade-du-soleil",
+      "port-de-garavan",
+      "koaland-menton",
+      "intermarche-hyper-menton",
+      "u-express-menton-centre",
+      "cinema-eden-menton",
+      "musee-jean-cocteau-bastion",
+      "oceanographic-museum-monaco",
+      "prince-monaco-car-collection",
+      "cap3000-saint-laurent-du-var",
+      "la-tete-dans-les-nuages-cap3000",
+      "shopping-promenade-riviera",
+      "ultra-polygone",
+      "bricks-4-kidz-nice-etoile",
+      "kids-city-nice",
+      "fun-city-cannes",
+      "piscine-alex-jany-menton",
+      "stade-nautique-rainier-iii-monaco",
+      "aquasplash-antibes",
+      "antibes-land",
+      "village-des-fous",
+      "bois-des-lutins",
+      "pitchoun-forest",
+      "canyon-forest",
+      "larvotto-beach-playground",
+      "parc-princesse-antoinette-monaco",
+    ],
+    relatedArticles: [
+      "best-beaches-in-menton",
+      "stay-cool-in-menton-summer",
+      "supermarkets-in-menton",
+      "cinemas-in-menton-nice-monaco",
+      "museums-in-menton-nice-monaco",
+      "public-transport-in-menton",
+      "day-trips-from-menton",
+      "useful-numbers-emergency-contacts-menton",
+      "menton-without-a-car",
+      "where-to-stay-in-menton",
+      "useful-apps-websites-menton-monaco-italian-riviera",
+    ],
+    relatedEvents: ["amusement-park-monaco", "menton-lemon-festival", "nice-carnival"],
+    relatedApartments: ["beachside-family-apartment", "sea-view-balcony-studio", "panoramic-sea-view-studio"],
+    sections: [
+      {
+        heading: t("Quick family overview", "Apercu famille rapide", "Panoramica rapida per famiglie", "Короткий сімейний огляд"),
+        body: [
+          t("Menton is smaller and calmer than Nice, less intense than Monaco and easier to manage on foot than many hill towns on the Riviera. For families, that matters more than a long list of sights.", "Menton est plus petite et plus calme que Nice, moins intense que Monaco et plus simple a gerer a pied que beaucoup de villages perches de la Riviera. En famille, cela compte plus qu'une longue liste de visites.", "Mentone e piu piccola e calma di Nizza, meno intensa di Monaco e piu facile a piedi rispetto a molti borghi in collina della Riviera. In famiglia conta piu di una lunga lista di cose da vedere.", "Ментон менший і спокійніший за Ніццу, менш інтенсивний за Монако й простіший пішки, ніж багато пагорбових міст Рив'єри. Для сімей це важливіше за довгий список пам'яток."),
+          t("The best family day is usually simple: a short walk, a beach that is easy to reach, food and toilets nearby, a cool indoor pause and enough flexibility to stop before everyone is tired.", "La meilleure journee en famille reste souvent simple: courte marche, plage facile, nourriture et toilettes proches, pause au frais et assez de souplesse pour s'arreter avant la fatigue.", "La migliore giornata in famiglia e spesso semplice: passeggiata breve, spiaggia facile, cibo e servizi vicini, pausa al fresco e flessibilita per fermarsi prima della stanchezza.", "Найкращий сімейний день часто простий: коротка прогулянка, зручний пляж, їжа й туалети поруч, прохолодна пауза та гнучкість зупинитися до втоми."),
+        ],
+        bullets: [
+          t("Easiest beach with small children: Plage des Sablettes.", "Plage la plus facile avec jeunes enfants: Plage des Sablettes.", "Spiaggia piu facile con bambini piccoli: Plage des Sablettes.", "Найзручніший пляж із малими дітьми: Plage des Sablettes."),
+          t("Best flat walk: Promenade du Soleil toward Sablettes, the old port and Garavan.", "Meilleure marche plate: Promenade du Soleil vers Sablettes, le vieux port et Garavan.", "Passeggiata piana migliore: Promenade du Soleil verso Sablettes, vecchio porto e Garavan.", "Найкраща рівна прогулянка: Promenade du Soleil до Sablettes, старого порту й Garavan."),
+          t("Best local children's activity: Koaland.", "Meilleure activite locale enfants: Koaland.", "Migliore attivita locale per bambini: Koaland.", "Найкраща локальна дитяча активність: Koaland."),
+          t("Best Monaco family day: Oceanographic Museum plus a playground or Port Hercule walk.", "Meilleure journee famille a Monaco: Musee oceanographique plus aire de jeux ou marche au Port Hercule.", "Migliore giornata famiglia a Monaco: Museo Oceanografico piu parco giochi o passeggiata a Port Hercule.", "Найкращий сімейний день у Монако: Океанографічний музей плюс майданчик або прогулянка Port Hercule."),
+        ],
+      },
+      {
+        heading: t("Best beaches and stroller-friendly walks", "Plages faciles et promenades en poussette", "Spiagge facili e passeggiate con passeggino", "Зручні пляжі й прогулянки з візком"),
+        body: [
+          t("Plage des Sablettes is the easiest first beach for many families: old town, port, cafes, restaurants and the wide esplanade are all close. Bring water shoes even here, because Menton beaches mix fine gravel and pebbles.", "La Plage des Sablettes est souvent la premiere plage la plus facile: vieille ville, port, cafes, restaurants et large esplanade sont proches. Meme ici, prevoyez des chaussures d'eau: les plages de Menton melangent gravier fin et galets.", "Plage des Sablettes e spesso la prima spiaggia piu facile: centro storico, porto, cafe, ristoranti e grande esplanade sono vicini. Anche qui porta scarpe da mare: le spiagge di Mentone hanno ghiaia fine e ciottoli.", "Plage des Sablettes часто найзручніший перший пляж: старе місто, порт, кафе, ресторани й широка еспланада поруч. Навіть тут беріть взуття для води: пляжі Ментона мають дрібний гравій і гальку."),
+          t("For short swims, Plage du Fossan is useful because it is central. For calmer mornings, the Rondelli and Garavan side gives more space and a quieter rhythm.", "Pour les baignades courtes, Plage du Fossan est pratique car centrale. Pour des matins plus calmes, le cote Rondelli et Garavan donne plus d'espace et un rythme plus doux.", "Per bagni brevi Plage du Fossan e pratica perche centrale. Per mattine piu tranquille, il lato Rondelli e Garavan offre piu spazio e un ritmo piu calmo.", "Для короткого купання зручний Plage du Fossan, бо він центральний. Для тихіших ранків Rondelli й Garavan дають більше простору й спокійніший ритм."),
+          t("The seafront is the easiest stroller route: Promenade du Soleil, Sablettes, the old port and Port de Garavan can be adjusted from ten minutes to a full slow walk.", "Le front de mer est l'itineraire poussette le plus simple: Promenade du Soleil, Sablettes, vieux port et Port de Garavan se modulent de dix minutes a une vraie marche lente.", "Il lungomare e il percorso piu facile con passeggino: Promenade du Soleil, Sablettes, vecchio porto e Port de Garavan si adattano da dieci minuti a una lunga passeggiata lenta.", "Набережна - найпростіший маршрут із візком: Promenade du Soleil, Sablettes, старий порт і Port de Garavan можна скоротити до 10 хвилин або розтягнути на повільну прогулянку."),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "plage-fossan", "rondelli-garavan-side", "promenade-du-soleil", "port-de-garavan"],
+      },
+      {
+        heading: t("Local family activities in Menton", "Activites famille a Menton", "Attivita famiglia a Mentone", "Сімейні активності в Ментоні"),
+        body: [
+          t("Koaland is the most obvious dedicated children's activity in Menton: a small amusement park close to the beach, best for younger children and low-pressure fun.", "Koaland est l'activite enfants la plus evidente a Menton: un petit parc de loisirs pres de la plage, surtout pour jeunes enfants et amusement sans pression.", "Koaland e l'attivita per bambini piu evidente a Mentone: un piccolo parco vicino alla spiaggia, ideale per bambini piccoli e divertimento semplice.", "Koaland - найочевидніша дитяча активність у Ментоні: невеликий парк розваг біля пляжу, найкращий для молодших дітей і легкого дозвілля."),
+          t("For everyday family logistics, supermarkets and pharmacies matter as much as attractions: cold water, fruit, yoghurt, wipes, diapers, sunscreen, after-sun and easy apartment meals keep the day calmer.", "Pour la logistique famille, supermarches et pharmacies comptent autant que les attractions: eau fraiche, fruits, yaourts, lingettes, couches, creme solaire, apres-soleil et repas simples a l'appartement rendent la journee plus calme.", "Per la logistica familiare, supermercati e farmacie contano quanto le attrazioni: acqua fredda, frutta, yogurt, salviette, pannolini, crema solare, doposole e pasti semplici in appartamento rendono la giornata piu calma.", "Для сімейної логістики супермаркети й аптеки не менш важливі за атракції: холодна вода, фрукти, йогурт, серветки, підгузки, сонцезахист, after-sun і прості страви в апартаментах роблять день спокійнішим."),
+          t("Cinéma Eden, Le Bastion and small museums can also save a hot or rainy afternoon when children need a reset rather than another beach session.", "Le Cinema Eden, Le Bastion et les petits musees peuvent sauver un apres-midi chaud ou pluvieux quand les enfants ont besoin d'une pause plutot que d'une autre plage.", "Cinema Eden, Le Bastion e piccoli musei possono salvare un pomeriggio caldo o piovoso quando i bambini hanno bisogno di pausa invece di un'altra spiaggia.", "Cinéma Eden, Le Bastion і невеликі музеї можуть врятувати спекотний або дощовий пообідній час, коли дітям потрібне перезавантаження, а не ще один пляж."),
+        ],
+        relatedPlaceIds: ["koaland-menton", "intermarche-hyper-menton", "u-express-menton-centre", "cinema-eden-menton", "musee-jean-cocteau-bastion"],
+      },
+      {
+        heading: t("Indoor play, shopping centres and rainy-day backups", "Jeux indoor, centres commerciaux et plans pluie", "Giochi indoor, centri commerciali e piani pioggia", "Indoor play, торгові центри й плани на дощ"),
+        body: [
+          t("CAP3000 is one of the strongest family shopping-centre options near the airport side, especially when you need lunch, errands, air conditioning and a children's play break in one stop.", "CAP3000 est l'une des meilleures options centre commercial cote aeroport, surtout si vous voulez dejeuner, courses, climatisation et pause jeu enfants au meme endroit.", "CAP3000 e una delle migliori opzioni centro commerciale lato aeroporto, soprattutto se servono pranzo, commissioni, aria condizionata e pausa gioco bambini nello stesso posto.", "CAP3000 - один із найсильніших сімейних торгових центрів біля аеропорту, коли потрібні обід, покупки, кондиціонер і дитяча пауза в одному місці."),
+          t("Kid's City Nice is a more direct indoor play option for children who need to climb, slide and move on rainy or very hot days. Shopping Promenade Riviera and Nice Etoile are useful when you combine errands with a children's activity.", "Kid's City Nice est une option plus directe de jeu indoor pour grimper, glisser et bouger les jours de pluie ou de forte chaleur. Shopping Promenade Riviera et Nice Etoile sont utiles quand courses et activite enfants se combinent.", "Kid's City Nice e un'opzione indoor piu diretta per arrampicarsi, scivolare e muoversi nei giorni piovosi o molto caldi. Shopping Promenade Riviera e Nice Etoile aiutano quando unisci commissioni e attivita bambini.", "Kid's City Nice - пряміший indoor-варіант, де діти можуть лазити, кататися й рухатися в дощ або сильну спеку. Shopping Promenade Riviera і Nice Étoile корисні, коли треба поєднати покупки й дитячу активність."),
+        ],
+        relatedPlaceIds: ["cap3000-saint-laurent-du-var", "la-tete-dans-les-nuages-cap3000", "shopping-promenade-riviera", "ultra-polygone", "bricks-4-kidz-nice-etoile", "kids-city-nice", "fun-city-cannes"],
+      },
+      {
+        heading: t("Pools, water parks and active day trips", "Piscines, parcs aquatiques et sorties actives", "Piscine, parchi acquatici e gite attive", "Басейни, аквапарки й активні поїздки"),
+        body: [
+          t("For a swim away from pebbles and waves, check Piscine Alex Jany in Menton or the outdoor Stade Nautique Rainier III in Monaco. Public pool schedules change, so verify current hours before promising the plan to children.", "Pour nager loin des galets et vagues, regardez la Piscine Alex Jany a Menton ou le Stade Nautique Rainier III a Monaco. Les horaires de piscines changent: verifiez avant de promettre le plan aux enfants.", "Per nuotare lontano da ciottoli e onde, guarda Piscine Alex Jany a Mentone o Stade Nautique Rainier III a Monaco. Gli orari delle piscine cambiano: verifica prima di prometterlo ai bambini.", "Для плавання без гальки й хвиль перевірте Piscine Alex Jany у Ментоні або Stade Nautique Rainier III у Монако. Розклад басейнів змінюється, тому перевіряйте години до того, як пообіцяти це дітям."),
+          t("Aquasplash Antibes, Antibes Land and the Villeneuve-Loubet adventure parks are bigger outings. They are best for longer stays, older children or families with a car rather than a first relaxed Menton day.", "Aquasplash Antibes, Antibes Land et les parcs de Villeneuve-Loubet sont de plus grandes sorties. Ils conviennent mieux aux longs sejours, grands enfants ou familles avec voiture qu'au premier jour tranquille a Menton.", "Aquasplash Antibes, Antibes Land e i parchi di Villeneuve-Loubet sono uscite piu grandi. Vanno meglio per soggiorni lunghi, bambini grandi o famiglie con auto, non per il primo giorno tranquillo a Mentone.", "Aquasplash Antibes, Antibes Land і парки Villeneuve-Loubet - більші виїзди. Вони краще підходять для довших зупинок, старших дітей або сімей з авто, а не для першого спокійного дня в Ментоні."),
+        ],
+        relatedPlaceIds: ["piscine-alex-jany-menton", "stade-nautique-rainier-iii-monaco", "aquasplash-antibes", "antibes-land", "village-des-fous", "bois-des-lutins", "pitchoun-forest", "canyon-forest"],
+      },
+      {
+        heading: t("Monaco with children", "Monaco avec enfants", "Monaco con bambini", "Монако з дітьми"),
+        body: [
+          t("Monaco is one of the easiest family day trips from Menton by train. The Oceanographic Museum is the strongest anchor: aquariums, marine history, indoor time and views from the Rock.", "Monaco est l'une des excursions famille les plus faciles depuis Menton en train. Le Musee oceanographique est le meilleur point d'ancrage: aquariums, histoire marine, pause interieure et vues depuis le Rocher.", "Monaco e una delle gite in famiglia piu facili da Mentone in treno. Il Museo Oceanografico e l'ancora migliore: acquari, storia marina, pausa al chiuso e viste dal Rocher.", "Монако - одна з найпростіших сімейних поїздок із Ментона потягом. Океанографічний музей - найкраща основа: акваріуми, морська історія, час у приміщенні й краєвиди з Rocher."),
+          t("After the museum, choose one simple add-on: Larvotto playground, Parc Princesse Antoinette, a Port Hercule walk or the Prince's Car Collection. Avoid trying to collect everything in one family day.", "Apres le musee, choisissez un seul ajout simple: aire de jeux du Larvotto, Parc Princesse Antoinette, marche au Port Hercule ou Collection automobile du Prince. Evitez de vouloir tout faire en une journee famille.", "Dopo il museo scegli una sola aggiunta semplice: parco giochi Larvotto, Parc Princesse Antoinette, passeggiata a Port Hercule o Collezione auto del Principe. Evita di voler fare tutto in un giorno.", "Після музею оберіть одне просте доповнення: майданчик Larvotto, Parc Princesse Antoinette, прогулянку Port Hercule або автомобільну колекцію князя. Не намагайтеся зібрати все за один сімейний день."),
+        ],
+        relatedPlaceIds: ["oceanographic-museum-monaco", "larvotto-beach-playground", "parc-princesse-antoinette-monaco", "prince-monaco-car-collection", "monaco-monte-carlo"],
+      },
+      {
+        heading: t("Seasonal events children may enjoy", "Evenements saisonniers pour enfants", "Eventi stagionali adatti ai bambini", "Сезонні події, які можуть сподобатися дітям"),
+        body: [
+          t("In autumn, the Monaco Attractions Fair can be a strong family evening or afternoon near Port Hercule. In winter, Nice Carnival and Menton's Fete du Citron are colourful family options, but crowds can be intense.", "En automne, la Foire Attractions de Monaco peut etre une bonne sortie famille l'apres-midi ou le soir pres du Port Hercule. En hiver, le Carnaval de Nice et la Fete du Citron a Menton sont tres colores, mais la foule peut etre dense.", "In autunno la Fiera delle attrazioni di Monaco puo essere una bella uscita famiglia vicino a Port Hercule. In inverno, Carnevale di Nizza e Fete du Citron a Mentone sono colorati, ma la folla puo essere intensa.", "Восени Monaco Attractions Fair може бути сильним сімейним днем або вечором біля Port Hercule. Узимку Nice Carnival і Fête du Citron у Ментоні яскраві для дітей, але натовпи можуть бути щільними."),
+          t("For big events, book tickets early, arrive before peak crowd times and keep the return route simple. With children, the exit plan matters as much as the event itself.", "Pour les grands evenements, reservez tot, arrivez avant les pics de foule et gardez un retour simple. Avec enfants, le plan de sortie compte autant que l'evenement.", "Per grandi eventi prenota presto, arriva prima dei picchi di folla e mantieni semplice il ritorno. Con bambini il piano di uscita conta quanto l'evento.", "Для великих подій бронюйте рано, приходьте до пікових натовпів і тримайте простий маршрут повернення. З дітьми план виходу не менш важливий за саму подію."),
+        ],
+      },
+      {
+        heading: t("Heat, rain and simple family itineraries", "Chaleur, pluie et itineraires famille simples", "Caldo, pioggia e itinerari famiglia semplici", "Спека, дощ і прості сімейні маршрути"),
+        body: [
+          t("On very hot days, keep the morning local: Sablettes, Promenade du Soleil, a short swim, fruit and water. Return to the apartment for lunch, air conditioning and rest before a late-afternoon cinema, museum, indoor play or second beach visit.", "Par forte chaleur, gardez le matin local: Sablettes, Promenade du Soleil, courte baignade, fruits et eau. Rentrez a l'appartement pour dejeuner, climatisation et repos avant cinema, musee, jeu indoor ou deuxieme plage en fin d'apres-midi.", "Nei giorni molto caldi resta locale al mattino: Sablettes, Promenade du Soleil, bagno breve, frutta e acqua. Torna in appartamento per pranzo, aria condizionata e riposo prima di cinema, museo, indoor play o seconda spiaggia.", "У дуже спекотні дні залишайте ранок локальним: Sablettes, Promenade du Soleil, коротке купання, фрукти й вода. Поверніться в апартаменти на обід, кондиціонер і відпочинок, а ближче до вечора - кіно, музей, indoor play або другий пляж."),
+          t("A first easy Menton day can be breakfast at the apartment, Promenade du Soleil, Sablettes, snacks from a supermarket, rest, Koaland and an early dinner near the beach.", "Un premier jour facile a Menton peut etre: petit-dejeuner a l'appartement, Promenade du Soleil, Sablettes, encas du supermarche, repos, Koaland et diner tot pres de la plage.", "Un primo giorno facile a Mentone puo essere: colazione in appartamento, Promenade du Soleil, Sablettes, snack dal supermercato, riposo, Koaland e cena presto vicino alla spiaggia.", "Перший легкий день у Ментоні: сніданок в апартаментах, Promenade du Soleil, Sablettes, перекуси з супермаркету, відпочинок, Koaland і рання вечеря біля пляжу."),
+          t("For a bigger family day, take the train to Monaco for the Oceanographic Museum, lunch in Monaco-Ville or Fontvieille and one simple playground or harbour walk before returning to Menton.", "Pour une grande journee famille, prenez le train vers Monaco: Musee oceanographique, dejeuner a Monaco-Ville ou Fontvieille, puis une aire de jeux ou marche au port avant le retour.", "Per una giornata famiglia piu grande, prendi il treno per Monaco: Museo Oceanografico, pranzo a Monaco-Ville o Fontvieille e poi un parco giochi o passeggiata al porto prima del ritorno.", "Для більшого сімейного дня їдьте потягом у Монако: Океанографічний музей, обід у Monaco-Ville або Fontvieille, потім один майданчик або прогулянка портом перед поверненням."),
+        ],
+        relatedApartmentKeys: ["beachside-family-apartment"],
+      },
+      {
+        heading: t("Where to stay with children", "Ou sejourner avec enfants", "Dove soggiornare con bambini", "Де зупинитися з дітьми"),
+        body: [
+          t("Families usually benefit from an apartment more than a single hotel room: kitchen, washing machine, air conditioning, terrace or balcony, easy beach access, supermarket nearby and a safe evening route home.", "Les familles profitent souvent davantage d'un appartement que d'une seule chambre d'hotel: cuisine, lave-linge, climatisation, terrasse ou balcon, plage facile, supermarche proche et retour du soir simple.", "Le famiglie spesso stanno meglio in appartamento che in una sola camera d'hotel: cucina, lavatrice, aria condizionata, terrazza o balcone, spiaggia facile, supermercato vicino e ritorno serale sicuro.", "Сім'ям часто зручніше в апартаментах, ніж в одному готельному номері: кухня, пральна машина, кондиціонер, тераса або балкон, зручний пляж, супермаркет поруч і безпечний вечірній маршрут додому."),
+          t("The Terrace & Parking Apartment is especially practical for families because private outdoor space and parking remove two common sources of stress. Sea-view apartments can also work well for smaller families who want a simpler beach rhythm.", "L'Appartement terrasse et parking est particulierement pratique en famille: espace exterieur prive et parking retirent deux sources de stress. Les appartements vue mer peuvent aussi convenir aux petites familles qui veulent un rythme plage simple.", "L'Appartamento con terrazza e parcheggio e particolarmente pratico per famiglie: spazio esterno privato e parcheggio eliminano due stress comuni. Gli appartamenti vista mare funzionano anche per famiglie piu piccole che vogliono un ritmo mare semplice.", "Апартаменти з терасою та паркуванням особливо практичні для сімей: приватний outdoor-простір і паркінг прибирають два типові джерела стресу. Апартаменти з видом на море теж підходять меншим сім'ям, які хочуть простий пляжний ритм."),
+        ],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio", "panoramic-sea-view-studio"],
+      },
+    ],
+    practicalTips: [
+      t("Bring water shoes for Menton's pebble and fine-gravel beaches.", "Prevoyez des chaussures d'eau pour les plages de galets et gravier fin de Menton.", "Porta scarpe da mare per spiagge di ciottoli e ghiaia fine.", "Візьміть взуття для води для гальки й дрібного гравію на пляжах Ментона."),
+      t("Avoid old-town climbs and cemetery viewpoints at midday in July and August with small children.", "Evitez les montees de la vieille ville et les points de vue du cimetiere a midi en juillet-aout avec jeunes enfants.", "Evita salite del centro storico e punti panoramici del cimitero a mezzogiorno in luglio-agosto con bambini piccoli.", "У липні-серпні з малими дітьми уникайте підйомів старого міста й кладовища опівдні."),
+      t("Check current opening hours before promising Koaland, pools or indoor play to children.", "Verifiez les horaires actuels avant de promettre Koaland, piscine ou jeux indoor aux enfants.", "Controlla gli orari prima di promettere Koaland, piscine o indoor play ai bambini.", "Перевіряйте актуальні години, перш ніж обіцяти дітям Koaland, басейн або indoor play."),
+      t("For heat symptoms, move to shade or a cool indoor place; call 15 or 112 if a child seems seriously unwell.", "En cas de signes lies a la chaleur, allez a l'ombre ou au frais; appelez le 15 ou 112 si l'enfant semble vraiment mal.", "Per sintomi da caldo, spostati all'ombra o al fresco; chiama 15 o 112 se il bambino sembra stare davvero male.", "За ознак перегріву перейдіть у тінь або прохолодне приміщення; телефонуйте 15 або 112, якщо дитині серйозно зле."),
+    ],
+  }),
+  shortArticle({
     id: "useful-numbers-emergency-contacts-menton",
     slug: "useful-numbers-emergency-contacts-menton",
     title: t("Useful numbers and emergency contacts in Menton", "Numeros utiles et contacts d'urgence a Menton", "Numeri utili e contatti di emergenza a Mentone", "Корисні номери та екстрені контакти в Ментоні"),
@@ -1778,7 +1940,7 @@ export const guideArticles: GuideArticle[] = [
       "mairie-menton",
       "office-tourisme-menton-riviera-merveilles",
     ],
-    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1888,7 +2050,7 @@ export const guideArticles: GuideArticle[] = [
       "cinematheque-de-nice",
       "megarama-nice",
     ],
-    relatedArticles: ["stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1993,7 +2155,7 @@ export const guideArticles: GuideArticle[] = [
       "musee-arts-asiatiques-nice",
       "musee-national-du-sport-nice",
     ],
-    relatedArticles: ["stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2196,6 +2358,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "useful-apps-websites-menton-monaco-italian-riviera",
+      "menton-with-kids-family-guide",
       "stay-cool-in-menton-summer",
       "useful-numbers-emergency-contacts-menton",
       "menton-without-a-car",
@@ -2917,7 +3080,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3016,7 +3179,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -3070,7 +3233,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monte-carlo-television-festival", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -3119,7 +3282,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -3204,7 +3367,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
     relatedApartments: allApartments,
     sections: [
       {
