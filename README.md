@@ -237,6 +237,7 @@ docs/               Operational docs and archived working notes
 - Prefer structured content updates over hardcoded page text.
 - Do not remove old event content solely because the date passed.
 - Run `npm run content:audit` after guide, place, event or apartment-linking changes.
+- Run `npm run content:lint` before publishing guide, event or place batches; it checks lightweight schema rules, localization coverage, media paths and source URL shape while content remains in TypeScript.
 - Run `npm run content:report` before larger content passes to review stale events, weak links, missing apartment CTAs and orphaned content.
 - TypeScript content modules remain the source of truth for now. Future content scale work should move guide/events toward schema-validated JSON or YAML sources before introducing any CMS.
 

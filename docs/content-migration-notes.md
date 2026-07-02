@@ -7,6 +7,7 @@ Azur Menton content remains in typed TypeScript modules for now. This keeps the 
 - `src/content/` owns apartment, page, guide, event, legal and translation content.
 - Route files should read content through exported helpers and typed objects, not duplicate localized copy when a shared content module already exists.
 - UI components should receive resolved localized strings or typed content objects from routes where practical.
+- `npm run content:lint` is the lightweight schema layer for guide, place and event content while the repository stays TypeScript-first.
 
 ## Future JSON Migration Path
 
