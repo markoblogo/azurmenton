@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "content:audit": "vitest run tests/unit/content-audit.test.ts",
     "test:e2e": "playwright test",
     "images:generate": "node scripts/generate-image-derivatives.mjs",
     "images:check": "node scripts/check-image-derivatives.mjs",
