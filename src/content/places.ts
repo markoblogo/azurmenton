@@ -2166,6 +2166,96 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of the Borrigo beaches in Menton", "Illustration des plages du Borrigo a Menton", "Illustrazione delle spiagge di Borrigo a Mentone", "Ілюстрація пляжів Borrigo у Ментоні"),
     visualTheme: "beach",
   },
+  "koaland-menton": {
+    image: "/images/guide/koaland-menton.jpg",
+    imageAlt: text("Illustration of Koaland in Menton", "Illustration de Koaland a Menton", "Illustrazione di Koaland a Mentone", "Ілюстрація Koaland у Ментоні"),
+    visualTheme: "family",
+  },
+  "cap3000-saint-laurent-du-var": {
+    image: "/images/guide/cap3000-saint-laurent-du-var.jpg",
+    imageAlt: text("Illustration of CAP3000 in Saint-Laurent-du-Var", "Illustration de CAP3000 a Saint-Laurent-du-Var", "Illustrazione di CAP3000 a Saint-Laurent-du-Var", "Ілюстрація CAP3000 у Saint-Laurent-du-Var"),
+    visualTheme: "market",
+  },
+  "la-tete-dans-les-nuages-cap3000": {
+    image: "/images/guide/la-tete-dans-les-nuages-cap3000.jpg",
+    imageAlt: text("Illustration of La Tête dans les Nuages at CAP3000", "Illustration de La Tete dans les Nuages a CAP3000", "Illustrazione di La Tête dans les Nuages a CAP3000", "Ілюстрація La Tête dans les Nuages у CAP3000"),
+    visualTheme: "family",
+  },
+  "shopping-promenade-riviera": {
+    image: "/images/guide/shopping-promenade-riviera.jpg",
+    imageAlt: text("Illustration of Shopping Promenade Riviera in Cagnes-sur-Mer", "Illustration de Shopping Promenade Riviera a Cagnes-sur-Mer", "Illustrazione di Shopping Promenade Riviera a Cagnes-sur-Mer", "Ілюстрація Shopping Promenade Riviera у Cagnes-sur-Mer"),
+    visualTheme: "market",
+  },
+  "ultra-polygone": {
+    image: "/images/guide/ultra-polygone.jpg",
+    imageAlt: text("Illustration of Ultra Polygone in Cagnes-sur-Mer", "Illustration d'Ultra Polygone a Cagnes-sur-Mer", "Illustrazione di Ultra Polygone a Cagnes-sur-Mer", "Ілюстрація Ultra Polygone у Cagnes-sur-Mer"),
+    visualTheme: "family",
+  },
+  "bricks-4-kidz-nice-etoile": {
+    image: "/images/guide/bricks-4-kidz-nice-etoile.jpg",
+    imageAlt: text("Illustration of Bricks 4 Kidz at Nice Étoile", "Illustration de Bricks 4 Kidz a Nice Etoile", "Illustrazione di Bricks 4 Kidz a Nice Étoile", "Ілюстрація Bricks 4 Kidz у Nice Étoile"),
+    visualTheme: "family",
+  },
+  "kids-city-nice": {
+    image: "/images/guide/kids-city-nice.jpg",
+    imageAlt: text("Illustration of Kid's City Nice", "Illustration de Kid's City Nice", "Illustrazione di Kid's City Nice", "Ілюстрація Kid's City Nice"),
+    visualTheme: "family",
+  },
+  "fun-city-cannes": {
+    image: "/images/guide/fun-city-cannes.jpg",
+    imageAlt: text("Illustration of Fun City Cannes", "Illustration de Fun City Cannes", "Illustrazione di Fun City Cannes", "Ілюстрація Fun City Cannes"),
+    visualTheme: "family",
+  },
+  "piscine-alex-jany-menton": {
+    image: "/images/guide/piscine-alex-jany-menton.jpg",
+    imageAlt: text("Illustration of Piscine Alex Jany in Menton", "Illustration de la Piscine Alex Jany a Menton", "Illustrazione della Piscine Alex Jany a Mentone", "Ілюстрація Piscine Alex Jany у Ментоні"),
+    visualTheme: "sea",
+  },
+  "stade-nautique-rainier-iii-monaco": {
+    image: "/images/guide/stade-nautique-rainier-iii-monaco.jpg",
+    imageAlt: text("Illustration of Stade Nautique Rainier III in Monaco", "Illustration du Stade Nautique Rainier III a Monaco", "Illustrazione dello Stade Nautique Rainier III a Monaco", "Ілюстрація Stade Nautique Rainier III у Монако"),
+    visualTheme: "sea",
+  },
+  "aquasplash-antibes": {
+    image: "/images/guide/aquasplash-antibes.jpg",
+    imageAlt: text("Illustration of Aquasplash Antibes", "Illustration d'Aquasplash Antibes", "Illustrazione di Aquasplash Antibes", "Ілюстрація Aquasplash Antibes"),
+    visualTheme: "sea",
+  },
+  "antibes-land": {
+    image: "/images/guide/antibes-land.jpg",
+    imageAlt: text("Illustration of Antibes Land", "Illustration d'Antibes Land", "Illustrazione di Antibes Land", "Ілюстрація Antibes Land"),
+    visualTheme: "family",
+  },
+  "village-des-fous": {
+    image: "/images/guide/village-des-fous.jpg",
+    imageAlt: text("Illustration of Le Village des Fous", "Illustration du Village des Fous", "Illustrazione di Le Village des Fous", "Ілюстрація Le Village des Fous"),
+    visualTheme: "family",
+  },
+  "bois-des-lutins": {
+    image: "/images/guide/bois-des-lutins.jpg",
+    imageAlt: text("Illustration of Le Bois des Lutins", "Illustration du Bois des Lutins", "Illustrazione di Le Bois des Lutins", "Ілюстрація Le Bois des Lutins"),
+    visualTheme: "garden",
+  },
+  "pitchoun-forest": {
+    image: "/images/guide/pitchoun-forest.jpg",
+    imageAlt: text("Illustration of Pitchoun Forest", "Illustration de Pitchoun Forest", "Illustrazione di Pitchoun Forest", "Ілюстрація Pitchoun Forest"),
+    visualTheme: "garden",
+  },
+  "canyon-forest": {
+    image: "/images/guide/canyon-forest.jpg",
+    imageAlt: text("Illustration of Canyon Forest", "Illustration de Canyon Forest", "Illustrazione di Canyon Forest", "Ілюстрація Canyon Forest"),
+    visualTheme: "garden",
+  },
+  "larvotto-beach-playground": {
+    image: "/images/guide/larvotto-beach-playground.jpg",
+    imageAlt: text("Illustration of Larvotto Beach Playground in Monaco", "Illustration de l'aire de jeux du Larvotto a Monaco", "Illustrazione del parco giochi Larvotto a Monaco", "Ілюстрація Larvotto Beach Playground у Монако"),
+    visualTheme: "family",
+  },
+  "parc-princesse-antoinette-monaco": {
+    image: "/images/guide/parc-princesse-antoinette-monaco.jpg",
+    imageAlt: text("Illustration of Parc Princesse Antoinette in Monaco", "Illustration du Parc Princesse Antoinette a Monaco", "Illustrazione del Parc Princesse Antoinette a Monaco", "Ілюстрація Parc Princesse Antoinette у Монако"),
+    visualTheme: "garden",
+  },
   "monaco-monte-carlo": {
     image: "/images/guide/monaco-and-monte-carlo.jpg",
     imageAlt: text("Illustration of Monaco and Monte-Carlo", "Illustration de Monaco et Monte-Carlo", "Illustrazione di Monaco e Monte-Carlo", "Ілюстрація Монако та Монте-Карло"),
