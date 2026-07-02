@@ -1,0 +1,178 @@
+#!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
+
+const fs = require("node:fs");
+const Module = require("node:module");
+const path = require("node:path");
+const ts = require("typescript");
+
+const root = path.resolve(__dirname, "..");
+const originalResolveFilename = Module._resolveFilename;
+
+Module._resolveFilename = function resolveFilename(request, parent, isMain, options) {
+  if (request.startsWith("@/")) {
+    return originalResolveFilename.call(this, path.join(root, "src", request.slice(2)), parent, isMain, options);
+  }
+
+  return originalResolveFilename.call(this, request, parent, isMain, options);
+};
+
+for (const extension of [".ts", ".tsx"]) {
+  require.extensions[extension] = function compileTypescript(module, filename) {
+    const source = fs.readFileSync(filename, "utf8");
+    const output = ts.transpileModule(source, {
+      compilerOptions: {
+        esModuleInterop: true,
+        jsx: ts.JsxEmit.ReactJSX,
+        module: ts.ModuleKind.CommonJS,
+        moduleResolution: ts.ModuleResolutionKind.NodeJs,
+        target: ts.ScriptTarget.ES2020,
+      },
+      fileName: filename,
+    });
+
+    module._compile(output.outputText, filename);
+  };
+}
+
+const { apartments } = require("../src/content/apartments.ts");
+const { guideArticles } = require("../src/content/guide.ts");
+const { guideIntentClusters } = require("../src/content/guide-intents.ts");
+const { places } = require("../src/content/places.ts");
+const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
+const { getEventDateStatus } = require("../src/lib/events.ts");
+
+const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
+const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
+const today = new Date();
+
+function uniq(values) {
+  return [...new Set(values)];
+}
+
+function sectionPlaceIds(article) {
+  return uniq(article.sections.flatMap((section) => section.relatedPlaceIds ?? []));
+}
+
+function sectionApartmentKeys(article) {
+  return uniq(article.sections.flatMap((section) => section.relatedApartmentKeys ?? []));
+}
+
+function guideHasApartmentCta(article) {
+  return Boolean(article.relatedApartments?.length || sectionApartmentKeys(article).length);
+}
+
+function guidePlaceCount(article) {
+  return uniq([...(article.relatedPlaces ?? []), ...sectionPlaceIds(article)]).length;
+}
+
+function printGroup(title, items, format = (item) => item, limit = 25) {
+  console.log(`\n${title}: ${items.length}`);
+  if (!items.length) {
+    console.log("  OK");
+    return;
+  }
+
+  for (const item of items.slice(0, limit)) console.log(`  - ${format(item)}`);
+  if (items.length > limit) console.log(`  ... ${items.length - limit} more`);
+}
+
+const placesWithoutImages = places
+  .filter((place) => !place.image)
+  .sort((left, right) => left.id.localeCompare(right.id));
+
+const guidesWithWeakLinks = guideArticles
+  .map((article) => ({
+    slug: article.slug,
+    relatedArticles: article.relatedArticles?.length ?? 0,
+    relatedPlaces: guidePlaceCount(article),
+    clustered: clusteredGuideSlugs.has(article.slug),
+  }))
+  .filter((article) => article.relatedArticles < 3 || article.relatedPlaces < 2 || !article.clustered)
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const guidesWithoutApartmentCta = guideArticles
+  .filter((article) => !guideHasApartmentCta(article))
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const placeBacklinkGaps = [];
+for (const article of guideArticles) {
+  for (const placeId of sectionPlaceIds(article)) {
+    const place = places.find((candidate) => candidate.id === placeId);
+    if (place && !place.relatedArticleIds.includes(article.slug)) placeBacklinkGaps.push({ placeId, articleSlug: article.slug });
+  }
+}
+
+const orphanPlaces = places
+  .filter((place) => !place.relatedArticleIds.length)
+  .sort((left, right) => left.id.localeCompare(right.id));
+
+const incomingGuideLinks = new Map(guideArticles.map((article) => [article.slug, 0]));
+for (const article of guideArticles) {
+  for (const relatedSlug of article.relatedArticles ?? []) {
+    if (incomingGuideLinks.has(relatedSlug)) incomingGuideLinks.set(relatedSlug, incomingGuideLinks.get(relatedSlug) + 1);
+  }
+}
+for (const place of places) {
+  for (const articleSlug of place.relatedArticleIds) {
+    if (incomingGuideLinks.has(articleSlug)) incomingGuideLinks.set(articleSlug, incomingGuideLinks.get(articleSlug) + 1);
+  }
+}
+for (const cluster of guideIntentClusters) {
+  for (const articleSlug of [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]) {
+    if (incomingGuideLinks.has(articleSlug)) incomingGuideLinks.set(articleSlug, incomingGuideLinks.get(articleSlug) + 1);
+  }
+}
+
+const orphanArticles = guideArticles
+  .filter((article) => (incomingGuideLinks.get(article.slug) ?? 0) === 0 && !article.featured)
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
+const pendingEvents = allEvents
+  .filter((event) => getEventDateStatus(event, today) === "dates_pending" || event.sourceStatus !== "verified")
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const expiredEvents = allEvents
+  .filter((event) => getEventDateStatus(event, today) === "past")
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const eventApartmentGaps = allEvents
+  .filter((event) => event.detailPage && !(event.relatedApartmentKeys ?? []).some((key) => apartmentSlugs.has(key)))
+  .sort((left, right) => left.slug.localeCompare(right.slug));
+
+console.log("Azur Menton content audit report");
+console.log(`Generated: ${today.toISOString().slice(0, 10)}`);
+console.log(`Guides: ${guideArticles.length}`);
+console.log(`Places: ${places.length}`);
+console.log(`Events: ${allEvents.length}`);
+console.log(`Apartments: ${apartments.length}`);
+console.log(`Intent clusters: ${guideIntentClusters.length}`);
+
+printGroup("Places without images", placesWithoutImages, (place) => `${place.id} (${place.name})`);
+printGroup(
+  "Guides with weak links",
+  guidesWithWeakLinks,
+  (article) => `${article.slug} (relatedArticles=${article.relatedArticles}, places=${article.relatedPlaces}, clustered=${article.clustered})`,
+);
+printGroup("Guides without apartment CTA", guidesWithoutApartmentCta, (article) => article.slug);
+printGroup("Place backlink gaps", placeBacklinkGaps, (gap) => `${gap.placeId} missing ${gap.articleSlug}`);
+printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name})`);
+printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
+printGroup("Pending or unverified events", pendingEvents, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);
+printGroup("Expired events", expiredEvents, (event) => `${event.slug} (${event.dateLabel})`);
+printGroup("Event detail pages without apartment links", eventApartmentGaps, (event) => event.slug);
+
+const totalActionItems =
+  placesWithoutImages.length +
+  guidesWithWeakLinks.length +
+  guidesWithoutApartmentCta.length +
+  placeBacklinkGaps.length +
+  orphanPlaces.length +
+  orphanArticles.length +
+  pendingEvents.length +
+  expiredEvents.length +
+  eventApartmentGaps.length;
+
+console.log(`\nTotal review items: ${totalActionItems}`);
+if (totalActionItems) console.log("Use this report before publishing new guide, place or event content.");
