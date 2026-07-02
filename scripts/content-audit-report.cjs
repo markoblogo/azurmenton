@@ -37,13 +37,14 @@ for (const extension of [".ts", ".tsx"]) {
 
 const { apartments } = require("../src/content/apartments.ts");
 const { guideArticles } = require("../src/content/guide.ts");
-const { guideIntentClusters } = require("../src/content/guide-intents.ts");
+const { guideIntentClusters, guideLinkAuditProfiles } = require("../src/content/guide-intents.ts");
 const { places } = require("../src/content/places.ts");
 const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { getEventDateStatus } = require("../src/lib/events.ts");
 
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
+const guideLinkAuditProfileBySlug = new Map(guideLinkAuditProfiles.map((profile) => [profile.slug, profile]));
 const today = new Date();
 
 function uniq(values) {
@@ -95,15 +96,37 @@ const placesWithoutImages = places
   .filter((place) => !place.image)
   .sort((left, right) => left.id.localeCompare(right.id));
 
-const guidesWithWeakLinks = guideArticles
-  .map((article) => ({
-    slug: article.slug,
-    relatedArticles: article.relatedArticles?.length ?? 0,
-    relatedPlaces: guidePlaceCount(article),
-    clustered: clusteredGuideSlugs.has(article.slug),
-  }))
-  .filter((article) => article.relatedArticles < 3 || article.relatedPlaces < 2 || !article.clustered)
+const guideLinkAuditRows = guideArticles
+  .map((article) => {
+    const relatedArticles = article.relatedArticles?.length ?? 0;
+    const relatedPlaces = guidePlaceCount(article);
+    const clustered = clusteredGuideSlugs.has(article.slug);
+
+    return {
+      slug: article.slug,
+      relatedArticles,
+      relatedPlaces,
+      clustered,
+      reasons: [
+        relatedArticles < 3 ? "relatedArticles" : undefined,
+        relatedPlaces < 2 ? "places" : undefined,
+        !clustered ? "cluster" : undefined,
+      ].filter(Boolean),
+    };
+  })
+  .filter((article) => article.reasons.length)
   .sort((left, right) => left.slug.localeCompare(right.slug));
+
+const guidesWithWeakLinks = [];
+const guideLinkAuditExclusions = [];
+
+for (const article of guideLinkAuditRows) {
+  const profile = guideLinkAuditProfileBySlug.get(article.slug);
+  const activeReasons = article.reasons.filter((reason) => !profile?.ignore.includes(reason));
+
+  if (activeReasons.length) guidesWithWeakLinks.push({ ...article, reasons: activeReasons });
+  else guideLinkAuditExclusions.push({ ...article, reason: profile?.reason ?? "explicit editorial exception" });
+}
 
 const guidesWithoutApartmentCta = guideArticles
   .filter((article) => !guideHasApartmentCta(article))
@@ -179,8 +202,9 @@ printGroup("Places without images", placesWithoutImages, (place) => `${place.id}
 printGroup(
   "Guides with weak links",
   guidesWithWeakLinks,
-  (article) => `${article.slug} (relatedArticles=${article.relatedArticles}, places=${article.relatedPlaces}, clustered=${article.clustered})`,
+  (article) => `${article.slug} (${article.reasons.join(", ")}; relatedArticles=${article.relatedArticles}, places=${article.relatedPlaces}, clustered=${article.clustered})`,
 );
+printGroup("Guide link audit exclusions", guideLinkAuditExclusions, (article) => `${article.slug}: ${article.reason}`, 15);
 printGroup("Guides without apartment CTA", guidesWithoutApartmentCta, (article) => article.slug);
 printGroup("Place backlink gaps", placeBacklinkGaps, (gap) => `${gap.placeId} missing ${gap.articleSlug}`);
 printGroup("Intentional supporting-card backlink exclusions", placeBacklinkExclusions, (gap) => `${gap.placeId} / ${gap.articleSlug}: ${gap.reason}`, 10);

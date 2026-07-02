@@ -22,6 +22,14 @@ export type GuideIntentCluster = {
   relatedEventSlugs?: string[];
 };
 
+export type GuideLinkAuditIgnore = "cluster" | "places" | "relatedArticles";
+
+export type GuideLinkAuditProfile = {
+  slug: string;
+  ignore: GuideLinkAuditIgnore[];
+  reason: string;
+};
+
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
 
 const allApartments = ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"];
@@ -157,4 +165,18 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     relatedPlaceIds: ["halles-du-marche", "u-express-menton-centre", "office-tourisme-menton-riviera-merveilles", "centre-hospitalier-la-palmosa-menton", "commissariat-police-menton"],
     relatedApartmentKeys: allApartments,
   },
+];
+
+export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
+  { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
+  { slug: "day-trips-from-menton", ignore: ["places"], reason: "route-style hub; place coverage lives in supporting day-trip articles and sections" },
+  { slug: "halles-du-marche-menton", ignore: ["cluster"], reason: "focused market guide supporting food, itinerary and practical-stay content" },
+  { slug: "how-to-get-to-menton-from-nice-airport", ignore: ["places"], reason: "transport reference guide; links are route and planning oriented" },
+  { slug: "local-food-menton", ignore: ["cluster"], reason: "standalone food guide supporting market, restaurant and itinerary content" },
+  { slug: "menton-one-day-itinerary", ignore: ["cluster"], reason: "standalone itinerary guide rather than a search-intent cluster entry" },
+  { slug: "michelin-restaurants-menton-nice-monaco", ignore: ["cluster"], reason: "standalone restaurant guide supporting food, day-trip and evening content" },
+  { slug: "morning-walk-france-to-italy", ignore: ["cluster"], reason: "focused walk guide supporting car-free and Italian Riviera planning" },
+  { slug: "nightlife-in-menton", ignore: ["cluster"], reason: "standalone evening guide supporting restaurants, bars and events content" },
+  { slug: "public-transport-in-menton", ignore: ["places"], reason: "transport reference guide; useful links are service and route oriented" },
 ];

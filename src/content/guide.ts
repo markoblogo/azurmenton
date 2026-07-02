@@ -999,7 +999,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "1-2 hours",
     locationTags: ["old-town", "seafront", "garavan"],
     relatedPlaces: ["rampes-saint-michel", "plage-sablettes", "port-de-garavan", "cimetiere-vieux-chateau", "promenade-du-soleil", "med-rooftop"],
-    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton"],
+    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {

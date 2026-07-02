@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { apartments } from "../../src/content/apartments";
 import { guideArticles } from "../../src/content/guide";
-import { guideIntentClusters } from "../../src/content/guide-intents";
+import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
 import { places } from "../../src/content/places";
 import { rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { getEventDateStatus } from "../../src/lib/events";
@@ -95,6 +95,11 @@ describe("content graph audit", () => {
       if (!cluster.relatedApartmentKeys.length) failures.push(`${cluster.id} missing related apartments`);
     }
 
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps guide link audit profiles attached to valid guides", () => {
+    const failures = guideLinkAuditProfiles.filter((profile) => !guideSlugs.has(profile.slug)).map((profile) => profile.slug);
     expect(failures).toEqual([]);
   });
 
