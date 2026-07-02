@@ -48,8 +48,10 @@ Main checks:
 npm run lint
 npm run typecheck
 npm test
+npm run preflight
 npm run images:check
 npm run build
+npm run preflight:postbuild
 ```
 
 Optional checks:
@@ -247,6 +249,6 @@ Target: Vercel
 DNS: Cloudflare
 Production domain: `azurmenton.com`
 
-CI runs on pushes and pull requests to `main`: install, lint, typecheck, unit tests, image derivative manifest validation and production build.
+CI runs on pushes and pull requests to `main`: install, lint, typecheck, unit tests, content/funnel preflight, image derivative manifest validation, production build and post-build CSP/cache preflight.
 
 See `DEPLOYMENT.md`, `RESEND_SETUP.md` and `docs/search-console-validation.md` for operational checklists.

@@ -6,6 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "preflight": "npm run content:lint && npm run booking:funnel",
+    "preflight:postbuild": "npm run perf:csp",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

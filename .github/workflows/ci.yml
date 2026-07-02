@@ -37,8 +37,14 @@ jobs:
       - name: Unit tests
         run: npm test
 
+      - name: Content and funnel preflight
+        run: npm run preflight
+
       - name: Image derivative manifest
         run: npm run images:check
 
       - name: Build
         run: npm run build
+
+      - name: Post-build performance preflight
+        run: npm run preflight:postbuild
