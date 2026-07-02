@@ -12,3 +12,5 @@ When adding or changing a guide article, place/location object, event, or apartm
 - add newly created places to older articles where they are genuinely useful;
 - update `relatedPlaces`, section-level `relatedPlaceIds`, and place `relatedArticleIds` together when the relationship is editorially natural;
 - avoid adding location cards only for volume or SEO if the place is not mentioned or useful in that section.
+
+Use `docs/content-operations.md` as the detailed checklist for guide, place, event, image, internal linking and preflight work.
