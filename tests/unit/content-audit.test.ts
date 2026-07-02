@@ -15,14 +15,22 @@ const guideSlugs = new Set(guideArticles.map((article) => article.slug));
 const placeIds = new Set(places.map((place) => place.id));
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const eventSlugs = new Set([...rivieraEvents.map((event) => event.slug), summerOnTheRivieraEvent.slug]);
+const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 
 const evergreenPracticalSlugs = [
+  "menton-in-autumn",
   "menton-with-kids-family-guide",
   "stay-cool-in-menton-summer",
   "menton-without-a-car",
   "where-to-stay-in-menton",
   "best-beaches-in-menton",
   "day-trips-from-menton",
+  "italian-riviera-day-trip-from-menton",
+  "best-walks-and-hikes-around-menton",
+  "cinemas-in-menton-nice-monaco",
+  "museums-in-menton-nice-monaco",
+  "useful-apps-websites-menton-monaco-italian-riviera",
+  "useful-numbers-emergency-contacts-menton",
   "how-to-get-to-menton-from-nice-airport",
   "public-transport-in-menton",
   "supermarkets-in-menton",
@@ -87,6 +95,26 @@ describe("content graph audit", () => {
       if (!cluster.relatedApartmentKeys.length) failures.push(`${cluster.id} missing related apartments`);
     }
 
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps intent cluster canonical articles linked to their supporting guides", () => {
+    const failures: string[] = [];
+
+    for (const cluster of guideIntentClusters) {
+      const canonical = guideArticles.find((article) => article.slug === cluster.canonicalGuideSlug);
+      if (!canonical) continue;
+
+      for (const supportingSlug of cluster.supportingGuideSlugs) {
+        if (!canonical.relatedArticles?.includes(supportingSlug)) failures.push(`${canonical.slug} missing cluster relatedArticle -> ${supportingSlug}`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps evergreen practical guides assigned to at least one intent cluster", () => {
+    const failures = evergreenPracticalSlugs.filter((slug) => !clusteredGuideSlugs.has(slug));
     expect(failures).toEqual([]);
   });
 

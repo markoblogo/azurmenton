@@ -13,7 +13,9 @@ export function RelatedApartmentsBlock({
   title?: string;
   compact?: boolean;
 }) {
-  const related = apartments.filter((apartment) => apartmentKeys?.includes(apartment.slug));
+  const related = (apartmentKeys ?? [])
+    .map((key) => apartments.find((apartment) => apartment.slug === key))
+    .filter((apartment): apartment is (typeof apartments)[number] => Boolean(apartment));
 
   if (!related.length) {
     return null;

@@ -700,7 +700,7 @@ export const guideArticles: GuideArticle[] = [
     featured: true,
     sourceStatus: "editorial",
     relatedPlaces: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "promenade-du-soleil", "plage-sablettes", "monaco-monte-carlo", "nice-old-town"],
-    relatedArticles: ["best-beaches-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car"],
+    relatedArticles: ["best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
     relatedEvents: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -1355,7 +1355,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3080,7 +3080,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3179,7 +3179,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -3282,7 +3282,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "menton-without-a-car", "public-transport-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -3367,7 +3367,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town"],
+    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
