@@ -101,7 +101,7 @@ const rawPlaces: Place[] = [
       "Природна перша зупинка для продуктів на пікнік, цитрусових смаколиків і ранкової атмосфери міста.",
     ),
     bestFor: [text("food lovers", "amateurs de cuisine", "amanti del cibo", "любителі їжі"), text("morning walk", "promenade du matin", "passeggiata mattutina", "ранкова прогулянка")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-old-town", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "local-food-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-old-town", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "musee-jean-cocteau-bastion",
@@ -1183,7 +1183,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A classic old-town climb for colour, steps and sea-facing views.", "Une montee classique de la vieille ville, entre couleurs, marches et vues mer.", "Una salita classica nel centro storico tra colori, scale e vista mare.", "Класичний підйом старим містом: кольори, сходи й види на море."),
     bestFor: [text("views", "vues", "panorami", "краєвиди"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["quiet-evening-in-menton", "best-photo-spots-menton", "menton-one-day-itinerary", "menton-old-town", "halles-du-marche-menton", "stay-cool-in-menton-summer", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "menton-one-day-itinerary", "menton-old-town", "halles-du-marche-menton", "stay-cool-in-menton-summer", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "promenade-du-soleil",
@@ -1195,6 +1195,7 @@ const rawPlaces: Place[] = [
     shortNote: text("The simplest Menton ritual: morning light, sea air and an evening return by the water.", "Le rituel le plus simple de Menton: lumiere du matin, air marin et retour le soir au bord de l'eau.", "Il rito piu semplice di Mentone: luce del mattino, aria di mare e ritorno serale sul lungomare.", "Найпростіший ритуал Ментона: ранкове світло, морське повітря і вечір біля води."),
     bestFor: [text("morning walk", "promenade du matin", "passeggiata mattutina", "ранкова прогулянка"), text("sea views", "vues mer", "vista mare", "вид на море")],
     relatedArticleIds: [
+      "fete-du-citron-menton-practical-guide",
       "menton-with-kids-family-guide",
       "stay-cool-in-menton-summer",
       "quiet-evening-in-menton",
@@ -1213,6 +1214,28 @@ const rawPlaces: Place[] = [
       "menton-without-a-car",
       "where-to-stay-in-menton",
     ],
+  },
+  {
+    id: "jardins-bioves",
+    name: "Jardins Biovès",
+    type: "garden",
+    area: text("Menton centre", "Menton centre", "Centro di Mentone", "Центр Ментона"),
+    googleMapsUrl: mapsSearch("Jardins Biovès", "Menton"),
+    sourceStatus: "editorial",
+    shortNote: text("Central gardens used for the Lemon Festival citrus sculpture displays and an easy town-centre walk.", "Jardins centraux utilises pour les sculptures d'agrumes de la Fete du Citron et une promenade simple en centre-ville.", "Giardini centrali usati per le sculture di agrumi della Festa del Limone e per una passeggiata facile in centro.", "Центральні сади для цитрусових скульптур Фестивалю лимонів і простої прогулянки центром."),
+    bestFor: [text("Lemon Festival displays", "decors Fete du Citron", "installazioni Festa del Limone", "інсталяції Фестивалю лимонів"), text("central walks", "balades centrales", "passeggiate centrali", "прогулянки центром")],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car"],
+  },
+  {
+    id: "palais-de-leurope-menton",
+    name: "Palais de l'Europe",
+    type: "civic",
+    area: text("Menton centre", "Menton centre", "Centro di Mentone", "Центр Ментона"),
+    googleMapsUrl: mapsSearch("Palais de l'Europe", "Menton"),
+    sourceStatus: "editorial",
+    shortNote: text("A central Menton landmark near the Lemon Festival routes, useful for orientation, cafés and festival browsing.", "Un repere central de Menton pres des parcours de la Fete du Citron, utile pour s'orienter, les cafes et l'ambiance festival.", "Un riferimento centrale di Mentone vicino ai percorsi della Festa del Limone, utile per orientarsi, caffe e atmosfera festival.", "Центральний орієнтир Ментона біля маршрутів Фестивалю лимонів, зручний для навігації, кав'ярень і фестивальної атмосфери."),
+    bestFor: [text("orientation", "orientation", "orientamento", "орієнтація"), text("festival centre", "centre festival", "centro festival", "центр фестивалю")],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "menton-without-a-car"],
   },
   {
     id: "port-de-garavan",
@@ -1234,7 +1257,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quiet high viewpoint for panoramic Menton views; visit respectfully.", "Un belvedere calme en hauteur pour des vues panoramiques; a visiter avec respect.", "Un punto panoramico tranquillo in alto; da visitare con rispetto.", "Тиха висока точка з панорамою Ментона; відвідуйте з повагою."),
     bestFor: [text("panoramic views", "vues panoramiques", "vista panoramica", "панорамні краєвиди"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "jardin-serre-de-la-madone",
@@ -1296,7 +1319,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A practical central beach for quick swims between the promenade, cafes and the apartment.", "Une plage centrale pratique pour une baignade rapide entre la promenade, les cafes et l'appartement.", "Una spiaggia centrale pratica per bagni rapidi tra passeggiata, cafe e appartamento.", "Практичний центральний пляж для швидкого купання між набережною, кав'ярнями й апартаментами."),
     bestFor: [text("quick swim", "baignade rapide", "bagno rapido", "швидке купання"), text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "rondelli-garavan-side",
@@ -1329,7 +1352,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A central beach option for an easier, calmer beach mood when conditions suit.", "Une plage centrale pour une ambiance plus simple et calme selon les conditions.", "Una spiaggia centrale per un'atmosfera piu semplice e calma quando le condizioni sono buone.", "Центральний пляж для простішого й спокійнішого настрою, коли умови підходять."),
     bestFor: [text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["menton-with-kids-family-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-in-autumn"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "menton-with-kids-family-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-in-autumn"],
   },
   {
     id: "borrigo-beaches",

@@ -700,7 +700,7 @@ export const guideArticles: GuideArticle[] = [
     featured: true,
     sourceStatus: "editorial",
     relatedPlaces: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "promenade-du-soleil", "plage-sablettes", "monaco-monte-carlo", "nice-old-town"],
-    relatedArticles: ["best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
+    relatedArticles: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
     relatedEvents: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -1802,6 +1802,7 @@ export const guideArticles: GuideArticle[] = [
       "parc-princesse-antoinette-monaco",
     ],
     relatedArticles: [
+      "fete-du-citron-menton-practical-guide",
       "best-beaches-in-menton",
       "stay-cool-in-menton-summer",
       "supermarkets-in-menton",
@@ -2839,6 +2840,7 @@ export const guideArticles: GuideArticle[] = [
       "carrefour-city-felix-faure",
     ],
     relatedArticles: [
+      "fete-du-citron-menton-practical-guide",
       "public-transport-in-menton",
       "how-to-get-to-menton-from-nice-airport",
       "menton-without-a-car",
@@ -3430,6 +3432,100 @@ export const guideArticles: GuideArticle[] = [
       t("Use the train for most daytime events.", "Utilisez le train pour la plupart des evenements de jour.", "Usa il treno per la maggior parte degli eventi diurni.", "Для більшості денних подій користуйтеся потягом."),
       t("Do not rely only on taxis after major events.", "Ne comptez pas uniquement sur les taxis apres les grands evenements.", "Non affidarti solo ai taxi dopo i grandi eventi.", "Не покладайтеся лише на таксі після великих подій."),
       t("Return to Menton for a calmer dinner when Monaco is crowded.", "Rentrez diner plus calmement a Menton quand Monaco est charge.", "Rientra a Mentone per una cena piu calma quando Monaco e affollata.", "Поверніться до Ментона на спокійнішу вечерю, коли Монако переповнене."),
+    ],
+  }),
+  shortArticle({
+    id: "fete-du-citron-menton-practical-guide",
+    slug: "fete-du-citron-menton-practical-guide",
+    title: t("Fete du Citron practical guide: where to stay, tickets, parades and walking routes", "Guide pratique de la Fete du Citron : ou loger, billets, defiles et parcours a pied", "Guida pratica alla Festa del Limone: dove dormire, biglietti, sfilate e percorsi a piedi", "Практичний гід Fete du Citron: де зупинитися, квитки, паради й піші маршрути"),
+    seoTitle: t("Fete du Citron Menton Guide: Where to Stay, Tickets, Parades & Walking Routes", "Guide Fete du Citron Menton | Logement, billets, defiles et parcours", "Guida Festa del Limone Mentone | Alloggi, biglietti, sfilate e percorsi", "Гід Fete du Citron у Ментоні | Житло, квитки, паради й маршрути"),
+    seoDescription: t("Planning a trip to the Fete du Citron in Menton? Learn where to stay, how tickets work, when to arrive for parades, how to walk around the festival zone, and why Victoria Beach is a major advantage.", "Vous preparez la Fete du Citron a Menton ? Ou loger, comment fonctionnent les billets, quand arriver aux defiles, comment marcher dans la zone festival et pourquoi Victoria Beach est un avantage.", "Stai pianificando la Festa del Limone a Mentone? Dove dormire, come funzionano i biglietti, quando arrivare alle sfilate, come muoversi a piedi e perche Victoria Beach e un vantaggio.", "Плануєте Fete du Citron у Ментоні? Де жити, як працюють квитки, коли приходити на паради, як ходити фестивальною зоною і чому Victoria Beach дає перевагу."),
+    excerpt: t("Menton's Lemon Festival fills the seafront with citrus sculptures, parades and winter Riviera colour. This practical guide explains tickets, timing, walking routes and the comfort of staying in central Menton.", "La Fete du Citron remplit le front de mer de sculptures d'agrumes, defiles et couleurs d'hiver. Ce guide explique billets, horaires, parcours a pied et confort d'un sejour central.", "La Festa del Limone riempie il lungomare di sculture di agrumi, sfilate e colori invernali. Questa guida spiega biglietti, tempi, percorsi e comfort di una base centrale.", "Фестиваль лимонів наповнює набережну цитрусовими скульптурами, парадами й зимовим кольором Рив'єри. Гід пояснює квитки, час, маршрути й комфорт центрального проживання."),
+    category: "practical",
+    visualTheme: "event",
+    visualStatus: "editorial_placeholder",
+    tags: [
+      t("Fete du Citron", "Fete du Citron", "Festa del Limone", "Fete du Citron"),
+      t("winter festival", "festival d'hiver", "festival invernale", "зимовий фестиваль"),
+      t("tickets", "billets", "biglietti", "квитки"),
+      t("Victoria Beach", "Victoria Beach", "Victoria Beach", "Victoria Beach"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
+    duration: "flexible",
+    locationTags: ["menton-centre", "seafront", "old-town"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil", "rampes-saint-michel", "cimetiere-vieux-chateau", "halles-du-marche", "plage-casino", "plage-fossan"],
+    relatedArticles: ["where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "best-photo-spots-menton", "menton-with-kids-family-guide", "local-food-menton"],
+    relatedEvents: ["menton-lemon-festival", "nice-carnival", "monte-carlo-circus-festival"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why the Lemon Festival is worth planning around", "Pourquoi organiser son sejour autour de la Fete du Citron", "Perche pianificare il soggiorno intorno alla Festa del Limone", "Чому Фестиваль лимонів варто планувати заздалегідь"),
+        body: [
+          t("The Fete du Citron is one of the Riviera's most distinctive winter events: citrus sculptures, decorated floats, parades, light displays, craft stalls, gardens and festive street life across central Menton.", "La Fete du Citron est l'un des evenements d'hiver les plus distinctifs de la Riviera : sculptures d'agrumes, chars decores, defiles, lumieres, marche artisanal, jardins et vie festive au centre de Menton.", "La Festa del Limone e uno degli eventi invernali piu caratteristici della Riviera: sculture di agrumi, carri, sfilate, luci, mercato artigianale, giardini e vita festiva nel centro di Mentone.", "Fete du Citron - одна з найхарактерніших зимових подій Рив'єри: цитрусові скульптури, декоровані платформи, паради, світло, ярмарок, сади й святкове життя центру Ментона."),
+          t("For guests staying in Menton, the festival is not just a day trip. It becomes part of the stay: morning seafront walks, citrus displays in town, crowded parade moments, quieter evenings and a very different mood from the usual Riviera season.", "Pour les voyageurs loges a Menton, ce n'est pas seulement une excursion. Le festival devient le rythme du sejour : promenades du matin, decors d'agrumes, defiles charges, soirees plus calmes et une ambiance tres differente de la saison Riviera classique.", "Per chi soggiorna a Mentone non e solo una gita. Il festival diventa il ritmo del soggiorno: passeggiate mattutine, installazioni di agrumi, sfilate affollate, serate piu calme e un'atmosfera diversa dalla Riviera abituale.", "Для гостей у Ментоні це не просто поїздка на день. Фестиваль стає частиною перебування: ранкові прогулянки, цитрусові інсталяції, людні паради, спокійніші вечори й зовсім інший настрій Рив'єри."),
+        ],
+        relatedEventIds: ["menton-lemon-festival"],
+      },
+      {
+        heading: t("Dates, tickets and parade timing", "Dates, billets et horaires des defiles", "Date, biglietti e tempi delle sfilate", "Дати, квитки й час парадів"),
+        body: [
+          t("The festival normally takes place in late February and sometimes continues into early March. Exact dates, theme, parade schedule and ticket categories are confirmed for each edition, so check the official programme before booking non-refundable travel.", "Le festival a generalement lieu fin fevrier et parfois debut mars. Les dates exactes, le theme, les defiles et les categories de billets sont confirmes a chaque edition : verifiez le programme officiel avant toute reservation non remboursable.", "Il festival si svolge di solito a fine febbraio e a volte continua a inizio marzo. Date esatte, tema, sfilate e categorie di biglietti sono confermati per ogni edizione: controlla il programma ufficiale prima di prenotare viaggi non rimborsabili.", "Фестиваль зазвичай проходить наприкінці лютого й інколи на початку березня. Точні дати, тема, розклад парадів і категорії квитків підтверджуються окремо для кожного випуску."),
+          t("Some parts of the festival are usually free, such as town walks and some central displays, while Golden Fruit Parades, night parades, grandstands and specific shows can be ticketed. If you want the full experience, try to include at least one Sunday and, if possible, one Thursday evening.", "Certaines parties sont souvent libres, comme les balades en ville et certains decors centraux, tandis que les Corsos des fruits d'or, defiles de nuit, tribunes et spectacles precis peuvent etre payants. Pour l'experience complete, essayez d'inclure un dimanche et si possible un jeudi soir.", "Alcune parti sono spesso gratuite, come passeggiate e installazioni centrali, mentre Corsi dei frutti d'oro, sfilate notturne, tribune e spettacoli possono essere a pagamento. Per l'esperienza completa, includi una domenica e se possibile un giovedi sera.", "Частина фестивалю зазвичай безкоштовна, як прогулянки містом і деякі центральні інсталяції, а паради, нічні паради, трибуни й окремі шоу можуть бути квитковими. Для повного досвіду варто включити неділю й, якщо можливо, вечір четверга."),
+        ],
+        bullets: [
+          t("Arrive earlier than the official parade time.", "Arrivez plus tot que l'heure officielle du defile.", "Arriva prima dell'orario ufficiale della sfilata.", "Приходьте раніше офіційного часу параду."),
+          t("Buy parade tickets early if a grandstand matters.", "Achetez tot si une tribune compte pour vous.", "Compra presto se vuoi una tribuna.", "Купуйте квитки завчасно, якщо важлива трибуна."),
+          t("Check official access rules for the current edition.", "Verifiez les regles d'acces officielles de l'edition en cours.", "Controlla le regole di accesso ufficiali dell'edizione corrente.", "Перевіряйте офіційні правила доступу для поточного випуску."),
+        ],
+      },
+      {
+        heading: t("Where the festival happens", "Ou se passe le festival", "Dove si svolge il festival", "Де проходить фестиваль"),
+        body: [
+          t("The heart of the festival is central Menton: the seafront, the area around Jardins Bioves, Palais de l'Europe, Promenade du Soleil and the routes between the old town and the sea. During normal weeks, almost anywhere in Menton can work; during Fete du Citron, a few streets can make a real difference.", "Le coeur du festival est Menton centre : le front de mer, les Jardins Bioves, le Palais de l'Europe, la Promenade du Soleil et les parcours entre vieille ville et mer. En temps normal, presque tout Menton fonctionne; pendant la Fete du Citron, quelques rues changent beaucoup l'experience.", "Il cuore del festival e il centro di Mentone: lungomare, Jardins Bioves, Palais de l'Europe, Promenade du Soleil e percorsi tra centro storico e mare. In settimane normali quasi ogni zona va bene; durante la Festa del Limone poche strade fanno molta differenza.", "Серце фестивалю - центр Ментона: набережна, Jardins Biovès, Palais de l'Europe, Promenade du Soleil і маршрути між старим містом та морем. У звичайні тижні майже будь-який район зручний; під час Fete du Citron кілька вулиць можуть сильно змінити досвід."),
+          t("The best base is central, walkable and close to the seafront. If you can walk to the displays, promenade, restaurants, cafes and old town, you rely far less on parking or taxis.", "La meilleure base est centrale, pietonne et proche du front de mer. Si vous rejoignez a pied les decors, la promenade, restaurants, cafes et vieille ville, vous dependez beaucoup moins du parking ou des taxis.", "La base migliore e centrale, percorribile a piedi e vicina al mare. Se puoi raggiungere a piedi installazioni, passeggiata, ristoranti, caffe e centro storico, dipendi molto meno da parcheggio o taxi.", "Найкраща база - центральна, пішохідна й близька до набережної. Якщо можна дійти до інсталяцій, ресторанів, кав'ярень і старого міста, ви менше залежите від паркування й таксі."),
+        ],
+        relatedPlaceIds: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil", "rampes-saint-michel"],
+      },
+      {
+        heading: t("Why Victoria Beach is a special advantage", "Pourquoi Victoria Beach est un vrai avantage", "Perche Victoria Beach e un vantaggio speciale", "Чому Victoria Beach дає особливу перевагу"),
+        body: [
+          t("The Victoria Beach area sits directly in the central festival zone. For Azur Menton guests, Beachfront Studio with Balcony & Sea View is the view-first option, while Beachside Apartment with Terrace & Parking gives more space, kitchen comfort and parking by reservation.", "Le secteur Victoria Beach est directement dans la zone centrale du festival. Pour les voyageurs Azur Menton, le Beachfront Studio with Balcony & Sea View est l'option vue, tandis que le Beachside Apartment with Terrace & Parking offre plus d'espace, cuisine et parking sur reservation.", "La zona Victoria Beach e direttamente nella zona centrale del festival. Per gli ospiti Azur Menton, Beachfront Studio with Balcony & Sea View e l'opzione vista, mentre Beachside Apartment with Terrace & Parking offre piu spazio, cucina e parcheggio su prenotazione.", "Район Victoria Beach розташований прямо в центральній фестивальній зоні. Для гостей Azur Menton Beachfront Studio with Balcony & Sea View - варіант із видом, а Beachside Apartment with Terrace & Parking дає більше простору, кухню й паркування за бронюванням."),
+          t("During restricted festival times, resident access rules can matter. A resident pass is not a parade ticket, but when available it can make daily movement to and from the apartment much easier. We confirm practical access details manually before arrival.", "Pendant les periodes de restriction, les regles d'acces riverain comptent. Une accreditation resident n'est pas un billet de defile, mais lorsqu'elle est disponible elle facilite les allers-retours vers l'appartement. Nous confirmons ces details avant l'arrivee.", "Durante le restrizioni, le regole di accesso residenti contano. Un pass residente non e un biglietto per la sfilata, ma quando disponibile semplifica gli spostamenti verso l'appartamento. Confermiamo i dettagli prima dell'arrivo.", "Під час обмежень важливі правила доступу для мешканців. Резидентський пропуск - не квиток на парад, але коли він доступний, він полегшує рух до апартаментів. Ми підтверджуємо практичні деталі до прибуття."),
+          t("For the balcony studio, the seafront balcony can feel like a private viewpoint over the festival atmosphere. It is not an official viewing seat, because routes and security layouts change, but it is one of the strongest reasons to book that apartment during festival dates.", "Pour le studio balcon, le balcon face mer peut donner l'impression d'un point de vue prive sur l'ambiance du festival. Ce n'est pas une place officielle, car parcours et securite changent, mais c'est une excellente raison de reserver cet appartement.", "Per lo studio con balcone, il balcone fronte mare puo sembrare un punto di vista privato sull'atmosfera del festival. Non e un posto ufficiale, perche percorsi e sicurezza cambiano, ma e uno dei motivi migliori per prenotarlo.", "Для студії з балконом вид на море може відчуватися як приватна точка над фестивальною атмосферою. Це не офіційне місце перегляду, бо маршрути й безпека змінюються, але це одна з головних причин бронювати цей апартамент."),
+        ],
+        relatedApartmentKeys: ["sea-view-balcony-studio", "beachside-family-apartment"],
+      },
+      {
+        heading: t("A practical first walking route", "Un premier parcours a pied pratique", "Un primo percorso a piedi pratico", "Практичний перший пішохідний маршрут"),
+        body: [
+          t("Start with Jardins Bioves for the citrus displays, then move toward Palais de l'Europe and the central streets for cafes, shops and festival browsing. Continue toward the old town for colour, steps, basilica views and a break from the densest parade flow.", "Commencez par les Jardins Bioves pour les decors d'agrumes, puis allez vers le Palais de l'Europe et les rues centrales pour cafes, boutiques et ambiance. Continuez vers la vieille ville pour les couleurs, marches, vues de basilique et une pause hors du flux le plus dense.", "Inizia dai Jardins Bioves per le installazioni di agrumi, poi vai verso Palais de l'Europe e le vie centrali per caffe, negozi e atmosfera. Continua verso il centro storico per colori, scale, viste e una pausa dalla folla piu densa.", "Почніть із Jardins Biovès заради цитрусових інсталяцій, потім ідіть до Palais de l'Europe і центральних вулиць із кав'ярнями та крамницями. Далі - старе місто для кольорів, сходів, видів і паузи від найщільнішого натовпу."),
+          t("Return toward Promenade du Soleil for the parade atmosphere or an evening seafront walk. If you stay at Victoria Beach, do this in short loops: go out, return home, rest, and go out again.", "Revenez vers la Promenade du Soleil pour l'ambiance des defiles ou une marche du soir. Si vous logez a Victoria Beach, faites de petites boucles : sortez, rentrez, reposez-vous, ressortez.", "Rientra verso Promenade du Soleil per l'atmosfera delle sfilate o una passeggiata serale. Se soggiorni a Victoria Beach, fai piccoli giri: esci, torna, riposa, esci di nuovo.", "Поверніться до Promenade du Soleil заради атмосфери параду або вечірньої набережної. Якщо живете на Victoria Beach, робіть короткі петлі: вийшли, повернулися, відпочили, знову вийшли."),
+        ],
+        relatedPlaceIds: ["jardins-bioves", "palais-de-leurope-menton", "rampes-saint-michel", "cimetiere-vieux-chateau", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Family tips and what to bring", "Conseils famille et quoi apporter", "Consigli per famiglie e cosa portare", "Поради для сімей і що взяти"),
+        body: [
+          t("The festival is colourful and memorable for children, but parade days can be crowded. Families usually do better with a seated grandstand ticket or a shorter, flexible visit around displays and central streets. Do not overpack the day.", "Le festival est colore et memorable avec enfants, mais les jours de defile sont denses. Les familles sont souvent mieux avec une tribune assise ou une visite plus courte autour des decors et rues centrales. Ne surchargez pas la journee.", "Il festival e colorato e memorabile per i bambini, ma i giorni di sfilata sono affollati. Le famiglie stanno meglio con una tribuna seduta o una visita piu breve e flessibile tra installazioni e centro. Non riempire troppo la giornata.", "Фестиваль яскравий і запам'ятовується дітям, але дні парадів людні. Сім'ям часто краще з сидячою трибуною або коротшим гнучким візитом серед інсталяцій і центру. Не перевантажуйте день."),
+          t("Bring comfortable shoes, a light jacket, water, sun protection for daytime parades and as little extra luggage as possible. February evenings can feel cool on the seafront even after a sunny afternoon.", "Prenez chaussures confortables, veste legere, eau, protection solaire pour les defiles de jour et le moins de bagages possible. Les soirees de fevrier peuvent etre fraiches au bord de mer meme apres un apres-midi ensoleille.", "Porta scarpe comode, giacca leggera, acqua, protezione solare per le sfilate diurne e meno bagagli possibile. Le sere di febbraio possono essere fresche sul mare anche dopo un pomeriggio soleggiato.", "Візьміть зручне взуття, легку куртку, воду, захист від сонця для денних парадів і мінімум зайвих речей. Лютневі вечори біля моря можуть бути прохолодними навіть після сонячного дня."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "jardins-bioves"],
+      },
+      {
+        heading: t("Where to stay for the Lemon Festival", "Ou loger pour la Fete du Citron", "Dove soggiornare per la Festa del Limone", "Де зупинитися на Фестиваль лимонів"),
+        body: [
+          t("For Fete du Citron, the best apartment is the one that reduces friction: close enough to walk, easy to return to, and comfortable enough when restaurants, streets and parade routes are busy.", "Pour la Fete du Citron, le meilleur appartement est celui qui reduit les frictions : assez proche pour marcher, facile pour rentrer, confortable quand rues, restaurants et defiles sont charges.", "Per la Festa del Limone, l'appartamento migliore e quello che riduce attriti: vicino per camminare, facile per rientrare e comodo quando strade, ristoranti e sfilate sono affollati.", "Для Fete du Citron найкращий апартамент - той, що зменшує тертя: близько пішки, легко повернутися й комфортно, коли ресторани, вулиці й паради переповнені."),
+          t("Sea View Balcony Studio is best when the balcony and seafront atmosphere matter most. Beachside Apartment with Terrace & Parking is better for families, longer stays, more space, a kitchen and parking by reservation.", "Le Sea View Balcony Studio convient si le balcon et l'ambiance front de mer comptent le plus. Le Beachside Apartment with Terrace & Parking convient mieux aux familles, longs sejours, besoin d'espace, cuisine et parking sur reservation.", "Sea View Balcony Studio e ideale se balcone e atmosfera fronte mare contano di piu. Beachside Apartment with Terrace & Parking e migliore per famiglie, soggiorni lunghi, piu spazio, cucina e parcheggio su prenotazione.", "Sea View Balcony Studio підходить, якщо найважливіші балкон і атмосфера набережної. Beachside Apartment with Terrace & Parking кращий для сімей, довших перебувань, простору, кухні й паркування за бронюванням."),
+        ],
+        relatedApartmentKeys: ["sea-view-balcony-studio", "beachside-family-apartment"],
+      },
+    ],
+    practicalTips: [
+      t("Book central apartments early for festival dates.", "Reservez les appartements centraux tot pour les dates du festival.", "Prenota presto gli appartamenti centrali per le date del festival.", "Бронюйте центральні апартаменти завчасно на дати фестивалю."),
+      t("Check the official programme before buying travel or parade tickets.", "Verifiez le programme officiel avant billets de voyage ou de defile.", "Controlla il programma ufficiale prima di viaggio o biglietti.", "Перевірте офіційну програму перед квитками на подорож або парад."),
+      t("If you need parking, discuss access before arrival.", "Si vous avez besoin de parking, discutez l'acces avant l'arrivee.", "Se ti serve parcheggio, discuti l'accesso prima dell'arrivo.", "Якщо потрібне паркування, обговоріть доступ до прибуття."),
+      t("Use the apartment as a rest base between busy festival moments.", "Utilisez l'appartement comme base de repos entre les moments charges.", "Usa l'appartamento come base di pausa tra i momenti affollati.", "Використовуйте апартамент як базу для відпочинку між людними моментами."),
     ],
   }),
   shortArticle({
