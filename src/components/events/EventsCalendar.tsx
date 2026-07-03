@@ -556,6 +556,8 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
       "monaco-grand-prix-2027",
       "rolex-monte-carlo-masters-2027",
       "monaco-e-prix-2027",
+      "monaco-run-2027",
+      "nice-half-marathon-2027",
       "new-vision-nice-open-2026",
       "jumping-international-monte-carlo-2026",
       "meeting-herculis-ebs-2026",
