@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { getRivieraEvent } from "../../src/content/riviera-events";
 import { canRenderEventJsonLd, getEventDateStatus } from "../../src/lib/events";
 
 const datedEvent = {
@@ -26,5 +27,9 @@ describe("event date status", () => {
     expect(canRenderEventJsonLd({ dateStatus: "confirmed", startDate: "2027-02-09" })).toBe(true);
     expect(canRenderEventJsonLd({ dateStatus: "dates_pending", startDate: undefined })).toBe(false);
     expect(canRenderEventJsonLd({ dateStatus: "estimated_annual_window", startDate: undefined })).toBe(false);
+  });
+
+  it("resolves occurrence route aliases to the current event object", () => {
+    expect(getRivieraEvent("monaco-grand-prix-2027")?.slug).toBe("monaco-grand-prix");
   });
 });

@@ -35,6 +35,9 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Use verified official sources where possible.
 - Set `seriesSlug`, `occurrenceYear`, `recurrence` and `dateStatus` so recurring events can be refreshed without rewriting evergreen descriptions.
 - Use `dateStatus: "confirmed"` only with real published dates. Use `dates_pending` or `estimated_annual_window` when dates are annual, provisional or not officially confirmed.
+- Keep major annual detail pages pointed at the next useful occurrence, not a stale past date.
+- Use selected occurrence aliases for high-booking pages, for example `/events/monaco-grand-prix-2027`, while keeping the stable series slug.
+- Run `npm run events:review` when changing events or guide-event links; treat high-risk items as blockers unless they are explicitly intentional.
 - Mark annual events awaiting official dates with an explicit freshness profile instead of deleting them.
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.

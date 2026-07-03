@@ -35,6 +35,9 @@ const copy = {
     availability: "Check availability",
     apartments: "View apartments",
     featured: "Featured Riviera dates",
+    nowTitle: "Happening now / next 30 days",
+    bookAheadTitle: "Book-ahead major events",
+    easyTitle: "Easy from Menton this month",
     heroLabel: "Riviera calendar",
     highlightsLabel: "Highlights",
     practicalPlanning: "Practical planning",
@@ -66,6 +69,9 @@ const copy = {
     availability: "Verifier disponibilite",
     apartments: "Voir appartements",
     featured: "Dates Riviera a surveiller",
+    nowTitle: "En cours / 30 prochains jours",
+    bookAheadTitle: "Grands evenements a reserver tot",
+    easyTitle: "Facile depuis Menton ce mois-ci",
     heroLabel: "Calendrier Riviera",
     highlightsLabel: "Temps forts",
     practicalPlanning: "Planification pratique",
@@ -95,6 +101,9 @@ const copy = {
     availability: "Controlla disponibilita",
     apartments: "Vedi appartamenti",
     featured: "Date Riviera in evidenza",
+    nowTitle: "In corso / prossimi 30 giorni",
+    bookAheadTitle: "Grandi eventi da prenotare prima",
+    easyTitle: "Facile da Mentone questo mese",
     heroLabel: "Calendario Riviera",
     highlightsLabel: "In evidenza",
     practicalPlanning: "Pianificazione pratica",
@@ -124,6 +133,9 @@ const copy = {
     availability: "Перевірити доступність",
     apartments: "Переглянути апартаменти",
     featured: "Головні дати Рив'єри",
+    nowTitle: "Зараз / наступні 30 днів",
+    bookAheadTitle: "Великі події для раннього бронювання",
+    easyTitle: "Легко з Ментона цього місяця",
     heroLabel: "Календар Рив'єри",
     highlightsLabel: "Головне",
     practicalPlanning: "Практичне планування",
@@ -161,7 +173,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale }) {
   const labels = copy[locale];
-  const href = event.detailPage ? (`/${locale}/events/${event.slug}` as Route) : (`/${locale}/events` as Route);
+  const href = event.detailPage ? (`/${locale}/events/${event.occurrenceSlug ?? event.slug}` as Route) : (`/${locale}/events` as Route);
   const title = getEventTitle(event, locale);
   const dateLabel = getEventDateLabel(event, locale);
 
@@ -203,7 +215,33 @@ export default async function EventsLandingPage({ params }: PageProps) {
   const labels = copy[safeLocale];
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "events"));
   const visibleEvents = getVisibleEvents(rivieraEvents);
-  const featured = [...visibleEvents.upcoming, ...visibleEvents.datesPending].filter((event) => event.featured).slice(0, 6);
+  const today = new Date();
+  const thirtyDaysFromNow = new Date(today);
+  thirtyDaysFromNow.setDate(today.getDate() + 30);
+  const dateKey = (date: Date) => date.toISOString().slice(0, 10);
+  const nowOrNext30 = visibleEvents.upcoming
+    .filter((event) => event.startDate && event.startDate <= dateKey(thirtyDaysFromNow))
+    .slice(0, 6);
+  const bookAheadSlugs = [
+    "menton-lemon-festival",
+    "nice-carnival",
+    "monaco-grand-prix",
+    "rolex-monte-carlo-masters",
+    "monaco-yacht-show",
+    "sanremo-music-festival",
+    "rallye-automobile-monte-carlo",
+    "monaco-e-prix",
+  ];
+  const bookAhead = bookAheadSlugs
+    .map((slug) => [...visibleEvents.upcoming, ...visibleEvents.datesPending].find((event) => event.slug === slug))
+    .filter(Boolean)
+    .slice(0, 8) as RivieraEvent[];
+  const easyCities = ["Menton", "Monaco", "Nice", "Sanremo", "Roquebrune-Cap-Martin", "Villefranche-sur-Mer", "Saint-Jean-Cap-Ferrat"];
+  const easyFromMenton = [...visibleEvents.upcoming, ...visibleEvents.datesPending]
+    .filter((event) => (event.distanceFromMentonKm ?? 99) <= 32 || easyCities.some((city) => (event.city ?? event.location).includes(city)))
+    .filter((event) => !bookAheadSlugs.includes(event.slug))
+    .slice(0, 6);
+  const featured = [...nowOrNext30, ...bookAhead, ...easyFromMenton].filter((event, index, events) => events.findIndex((item) => item.slug === event.slug) === index).slice(0, 6);
   const apartmentsForEvents = apartments.filter((apartment) =>
     ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"].includes(apartment.slug),
   );
@@ -221,7 +259,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
             .map((event) => ({
               name: getEventTitle(event, safeLocale),
               description: event.shortDescription[safeLocale],
-              url: absoluteUrl(localizedPath(safeLocale, `events/${event.slug}`)),
+              url: absoluteUrl(localizedPath(safeLocale, `events/${event.occurrenceSlug ?? event.slug}`)),
               image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
             })),
         })}
@@ -266,10 +304,23 @@ export default async function EventsLandingPage({ params }: PageProps) {
             </div>
             <p className="max-w-xl text-sm leading-7 text-[#5f574c]">{labels.featuredIntro}</p>
           </div>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {featured.map((event) => (
-              <FeaturedEvent key={event.id} event={event} locale={safeLocale} />
-            ))}
+          <div className="mt-6 grid gap-7">
+            {[
+              { title: labels.nowTitle, events: nowOrNext30 },
+              { title: labels.bookAheadTitle, events: bookAhead },
+              { title: labels.easyTitle, events: easyFromMenton },
+            ].map((group) =>
+              group.events.length ? (
+                <section key={group.title as string} className="grid gap-4">
+                  <h3 className="serif-heading text-3xl leading-none text-[#173f36]">{group.title}</h3>
+                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {group.events.slice(0, 6).map((event) => (
+                      <FeaturedEvent key={event.id} event={event} locale={safeLocale} />
+                    ))}
+                  </div>
+                </section>
+              ) : null,
+            )}
           </div>
         </Container>
       </section>

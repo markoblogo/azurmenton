@@ -47,6 +47,7 @@ describe("content graph audit", () => {
     expect(unique(places.map((place) => place.id))).toBe(true);
     expect(unique(apartments.map((apartment) => apartment.slug))).toBe(true);
     expect(unique(rivieraEvents.map((event) => event.slug))).toBe(true);
+    expect(unique(rivieraEvents.flatMap((event) => (event.occurrenceSlug ? [event.slug, event.occurrenceSlug] : [event.slug])))).toBe(true);
   });
 
   it("keeps guide references resolvable", () => {
@@ -105,6 +106,11 @@ describe("content graph audit", () => {
 
   it("keeps event freshness profiles attached to valid events", () => {
     const failures = eventFreshnessProfiles.filter((profile) => !eventSlugs.has(profile.slug)).map((profile) => profile.slug);
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps event guide links resolvable", () => {
+    const failures = rivieraEvents.flatMap((event) => unresolved(event.relatedGuideSlugs, guideSlugs).map((slug) => `${event.slug} relatedGuideSlugs -> ${slug}`));
     expect(failures).toEqual([]);
   });
 

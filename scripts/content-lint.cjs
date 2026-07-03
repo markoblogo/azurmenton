@@ -13,6 +13,7 @@ const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/rivie
 const { locales } = require("../src/i18n/locales.ts");
 
 const failures = [];
+const guideSlugs = new Set(guideArticles.map((article) => article.slug));
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const idPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -133,6 +134,9 @@ for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {
   checkUrl(owner, "sourceUrl", event.sourceUrl);
   checkUrl(owner, "programmeUrl", event.programmeUrl);
   checkUrl(owner, "ticketsUrl", event.ticketsUrl);
+  for (const guideSlug of event.relatedGuideSlugs ?? []) {
+    if (!guideSlugs.has(guideSlug)) fail(`${owner}.relatedGuideSlugs -> ${guideSlug}`);
+  }
   if (event.sourceStatus === "verified" && !event.sourceUrl) fail(`${owner} is verified but has no sourceUrl`);
   checkPath(owner, "media.image", event.media?.image);
   if (event.media?.image && !event.media.imageAlt) fail(`${owner}.media.imageAlt missing`);

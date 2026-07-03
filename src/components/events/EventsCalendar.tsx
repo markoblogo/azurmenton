@@ -267,6 +267,10 @@ const timelineIntro = {
     "2026-12": "Winter is calmer, lighter and more local.",
     "2027-01": "January works for quiet seaside stays before the winter festivals.",
     "winter-highlights": "February and early March are the big family-friendly winter highlights.",
+    "2027-03": "March is for spring culture, Italy day trips and race calendars to watch.",
+    "2027-04": "April brings strong book-ahead sport around Monaco.",
+    "2027-05": "May is a compact Monaco event month before peak summer.",
+    "2027-06": "June is the key Formula 1 planning month for Monaco stays.",
   },
   fr: {
     "2026-06": "Le debut d'ete commence fort avec Monaco, Nice, culture et sport.",
@@ -278,6 +282,10 @@ const timelineIntro = {
     "2026-12": "L'hiver est plus calme, lumineux et local.",
     "2027-01": "Janvier convient aux sejours tranquilles avant les festivals d'hiver.",
     "winter-highlights": "Fevrier et debut mars concentrent les grands temps forts familiaux.",
+    "2027-03": "Mars mele culture de printemps, Italie et calendriers sportifs a suivre.",
+    "2027-04": "Avril apporte un grand temps fort sportif autour de Monaco.",
+    "2027-05": "Mai concentre des evenements monégasques avant le plein ete.",
+    "2027-06": "Juin est le mois cle pour planifier la Formule 1 a Monaco.",
   },
   it: {
     "2026-06": "L'inizio estate parte forte con Monaco, Nizza, cultura e sport.",
@@ -289,6 +297,10 @@ const timelineIntro = {
     "2026-12": "L'inverno e piu calmo, luminoso e locale.",
     "2027-01": "Gennaio e ideale per soggiorni tranquilli prima dei festival invernali.",
     "winter-highlights": "Febbraio e inizio marzo portano i grandi eventi invernali per famiglie.",
+    "2027-03": "Marzo combina cultura di primavera, Italia e calendari sportivi da seguire.",
+    "2027-04": "Aprile porta un grande appuntamento sportivo intorno a Monaco.",
+    "2027-05": "Maggio concentra eventi monegaschi prima dell'estate piena.",
+    "2027-06": "Giugno e il mese chiave per pianificare la Formula 1 a Monaco.",
   },
   uk: {
     "2026-06": "Початок літа сильний: Монако, Ніцца, культура і спорт.",
@@ -300,6 +312,10 @@ const timelineIntro = {
     "2026-12": "Зима спокійніша, світліша і більш місцева.",
     "2027-01": "Січень підходить для тихого морського перебування перед зимовими фестивалями.",
     "winter-highlights": "Лютий і початок березня - головні зимові сімейні події.",
+    "2027-03": "Березень поєднує весняну культуру, Італію й спортивні календарі для перевірки.",
+    "2027-04": "Квітень приносить сильну спортивну подію біля Монако.",
+    "2027-05": "Травень концентрує події Монако перед піком літа.",
+    "2027-06": "Червень - ключовий місяць для планування Формули-1 у Монако.",
   },
 } satisfies Record<Locale, Record<TimelineGroup, string>>;
 
@@ -532,12 +548,14 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   };
 
   const familyHighlights = [...events, ...datesPendingEvents].filter((event) =>
-    ["menton-lemon-festival-2027", "nice-carnival-2027", "menton-music-festival-2026", "monaco-grand-prix-2026"].includes(event.id),
+    ["menton-lemon-festival-2027", "nice-carnival-2027", "menton-music-festival-2026", "monaco-grand-prix-2027"].includes(event.id),
   );
 
   const sportsPrestige = [...events, ...datesPendingEvents].filter((event) =>
     [
-      "monaco-grand-prix-2026",
+      "monaco-grand-prix-2027",
+      "rolex-monte-carlo-masters-2027",
+      "monaco-e-prix-2027",
       "new-vision-nice-open-2026",
       "jumping-international-monte-carlo-2026",
       "meeting-herculis-ebs-2026",

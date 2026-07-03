@@ -8,6 +8,7 @@ import { ShareActions } from "@/components/content/ShareActions";
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
+import { getGuideArticle } from "@/content/guide";
 import {
   eventCategoryLabels,
   eventDateStatusLabels,
@@ -16,11 +17,12 @@ import {
   getEventDateLabel,
   getEventTitle,
   getEventDetail,
+  rivieraEvents,
   sourceStatusLabels,
 } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
-import { canRenderEventJsonLd } from "@/lib/events";
+import { canRenderEventJsonLd, getEventDateStatus } from "@/lib/events";
 import { articleJsonLd, breadcrumbJsonLd, eventJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
@@ -61,6 +63,14 @@ const copy = {
     eventsCrumb: "Events",
     availability: "Check availability",
     viewApartments: "View apartments",
+    nextEdition: "Next edition",
+    passed: "This event has passed.",
+    similarEvents: "Similar upcoming events",
+    relatedGuides: "Related guides",
+    whyStay: "Why stay in Menton",
+    getThere: "How to get there",
+    arrive: "Best time to arrive",
+    combine: "What to combine nearby",
   },
   fr: {
     eyebrow: "Guide evenement Riviera",
@@ -93,6 +103,14 @@ const copy = {
     eventsCrumb: "Evenements",
     availability: "Verifier disponibilite",
     viewApartments: "Voir appartements",
+    nextEdition: "Prochaine edition",
+    passed: "Cet evenement est passe.",
+    similarEvents: "Evenements a venir similaires",
+    relatedGuides: "Guides lies",
+    whyStay: "Pourquoi loger a Menton",
+    getThere: "Comment y aller",
+    arrive: "Meilleur moment d'arrivee",
+    combine: "A combiner a proximite",
   },
   it: {
     eyebrow: "Guida eventi Riviera",
@@ -125,6 +143,14 @@ const copy = {
     eventsCrumb: "Eventi",
     availability: "Controlla disponibilita",
     viewApartments: "Vedi appartamenti",
+    nextEdition: "Prossima edizione",
+    passed: "Questo evento e passato.",
+    similarEvents: "Eventi simili in arrivo",
+    relatedGuides: "Guide correlate",
+    whyStay: "Perche soggiornare a Mentone",
+    getThere: "Come arrivare",
+    arrive: "Quando arrivare",
+    combine: "Cosa abbinare vicino",
   },
   uk: {
     eyebrow: "Гід подій Рив'єри",
@@ -157,6 +183,14 @@ const copy = {
     eventsCrumb: "Події",
     availability: "Перевірити доступність",
     viewApartments: "Переглянути апартаменти",
+    nextEdition: "Наступний випуск",
+    passed: "Ця подія вже минула.",
+    similarEvents: "Схожі майбутні події",
+    relatedGuides: "Пов'язані гіди",
+    whyStay: "Чому зупинитися в Ментоні",
+    getThere: "Як дістатися",
+    arrive: "Коли краще приїхати",
+    combine: "Що поєднати поруч",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -181,7 +215,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return createMetadata({
     locale: safeLocale,
-    path: `events/${event.slug}`,
+    path: `events/${slug}`,
     title: `${title} | Azur Menton`,
     description: event.shortDescription[safeLocale],
     image: event.media?.image,
@@ -206,7 +240,20 @@ export default async function EventArticlePage({ params }: PageProps) {
   const labels = copy[locale];
   const title = getEventTitle(event, locale);
   const dateLabel = getEventDateLabel(event, locale);
-  const pageUrl = absoluteUrl(localizedPath(locale, `events/${event.slug}`));
+  const pageUrl = absoluteUrl(localizedPath(locale, `events/${slug}`));
+  const eventStatus = getEventDateStatus(event);
+  const relatedGuides = (event.relatedGuideSlugs ?? ["menton-without-a-car", "public-transport-in-menton"])
+    .map((guideSlug) => getGuideArticle(guideSlug))
+    .filter((guide): guide is NonNullable<ReturnType<typeof getGuideArticle>> => Boolean(guide))
+    .slice(0, 5);
+  const similarEvents = rivieraEvents
+    .filter((candidate) => candidate.slug !== event.slug && candidate.detailPage)
+    .filter((candidate) => {
+      const status = getEventDateStatus(candidate);
+      return status === "upcoming" || status === "current" || status === "dates_pending" || status === "estimated_annual_window";
+    })
+    .filter((candidate) => candidate.location === event.location || candidate.category.some((category) => event.category.includes(category)))
+    .slice(0, 3);
   const relatedApartmentKeys =
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
@@ -346,6 +393,33 @@ export default async function EventArticlePage({ params }: PageProps) {
                 </section>
               </div>
 
+              {event.recurrence === "annual" ? (
+                <section className="border border-[#dfd4c1] bg-[#fffdf8] p-5">
+                  <div className="grid gap-4 md:grid-cols-[0.7fr_1.3fr]">
+                    <div>
+                      <p className="editorial-label">{labels.nextEdition}</p>
+                      <h2 className="serif-heading mt-2 text-3xl leading-none text-[#173f36]">{dateLabel}</h2>
+                    </div>
+                    <div className="grid gap-3 text-sm leading-7 text-[#5c5044]">
+                      {eventStatus === "past" ? <p className="font-semibold text-[#7b5515]">{labels.passed}</p> : null}
+                      <p>{event.bookingTip[locale]}</p>
+                      {similarEvents.length ? (
+                        <div>
+                          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{labels.similarEvents}</p>
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            {similarEvents.map((similar) => (
+                              <Link key={similar.slug} href={`/${locale}/events/${similar.occurrenceSlug ?? similar.slug}` as Route} className="border border-[#dfd4c1] px-3 py-2 text-xs font-semibold text-[#0b6f8f] hover:border-[#c6a66a]">
+                                {getEventTitle(similar, locale)}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                </section>
+              ) : null}
+
               {detail ? (
                 <section className="border-t border-[#dfd4c1] pt-6">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -399,6 +473,28 @@ export default async function EventArticlePage({ params }: PageProps) {
                   </div>
                 </section>
               ) : null}
+
+              <section className="border-t border-[#dfd4c1] pt-6">
+                <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.plan}</h2>
+                <div className="mt-5 grid gap-4 md:grid-cols-2">
+                  <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                    <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.whyStay}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#5c5044]">{event.location === "Menton" ? event.whyShowOnSite[locale] : event.travelNote?.[locale] ?? event.bookingTip[locale]}</p>
+                  </div>
+                  <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                    <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.getThere}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#5c5044]">{event.travelNote?.[locale] ?? event.bookingTip[locale]}</p>
+                  </div>
+                  <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                    <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.arrive}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#5c5044]">{labels.verifyText}</p>
+                  </div>
+                  <div className="border border-[#dfd4c1] bg-[#fffdf8] p-4">
+                    <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{labels.combine}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#5c5044]">{event.whyShowOnSite[locale]}</p>
+                  </div>
+                </div>
+              </section>
             </article>
 
             <aside className="grid h-fit gap-4 border border-[#dfd4c1] bg-[#fffdf8] p-5 lg:sticky lg:top-24">
@@ -412,12 +508,18 @@ export default async function EventArticlePage({ params }: PageProps) {
                   <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/apartments` as Route}>
                     {labels.viewApartments}
                   </Link>
-                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/menton-without-a-car` as Route}>
-                    {labels.relatedGuide}
-                  </Link>
-                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/public-transport-in-menton` as Route}>
-                    {labels.transportGuide}
-                  </Link>
+                  {relatedGuides.length ? (
+                    <div className="border-b border-[#dfd4c1] pb-3">
+                      <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{labels.relatedGuides}</p>
+                      <div className="grid gap-2">
+                        {relatedGuides.map((guide) => (
+                          <Link key={guide.slug} className="text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/guide/${guide.slug}` as Route}>
+                            {guide.title[locale]}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
                   <p className="text-xs leading-5 text-[#6b5f50]">{labels.verifyText}</p>
                 </div>
               </div>

@@ -76,7 +76,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     supportingGuideSlugs: ["stay-cool-in-menton-summer", "supermarkets-in-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco"],
     relatedPlaceIds: ["plage-sablettes", "plage-fossan", "koaland-menton", "cinema-eden-menton", "oceanographic-museum-monaco"],
     relatedApartmentKeys: ["beachside-family-apartment", ...seaViewApartments],
-    relatedEventSlugs: ["menton-lemon-festival", "nice-carnival"],
+    relatedEventSlugs: ["menton-lemon-festival", "nice-carnival", "monte-carlo-circus-festival", "sanremo-in-fiore", "french-flyair-menton"],
   },
   {
     id: "menton-without-car",
@@ -91,6 +91,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     supportingGuideSlugs: ["public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "day-trips-from-menton", "best-beaches-in-menton"],
     relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo"],
     relatedApartmentKeys: allApartments,
+    relatedEventSlugs: ["monaco-grand-prix", "monaco-e-prix", "rolex-monte-carlo-masters", "monaco-yacht-show", "nice-carnival"],
   },
   {
     id: "beachfront-stay",
@@ -119,7 +120,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     supportingGuideSlugs: ["italian-riviera-day-trip-from-menton", "public-transport-in-menton", "menton-three-day-itinerary", "museums-in-menton-nice-monaco"],
     relatedPlaceIds: ["monaco-monte-carlo", "nice-old-town", "ventimiglia", "bordighera", "eze-village"],
     relatedApartmentKeys: allApartments,
-    relatedEventSlugs: ["monaco-grand-prix", "nice-jazz-fest"],
+    relatedEventSlugs: ["monaco-grand-prix", "rolex-monte-carlo-masters", "monaco-e-prix", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest"],
   },
   {
     id: "winter-autumn",
@@ -134,7 +135,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     supportingGuideSlugs: ["museums-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "day-trips-from-menton", "menton-old-town"],
     relatedPlaceIds: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "cimetiere-vieux-chateau", "monaco-monte-carlo", "nice-old-town"],
     relatedApartmentKeys: seaViewApartments,
-    relatedEventSlugs: ["menton-lemon-festival", "monte-carlo-jazz-festival", "nice-carnival"],
+    relatedEventSlugs: ["menton-lemon-festival", "monte-carlo-jazz-festival", "nice-carnival", "rallye-automobile-monte-carlo", "monte-carlo-circus-festival", "christmas-markets-riviera"],
   },
   {
     id: "summer-heat",
@@ -149,7 +150,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
     supportingGuideSlugs: ["best-beaches-in-menton", "menton-with-kids-family-guide", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco"],
     relatedPlaceIds: ["plage-sablettes", "plage-casino", "rondelli-garavan-side", "musee-jean-cocteau-bastion", "cinema-eden-menton"],
     relatedApartmentKeys: allApartments,
-    relatedEventSlugs: ["summer-on-the-riviera", "menton-music-festival"],
+    relatedEventSlugs: ["summer-on-the-riviera", "menton-music-festival", "french-flyair-menton"],
   },
   {
     id: "practical-stay",
