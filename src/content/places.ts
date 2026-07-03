@@ -2171,6 +2171,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Promenade du Soleil in Menton", "Illustration de la Promenade du Soleil a Menton", "Illustrazione della Promenade du Soleil a Mentone", "Ілюстрація Promenade du Soleil у Ментоні"),
     visualTheme: "sea",
   },
+  "jardins-bioves": {
+    image: "/images/guide/jardins-bioves.jpg",
+    imageAlt: text("Illustration of Jardins Biovès in Menton", "Illustration des Jardins Bioves a Menton", "Illustrazione dei Jardins Biovès a Mentone", "Ілюстрація Jardins Biovès у Ментоні"),
+    visualTheme: "garden",
+  },
+  "palais-de-leurope-menton": {
+    image: "/images/guide/palais-de-leurope-menton.jpg",
+    imageAlt: text("Illustration of Palais de l'Europe in Menton", "Illustration du Palais de l'Europe a Menton", "Illustrazione del Palais de l'Europe a Mentone", "Ілюстрація Palais de l'Europe у Ментоні"),
+    visualTheme: "old-town",
+  },
   "port-de-garavan": {
     image: "/images/guide/port-de-garavan.jpg",
     imageAlt: text("Illustration of Port de Garavan in Menton", "Illustration du Port de Garavan a Menton", "Illustrazione del Port de Garavan a Mentone", "Ілюстрація Port de Garavan у Ментоні"),

@@ -3356,8 +3356,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("Planning Monaco Grand Prix, Yacht Show, E-Prix, Rolex Monte-Carlo Masters or other major Monaco events? Use Menton as a calmer Riviera base with train tips, crowd advice and booking notes.", "Vous planifiez le Grand Prix de Monaco, le Yacht Show, l'E-Prix, le Rolex Monte-Carlo Masters ou d'autres grands evenements ? Utilisez Menton comme base plus calme avec conseils train, foule et reservation.", "Stai pianificando Gran Premio di Monaco, Yacht Show, E-Prix, Rolex Monte-Carlo Masters o altri grandi eventi? Usa Mentone come base piu calma con consigli su treni, folla e prenotazioni.", "Плануєте Grand Prix Monaco, Yacht Show, E-Prix, Rolex Monte-Carlo Masters чи інші великі події? Використовуйте Ментон як спокійнішу базу з порадами щодо потягів, натовпів і бронювання."),
     excerpt: t("Menton is one of the easiest places to stay for Monaco events: close enough for a quick train ride, but calmer than the Principality during major race, yacht, tennis and gala weekends.", "Menton est l'une des bases les plus simples pour les evenements de Monaco : assez proche en train, mais plus calme que la Principaute pendant les grands week-ends de course, yacht, tennis ou gala.", "Mentone e una delle basi piu semplici per gli eventi di Monaco: abbastanza vicina in treno, ma piu calma del Principato durante weekend di gare, yacht, tennis e gala.", "Ментон - одна з найзручніших баз для подій у Монако: близько коротким потягом, але спокійніше, ніж у Князівстві під час перегонів, яхт-шоу, тенісу й гала-вечорів."),
     category: "day-trips",
+    coverImage: "/images/guide/monaco-events-from-menton.jpg",
+    coverImageAlt: t("Illustration of Monaco events from Menton", "Illustration des evenements a Monaco depuis Menton", "Illustrazione degli eventi a Monaco da Mentone", "Ілюстрація подій у Монако з Ментона"),
     visualTheme: "event",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("Monaco events", "evenements Monaco", "eventi Monaco", "події Монако"),
       t("train", "train", "treno", "потяг"),
@@ -3442,8 +3444,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("Planning a trip to the Fete du Citron in Menton? Learn where to stay, how tickets work, when to arrive for parades, how to walk around the festival zone, and why Victoria Beach is a major advantage.", "Vous preparez la Fete du Citron a Menton ? Ou loger, comment fonctionnent les billets, quand arriver aux defiles, comment marcher dans la zone festival et pourquoi Victoria Beach est un avantage.", "Stai pianificando la Festa del Limone a Mentone? Dove dormire, come funzionano i biglietti, quando arrivare alle sfilate, come muoversi a piedi e perche Victoria Beach e un vantaggio.", "Плануєте Fete du Citron у Ментоні? Де жити, як працюють квитки, коли приходити на паради, як ходити фестивальною зоною і чому Victoria Beach дає перевагу."),
     excerpt: t("Menton's Lemon Festival fills the seafront with citrus sculptures, parades and winter Riviera colour. This practical guide explains tickets, timing, walking routes and the comfort of staying in central Menton.", "La Fete du Citron remplit le front de mer de sculptures d'agrumes, defiles et couleurs d'hiver. Ce guide explique billets, horaires, parcours a pied et confort d'un sejour central.", "La Festa del Limone riempie il lungomare di sculture di agrumi, sfilate e colori invernali. Questa guida spiega biglietti, tempi, percorsi e comfort di una base centrale.", "Фестиваль лимонів наповнює набережну цитрусовими скульптурами, парадами й зимовим кольором Рив'єри. Гід пояснює квитки, час, маршрути й комфорт центрального проживання."),
     category: "practical",
+    coverImage: "/images/guide/fete-du-citron-menton-practical-guide.jpg",
+    coverImageAlt: t("Illustration of the Fete du Citron in Menton", "Illustration de la Fete du Citron a Menton", "Illustrazione della Festa del Limone a Mentone", "Ілюстрація Fete du Citron у Ментоні"),
     visualTheme: "event",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("Fete du Citron", "Fete du Citron", "Festa del Limone", "Fete du Citron"),
       t("winter festival", "festival d'hiver", "festival invernale", "зимовий фестиваль"),
