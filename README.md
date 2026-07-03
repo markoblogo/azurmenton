@@ -55,6 +55,9 @@ npm run preflight:postbuild
 Optional checks:
 
 ```bash
+npm run content:audit
+npm run content:report
+npm run events:review
 npm run test:e2e
 npm run images:generate
 npm run seo:validate
@@ -146,6 +149,8 @@ Use `docs/content-operations.md` before adding guide articles, places, events, i
 
 Confirmed current/upcoming events appear in the calendar; exact-date events are hidden after they end. Keep expired events in content so pages can be reused or updated later. Event illustrations in `public/images/events/` are project illustrations, not official documentary photos.
 
+Events use a pragmatic annual-series model inside the typed content: `seriesSlug`, `occurrenceYear`, `recurrence`, `dateStatus`, `typicalDateWindow`, source URLs and freshness profiles. Use confirmed dates only when an official source has published them; otherwise use pending or estimated annual windows and keep stale annual events archived for the next refresh. Run `npm run events:review` when changing events or guide-event links.
+
 ### Media
 
 Use `next/image` for site imagery. Large source images live in `public/images/`; selected generated derivatives are tracked under `generated/` folders and verified by `npm run images:check`.
@@ -214,7 +219,7 @@ docs/               Operational docs and archived working notes
 - Do not invent dates, ticket prices, ratings, schedules, opening hours or official rules.
 - Use cautious wording when details are not verified.
 - Prefer structured content updates over hardcoded page text.
-- Do not remove old event content solely because the date passed.
+- Do not remove old event content solely because the date passed; annual events stay archived for future refresh.
 - Use `docs/content-operations.md` as the checklist for guide, place, event, image, linking and preflight work.
 - TypeScript content modules remain the source of truth for now. `npm run content:lint`, `npm run content:audit` and `npm run content:report` provide lightweight schema and content-graph checks before any future JSON/YAML or CMS migration.
 
