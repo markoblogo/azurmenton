@@ -10,6 +10,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import {
   eventCategoryLabels,
+  eventDateStatusLabels,
   eventDetailSlugs,
   familySuitabilityLabels,
   getEventDateLabel,
@@ -19,7 +20,8 @@ import {
 } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
+import { canRenderEventJsonLd } from "@/lib/events";
+import { articleJsonLd, breadcrumbJsonLd, eventJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -34,6 +36,10 @@ const copy = {
     location: "Location",
     family: "Family suitability",
     status: "Source status",
+    dateStatus: "Date status",
+    distance: "Distance from Menton",
+    lastChecked: "Last checked",
+    theme: "Theme",
     bestFor: "Best for",
     verify: "Planning note",
     verifyText:
@@ -62,6 +68,10 @@ const copy = {
     location: "Lieu",
     family: "Adaptation famille",
     status: "Statut source",
+    dateStatus: "Statut des dates",
+    distance: "Distance depuis Menton",
+    lastChecked: "Derniere verification",
+    theme: "Theme",
     bestFor: "Ideal pour",
     verify: "Note pratique",
     verifyText:
@@ -90,6 +100,10 @@ const copy = {
     location: "Localita",
     family: "Adatto a famiglie",
     status: "Stato fonte",
+    dateStatus: "Stato date",
+    distance: "Distanza da Mentone",
+    lastChecked: "Ultimo controllo",
+    theme: "Tema",
     bestFor: "Ideale per",
     verify: "Nota pratica",
     verifyText:
@@ -118,6 +132,10 @@ const copy = {
     location: "Локація",
     family: "Для сімей",
     status: "Статус джерела",
+    dateStatus: "Статус дат",
+    distance: "Відстань від Ментона",
+    lastChecked: "Остання перевірка",
+    theme: "Тема",
     bestFor: "Найкраще для",
     verify: "Практична примітка",
     verifyText:
@@ -193,6 +211,17 @@ export default async function EventArticlePage({ params }: PageProps) {
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
   const detail = event.detailContent;
+  const eventFacts: Array<[string, string]> = [
+    [labels.date, dateLabel],
+    [labels.location, event.location],
+    [labels.dateStatus, event.dateStatus ? eventDateStatusLabels[locale][event.dateStatus] : sourceStatusLabels[locale][event.sourceStatus]],
+    [labels.family, familySuitabilityLabels[locale][event.familySuitability]],
+    [labels.status, sourceStatusLabels[locale][event.sourceStatus]],
+    [labels.distance, event.distanceFromMentonKm !== undefined ? `${event.distanceFromMentonKm} km` : ""],
+    [labels.bestFor, event.category.map((category) => eventCategoryLabels[locale][category]).slice(0, 2).join(", ")],
+  ];
+  if (event.theme) eventFacts.splice(6, 0, [labels.theme, event.theme[locale]]);
+  if (event.lastChecked) eventFacts.splice(6, 0, [labels.lastChecked, event.lastChecked]);
 
   return (
     <>
@@ -212,6 +241,19 @@ export default async function EventArticlePage({ params }: PageProps) {
           { name: title, url: pageUrl },
         ])}
       />
+      {canRenderEventJsonLd(event) ? (
+        <JsonLdScript
+          data={eventJsonLd({
+            name: title,
+            description: event.shortDescription[locale],
+            url: pageUrl,
+            startDate: event.startDate!,
+            endDate: event.endDate,
+            locationName: event.city ?? event.location,
+            image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
+          })}
+        />
+      ) : null}
 
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
@@ -273,13 +315,7 @@ export default async function EventArticlePage({ params }: PageProps) {
             <article className="grid gap-7">
               <div className="border-y border-[#dfd4c1] bg-[#fffdf8] p-4 sm:p-5">
                 <dl className="grid gap-5 text-sm sm:grid-cols-2 lg:grid-cols-5">
-                  {[
-                    [labels.date, dateLabel],
-                    [labels.location, event.location],
-                    [labels.family, familySuitabilityLabels[locale][event.familySuitability]],
-                    [labels.status, sourceStatusLabels[locale][event.sourceStatus]],
-                    [labels.bestFor, event.category.map((category) => eventCategoryLabels[locale][category]).slice(0, 2).join(", ")],
-                  ].map(([label, value]) => (
+                  {eventFacts.map(([label, value]) => (
                     <div key={label}>
                       <dt className="text-[#6b5f50]">{label}</dt>
                       <dd className="mt-1.5 serif-heading break-words text-lg leading-tight text-[#17313a]">{value}</dd>

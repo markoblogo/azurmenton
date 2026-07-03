@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { EventImage } from "@/components/events/EventImage";
 import {
   eventCategoryLabels,
+  eventDateStatusLabels,
   familySuitabilityLabels,
   getEventDateLabel,
   getEventTitle,
@@ -51,6 +52,17 @@ const familyOptions: Array<"all" | FamilySuitability> = [
   "depends",
 ];
 
+const statusOptions: Array<"all" | EventDateStatus> = [
+  "all",
+  "current",
+  "upcoming",
+  "dates_pending",
+  "estimated_annual_window",
+  "past",
+];
+
+const radiusOptions = ["all", "30", "60"] as const;
+
 const copy = {
   en: {
     filters: "Find the right dates",
@@ -58,6 +70,12 @@ const copy = {
     location: "Location",
     category: "Category",
     family: "Family suitability",
+    city: "City",
+    status: "Date status",
+    radius: "Distance",
+    within30: "Within 30 km",
+    within60: "Within 60 km",
+    lastChecked: "Last checked",
     all: "All",
     search: "Search events, places or interests",
     clear: "Clear filters",
@@ -99,6 +117,12 @@ const copy = {
     location: "Lieu",
     category: "Categorie",
     family: "Adaptation famille",
+    city: "Ville",
+    status: "Statut date",
+    radius: "Distance",
+    within30: "Dans 30 km",
+    within60: "Dans 60 km",
+    lastChecked: "Derniere verification",
     all: "Tous",
     search: "Rechercher un evenement, lieu ou interet",
     clear: "Effacer filtres",
@@ -140,6 +164,12 @@ const copy = {
     location: "Localita",
     category: "Categoria",
     family: "Adatto a famiglie",
+    city: "Citta",
+    status: "Stato date",
+    radius: "Distanza",
+    within30: "Entro 30 km",
+    within60: "Entro 60 km",
+    lastChecked: "Ultimo controllo",
     all: "Tutti",
     search: "Cerca eventi, luoghi o interessi",
     clear: "Cancella filtri",
@@ -181,6 +211,12 @@ const copy = {
     location: "Локація",
     category: "Категорія",
     family: "Для сімей",
+    city: "Місто",
+    status: "Статус дат",
+    radius: "Відстань",
+    within30: "До 30 км",
+    within60: "До 60 км",
+    lastChecked: "Остання перевірка",
     all: "Усі",
     search: "Шукати події, місця або інтереси",
     clear: "Очистити фільтри",
@@ -294,7 +330,8 @@ function eventHref(locale: Locale, event: RivieraEvent) {
 function statusLabel(locale: Locale, status: EventDateStatus) {
   if (status === "current") return copy[locale].current;
   if (status === "past") return copy[locale].past;
-  if (status === "dates_pending") return copy[locale].datesPending;
+  if (status === "dates_pending") return eventDateStatusLabels[locale].dates_pending;
+  if (status === "estimated_annual_window") return eventDateStatusLabels[locale].estimated_annual_window;
   return copy[locale].upcoming;
 }
 
@@ -333,7 +370,9 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
         <div className="flex flex-wrap gap-2">
           <Badge tone={statusTone}>{statusLabel(locale, status)}</Badge>
           <Badge tone="blue">{event.location}</Badge>
+          {event.city && event.city !== event.location ? <Badge>{event.city}</Badge> : null}
           <Badge tone="gold">{dateLabel}</Badge>
+          {event.distanceFromMentonKm !== undefined ? <Badge>{event.distanceFromMentonKm} km</Badge> : null}
           <Badge>{familySuitabilityLabels[locale][event.familySuitability]}</Badge>
         </div>
         <h3 className={`${compact ? "text-2xl" : "text-3xl sm:text-4xl"} serif-heading mt-4 break-words leading-[0.98] text-[#173f36]`}>
@@ -347,6 +386,7 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
           <Badge tone={event.sourceStatus === "verified" ? "blue" : "gold"}>
             {sourceStatusLabels[locale][event.sourceStatus]}
           </Badge>
+          {event.lastChecked ? <Badge>{copy[locale].lastChecked}: {event.lastChecked}</Badge> : null}
         </div>
         <div className="mt-4 grid gap-2 border-t border-[#dfd4c1] pt-4 text-sm leading-6">
           <p className="line-clamp-2 font-serif text-base italic leading-6 text-[#315d53]">
@@ -390,6 +430,9 @@ type EventsCalendarProps = {
 function filterEvents(events: RivieraEvent[], locale: Locale, filters: {
   month: MonthFilter;
   location: (typeof locations)[number];
+  city: string;
+  status: (typeof statusOptions)[number];
+  radius: (typeof radiusOptions)[number];
   category: (typeof categories)[number];
   family: (typeof familyOptions)[number];
   query: string;
@@ -397,12 +440,18 @@ function filterEvents(events: RivieraEvent[], locale: Locale, filters: {
   return events.filter((event) => {
     const monthMatch = filters.month === "all" || event.monthGroup === filters.month;
     const locationMatch = filters.location === "all" || event.location === filters.location;
+    const cityMatch = filters.city === "all" || event.city === filters.city;
+    const statusMatch = filters.status === "all" || getEventDateStatus(event) === filters.status;
+    const radiusMatch = filters.radius === "all" || (event.distanceFromMentonKm ?? 999) <= Number(filters.radius);
     const categoryMatch = filters.category === "all" || event.category.includes(filters.category);
     const familyMatch = filters.family === "all" || event.familySuitability === filters.family;
 
     return (
       monthMatch &&
       locationMatch &&
+      cityMatch &&
+      statusMatch &&
+      radiusMatch &&
       categoryMatch &&
       familyMatch &&
       includesSearch(event, locale, filters.query.trim())
@@ -413,6 +462,9 @@ function filterEvents(events: RivieraEvent[], locale: Locale, filters: {
 export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale }: EventsCalendarProps) {
   const [month, setMonth] = useState<MonthFilter>("all");
   const [location, setLocation] = useState<(typeof locations)[number]>("all");
+  const [city, setCity] = useState("all");
+  const [status, setStatus] = useState<(typeof statusOptions)[number]>("all");
+  const [radius, setRadius] = useState<(typeof radiusOptions)[number]>("all");
   const [category, setCategory] = useState<(typeof categories)[number]>("all");
   const [family, setFamily] = useState<(typeof familyOptions)[number]>("all");
   const [query, setQuery] = useState("");
@@ -421,9 +473,14 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   const selectClass =
     "min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none transition focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10";
   const filters = useMemo(
-    () => ({ month, location, category, family, query }),
-    [category, family, location, month, query],
+    () => ({ month, location, city, status, radius, category, family, query }),
+    [category, city, family, location, month, query, radius, status],
   );
+
+  const cityOptions = useMemo(() => {
+    const cities = [...new Set([...events, ...datesPendingEvents, ...pastEvents].map((event) => event.city).filter(Boolean))] as string[];
+    return ["all", ...cities.sort((left, right) => left.localeCompare(right))];
+  }, [datesPendingEvents, events, pastEvents]);
 
   const filtered = useMemo(
     () => filterEvents(events, locale, filters),
@@ -455,6 +512,9 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   const activeFilters = [
     month !== "all" ? monthLabels[locale][month] : null,
     location !== "all" ? location : null,
+    city !== "all" ? city : null,
+    status !== "all" ? statusLabel(locale, status) : null,
+    radius !== "all" ? (radius === "30" ? labels.within30 : labels.within60) : null,
     category !== "all" ? eventCategoryLabels[locale][category] : null,
     family !== "all" ? familySuitabilityLabels[locale][family] : null,
     query.trim() ? query.trim() : null,
@@ -463,6 +523,9 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   const clearFilters = () => {
     setMonth("all");
     setLocation("all");
+    setCity("all");
+    setStatus("all");
+    setRadius("all");
     setCategory("all");
     setFamily("all");
     setQuery("");
@@ -498,7 +561,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
           </p>
         </div>
 
-        <div className="mt-4 grid gap-3 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr]">
+        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.month}
             <select className={selectClass} value={month} onChange={(event) => setMonth(event.target.value as MonthFilter)}>
@@ -512,6 +575,30 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             <select className={selectClass} value={location} onChange={(event) => setLocation(event.target.value as typeof location)}>
               {locations.map((option) => (
                 <option key={option} value={option}>{option === "all" ? labels.all : option}</option>
+              ))}
+            </select>
+          </label>
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+            {labels.city}
+            <select className={selectClass} value={city} onChange={(event) => setCity(event.target.value)}>
+              {cityOptions.map((option) => (
+                <option key={option} value={option}>{option === "all" ? labels.all : option}</option>
+              ))}
+            </select>
+          </label>
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+            {labels.status}
+            <select className={selectClass} value={status} onChange={(event) => setStatus(event.target.value as typeof status)}>
+              {statusOptions.map((option) => (
+                <option key={option} value={option}>{option === "all" ? labels.all : statusLabel(locale, option)}</option>
+              ))}
+            </select>
+          </label>
+          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+            {labels.radius}
+            <select className={selectClass} value={radius} onChange={(event) => setRadius(event.target.value as typeof radius)}>
+              {radiusOptions.map((option) => (
+                <option key={option} value={option}>{option === "all" ? labels.all : option === "30" ? labels.within30 : labels.within60}</option>
               ))}
             </select>
           </label>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   contactPageJsonLd,
+  eventJsonLd,
   itemListJsonLd,
   lodgingBusinessJsonLd,
   vacationRentalJsonLd,
@@ -88,6 +89,27 @@ describe("structured data builders", () => {
       "@type": "ContactPage",
       potentialAction: {
         "@type": "ReserveAction",
+      },
+    });
+  });
+
+  it("builds event structured data only from real dates", () => {
+    const data = eventJsonLd({
+      name: "Nice Carnival",
+      description: "A confirmed event.",
+      url: "https://azurmenton.com/en/events/nice-carnival",
+      startDate: "2027-02-09",
+      endDate: "2027-02-28",
+      locationName: "Nice",
+    });
+
+    expect(data).toMatchObject({
+      "@type": "Event",
+      startDate: "2027-02-09",
+      endDate: "2027-02-28",
+      eventStatus: "https://schema.org/EventScheduled",
+      location: {
+        "@type": "Place",
       },
     });
   });

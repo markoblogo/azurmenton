@@ -1,8 +1,9 @@
 import type { RivieraEvent } from "@/content/riviera-events";
 
-export type EventDateStatus = "upcoming" | "current" | "past" | "dates_pending";
+export type EventDateStatus = "upcoming" | "current" | "past" | "dates_pending" | "estimated_annual_window";
 
-type DateLikeEvent = Pick<RivieraEvent, "startDate" | "endDate" | "expectedSeason" | "dateLabel">;
+type DateLikeEvent = Pick<RivieraEvent, "startDate" | "endDate" | "expectedSeason" | "dateLabel" | "dateStatus">;
+type StructuredEventLike = Pick<RivieraEvent, "dateStatus" | "startDate">;
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -22,6 +23,10 @@ function getComparableToday(today: Date) {
 
 export function getEventDateStatus(event: DateLikeEvent, today = new Date()): EventDateStatus {
   const todayKey = getComparableToday(today);
+
+  if (event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window") {
+    return event.dateStatus;
+  }
 
   if (event.endDate) {
     if (compareDateKeys(event.endDate, todayKey) < 0) return "past";
@@ -81,7 +86,10 @@ export function getPastEvents(events: RivieraEvent[], today = new Date()) {
 }
 
 export function getDatesPendingEvents(events: RivieraEvent[], today = new Date()) {
-  return events.filter((event) => getEventDateStatus(event, today) === "dates_pending");
+  return events.filter((event) => {
+    const status = getEventDateStatus(event, today);
+    return status === "dates_pending" || status === "estimated_annual_window";
+  });
 }
 
 export function getVisibleEvents(events: RivieraEvent[], today = new Date()) {
@@ -90,4 +98,8 @@ export function getVisibleEvents(events: RivieraEvent[], today = new Date()) {
     datesPending: getDatesPendingEvents(events, today),
     past: getPastEvents(events, today),
   };
+}
+
+export function canRenderEventJsonLd(event: StructuredEventLike) {
+  return event.dateStatus === "confirmed" && Boolean(event.startDate);
 }

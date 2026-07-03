@@ -33,9 +33,12 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Create or update event objects in `src/content/riviera-events.ts`.
 - Use verified official sources where possible.
+- Set `seriesSlug`, `occurrenceYear`, `recurrence` and `dateStatus` so recurring events can be refreshed without rewriting evergreen descriptions.
+- Use `dateStatus: "confirmed"` only with real published dates. Use `dates_pending` or `estimated_annual_window` when dates are annual, provisional or not officially confirmed.
 - Mark annual events awaiting official dates with an explicit freshness profile instead of deleting them.
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.
+- Add new events without illustrations as `mediaStatus: "missing"` or leave media empty so the existing placeholder renders until optimized images are supplied.
 
 ## Images
 
@@ -73,4 +76,3 @@ npm test
 npm run build
 npm run preflight:postbuild
 ```
-

@@ -239,6 +239,42 @@ export function contactPageJsonLd(input: {
   };
 }
 
+export function eventJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  startDate: string;
+  endDate?: string;
+  locationName: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    startDate: input.startDate,
+    endDate: input.endDate,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    image: input.image,
+    location: {
+      "@type": "Place",
+      name: input.locationName,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: input.locationName,
+        addressRegion: "French Riviera",
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "Official event organiser",
+    },
+  };
+}
+
 export function articleJsonLd(input: {
   title: string;
   description: string;

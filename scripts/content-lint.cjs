@@ -112,15 +112,27 @@ for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {
   if (!slugPattern.test(event.slug)) fail(`${owner}.slug should be kebab-case`);
   if (!idPattern.test(event.id)) fail(`${owner}.id should be kebab-case`);
   if (!isFilledText(event.title)) fail(`${owner}.title missing`);
+  if (!isFilledText(event.seriesSlug)) fail(`${owner}.seriesSlug missing`);
+  if (!event.recurrence) fail(`${owner}.recurrence missing`);
+  if (!event.dateStatus) fail(`${owner}.dateStatus missing`);
   if (event.titleLocalized) checkLocalizedText(owner, "titleLocalized", event.titleLocalized, 3);
   if (!isFilledText(event.dateLabel)) fail(`${owner}.dateLabel missing`);
   if (event.dateLabelLocalized) checkLocalizedText(owner, "dateLabelLocalized", event.dateLabelLocalized, 3);
+  if (event.dateStatus === "confirmed" && !event.startDate && !event.endDate) fail(`${owner} is confirmed but has no startDate or endDate`);
+  if ((event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window") && (event.startDate || event.endDate)) {
+    fail(`${owner} has pending/estimated status but also has concrete dates`);
+  }
   checkLocalizedText(owner, "shortDescription", event.shortDescription, 20);
   checkLocalizedText(owner, "whyShowOnSite", event.whyShowOnSite, 20);
   checkLocalizedText(owner, "bookingTip", event.bookingTip, 20);
+  if (event.typicalDateWindow) checkLocalizedText(owner, "typicalDateWindow", event.typicalDateWindow, 5);
+  if (event.theme) checkLocalizedText(owner, "theme", event.theme, 3);
+  if (event.travelNote) checkLocalizedText(owner, "travelNote", event.travelNote, 10);
   if (!event.category.length) fail(`${owner}.category should not be empty`);
   if (!event.audience.length) fail(`${owner}.audience should not be empty`);
   checkUrl(owner, "sourceUrl", event.sourceUrl);
+  checkUrl(owner, "programmeUrl", event.programmeUrl);
+  checkUrl(owner, "ticketsUrl", event.ticketsUrl);
   if (event.sourceStatus === "verified" && !event.sourceUrl) fail(`${owner} is verified but has no sourceUrl`);
   checkPath(owner, "media.image", event.media?.image);
   if (event.media?.image && !event.media.imageAlt) fail(`${owner}.media.imageAlt missing`);
