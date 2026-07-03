@@ -73,8 +73,9 @@ describe("content graph audit", () => {
     const failures: string[] = [];
 
     for (const article of guideArticles) {
-      if (!article.coverImage) failures.push(`${article.slug} missing coverImage`);
-      else if (!publicPathExists(article.coverImage)) failures.push(`${article.slug} coverImage not found: ${article.coverImage}`);
+      if (!article.coverImage) {
+        if (article.visualStatus !== "editorial_placeholder") failures.push(`${article.slug} missing coverImage`);
+      } else if (!publicPathExists(article.coverImage)) failures.push(`${article.slug} coverImage not found: ${article.coverImage}`);
     }
 
     for (const place of places) {

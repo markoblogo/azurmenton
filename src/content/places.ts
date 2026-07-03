@@ -1598,7 +1598,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A close autumn day or evening trip from Menton for harbour views, concerts, casino architecture and Riviera events.", "Une excursion proche depuis Menton en automne pour le port, les concerts, l'architecture du Casino et les evenements Riviera.", "Una gita vicina da Mentone in autunno per porto, concerti, architettura del Casino ed eventi in Riviera.", "Близька осіння поїздка з Ментона заради порту, концертів, архітектури Casino й подій Рив'єри."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("events", "evenements", "eventi", "події")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera"],
+    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera"],
   },
   {
     id: "nice-old-town",
