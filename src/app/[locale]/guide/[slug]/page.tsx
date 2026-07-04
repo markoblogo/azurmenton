@@ -27,18 +27,19 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 const labels = {
-  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", watchSource: "Watch on source", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
-  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", appToolkit: "Boite a outils", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", watchSource: "Voir a la source", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans.", transportFinalTitle: "Vous planifiez un sejour sans voiture a Menton?", transportFinalText: "Envoyez vos dates et votre mode d'arrivee. Nous vous aiderons a choisir l'appartement adapte a votre voyage." },
-  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", appToolkit: "Kit app", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", watchSource: "Guarda alla fonte", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita.", walkingFinalTitle: "Soggiorna in centro, cammina ovunque", walkingFinalText: "Inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto ai tuoi piani.", transportFinalTitle: "Stai pianificando un soggiorno senza auto a Mentone?", transportFinalText: "Inviaci le date e come pensi di arrivare. Ti aiuteremo a scegliere l'appartamento piu adatto al viaggio." },
-  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", appToolkit: "Набір застосунків", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", watchSource: "Дивитися на джерелі", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність.", walkingFinalTitle: "Живіть у центрі й ходіть пішки всюди", walkingFinalText: "Надішліть дати, і ми допоможемо обрати апартаменти, які найкраще підходять вашим планам.", transportFinalTitle: "Плануєте відпочинок у Ментоні без авто?", transportFinalText: "Надішліть дати й спосіб прибуття. Ми допоможемо обрати апартаменти, які найкраще підходять вашій поїздці." },
+  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", watchSource: "Watch on source", opensOnSource: "Video opens on the source site", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
+  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", appToolkit: "Boite a outils", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", watchSource: "Voir a la source", opensOnSource: "La video s'ouvre sur le site source", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans.", transportFinalTitle: "Vous planifiez un sejour sans voiture a Menton?", transportFinalText: "Envoyez vos dates et votre mode d'arrivee. Nous vous aiderons a choisir l'appartement adapte a votre voyage." },
+  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", appToolkit: "Kit app", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", watchSource: "Guarda alla fonte", opensOnSource: "Il video si apre sul sito fonte", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita.", walkingFinalTitle: "Soggiorna in centro, cammina ovunque", walkingFinalText: "Inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto ai tuoi piani.", transportFinalTitle: "Stai pianificando un soggiorno senza auto a Mentone?", transportFinalText: "Inviaci le date e come pensi di arrivare. Ti aiuteremo a scegliere l'appartamento piu adatto al viaggio." },
+  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", appToolkit: "Набір застосунків", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", watchSource: "Дивитися на джерелі", opensOnSource: "Відео відкривається на сайті джерела", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність.", walkingFinalTitle: "Живіть у центрі й ходіть пішки всюди", walkingFinalText: "Надішліть дати, і ми допоможемо обрати апартаменти, які найкраще підходять вашим планам.", transportFinalTitle: "Плануєте відпочинок у Ментоні без авто?", transportFinalText: "Надішліть дати й спосіб прибуття. Ми допоможемо обрати апартаменти, які найкраще підходять вашій поїздці." },
 };
 
 type SectionVideoEmbed = {
   id: string;
   title: string;
   provider: "youtube" | "vimeo" | "external";
-  embedUrl: string;
+  embedUrl?: string;
   watchUrl: string;
+  embed?: boolean;
   caption?: string;
 };
 
@@ -162,7 +163,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     ) : null}
                     {section.videoEmbeds?.length ? (
                       <div className="mt-5 grid gap-4">
-                        {section.videoEmbeds.map((video) => <VideoEmbed key={video.id} video={video} watchLabel={copy.watchSource} />)}
+                        {section.videoEmbeds.map((video) => <VideoEmbed key={video.id} video={video} watchLabel={copy.watchSource} opensOnSourceLabel={copy.opensOnSource} />)}
                       </div>
                     ) : null}
                     {sectionPlaces.length ? (
@@ -271,19 +272,28 @@ function Fact({ label, value, wide = false }: { label: string; value: string; wi
   );
 }
 
-function VideoEmbed({ video, watchLabel }: { video: SectionVideoEmbed; watchLabel: string }) {
+function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionVideoEmbed; watchLabel: string; opensOnSourceLabel: string }) {
+  const canEmbed = video.embed !== false && Boolean(video.embedUrl);
+
   return (
     <div className="overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea]">
       <div className="relative aspect-video bg-[#173f36]/10">
-        <iframe
-          title={video.title}
-          src={video.embedUrl}
-          className="absolute inset-0 h-full w-full"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
+        {canEmbed ? (
+          <iframe
+            title={video.title}
+            src={video.embedUrl}
+            className="absolute inset-0 h-full w-full"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        ) : (
+          <Link className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#173f36] text-center text-white hover:bg-[#102f28]" href={video.watchUrl as Route} target="_blank" rel="noopener noreferrer">
+            <span className="flex size-16 items-center justify-center rounded-full border border-[#c6a66a] text-3xl leading-none">▶</span>
+            <span className="px-6 text-sm font-bold uppercase tracking-[0.16em]">{opensOnSourceLabel}</span>
+          </Link>
+        )}
       </div>
       <div className="p-4">
         <p className="text-sm font-semibold text-[#173f36]">{video.title}</p>

@@ -24,8 +24,9 @@ export type GuideVideoEmbed = {
   id: string;
   title: LocalizedText;
   provider: "youtube" | "vimeo" | "external";
-  embedUrl: string;
+  embedUrl?: string;
   watchUrl: string;
+  embed?: boolean;
   caption?: LocalizedText;
 };
 
@@ -1500,11 +1501,11 @@ export const guideArticles: GuideArticle[] = [
         videoEmbeds: [
           {
             id: "yolo-prelude",
-            provider: "youtube",
-            embedUrl: "https://www.youtube-nocookie.com/embed/rBW_9Bp7kgc",
-            watchUrl: "https://www.youtube.com/watch?v=rBW_9Bp7kgc",
+            provider: "external",
+            watchUrl: "https://radiotopside.com/videos/yolo-prelude-clip-officiel-12",
+            embed: false,
             title: t("Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude"),
-            caption: t("Official clip embedded from YouTube; Radio Top Side also republishes the video page.", "Clip officiel integre depuis YouTube; Radio Top Side republie aussi la page video.", "Clip ufficiale integrato da YouTube; Radio Top Side ripubblica anche la pagina video.", "Офіційний кліп вбудовано з YouTube; Radio Top Side також публікує сторінку відео."),
+            caption: t("The source page hosts the official clip; the public YouTube embed is not reliably available.", "La page source heberge le clip officiel; l'integration YouTube publique n'est pas disponible de facon fiable.", "La pagina fonte ospita il clip ufficiale; l'embed pubblico di YouTube non e disponibile in modo affidabile.", "Сторінка джерела містить офіційний кліп; публічне вбудовування YouTube недоступне надійно."),
           },
         ],
         relatedPlaceIds: ["palais-de-leurope-menton", "gorbio"],
