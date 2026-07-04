@@ -58,12 +58,12 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
             </Link>
           ) : null}
           {place.programmeUrl ? (
-            <Link className="relative z-20 inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl as Route} target="_blank" rel="noopener noreferrer">
+            <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl as Route} target="_blank" rel="noopener noreferrer">
               {copy.programme}
             </Link>
           ) : null}
           {mapsHref ? (
-            <Link className="relative z-20 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">
+            <Link className="inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">
               {copy.map}
             </Link>
           ) : null}

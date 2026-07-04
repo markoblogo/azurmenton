@@ -8,7 +8,7 @@ export function Navigation({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[#dfd4c1] bg-[#fbf7ef]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-[#dfd4c1] bg-[#fbf7ef]/90 backdrop-blur-xl">
       <div className="mx-auto flex min-h-18 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}` as Route}
