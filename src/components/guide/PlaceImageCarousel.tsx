@@ -54,6 +54,7 @@ export function PlaceImageCarousel({
           alt={index === activeIndex ? imageAlt : ""}
           aria-hidden={index === activeIndex ? undefined : true}
           fill
+          loading="eager"
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className={`object-cover transition duration-500 ease-out group-hover:scale-[1.035] ${index === activeIndex ? "opacity-100" : "opacity-0"}`}
           quality={90}
