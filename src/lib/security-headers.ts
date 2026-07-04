@@ -29,7 +29,7 @@ export function createCspHeader(nonce: string) {
       isDev ? "'unsafe-eval'" : "",
     ].filter(Boolean).join(" "),
     ["style-src", "'self'", `'nonce-${nonce}'`].join(" "),
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
     "font-src 'self' data:",
     [
       "connect-src",
@@ -37,6 +37,7 @@ export function createCspHeader(nonce: string) {
       "https://api.open-meteo.com",
       "https://marine-api.open-meteo.com",
       "https://api.resend.com",
+      "https://*.tile.openstreetmap.org",
       "https://challenges.cloudflare.com",
       ...plausibleOrigins,
       "https://vitals.vercel-insights.com",

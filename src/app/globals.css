@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 :root {
   --background: #fbf7ef;
@@ -41,6 +42,46 @@ input,
 select,
 textarea {
   -webkit-tap-highlight-color: transparent;
+}
+
+.leaflet-container {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: #efe6d5;
+}
+
+.leaflet-control-attribution,
+.leaflet-control-zoom a {
+  border-radius: 0;
+}
+
+.azur-place-marker {
+  display: grid;
+  place-items: center;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #173f36;
+  box-shadow: 0 3px 10px rgba(23, 63, 54, 0.28);
+}
+
+.azur-place-marker span {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: #c6a66a;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  border-radius: 0;
+  background: #fffaf0;
+  color: #173f36;
+}
+
+.leaflet-popup-content a {
+  color: #173f36;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .field {

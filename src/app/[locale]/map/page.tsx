@@ -6,6 +6,7 @@ import { UsefulPlacesMap, type UsefulPlaceMapCategory } from "@/components/place
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { placeMapPoints } from "@/content/planning/place-map-points";
 import { places, type PlaceType } from "@/content/places";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -86,9 +87,15 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
   const labels = copy[locale];
   const pageUrl = absoluteUrl(localizedPath(locale, "map"));
   const categoryTypes = new Set(categories.flatMap((item) => item.placeTypes));
+  const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
   const usefulPlaces = places
     .filter((place) => categoryTypes.has(place.type))
     .filter((place) => place.relatedArticleIds.length > 0)
+    .map((place) => {
+      const mapPoint = mapPointByPlaceId.get(place.id);
+      return mapPoint ? { ...place, mapPoint } : null;
+    })
+    .filter((place): place is NonNullable<typeof place> => Boolean(place))
     .sort((a, b) => b.relatedArticleIds.length - a.relatedArticleIds.length || a.name.localeCompare(b.name));
 
   return (
