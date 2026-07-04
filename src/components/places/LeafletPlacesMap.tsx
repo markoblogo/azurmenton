@@ -41,6 +41,8 @@ export function LeafletPlacesMap({
   guideLabel,
   apartmentLabel,
   onSelectPlace,
+  className = "h-[34rem] w-full",
+  zoom = 12,
 }: {
   center: [number, number];
   places: UsefulPlaceWithMapPoint[];
@@ -50,9 +52,11 @@ export function LeafletPlacesMap({
   guideLabel: string;
   apartmentLabel: string;
   onSelectPlace: (placeId: string) => void;
+  className?: string;
+  zoom?: number;
 }) {
   return (
-    <MapContainer center={center} zoom={12} scrollWheelZoom={false} className="h-[34rem] w-full">
+    <MapContainer center={center} zoom={zoom} scrollWheelZoom={false} className={className}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -55,13 +55,20 @@ const copy = {
 
 const categories: UsefulPlaceMapCategory[] = [
   category("beaches", ["beach"], "Beaches", "Plages", "Spiagge", "Пляжі"),
-  category("markets", ["market", "supermarket"], "Markets", "Marches", "Mercati", "Ринки"),
+  category("markets", ["market"], "Markets", "Marches", "Mercati", "Ринки"),
+  category("supermarkets", ["supermarket"], "Supermarkets", "Supermarches", "Supermercati", "Супермаркети"),
+  category("restaurants", ["restaurant"], "Restaurants", "Restaurants", "Ristoranti", "Ресторани"),
+  category("bars", ["bar", "wine-bar", "winery", "rooftop"], "Bars & wine", "Bars et vins", "Bar e vino", "Бари й вино"),
+  category("ice-cream", ["ice-cream"], "Ice cream", "Glaciers", "Gelaterie", "Морозиво"),
+  category("museums", ["museum"], "Museums", "Musees", "Musei", "Музеї"),
+  category("cinemas", ["cinema"], "Cinemas", "Cinemas", "Cinema", "Кінотеатри"),
+  category("theatres", ["theatre"], "Theatres", "Theatres", "Teatri", "Театри"),
   category("gardens", ["garden"], "Gardens", "Jardins", "Giardini", "Сади"),
-  category("views", ["viewpoint", "walk", "mountain", "port"], "Views & walks", "Vues et balades", "Viste e passeggiate", "Види й прогулянки"),
-  category("food", ["restaurant", "bar", "wine-bar", "winery", "ice-cream"], "Food & drinks", "Gourmand", "Cibo e drink", "Їжа й напої"),
-  category("culture", ["museum", "cinema", "theatre"], "Culture", "Culture", "Cultura", "Культура"),
-  category("family", ["family-activity", "playground", "theme-park", "pool"], "Family", "Famille", "Famiglia", "Сім'я"),
-  category("practical", ["tourist-office", "healthcare", "hospital", "police", "civic", "shopping-centre"], "Practical", "Pratique", "Pratico", "Практичне"),
+  category("viewpoints", ["viewpoint", "mountain"], "Viewpoints", "Points de vue", "Panorami", "Оглядові місця"),
+  category("ports", ["port"], "Ports", "Ports", "Porti", "Порти"),
+  category("golf", ["golf-course"], "Golf", "Golf", "Golf", "Гольф"),
+  category("ski", ["ski-resort"], "Ski", "Ski", "Sci", "Лижі"),
+  category("services", ["tourist-office", "healthcare", "hospital", "police", "civic", "shopping-centre"], "Services", "Services", "Servizi", "Сервіси"),
 ];
 
 function category(id: string, placeTypes: PlaceType[], en: string, fr: string, it: string, uk: string): UsefulPlaceMapCategory {

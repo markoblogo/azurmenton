@@ -38,11 +38,11 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
               </div>
             </div>
             <p className={`${compact ? "sr-only" : "mt-3"} text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]`}>{labels.actions}</p>
-            <div className="flex flex-wrap gap-2">
+            <div className={compact ? "grid grid-cols-3 gap-2" : "flex flex-wrap gap-2"}>
               {item.actionLinks.map((action) => (
                 <Link
                   key={action.url}
-                  className="inline-flex min-h-9 items-center border border-[#173f36] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#173f36] hover:text-white"
+                  className="inline-flex min-h-9 items-center justify-center border border-[#173f36] px-2 py-2 text-center text-[0.58rem] font-bold uppercase tracking-[0.1em] text-[#173f36] hover:bg-[#173f36] hover:text-white"
                   href={action.url as Route}
                   target="_blank"
                   rel="noopener noreferrer"

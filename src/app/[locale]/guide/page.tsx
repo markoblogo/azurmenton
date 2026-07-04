@@ -326,25 +326,14 @@ export default async function GuideLandingPage({ params }: PageProps) {
 
       <Section className="!py-5 bg-[#173f36] text-white sm:!py-6">
         <Container>
-          <div className="grid gap-5 md:grid-cols-[0.52fr_1fr] md:items-center">
+          <div className="grid gap-5 md:grid-cols-[0.55fr_1fr_auto] md:items-center">
             <div>
               <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">{local.eventsNote}</p>
               <h2 className="mt-2 serif-heading text-3xl leading-none sm:text-4xl">{local.eventsTitle}</h2>
             </div>
-            <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-              <div className="grid grid-cols-3 gap-2" aria-hidden="true">
-                {["Lemon", "Monaco", "Nice"].map((event) => (
-                  <div key={event} className="border border-[#c6a66a]/70 bg-white/5 p-3">
-                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#c6a66a]">{event}</p>
-                    <div className="mt-2 h-1.5 bg-[#c6a66a]" />
-                    <div className="mt-2 h-1.5 w-2/3 bg-[#e8dcc9]/70" />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="max-w-xl text-sm leading-6 text-[#e8dcc9]">{local.eventsText}</p>
-                <Link className="mt-3 inline-flex shrink-0 border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
-              </div>
+            <p className="max-w-2xl text-sm leading-6 text-[#e8dcc9]">{local.eventsText}</p>
+            <div>
+              <Link className="inline-flex shrink-0 border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
             </div>
           </div>
         </Container>
