@@ -2324,8 +2324,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("A practical guide to wine tasting near Menton, from central wine bars and cavistes to Bellet vineyards above Nice, Monaco cellars and Rossese di Dolceacqua in nearby Italy.", "Guide pratique de la degustation de vin pres de Menton: bars a vin, cavistes, domaines de Bellet, caves de Monaco et Rossese di Dolceacqua en Italie proche.", "Guida pratica alle degustazioni di vino vicino a Mentone: wine bar, enoteche, cantine Bellet, Monaco e Rossese di Dolceacqua nella vicina Italia.", "Практичний гід по дегустації вина біля Ментона: винні бари, крамниці, виноградники Bellet, Монако та Rossese di Dolceacqua в Італії поруч."),
     excerpt: t("Menton is not a vineyard town, but it is a calm base for Bellet wines above Nice, Monaco cellars, Ligurian Rossese and easy bottles for the apartment.", "Menton n'est pas une ville viticole, mais c'est une base calme pour les vins de Bellet, les caves de Monaco, le Rossese ligure et de bonnes bouteilles pour l'appartement.", "Mentone non e una citta di vigneti, ma e una base comoda per i vini Bellet, le cantine di Monaco, il Rossese ligure e bottiglie semplici per l'appartamento.", "Ментон не є виноградним містом, але це спокійна база для вин Bellet, льохів Монако, лігурійського Rossese і пляшок для апартаментів."),
     category: "food-markets",
+    coverImage: "/images/guide/wine-tasting-near-menton.jpg",
+    coverImageAlt: t("Illustration of wine tasting near Menton, Bellet and the Italian Riviera", "Illustration de degustation de vin pres de Menton, Bellet et la Riviera italienne", "Illustrazione di degustazioni di vino vicino a Mentone, Bellet e Riviera italiana", "Ілюстрація дегустації вина біля Ментона, Bellet та Італійської Рив'єри"),
     visualTheme: "food",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("wine", "vin", "vino", "вино"),
       t("Bellet", "Bellet", "Bellet", "Bellet"),

@@ -1961,6 +1961,71 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Office de Tourisme Menton, Riviera & Merveilles", "Illustration de l'Office de Tourisme Menton, Riviera & Merveilles", "Illustrazione dell'Office de Tourisme Menton, Riviera & Merveilles", "Ілюстрація Office de Tourisme Menton, Riviera & Merveilles"),
     visualTheme: "transport",
   },
+  "nabucco-wine-bar-cellar": {
+    image: "/images/guide/nabucco-wine-bar-cellar.jpg",
+    imageAlt: text("Illustration of Nabucco Wine Bar & Cellar in Menton", "Illustration de Nabucco Wine Bar & Cellar a Menton", "Illustrazione di Nabucco Wine Bar & Cellar a Mentone", "Ілюстрація Nabucco Wine Bar & Cellar у Ментоні"),
+    visualTheme: "bar",
+  },
+  "o-divin-menton": {
+    image: "/images/guide/o-divin-menton.jpg",
+    imageAlt: text("Illustration of O Di'Vin in Menton", "Illustration d'O Di'Vin a Menton", "Illustrazione di O Di'Vin a Mentone", "Ілюстрація O Di'Vin у Ментоні"),
+    visualTheme: "bar",
+  },
+  "comptoir-des-vignes-menton": {
+    image: "/images/guide/comptoir-des-vignes-menton.jpg",
+    imageAlt: text("Illustration of Comptoir des Vignes Menton", "Illustration de Comptoir des Vignes Menton", "Illustrazione di Comptoir des Vignes Menton", "Ілюстрація Comptoir des Vignes Menton"),
+    visualTheme: "bar",
+  },
+  "nicolas-menton": {
+    image: "/images/guide/nicolas-menton.jpg",
+    imageAlt: text("Illustration of Nicolas Menton", "Illustration de Nicolas Menton", "Illustrazione di Nicolas Menton", "Ілюстрація Nicolas Menton"),
+    visualTheme: "bar",
+  },
+  "chateau-de-bellet": {
+    image: "/images/guide/chateau-de-bellet.jpg",
+    imageAlt: text("Illustration of Chateau de Bellet near Nice", "Illustration de Chateau de Bellet pres de Nice", "Illustrazione di Chateau de Bellet vicino a Nizza", "Ілюстрація Chateau de Bellet біля Ніцци"),
+    visualTheme: "food",
+  },
+  "domaine-de-toasc": {
+    image: "/images/guide/domaine-de-toasc.jpg",
+    imageAlt: text("Illustration of Domaine de Toasc in Bellet", "Illustration du Domaine de Toasc a Bellet", "Illustrazione di Domaine de Toasc a Bellet", "Ілюстрація Domaine de Toasc у Bellet"),
+    visualTheme: "food",
+  },
+  "clos-saint-vincent-bellet": {
+    image: "/images/guide/clos-saint-vincent-bellet.jpg",
+    imageAlt: text("Illustration of Clos Saint-Vincent in Bellet", "Illustration de Clos Saint-Vincent a Bellet", "Illustrazione di Clos Saint-Vincent a Bellet", "Ілюстрація Clos Saint-Vincent у Bellet"),
+    visualTheme: "food",
+  },
+  "domaine-fogolar-collet-de-bovis": {
+    image: "/images/guide/domaine-fogolar-collet-de-bovis.jpg",
+    imageAlt: text("Illustration of Domaine du Fogolar / Collet de Bovis in Bellet", "Illustration du Domaine du Fogolar / Collet de Bovis a Bellet", "Illustrazione di Domaine du Fogolar / Collet de Bovis a Bellet", "Ілюстрація Domaine du Fogolar / Collet de Bovis у Bellet"),
+    visualTheme: "food",
+  },
+  "grands-chais-monegasques": {
+    image: "/images/guide/grands-chais-monegasques.jpg",
+    imageAlt: text("Illustration of Grands Chais Monegasques in Monaco", "Illustration des Grands Chais Monegasques a Monaco", "Illustrazione dei Grands Chais Monegasques a Monaco", "Ілюстрація Grands Chais Monegasques у Монако"),
+    visualTheme: "bar",
+  },
+  dolceacqua: {
+    image: "/images/guide/dolceacqua.jpg",
+    imageAlt: text("Illustration of Dolceacqua in Liguria", "Illustration de Dolceacqua en Ligurie", "Illustrazione di Dolceacqua in Liguria", "Ілюстрація Dolceacqua у Лігурії"),
+    visualTheme: "old-town",
+  },
+  "casa-del-grillo": {
+    image: "/images/guide/casa-del-grillo.jpg",
+    imageAlt: text("Illustration of Casa del Grillo near Ventimiglia", "Illustration de Casa del Grillo pres de Vintimille", "Illustrazione di Casa del Grillo vicino a Ventimiglia", "Ілюстрація Casa del Grillo біля Вентімільї"),
+    visualTheme: "food",
+  },
+  "terre-bianche-dolceacqua": {
+    image: "/images/guide/terre-bianche-dolceacqua.jpg",
+    imageAlt: text("Illustration of Terre Bianche in Dolceacqua", "Illustration de Terre Bianche a Dolceacqua", "Illustrazione di Terre Bianche a Dolceacqua", "Ілюстрація Terre Bianche у Dolceacqua"),
+    visualTheme: "food",
+  },
+  "altavia-winery": {
+    image: "/images/guide/altavia-winery.jpg",
+    imageAlt: text("Illustration of Altavia winery near Dolceacqua", "Illustration du domaine Altavia pres de Dolceacqua", "Illustrazione della cantina Altavia vicino a Dolceacqua", "Ілюстрація виноробні Altavia біля Dolceacqua"),
+    visualTheme: "food",
+  },
   "mirazur-menton": {
     image: "/images/guide/mirazur-menton.jpg",
     imageAlt: text("Illustration of Mirazur in Menton", "Illustration de Mirazur a Menton", "Illustrazione di Mirazur a Mentone", "Ілюстрація Mirazur у Ментоні"),
