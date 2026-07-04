@@ -366,7 +366,100 @@ const articles: GuideArticle[] = [
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
     relatedPlaces: ["halles-du-marche", "promenade-du-soleil"],
-    relatedArticles: ["wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedArticles: ["best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedApartments: allApartments,
+  },
+  {
+    id: "best-ice-cream-menton",
+    slug: "best-ice-cream-menton",
+    title: t("Best ice cream in Menton: gelato, artisan glaciers and lemon sorbet", "Meilleures glaces a Menton: gelato, glaciers artisanaux et sorbet citron", "Miglior gelato a Mentone: gelaterie artigianali e sorbetto al limone", "Найкраще морозиво в Ментоні: gelato, artisan glaciers і лимонний сорбет"),
+    seoTitle: t("Best Ice Cream in Menton: Gelato, Artisan Glaciers & Lemon Sorbet", "Meilleures glaces a Menton: gelato, artisans et sorbet citron", "Miglior gelato a Mentone: artigianale e sorbetto al limone", "Найкраще морозиво в Ментоні: gelato і лимонний сорбет"),
+    seoDescription: t("A practical guide to the best ice cream and gelato in Menton: artisan glaciers, Italian-style gelato, lemon sorbet, family stops, old-town walks and seaside ice-cream breaks.", "Guide pratique des meilleures glaces a Menton: glaciers artisanaux, gelato italien, sorbet citron, pauses en famille, vieille ville et bord de mer.", "Guida pratica al miglior gelato a Mentone: gelaterie artigianali, gelato all'italiana, sorbetto al limone, famiglie, centro storico e mare.", "Практичний гід по морозиву в Ментоні: artisan glaciers, італійське gelato, лимонний сорбет, сімейні зупинки, старе місто й море."),
+    excerpt: t("Menton is the kind of town where ice cream becomes part of the day: after the beach, before an old-town walk, with children in Rue Saint-Michel, or as a lemon sorbet stop near the sea.", "A Menton, la glace fait partie de la journee: apres la plage, avant une balade dans la vieille ville, avec les enfants rue Saint-Michel ou en sorbet citron pres de la mer.", "A Mentone il gelato entra nel ritmo della giornata: dopo la spiaggia, prima del centro storico, con bambini in Rue Saint-Michel o come sorbetto al limone vicino al mare.", "У Ментоні морозиво стає частиною дня: після пляжу, перед прогулянкою старим містом, з дітьми на Rue Saint-Michel або як лимонний сорбет біля моря."),
+    category: "food-markets",
+    coverImage: "/images/guide/best-ice-cream-menton.jpg",
+    coverImageAlt: t("Illustration of ice cream and gelato in Menton", "Illustration de glaces et gelato a Menton", "Illustrazione di gelato a Mentone", "Ілюстрація морозива й gelato в Ментоні"),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    tags: [t("ice cream", "glace", "gelato", "морозиво"), t("gelato", "gelato", "gelato", "gelato"), t("lemon sorbet", "sorbet citron", "sorbetto al limone", "лимонний сорбет"), t("Rue Saint-Michel", "rue Saint-Michel", "Rue Saint-Michel", "Rue Saint-Michel")],
+    bestFor: [guideBestForOptions[2].label, guideBestForOptions[1].label, guideBestForOptions[8].label, guideBestForOptions[3].label],
+    duration: "1-2 hours",
+    locationTags: ["menton-centre", "old-town", "seafront"],
+    sourceStatus: "needs_verification",
+    sections: [
+      {
+        heading: t("Why ice cream matters in Menton", "Pourquoi la glace compte a Menton", "Perche il gelato conta a Mentone", "Чому морозиво важливе в Ментоні"),
+        body: [
+          t("Menton is close to Italy, famous for lemons and built for slow summer walks. That makes ice cream more than a dessert here: after the beach, after dinner, or during a hot afternoon with children, it becomes part of the rhythm of the town.", "Menton est proche de l'Italie, celebre pour ses citrons et faite pour les promenades lentes d'ete. La glace y est plus qu'un dessert: apres la plage, apres le diner ou pendant un apres-midi chaud avec des enfants, elle entre dans le rythme de la ville.", "Mentone e vicina all'Italia, famosa per i limoni e perfetta per passeggiate estive lente. Il gelato qui e piu di un dessert: dopo la spiaggia, dopo cena o in un pomeriggio caldo con bambini, diventa parte del ritmo della citta.", "Ментон близько до Італії, відомий лимонами й створений для повільних літніх прогулянок. Тому морозиво тут не просто десерт: після пляжу, після вечері або спекотного дня з дітьми воно стає частиною ритму міста."),
+          t("The strongest ice-cream cluster is around Rue Saint-Michel, the pedestrian old-town shopping street. A second useful area is Quai Bonaparte by the old port, which works well before or after the Basilica, the Bastion area or the seafront.", "Le principal groupe de glaciers se trouve autour de la rue Saint-Michel, rue pietonne de la vieille ville. Un second secteur utile est le quai Bonaparte, pres du vieux port, pratique avant ou apres la basilique, le Bastion ou le front de mer.", "Il gruppo piu forte di gelaterie e intorno a Rue Saint-Michel, via pedonale del centro storico. Una seconda zona utile e Quai Bonaparte, presso il porto vecchio, comoda prima o dopo Basilica, Bastion o lungomare.", "Найсильніший кластер морозива - навколо Rue Saint-Michel, пішохідної вулиці старого міста. Друга корисна зона - Quai Bonaparte біля старого порту, до або після Basilica, Bastion чи набережної."),
+        ],
+        relatedPlaceIds: ["rue-saint-michel-menton", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі рекомендації"),
+        body: [
+          t("For homemade-style ice cream with natural ingredients, start with Puro Piacere. For Italian-style artisanal gelato in the old town, try Demontis Gelateria Artigianale. For a classic Menton old-town ice-cream walk, Tutti Frutti is a practical Rue Saint-Michel stop.", "Pour une glace type maison avec ingredients naturels, commencez par Puro Piacere. Pour un gelato artisanal italien dans la vieille ville, essayez Demontis Gelateria Artigianale. Pour une balade glacee classique, Tutti Frutti est une halte pratique rue Saint-Michel.", "Per gelato artigianale con ingredienti naturali, inizia da Puro Piacere. Per gelato italiano nel centro storico, prova Demontis Gelateria Artigianale. Per una passeggiata classica, Tutti Frutti e una sosta pratica in Rue Saint-Michel.", "Для домашнього стилю й натуральних інгредієнтів почніть із Puro Piacere. Для італійського artisan gelato у старому місті - Demontis Gelateria Artigianale. Для класичної прогулянки з морозивом - Tutti Frutti на Rue Saint-Michel."),
+          t("For gelato near the port, use Gelateria Sofia. For gourmet-style creations, check La Fabrique Givrée. For children or mixed appetites, choose the nearest good Rue Saint-Michel glacier or L.A. Yogurteria and keep the walk short.", "Pour un gelato pres du port, choisissez Gelateria Sofia. Pour des creations plus gourmandes, regardez La Fabrique Givree. Avec enfants ou envies variees, choisissez le bon glacier le plus proche rue Saint-Michel ou L.A. Yogurteria et gardez la balade courte.", "Per gelato vicino al porto, scegli Gelateria Sofia. Per creazioni piu gourmet, controlla La Fabrique Givrée. Con bambini o gusti diversi, scegli la buona gelateria piu vicina in Rue Saint-Michel o L.A. Yogurteria e tieni breve la passeggiata.", "Для gelato біля порту - Gelateria Sofia. Для gourmet-style смаків - La Fabrique Givrée. З дітьми або різними смаками обирайте найближчий добрий glacier на Rue Saint-Michel або L.A. Yogurteria й не робіть маршрут довгим."),
+        ],
+        relatedPlaceIds: ["puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "gelateria-sofia-menton", "la-fabrique-givree-menton", "la-yogurteria-menton"],
+      },
+      {
+        heading: t("Rue Saint-Michel: the easiest ice-cream street", "Rue Saint-Michel: la rue la plus simple pour une glace", "Rue Saint-Michel: la via piu facile per il gelato", "Rue Saint-Michel: найзручніша вулиця для морозива"),
+        body: [
+          t("Rue Saint-Michel is pedestrian, central and close to the old town, which makes it the easiest area for families and evening walks. Demontis, Tutti Frutti, Le Tropic and L'Ami Glacé sit close enough that you can choose by the flavours that look freshest that day.", "La rue Saint-Michel est pietonne, centrale et proche de la vieille ville: c'est le secteur le plus simple pour les familles et les promenades du soir. Demontis, Tutti Frutti, Le Tropic et L'Ami Glace sont assez proches pour choisir selon les parfums qui donnent envie ce jour-la.", "Rue Saint-Michel e pedonale, centrale e vicina al centro storico: e la zona piu semplice per famiglie e passeggiate serali. Demontis, Tutti Frutti, Le Tropic e L'Ami Glacé sono abbastanza vicini da scegliere in base ai gusti piu freschi del giorno.", "Rue Saint-Michel пішохідна, центральна й близька до старого міста, тому це найпростіша зона для сімей і вечірніх прогулянок. Demontis, Tutti Frutti, Le Tropic і L'Ami Glacé близько одне до одного - обирайте за тим, які смаки виглядають найсвіжішими цього дня."),
+          t("In July and August, go earlier with small children. In the evening, take the cone toward the old town or back toward the seafront instead of eating it in the busiest part of the street.", "En juillet et aout, venez plus tot avec de jeunes enfants. Le soir, emportez le cornet vers la vieille ville ou le front de mer plutot que de le manger dans le passage le plus dense.", "A luglio e agosto vai prima con bambini piccoli. La sera porta il cono verso il centro storico o il lungomare invece di mangiarlo nel punto piu affollato.", "У липні й серпні з малими дітьми приходьте раніше. Увечері краще взяти ріжок до старого міста або набережної, а не їсти в найлюднішій частині вулиці."),
+        ],
+        relatedPlaceIds: ["rue-saint-michel-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "le-tropic-menton", "ami-glace-menton"],
+      },
+      {
+        heading: t("Quai Bonaparte and the port route", "Quai Bonaparte et l'itineraire du port", "Quai Bonaparte e il percorso del porto", "Quai Bonaparte і маршрут біля порту"),
+        body: [
+          t("Gelateria Sofia gives a different rhythm from Rue Saint-Michel. It works before or after the old port, the Bastion, the Basilica area or a seafront sunset. This route is better when you want sea views with your ice cream rather than a shopping-street stop.", "Gelateria Sofia donne un rythme different de la rue Saint-Michel. Elle fonctionne avant ou apres le vieux port, le Bastion, le secteur de la basilique ou un coucher de soleil en bord de mer. C'est le bon choix si vous voulez des vues mer avec votre glace plutot qu'une halte de rue commercante.", "Gelateria Sofia offre un ritmo diverso da Rue Saint-Michel. Funziona prima o dopo porto vecchio, Bastion, zona Basilica o tramonto sul mare. E la scelta giusta se vuoi vista mare con il gelato piu che una sosta in via commerciale.", "Gelateria Sofia дає інший ритм, ніж Rue Saint-Michel. Вона працює до або після старого порту, Bastion, Basilica чи заходу сонця біля моря. Це варіант, коли хочеться краєвидів із морозивом, а не shopping-street зупинки."),
+        ],
+        relatedPlaceIds: ["gelateria-sofia-menton", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Lemon sorbet and citrus flavours", "Sorbet citron et parfums agrumes", "Sorbetto al limone e gusti agrumati", "Лимонний сорбет і цитрусові смаки"),
+        body: [
+          t("Menton is famous for lemons, so citrus is the most local flavour to ask about. Flavours change by season and by shop, so ask what each glacier currently makes with lemon, kumquat, orange or other Riviera citrus.", "Menton est celebre pour ses citrons: les agrumes sont donc les parfums les plus locaux a demander. Les parfums changent selon saison et adresse; demandez ce que chaque glacier propose actuellement au citron, kumquat, orange ou autres agrumes de la Riviera.", "Mentone e famosa per i limoni: gli agrumi sono i gusti piu locali da chiedere. I gusti cambiano con stagione e gelateria; chiedi cosa preparano al limone, kumquat, arancia o altri agrumi della Riviera.", "Ментон відомий лимонами, тож цитрусові - найлокальніший смак, про який варто питати. Смаки змінюються за сезоном і магазином, тому запитуйте, що зараз є з лимоном, кумкватом, апельсином чи іншими цитрусами Рив'єри."),
+          t("Puro Piacere, Tutti Frutti and Demontis are useful starting points for lemon, citrus sorbets and more unusual fruit flavours. During Fête du Citron season, citrus flavours feel especially natural, but lemon sorbet is also one of the best hot-weather choices.", "Puro Piacere, Tutti Frutti et Demontis sont de bons points de depart pour citron, sorbets agrumes et parfums fruites plus rares. Pendant la Fete du Citron, les agrumes semblent evidents, mais le sorbet citron reste aussi l'un des meilleurs choix par forte chaleur.", "Puro Piacere, Tutti Frutti e Demontis sono buoni punti di partenza per limone, sorbetti agli agrumi e gusti fruttati piu insoliti. Durante la Fête du Citron gli agrumi sono naturali, ma il sorbetto al limone e anche una delle scelte migliori con il caldo.", "Puro Piacere, Tutti Frutti і Demontis - добрі точки старту для лимона, цитрусових сорбетів і незвичніших фруктових смаків. Під час Fête du Citron цитрусові особливо доречні, але лимонний сорбет також один із найкращих варіантів у спеку."),
+        ],
+        relatedPlaceIds: ["puro-piacere-menton", "tutti-frutti-menton", "demontis-gelateria-menton"],
+        relatedEventIds: ["menton-lemon-festival"],
+      },
+      {
+        heading: t("Best choices by situation", "Meilleurs choix selon la situation", "Scelte migliori per situazione", "Найкращі варіанти за ситуацією"),
+        body: [
+          t("Italian-style gelato: Demontis or Gelateria Sofia. Artisan or homemade style: Puro Piacere. Gourmet creations: La Fabrique Givrée. Children: Rue Saint-Michel because several choices are close together. Near the port: Gelateria Sofia. Snack rather than only ice cream: L.A. Yogurteria.", "Gelato italien: Demontis ou Gelateria Sofia. Style artisanal ou maison: Puro Piacere. Creations gourmandes: La Fabrique Givree. Enfants: rue Saint-Michel car plusieurs choix sont proches. Pres du port: Gelateria Sofia. Encas plus large: L.A. Yogurteria.", "Gelato italiano: Demontis o Gelateria Sofia. Artigianale o fatto in casa: Puro Piacere. Creazioni gourmet: La Fabrique Givrée. Bambini: Rue Saint-Michel perche ci sono piu scelte vicine. Vicino al porto: Gelateria Sofia. Snack piu ampio: L.A. Yogurteria.", "Італійське gelato: Demontis або Gelateria Sofia. Artisan/домашній стиль: Puro Piacere. Gourmet-смаки: La Fabrique Givrée. Діти: Rue Saint-Michel, бо кілька варіантів поруч. Біля порту: Gelateria Sofia. Ширший snack: L.A. Yogurteria."),
+        ],
+        relatedPlaceIds: ["demontis-gelateria-menton", "gelateria-sofia-menton", "puro-piacere-menton", "la-fabrique-givree-menton", "la-yogurteria-menton"],
+      },
+      {
+        heading: t("Ice cream and staying in Menton", "Glace et sejour a Menton", "Gelato e soggiorno a Mentone", "Морозиво й проживання в Ментоні"),
+        body: [
+          t("If you are staying in central Menton, ice cream does not need a special outing. Add it to a seafront walk, the old town, the beach, the port, a family evening after dinner or a slow return to the apartment.", "Si vous logez au centre de Menton, la glace ne demande pas une sortie speciale. Ajoutez-la a une promenade en bord de mer, la vieille ville, la plage, le port, une soiree en famille apres diner ou un retour lent a l'appartement.", "Se soggiorni nel centro di Mentone, il gelato non richiede un'uscita speciale. Aggiungilo a una passeggiata sul mare, centro storico, spiaggia, porto, serata in famiglia dopo cena o rientro lento in appartamento.", "Якщо ви зупинилися в центрі Ментона, морозиво не потребує окремого outing. Додайте його до прогулянки набережною, старого міста, пляжу, порту, сімейного вечора після вечері або повільного повернення в апартаменти."),
+          t("Sea View Balcony Studio works well for a balcony dessert. Beachside Apartment with Terrace & Parking is useful when ice cream becomes a simple reward after the beach with children. Panoramic Sea View Studio makes a quiet gelato evening with a view feel natural.", "Sea View Balcony Studio se prete bien a un dessert sur balcon. Beachside Apartment with Terrace & Parking est pratique quand la glace devient une recompense simple apres la plage avec enfants. Panoramic Sea View Studio rend naturelle une soiree gelato calme avec vue.", "Sea View Balcony Studio funziona bene per un dessert sul balcone. Beachside Apartment with Terrace & Parking e utile quando il gelato diventa una ricompensa semplice dopo la spiaggia con bambini. Panoramic Sea View Studio rende naturale una serata gelato tranquilla con vista.", "Sea View Balcony Studio добре підходить для десерту на балконі. Beachside Apartment with Terrace & Parking зручний, коли морозиво - проста винагорода після пляжу з дітьми. Panoramic Sea View Studio природно пасує до тихого gelato-вечора з видом."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Is Menton good for gelato? Yes. Menton is right next to Italy, and several glaciers in town lean toward Italian-style gelato. Rue Saint-Michel and the old port area are the easiest places to start.", "Menton est-elle une bonne ville pour le gelato? Oui. Menton est juste a cote de l'Italie et plusieurs glaciers ont une vraie influence italienne. La rue Saint-Michel et le vieux port sont les points de depart les plus simples.", "Mentone e buona per il gelato? Si. Mentone e accanto all'Italia e diverse gelaterie hanno uno stile italiano. Rue Saint-Michel e la zona del porto vecchio sono i punti piu facili da cui partire.", "Чи добрий Ментон для gelato? Так. Ментон біля Італії, і кілька glaciers мають італійський стиль. Rue Saint-Michel і старий порт - найпростіші місця для старту."),
+          t("Which ice cream should I try first? Lemon sorbet or another citrus flavour. Menton is famous for lemons, so citrus is the most local choice.", "Quelle glace essayer d'abord? Sorbet citron ou autre parfum agrumes. Menton est celebre pour ses citrons: les agrumes sont le choix le plus local.", "Quale gelato provare per primo? Sorbetto al limone o un gusto agrumato. Mentone e famosa per i limoni, quindi gli agrumi sono la scelta piu locale.", "Яке морозиво спробувати спочатку? Лимонний сорбет або інший цитрусовий смак. Ментон відомий лимонами, тому цитрус - найлокальніший вибір."),
+          t("Which area is easiest with children? Rue Saint-Michel, because it is central, walkable and has several choices close together.", "Quel secteur est le plus simple avec enfants? La rue Saint-Michel, car elle est centrale, pietonne et regroupe plusieurs choix proches.", "Quale zona e piu facile con bambini? Rue Saint-Michel, perche e centrale, pedonale e ha piu scelte vicine.", "Яка зона найзручніша з дітьми? Rue Saint-Michel, бо вона центральна, пішохідна й має кілька варіантів поруч."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Do not rely only on online opening hours in summer or shoulder season.", "Ne vous fiez pas seulement aux horaires en ligne en ete ou hors saison.", "Non affidarti solo agli orari online in estate o mezza stagione.", "Не покладайтеся лише на онлайн-години влітку або міжсезоння."),
+      t("For children, cups are safer than cones on very hot days.", "Pour les enfants, les pots sont plus pratiques que les cornets par forte chaleur.", "Per bambini, le coppette sono piu sicure dei coni nei giorni molto caldi.", "Для дітей у дуже спекотні дні стаканчики зручніші за ріжки."),
+      t("Ask what is made with lemon, local citrus or seasonal fruit that day.", "Demandez ce qui est fait au citron, aux agrumes locaux ou aux fruits de saison ce jour-la.", "Chiedi cosa e fatto con limone, agrumi locali o frutta di stagione quel giorno.", "Запитуйте, що цього дня зроблено з лимоном, місцевими цитрусами або сезонними фруктами."),
+      t("If you want to compare shops, do it over several days rather than all in one evening.", "Si vous voulez comparer plusieurs glaciers, faites-le sur plusieurs jours plutot que le meme soir.", "Se vuoi confrontare piu gelaterie, fallo in piu giorni invece che in una sola sera.", "Якщо хочете порівняти кілька місць, робіть це за кілька днів, а не за один вечір."),
+    ],
+    relatedPlaces: ["rue-saint-michel-menton", "quai-bonaparte-menton", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "gelateria-sofia-menton", "la-fabrique-givree-menton", "le-tropic-menton", "ami-glace-menton", "la-yogurteria-menton", "halles-du-marche", "promenade-du-soleil"],
+    relatedArticles: ["local-food-menton", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-old-town", "stay-cool-in-menton-summer", "where-to-stay-in-menton", "halles-du-marche-menton", "fete-du-citron-menton-practical-guide", "quiet-evening-in-menton"],
+    relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
   },
   {
@@ -1482,8 +1575,8 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
-    relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "gelateria-sofia-menton", "quai-bonaparte-menton", "musee-jean-cocteau-bastion"],
+    relatedArticles: ["best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1639,10 +1732,11 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "garavan"],
     featured: true,
     sourceStatus: "needs_verification",
-    relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
+    relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "puro-piacere-menton", "tutti-frutti-menton", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "useful-apps-websites-menton-monaco-italian-riviera",
       "mountains-snow-skiing-near-menton",
+      "best-ice-cream-menton",
       "menton-with-kids-family-guide",
       "menton-without-a-car",
       "useful-numbers-emergency-contacts-menton",
@@ -1904,6 +1998,7 @@ export const guideArticles: GuideArticle[] = [
       "plage-sablettes",
       "plage-fossan",
       "rondelli-garavan-side",
+      "rue-saint-michel-menton",
       "promenade-du-soleil",
       "port-de-garavan",
       "koaland-menton",
@@ -1933,6 +2028,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "fete-du-citron-menton-practical-guide",
+      "best-ice-cream-menton",
       "best-beaches-in-menton",
       "mountains-snow-skiing-near-menton",
       "stay-cool-in-menton-summer",
@@ -3107,8 +3203,8 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[7].label],
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
-    relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
+    relatedArticles: ["best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -3913,7 +4009,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
