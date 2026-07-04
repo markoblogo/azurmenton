@@ -2453,6 +2453,56 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Office de Tourisme Menton, Riviera & Merveilles", "Illustration de l'Office de Tourisme Menton, Riviera & Merveilles", "Illustrazione dell'Office de Tourisme Menton, Riviera & Merveilles", "Ілюстрація Office de Tourisme Menton, Riviera & Merveilles"),
     visualTheme: "transport",
   },
+  "rue-saint-michel-menton": {
+    image: "/images/guide/rue-saint-michel-menton.jpg",
+    imageAlt: text("Illustration of Rue Saint-Michel in Menton", "Illustration de la rue Saint-Michel a Menton", "Illustrazione di Rue Saint-Michel a Mentone", "Ілюстрація Rue Saint-Michel у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "quai-bonaparte-menton": {
+    image: "/images/guide/quai-bonaparte-menton.jpg",
+    imageAlt: text("Illustration of Quai Bonaparte in Menton", "Illustration du quai Bonaparte a Menton", "Illustrazione di Quai Bonaparte a Mentone", "Ілюстрація Quai Bonaparte у Ментоні"),
+    visualTheme: "port",
+  },
+  "puro-piacere-menton": {
+    image: "/images/guide/puro-piacere-menton.jpg",
+    imageAlt: text("Illustration of Puro Piacere in Menton", "Illustration de Puro Piacere a Menton", "Illustrazione di Puro Piacere a Mentone", "Ілюстрація Puro Piacere у Ментоні"),
+    visualTheme: "food",
+  },
+  "demontis-gelateria-menton": {
+    image: "/images/guide/demontis-gelateria-menton.jpg",
+    imageAlt: text("Illustration of Demontis Gelateria Artigianale in Menton", "Illustration de Demontis Gelateria Artigianale a Menton", "Illustrazione di Demontis Gelateria Artigianale a Mentone", "Ілюстрація Demontis Gelateria Artigianale у Ментоні"),
+    visualTheme: "food",
+  },
+  "tutti-frutti-menton": {
+    image: "/images/guide/tutti-frutti-menton.jpg",
+    imageAlt: text("Illustration of Tutti Frutti in Menton", "Illustration de Tutti Frutti a Menton", "Illustrazione di Tutti Frutti a Mentone", "Ілюстрація Tutti Frutti у Ментоні"),
+    visualTheme: "food",
+  },
+  "gelateria-sofia-menton": {
+    image: "/images/guide/gelateria-sofia-menton.jpg",
+    imageAlt: text("Illustration of Gelateria Sofia in Menton", "Illustration de Gelateria Sofia a Menton", "Illustrazione di Gelateria Sofia a Mentone", "Ілюстрація Gelateria Sofia у Ментоні"),
+    visualTheme: "food",
+  },
+  "la-fabrique-givree-menton": {
+    image: "/images/guide/la-fabrique-givree-menton.jpg",
+    imageAlt: text("Illustration of La Fabrique Givrée in Menton", "Illustration de La Fabrique Givree a Menton", "Illustrazione di La Fabrique Givrée a Mentone", "Ілюстрація La Fabrique Givrée у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-tropic-menton": {
+    image: "/images/guide/le-tropic-menton.jpg",
+    imageAlt: text("Illustration of Le Tropic in Menton", "Illustration de Le Tropic a Menton", "Illustrazione di Le Tropic a Mentone", "Ілюстрація Le Tropic у Ментоні"),
+    visualTheme: "food",
+  },
+  "ami-glace-menton": {
+    image: "/images/guide/ami-glace-menton.jpg",
+    imageAlt: text("Illustration of L'Ami Glacé in Menton", "Illustration de L'Ami Glace a Menton", "Illustrazione di L'Ami Glacé a Mentone", "Ілюстрація L'Ami Glacé у Ментоні"),
+    visualTheme: "food",
+  },
+  "la-yogurteria-menton": {
+    image: "/images/guide/la-yogurteria-menton.jpg",
+    imageAlt: text("Illustration of L.A. Yogurteria in Menton", "Illustration de L.A. Yogurteria a Menton", "Illustrazione di L.A. Yogurteria a Mentone", "Ілюстрація L.A. Yogurteria у Ментоні"),
+    visualTheme: "food",
+  },
   "col-de-turini": {
     image: "/images/guide/col-de-turini.jpg",
     imageAlt: text("Illustration of Col de Turini in the Alpes-Maritimes", "Illustration du Col de Turini dans les Alpes-Maritimes", "Illustrazione del Col de Turini nelle Alpi Marittime", "Ілюстрація Col de Turini в Alpes-Maritimes"),
