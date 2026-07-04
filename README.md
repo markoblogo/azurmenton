@@ -152,7 +152,7 @@ Use `docs/content-operations.md` before adding guide articles, places, events, i
 - `src/content/transport.ts`
 - `src/components/transport/TransportHelperBlock.tsx`
 
-Stay pages are commercial intent pages, while stay plans are compact editorial scenarios that connect guides, places, transport notes and apartment recommendations. Transport helper blocks use curated notes only; they deliberately avoid live train or bus data until an official API/proxy strategy is reviewed.
+Stay pages are commercial intent pages, while stay plans are compact editorial scenarios that connect guides, places, transport notes and apartment recommendations. Transport helper blocks use curated notes plus outbound official timetable/route links; they deliberately avoid embedding live train or bus data until an official API/proxy strategy is reviewed.
 
 ### Events
 

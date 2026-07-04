@@ -1,11 +1,13 @@
+import Link from "next/link";
+import type { Route } from "next";
 import { destinationTransport, transportModeLabels } from "@/content/transport";
 import type { Locale } from "@/i18n/locales";
 
 const copy = {
-  en: { eyebrow: "Transport helper", title: "Check the route before you go", intro: "These are planning notes, not live timetables. Always confirm current trains, buses and last returns before leaving Menton." },
-  fr: { eyebrow: "Aide transport", title: "Verifiez le trajet avant de partir", intro: "Ces notes servent a preparer le trajet, ce ne sont pas des horaires en direct. Confirmez toujours trains, bus et derniers retours avant de quitter Menton." },
-  it: { eyebrow: "Aiuto trasporti", title: "Controlla il percorso prima di partire", intro: "Sono note di pianificazione, non orari live. Verifica sempre treni, autobus e ultimi rientri prima di lasciare Mentone." },
-  uk: { eyebrow: "Транспортна підказка", title: "Перевірте маршрут перед виїздом", intro: "Це нотатки для планування, а не live-розклад. Завжди перевіряйте потяги, автобуси й останнє повернення перед виїздом з Ментона." },
+  en: { eyebrow: "Transport helper", title: "Check the route before you go", intro: "Open the current train, bus or station information before leaving Menton. These links are more reliable than a static timetable copied into the guide.", actions: "Useful links", notes: "Planning notes" },
+  fr: { eyebrow: "Aide transport", title: "Verifiez le trajet avant de partir", intro: "Ouvrez les informations actuelles de train, bus ou gare avant de quitter Menton. Ces liens sont plus fiables qu'un horaire statique copie dans le guide.", actions: "Liens utiles", notes: "Notes pratiques" },
+  it: { eyebrow: "Aiuto trasporti", title: "Controlla il percorso prima di partire", intro: "Apri le informazioni aggiornate su treni, bus o stazione prima di lasciare Mentone. Questi link sono piu affidabili di un orario statico copiato nella guida.", actions: "Link utili", notes: "Note pratiche" },
+  uk: { eyebrow: "Транспортна підказка", title: "Перевірте маршрут перед виїздом", intro: "Відкрийте актуальну інформацію про потяги, автобуси або станцію перед виїздом з Ментона. Ці посилання надійніші за статичний розклад у гіді.", actions: "Корисні посилання", notes: "Нотатки для планування" },
 } satisfies Record<Locale, Record<string, string>>;
 
 export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice", "ventimiglia"] }: { locale: Locale; destinationIds?: string[] }) {
@@ -23,6 +25,22 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
         {items.map((item) => (
           <article key={item.id} className="border border-[#dfd2b8] bg-[#f8f3ea] p-4">
             <h3 className="serif-heading text-2xl leading-tight text-[#173f36]">{item.destination[locale]}</h3>
+            <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.actions}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {item.actionLinks.map((action) => (
+                <Link
+                  key={action.url}
+                  className="inline-flex min-h-9 items-center border border-[#173f36] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#173f36] hover:text-white"
+                  href={action.url as Route}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={action.note[locale]}
+                >
+                  {action.label[locale]}
+                </Link>
+              ))}
+            </div>
+            <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.notes}</p>
             <div className="mt-4 grid gap-3">
               {item.options.slice(0, 2).map((option) => (
                 <div key={`${item.id}-${option.mode}`} className="border-l-2 border-[#c6a66a] pl-3">

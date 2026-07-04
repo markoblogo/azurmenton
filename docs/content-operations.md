@@ -36,7 +36,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Keep stay plans compact: trip intent, useful guides, useful places, relevant apartments and transport destinations.
 - Do not turn stay plans into a second blog system; link to the full stay or guide page for detail.
-- Use `src/content/transport.ts` for curated transport notes. Do not add live SNCF, Trenitalia or bus data without a separate API, caching and source-review pass.
+- Use `src/content/transport.ts` for curated transport notes and official timetable/route links. Do not add live SNCF, Trenitalia or bus data without a separate API, caching and source-review pass.
 - Keep transport copy cautious: check current schedules, last returns and event-day access before travelling.
 
 ## Events

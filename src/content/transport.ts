@@ -17,6 +17,11 @@ export type TransportOption = {
 export type DestinationTransport = {
   id: string;
   destination: LocalizedText;
+  actionLinks: {
+    label: LocalizedText;
+    url: string;
+    note: LocalizedText;
+  }[];
   options: {
     mode: TransportMode;
     timeLabel: LocalizedText;
@@ -99,6 +104,23 @@ export const destinationTransport: DestinationTransport[] = [
   {
     id: "monaco",
     destination: t("Menton to Monaco", "Menton a Monaco", "Da Mentone a Monaco", "Ментон - Монако"),
+    actionLinks: [
+      {
+        label: t("Train times", "Horaires train", "Orari treno", "Розклад потягів"),
+        url: "https://www.sncf-connect.com/en-en/train/timetables/menton/monaco",
+        note: t("SNCF Connect route timetable", "Fiche horaire SNCF Connect", "Orario percorso SNCF Connect", "Маршрутний розклад SNCF Connect"),
+      },
+      {
+        label: t("TER traffic", "Info trafic TER", "Traffico TER", "Стан TER"),
+        url: "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur",
+        note: t("Official TER Sud traffic and service information", "Informations officielles TER Sud", "Informazioni ufficiali TER Sud", "Офіційна інформація TER Sud"),
+      },
+      {
+        label: t("Bus lines", "Lignes bus", "Linee bus", "Автобуси"),
+        url: "https://zou.maregionsud.fr/en/mes-lignes-de-bus-dans-les-alpes-maritimes/",
+        note: t("ZOU Alpes-Maritimes timetables and route maps", "Horaires et plans ZOU Alpes-Maritimes", "Orari e mappe ZOU Alpes-Maritimes", "Розклад і карти ZOU Alpes-Maritimes"),
+      },
+    ],
     options: [
       { mode: "train", timeLabel: t("usually fastest", "souvent le plus rapide", "di solito piu veloce", "зазвичай найшвидше"), note: t("Often one of the simplest options, especially during busy event periods.", "Souvent l'une des options les plus simples, surtout pendant les periodes d'evenements.", "Spesso una delle opzioni piu semplici, soprattutto durante eventi affollati.", "Часто один із найпростіших варіантів, особливо під час великих подій."), sourceStatus: "needs_verification" },
       { mode: "bus", timeLabel: t("often slower", "souvent plus lent", "spesso piu lento", "часто повільніше"), note: t("Coastal and scenic, but route numbers and schedules should be checked.", "Cotiere et panoramique, mais lignes et horaires sont a verifier.", "Costiera e panoramica, ma linee e orari vanno controllati.", "Мальовничий маршрут узбережжям, але номери й розклад треба перевіряти."), sourceStatus: "needs_verification" },
@@ -109,6 +131,23 @@ export const destinationTransport: DestinationTransport[] = [
   {
     id: "nice",
     destination: t("Menton to Nice", "Menton a Nice", "Da Mentone a Nizza", "Ментон - Ніцца"),
+    actionLinks: [
+      {
+        label: t("Train times", "Horaires train", "Orari treno", "Розклад потягів"),
+        url: "https://www.sncf-connect.com/en-en/train/timetables/menton/nice",
+        note: t("SNCF Connect route timetable", "Fiche horaire SNCF Connect", "Orario percorso SNCF Connect", "Маршрутний розклад SNCF Connect"),
+      },
+      {
+        label: t("Station boards", "Tableaux gare", "Tabelloni stazione", "Табло станції"),
+        url: "https://www.garesetconnexions.sncf/en/stations-services/menton/timetables",
+        note: t("Live Menton station departures when available", "Departs gare de Menton selon disponibilite", "Partenze da Mentone quando disponibili", "Відправлення зі станції Menton, якщо доступні"),
+      },
+      {
+        label: t("Bus lines", "Lignes bus", "Linee bus", "Автобуси"),
+        url: "https://zou.maregionsud.fr/en/mes-lignes-de-bus-dans-les-alpes-maritimes/",
+        note: t("ZOU Alpes-Maritimes timetables and route maps", "Horaires et plans ZOU Alpes-Maritimes", "Orari e mappe ZOU Alpes-Maritimes", "Розклад і карти ZOU Alpes-Maritimes"),
+      },
+    ],
     options: [
       { mode: "train", timeLabel: t("often most convenient", "souvent le plus pratique", "spesso piu comodo", "часто найзручніше"), note: t("Good for museums, events, Jazz Fest, Carnival and airport access planning.", "Pratique pour musees, evenements, Jazz Fest, Carnaval et acces aeroport.", "Comodo per musei, eventi, Jazz Fest, Carnevale e accesso aeroporto.", "Зручно для музеїв, подій, Jazz Fest, Карнавалу й планування аеропорту."), sourceStatus: "needs_verification" },
       { mode: "bus", timeLabel: t("usually longer", "generalement plus long", "di solito piu lungo", "зазвичай довше"), note: t("Possible, but usually less direct for most day-trip plans.", "Possible, mais souvent moins direct pour la plupart des excursions.", "Possibile, ma spesso meno diretto per molte gite.", "Можливо, але часто менш прямо для більшості поїздок."), sourceStatus: "needs_verification" },
@@ -118,6 +157,23 @@ export const destinationTransport: DestinationTransport[] = [
   {
     id: "ventimiglia",
     destination: t("Menton to Ventimiglia / Italy", "Menton a Vintimille / Italie", "Da Mentone a Ventimiglia / Italia", "Ментон - Вентімілья / Італія"),
+    actionLinks: [
+      {
+        label: t("Train times", "Horaires train", "Orari treno", "Розклад потягів"),
+        url: "https://www.sncf-connect.com/en-en/train/timetables/menton/ventimiglia",
+        note: t("SNCF Connect route timetable", "Fiche horaire SNCF Connect", "Orario percorso SNCF Connect", "Маршрутний розклад SNCF Connect"),
+      },
+      {
+        label: t("TER sheets", "Fiches TER", "Schede TER", "Листи TER"),
+        url: "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/fiches-horaires",
+        note: t("Official TER line sheets and modified schedules", "Fiches de ligne et horaires modifies TER", "Schede linea TER e orari modificati", "Офіційні листи TER і змінені розклади"),
+      },
+      {
+        label: t("Trenitalia", "Trenitalia", "Trenitalia", "Trenitalia"),
+        url: "https://www.trenitalia.com/en.html",
+        note: t("For onward Italian rail connections", "Pour correspondances ferroviaires italiennes", "Per coincidenze ferroviarie italiane", "Для подальших італійських потягів"),
+      },
+    ],
     options: [
       { mode: "train", timeLabel: t("usually simplest", "souvent le plus simple", "di solito piu semplice", "зазвичай найпростіше"), note: t("A practical choice for markets, Italian food and a short cross-border trip.", "Pratique pour marches, cuisine italienne et courte sortie transfrontaliere.", "Pratico per mercati, cibo italiano e breve uscita oltre confine.", "Практично для ринків, італійської їжі й короткої поїздки через кордон."), sourceStatus: "needs_verification" },
       { mode: "bus", timeLabel: t("less central", "moins central", "meno centrale", "менш центрально"), note: t("Possible, but often less central for guests staying near the seafront.", "Possible, mais souvent moins central pour les clients pres du front de mer.", "Possibile, ma spesso meno centrale per chi soggiorna vicino al mare.", "Можливо, але часто менш зручно для гостей біля набережної."), sourceStatus: "needs_verification" },
@@ -127,6 +183,18 @@ export const destinationTransport: DestinationTransport[] = [
   {
     id: "villages",
     destination: t("Menton to nearby villages / mountains", "Menton vers villages proches / montagnes", "Da Mentone a borghi vicini / montagne", "Ментон - найближчі села / гори"),
+    actionLinks: [
+      {
+        label: t("Bus lines", "Lignes bus", "Linee bus", "Автобуси"),
+        url: "https://zou.maregionsud.fr/en/mes-lignes-de-bus-dans-les-alpes-maritimes/",
+        note: t("ZOU Alpes-Maritimes timetables and route maps", "Horaires et plans ZOU Alpes-Maritimes", "Orari e mappe ZOU Alpes-Maritimes", "Розклад і карти ZOU Alpes-Maritimes"),
+      },
+      {
+        label: t("Airport bus", "Bus aeroport", "Bus aeroporto", "Автобус до аеропорту"),
+        url: "https://www.niceairportxpress.com/en/",
+        note: t("Nice Airport Xpress for airport-linked trips", "Nice Airport Xpress pour trajets aeroport", "Nice Airport Xpress per viaggi aeroporto", "Nice Airport Xpress для поїздок до аеропорту"),
+      },
+    ],
     options: [
       { mode: "bus", timeLabel: t("limited frequency", "frequence limitee", "frequenza limitata", "обмежена частота"), note: t("Local and regional buses may serve places such as Castellar, Sospel and Sainte-Agnès. Check return times.", "Des bus locaux et regionaux peuvent desservir Castellar, Sospel et Sainte-Agnes. Verifiez les retours.", "Bus locali e regionali possono servire Castellar, Sospel e Sainte-Agnès. Controlla i rientri.", "Місцеві та регіональні автобуси можуть їхати до Castellar, Sospel і Sainte-Agnès. Перевіряйте повернення."), sourceStatus: "needs_verification" },
       { mode: "taxi", timeLabel: t("useful backup", "solution utile", "utile alternativa", "корисний запасний варіант"), note: t("Consider a taxi when bus frequency is low, especially with children or luggage.", "Envisagez taxi si la frequence bus est faible, surtout avec enfants ou bagages.", "Valuta taxi se la frequenza bus e bassa, soprattutto con bambini o bagagli.", "Розгляньте таксі, якщо автобуси ходять рідко, особливо з дітьми чи багажем."), sourceStatus: "editorial" },
