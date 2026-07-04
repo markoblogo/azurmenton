@@ -3112,6 +3112,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Palais de l'Europe in Menton", "Illustration du Palais de l'Europe a Menton", "Illustrazione del Palais de l'Europe a Mentone", "Ілюстрація Palais de l'Europe у Ментоні"),
     visualTheme: "old-town",
   },
+  "basilica-saint-michel-archange": {
+    image: "/images/guide/basilica-saint-michel-archange.jpg",
+    imageAlt: text("Illustration of Basilica Saint-Michel-Archange in Menton", "Illustration de la basilique Saint-Michel-Archange a Menton", "Illustrazione della Basilica Saint-Michel-Archange a Mentone", "Ілюстрація Basilica Saint-Michel-Archange у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "gorbio": {
+    image: "/images/guide/gorbio.jpg",
+    imageAlt: text("Illustration of Gorbio above Menton", "Illustration de Gorbio au-dessus de Menton", "Illustrazione di Gorbio sopra Mentone", "Ілюстрація Gorbio над Ментоном"),
+    visualTheme: "old-town",
+  },
   "port-de-garavan": {
     image: "/images/guide/port-de-garavan.jpg",
     imageAlt: text("Illustration of Port de Garavan in Menton", "Illustration du Port de Garavan a Menton", "Illustrazione del Port de Garavan a Mentone", "Ілюстрація Port de Garavan у Ментоні"),
