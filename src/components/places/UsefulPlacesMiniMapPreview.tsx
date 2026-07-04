@@ -27,7 +27,7 @@ const copy = {
 
 const categories: MiniMapCategory[] = [
   { id: "beaches", placeTypes: ["beach"], label: { en: "Beaches", fr: "Plages", it: "Spiagge", uk: "Пляжі" } },
-  { id: "markets", placeTypes: ["market"], label: { en: "Markets", fr: "Marches", it: "Mercati", uk: "Ринки" } },
+  { id: "markets", placeTypes: ["market", "supermarket"], label: { en: "Markets", fr: "Marches", it: "Mercati", uk: "Ринки" } },
   { id: "food", placeTypes: ["restaurant", "bar", "wine-bar", "ice-cream"], label: { en: "Food", fr: "Food", it: "Food", uk: "Їжа" } },
 ];
 

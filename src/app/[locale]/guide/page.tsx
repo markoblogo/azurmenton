@@ -161,7 +161,22 @@ export default async function GuideLandingPage({ params }: PageProps) {
     };
   });
   const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
-  const mapPreviewPlaces = getPlaces(["promenade-du-soleil", "plage-sablettes", "halles-du-marche", "plage-casino", "jardins-bioves", "office-tourisme-menton-riviera-merveilles"])
+  const mapPreviewPlaces = getPlaces([
+    "plage-sablettes",
+    "plage-casino",
+    "plage-fossan",
+    "plage-rondelli",
+    "rondelli-garavan-side",
+    "borrigo-beaches",
+    "halles-du-marche",
+    "u-express-menton-centre",
+    "carrefour-city-felix-faure",
+    "gelateria-sofia-menton",
+    "demontis-gelateria-menton",
+    "tutti-frutti-menton",
+    "biera-daqui",
+    "inky-bar",
+  ])
     .map((place) => {
       const mapPoint = mapPointByPlaceId.get(place.id);
       return mapPoint ? { ...place, mapPoint } : null;

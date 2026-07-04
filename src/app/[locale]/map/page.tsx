@@ -64,11 +64,17 @@ const categories: UsefulPlaceMapCategory[] = [
   category("cinemas", ["cinema"], "Cinemas", "Cinemas", "Cinema", "Кінотеатри"),
   category("theatres", ["theatre"], "Theatres", "Theatres", "Teatri", "Театри"),
   category("gardens", ["garden"], "Gardens", "Jardins", "Giardini", "Сади"),
-  category("viewpoints", ["viewpoint", "mountain"], "Viewpoints", "Points de vue", "Panorami", "Оглядові місця"),
+  category("viewpoints", ["viewpoint"], "Viewpoints", "Points de vue", "Panorami", "Оглядові місця"),
   category("ports", ["port"], "Ports", "Ports", "Porti", "Порти"),
   category("golf", ["golf-course"], "Golf", "Golf", "Golf", "Гольф"),
   category("ski", ["ski-resort"], "Ski", "Ski", "Sci", "Лижі"),
-  category("services", ["tourist-office", "healthcare", "hospital", "police", "civic", "shopping-centre"], "Services", "Services", "Servizi", "Сервіси"),
+  category("mountains", ["mountain"], "Mountains", "Montagne", "Montagne", "Гори"),
+  category("pools", ["pool"], "Pools", "Piscines", "Piscine", "Басейни"),
+  category("theme-parks", ["theme-park"], "Theme parks", "Parcs de loisirs", "Parchi", "Парки"),
+  category("playgrounds", ["playground"], "Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики"),
+  category("family-activities", ["family-activity"], "Activities", "Activites", "Attivita", "Активності"),
+  category("shopping", ["shopping-centre"], "Shopping", "Shopping", "Shopping", "Шопінг"),
+  category("services", ["tourist-office", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
 ];
 
 function category(id: string, placeTypes: PlaceType[], en: string, fr: string, it: string, uk: string): UsefulPlaceMapCategory {
@@ -97,7 +103,6 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
   const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
   const usefulPlaces = places
     .filter((place) => categoryTypes.has(place.type))
-    .filter((place) => place.relatedArticleIds.length > 0)
     .map((place) => {
       const mapPoint = mapPointByPlaceId.get(place.id);
       return mapPoint ? { ...place, mapPoint } : null;
@@ -116,7 +121,7 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
           items: usefulPlaces.slice(0, 60).map((place) => ({
             name: place.name,
             description: place.shortNote[locale],
-            url: absoluteUrl(localizedPath(locale, `guide/${place.relatedArticleIds[0] ?? ""}`)),
+            url: place.relatedArticleIds[0] ? absoluteUrl(localizedPath(locale, `guide/${place.relatedArticleIds[0]}`)) : pageUrl,
             image: place.image ? absoluteUrl(place.image) : undefined,
           })),
         })}
