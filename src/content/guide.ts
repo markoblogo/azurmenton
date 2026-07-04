@@ -700,7 +700,7 @@ export const guideArticles: GuideArticle[] = [
     featured: true,
     sourceStatus: "editorial",
     relatedPlaces: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "promenade-du-soleil", "plage-sablettes", "monaco-monte-carlo", "nice-old-town"],
-    relatedArticles: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
     relatedEvents: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -779,7 +779,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
     relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "promenade-du-soleil", "port-de-garavan"],
-    relatedArticles: ["menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -857,7 +857,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
     relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -914,6 +914,134 @@ export const guideArticles: GuideArticle[] = [
       t("Check the return train before extending the day to Sanremo.", "Verifiez le train retour avant de prolonger jusqu'a Sanremo.", "Controlla il treno di ritorno prima di proseguire fino a Sanremo.", "Перевірте потяг назад перед продовженням до Санремо."),
       t("Carry ID even though Schengen border checks are not normally part of the trip.", "Gardez une piece d'identite meme si les controles Schengen ne sont normalement pas prevus.", "Porta un documento anche se i controlli Schengen normalmente non fanno parte del viaggio.", "Майте документ, хоча шенгенські перевірки зазвичай не є частиною поїздки."),
       t("For the Ventimiglia Friday market, go earlier for more choice and fewer crowds.", "Pour le marche du vendredi a Vintimille, partez plus tot pour plus de choix et moins de foule.", "Per il mercato del venerdi a Ventimiglia, vai presto per piu scelta e meno folla.", "На п'ятничний ринок у Вентімільї їдьте раніше: більше вибору й менше натовпу."),
+    ],
+  }),
+  shortArticle({
+    id: "mountains-snow-skiing-near-menton",
+    slug: "mountains-snow-skiing-near-menton",
+    title: t("From beach to snow: mountain escapes and ski days from Menton", "De la plage a la neige: montagnes et ski depuis Menton", "Dalla spiaggia alla neve: montagne e sci da Mentone", "Від пляжу до снігу: гори та лижні дні з Ментона"),
+    seoTitle: t("From Beach to Snow: Mountain Escapes and Ski Days from Menton", "De la plage a la neige: montagnes et ski depuis Menton", "Dalla spiaggia alla neve: montagne e sci da Mentone", "Від пляжу до снігу: гори та лижні дні з Ментона"),
+    seoDescription: t("Menton is not only beaches and summer sun. From the Mediterranean coast you can escape into cool mountains, visit the Mercantour, find winter snow and reach ski resorts such as Turini Camp d'Argent, La Colmiane, Auron, Isola 2000, Valberg and Limone Piemonte.", "Menton n'est pas seulement plages et soleil. Depuis la Mediterranee, partez vers les montagnes fraiches, le Mercantour, la neige d'hiver et les stations Turini Camp d'Argent, La Colmiane, Auron, Isola 2000, Valberg et Limone Piemonte.", "Mentone non e solo spiagge e sole. Dalla costa mediterranea puoi salire verso montagne fresche, Mercantour, neve invernale e stazioni come Turini Camp d'Argent, La Colmiane, Auron, Isola 2000, Valberg e Limone Piemonte.", "Ментон - це не лише пляжі й літнє сонце. Від Середземного моря можна поїхати в прохолодні гори, Mercantour, зимовий сніг і курорти Turini Camp d'Argent, La Colmiane, Auron, Isola 2000, Valberg та Limone Piemonte."),
+    excerpt: t("One of Menton's quiet surprises is how quickly the landscape changes: swim in the Mediterranean, then drive into cooler mountains, forest roads, alpine villages and winter snow within reach of the Riviera.", "L'une des surprises de Menton est la rapidite du changement de paysage: baignade en Mediterranee, puis routes fraiches, forets, villages alpins et neige d'hiver a portee de Riviera.", "Una sorpresa di Mentone e quanto rapidamente cambia il paesaggio: mare Mediterraneo, poi montagne fresche, boschi, villaggi alpini e neve invernale a portata di Riviera.", "Одна з тихих несподіванок Ментона - як швидко змінюється ландшафт: море, а потім прохолодні гори, лісові дороги, альпійські села й зимовий сніг поруч із Рив'єрою."),
+    category: "day-trips",
+    coverImage: "/images/guide/mountains-snow-skiing-near-menton.jpg",
+    coverImageAlt: t("Illustration of mountain and snow escapes from Menton", "Illustration des montagnes et de la neige depuis Menton", "Illustrazione di montagne e neve da Mentone", "Ілюстрація гір і снігу з Ментона"),
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    tags: [
+      t("mountains", "montagnes", "montagne", "гори"),
+      t("skiing", "ski", "sci", "лижі"),
+      t("snow", "neige", "neve", "сніг"),
+      t("Mercantour", "Mercantour", "Mercantour", "Mercantour"),
+      t("summer heat", "chaleur d'ete", "caldo estivo", "літня спека"),
+      t("families", "familles", "famiglie", "сім'ї"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[7].label, guideBestForOptions[8].label],
+    duration: "full-day",
+    locationTags: ["menton-centre", "monaco", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "col-de-turini",
+      "turini-camp-dargent",
+      "authion-massif",
+      "la-colmiane",
+      "auron-ski-resort",
+      "isola-2000",
+      "valberg",
+      "limone-piemonte",
+      "sospel-bevera-valley",
+      "la-brigue",
+      "tende",
+      "mercantour-national-park",
+    ],
+    relatedArticles: ["best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Menton is not only sea and summer", "Menton n'est pas seulement mer et ete", "Mentone non e solo mare ed estate", "Ментон - це не лише море й літо"),
+        body: [
+          t("Most visitors imagine Menton as beaches, lemons, pastel facades, palm trees and warm Mediterranean evenings. That is true, but only half the story: the mountains begin almost immediately behind the coast.", "La plupart des visiteurs imaginent Menton comme plages, citrons, facades pastel, palmiers et soirees mediterraneennes. C'est vrai, mais ce n'est que la moitie de l'histoire: les montagnes commencent presque tout de suite derriere la cote.", "Molti visitatori immaginano Mentone come spiagge, limoni, facciate pastello, palme e sere mediterranee. E vero, ma e solo meta della storia: le montagne iniziano quasi subito dietro la costa.", "Більшість гостей уявляє Ментон як пляжі, лимони, пастельні фасади, пальми й теплі середземноморські вечори. Це правда, але лише половина історії: гори починаються майже одразу за узбережжям."),
+          t("In summer, this means cooler air, forest roads, shade and a break from coastal heat. In winter, it can mean snow, sledging, snowshoeing, skiing, snowboarding and mountain restaurants close enough for a planned day trip.", "En ete, cela signifie air plus frais, routes forestieres, ombre et pause loin de la chaleur du littoral. En hiver, cela peut devenir neige, luge, raquettes, ski, snowboard et restaurants de montagne pour une excursion bien preparee.", "In estate significa aria piu fresca, strade nei boschi, ombra e pausa dal caldo costiero. In inverno puo diventare neve, slittino, ciaspole, sci, snowboard e ristoranti di montagna per una gita pianificata.", "Влітку це означає прохолодніше повітря, лісові дороги, тінь і перерву від спеки на узбережжі. Взимку - сніг, санки, снігоступи, лижі, сноуборд і гірські ресторани для запланованого дня."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Can you really see snow from Menton?", "Peut-on vraiment trouver de la neige depuis Menton?", "Si puo davvero trovare neve da Mentone?", "Чи справді можна знайти сніг з Ментона?"),
+        body: [
+          t("In winter, yes: several snow and ski areas are within reach. In summer, snow is not guaranteed and should never be promised, but higher Mercantour routes can feel dramatically cooler than the coast, and early-season snow patches are possible after a strong winter.", "En hiver, oui: plusieurs secteurs neige et ski sont accessibles. En ete, la neige n'est pas garantie et ne doit jamais etre promise, mais les routes hautes du Mercantour peuvent etre beaucoup plus fraiches que la cote, avec parfois des restes de neige en debut de saison.", "In inverno si: varie zone neve e sci sono raggiungibili. In estate la neve non e garantita e non va promessa, ma le zone alte del Mercantour possono essere molto piu fresche della costa, con possibili chiazze di neve dopo un buon inverno.", "Взимку так: кілька снігових і лижних зон доступні. Влітку сніг не гарантований і його не варто обіцяти, але високі маршрути Mercantour можуть бути набагато прохолоднішими за узбережжя, а після сильної зими можливі снігові плями."),
+          t("The safe promise is simple: Menton gives fast access to mountain coolness in summer and real snow destinations in winter.", "La promesse juste est simple: Menton donne un acces rapide a la fraicheur de montagne en ete et a de vraies destinations neige en hiver.", "La promessa corretta e semplice: Mentone offre accesso rapido al fresco di montagna in estate e a vere destinazioni neve in inverno.", "Чесне формулювання просте: Ментон дає швидкий доступ до гірської прохолоди влітку та справжніх снігових напрямів узимку."),
+        ],
+        relatedPlaceIds: ["mercantour-national-park", "col-de-turini", "authion-massif"],
+      },
+      {
+        heading: t("Closest mountain escape: Turini and Camp d'Argent", "L'echappee montagne la plus proche: Turini et Camp d'Argent", "La fuga in montagna piu vicina: Turini e Camp d'Argent", "Найближча гірська втеча: Turini та Camp d'Argent"),
+        body: [
+          t("For a short escape from Menton, Col de Turini and Turini Camp d'Argent are the first names to know. Col de Turini is a scenic pass with rally history, hairpins, forest air and access toward the Authion side.", "Pour une courte echappee depuis Menton, Col de Turini et Turini Camp d'Argent sont les premiers noms a connaitre. Le Col de Turini est un passage panoramique avec histoire de rallye, lacets, forets et acces vers l'Authion.", "Per una breve fuga da Mentone, Col de Turini e Turini Camp d'Argent sono i primi nomi da conoscere. Il Col de Turini e un passo panoramico con storia rally, tornanti, boschi e accesso verso l'Authion.", "Для короткої втечі з Ментона перші назви - Col de Turini та Turini Camp d'Argent. Col de Turini - мальовничий перевал із ралійною історією, серпантинами, лісовим повітрям і доступом до Authion."),
+          t("In winter, Turini Camp d'Argent is best understood as a simple family snow day rather than a big Alpine resort: first snow, sledging, beginner skiing and a gentler mountain rhythm.", "En hiver, Turini Camp d'Argent se comprend comme une journee neige en famille plutot qu'une grande station alpine: premiere neige, luge, ski debutant et rythme plus doux.", "In inverno Turini Camp d'Argent e soprattutto una giornata neve in famiglia, non una grande stazione alpina: prima neve, slittino, sci per principianti e ritmo piu semplice.", "Взимку Turini Camp d'Argent краще сприймати як простий сімейний сніговий день, а не великий альпійський курорт: перший сніг, санки, початкове катання і м'якший ритм."),
+        ],
+        relatedPlaceIds: ["col-de-turini", "turini-camp-dargent", "authion-massif"],
+        relatedApartmentKeys: ["beachside-family-apartment"],
+      },
+      {
+        heading: t("Family ski resorts: La Colmiane, Auron, Isola 2000 and Valberg", "Stations familiales: La Colmiane, Auron, Isola 2000 et Valberg", "Stazioni per famiglie: La Colmiane, Auron, Isola 2000 e Valberg", "Сімейні курорти: La Colmiane, Auron, Isola 2000 і Valberg"),
+        body: [
+          t("La Colmiane is the useful middle option: more complete than Turini, still approachable for families and beginner-to-intermediate skiers. Auron and Isola 2000 are bigger ski days, better for skiing and snowboarding as the main purpose of the trip.", "La Colmiane est l'option intermediaire utile: plus complete que Turini, mais encore accessible en famille et pour debutants/intermediaires. Auron et Isola 2000 sont de vraies journees ski, mieux adaptees si ski ou snowboard sont l'objectif principal.", "La Colmiane e l'opzione intermedia utile: piu completa di Turini, ma ancora accessibile per famiglie e sciatori principianti/intermedi. Auron e Isola 2000 sono giornate sci piu importanti, adatte quando sci o snowboard sono l'obiettivo.", "La Colmiane - корисний середній варіант: повніший за Turini, але ще доступний для сімей і початково-середнього рівня. Auron та Isola 2000 - більші лижні дні, коли лижі або сноуборд є головною метою."),
+          t("Valberg is another full mountain day with a sunny village-resort feel. From Menton, compare travel time, snow reports and road conditions before choosing between the larger resorts.", "Valberg est une autre vraie journee montagne, avec ambiance de station-village ensoleillee. Depuis Menton, comparez temps de route, enneigement et conditions avant de choisir entre les grandes stations.", "Valberg e un'altra giornata di montagna completa, con atmosfera di stazione-villaggio soleggiata. Da Mentone confronta tempi, neve e strade prima di scegliere tra le stazioni piu grandi.", "Valberg - ще один повний гірський день із сонячною атмосферою курорту-села. З Ментона порівнюйте час дороги, сніг і стан трас перед вибором великого курорту."),
+        ],
+        relatedPlaceIds: ["la-colmiane", "auron-ski-resort", "isola-2000", "valberg"],
+      },
+      {
+        heading: t("Limone Piemonte: the Italian ski day", "Limone Piemonte: la journee ski italienne", "Limone Piemonte: la giornata sci italiana", "Limone Piemonte: італійський лижний день"),
+        body: [
+          t("Limone Piemonte is the main Italian mountain idea from Menton. It can combine skiing or snow walking with Italian coffee, lunch and a different Alpine atmosphere across the border.", "Limone Piemonte est la principale idee montagne cote italien depuis Menton. Elle peut combiner ski ou marche dans la neige avec cafe italien, dejeuner et atmosphere alpine differente.", "Limone Piemonte e la principale idea montana italiana da Mentone. Puo combinare sci o passeggiate sulla neve con caffe, pranzo e atmosfera alpina italiana.", "Limone Piemonte - головна італійська гірська ідея з Ментона. Вона може поєднати лижі або прогулянку снігом з італійською кавою, обідом і іншою альпійською атмосферою."),
+          t("Check road access, weather, winter equipment rules and return timing carefully before building the day around Italy.", "Verifiez acces routier, meteo, equipements hiver et horaire de retour avant d'organiser la journee cote Italie.", "Controlla accesso stradale, meteo, regole invernali e ritorno prima di organizzare la giornata in Italia.", "Ретельно перевіряйте дорогу, погоду, зимове обладнання й час повернення перед плануванням італійського дня."),
+        ],
+        relatedPlaceIds: ["limone-piemonte"],
+      },
+      {
+        heading: t("Summer escape from the heat", "Echapper a la chaleur d'ete", "Fuga dal caldo estivo", "Втеча від літньої спеки"),
+        body: [
+          t("In July and August, the mountain value is not guaranteed snow; it is cooler air, altitude, shade, forest roads and a break from the coast. Good options include Col de Turini, the Authion side, Sospel and the Bévéra valley, La Brigue, Tende and Mercantour walks.", "En juillet et aout, l'interet des montagnes n'est pas la neige garantie: c'est l'air plus frais, l'altitude, l'ombre, les routes forestieres et une pause loin de la cote. Bons choix: Turini, Authion, Sospel et Bévéra, La Brigue, Tende et marches du Mercantour.", "A luglio e agosto il valore della montagna non e neve garantita: e aria piu fresca, quota, ombra, strade nei boschi e pausa dalla costa. Buone opzioni: Turini, Authion, Sospel e valle Bévéra, La Brigue, Tende e cammini nel Mercantour.", "У липні й серпні цінність гір - не гарантований сніг, а прохолодніше повітря, висота, тінь, лісові дороги й пауза від узбережжя. Варіанти: Turini, Authion, Sospel і долина Bévéra, La Brigue, Tende та маршрути Mercantour."),
+          t("With children, this can completely change a hot day: leave the beach rhythm, eat somewhere cooler, walk under trees, look for viewpoints and return to the sea in the evening.", "Avec des enfants, cela peut transformer une journee chaude: quitter le rythme plage, manger au frais, marcher sous les arbres, chercher les points de vue puis revenir a la mer le soir.", "Con bambini puo cambiare completamente una giornata calda: lasciare la spiaggia, mangiare al fresco, camminare tra alberi, cercare panorami e tornare al mare la sera.", "З дітьми це може повністю змінити спекотний день: вийти з пляжного ритму, поїсти в прохолоді, пройтися під деревами, знайти краєвиди й повернутися до моря ввечері."),
+        ],
+        relatedPlaceIds: ["col-de-turini", "authion-massif", "sospel-bevera-valley", "la-brigue", "tende", "mercantour-national-park"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Best option by trip type", "Quelle option selon le voyage", "Opzione migliore per tipo di viaggio", "Найкращий варіант за типом поїздки"),
+        body: [
+          t("For a child's first snow day, start with Turini Camp d'Argent or La Colmiane. For a real ski or snowboard day, compare Auron, Isola 2000, Valberg and Limone Piemonte. For better snow reliability, look first at the higher resorts. For an Italian snow-and-food day, choose Limone Piemonte.", "Pour une premiere neige avec enfant, commencez par Turini Camp d'Argent ou La Colmiane. Pour une vraie journee ski ou snowboard, comparez Auron, Isola 2000, Valberg et Limone Piemonte. Pour la neige la plus fiable, regardez d'abord les stations d'altitude. Pour Italie + neige + repas, choisissez Limone Piemonte.", "Per la prima neve con bambini inizia da Turini Camp d'Argent o La Colmiane. Per una vera giornata sci o snowboard confronta Auron, Isola 2000, Valberg e Limone Piemonte. Per neve piu affidabile guarda prima le stazioni in quota. Per Italia, neve e pranzo scegli Limone Piemonte.", "Для першого снігу з дитиною почніть із Turini Camp d'Argent або La Colmiane. Для справжнього дня лиж чи сноуборду порівнюйте Auron, Isola 2000, Valberg і Limone Piemonte. Для надійнішого снігу дивіться вищі курорти. Для Італії, снігу й обіду - Limone Piemonte."),
+          t("For a summer heat escape without skiing, choose Turini, Authion, Sospel, Tende or the Mercantour valleys and plan the day around air, views, shade and a slower mountain rhythm.", "Pour echapper a la chaleur sans ski, choisissez Turini, Authion, Sospel, Tende ou les vallees du Mercantour et organisez la journee autour de l'air, des vues, de l'ombre et d'un rythme lent.", "Per fuggire dal caldo senza sci scegli Turini, Authion, Sospel, Tende o le valli del Mercantour e organizza la giornata intorno ad aria, viste, ombra e ritmo lento.", "Для втечі від спеки без лиж обирайте Turini, Authion, Sospel, Tende або долини Mercantour і плануйте день навколо повітря, видів, тіні та повільного гірського ритму."),
+        ],
+      },
+      {
+        heading: t("What to check before you go", "A verifier avant de partir", "Cosa controllare prima di partire", "Що перевірити перед поїздкою"),
+        body: [
+          t("Mountain trips from Menton need more preparation than a beach day. Check weather at altitude, road conditions, snow reports, lift openings, winter tyre or chain rules, restaurant opening, rental timing, return route and daylight.", "Les sorties montagne demandent plus de preparation qu'une plage. Verifiez meteo en altitude, routes, enneigement, remontees, pneus hiver ou chaines, restaurants, horaires de location, retour et lumiere du jour.", "Le gite in montagna richiedono piu preparazione della spiaggia. Controlla meteo in quota, strade, neve, impianti, gomme o catene, ristoranti, noleggi, ritorno e luce.", "Гірські поїздки з Ментона потребують більше підготовки, ніж пляж. Перевіряйте погоду на висоті, дороги, сніг, підйомники, зимові шини чи ланцюги, ресторани, прокат, маршрут назад і світловий день."),
+          t("Do not judge mountain weather by the weather in Menton. The coast can be mild while inland roads are windy, foggy, cold or snowy.", "Ne jugez pas la meteo montagne depuis Menton. La cote peut etre douce alors que l'interieur est venteux, brumeux, froid ou enneige.", "Non giudicare la meteo in montagna dal tempo a Mentone. La costa puo essere mite mentre l'interno e ventoso, nebbioso, freddo o innevato.", "Не оцінюйте погоду в горах за погодою в Ментоні. На узбережжі може бути м'яко, а в горах - вітер, туман, холод або сніг."),
+        ],
+      },
+      {
+        heading: t("Can you do it without a car?", "Peut-on le faire sans voiture?", "Si puo fare senza auto?", "Чи можна без авто?"),
+        body: [
+          t("For serious mountain or snow days from Menton, a car is usually the easiest option. Some seasonal ski buses may run from Nice, but from Menton the logistics are more complex: train to Nice, ski bus if operating, private transfer, one-day car rental or a lower mountain village such as Sospel.", "Pour les vraies journees montagne ou neige depuis Menton, la voiture reste souvent la plus simple. Des bus neige saisonniers peuvent partir de Nice, mais depuis Menton la logistique se complique: train vers Nice, bus neige si disponible, transfert prive, location d'un jour ou village plus bas comme Sospel.", "Per vere giornate montagna o neve da Mentone, l'auto e di solito piu semplice. Alcuni bus neve partono da Nizza, ma da Mentone la logistica e piu complessa: treno per Nizza, bus se attivo, transfer, auto a noleggio o paese piu basso come Sospel.", "Для справжніх гірських або снігових днів з Ментона авто зазвичай найпростіше. Деякі сезонні ski bus можуть їхати з Ніцци, але з Ментона логістика складніша: потяг до Ніцци, bus якщо працює, трансфер, авто на день або нижче гірське село на кшталт Sospel."),
+        ],
+        relatedPlaceIds: ["sospel-bevera-valley"],
+      },
+      {
+        heading: t("Staying in Menton for sea and mountain trips", "Sejourner a Menton pour mer et montagne", "Soggiornare a Mentone tra mare e montagna", "Жити в Ментоні для моря й гір"),
+        body: [
+          t("Menton works well as a base because you do not have to choose between sea and mountains. You can stay by the Mediterranean, keep restaurants and old-town walks close, and still use a mountain day as a special excursion.", "Menton fonctionne bien comme base car vous n'avez pas a choisir entre mer et montagne. Vous restez pres de la Mediterranee, des restaurants et de la vieille ville, tout en gardant une journee montagne comme excursion speciale.", "Mentone funziona bene come base perche non devi scegliere tra mare e montagna. Puoi stare sul Mediterraneo, avere ristoranti e centro storico vicini, e tenere una giornata in montagna come escursione speciale.", "Ментон добре працює як база, бо не треба обирати між морем і горами. Можна жити біля Середземного моря, мати поруч ресторани й старе місто, а гірський день залишити як особливу поїздку."),
+          t("Sea View Balcony Studio suits couples who want a seaside base with occasional mountain days. Beachside Apartment with Terrace & Parking is strongest for families planning car trips. Panoramic Sea View Studio fits a short scenic stay with one mountain, Monaco or Italy day.", "Sea View Balcony Studio convient aux couples qui veulent une base mer avec quelques jours montagne. Beachside Apartment with Terrace & Parking est le plus pratique pour familles avec voiture. Panoramic Sea View Studio convient a un court sejour panoramique avec une journee montagne, Monaco ou Italie.", "Sea View Balcony Studio va bene per coppie con base mare e qualche giornata in montagna. Beachside Apartment with Terrace & Parking e piu pratico per famiglie in auto. Panoramic Sea View Studio funziona per soggiorni brevi con una giornata montagna, Monaco o Italia.", "Sea View Balcony Studio підходить парам із морською базою та окремими гірськими днями. Beachside Apartment with Terrace & Parking найкращий для сімей з авто. Panoramic Sea View Studio пасує короткому scenic stay з одним днем у горах, Монако або Італії."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("For winter, pack warm jackets, gloves, hats, sunglasses, waterproof shoes, spare socks, snacks and sun cream.", "En hiver, prevoyez vestes chaudes, gants, bonnets, lunettes, chaussures impermeables, chaussettes de rechange, snacks et creme solaire.", "In inverno porta giacche calde, guanti, cappelli, occhiali, scarpe impermeabili, calze di ricambio, snack e crema solare.", "Взимку беріть теплі куртки, рукавички, шапки, окуляри, водостійке взуття, запасні шкарпетки, перекус і крем від сонця."),
+      t("For summer, bring water, a hat, sun cream, walking shoes, a light jacket and motion-sickness backup for winding roads.", "En ete, prenez eau, chapeau, creme solaire, chaussures de marche, veste legere et de quoi gerer les routes sinueuses.", "In estate porta acqua, cappello, crema solare, scarpe da cammino, giacca leggera e qualcosa contro il mal d'auto.", "Влітку беріть воду, капелюх, крем, взуття для ходьби, легку куртку й щось від заколисування на серпантинах."),
+      t("Check resort opening, snow reports and road conditions on the morning of departure.", "Verifiez ouverture, enneigement et routes le matin du depart.", "Controlla apertura, neve e strade la mattina della partenza.", "Перевіряйте відкриття, сніг і дороги вранці перед виїздом."),
+      t("For children, keep the first snow day simple: snow play, sledging, hot chocolate and photos may be enough.", "Avec enfants, gardez la premiere journee neige simple: jeux, luge, chocolat chaud et photos peuvent suffire.", "Con bambini tieni semplice la prima neve: giochi, slittino, cioccolata calda e foto possono bastare.", "Для дітей перший сніговий день робіть простим: сніг, санки, гарячий шоколад і фото можуть бути достатніми."),
     ],
   }),
   shortArticle({
@@ -1514,6 +1642,7 @@ export const guideArticles: GuideArticle[] = [
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "useful-apps-websites-menton-monaco-italian-riviera",
+      "mountains-snow-skiing-near-menton",
       "menton-with-kids-family-guide",
       "menton-without-a-car",
       "useful-numbers-emergency-contacts-menton",
@@ -1805,6 +1934,7 @@ export const guideArticles: GuideArticle[] = [
     relatedArticles: [
       "fete-du-citron-menton-practical-guide",
       "best-beaches-in-menton",
+      "mountains-snow-skiing-near-menton",
       "stay-cool-in-menton-summer",
       "supermarkets-in-menton",
       "cinemas-in-menton-nice-monaco",
@@ -3514,7 +3644,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -3783,7 +3913,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
