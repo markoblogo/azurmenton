@@ -2122,8 +2122,10 @@ export const guideArticles: GuideArticle[] = [
     seoDescription: t("A practical guide to opera, theatre, ballet, musicals and open-air performances near Menton, including Monaco, Nice and Sanremo venues with programme links.", "Guide pratique opera, theatre, ballet, comedies musicales et plein air pres de Menton: Monaco, Nice et Sanremo avec liens vers les programmes.", "Guida pratica a opera, teatro, balletto, musical e spettacoli all'aperto vicino a Mentone: Monaco, Nizza e Sanremo con link ai programmi.", "Практичний гід по опері, театру, балету, мюзиклах і виставах просто неба біля Ментона: Монако, Ніцца та Санремо з посиланнями на програми."),
     excerpt: t("Stay in Menton and you can reach opera in Nice, elegant Monaco theatres, summer open-air stages and Sanremo's Teatro Ariston by train.", "Depuis Menton, rejoignez l'opera a Nice, les theatres elegants de Monaco, les scenes d'ete en plein air et le Teatro Ariston de Sanremo en train.", "Da Mentone puoi raggiungere l'opera a Nizza, i teatri eleganti di Monaco, i palchi estivi all'aperto e il Teatro Ariston di Sanremo in treno.", "З Ментона легко дістатися опери в Ніцці, елегантних театрів Монако, літніх сцен просто неба та Teatro Ariston у Санремо потягом."),
     category: "events",
+    coverImage: "/images/guide/theatre-opera-performing-arts-near-menton.jpg",
+    coverImageAlt: t("Illustration of theatre, opera and performing arts near Menton", "Illustration du theatre, de l'opera et du spectacle vivant pres de Menton", "Illustrazione di teatro, opera e spettacoli vicino a Mentone", "Ілюстрація театру, опери та сценічного мистецтва біля Ментона"),
     visualTheme: "event",
-    visualStatus: "editorial_placeholder",
+    visualStatus: "project_illustration",
     tags: [
       t("theatre", "theatre", "teatro", "театр"),
       t("opera", "opera", "opera", "опера"),

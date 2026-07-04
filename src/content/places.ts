@@ -2484,6 +2484,76 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     imageAlt: text("Illustration of Megarama Nice", "Illustration de Megarama Nice", "Illustrazione di Megarama Nice", "Ілюстрація Megarama Nice"),
     visualTheme: "event",
   },
+  "le-lavoir-theatre-menton": {
+    image: "/images/guide/le-lavoir-theatre-menton.jpg",
+    imageAlt: text("Illustration of Le Lavoir Théâtre in Menton", "Illustration du Lavoir Theatre a Menton", "Illustrazione di Le Lavoir Théâtre a Mentone", "Ілюстрація Le Lavoir Théâtre у Ментоні"),
+    visualTheme: "event",
+  },
+  "opera-de-monte-carlo": {
+    image: "/images/guide/opera-de-monte-carlo.jpg",
+    imageAlt: text("Illustration of Opéra de Monte-Carlo", "Illustration de l'Opera de Monte-Carlo", "Illustrazione dell'Opéra de Monte-Carlo", "Ілюстрація Opéra de Monte-Carlo"),
+    visualTheme: "event",
+  },
+  "theatre-princesse-grace-monaco": {
+    image: "/images/guide/theatre-princesse-grace-monaco.jpg",
+    imageAlt: text("Illustration of Théâtre Princesse Grace in Monaco", "Illustration du Theatre Princesse Grace a Monaco", "Illustrazione del Théâtre Princesse Grace a Monaco", "Ілюстрація Théâtre Princesse Grace у Монако"),
+    visualTheme: "event",
+  },
+  "theatre-du-fort-antoine-monaco": {
+    image: "/images/guide/theatre-du-fort-antoine-monaco.jpg",
+    imageAlt: text("Illustration of Théâtre du Fort Antoine in Monaco", "Illustration du Theatre du Fort Antoine a Monaco", "Illustrazione del Théâtre du Fort Antoine a Monaco", "Ілюстрація Théâtre du Fort Antoine у Монако"),
+    visualTheme: "event",
+  },
+  "grimaldi-forum-monaco": {
+    image: "/images/guide/grimaldi-forum-monaco.jpg",
+    imageAlt: text("Illustration of Grimaldi Forum Monaco", "Illustration du Grimaldi Forum Monaco", "Illustrazione del Grimaldi Forum Monaco", "Ілюстрація Grimaldi Forum Monaco"),
+    visualTheme: "event",
+  },
+  "ballets-de-monte-carlo": {
+    image: "/images/guide/ballets-de-monte-carlo.jpg",
+    imageAlt: text("Illustration of Les Ballets de Monte-Carlo", "Illustration des Ballets de Monte-Carlo", "Illustrazione di Les Ballets de Monte-Carlo", "Ілюстрація Les Ballets de Monte-Carlo"),
+    visualTheme: "event",
+  },
+  "opera-de-nice": {
+    image: "/images/guide/opera-de-nice.jpg",
+    imageAlt: text("Illustration of Opéra Nice Côte d'Azur", "Illustration de l'Opera Nice Cote d'Azur", "Illustrazione dell'Opéra Nice Côte d'Azur", "Ілюстрація Opéra Nice Côte d'Azur"),
+    visualTheme: "event",
+  },
+  "theatre-national-de-nice": {
+    image: "/images/guide/theatre-national-de-nice.jpg",
+    imageAlt: text("Illustration of Théâtre National de Nice", "Illustration du Theatre National de Nice", "Illustrazione del Théâtre National de Nice", "Ілюстрація Théâtre National de Nice"),
+    visualTheme: "event",
+  },
+  "theatre-francis-gag-nice": {
+    image: "/images/guide/theatre-francis-gag-nice.jpg",
+    imageAlt: text("Illustration of Théâtre Francis-Gag in Nice", "Illustration du Theatre Francis-Gag a Nice", "Illustrazione del Théâtre Francis-Gag a Nizza", "Ілюстрація Théâtre Francis-Gag у Ніцці"),
+    visualTheme: "event",
+  },
+  "theatre-lino-ventura-nice": {
+    image: "/images/guide/theatre-lino-ventura-nice.jpg",
+    imageAlt: text("Illustration of Théâtre Lino Ventura in Nice", "Illustration du Theatre Lino Ventura a Nice", "Illustrazione del Théâtre Lino Ventura a Nizza", "Ілюстрація Théâtre Lino Ventura у Ніцці"),
+    visualTheme: "event",
+  },
+  "theatre-de-verdure-nice": {
+    image: "/images/guide/theatre-de-verdure-nice.jpg",
+    imageAlt: text("Illustration of Théâtre de Verdure in Nice", "Illustration du Theatre de Verdure a Nice", "Illustrazione del Théâtre de Verdure a Nizza", "Ілюстрація Théâtre de Verdure у Ніцці"),
+    visualTheme: "event",
+  },
+  "theatre-de-la-cite-nice": {
+    image: "/images/guide/theatre-de-la-cite-nice.jpg",
+    imageAlt: text("Illustration of Théâtre de la Cité in Nice", "Illustration du Theatre de la Cite a Nice", "Illustrazione del Théâtre de la Cité a Nizza", "Ілюстрація Théâtre de la Cité у Ніцці"),
+    visualTheme: "event",
+  },
+  "teatro-ariston-sanremo": {
+    image: "/images/guide/teatro-ariston-sanremo.jpg",
+    imageAlt: text("Illustration of Teatro Ariston Sanremo", "Illustration du Teatro Ariston Sanremo", "Illustrazione del Teatro Ariston Sanremo", "Ілюстрація Teatro Ariston Sanremo"),
+    visualTheme: "event",
+  },
+  "teatro-comunale-luigi-maccario-ventimiglia": {
+    image: "/images/guide/teatro-comunale-luigi-maccario-ventimiglia.jpg",
+    imageAlt: text("Illustration of Teatro Comunale Luigi Maccario in Ventimiglia", "Illustration du Teatro Comunale Luigi Maccario a Vintimille", "Illustrazione del Teatro Comunale Luigi Maccario a Ventimiglia", "Ілюстрація Teatro Comunale Luigi Maccario у Вентімільї"),
+    visualTheme: "event",
+  },
   "musee-jean-cocteau-bastion": {
     image: "/images/guide/musee-jean-cocteau-bastion.jpg",
     imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),
