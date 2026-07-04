@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { apartments } from "@/content/apartments";
 import { guideArticles, guidePages } from "@/content/guide";
 import { eventDetailSlugs, getRivieraEvent } from "@/content/riviera-events";
+import { stayPages } from "@/content/stay-pages";
 import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 
@@ -12,6 +13,7 @@ const staticRoutes = [
   "check-availability",
   "guide",
   "events",
+  "stay",
   "faq",
   "contact",
   "privacy",
@@ -37,6 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route: localizedPath(locale, `events/${slug}`),
       path: `events/${slug}`,
       image: getRivieraEvent(slug)?.media?.image,
+    })),
+    ...stayPages.map((page) => ({
+      route: localizedPath(locale, `stay/${page.slug}`),
+      path: `stay/${page.slug}`,
+      image: page.heroImage,
     })),
   ]);
 
@@ -68,6 +75,10 @@ function imageForStaticRoute(path: string) {
     return "/images/events/menton-lemon-festival.jpg";
   }
 
+  if (path === "stay") {
+    return siteConfig.defaultOgImage;
+  }
+
   return undefined;
 }
 
@@ -96,7 +107,7 @@ function priorityForRoute(route: string) {
     return 0.9;
   }
 
-  if (route.includes("/guide") || route.includes("/events")) {
+  if (route.includes("/guide") || route.includes("/events") || route.includes("/stay")) {
     return 0.7;
   }
 

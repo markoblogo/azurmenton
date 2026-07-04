@@ -4,12 +4,14 @@ import Link from "next/link";
 import type { Route } from "next";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { BookingCTA } from "@/components/content/BookingCTA";
+import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { getGuideArticle } from "@/content/guide";
+import { eventApartmentScenarios } from "@/content/contextual-apartment-recommendations";
 import {
   eventCategoryLabels,
   eventDateStatusLabels,
@@ -259,6 +261,7 @@ export default async function EventArticlePage({ params }: PageProps) {
   const relatedApartmentKeys =
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
+  const apartmentScenario = eventApartmentScenarios[event.slug];
   const sourceAttribution = {
     sourcePageType: "event" as const,
     sourceSlug: event.slug,
@@ -544,12 +547,21 @@ export default async function EventArticlePage({ params }: PageProps) {
 
       <section className="bg-[#fff3df] py-10 sm:py-12">
         <Container>
-          <RelatedApartmentsBlock
-            apartmentKeys={relatedApartmentKeys}
-            locale={locale}
-            title={labels.apartments}
-            compact
-          />
+          {apartmentScenario ? (
+            <ContextualApartmentRecommendations
+              locale={locale}
+              scenario={apartmentScenario}
+              sourceAttribution={sourceAttribution}
+              trackingEventName={bookingFunnelEvents.eventCtaClick}
+            />
+          ) : (
+            <RelatedApartmentsBlock
+              apartmentKeys={relatedApartmentKeys}
+              locale={locale}
+              title={labels.apartments}
+              compact
+            />
+          )}
         </Container>
       </section>
 

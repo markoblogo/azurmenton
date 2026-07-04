@@ -16,6 +16,7 @@ describe("booking funnel analytics helpers", () => {
     expect(getBookingFunnelPageType("/uk/guide/stay-cool-in-menton-summer")).toBe("guide_detail");
     expect(getBookingFunnelPageType("/en/events")).toBe("events");
     expect(getBookingFunnelPageType("/en/events/menton-lemon-festival")).toBe("event_detail");
+    expect(getBookingFunnelPageType("/en/stay/sea-view-apartment-menton")).toBe("stay_detail");
     expect(getBookingFunnelPageType("/en/check-availability")).toBe("check_availability");
   });
 
@@ -28,6 +29,7 @@ describe("booking funnel analytics helpers", () => {
   it("builds safe booking source attribution without personal data", () => {
     expect(sourcePageTypeFromPathname("/en/guide/stay-cool-in-menton-summer")).toBe("guide");
     expect(sourcePageTypeFromPathname("/en/apartments/sea-view-balcony-studio")).toBe("apartment");
+    expect(sourcePageTypeFromPathname("/en/stay/monaco-events-from-menton")).toBe("stay");
 
     expect(
       bookingAttributionHref("en", {

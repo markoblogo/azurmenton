@@ -11,7 +11,7 @@ export const bookingFunnelEvents = {
 } as const;
 
 export type BookingFunnelEvent = (typeof bookingFunnelEvents)[keyof typeof bookingFunnelEvents];
-export type BookingFunnelPageType = "home" | "apartments" | "apartment_detail" | "guide" | "guide_detail" | "events" | "event_detail" | "check_availability" | "contact" | "other";
+export type BookingFunnelPageType = "home" | "apartments" | "apartment_detail" | "guide" | "guide_detail" | "events" | "event_detail" | "stay" | "stay_detail" | "check_availability" | "contact" | "other";
 export type BookingFunnelProps = Record<string, string | number | boolean>;
 export type BookingSourcePageType = "home" | "apartment" | "guide" | "event" | "stay" | "other";
 
@@ -51,6 +51,7 @@ export function getBookingFunnelPageType(pathname: string): BookingFunnelPageTyp
   if (page === "apartments") return detail ? "apartment_detail" : "apartments";
   if (page === "guide") return detail ? "guide_detail" : "guide";
   if (page === "events") return detail ? "event_detail" : "events";
+  if (page === "stay") return detail ? "stay_detail" : "stay";
   if (page === "check-availability") return "check_availability";
   if (page === "contact") return "contact";
 
@@ -64,7 +65,7 @@ export function sourcePageTypeFromPathname(pathname: string): BookingSourcePageT
   if (pageType === "apartment_detail" || pageType === "apartments") return "apartment";
   if (pageType === "guide_detail" || pageType === "guide") return "guide";
   if (pageType === "event_detail" || pageType === "events") return "event";
-  if (pageType === "check_availability") return "stay";
+  if (pageType === "stay_detail" || pageType === "stay" || pageType === "check_availability") return "stay";
 
   return "other";
 }

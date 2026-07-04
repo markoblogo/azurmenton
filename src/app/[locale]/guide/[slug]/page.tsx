@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { BookingCTA } from "@/components/content/BookingCTA";
+import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
 import { GuideAppToolCard } from "@/components/guide/GuideAppToolCard";
@@ -15,6 +16,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
+import { guideApartmentScenarios } from "@/content/contextual-apartment-recommendations";
 import { getPlaces } from "@/content/places";
 import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
@@ -60,6 +62,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
   const relatedPlaces = getPlaces(relatedPlaceIds);
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
+  const apartmentScenario = guideApartmentScenarios[article.slug];
   const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
   const sourceAttribution = {
     sourcePageType: "guide" as const,
@@ -213,7 +216,16 @@ export default async function GuideArticlePage({ params }: PageProps) {
       {relatedApartmentKeys.length ? (
         <Section className="bg-[#f8f3ea] py-10 sm:py-14">
           <Container>
-            <RelatedApartmentsBlock apartmentKeys={relatedApartmentKeys} locale={locale} title={copy.relatedApartments} compact />
+            {apartmentScenario ? (
+              <ContextualApartmentRecommendations
+                locale={locale}
+                scenario={apartmentScenario}
+                sourceAttribution={sourceAttribution}
+                trackingEventName={bookingFunnelEvents.guideCtaClick}
+              />
+            ) : (
+              <RelatedApartmentsBlock apartmentKeys={relatedApartmentKeys} locale={locale} title={copy.relatedApartments} compact />
+            )}
           </Container>
         </Section>
       ) : null}
