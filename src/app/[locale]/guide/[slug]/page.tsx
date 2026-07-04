@@ -9,6 +9,7 @@ import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBl
 import { ShareActions } from "@/components/content/ShareActions";
 import { GuideAppToolCard } from "@/components/guide/GuideAppToolCard";
 import { GuideVisual } from "@/components/guide/GuideVisual";
+import Image from "next/image";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
 import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
@@ -27,10 +28,10 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
 const labels = {
-  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", watchSource: "Watch on source", opensOnSource: "Video opens on the source site", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
-  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", appToolkit: "Boite a outils", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", watchSource: "Voir a la source", opensOnSource: "La video s'ouvre sur le site source", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans.", transportFinalTitle: "Vous planifiez un sejour sans voiture a Menton?", transportFinalText: "Envoyez vos dates et votre mode d'arrivee. Nous vous aiderons a choisir l'appartement adapte a votre voyage." },
-  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", appToolkit: "Kit app", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", watchSource: "Guarda alla fonte", opensOnSource: "Il video si apre sul sito fonte", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita.", walkingFinalTitle: "Soggiorna in centro, cammina ovunque", walkingFinalText: "Inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto ai tuoi piani.", transportFinalTitle: "Stai pianificando un soggiorno senza auto a Mentone?", transportFinalText: "Inviaci le date e come pensi di arrivare. Ti aiuteremo a scegliere l'appartamento piu adatto al viaggio." },
-  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", appToolkit: "Набір застосунків", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", watchSource: "Дивитися на джерелі", opensOnSource: "Відео відкривається на сайті джерела", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність.", walkingFinalTitle: "Живіть у центрі й ходіть пішки всюди", walkingFinalText: "Надішліть дати, і ми допоможемо обрати апартаменти, які найкраще підходять вашим планам.", transportFinalTitle: "Плануєте відпочинок у Ментоні без авто?", transportFinalText: "Надішліть дати й спосіб прибуття. Ми допоможемо обрати апартаменти, які найкраще підходять вашій поїздці." },
+  en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", watchSource: "Watch on source", source: "Source", opensOnSource: "Video opens on the source site", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
+  fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", appToolkit: "Boite a outils", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", watchSource: "Voir a la source", source: "Source", opensOnSource: "La video s'ouvre sur le site source", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans.", transportFinalTitle: "Vous planifiez un sejour sans voiture a Menton?", transportFinalText: "Envoyez vos dates et votre mode d'arrivee. Nous vous aiderons a choisir l'appartement adapte a votre voyage." },
+  it: { home: "Home", guide: "Guida di Mentone", category: "Categoria", duration: "Durata", bestFor: "Ideale per", usefulPlaces: "Luoghi utili", appToolkit: "Kit app", practicalTips: "Consigli pratici", relatedGuides: "Guide correlate", relatedEvents: "Eventi correlati", relatedApartments: "Dove soggiornare", sourceNote: "Alcuni orari, prezzi o dettagli dei luoghi vanno verificati prima della visita.", watchSource: "Guarda alla fonte", source: "Fonte", opensOnSource: "Il video si apre sul sito fonte", check: "Controlla disponibilita", apartments: "Vedi appartamenti", finalTitle: "Soggiorna vicino alla spiaggia nel centro di Mentone", finalText: "Inviaci le date e confermeremo direttamente la disponibilita.", walkingFinalTitle: "Soggiorna in centro, cammina ovunque", walkingFinalText: "Inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto ai tuoi piani.", transportFinalTitle: "Stai pianificando un soggiorno senza auto a Mentone?", transportFinalText: "Inviaci le date e come pensi di arrivare. Ti aiuteremo a scegliere l'appartamento piu adatto al viaggio." },
+  uk: { home: "Головна", guide: "Гід по Ментону", category: "Категорія", duration: "Тривалість", bestFor: "Кому підійде", usefulPlaces: "Корисні місця", appToolkit: "Набір застосунків", practicalTips: "Практичні поради", relatedGuides: "Пов'язані гіди", relatedEvents: "Пов'язані події", relatedApartments: "Де зупинитися", sourceNote: "Деякі години роботи, ціни або деталі місць треба перевіряти перед візитом.", watchSource: "Дивитися на джерелі", source: "Джерело", opensOnSource: "Відео відкривається на сайті джерела", check: "Перевірити доступність", apartments: "Переглянути апартаменти", finalTitle: "Зупиніться біля пляжу в центрі Ментона", finalText: "Надішліть дати, і ми напряму підтвердимо доступність.", walkingFinalTitle: "Живіть у центрі й ходіть пішки всюди", walkingFinalText: "Надішліть дати, і ми допоможемо обрати апартаменти, які найкраще підходять вашим планам.", transportFinalTitle: "Плануєте відпочинок у Ментоні без авто?", transportFinalText: "Надішліть дати й спосіб прибуття. Ми допоможемо обрати апартаменти, які найкраще підходять вашій поїздці." },
 };
 
 type SectionVideoEmbed = {
@@ -41,6 +42,18 @@ type SectionVideoEmbed = {
   watchUrl: string;
   embed?: boolean;
   caption?: string;
+};
+
+type SectionArtworkCard = {
+  id: string;
+  artist: string;
+  workTitle: string;
+  year: string;
+  image?: string;
+  imageAlt?: string;
+  sourceUrl?: string;
+  rightsNote: string;
+  locationNote: string;
 };
 
 export function generateStaticParams() {
@@ -166,6 +179,11 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         {section.videoEmbeds.map((video) => <VideoEmbed key={video.id} video={video} watchLabel={copy.watchSource} opensOnSourceLabel={copy.opensOnSource} />)}
                       </div>
                     ) : null}
+                    {section.artworkCards?.length ? (
+                      <div className="mt-5 grid gap-4">
+                        {section.artworkCards.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork} sourceLabel={copy.source} />)}
+                      </div>
+                    ) : null}
                     {sectionPlaces.length ? (
                       <div className="mt-5 grid gap-3 md:grid-cols-2">
                         {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} compact />)}
@@ -260,6 +278,29 @@ export default async function GuideArticlePage({ params }: PageProps) {
         </Container>
       </Section>
     </>
+  );
+}
+
+function ArtworkCard({ artwork, sourceLabel }: { artwork: SectionArtworkCard; sourceLabel: string }) {
+  return (
+    <div className="overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] md:grid md:grid-cols-[0.42fr_1fr]">
+      {artwork.image ? (
+        <div className="relative aspect-[4/3] bg-[#173f36]/10 md:aspect-auto">
+          <Image src={artwork.image} alt={artwork.imageAlt ?? artwork.workTitle} fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover" />
+        </div>
+      ) : null}
+      <div className="p-4">
+        <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{artwork.artist} · {artwork.year}</p>
+        <h3 className="mt-2 serif-heading text-2xl leading-tight text-[#173f36]">{artwork.workTitle}</h3>
+        <p className="mt-3 text-sm leading-6 text-[#5c5044]">{artwork.locationNote}</p>
+        <p className="mt-3 text-xs italic leading-5 text-[#71665b]">{artwork.rightsNote}</p>
+        {artwork.sourceUrl ? (
+          <Link className="mt-3 inline-flex text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] underline-offset-4 hover:underline" href={artwork.sourceUrl as Route} target="_blank" rel="noopener noreferrer">
+            {sourceLabel}
+          </Link>
+        ) : null}
+      </div>
+    </div>
   );
 }
 

@@ -35,11 +35,31 @@ export type LocalizedGuideVideoEmbed = Omit<GuideVideoEmbed, "title" | "caption"
   caption?: string;
 };
 
+export type GuideArtworkCard = {
+  id: string;
+  artist: string;
+  workTitle: LocalizedText;
+  year: string;
+  image?: string;
+  imageAlt?: LocalizedText;
+  sourceUrl?: string;
+  rightsNote: LocalizedText;
+  locationNote: LocalizedText;
+};
+
+export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "imageAlt" | "rightsNote" | "locationNote"> & {
+  workTitle: string;
+  imageAlt?: string;
+  rightsNote: string;
+  locationNote: string;
+};
+
 export type GuideSection = {
   heading: string;
   body: string[];
   bullets?: string[];
   videoEmbeds?: LocalizedGuideVideoEmbed[];
+  artworkCards?: LocalizedGuideArtworkCard[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -50,6 +70,7 @@ export type LocalizedGuideSection = {
   body: LocalizedText[];
   bullets?: LocalizedText[];
   videoEmbeds?: GuideVideoEmbed[];
+  artworkCards?: GuideArtworkCard[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -1446,6 +1467,188 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "famous-paintings-of-menton",
+    slug: "famous-paintings-of-menton",
+    title: t("Paintings of Menton: famous artists who captured the Riviera light", "Peintures de Menton: les artistes qui ont capture la lumiere Riviera", "Dipinti di Mentone: artisti famosi e luce della Riviera", "Картини Ментона: відомі художники й світло Рив'єри"),
+    seoTitle: t("Famous Paintings of Menton: Monet, Renoir, Signac, Marquet and Riviera Artists", "Peintures celebres de Menton: Monet, Renoir, Signac, Marquet et artistes Riviera", "Dipinti famosi di Mentone: Monet, Renoir, Signac, Marquet e artisti della Riviera", "Відомі картини Ментона: Monet, Renoir, Signac, Marquet та художники Рив'єри"),
+    seoDescription: t("A visual guide to famous paintings of Menton and nearby Cap Martin: works by Claude Monet, Pierre-Auguste Renoir, Paul Signac, Albert Marquet, Henri-Edmond Cross and other artists, with the Menton locations they show.", "Guide visuel des peintures celebres de Menton et du Cap Martin proche: Monet, Renoir, Signac, Marquet, Cross et autres artistes, avec les lieux de Menton qu'elles evoquent.", "Guida visiva ai dipinti famosi di Mentone e del vicino Cap Martin: Monet, Renoir, Signac, Marquet, Cross e altri artisti, con i luoghi collegati.", "Візуальний гід відомими картинами Ментона й сусіднього Cap Martin: Monet, Renoir, Signac, Marquet, Cross та інші художники, з місцями Ментона, які вони показують."),
+    excerpt: t("Long before travel photography and Instagram, Menton was already a painter's town: sea, old harbour, Cap Martin, Garavan, palm-lined promenades, red roads, mountain light and the pastel old town rising above the bay.", "Bien avant la photo de voyage et Instagram, Menton etait deja une ville de peintres: mer, vieux port, Cap Martin, Garavan, promenades de palmiers, routes rouges, lumiere de montagne et vieille ville pastel au-dessus de la baie.", "Molto prima della fotografia di viaggio e di Instagram, Mentone era gia una citta di pittori: mare, porto antico, Cap Martin, Garavan, passeggiate di palme, strade rosse, luce di montagna e centro storico pastello sopra la baia.", "Задовго до travel photography та Instagram Ментон уже був містом художників: море, старий порт, Cap Martin, Garavan, пальмові набережні, червоні дороги, гірське світло й пастельне старе місто над бухтою."),
+    category: "photo-spots",
+    coverImage: "/images/guide/famous-paintings-of-menton.jpg",
+    coverImageAlt: t("Illustration for a guide to famous paintings of Menton", "Illustration pour un guide des peintures celebres de Menton", "Illustrazione per una guida ai dipinti famosi di Mentone", "Ілюстрація до гіда відомими картинами Ментона"),
+    visualTheme: "old-town",
+    visualStatus: "project_illustration",
+    tags: [t("art", "art", "arte", "мистецтво"), t("paintings", "peintures", "dipinti", "картини"), t("Monet", "Monet", "Monet", "Monet"), t("visual culture", "culture visuelle", "cultura visiva", "візуальна культура")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[7].label],
+    duration: "half-day",
+    locationTags: ["old-town", "seafront", "garavan", "monaco"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "rue-saint-michel-menton", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "jardins-bioves", "cimetiere-vieux-chateau", "promenade-du-soleil"],
+    relatedArticles: ["music-videos-filmed-in-menton", "best-photo-spots-menton", "menton-old-town", "museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Menton before photography: a painter's Riviera", "Menton avant la photo: une Riviera de peintres", "Mentone prima della fotografia: una Riviera di pittori", "Ментон до фотографії: Рив'єра художників"),
+        body: [
+          t("Menton has always looked slightly unreal: lemons, sea light, ochre facades, steep old streets and mountains pressing close behind the Mediterranean. Long before travel photography, painters came here for exactly that mix.", "Menton a toujours eu quelque chose d'irreel: citrons, lumiere marine, facades ocres, ruelles raides et montagnes tout pres de la Mediterranee. Bien avant la photo de voyage, les peintres venaient pour ce melange.", "Mentone ha sempre avuto qualcosa di irreale: limoni, luce marina, facciate ocra, strade ripide e montagne vicine al Mediterraneo. Molto prima della fotografia di viaggio, i pittori venivano per questo insieme.", "Ментон завжди виглядав трохи нереальним: лимони, морське світло, охристі фасади, круті старі вулиці й гори майже над Середземним морем. Ще до travel photography художники приїжджали саме за цим поєднанням."),
+          t("This guide is a visual route through paintings connected with Menton and nearby Cap Martin. Some images show Menton directly; others show the coast, road, gardens or headland that shape the same view today.", "Ce guide propose un itineraire visuel a travers les peintures liees a Menton et au Cap Martin voisin. Certaines montrent Menton directement; d'autres montrent la cote, la route, les jardins ou le cap qui structurent encore le regard aujourd'hui.", "Questa guida e un percorso visivo tra dipinti legati a Mentone e al vicino Cap Martin. Alcuni mostrano Mentone direttamente; altri mostrano costa, strada, giardini o promontorio che ancora oggi costruiscono lo stesso sguardo.", "Цей гід - візуальний маршрут картинами, пов'язаними з Ментоном і сусіднім Cap Martin. Деякі показують Ментон напряму; інші - узбережжя, дорогу, сади або мис, які й сьогодні формують той самий погляд."),
+        ],
+      },
+      {
+        heading: t("Monet, Renoir and Cap Martin", "Monet, Renoir et le Cap Martin", "Monet, Renoir e Cap Martin", "Monet, Renoir і Cap Martin"),
+        body: [
+          t("The Impressionist route begins outside the old town. Monet and Renoir looked at Menton from Cap Martin and the surrounding coastal landscape, so the town becomes part of a wider Mediterranean composition rather than a close architectural portrait.", "Le parcours impressionniste commence hors de la vieille ville. Monet et Renoir regardent Menton depuis le Cap Martin et le paysage cotier voisin: la ville devient une partie d'une composition mediterraneenne plus large, pas seulement un portrait architectural.", "Il percorso impressionista inizia fuori dal centro storico. Monet e Renoir guardano Mentone da Cap Martin e dal paesaggio costiero vicino: la citta diventa parte di una composizione mediterranea piu ampia, non solo un ritratto architettonico.", "Імпресіоністичний маршрут починається не в старому місті. Monet і Renoir дивилися на Ментон із Cap Martin та навколишнього узбережжя, тому місто стає частиною ширшої середземноморської композиції, а не лише архітектурним портретом."),
+        ],
+        artworkCards: [
+          {
+            id: "monet-cap-martin-near-menton",
+            artist: "Claude Monet",
+            workTitle: t("Cap Martin, near Menton", "Cap Martin, pres de Menton", "Cap Martin, vicino a Mentone", "Cap Martin, біля Ментона"),
+            year: "1884",
+            image: "/images/guide/monet-cap-martin-near-menton.jpg",
+            imageAlt: t("Claude Monet, Cap Martin, near Menton", "Claude Monet, Cap Martin, pres de Menton", "Claude Monet, Cap Martin, vicino a Mentone", "Claude Monet, Cap Martin, біля Ментона"),
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Monet_-_Cap_Martin,_near_Menton,_1884.jpg",
+            rightsNote: t("Public-domain image via Wikimedia Commons; verify museum/source metadata before reuse.", "Image domaine public via Wikimedia Commons; verifiez les donnees musee/source avant reutilisation.", "Immagine di pubblico dominio via Wikimedia Commons; verifica metadati museo/fonte prima del riuso.", "Зображення public domain через Wikimedia Commons; перед повторним використанням перевіряйте музейні/джерельні дані."),
+            locationNote: t("Best connected with Cap Martin and the coastal path looking back toward Menton.", "A relier surtout au Cap Martin et au sentier cotier vers Menton.", "Collegato soprattutto a Cap Martin e al sentiero costiero verso Mentone.", "Найкраще пов'язано з Cap Martin і прибережною стежкою з поглядом назад на Ментон."),
+          },
+          {
+            id: "monet-red-road-near-menton",
+            artist: "Claude Monet",
+            workTitle: t("La route rouge pres de Menton", "La route rouge pres de Menton", "La route rouge pres de Menton", "La route rouge pres de Menton"),
+            year: "1884",
+            image: "/images/guide/monet-red-road-near-menton.jpg",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:LA_ROUTE_ROUGE_PR%C3%88S_DE_MENTON_(1884)_Claude_Monet_(W_889).jpg",
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
+            locationNote: t("A Cap Martin road-and-coast view, useful for understanding Menton's red earth, vegetation and wider Riviera setting.", "Une vue route et cote du Cap Martin, utile pour comprendre terre rouge, vegetation et contexte Riviera de Menton.", "Una vista di strada e costa da Cap Martin, utile per capire terra rossa, vegetazione e contesto Riviera di Mentone.", "Вид дороги й узбережжя Cap Martin, корисний для розуміння червоної землі, рослинності й ширшого контексту Рив'єри."),
+          },
+          {
+            id: "renoir-landscape-near-menton",
+            artist: "Pierre-Auguste Renoir",
+            workTitle: t("Landscape on the Coast, near Menton", "Paysage sur la cote, pres de Menton", "Paesaggio sulla costa, vicino a Mentone", "Пейзаж на узбережжі біля Ментона"),
+            year: "1883",
+            image: "/images/guide/renoir-landscape-near-menton.jpg",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Renoir_-_Landscape_on_the_Coast,_near_Menton,_1883.jpg",
+            rightsNote: t("Commons image; use only with source and license review.", "Image Commons; a utiliser avec verification source et licence.", "Immagine Commons; usare con verifica di fonte e licenza.", "Зображення Commons; використовуйте після перевірки джерела й ліцензії."),
+            locationNote: t("Best linked to the coast near Menton and Cap Martin vegetation viewpoints.", "A relier a la cote pres de Menton et aux points de vue vegetaux du Cap Martin.", "Da collegare alla costa vicino a Mentone e ai punti panoramici verdi di Cap Martin.", "Пов'язано з узбережжям біля Ментона й зеленими точками Cap Martin."),
+          },
+        ],
+        relatedPlaceIds: ["roquebrune-cap-martin-coastal-walk", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Harbour, old town and colour", "Port, vieille ville et couleur", "Porto, centro storico e colore", "Порт, старе місто й колір"),
+        body: [
+          t("The old harbour is the easiest place to connect painting with a real walk. Marquet and Breton point toward boats, working life and the old town rising above the water; Signac and Cross translate the same town into luminous colour.", "Le vieux port est le lieu le plus simple pour relier peinture et promenade. Marquet et Breton renvoient aux bateaux, a la vie de port et a la vieille ville au-dessus de l'eau; Signac et Cross transforment la meme ville en couleur lumineuse.", "Il porto antico e il luogo piu facile per collegare pittura e passeggiata. Marquet e Breton rimandano a barche, vita di porto e centro storico sopra l'acqua; Signac e Cross trasformano la stessa citta in colore luminoso.", "Старий порт - найпростіше місце, де картини з'єднуються з реальною прогулянкою. Marquet і Breton ведуть до човнів, портового життя й старого міста над водою; Signac і Cross перетворюють те саме місто на світлий колір."),
+        ],
+        artworkCards: [
+          {
+            id: "marquet-harbor-of-menton",
+            artist: "Albert Marquet",
+            workTitle: t("Harbor of Menton", "Port de Menton", "Porto di Mentone", "Порт Ментона"),
+            year: "1905",
+            image: "/images/guide/marquet-harbor-of-menton.jpg",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Harbor_of_Menton_Albert_Marquet_(1905).jpg",
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
+            locationNote: t("Best seen from Quai Bonaparte and the old-port view toward the old town and Basilica.", "A voir depuis le Quai Bonaparte et le vieux port vers la vieille ville et la basilique.", "Da collegare al Quai Bonaparte e alla vista del porto antico verso centro storico e Basilica.", "Найкраще пов'язано з Quai Bonaparte та видом старого порту на старе місто й Basilica."),
+          },
+          {
+            id: "signac-menton-1931",
+            artist: "Paul Signac",
+            workTitle: t("Menton", "Menton", "Mentone", "Ментон"),
+            year: "1931",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Signac_-_Menton,_1931,_lot-5996751.jpg",
+            rightsNote: t("Public-domain Commons reference; image not embedded here until source download is rechecked.", "Reference Commons domaine public; image non integree ici tant que le telechargement source n'est pas reverifie.", "Riferimento Commons di pubblico dominio; immagine non incorporata finche il download fonte non viene ricontrollato.", "Посилання Commons public domain; зображення не вбудовано, доки джерело завантаження не буде повторно перевірено."),
+            locationNote: t("Likely old port, bay or old-town view; keep the map point approximate.", "Probable vieux port, baie ou vieille ville; gardez le point de carte approximatif.", "Probabile porto antico, baia o centro storico; mantieni approssimativo il punto mappa.", "Ймовірно старий порт, бухта або старе місто; точку на мапі варто лишати приблизною."),
+          },
+          {
+            id: "cross-view-of-menton",
+            artist: "Henri-Edmond Cross",
+            workTitle: t("View of Menton", "Vue de Menton", "Veduta di Mentone", "Вид на Ментон"),
+            year: "1899-1902",
+            sourceUrl: "https://www.wikiart.org/en/henri-edmond-cross/view-of-menton-1902",
+            rightsNote: t("Reference only; image rights should be checked before embedding.", "Reference seulement; droits image a verifier avant integration.", "Solo riferimento; verificare i diritti prima di incorporare l'immagine.", "Лише посилання; права на зображення треба перевірити перед вбудовуванням."),
+            locationNote: t("Best connected with old-town viewpoints and the cemetery route above the bay.", "A relier aux points de vue de la vieille ville et au cimetiere au-dessus de la baie.", "Collegato ai punti panoramici del centro storico e al cimitero sopra la baia.", "Пов'язано з оглядовими точками старого міста й маршрутом до цвинтаря над бухтою."),
+          },
+        ],
+        relatedPlaceIds: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "cimetiere-vieux-chateau"],
+      },
+      {
+        heading: t("Gardens, frames and lesser-known Menton works", "Jardins, cadres et oeuvres moins connues", "Giardini, cornici e opere meno note", "Сади, рамки й менш відомі роботи про Ментон"),
+        body: [
+          t("Not every Menton painting is a harbour panorama. Vallotton frames the town through structure; Corinth and Fry are useful references for palms, gardens and early modernist views. When image rights are unclear, it is better to link than to publish.", "Toutes les peintures de Menton ne sont pas des panoramas de port. Vallotton cadre la ville par une structure; Corinth et Fry sont utiles pour les palmiers, jardins et regards modernistes. Quand les droits sont incertains, mieux vaut lier que publier.", "Non tutti i dipinti di Mentone sono panorami del porto. Vallotton incornicia la citta attraverso una struttura; Corinth e Fry aiutano per palme, giardini e sguardi modernisti. Quando i diritti sono incerti, meglio linkare che pubblicare.", "Не всі картини Ментона - це панорами порту. Vallotton бачить місто крізь структуру; Corinth і Fry корисні для пальм, садів і модерністичного погляду. Коли права неясні, краще дати посилання, а не публікувати."),
+        ],
+        artworkCards: [
+          {
+            id: "vallotton-la-claire-voie-menton",
+            artist: "Félix Vallotton",
+            workTitle: t("La claire-voie, Menton", "La claire-voie, Menton", "La claire-voie, Menton", "La claire-voie, Menton"),
+            year: "1924",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Vallotton,_1924_-_La_claire-voie,_Menton.jpg",
+            rightsNote: t("Commons public-domain reference; image not embedded here after source download limits.", "Reference Commons domaine public; image non integree ici apres limite de telechargement source.", "Riferimento Commons di pubblico dominio; immagine non incorporata dopo limiti di download.", "Посилання Commons public domain; зображення не вбудовано через обмеження завантаження джерела."),
+            locationNote: t("Best connected with gardens, villas, shaded terraces and framed Menton views.", "A relier aux jardins, villas, terrasses ombragees et vues cadre de Menton.", "Collegato a giardini, ville, terrazze ombreggiate e viste incorniciate.", "Пов'язано із садами, віллами, затіненими терасами й рамковими видами Ментона."),
+          },
+          {
+            id: "harpignies-olive-trees-at-menton",
+            artist: "Henri-Joseph Harpignies",
+            workTitle: t("Olive Trees at Menton", "Oliviers a Menton", "Ulivi a Mentone", "Оливкові дерева в Ментоні"),
+            year: "late 19th century",
+            image: "/images/guide/harpignies-olive-trees-at-menton.jpg",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Henri-Joseph_Harpignies_(1819-1916)_-_Olive_Trees_at_Menton_-_NG3808_-_National_Gallery.jpg",
+            rightsNote: t("Public-domain image via Wikimedia Commons / National Gallery source.", "Image domaine public via Wikimedia Commons / National Gallery.", "Immagine di pubblico dominio via Wikimedia Commons / National Gallery.", "Зображення public domain через Wikimedia Commons / National Gallery."),
+            locationNote: t("Connect with Garavan slopes, villa gardens and older olive-tree landscapes around Menton.", "A relier aux pentes de Garavan, jardins de villas et anciens paysages d'oliviers autour de Menton.", "Collegato ai pendii di Garavan, giardini di ville e vecchi paesaggi di ulivi intorno a Mentone.", "Пов'язано зі схилами Garavan, садами вілл і старими оливковими пейзажами навколо Ментона."),
+          },
+        ],
+        relatedPlaceIds: ["jardins-bioves", "port-de-garavan", "rue-saint-michel-menton"],
+      },
+      {
+        heading: t("Also worth knowing", "A connaitre aussi", "Da conoscere anche", "Також варто знати"),
+        body: [
+          t("Several Menton works are useful to mention but not necessarily to reproduce as images: Winston Churchill's View of Menton from La Pausa, Zinaida Serebriakova's Menton harbour view, Jules Breton's Fishermen at Menton, Roger Fry's View on the Côte d'Azur, Menton, Alfred Stevens' regatta scene, Adolphe Appian's coastal views and Roger Broders' Menton travel poster.", "Plusieurs oeuvres de Menton meritent d'etre citees sans forcement publier l'image: View of Menton from La Pausa de Winston Churchill, la vue du port de Zinaida Serebriakova, Fishermen at Menton de Jules Breton, View on the Côte d'Azur, Menton de Roger Fry, la scene de regates d'Alfred Stevens, les vues cotieres d'Adolphe Appian et l'affiche Menton de Roger Broders.", "Diverse opere su Mentone meritano di essere citate senza pubblicare necessariamente l'immagine: View of Menton from La Pausa di Winston Churchill, la veduta del porto di Zinaida Serebriakova, Fishermen at Menton di Jules Breton, View on the Côte d'Azur, Menton di Roger Fry, la scena di regata di Alfred Stevens, le vedute costiere di Adolphe Appian e il poster di Roger Broders.", "Кілька робіт про Ментон варто згадати без обов'язкової публікації зображення: View of Menton from La Pausa Вінстона Черчилля, портовий вид Зінаїди Серебрякової, Fishermen at Menton Жуля Бретона, View on the Côte d'Azur, Menton Роджера Фрая, регата Alfred Stevens, прибережні види Adolphe Appian і постер Menton Roger Broders."),
+          t("The rule is simple: use museum open images or Commons files where the rights are clear; link rather than embed when the image status is uncertain.", "La regle est simple: utiliser les images musee ouvertes ou fichiers Commons quand les droits sont clairs; faire un lien plutot qu'integrer quand le statut est incertain.", "La regola e semplice: usa immagini open museum o file Commons quando i diritti sono chiari; linka invece di incorporare quando lo status e incerto.", "Правило просте: використовуйте museum open images або Commons-файли, коли права зрозумілі; давайте посилання, а не вбудовуйте, коли статус неясний."),
+        ],
+        artworkCards: [
+          {
+            id: "peters-on-the-coast-of-menton",
+            artist: "Pieter Franciscus Peters",
+            workTitle: t("On the Coast of Menton", "Sur la cote de Menton", "Sulla costa di Mentone", "На узбережжі Ментона"),
+            year: "1870",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Pieter_Franciscus_Peters_-_On_the_Coast_of_Menton.jpg",
+            rightsNote: t("Public-domain Commons reference; not embedded after source download limits.", "Reference Commons domaine public; non integree apres limite de telechargement source.", "Riferimento Commons pubblico dominio; non incorporato dopo limiti di download.", "Посилання Commons public domain; не вбудовано через обмеження завантаження."),
+            locationNote: t("Useful for the older coastal Menton image before the modern resort town.", "Utile pour l'image cotiere plus ancienne de Menton avant la station moderne.", "Utile per l'immagine costiera piu antica di Mentone prima della localita moderna.", "Корисно для старішого прибережного образу Ментона до сучасного курортного міста."),
+          },
+        ],
+      },
+      {
+        heading: t("A Menton art walk", "Une balade artistique a Menton", "Una passeggiata artistica a Mentone", "Мистецька прогулянка Ментоном"),
+        body: [
+          t("Start at Quai Bonaparte and the old port for Marquet, Breton and the harbour tradition. Climb through the old town toward Basilica Saint-Michel-Archange and the cemetery viewpoint for Cross-style colour and compressed rooftops.", "Commencez au Quai Bonaparte et au vieux port pour Marquet, Breton et la tradition du port. Montez par la vieille ville vers la basilique Saint-Michel-Archange et le cimetiere pour les couleurs a la Cross et les toits serres.", "Inizia da Quai Bonaparte e dal porto antico per Marquet, Breton e la tradizione del porto. Sali nel centro storico verso la Basilica Saint-Michel-Archange e il cimitero per colori alla Cross e tetti compressi.", "Почніть із Quai Bonaparte і старого порту для Marquet, Breton і портової традиції. Підніміться старим містом до Basilica Saint-Michel-Archange і цвинтарної оглядової точки за кольором у дусі Cross і стислими дахами."),
+          t("For Monet and Renoir, continue another day toward Cap Martin and the Roquebrune-Cap-Martin coastal walk. For palms, villas and garden light, keep Garavan and Jardins Biovès in the route.", "Pour Monet et Renoir, continuez un autre jour vers le Cap Martin et la balade cotiere de Roquebrune-Cap-Martin. Pour palmiers, villas et lumiere de jardins, gardez Garavan et les Jardins Bioves dans le parcours.", "Per Monet e Renoir, continua un altro giorno verso Cap Martin e la passeggiata costiera di Roquebrune-Cap-Martin. Per palme, ville e luce dei giardini, tieni Garavan e Jardins Biovès nel percorso.", "Для Monet і Renoir продовжіть в інший день до Cap Martin і прибережної прогулянки Roquebrune-Cap-Martin. Для пальм, вілл і садового світла додайте Garavan і Jardins Biovès."),
+        ],
+        relatedPlaceIds: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "roquebrune-cap-martin-coastal-walk", "port-de-garavan", "jardins-bioves"],
+      },
+      {
+        heading: t("Staying in Menton for art and visual culture", "Sejourner a Menton pour l'art et la culture visuelle", "Soggiornare a Mentone per arte e cultura visiva", "Зупинка в Ментоні для мистецтва й візуальної культури"),
+        body: [
+          t("A stay in Menton is ideal for slow visual travel. You can walk the same places at different times of day: morning harbour light, hot afternoon colour, evening glow over Cap Martin.", "Un sejour a Menton convient parfaitement au voyage visuel lent. Vous pouvez revoir les memes lieux a differentes heures: lumiere du matin au port, couleurs d'apres-midi, lueur du soir sur le Cap Martin.", "Un soggiorno a Mentone e ideale per un viaggio visivo lento. Puoi rivedere gli stessi luoghi in ore diverse: luce del mattino al porto, colore del pomeriggio, bagliore serale su Cap Martin.", "Перебування в Ментоні ідеальне для повільної візуальної подорожі. Можна бачити ті самі місця в різний час: ранкове світло порту, гарячий денний колір, вечірнє сяйво над Cap Martin."),
+          t("Azur Menton apartments work well for this rhythm because the sea, old town and harbour views are close, while Cap Martin and Garavan can be reached as easy visual detours.", "Les appartements Azur Menton conviennent a ce rythme: mer, vieille ville et vues du port sont proches, tandis que Cap Martin et Garavan deviennent des detours visuels faciles.", "Gli appartamenti Azur Menton funzionano bene per questo ritmo: mare, centro storico e viste del porto sono vicini, mentre Cap Martin e Garavan diventano deviazioni visive facili.", "Апартаменти Azur Menton добре працюють для такого ритму: море, старе місто й портові види поруч, а Cap Martin і Garavan легко додати як візуальні відступи."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Did Monet paint Menton? Yes. Monet painted Menton-area works in 1884, including Cap Martin, near Menton and La route rouge pres de Menton.", "Monet a-t-il peint Menton? Oui. Monet a peint des oeuvres autour de Menton en 1884, notamment Cap Martin, pres de Menton et La route rouge pres de Menton.", "Monet ha dipinto Mentone? Si. Monet dipinse opere nell'area di Mentone nel 1884, tra cui Cap Martin, near Menton e La route rouge pres de Menton.", "Чи малював Monet Ментон? Так. У 1884 році Monet писав роботи району Ментона, зокрема Cap Martin, near Menton і La route rouge pres de Menton."),
+          t("Where can I see the locations? Start with Quai Bonaparte and the old port, climb to the Basilica and cemetery viewpoint, then plan Cap Martin for Monet and Renoir.", "Ou voir les lieux? Commencez par le Quai Bonaparte et le vieux port, montez vers la basilique et le cimetiere, puis prevoyez le Cap Martin pour Monet et Renoir.", "Dove vedere i luoghi? Inizia da Quai Bonaparte e dal porto antico, sali alla Basilica e al cimitero, poi programma Cap Martin per Monet e Renoir.", "Де побачити локації? Почніть із Quai Bonaparte і старого порту, підніміться до Basilica та цвинтарної точки, а потім заплануйте Cap Martin для Monet і Renoir."),
+          t("Can all artwork images be published? Not automatically. Use Commons or museum open-access images where the status is clear; link rather than embed when rights are uncertain.", "Peut-on publier toutes les images? Pas automatiquement. Utilisez Commons ou les images musee open access quand le statut est clair; faites un lien quand les droits sont incertains.", "Si possono pubblicare tutte le immagini? Non automaticamente. Usa Commons o immagini open-access dei musei quando lo status e chiaro; linka quando i diritti sono incerti.", "Чи можна публікувати всі зображення? Не автоматично. Використовуйте Commons або museum open-access, коли статус зрозумілий; давайте посилання, коли права неясні."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Treat exact painting viewpoints as approximate unless a museum or scholarly source identifies the spot.", "Considerez les points de vue comme approximatifs sauf indication precise d'un musee ou d'une source specialisee.", "Considera i punti di vista approssimativi salvo indicazione di museo o fonte specialistica.", "Сприймайте точки огляду як приблизні, якщо музей або спеціалізоване джерело не визначає місце точно."),
+      t("Use Commons or museum open images for publishing; link to later or uncertain works instead of embedding them.", "Utilisez Commons ou les images musee ouvertes pour publier; liez les oeuvres recentes ou incertaines au lieu de les integrer.", "Usa Commons o immagini museali open per pubblicare; linka opere recenti o incerte invece di incorporarle.", "Для публікації використовуйте Commons або відкриті музейні зображення; для пізніших чи неясних робіт давайте посилання."),
+      t("For a practical route, split old port and old town into one walk, then Cap Martin into a separate half-day.", "Pour un parcours pratique, separez vieux port/vieille ville et Cap Martin en deux demi-journees.", "Per un percorso pratico, separa porto antico/centro storico e Cap Martin in due mezze giornate.", "Для практичного маршруту розділіть старий порт/старе місто й Cap Martin на два півдні."),
+    ],
+  }),
+  shortArticle({
     id: "music-videos-filmed-in-menton",
     slug: "music-videos-filmed-in-menton",
     title: t("Music videos filmed in Menton: a small visual guide", "Clips musicaux tournes a Menton: petit guide visuel", "Video musicali girate a Mentone: piccola guida visiva", "Музичні відео, зняті в Ментоні: короткий візуальний гід"),
@@ -1463,7 +1666,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["old-town", "menton-centre", "seafront"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["palais-de-leurope-menton", "gorbio", "rue-saint-michel-menton", "basilica-saint-michel-archange", "quai-bonaparte-menton", "promenade-du-soleil"],
-    relatedArticles: ["best-photo-spots-menton", "menton-old-town", "theatre-opera-performing-arts-near-menton", "cinemas-in-menton-nice-monaco", "fete-du-citron-menton-practical-guide", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "best-photo-spots-menton", "menton-old-town", "theatre-opera-performing-arts-near-menton", "cinemas-in-menton-nice-monaco", "fete-du-citron-menton-practical-guide", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1593,7 +1796,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["old-town", "seafront", "garavan", "monaco", "nice"],
     featured: true,
     relatedPlaces: ["rampes-saint-michel", "basilica-saint-michel-archange", "promenade-du-soleil", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "cimetiere-vieux-chateau", "port-de-garavan", "plage-sablettes", "gorbio"],
-    relatedArticles: ["music-videos-filmed-in-menton", "quiet-evening-in-menton", "menton-old-town", "day-trips-from-menton", "menton-without-a-car"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "quiet-evening-in-menton", "menton-old-town", "day-trips-from-menton", "menton-without-a-car"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -2661,7 +2864,7 @@ export const guideArticles: GuideArticle[] = [
       "musee-arts-asiatiques-nice",
       "musee-national-du-sport-nice",
     ],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3351,7 +3554,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["music-videos-filmed-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -3888,7 +4091,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["monaco-monte-carlo", "nice-old-town", "eze-village", "ventimiglia", "bordighera", "sanremo", "gorbio"],
-    relatedArticles: ["music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4157,7 +4360,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4255,6 +4458,13 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
         ...video,
         title: video.title[locale],
         caption: video.caption?.[locale],
+      })),
+      artworkCards: section.artworkCards?.map((artwork) => ({
+        ...artwork,
+        workTitle: artwork.workTitle[locale],
+        imageAlt: artwork.imageAlt?.[locale],
+        rightsNote: artwork.rightsNote[locale],
+        locationNote: artwork.locationNote[locale],
       })),
     })),
     appTools: article.appTools?.map((tool) => ({
