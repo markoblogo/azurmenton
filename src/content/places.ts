@@ -3283,6 +3283,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Plage du Fossan in Menton", "Illustration de la Plage du Fossan a Menton", "Illustrazione della Plage du Fossan a Mentone", "Ілюстрація Plage du Fossan у Ментоні"),
     visualTheme: "beach",
   },
+  "monte-carlo-golf-club": {
+    image: "/images/guide/monte-carlo-golf-club.jpg",
+    imageAlt: text("Illustration of Monte-Carlo Golf Club above Monaco", "Illustration du Monte-Carlo Golf Club au-dessus de Monaco", "Illustrazione del Monte-Carlo Golf Club sopra Monaco", "Ілюстрація Monte-Carlo Golf Club над Монако"),
+    visualTheme: "walk",
+  },
+  "circolo-golf-degli-ulivi-sanremo": {
+    image: "/images/guide/circolo-golf-degli-ulivi-sanremo.jpg",
+    imageAlt: text("Illustration of Circolo Golf degli Ulivi in Sanremo", "Illustration du Circolo Golf degli Ulivi a Sanremo", "Illustrazione del Circolo Golf degli Ulivi a Sanremo", "Ілюстрація Circolo Golf degli Ulivi у Санремо"),
+    visualTheme: "walk",
+  },
+  "golf-country-club-de-nice": {
+    image: "/images/guide/golf-country-club-de-nice.jpg",
+    imageAlt: text("Illustration of Golf Country Club de Nice", "Illustration du Golf Country Club de Nice", "Illustrazione del Golf Country Club de Nice", "Ілюстрація Golf Country Club de Nice"),
+    visualTheme: "walk",
+  },
+  "golf-de-biot-la-bastide-du-roy": {
+    image: "/images/guide/golf-de-biot-la-bastide-du-roy.jpg",
+    imageAlt: text("Illustration of Golf de Biot and La Bastide du Roy", "Illustration du Golf de Biot et de La Bastide du Roy", "Illustrazione del Golf de Biot e La Bastide du Roy", "Ілюстрація Golf de Biot і La Bastide du Roy"),
+    visualTheme: "walk",
+  },
+  "golf-de-la-grande-bastide": {
+    image: "/images/guide/golf-de-la-grande-bastide.jpg",
+    imageAlt: text("Illustration of Golf de la Grande Bastide", "Illustration du Golf de la Grande Bastide", "Illustrazione del Golf de la Grande Bastide", "Ілюстрація Golf de la Grande Bastide"),
+    visualTheme: "walk",
+  },
+  "royal-mougins-golf-resort": {
+    image: "/images/guide/royal-mougins-golf-resort.jpg",
+    imageAlt: text("Illustration of Royal Mougins Golf Resort", "Illustration du Royal Mougins Golf Resort", "Illustrazione del Royal Mougins Golf Resort", "Ілюстрація Royal Mougins Golf Resort"),
+    visualTheme: "walk",
+  },
+  "mini-golf-du-pian-menton": {
+    image: "/images/guide/mini-golf-du-pian-menton.jpg",
+    imageAlt: text("Illustration of Mini-Golf du Pian in Menton", "Illustration du Mini-Golf du Pian a Menton", "Illustrazione del Mini-Golf du Pian a Mentone", "Ілюстрація Mini-Golf du Pian у Ментоні"),
+    visualTheme: "family",
+  },
+  "monaco-mini-golf-parc-princesse-antoinette": {
+    image: "/images/guide/monaco-mini-golf-parc-princesse-antoinette.jpg",
+    imageAlt: text("Illustration of Monaco Mini-Golf at Parc Princesse Antoinette", "Illustration du Monaco Mini-Golf au Parc Princesse Antoinette", "Illustrazione del Monaco Mini-Golf al Parc Princesse Antoinette", "Ілюстрація Monaco Mini-Golf у Parc Princesse Antoinette"),
+    visualTheme: "family",
+  },
   "borrigo-beaches": {
     image: "/images/guide/borrigo-beaches.png",
     imageAlt: text("Illustration of the Borrigo beaches in Menton", "Illustration des plages du Borrigo a Menton", "Illustrazione delle spiagge di Borrigo a Mentone", "Ілюстрація пляжів Borrigo у Ментоні"),
