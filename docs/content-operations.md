@@ -19,6 +19,8 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Add genuinely useful `relatedArticles`, `relatedEvents` and `relatedApartments`.
 - Add apartment CTAs for practical stay guides, beach/sea-view guides, family guides, transport guides and seasonal comfort guides.
 - Add the guide to `src/content/guide-intents.ts` when it supports an existing search intent cluster.
+- If the guide is useful for a ready-made trip scenario, update `src/content/planning/stay-plans.ts`.
+- If the guide depends on Monaco, Nice, Ventimiglia/Italy or car-free movement, confirm that a transport helper block appears naturally.
 
 ## Places
 
@@ -28,6 +30,14 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Add `googleMapsUrl`, `googleMapsSearchUrl` or `programmeUrl` when available and useful.
 - Keep `relatedArticleIds` aligned with guide references.
 - Do not add backlinks only because a place card appears in a section; add them when the article is a real editorial match.
+- Confirm that useful public places still fit the filters on `src/app/[locale]/map/page.tsx`; add a new map category only when several places need it.
+
+## Stay Plans and Transport
+
+- Keep stay plans compact: trip intent, useful guides, useful places, relevant apartments and transport destinations.
+- Do not turn stay plans into a second blog system; link to the full stay or guide page for detail.
+- Use `src/content/transport.ts` for curated transport notes. Do not add live SNCF, Trenitalia or bus data without a separate API, caching and source-review pass.
+- Keep transport copy cautious: check current schedules, last returns and event-day access before travelling.
 
 ## Events
 

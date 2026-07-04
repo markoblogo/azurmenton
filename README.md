@@ -16,7 +16,7 @@ Production domain: `https://azurmenton.com`
 
 ## Purpose
 
-The site combines direct booking, apartment presentation and evergreen local content. The guide and events sections support search intent around Menton stays: beaches, walks, museums, practical errands, Monaco/Nice day trips, seasonal heat, winter travel and Riviera events.
+The site combines direct booking, apartment presentation and evergreen local content. Guide, events and stay pages support search intent around Menton stays: beaches, walks, museums, practical errands, Monaco/Nice day trips, seasonal heat, winter travel and Riviera events.
 
 ## Stack
 
@@ -135,12 +135,24 @@ Photography lives under `public/images/apartments/` and selected homepage images
 - `src/content/places.ts`
 - `src/components/guide/GuideExplorer.tsx`
 - `src/components/guide/PlaceCard.tsx`
+- `src/components/places/UsefulPlacesMap.tsx`
 
 Place cards support local imagery, Google Maps links, related guide links and full-image lightbox previews. Do not scrape Google Maps photos, hotlink third-party images, invent ratings or publish unverified opening hours.
 
 Guide intent clusters in `src/content/guide-intents.ts` group existing articles around search intents such as family stays, car-free stays, beachfront stays, day trips, summer heat and practical errands. Keep cluster guide slugs, place ids and apartment keys synchronized with the article content graph.
 
+`/[locale]/map` is a lightweight planning map for useful places in and near Menton. It filters the existing place graph and links out to Google Maps; it is not a live map API integration.
+
 Use `docs/content-operations.md` before adding guide articles, places, events, images or apartment-facing recommendations.
+
+### Stay Planning and Transport
+
+- `src/content/stay-pages.ts`
+- `src/content/planning/stay-plans.ts`
+- `src/content/transport.ts`
+- `src/components/transport/TransportHelperBlock.tsx`
+
+Stay pages are commercial intent pages, while stay plans are compact editorial scenarios that connect guides, places, transport notes and apartment recommendations. Transport helper blocks use curated notes only; they deliberately avoid live train or bus data until an official API/proxy strategy is reviewed.
 
 ### Events
 

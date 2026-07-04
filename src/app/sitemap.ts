@@ -12,6 +12,7 @@ const staticRoutes = [
   "apartments",
   "check-availability",
   "guide",
+  "map",
   "events",
   "events/this-week",
   "stay",
@@ -69,7 +70,7 @@ function imageForStaticRoute(path: string) {
     return siteConfig.defaultOgImage;
   }
 
-  if (path === "guide") {
+  if (path === "guide" || path === "map") {
     return "/images/guide/menton-without-a-car.jpg";
   }
 
@@ -109,7 +110,7 @@ function priorityForRoute(route: string) {
     return 0.9;
   }
 
-  if (route.includes("/guide") || route.includes("/events") || route.includes("/stay")) {
+  if (route.includes("/guide") || route.includes("/events") || route.includes("/stay") || route.includes("/map")) {
     return 0.7;
   }
 

@@ -5,6 +5,7 @@ import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
+import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -32,6 +33,8 @@ const labels = {
     eventsTitle: "Planning around an event?",
     eventsText: "Menton and the nearby Riviera have a busy calendar, from the Lemon Festival and summer music to Monaco weekends and Nice events.",
     eventsCta: "View events calendar",
+    mapCta: "Open useful places map",
+    transportTitle: "Easy routes from Menton",
     apartmentsTitle: "Where to stay for guide trips",
     apartmentsText: "Choose a central seaside base, then shape each day around beaches, markets, old-town walks and Riviera day trips.",
     viewApartments: "View apartments",
@@ -51,6 +54,8 @@ const labels = {
     eventsTitle: "Vous venez pour un evenement?",
     eventsText: "Menton et la Riviera voisine ont un calendrier anime, de la Fete du Citron aux concerts d'ete, week-ends a Monaco et evenements a Nice.",
     eventsCta: "Voir le calendrier des evenements",
+    mapCta: "Ouvrir la carte des lieux utiles",
+    transportTitle: "Trajets faciles depuis Menton",
     apartmentsTitle: "Ou sejourner pour explorer",
     apartmentsText: "Choisissez une base centrale en bord de mer, puis organisez vos journees entre plages, marches, vieille ville et excursions.",
     viewApartments: "Voir les appartements",
@@ -70,6 +75,8 @@ const labels = {
     eventsTitle: "Stai pianificando per un evento?",
     eventsText: "Mentone e la Riviera vicina hanno un calendario vivace: Festa del Limone, musica estiva, weekend a Monaco ed eventi a Nizza.",
     eventsCta: "Vedi calendario eventi",
+    mapCta: "Apri mappa dei luoghi utili",
+    transportTitle: "Percorsi facili da Mentone",
     apartmentsTitle: "Dove soggiornare per esplorare",
     apartmentsText: "Scegli una base centrale sul mare, poi organizza le giornate tra spiagge, mercati, centro storico e gite.",
     viewApartments: "Vedi appartamenti",
@@ -89,6 +96,8 @@ const labels = {
     eventsTitle: "Плануєте поїздку навколо події?",
     eventsText: "У Ментоні та на сусідній Рив'єрі насичений календар: Фестиваль лимонів, літня музика, вікенди в Монако та події в Ніцці.",
     eventsCta: "Переглянути календар подій",
+    mapCta: "Відкрити карту корисних місць",
+    transportTitle: "Зручні маршрути з Ментона",
     apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
     apartmentsText: "Оберіть центральну базу біля моря, а дні плануйте навколо пляжів, ринків, старого міста й поїздок Рив'єрою.",
     viewApartments: "Переглянути апартаменти",
@@ -328,6 +337,13 @@ export default async function GuideLandingPage({ params }: PageProps) {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {usefulPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={safeLocale} compact />)}
           </div>
+          <Link className="mt-6 inline-flex min-h-10 items-center border border-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#f8f3ea] py-8 sm:py-10">
+        <Container>
+          <TransportHelperBlock locale={safeLocale} />
         </Container>
       </Section>
 

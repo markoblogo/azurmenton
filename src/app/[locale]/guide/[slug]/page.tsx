@@ -14,6 +14,7 @@ import { PlaceCard } from "@/components/guide/PlaceCard";
 import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
 import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
 import { JsonLdScript } from "@/components/seo/JsonLd";
+import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
@@ -74,6 +75,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedPlaces = getPlaces(relatedPlaceIds);
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const apartmentScenario = guideApartmentScenarios[article.slug];
+  const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
   const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
   const sourceAttribution = {
     sourcePageType: "guide" as const,
@@ -141,6 +143,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
             <article className="space-y-5">
               {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {isTransportGuide ? <PublicTransportGuide locale={locale} /> : null}
+              {transportDestinationIds.length && !isTransportGuide ? <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} /> : null}
               {localized.appTools?.length ? (
                 <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.appToolkit}</h2>
@@ -276,6 +279,22 @@ function Fact({ label, value, wide = false }: { label: string; value: string; wi
       <p className="mt-1 text-sm leading-6 text-[#173f36]">{value}</p>
     </div>
   );
+}
+
+function transportDestinationsForGuide(slug: string, locationTags: string[] = []) {
+  const ids = new Set<string>();
+  const joined = [slug, ...locationTags].join(" ");
+
+  if (/monaco|grand-prix|yacht-show|eprix|masters|circus|rallye/.test(joined)) ids.add("monaco");
+  if (/nice|airport|carnival|museum|day-trips/.test(joined)) ids.add("nice");
+  if (/sanremo|ventimiglia|italian|riviera/.test(joined)) ids.add("ventimiglia");
+  if (/without-a-car|public-transport|day-trips|two-day|three-day/.test(joined)) {
+    ids.add("monaco");
+    ids.add("nice");
+    ids.add("ventimiglia");
+  }
+
+  return Array.from(ids).slice(0, 3);
 }
 
 function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionVideoEmbed; watchLabel: string; opensOnSourceLabel: string }) {
