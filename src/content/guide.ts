@@ -366,7 +366,7 @@ const articles: GuideArticle[] = [
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
     relatedPlaces: ["halles-du-marche", "promenade-du-soleil"],
-    relatedArticles: ["supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedArticles: ["wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -510,7 +510,7 @@ const articles: GuideArticle[] = [
       t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
     ],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes"],
-    relatedArticles: ["supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
+    relatedArticles: ["wine-tasting-near-menton", "supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -857,7 +857,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
     relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
-    relatedArticles: ["supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2265,7 +2265,7 @@ export const guideArticles: GuideArticle[] = [
       "olive-artichaut-nice",
       "bistrot-antoine-nice",
     ],
-    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "local-food-menton", "halles-du-marche-menton", "nightlife-in-menton", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+    relatedArticles: ["wine-tasting-near-menton", "useful-apps-websites-menton-monaco-italian-riviera", "local-food-menton", "halles-du-marche-menton", "nightlife-in-menton", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2314,6 +2314,102 @@ export const guideArticles: GuideArticle[] = [
       t("Check dress codes and closing days before booking.", "Verifiez dress code et jours de fermeture avant de reserver.", "Controlla dress code e giorni di chiusura prima di prenotare.", "Перевіряйте dress code і вихідні дні перед бронюванням."),
       t("For Nice, lunch is often easier than a late dinner when you are staying in Menton.", "Pour Nice, le dejeuner est souvent plus simple qu'un diner tardif quand vous logez a Menton.", "Per Nizza, il pranzo e spesso piu semplice di una cena tardi se soggiorni a Mentone.", "Для Ніцци обід часто простіший, ніж пізня вечеря, якщо ви живете в Ментоні."),
       t("Always verify current MICHELIN status and restaurant websites before planning around a specific recognition.", "Verifiez toujours le statut MICHELIN actuel et le site du restaurant avant de planifier autour d'une distinction.", "Verifica sempre lo stato MICHELIN attuale e il sito del ristorante prima di pianificare intorno a un riconoscimento.", "Завжди перевіряйте актуальний MICHELIN-статус і сайт ресторану перед плануванням навколо конкретної відзнаки."),
+    ],
+  }),
+  shortArticle({
+    id: "wine-tasting-near-menton",
+    slug: "wine-tasting-near-menton",
+    title: t("Wine tasting near Menton: local wines, vineyards and easy day trips", "Degustation de vin pres de Menton: vins locaux, domaines et excursions faciles", "Degustazioni di vino vicino a Mentone: vini locali, cantine e gite facili", "Дегустація вина біля Ментона: локальні вина, виноробні та легкі поїздки"),
+    seoTitle: t("Wine Tasting Near Menton: Local Wines, Bellet and Italian Riviera Trips", "Degustation de vin pres de Menton | Bellet, Monaco et Riviera italienne", "Degustazioni di vino vicino a Mentone | Bellet, Monaco e Riviera italiana", "Дегустація вина біля Ментона | Bellet, Монако та Італійська Рив'єра"),
+    seoDescription: t("A practical guide to wine tasting near Menton, from central wine bars and cavistes to Bellet vineyards above Nice, Monaco cellars and Rossese di Dolceacqua in nearby Italy.", "Guide pratique de la degustation de vin pres de Menton: bars a vin, cavistes, domaines de Bellet, caves de Monaco et Rossese di Dolceacqua en Italie proche.", "Guida pratica alle degustazioni di vino vicino a Mentone: wine bar, enoteche, cantine Bellet, Monaco e Rossese di Dolceacqua nella vicina Italia.", "Практичний гід по дегустації вина біля Ментона: винні бари, крамниці, виноградники Bellet, Монако та Rossese di Dolceacqua в Італії поруч."),
+    excerpt: t("Menton is not a vineyard town, but it is a calm base for Bellet wines above Nice, Monaco cellars, Ligurian Rossese and easy bottles for the apartment.", "Menton n'est pas une ville viticole, mais c'est une base calme pour les vins de Bellet, les caves de Monaco, le Rossese ligure et de bonnes bouteilles pour l'appartement.", "Mentone non e una citta di vigneti, ma e una base comoda per i vini Bellet, le cantine di Monaco, il Rossese ligure e bottiglie semplici per l'appartamento.", "Ментон не є виноградним містом, але це спокійна база для вин Bellet, льохів Монако, лігурійського Rossese і пляшок для апартаментів."),
+    category: "food-markets",
+    visualTheme: "food",
+    visualStatus: "editorial_placeholder",
+    tags: [
+      t("wine", "vin", "vino", "вино"),
+      t("Bellet", "Bellet", "Bellet", "Bellet"),
+      t("Dolceacqua", "Dolceacqua", "Dolceacqua", "Dolceacqua"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("day trips", "excursions", "gite", "поїздки"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[8].label, guideBestForOptions[10].label],
+    duration: "flexible",
+    locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "nabucco-wine-bar-cellar",
+      "o-divin-menton",
+      "comptoir-des-vignes-menton",
+      "nicolas-menton",
+      "chateau-de-bellet",
+      "domaine-de-toasc",
+      "clos-saint-vincent-bellet",
+      "domaine-fogolar-collet-de-bovis",
+      "grands-chais-monegasques",
+      "dolceacqua",
+      "casa-del-grillo",
+      "terre-bianche-dolceacqua",
+      "altavia-winery",
+    ],
+    relatedArticles: ["local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("A wine plan from a Menton base", "Un plan vin depuis Menton", "Un piano vino da Mentone", "Винний план з базою в Ментоні"),
+        body: [
+          t("Menton itself is better for wine bars, cavistes and apartment bottles than for vineyard visits. The strength of staying here is access: Bellet above Nice, Monaco cellars and the Italian Riviera are all realistic day or evening plans.", "Menton est plus utile pour bars a vin, cavistes et bouteilles pour l'appartement que pour les domaines viticoles. Son avantage est l'acces: Bellet au-dessus de Nice, caves de Monaco et Riviera italienne restent des plans realistes.", "Mentone e piu utile per wine bar, enoteche e bottiglie per l'appartamento che per visite in vigna. Il suo punto forte e l'accesso: Bellet sopra Nizza, Monaco e Riviera italiana sono piani realistici.", "Сам Ментон краще підходить для винних барів, крамниць і пляшок для апартаментів, ніж для виноградників. Його сила - доступ: Bellet над Ніццею, льохи Монако та Італійська Рив'єра реальні для дня або вечора."),
+          t("Treat opening hours, tasting formats and transport as items to verify before you go. Small estates often require booking, and some tasting rooms change seasonally.", "Verifiez toujours horaires, formats de degustation et transport avant de partir. Les petits domaines demandent souvent reservation et certains caveaux changent selon la saison.", "Verifica sempre orari, formule di degustazione e trasporti prima di partire. Le piccole cantine spesso richiedono prenotazione e alcune sale cambiano per stagione.", "Перед поїздкою перевіряйте години, формат дегустації й транспорт. Малі маєтки часто потребують бронювання, а деякі дегустаційні зали змінюються сезонно."),
+        ],
+        relatedPlaceIds: ["nabucco-wine-bar-cellar", "chateau-de-bellet", "grands-chais-monegasques", "dolceacqua"],
+      },
+      {
+        heading: t("Start in Menton: wine bars and cavistes", "Commencer a Menton: bars a vin et cavistes", "Inizia a Mentone: wine bar ed enoteche", "Почати в Ментоні: винні бари та крамниці"),
+        body: [
+          t("For a low-effort evening, stay local. Nabucco works as a wine bar and cellar for tasting on site, while O Di'Vin, Comptoir des Vignes and Nicolas are practical stops for advice, gifts or bottles to drink on the balcony after the beach.", "Pour une soiree simple, restez local. Nabucco fonctionne comme bar a vin et cave, tandis qu'O Di'Vin, Comptoir des Vignes et Nicolas sont pratiques pour conseils, cadeaux ou bouteilles a boire au balcon apres la plage.", "Per una serata semplice resta locale. Nabucco funziona come wine bar e cantina, mentre O Di'Vin, Comptoir des Vignes e Nicolas sono pratici per consigli, regali o bottiglie da bere sul balcone dopo la spiaggia.", "Для легкого вечора залишайтеся локально. Nabucco працює як винний бар і крамниця, а O Di'Vin, Comptoir des Vignes і Nicolas зручні для порад, подарунків або пляшок на балкон після пляжу."),
+          t("This is the best option when you arrive late, have fixed restaurant plans or want wine to match market food and simple apartment dinners.", "C'est la meilleure option si vous arrivez tard, avez deja un restaurant prevu ou voulez accompagner produits du marche et diners simples a l'appartement.", "E l'opzione migliore se arrivi tardi, hai gia ristoranti prenotati o vuoi abbinare vini a mercato e cene semplici in appartamento.", "Це найкращий варіант, якщо ви приїхали пізно, вже маєте ресторани або хочете вино до ринку й простих вечерь в апартаментах."),
+        ],
+        relatedPlaceIds: ["nabucco-wine-bar-cellar", "o-divin-menton", "comptoir-des-vignes-menton", "nicolas-menton"],
+        relatedApartmentKeys: seaViewApartments,
+      },
+      {
+        heading: t("Bellet vineyards above Nice", "Les domaines de Bellet au-dessus de Nice", "Le cantine Bellet sopra Nizza", "Виноградники Bellet над Ніццею"),
+        body: [
+          t("Bellet is the closest serious vineyard area to Menton. It is a small appellation in the hills above Nice, known for whites, roses and reds that feel very Riviera but are not always easy to find outside the region.", "Bellet est la zone viticole serieuse la plus proche de Menton. Cette petite appellation dans les collines de Nice produit blancs, roses et rouges tres Riviera, pas toujours faciles a trouver hors region.", "Bellet e la zona vinicola seria piu vicina a Mentone. Questa piccola denominazione sulle colline di Nizza produce bianchi, rose e rossi molto Riviera, non sempre facili da trovare altrove.", "Bellet - найближча серйозна винна зона до Ментона. Це мала апеляція на пагорбах Ніцци з білими, рожевими й червоними винами, дуже рив'єрними й не завжди доступними за межами регіону."),
+          t("Chateau de Bellet is the easiest first name to research. Domaine de Toasc, Clos Saint-Vincent and Domaine du Fogolar / Collet de Bovis suit guests who want to compare estates, but visits should be arranged in advance.", "Chateau de Bellet est le premier nom le plus simple a rechercher. Domaine de Toasc, Clos Saint-Vincent et Domaine du Fogolar / Collet de Bovis conviennent si vous voulez comparer, mais les visites se preparent en avance.", "Chateau de Bellet e il primo nome piu semplice da cercare. Domaine de Toasc, Clos Saint-Vincent e Domaine du Fogolar / Collet de Bovis vanno bene per confrontare tenute, ma le visite vanno organizzate prima.", "Chateau de Bellet - найпростіша перша назва для пошуку. Domaine de Toasc, Clos Saint-Vincent і Domaine du Fogolar / Collet de Bovis підходять для порівняння маєтків, але візити варто домовляти наперед."),
+        ],
+        relatedPlaceIds: ["chateau-de-bellet", "domaine-de-toasc", "clos-saint-vincent-bellet", "domaine-fogolar-collet-de-bovis"],
+      },
+      {
+        heading: t("Monaco: special bottles and a polished evening", "Monaco: belles bouteilles et soiree soignee", "Monaco: bottiglie speciali e serata elegante", "Монако: особливі пляшки й вишуканий вечір"),
+        body: [
+          t("Monaco is not a vineyard trip, but it can be a wine evening. Grands Chais Monegasques is the natural cellar reference for special bottles and private-style tastings, and Monaco restaurants are strong for serious wine lists.", "Monaco n'est pas une excursion vignoble, mais peut devenir une soiree vin. Grands Chais Monegasques est la reference cave pour belles bouteilles et degustations privees, avec de grandes cartes dans les restaurants.", "Monaco non e una gita in vigna, ma puo essere una serata vino. Grands Chais Monegasques e il riferimento per bottiglie speciali e degustazioni private, con grandi carte nei ristoranti.", "Монако - не поїздка до виноградників, але може бути винним вечором. Grands Chais Monegasques - природний орієнтир для особливих пляшок і приватних дегустацій, а ресторани Монако мають сильні винні карти."),
+          t("For dinner, check the last train to Menton before committing to a late sitting. A taxi back is often simpler for a special-occasion evening.", "Pour diner, verifiez le dernier train vers Menton avant de choisir un service tardif. Un taxi retour est souvent plus simple pour une grande soiree.", "Per cena controlla l'ultimo treno per Mentone prima di scegliere un turno tardi. Un taxi al ritorno e spesso piu semplice per una serata speciale.", "Для вечері перевірте останній потяг до Ментона, перш ніж обирати пізню посадку. Таксі назад часто простіше для особливого вечора."),
+        ],
+        relatedPlaceIds: ["grands-chais-monegasques"],
+      },
+      {
+        heading: t("Dolceacqua and Ligurian Rossese", "Dolceacqua et le Rossese ligure", "Dolceacqua e il Rossese ligure", "Dolceacqua та лігурійський Rossese"),
+        body: [
+          t("Across the Italian border, Dolceacqua gives the most natural wine day from Menton: a medieval village, local restaurants and Rossese di Dolceacqua, the red wine that belongs to this valley.", "De l'autre cote de la frontiere, Dolceacqua offre la journee vin la plus naturelle depuis Menton: village medieval, restaurants locaux et Rossese di Dolceacqua, le rouge de cette vallee.", "Oltre il confine italiano, Dolceacqua e la giornata vino piu naturale da Mentone: borgo medievale, ristoranti locali e Rossese di Dolceacqua, il rosso di questa valle.", "За італійським кордоном Dolceacqua дає найприродніший винний день з Ментона: середньовічне село, локальні ресторани та Rossese di Dolceacqua - червоне вино цієї долини."),
+          t("Casa del Grillo, Terre Bianche and Altavia are useful names to research for tastings, depending on opening days and whether you have a car, driver or arranged transfer.", "Casa del Grillo, Terre Bianche et Altavia sont de bonnes pistes de degustation selon les jours d'ouverture et selon voiture, chauffeur ou transfert reserve.", "Casa del Grillo, Terre Bianche e Altavia sono nomi utili per degustazioni, secondo aperture e se hai auto, autista o transfer.", "Casa del Grillo, Terre Bianche і Altavia - корисні назви для дегустацій, залежно від днів роботи та того, чи є авто, водій або трансфер."),
+        ],
+        relatedPlaceIds: ["dolceacqua", "casa-del-grillo", "terre-bianche-dolceacqua", "altavia-winery"],
+      },
+      {
+        heading: t("What to buy for the apartment", "Quoi acheter pour l'appartement", "Cosa comprare per l'appartamento", "Що купити для апартаментів"),
+        body: [
+          t("For easy apartment drinking, look for a chilled Provence rose, a Bellet white with seafood or vegetables, or a Rossese from Dolceacqua for charcuterie, cheese and a quieter evening in.", "Pour l'appartement, cherchez un rose de Provence frais, un blanc de Bellet avec poissons ou legumes, ou un Rossese de Dolceacqua pour charcuterie, fromage et soiree calme.", "Per l'appartamento cerca un rose di Provenza fresco, un bianco Bellet con pesce o verdure, o un Rossese di Dolceacqua per salumi, formaggi e una serata tranquilla.", "Для апартаментів шукайте охолоджене рожеве Provence, біле Bellet до риби чи овочів або Rossese з Dolceacqua до м'яса, сиру й тихого вечора."),
+          t("Balcony and terrace meals are often the best use of local wine: simple food, sea air and no need to travel after tasting.", "Les repas au balcon ou en terrasse sont souvent le meilleur usage du vin local: cuisine simple, air marin et pas de trajet apres degustation.", "I pasti su balcone o terrazza sono spesso il modo migliore per usare il vino locale: cibo semplice, aria di mare e nessun viaggio dopo la degustazione.", "Їжа на балконі чи терасі часто найкраще розкриває локальне вино: проста їжа, морське повітря й без поїздок після дегустації."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Book vineyard tastings in advance; do not rely only on map opening hours.", "Reservez les degustations de domaine en avance; ne vous fiez pas seulement aux horaires des cartes.", "Prenota le degustazioni in cantina in anticipo; non basarti solo sugli orari delle mappe.", "Бронюйте дегустації на виноробнях наперед; не покладайтеся лише на години в картах."),
+      t("Avoid driving after tastings. Use train plus taxi, a transfer or keep the tasting local in Menton.", "Evitez de conduire apres degustation. Utilisez train plus taxi, transfert ou restez local a Menton.", "Evita di guidare dopo le degustazioni. Usa treno piu taxi, transfer o resta locale a Mentone.", "Не сідайте за кермо після дегустацій. Використовуйте потяг плюс таксі, трансфер або залишайте дегустацію в Ментоні."),
+      t("In summer, plan vineyard visits early or late and carry water.", "En ete, prevoyez les visites de domaine tot ou tard et prenez de l'eau.", "In estate programma le visite presto o tardi e porta acqua.", "Влітку плануйте виноробні рано або пізніше й беріть воду."),
+      t("Check import limits if you plan to fly home with bottles.", "Verifiez les limites d'importation si vous rentrez en avion avec des bouteilles.", "Controlla i limiti doganali se voli a casa con bottiglie.", "Перевірте митні ліміти, якщо летите додому з пляшками."),
     ],
   }),
   shortArticle({
@@ -3284,7 +3380,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
