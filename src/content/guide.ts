@@ -988,7 +988,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
     relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2393,6 +2393,7 @@ export const guideArticles: GuideArticle[] = [
       "cinemas-in-menton-nice-monaco",
       "theatre-opera-performing-arts-near-menton",
       "museums-in-menton-nice-monaco",
+      "golf-near-menton",
       "public-transport-in-menton",
       "day-trips-from-menton",
       "useful-numbers-emergency-contacts-menton",
@@ -3069,7 +3070,7 @@ export const guideArticles: GuideArticle[] = [
       "terre-bianche-dolceacqua",
       "altavia-winery",
     ],
-    relatedArticles: ["local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "golf-near-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4098,7 +4099,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["monaco-monte-carlo", "nice-old-town", "eze-village", "ventimiglia", "bordighera", "sanremo", "gorbio"],
-    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4185,7 +4186,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
@@ -4347,6 +4348,121 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "golf-near-menton",
+    slug: "golf-near-menton",
+    title: t("Golf near Menton: courses, practice clubs and family mini-golf", "Golf pres de Menton : parcours, practice et mini-golf en famille", "Golf vicino a Mentone: campi, pratica e mini-golf in famiglia", "Гольф біля Ментона: поля, practice і сімейний міні-гольф"),
+    seoTitle: t("Golf Near Menton: Monte-Carlo Golf Club, Sanremo, Nice & Family Mini-Golf", "Golf pres de Menton | Monte-Carlo, Sanremo, Nice et mini-golf", "Golf vicino a Mentone | Monte-Carlo, Sanremo, Nizza e mini-golf", "Гольф біля Ментона | Monte-Carlo, Sanremo, Nice і міні-гольф"),
+    seoDescription: t("A practical guide to golf near Menton: Monte-Carlo Golf Club above Monaco, Sanremo, Nice Golf Country Club, Golf de Biot and family-friendly mini-golf in Menton and Monaco.", "Guide pratique du golf pres de Menton : Monte-Carlo Golf Club au-dessus de Monaco, Sanremo, Golf Country Club de Nice, Golf de Biot et mini-golf en famille a Menton et Monaco.", "Guida pratica al golf vicino a Mentone: Monte-Carlo Golf Club sopra Monaco, Sanremo, Golf Country Club de Nice, Golf de Biot e mini-golf per famiglie a Mentone e Monaco.", "Практичний гід з гольфу біля Ментона: Monte-Carlo Golf Club над Монако, Sanremo, Golf Country Club de Nice, Golf de Biot і сімейний міні-гольф у Ментоні та Монако."),
+    excerpt: t("Menton is not a golf resort town, but it is a useful base for Monte-Carlo Golf Club, Sanremo, compact practice in Nice and easy family mini-golf.", "Menton n'est pas une station de golf, mais c'est une base utile pour Monte-Carlo Golf Club, Sanremo, un practice compact a Nice et le mini-golf en famille.", "Mentone non e una localita golfistica, ma e una base utile per Monte-Carlo Golf Club, Sanremo, pratica compatta a Nizza e mini-golf in famiglia.", "Ментон не є гольф-курортом, але це зручна база для Monte-Carlo Golf Club, Санремо, компактної практики в Ніцці та сімейного міні-гольфу."),
+    category: "day-trips",
+    coverImage: "/images/guide/golf-near-menton.jpg",
+    coverImageAlt: t("Golf near Menton and the Riviera hills", "Golf pres de Menton et collines Riviera", "Golf vicino a Mentone e colline della Riviera", "Гольф біля Ментона та пагорби Рив'єри"),
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    tags: [
+      t("golf", "golf", "golf", "гольф"),
+      t("Monte-Carlo", "Monte-Carlo", "Monte-Carlo", "Монте-Карло"),
+      t("Sanremo", "Sanremo", "Sanremo", "Санремо"),
+      t("mini-golf", "mini-golf", "mini-golf", "міні-гольф"),
+      t("car day trip", "excursion en voiture", "gita in auto", "поїздка авто"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[3].label],
+    duration: "full-day",
+    locationTags: ["monaco", "nice", "italian-riviera", "family"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "monte-carlo-golf-club",
+      "circolo-golf-degli-ulivi-sanremo",
+      "golf-country-club-de-nice",
+      "golf-de-biot-la-bastide-du-roy",
+      "golf-de-la-grande-bastide",
+      "royal-mougins-golf-resort",
+      "mini-golf-du-pian-menton",
+      "koaland-menton",
+      "monaco-mini-golf-parc-princesse-antoinette",
+      "parc-princesse-antoinette-monaco",
+    ],
+    relatedArticles: ["day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Is there golf in Menton?", "Y a-t-il du golf a Menton ?", "C'e golf a Mentone?", "Чи є гольф у Ментоні?"),
+        body: [
+          t("Menton itself is not a full-size golf destination. There is no large 18-hole championship course in the centre of town, and a serious round usually needs a car or taxi.", "Menton n'est pas une destination golf a part entiere. Il n'y a pas de grand parcours 18 trous au centre-ville, et une vraie partie demande generalement une voiture ou un taxi.", "Mentone non e una destinazione golfistica completa. Non c'e un grande 18 buche in centro e una vera partita richiede di solito auto o taxi.", "Сам Ментон не є повноцінним гольф-напрямком. У центрі немає великого 18-лункового поля, а справжня гра зазвичай потребує авто або таксі."),
+          t("That said, Menton works well as a seaside base for golfers who want one or two rounds during a Riviera stay: Monte-Carlo Golf Club above Monaco, Sanremo in Italy, compact practice in Nice, and mini-golf directly in Menton for families.", "Cela dit, Menton fonctionne bien comme base en bord de mer pour les golfeurs qui veulent une ou deux parties pendant un sejour Riviera : Monte-Carlo Golf Club au-dessus de Monaco, Sanremo en Italie, practice compact a Nice et mini-golf a Menton pour les familles.", "Detto questo, Mentone funziona bene come base sul mare per golfisti che vogliono una o due partite durante un soggiorno in Riviera: Monte-Carlo Golf Club sopra Monaco, Sanremo in Italia, pratica compatta a Nizza e mini-golf in citta per famiglie.", "Водночас Ментон добре працює як морська база для гольфістів, які хочуть одну-дві гри під час відпочинку на Рив'єрі: Monte-Carlo Golf Club над Монако, Санремо в Італії, компактна практика в Ніцці та міні-гольф у самому Ментоні для сімей."),
+        ],
+        bullets: [
+          t("Closest serious round: Monte-Carlo Golf Club in La Turbie.", "Vraie partie la plus proche : Monte-Carlo Golf Club a La Turbie.", "Partita seria piu vicina: Monte-Carlo Golf Club a La Turbie.", "Найближча серйозна гра: Monte-Carlo Golf Club у La Turbie."),
+          t("Italian Riviera golf day: Circolo Golf degli Ulivi Sanremo.", "Journee golf cote Italie : Circolo Golf degli Ulivi Sanremo.", "Giornata golf in Italia: Circolo Golf degli Ulivi Sanremo.", "Гольф-день в Італії: Circolo Golf degli Ulivi Sanremo."),
+          t("Local family option: Mini-Golf du Pian or Koaland in Menton.", "Option famille locale : Mini-Golf du Pian ou Koaland a Menton.", "Opzione famiglia locale: Mini-Golf du Pian o Koaland a Mentone.", "Локальний сімейний варіант: Mini-Golf du Pian або Koaland у Ментоні."),
+        ],
+      },
+      {
+        heading: t("Monte-Carlo Golf Club, La Turbie", "Monte-Carlo Golf Club, La Turbie", "Monte-Carlo Golf Club, La Turbie", "Monte-Carlo Golf Club, La Turbie"),
+        body: [
+          t("Monte-Carlo Golf Club is the first course to consider from Menton. It is not in Monaco itself, but in La Turbie on the heights above the Principality, with an 18-hole course and Riviera panoramas.", "Monte-Carlo Golf Club est le premier parcours a envisager depuis Menton. Il n'est pas dans Monaco meme, mais a La Turbie sur les hauteurs de la Principaute, avec un 18 trous et des panoramas Riviera.", "Monte-Carlo Golf Club e il primo campo da considerare da Mentone. Non e dentro Monaco, ma a La Turbie sulle alture del Principato, con un percorso 18 buche e panorami Riviera.", "Monte-Carlo Golf Club - перше поле, яке варто розглядати з Ментона. Воно не в самому Монако, а в La Turbie на висотах над Князівством, із 18 лунками й панорамами Рив'єри."),
+          t("For visitors, the practical points are reservation, handicap requirements, dress code and weather. The course sits high above the coast, so wind, fog or cooler air can differ from sunny Menton.", "Pour les visiteurs, les points pratiques sont la reservation, les conditions de handicap, le dress code et la meteo. Le parcours est haut au-dessus de la cote : vent, brouillard ou air plus frais peuvent differer du Menton ensoleille.", "Per i visitatori i punti pratici sono prenotazione, requisiti di handicap, dress code e meteo. Il campo e alto sopra la costa: vento, nebbia o aria piu fresca possono differire dalla Mentone soleggiata.", "Для гостей важливі бронювання, вимоги до handicap, dress code і погода. Поле високо над узбережжям, тому вітер, туман або прохолодніше повітря можуть відрізнятися від сонячного Ментона."),
+        ],
+        relatedPlaceIds: ["monte-carlo-golf-club"],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio"],
+      },
+      {
+        heading: t("Sanremo and the Italian Riviera option", "Sanremo et l'option Riviera italienne", "Sanremo e l'opzione Riviera ligure", "Санремо й варіант Італійської Рив'єри"),
+        body: [
+          t("Circolo Golf degli Ulivi Sanremo is the strongest Italian-side golf idea from Menton: olive trees, hill roads, sea views and an easy excuse to add lunch or coffee in Sanremo.", "Circolo Golf degli Ulivi Sanremo est la meilleure idee golf cote Italie depuis Menton : oliviers, routes de colline, vues mer et bonne raison d'ajouter un dejeuner ou cafe a Sanremo.", "Circolo Golf degli Ulivi Sanremo e la migliore idea golf lato Italia da Mentone: ulivi, strade di collina, vista mare e un buon motivo per aggiungere pranzo o caffe a Sanremo.", "Circolo Golf degli Ulivi Sanremo - найсильніша італійська гольф-ідея з Ментона: оливи, гірські дороги, види на море й привід додати обід або каву в Санремо."),
+          t("Treat it as a full Italian Riviera day rather than a quick errand. Check tee times, border traffic and the road up to the club, then keep the rest of the day light.", "Voyez cela comme une vraie journee Riviera italienne plutot qu'une course rapide. Verifiez departs, circulation frontaliere et route vers le club, puis gardez le reste du programme leger.", "Considerala una vera giornata in Riviera ligure, non una commissione rapida. Controlla tee time, traffico di frontiera e strada verso il club, poi mantieni leggero il resto del programma.", "Сприймайте це як повний день на Італійській Рив'єрі, а не швидку справу. Перевірте tee time, трафік на кордоні й дорогу до клубу, а решту дня залиште легкою."),
+        ],
+        relatedPlaceIds: ["circolo-golf-degli-ulivi-sanremo"],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio"],
+      },
+      {
+        heading: t("Nice, Biot and westward Riviera courses", "Nice, Biot et les parcours vers l'ouest", "Nizza, Biot e i campi verso ovest", "Ніцца, Biot і поля на заході Рив'єри"),
+        body: [
+          t("Golf Country Club de Nice is useful for practice, beginners and a compact session rather than a destination championship round. It works if you are already combining the day with Nice.", "Golf Country Club de Nice est utile pour le practice, les debutants et une seance compacte plutot qu'une grande partie destination. Il fonctionne bien si vous combinez deja la journee avec Nice.", "Golf Country Club de Nice e utile per pratica, principianti e una sessione compatta piu che per una grande partita. Funziona se stai gia combinando la giornata con Nizza.", "Golf Country Club de Nice зручний для practice, початківців і компактної сесії, а не як головна велика гра. Він працює, якщо ви вже поєднуєте день із Ніццою."),
+          t("Golf de Biot / La Bastide du Roy, Golf de la Grande Bastide and Royal Mougins are farther from Menton. They make sense for keen golfers, longer stays or a planned westward golf itinerary, not for a spontaneous short morning.", "Golf de Biot / La Bastide du Roy, Golf de la Grande Bastide et Royal Mougins sont plus eloignes de Menton. Ils conviennent aux golfeurs motives, longs sejours ou itineraires golf vers l'ouest, pas a une matinee spontanee.", "Golf de Biot / La Bastide du Roy, Golf de la Grande Bastide e Royal Mougins sono piu lontani da Mentone. Hanno senso per golfisti motivati, soggiorni lunghi o itinerari verso ovest, non per una mattina spontanea.", "Golf de Biot / La Bastide du Roy, Golf de la Grande Bastide і Royal Mougins далі від Ментона. Вони підходять для зацікавлених гольфістів, довших перебувань або запланованого маршруту на захід, а не для спонтанного ранку."),
+        ],
+        relatedPlaceIds: ["golf-country-club-de-nice", "golf-de-biot-la-bastide-du-roy", "golf-de-la-grande-bastide", "royal-mougins-golf-resort"],
+      },
+      {
+        heading: t("Family mini-golf near Menton", "Mini-golf en famille pres de Menton", "Mini-golf in famiglia vicino a Mentone", "Сімейний міні-гольф біля Ментона"),
+        body: [
+          t("For children and casual afternoons, mini-golf is usually the better answer than a formal course. Mini-Golf du Pian is inside Menton, in Parc du Pian near Garavan, and is the easiest local choice.", "Pour les enfants et les apres-midi simples, le mini-golf est souvent une meilleure reponse qu'un vrai parcours. Mini-Golf du Pian est a Menton, dans le Parc du Pian pres de Garavan, et c'est le choix local le plus facile.", "Per bambini e pomeriggi casual, il mini-golf e spesso meglio di un campo formale. Mini-Golf du Pian e dentro Mentone, al Parc du Pian vicino a Garavan, ed e la scelta locale piu facile.", "Для дітей і легких післяобідніх планів міні-гольф зазвичай кращий за формальне поле. Mini-Golf du Pian розташований у Ментоні, у Parc du Pian біля Garavan, і це найпростіший локальний вибір."),
+          t("Koaland is more of a children's amusement park, but it can work when younger children need something playful. Monaco's mini-golf at Parc Princesse Antoinette is best as an add-on to a wider Monaco family day.", "Koaland est plutot un petit parc de loisirs enfants, mais il fonctionne quand les plus jeunes ont besoin de quelque chose de ludique. Le mini-golf de Monaco au Parc Princesse Antoinette est surtout un ajout a une journee famille plus large a Monaco.", "Koaland e piu un piccolo parco divertimenti per bambini, ma funziona quando i piu piccoli hanno bisogno di qualcosa di giocoso. Il mini-golf di Monaco al Parc Princesse Antoinette e soprattutto un'aggiunta a una giornata famiglia a Monaco.", "Koaland радше дитячий парк розваг, але підходить, коли молодшим дітям потрібна гра. Міні-гольф у Монако в Parc Princesse Antoinette найкращий як доповнення до ширшого сімейного дня в Монако."),
+        ],
+        relatedPlaceIds: ["mini-golf-du-pian-menton", "koaland-menton", "monaco-mini-golf-parc-princesse-antoinette", "parc-princesse-antoinette-monaco"],
+        relatedApartmentKeys: ["beachside-family-apartment"],
+      },
+      {
+        heading: t("Which golf choice fits your stay?", "Quel choix golf correspond a votre sejour ?", "Quale scelta golf si adatta al soggiorno?", "Який гольф-варіант підходить вашій поїздці?"),
+        body: [
+          t("Choose Monte-Carlo Golf Club for the closest prestige round, Sanremo for Italian atmosphere, Nice for a shorter practice session, Biot for a fuller club setup, and Mini-Golf du Pian for children staying in Menton.", "Choisissez Monte-Carlo Golf Club pour la vraie partie prestigieuse la plus proche, Sanremo pour l'ambiance italienne, Nice pour une seance practice plus courte, Biot pour une structure club plus complete et Mini-Golf du Pian pour les enfants a Menton.", "Scegli Monte-Carlo Golf Club per la partita prestigiosa piu vicina, Sanremo per l'atmosfera italiana, Nizza per una pratica piu breve, Biot per un club piu completo e Mini-Golf du Pian per i bambini a Mentone.", "Обирайте Monte-Carlo Golf Club для найближчої престижної гри, Sanremo для італійської атмосфери, Ніццу для коротшої практики, Biot для повнішого клубного формату й Mini-Golf du Pian для дітей у Ментоні."),
+          t("If golf is the main purpose of the trip, plan transport first. If golf is only one part of a seaside holiday, keep the course choice close and leave room for beach, restaurants and rest.", "Si le golf est le but principal du voyage, commencez par le transport. Si le golf n'est qu'un element d'un sejour mer, choisissez un parcours proche et gardez du temps pour plage, restaurants et repos.", "Se il golf e lo scopo principale del viaggio, pianifica prima i trasporti. Se il golf e solo una parte della vacanza sul mare, scegli un campo vicino e lascia spazio a spiaggia, ristoranti e riposo.", "Якщо гольф - головна мета поїздки, спершу плануйте транспорт. Якщо це лише частина морського відпочинку, обирайте ближчий варіант і залишайте час на пляж, ресторани та відпочинок."),
+        ],
+      },
+      {
+        heading: t("Staying in Menton for golf", "Sejourner a Menton pour le golf", "Soggiornare a Mentone per il golf", "Жити в Ментоні для гольфу"),
+        body: [
+          t("Menton works well for golfers who do not want a golf-resort holiday. You can stay by the sea, enjoy the old town and restaurants, and play one or two rounds during the trip.", "Menton convient aux golfeurs qui ne veulent pas un sejour golf-resort. Vous pouvez loger au bord de mer, profiter de la vieille ville et des restaurants, puis jouer une ou deux parties pendant le sejour.", "Mentone funziona per golfisti che non vogliono una vacanza golf-resort. Puoi stare sul mare, goderti centro storico e ristoranti e giocare una o due partite durante il soggiorno.", "Ментон підходить гольфістам, які не хочуть суто golf-resort відпочинок. Можна жити біля моря, насолоджуватися старим містом і ресторанами та зіграти одну-дві партії під час поїздки."),
+          t("For golf-focused guests, Beachside Apartment with Terrace & Parking is the most practical Azur Menton option because parking by reservation can help with golf bags and early departures. Sea View Balcony Studio works well for couples adding one golf day to a seaside stay.", "Pour les sejours axes golf, Beachside Apartment with Terrace & Parking est l'option Azur Menton la plus pratique, car le parking sur reservation aide avec les sacs et les departs matinaux. Sea View Balcony Studio convient aux couples qui ajoutent une journee golf a un sejour mer.", "Per soggiorni orientati al golf, Beachside Apartment with Terrace & Parking e l'opzione Azur Menton piu pratica perche il parcheggio su prenotazione aiuta con sacche e partenze presto. Sea View Balcony Studio va bene per coppie che aggiungono un giorno golf al mare.", "Для гольф-орієнтованих гостей Beachside Apartment with Terrace & Parking - найпрактичніший варіант Azur Menton, бо паркування за бронюванням допомагає з сумками й ранніми виїздами. Sea View Balcony Studio добре підходить парам, які додають один гольф-день до морського відпочинку."),
+        ],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio", "panoramic-sea-view-studio"],
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Is there a full golf course in Menton? No. For real golf, look to Monte-Carlo Golf Club above Monaco, Sanremo in Italy, Nice or courses farther west such as Biot.", "Y a-t-il un vrai parcours a Menton ? Non. Pour jouer, regardez Monte-Carlo Golf Club au-dessus de Monaco, Sanremo en Italie, Nice ou des parcours plus a l'ouest comme Biot.", "C'e un vero campo a Mentone? No. Per giocare guarda Monte-Carlo Golf Club sopra Monaco, Sanremo in Italia, Nizza o campi piu a ovest come Biot.", "Чи є повноцінне поле в Ментоні? Ні. Для справжнього гольфу дивіться Monte-Carlo Golf Club над Монако, Санремо в Італії, Ніццу або поля далі на захід, як Biot."),
+          t("Can visitors play Monte-Carlo Golf Club? Visitor play is possible under club conditions, but reservations, handicap rules and current green-fee access should be checked directly with the club.", "Les visiteurs peuvent-ils jouer au Monte-Carlo Golf Club ? C'est possible selon les conditions du club, mais reservations, handicap et green-fee actuels doivent etre verifies directement.", "I visitatori possono giocare al Monte-Carlo Golf Club? E possibile secondo le condizioni del club, ma prenotazioni, handicap e green fee vanno verificati direttamente.", "Чи можуть гості грати в Monte-Carlo Golf Club? Це можливо за умовами клубу, але бронювання, правила handicap і green fee треба перевіряти напряму."),
+          t("Where can children play mini-golf? Mini-Golf du Pian is the easiest local option in Menton; Koaland and Monaco Mini-Golf can also work for family plans.", "Ou les enfants peuvent-ils faire du mini-golf ? Mini-Golf du Pian est l'option locale la plus simple a Menton; Koaland et Monaco Mini-Golf peuvent aussi convenir.", "Dove possono giocare a mini-golf i bambini? Mini-Golf du Pian e l'opzione locale piu facile a Mentone; anche Koaland e Monaco Mini-Golf possono funzionare.", "Де дітям грати в міні-гольф? Найпростіший локальний варіант - Mini-Golf du Pian у Ментоні; Koaland і Monaco Mini-Golf теж можуть підійти."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Book tee times in advance; nearby golf courses are not casual walk-up tourist activities.", "Reservez les departs a l'avance; les parcours proches ne sont pas des activites touristiques improvisees.", "Prenota tee time in anticipo; i campi vicini non sono attivita turistiche improvvisate.", "Бронюйте tee time завчасно; найближчі поля не є спонтанними туристичними активностями."),
+      t("Check handicap rules, green fees, dress code and restaurant hours directly before going.", "Verifiez handicap, green fees, dress code et horaires de restaurant directement avant de partir.", "Controlla handicap, green fee, dress code e orari ristorante direttamente prima di andare.", "Перед виїздом напряму перевіряйте handicap, green fee, dress code і години ресторану."),
+      t("For real golf, plan a car or taxi day; for family mini-golf, stay local in Menton.", "Pour le vrai golf, prevoyez voiture ou taxi; pour le mini-golf en famille, restez local a Menton.", "Per il golf vero pianifica auto o taxi; per mini-golf in famiglia resta locale a Mentone.", "Для справжнього гольфу плануйте авто або таксі; для сімейного міні-гольфу залишайтеся локально в Ментоні."),
+    ],
+  }),
+  shortArticle({
     id: "where-to-stay-in-menton",
     slug: "where-to-stay-in-menton",
     title: t("Where to stay in Menton: beachfront, old town or near the station?", "Ou loger a Menton: front de mer, vieille ville ou gare?", "Dove dormire a Mentone: mare, centro storico o stazione?", "Де зупинитися в Ментоні: біля моря, старого міста чи станції?"),
@@ -4367,7 +4483,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
