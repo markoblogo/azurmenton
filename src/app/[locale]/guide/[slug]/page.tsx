@@ -275,25 +275,32 @@ function Fact({ label, value, wide = false }: { label: string; value: string; wi
 function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionVideoEmbed; watchLabel: string; opensOnSourceLabel: string }) {
   const canEmbed = video.embed !== false && Boolean(video.embedUrl);
 
+  if (!canEmbed) {
+    return (
+      <div className="border border-[#dfd2b8] bg-[#f8f3ea] p-4 sm:flex sm:items-center sm:justify-between sm:gap-5">
+        <div>
+          <p className="text-sm font-semibold text-[#173f36]">{video.title}</p>
+          <p className="mt-1 text-sm leading-6 text-[#5c5044]">{video.caption ?? opensOnSourceLabel}</p>
+        </div>
+        <Link className="mt-3 inline-flex shrink-0 items-center border border-[#173f36] px-4 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#173f36] hover:text-white sm:mt-0" href={video.watchUrl as Route} target="_blank" rel="noopener noreferrer">
+          {watchLabel}
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea]">
       <div className="relative aspect-video bg-[#173f36]/10">
-        {canEmbed ? (
-          <iframe
-            title={video.title}
-            src={video.embedUrl}
-            className="absolute inset-0 h-full w-full"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
-        ) : (
-          <Link className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#173f36] text-center text-white hover:bg-[#102f28]" href={video.watchUrl as Route} target="_blank" rel="noopener noreferrer">
-            <span className="flex size-16 items-center justify-center rounded-full border border-[#c6a66a] text-3xl leading-none">▶</span>
-            <span className="px-6 text-sm font-bold uppercase tracking-[0.16em]">{opensOnSourceLabel}</span>
-          </Link>
-        )}
+        <iframe
+          title={video.title}
+          src={video.embedUrl}
+          className="absolute inset-0 h-full w-full"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
       </div>
       <div className="p-4">
         <p className="text-sm font-semibold text-[#173f36]">{video.title}</p>
