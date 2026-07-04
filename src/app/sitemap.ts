@@ -16,6 +16,7 @@ const staticRoutes = [
   "stay",
   "faq",
   "contact",
+  "partners",
   "privacy",
   "legal",
   "cookies",

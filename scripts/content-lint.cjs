@@ -8,12 +8,15 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { guideArticles } = require("../src/content/guide.ts");
+const { guestPerks } = require("../src/content/guest-perks.ts");
+const { localPartners, partnerLinkRel } = require("../src/content/partners.ts");
 const { places } = require("../src/content/places.ts");
 const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { locales } = require("../src/i18n/locales.ts");
 
 const failures = [];
 const guideSlugs = new Set(guideArticles.map((article) => article.slug));
+const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const idPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -143,10 +146,47 @@ for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {
   if (event.media?.imageAlt) checkLocalizedText(owner, "media.imageAlt", event.media.imageAlt, 8);
 }
 
+for (const partner of localPartners) {
+  const owner = `partner:${partner.id}`;
+  if (!idPattern.test(partner.id)) fail(`${owner}.id should be kebab-case`);
+  if (!isFilledText(partner.name)) fail(`${owner}.name missing`);
+  if (!isFilledText(partner.category)) fail(`${owner}.category missing`);
+  if (!isFilledText(partner.city)) fail(`${owner}.city missing`);
+  checkUrl(owner, "website", partner.website);
+  if (partner.status === "sponsored" && partner.publicVisibility !== "sponsored") {
+    fail(`${owner} has sponsored status but publicVisibility is not sponsored`);
+  }
+  if (partner.publicVisibility === "sponsored" && partner.status !== "sponsored") {
+    fail(`${owner} has sponsored visibility but status is not sponsored`);
+  }
+  if (partner.status === "sampling" && partner.publicVisibility !== "none" && partner.publicVisibility !== "guest_only") {
+    fail(`${owner} sampling must not imply public placement`);
+  }
+  if (partner.publicVisibility === "sponsored" && partner.website && partnerLinkRel(partner) !== "sponsored") {
+    fail(`${owner} sponsored public links must be prepared for rel=sponsored`);
+  }
+}
+
+for (const perk of guestPerks) {
+  const owner = `guestPerk:${perk.id}`;
+  if (!idPattern.test(perk.id)) fail(`${owner}.id should be kebab-case`);
+  if (!partnerIds.has(perk.partnerId)) fail(`${owner}.partnerId -> ${perk.partnerId}`);
+  checkLocalizedText(owner, "title", perk.title, 3);
+  checkLocalizedText(owner, "description", perk.description, 20);
+  if (perk.terms) checkLocalizedText(owner, "terms", perk.terms, 10);
+  if (perk.validFrom && !/^\d{4}-\d{2}-\d{2}$/.test(perk.validFrom)) fail(`${owner}.validFrom should be YYYY-MM-DD`);
+  if (perk.validUntil && !/^\d{4}-\d{2}-\d{2}$/.test(perk.validUntil)) fail(`${owner}.validUntil should be YYYY-MM-DD`);
+  if (perk.visibility === "public" && !perk.requiresBooking) {
+    fail(`${owner} public guest perk should still make booking requirement explicit`);
+  }
+}
+
 console.log("Azur Menton content schema lint");
 console.log(`Guides checked: ${guideArticles.length}`);
 console.log(`Places checked: ${places.length}`);
 console.log(`Events checked: ${rivieraEvents.length + 1}`);
+console.log(`Partners checked: ${localPartners.length}`);
+console.log(`Guest perks checked: ${guestPerks.length}`);
 
 if (failures.length) {
   console.log(`Failures: ${failures.length}`);

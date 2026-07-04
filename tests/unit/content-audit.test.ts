@@ -2,8 +2,10 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { apartments } from "../../src/content/apartments";
+import { guestPerks } from "../../src/content/guest-perks";
 import { guideArticles } from "../../src/content/guide";
 import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
+import { localPartners, partnerLinkRel } from "../../src/content/partners";
 import { places } from "../../src/content/places";
 import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { getEventDateStatus } from "../../src/lib/events";
@@ -14,6 +16,7 @@ const unique = (items: string[]) => new Set(items).size === items.length;
 const guideSlugs = new Set(guideArticles.map((article) => article.slug));
 const placeIds = new Set(places.map((place) => place.id));
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
+const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const eventSlugs = new Set([...rivieraEvents.map((event) => event.slug), summerOnTheRivieraEvent.slug]);
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 
@@ -46,6 +49,8 @@ describe("content graph audit", () => {
     expect(unique(guideArticles.map((article) => article.id))).toBe(true);
     expect(unique(places.map((place) => place.id))).toBe(true);
     expect(unique(apartments.map((apartment) => apartment.slug))).toBe(true);
+    expect(unique(localPartners.map((partner) => partner.id))).toBe(true);
+    expect(unique(guestPerks.map((perk) => perk.id))).toBe(true);
     expect(unique(rivieraEvents.map((event) => event.slug))).toBe(true);
     expect(unique(rivieraEvents.flatMap((event) => (event.occurrenceSlug ? [event.slug, event.occurrenceSlug] : [event.slug])))).toBe(true);
   });
@@ -156,6 +161,32 @@ describe("content graph audit", () => {
       if (event.featured && getEventDateStatus(event) === "past") {
         failures.push(`${event.slug} is expired and still featured`);
       }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps guest perks private-first and partner references valid", () => {
+    const failures: string[] = [];
+
+    for (const partner of localPartners) {
+      if (partner.status === "sponsored" && partner.publicVisibility !== "sponsored") {
+        failures.push(`${partner.id} sponsored status requires sponsored visibility`);
+      }
+      if (partner.publicVisibility === "sponsored" && partner.status !== "sponsored") {
+        failures.push(`${partner.id} sponsored visibility requires sponsored status`);
+      }
+      if (partner.status === "sampling" && partner.publicVisibility !== "none" && partner.publicVisibility !== "guest_only") {
+        failures.push(`${partner.id} sampling must not imply public placement`);
+      }
+      if (partner.publicVisibility === "sponsored" && partner.website && partnerLinkRel(partner) !== "sponsored") {
+        failures.push(`${partner.id} sponsored website link missing rel helper`);
+      }
+    }
+
+    for (const perk of guestPerks) {
+      if (!partnerIds.has(perk.partnerId)) failures.push(`${perk.id} partnerId -> ${perk.partnerId}`);
+      if (perk.visibility === "guest_only" && !perk.requiresBooking) failures.push(`${perk.id} guest-only perk should require booking`);
     }
 
     expect(failures).toEqual([]);

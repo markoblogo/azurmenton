@@ -313,6 +313,7 @@ export default async function EventArticlePage({ params }: PageProps) {
             endDate: event.endDate,
             locationName: event.city ?? event.location,
             image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
+            eventStatus: eventStatus === "past" ? "completed" : "scheduled",
           })}
         />
       ) : null}

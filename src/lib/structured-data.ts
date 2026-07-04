@@ -146,12 +146,19 @@ export function vacationRentalJsonLd(input: {
   accommodationCategory: string;
   occupancy: number;
   rooms: number;
+  bedrooms?: string;
+  bathrooms?: string;
+  beds?: string;
   sizeSqm: number;
   amenities: string[];
 }) {
+  const bedroomCount = numberFromText(input.bedrooms);
+  const bathroomCount = numberFromText(input.bathrooms);
+
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
+    "@id": `${input.url}#vacation-rental`,
     identifier: input.identifier,
     name: input.name,
     description: input.description,
@@ -164,15 +171,6 @@ export function vacationRentalJsonLd(input: {
       value: input.sizeSqm,
       unitCode: "MTK",
     },
-    occupancy: {
-      "@type": "QuantitativeValue",
-      value: input.occupancy,
-    },
-    amenityFeature: input.amenities.map((amenity) => ({
-      "@type": "LocationFeatureSpecification",
-      name: amenity,
-      value: true,
-    })),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Menton",
@@ -185,8 +183,28 @@ export function vacationRentalJsonLd(input: {
       longitude: 7.4975,
     },
     containsPlace: {
-      "@type": "Place",
-      name: "Menton, French Riviera",
+      "@type": "Accommodation",
+      name: input.name,
+      description: input.description,
+      accommodationCategory: input.accommodationCategory,
+      numberOfRooms: input.rooms,
+      ...(bedroomCount !== undefined ? { numberOfBedrooms: bedroomCount } : {}),
+      ...(bathroomCount !== undefined ? { numberOfBathroomsTotal: bathroomCount } : {}),
+      ...(input.beds ? { bed: input.beds } : {}),
+      floorSize: {
+        "@type": "QuantitativeValue",
+        value: input.sizeSqm,
+        unitCode: "MTK",
+      },
+      occupancy: {
+        "@type": "QuantitativeValue",
+        value: input.occupancy,
+      },
+      amenityFeature: input.amenities.map((amenity) => ({
+        "@type": "LocationFeatureSpecification",
+        name: amenity,
+        value: true,
+      })),
       address: {
         "@type": "PostalAddress",
         addressLocality: "Menton",
@@ -205,6 +223,12 @@ export function vacationRentalJsonLd(input: {
       name: "Azur Menton",
     },
   };
+}
+
+function numberFromText(value?: string) {
+  if (!value) return undefined;
+  const match = value.match(/\d+/);
+  return match ? Number(match[0]) : undefined;
 }
 
 export function contactPageJsonLd(input: {
@@ -247,6 +271,7 @@ export function eventJsonLd(input: {
   endDate?: string;
   locationName: string;
   image?: string;
+  eventStatus?: "scheduled" | "completed";
 }) {
   return {
     "@context": "https://schema.org",
@@ -257,7 +282,7 @@ export function eventJsonLd(input: {
     startDate: input.startDate,
     endDate: input.endDate,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus: input.eventStatus === "completed" ? "https://schema.org/EventCompleted" : "https://schema.org/EventScheduled",
     image: input.image,
     location: {
       "@type": "Place",

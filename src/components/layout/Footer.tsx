@@ -78,6 +78,7 @@ export function Footer({ locale }: { locale: Locale }) {
             ["privacy", "/privacy"],
             ["cookies", "/cookies"],
             ["bookingTerms", "/booking-terms"],
+            ["partners", "/partners"],
           ].map(([key, href]) => (
             <Link key={key} href={`/${locale}${href}` as Route} className="hover:text-white">
               {labels[key]}

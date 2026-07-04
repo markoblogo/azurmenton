@@ -21,6 +21,7 @@ export const routeLabels: Record<Locale, Record<string, string>> = {
     legal: "Legal Notice",
     cookies: "Cookie Policy",
     bookingTerms: "Booking Terms",
+    partners: "For local partners",
   },
   fr: {
     home: "Accueil",
@@ -34,6 +35,7 @@ export const routeLabels: Record<Locale, Record<string, string>> = {
     legal: "Mentions legales",
     cookies: "Politique cookies",
     bookingTerms: "Conditions de reservation",
+    partners: "Partenaires locaux",
   },
   it: {
     home: "Home",
@@ -47,6 +49,7 @@ export const routeLabels: Record<Locale, Record<string, string>> = {
     legal: "Note legali",
     cookies: "Politica cookie",
     bookingTerms: "Condizioni di prenotazione",
+    partners: "Per partner locali",
   },
   uk: {
     home: "Головна",
@@ -60,5 +63,6 @@ export const routeLabels: Record<Locale, Record<string, string>> = {
     legal: "Юридична інформація",
     cookies: "Політика cookie",
     bookingTerms: "Умови бронювання",
+    partners: "Для локальних партнерів",
   },
 };

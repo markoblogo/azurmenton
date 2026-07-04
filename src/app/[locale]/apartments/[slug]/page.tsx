@@ -780,6 +780,9 @@ export default async function ApartmentPage({ params }: PageProps) {
           accommodationCategory: apartment.structuredData.accommodationCategory,
           occupancy: apartment.structuredData.occupancy,
           rooms: apartment.structuredData.numberOfRooms,
+          bedrooms: apartment.bedrooms,
+          bathrooms: apartment.bathrooms,
+          beds: apartment.beds,
           sizeSqm: apartment.sizeSqm,
           amenities: apartment.amenities.map((amenity) => amenity[safeLocale]),
         })}

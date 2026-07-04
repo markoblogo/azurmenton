@@ -58,6 +58,9 @@ describe("structured data builders", () => {
       occupancy: 3,
       rooms: 1,
       sizeSqm: 27,
+      bedrooms: "Studio",
+      bathrooms: "1 bathroom",
+      beds: "1 double bed and 1 sofa bed",
       amenities: ["Air conditioning"],
     });
 
@@ -68,12 +71,27 @@ describe("structured data builders", () => {
         "@type": "GeoCoordinates",
       },
       containsPlace: {
-        "@type": "Place",
+        "@type": "Accommodation",
+        occupancy: {
+          value: 3,
+        },
+        numberOfBathroomsTotal: 1,
+        bed: "1 double bed and 1 sofa bed",
+        amenityFeature: [
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Air conditioning",
+            value: true,
+          },
+        ],
       },
       containedInPlace: {
         "@id": "https://azurmenton.com/#lodging-business",
       },
     });
+    expect(data).not.toHaveProperty("aggregateRating");
+    expect(data).not.toHaveProperty("review");
+    expect(data).not.toHaveProperty("priceRange");
     expect(data).not.toHaveProperty("additionalType");
   });
 
@@ -101,6 +119,7 @@ describe("structured data builders", () => {
       startDate: "2027-02-09",
       endDate: "2027-02-28",
       locationName: "Nice",
+      eventStatus: "scheduled",
     });
 
     expect(data).toMatchObject({
@@ -111,6 +130,23 @@ describe("structured data builders", () => {
       location: {
         "@type": "Place",
       },
+    });
+  });
+
+  it("can mark confirmed past events as completed", () => {
+    const data = eventJsonLd({
+      name: "Past event",
+      description: "A completed event.",
+      url: "https://azurmenton.com/en/events/past-event",
+      startDate: "2026-06-01",
+      endDate: "2026-06-02",
+      locationName: "Menton",
+      eventStatus: "completed",
+    });
+
+    expect(data).toMatchObject({
+      "@type": "Event",
+      eventStatus: "https://schema.org/EventCompleted",
     });
   });
 });

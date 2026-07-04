@@ -15,6 +15,17 @@ const pages = [
   {
     path: "/en/apartments/sea-view-balcony-studio",
     requiredJsonLdTypes: ["VacationRental", "BreadcrumbList"],
+    validateJsonLd: validateVacationRental,
+  },
+  {
+    path: "/en/events/nice-carnival",
+    requiredJsonLdTypes: ["Article", "BreadcrumbList"],
+    validateJsonLd: validateConfirmedEvent,
+  },
+  {
+    path: "/en/events/menton-lemon-festival",
+    requiredJsonLdTypes: ["Article", "BreadcrumbList"],
+    validateJsonLd: validatePendingEvent,
   },
   {
     path: "/en/check-availability",
@@ -62,7 +73,55 @@ async function validatePage(page) {
     }
   }
 
+  page.validateJsonLd?.(jsonLd, page.path);
+
   console.log(`ok ${page.path}: ${[...foundTypes].join(", ")}`);
+}
+
+function warn(path, message) {
+  console.warn(`warn ${path}: ${message}`);
+}
+
+function findJsonLd(jsonLd, type) {
+  return jsonLd.find((item) => jsonLdType(item).includes(type));
+}
+
+function validateVacationRental(jsonLd, path) {
+  const rental = findJsonLd(jsonLd, "VacationRental");
+  if (!rental) return;
+
+  const containsPlace = rental.containsPlace;
+  const checks = [
+    ["identifier", rental.identifier],
+    ["name", rental.name],
+    ["description", rental.description],
+    ["image", Array.isArray(rental.image) && rental.image.length > 0],
+    ["url", rental.url],
+    ["address", rental.address],
+    ["geo", rental.geo],
+    ["containsPlace Accommodation", containsPlace?.["@type"] === "Accommodation"],
+    ["containsPlace.occupancy", containsPlace?.occupancy?.value],
+    ["containsPlace.floorSize", containsPlace?.floorSize?.value],
+    ["containsPlace.amenityFeature", Array.isArray(containsPlace?.amenityFeature) && containsPlace.amenityFeature.length > 0],
+  ];
+
+  for (const [label, value] of checks) {
+    if (!value) warn(path, `VacationRental missing ${label}`);
+  }
+
+  for (const forbidden of ["aggregateRating", "review", "price", "priceRange", "availability"]) {
+    if (rental[forbidden] !== undefined) warn(path, `VacationRental should not include ${forbidden}`);
+  }
+}
+
+function validateConfirmedEvent(jsonLd, path) {
+  const event = findJsonLd(jsonLd, "Event");
+  if (event && !event.startDate) warn(path, "confirmed Event JSON-LD missing startDate");
+}
+
+function validatePendingEvent(jsonLd, path) {
+  const event = findJsonLd(jsonLd, "Event");
+  if (event) warn(path, "pending event page outputs Event JSON-LD");
 }
 
 for (const page of pages) {
