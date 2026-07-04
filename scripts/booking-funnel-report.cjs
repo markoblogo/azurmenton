@@ -2,16 +2,29 @@
 
 const events = [
   "check_availability_view",
+  "guide_cta_click",
+  "event_cta_click",
+  "apartment_cta_click",
   "booking_form_start",
   "booking_request_submit_success",
   "booking_request_submit_error",
+  "whatsapp_click",
+  "email_click",
 ];
 
 const props = [
   "locale",
   "page_type",
   "page_path",
+  "sourcePageType",
+  "sourceSlug",
+  "sourceGuideSlug",
+  "sourceEventSlug",
+  "sourceApartmentSlug",
   "apartment",
+  "apartmentPreference",
+  "visitingForEvent",
+  "dateFlexibility",
   "parking",
   "preferred_language",
   "has_dates",
@@ -26,8 +39,11 @@ const props = [
 const dashboardViews = [
   "Funnel by locale: check_availability_view -> booking_form_start -> booking_request_submit_success",
   "Funnel by page_type: check_availability_view -> booking_form_start -> booking_request_submit_success",
+  "Source conversion: guide_cta_click/event_cta_click/apartment_cta_click -> check_availability_view -> booking_request_submit_success by sourceSlug",
+  "Guide impact: guide_cta_click and booking_request_submit_success by sourceGuideSlug",
+  "Event impact: event_cta_click and booking_request_submit_success by sourceEventSlug",
   "Submission error rate: booking_request_submit_error / booking_form_start by locale and apartment",
-  "Apartment demand: booking_request_submit_success by apartment, stay_nights and lead_time_days",
+  "Apartment demand: booking_request_submit_success by apartmentPreference, stay_nights and lead_time_days",
   "Contact preference quality: success/error by has_email and has_phone",
 ];
 

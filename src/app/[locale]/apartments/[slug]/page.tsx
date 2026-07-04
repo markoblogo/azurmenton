@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
 import { ShareActions } from "@/components/content/ShareActions";
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { Button } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments, getApartment, type Apartment } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { imageObjectPosition } from "@/lib/apartment-images";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { breadcrumbJsonLd, vacationRentalJsonLd } from "@/lib/structured-data";
@@ -745,6 +747,17 @@ export default async function ApartmentPage({ params }: PageProps) {
   const story = stories[apartment.slug][safeLocale];
   const facts = localizedFacts[apartment.slug][safeLocale];
   const apartmentUrl = absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`));
+  const sourceAttribution = {
+    sourcePageType: "apartment" as const,
+    sourceSlug: apartment.slug,
+    sourceApartmentSlug: apartment.slug,
+  };
+  const apartmentCtaProps = {
+    locale: safeLocale,
+    ...compactBookingAttributionProps(sourceAttribution),
+  };
+  const apartmentBookingHref = bookingAttributionHref(safeLocale, sourceAttribution);
+  const primaryButtonClassName = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonVariants.primary}`;
   const [hero, supportingOne, supportingTwo] = heroImages(apartment);
 
   const glanceItems = [
@@ -797,7 +810,7 @@ export default async function ApartmentPage({ params }: PageProps) {
                 ))}
               </div>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button href={`/${safeLocale}/check-availability`}>{labels.checkAvailability}</Button>
+                <TrackedLink className={primaryButtonClassName} eventName={bookingFunnelEvents.apartmentCtaClick} href={apartmentBookingHref} props={apartmentCtaProps}>{labels.checkAvailability}</TrackedLink>
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">
                   {copy.compare}
                 </Button>
@@ -992,7 +1005,7 @@ export default async function ApartmentPage({ params }: PageProps) {
             <h2 className="serif-heading text-4xl leading-tight text-white sm:text-6xl">{copy.finalTitle}</h2>
             <p className="mt-5 text-base leading-7 text-white/72">{copy.finalText}</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button href={`/${safeLocale}/check-availability`}>{labels.checkAvailability}</Button>
+              <TrackedLink className={primaryButtonClassName} eventName={bookingFunnelEvents.apartmentCtaClick} href={apartmentBookingHref} props={apartmentCtaProps}>{labels.checkAvailability}</TrackedLink>
               <Link
                 className="inline-flex min-h-11 items-center justify-center border border-white/35 px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 href={`/${safeLocale}/apartments`}

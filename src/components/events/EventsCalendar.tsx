@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { useMemo, useState } from "react";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { EventImage } from "@/components/events/EventImage";
 import {
   eventCategoryLabels,
@@ -20,6 +21,7 @@ import {
   type RivieraEvent,
 } from "@/content/riviera-events";
 import type { Locale } from "@/i18n/locales";
+import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { getEventDateStatus, type EventDateStatus } from "@/lib/events";
 
 const locations: Array<"all" | EventLocation> = [
@@ -424,12 +426,25 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
               {copy[locale].eventDetails}
             </Link>
           ) : null}
-          <Link
-            href={`/${locale}/check-availability` as Route}
+          <TrackedLink
+            eventName={bookingFunnelEvents.eventCtaClick}
+            href={bookingAttributionHref(locale, {
+              sourcePageType: "event",
+              sourceSlug: event.slug,
+              sourceEventSlug: event.slug,
+            })}
+            props={{
+              locale,
+              ...compactBookingAttributionProps({
+                sourcePageType: "event",
+                sourceSlug: event.slug,
+                sourceEventSlug: event.slug,
+              }),
+            }}
             className="inline-flex min-h-10 items-center justify-center border border-[#173f36] bg-[#173f36] px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
           >
             {copy[locale].availability}
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </article>

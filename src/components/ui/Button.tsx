@@ -9,7 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
 };
 
-const variants = {
+export const buttonVariants = {
   primary:
     "border border-[#173f36] bg-[#173f36] text-white hover:bg-[#102f28] focus-visible:outline-[#173f36]",
   secondary:
@@ -23,7 +23,7 @@ export function Button({
   variant = "primary",
   type = "button",
 }: ButtonProps) {
-  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${variants[variant]}`;
+  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${buttonVariants[variant]}`;
 
   if (href) {
     return (

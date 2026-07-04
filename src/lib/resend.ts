@@ -29,6 +29,33 @@ function parkingLabel(value: string) {
   return labels[value] ?? value;
 }
 
+function eventLabel(value: string) {
+  const labels: Record<string, string> = {
+    "not-sure": "No specific event / not sure",
+    "menton-lemon-festival": "Fete du Citron / Lemon Festival",
+    "monaco-grand-prix": "Monaco Grand Prix",
+    "monaco-yacht-show": "Monaco Yacht Show",
+    "nice-carnival": "Nice Carnival",
+    "sanremo-music-festival": "Sanremo Music Festival",
+    "rolex-monte-carlo-masters": "Rolex Monte-Carlo Masters",
+    "monaco-e-prix": "Monaco E-Prix",
+    other: "Other",
+  };
+
+  return labels[value] ?? value;
+}
+
+function dateFlexibilityLabel(value: string) {
+  const labels: Record<string, string> = {
+    fixed: "Fixed dates",
+    "one-two-days": "Flexible by 1-2 days",
+    "same-week": "Flexible within the same week",
+    "flexible-month": "Flexible month / looking for suggestions",
+  };
+
+  return labels[value] ?? value;
+}
+
 function languageLabel(value: string) {
   const labels: Record<string, string> = {
     en: "English",
@@ -56,6 +83,8 @@ function buildEmailHtml(payload: BookingRequestPayload) {
     ["Adults", payload.adults],
     ["Children", payload.children],
     ["Need parking", parkingLabel(payload.parking)],
+    ["Visiting for event", eventLabel(payload.visitingForEvent)],
+    ["Date flexibility", dateFlexibilityLabel(payload.dateFlexibility)],
     ["Preferred language", languageLabel(payload.preferredLanguage)],
     ["Name", payload.name],
     ["Email", payload.email || "Not provided"],
@@ -92,6 +121,8 @@ function buildEmailText(payload: BookingRequestPayload) {
     ["Adults", payload.adults],
     ["Children", payload.children],
     ["Need parking", parkingLabel(payload.parking)],
+    ["Visiting for event", eventLabel(payload.visitingForEvent)],
+    ["Date flexibility", dateFlexibilityLabel(payload.dateFlexibility)],
     ["Preferred language", languageLabel(payload.preferredLanguage)],
     ["Name", payload.name],
     ["Email", payload.email || "Not provided"],

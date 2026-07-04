@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { siteConfig } from "@/config/site";
 import { routeLabels } from "@/content/navigation";
 import type { Locale } from "@/i18n/locales";
 import { FooterLanguageSwitcher } from "@/components/layout/FooterLanguageSwitcher";
+import { bookingFunnelEvents } from "@/lib/analytics";
 
 const footerCopy: Record<Locale, { intro: string; directContact: string; languages: string; siteBy: string }> = {
   en: {
@@ -36,6 +38,7 @@ const footerCopy: Record<Locale, { intro: string; directContact: string; languag
 export function Footer({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
   const copy = footerCopy[locale];
+  const footerTrackingProps = { locale, sourcePageType: "other" as const, sourceSlug: "footer" };
 
   return (
     <footer className="border-t border-[#243c35] bg-[#111615] text-white">
@@ -84,12 +87,12 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="self-start text-sm leading-6 text-white/70">
           <p className="editorial-label">{copy.directContact}</p>
           <p className="mt-2">
-            <a className="hover:text-white" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            <TrackedLink className="hover:text-white" eventName={bookingFunnelEvents.emailClick} href={`mailto:${siteConfig.email}`} props={footerTrackingProps}>{siteConfig.email}</TrackedLink>
           </p>
           <p className="mt-1">
-            <a className="hover:text-white" href={siteConfig.whatsappHref} rel="noopener noreferrer" target="_blank">
+            <TrackedLink className="hover:text-white" eventName={bookingFunnelEvents.whatsappClick} href={siteConfig.whatsappHref} props={footerTrackingProps} rel="noopener noreferrer" target="_blank">
               WhatsApp {siteConfig.whatsappDisplay}
-            </a>
+            </TrackedLink>
           </p>
           <Link
             href={`/${locale}/check-availability` as Route}

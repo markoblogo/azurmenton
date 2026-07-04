@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Route } from "next";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
@@ -21,6 +22,7 @@ import {
   sourceStatusLabels,
 } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { canRenderEventJsonLd, getEventDateStatus } from "@/lib/events";
 import { articleJsonLd, breadcrumbJsonLd, eventJsonLd } from "@/lib/structured-data";
@@ -257,6 +259,16 @@ export default async function EventArticlePage({ params }: PageProps) {
   const relatedApartmentKeys =
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
+  const sourceAttribution = {
+    sourcePageType: "event" as const,
+    sourceSlug: event.slug,
+    sourceEventSlug: event.slug,
+  };
+  const eventCtaProps = {
+    locale,
+    ...compactBookingAttributionProps(sourceAttribution),
+  };
+  const eventBookingHref = bookingAttributionHref(locale, sourceAttribution);
   const detail = event.detailContent;
   const eventFacts: Array<[string, string]> = [
     [labels.date, dateLabel],
@@ -322,12 +334,14 @@ export default async function EventArticlePage({ params }: PageProps) {
                 </span>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href={`/${locale}/check-availability` as Route}
+                <TrackedLink
+                  eventName={bookingFunnelEvents.eventCtaClick}
+                  href={eventBookingHref}
+                  props={eventCtaProps}
                   className="inline-flex min-h-11 items-center justify-center border border-[#173f36] bg-[#173f36] px-5 text-xs font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
                 >
                   {labels.availability}
-                </Link>
+                </TrackedLink>
                 <Link
                   href={`/${locale}/apartments` as Route}
                   className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] px-5 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
@@ -502,9 +516,9 @@ export default async function EventArticlePage({ params }: PageProps) {
                 <p className="editorial-label">{labels.sidePlan}</p>
                 <h2 className="serif-heading mt-2 text-3xl leading-none text-[#17313a]">{labels.links}</h2>
                 <div className="mt-4 grid gap-3">
-                  <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/check-availability` as Route}>
+                  <TrackedLink className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" eventName={bookingFunnelEvents.eventCtaClick} href={eventBookingHref} props={eventCtaProps}>
                     {labels.availability}
-                  </Link>
+                  </TrackedLink>
                   <Link className="border-b border-[#dfd4c1] pb-3 text-sm font-semibold text-[#0b6f8f]" href={`/${locale}/apartments` as Route}>
                     {labels.viewApartments}
                   </Link>
@@ -547,6 +561,9 @@ export default async function EventArticlePage({ params }: PageProps) {
             text={event.bookingTip[locale]}
             primaryLabel={labels.availability}
             secondaryLabel={labels.viewApartments}
+            sourceAttribution={sourceAttribution}
+            trackingEventName={bookingFunnelEvents.eventCtaClick}
+            trackingProps={eventCtaProps}
           />
         </Container>
       </section>

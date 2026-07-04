@@ -1,13 +1,31 @@
 export const bookingFunnelEvents = {
   checkAvailabilityView: "check_availability_view",
+  guideCtaClick: "guide_cta_click",
+  eventCtaClick: "event_cta_click",
+  apartmentCtaClick: "apartment_cta_click",
   bookingFormStart: "booking_form_start",
   bookingRequestSubmitSuccess: "booking_request_submit_success",
   bookingRequestSubmitError: "booking_request_submit_error",
+  whatsappClick: "whatsapp_click",
+  emailClick: "email_click",
 } as const;
 
 export type BookingFunnelEvent = (typeof bookingFunnelEvents)[keyof typeof bookingFunnelEvents];
 export type BookingFunnelPageType = "home" | "apartments" | "apartment_detail" | "guide" | "guide_detail" | "events" | "event_detail" | "check_availability" | "contact" | "other";
 export type BookingFunnelProps = Record<string, string | number | boolean>;
+export type BookingSourcePageType = "home" | "apartment" | "guide" | "event" | "stay" | "other";
+
+export type BookingSourceAttribution = {
+  sourcePageType: BookingSourcePageType;
+  sourceSlug?: string;
+  sourceGuideSlug?: string;
+  sourceEventSlug?: string;
+  sourceApartmentSlug?: string;
+};
+
+type SearchParamsLike = {
+  get(name: string): string | null;
+};
 
 type PlausibleWindow = Window & {
   plausible?: (eventName: string, options?: { props?: Record<string, string | number | boolean> }) => void;
@@ -37,6 +55,80 @@ export function getBookingFunnelPageType(pathname: string): BookingFunnelPageTyp
   if (page === "contact") return "contact";
 
   return "other";
+}
+
+export function sourcePageTypeFromPathname(pathname: string): BookingSourcePageType {
+  const pageType = getBookingFunnelPageType(pathname);
+
+  if (pageType === "home") return "home";
+  if (pageType === "apartment_detail" || pageType === "apartments") return "apartment";
+  if (pageType === "guide_detail" || pageType === "guide") return "guide";
+  if (pageType === "event_detail" || pageType === "events") return "event";
+  if (pageType === "check_availability") return "stay";
+
+  return "other";
+}
+
+export function sourceSlugFromPathname(pathname: string) {
+  const segments = pathname.split("/").filter(Boolean);
+  return segments[2] ?? "";
+}
+
+export function bookingAttributionHref(locale: string, attribution?: BookingSourceAttribution) {
+  const base = `/${locale}/check-availability`;
+
+  if (!attribution) {
+    return base;
+  }
+
+  const params = new URLSearchParams();
+  params.set("sourcePageType", attribution.sourcePageType);
+
+  if (attribution.sourceSlug) params.set("sourceSlug", attribution.sourceSlug);
+  if (attribution.sourceGuideSlug) params.set("sourceGuideSlug", attribution.sourceGuideSlug);
+  if (attribution.sourceEventSlug) params.set("sourceEventSlug", attribution.sourceEventSlug);
+  if (attribution.sourceApartmentSlug) params.set("sourceApartmentSlug", attribution.sourceApartmentSlug);
+
+  return `${base}?${params.toString()}`;
+}
+
+export function compactBookingAttributionProps(attribution?: Partial<BookingSourceAttribution>) {
+  if (!attribution?.sourcePageType) {
+    return {};
+  }
+
+  return {
+    sourcePageType: attribution.sourcePageType,
+    ...(attribution.sourceSlug ? { sourceSlug: attribution.sourceSlug } : {}),
+    ...(attribution.sourceGuideSlug ? { sourceGuideSlug: attribution.sourceGuideSlug } : {}),
+    ...(attribution.sourceEventSlug ? { sourceEventSlug: attribution.sourceEventSlug } : {}),
+    ...(attribution.sourceApartmentSlug ? { sourceApartmentSlug: attribution.sourceApartmentSlug } : {}),
+  };
+}
+
+const validSourcePageTypes = new Set<BookingSourcePageType>(["home", "apartment", "guide", "event", "stay", "other"]);
+
+function sourceParam(searchParams: SearchParamsLike, key: keyof BookingSourceAttribution) {
+  return String(searchParams.get(key) ?? "").trim();
+}
+
+export function attributionFromSearchParams(searchParams: SearchParamsLike, pathname: string): BookingSourceAttribution {
+  const sourcePageType = sourceParam(searchParams, "sourcePageType");
+  const sourceSlug = sourceParam(searchParams, "sourceSlug");
+  const sourceGuideSlug = sourceParam(searchParams, "sourceGuideSlug");
+  const sourceEventSlug = sourceParam(searchParams, "sourceEventSlug");
+  const sourceApartmentSlug = sourceParam(searchParams, "sourceApartmentSlug");
+  const fallbackSlug = sourceSlugFromPathname(pathname);
+
+  return {
+    sourcePageType: validSourcePageTypes.has(sourcePageType as BookingSourcePageType)
+      ? (sourcePageType as BookingSourcePageType)
+      : sourcePageTypeFromPathname(pathname),
+    ...(sourceSlug ? { sourceSlug } : fallbackSlug ? { sourceSlug: fallbackSlug } : {}),
+    ...(sourceGuideSlug ? { sourceGuideSlug } : {}),
+    ...(sourceEventSlug ? { sourceEventSlug } : {}),
+    ...(sourceApartmentSlug ? { sourceApartmentSlug } : {}),
+  };
 }
 
 export function daysBetweenDates(start: string, end: string) {

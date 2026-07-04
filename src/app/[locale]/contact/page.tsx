@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import { isLocale, type Locale } from "@/i18n/locales";
+import { bookingFunnelEvents } from "@/lib/analytics";
 import { createMetadata } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 
@@ -141,6 +143,7 @@ function localPath(locale: Locale, href: string) {
 export default async function ContactPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
+  const contactTrackingProps = { locale: safeLocale, sourcePageType: "other" as const, sourceSlug: "contact" };
 
   return (
     <>
@@ -202,20 +205,24 @@ export default async function ContactPage({ params }: PageProps) {
               <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36]">WhatsApp & email</h2>
               <p className="mt-4 text-sm leading-6 text-[#5f574c]">{copy.response[safeLocale]}</p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a
+                <TrackedLink
                   className="inline-flex min-h-11 items-center justify-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#102f28]"
+                  eventName={bookingFunnelEvents.emailClick}
                   href={`mailto:${siteConfig.email}`}
+                  props={contactTrackingProps}
                 >
                   {copy.email[safeLocale]}
-                </a>
-                <a
+                </TrackedLink>
+                <TrackedLink
                   className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#f3ead7]"
+                  eventName={bookingFunnelEvents.whatsappClick}
                   href={siteConfig.whatsappHref}
+                  props={contactTrackingProps}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   {copy.whatsapp[safeLocale]}
-                </a>
+                </TrackedLink>
               </div>
             </Card>
           </div>

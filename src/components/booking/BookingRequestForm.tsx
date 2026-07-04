@@ -2,13 +2,22 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useActionState, useCallback, useEffect, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
-import { bookingFunnelEvents, daysBetweenDates, getBookingFunnelPageType, leadTimeDays, trackBookingFunnelEvent, type BookingFunnelProps } from "@/lib/analytics";
+import {
+  bookingFunnelEvents,
+  compactBookingAttributionProps,
+  attributionFromSearchParams,
+  daysBetweenDates,
+  getBookingFunnelPageType,
+  leadTimeDays,
+  trackBookingFunnelEvent,
+  type BookingFunnelProps,
+} from "@/lib/analytics";
 
 const initialState: BookingRequestState = {
   status: "idle",
@@ -30,6 +39,21 @@ const formCopy = {
     adults: "Adults",
     children: "Children",
     parking: "Need parking?",
+    visitingForEvent: "Are you visiting for a specific event?",
+    eventNotSure: "No specific event / not sure",
+    lemonFestival: "Fête du Citron / Lemon Festival",
+    monacoGrandPrix: "Monaco Grand Prix",
+    monacoYachtShow: "Monaco Yacht Show",
+    niceCarnival: "Nice Carnival",
+    sanremoMusicFestival: "Sanremo Music Festival",
+    rolexMasters: "Rolex Monte-Carlo Masters",
+    monacoEPrix: "Monaco E-Prix",
+    otherEvent: "Other",
+    dateFlexibility: "Are your dates flexible?",
+    fixedDates: "Fixed dates",
+    oneTwoDays: "Flexible by 1-2 days",
+    sameWeek: "Flexible within the same week",
+    flexibleMonth: "Flexible month / looking for suggestions",
     yes: "Yes",
     no: "No",
     notSureShort: "Not sure",
@@ -61,6 +85,21 @@ const formCopy = {
     adults: "Adultes",
     children: "Enfants",
     parking: "Besoin de parking ?",
+    visitingForEvent: "Venez-vous pour un événement précis ?",
+    eventNotSure: "Pas d’événement précis / pas encore sûr",
+    lemonFestival: "Fête du Citron",
+    monacoGrandPrix: "Grand Prix de Monaco",
+    monacoYachtShow: "Monaco Yacht Show",
+    niceCarnival: "Carnaval de Nice",
+    sanremoMusicFestival: "Festival de Sanremo",
+    rolexMasters: "Rolex Monte-Carlo Masters",
+    monacoEPrix: "Monaco E-Prix",
+    otherEvent: "Autre",
+    dateFlexibility: "Vos dates sont-elles flexibles ?",
+    fixedDates: "Dates fixes",
+    oneTwoDays: "Flexibles de 1-2 jours",
+    sameWeek: "Flexibles dans la même semaine",
+    flexibleMonth: "Mois flexible / besoin de suggestions",
     yes: "Oui",
     no: "Non",
     notSureShort: "Pas sur",
@@ -92,6 +131,21 @@ const formCopy = {
     adults: "Adulti",
     children: "Bambini",
     parking: "Serve parcheggio?",
+    visitingForEvent: "Stai venendo per un evento specifico?",
+    eventNotSure: "Nessun evento specifico / non sicuro",
+    lemonFestival: "Festa del Limone / Fête du Citron",
+    monacoGrandPrix: "Gran Premio di Monaco",
+    monacoYachtShow: "Monaco Yacht Show",
+    niceCarnival: "Carnevale di Nizza",
+    sanremoMusicFestival: "Festival di Sanremo",
+    rolexMasters: "Rolex Monte-Carlo Masters",
+    monacoEPrix: "Monaco E-Prix",
+    otherEvent: "Altro",
+    dateFlexibility: "Le tue date sono flessibili?",
+    fixedDates: "Date fisse",
+    oneTwoDays: "Flessibili di 1-2 giorni",
+    sameWeek: "Flessibili nella stessa settimana",
+    flexibleMonth: "Mese flessibile / cerco suggerimenti",
     yes: "Si",
     no: "No",
     notSureShort: "Non so",
@@ -123,6 +177,21 @@ const formCopy = {
     adults: "Дорослі",
     children: "Діти",
     parking: "Потрібен паркінг?",
+    visitingForEvent: "Ви їдете на конкретну подію?",
+    eventNotSure: "Без конкретної події / ще не впевнені",
+    lemonFestival: "Fête du Citron / Фестиваль лимонів",
+    monacoGrandPrix: "Гран-прі Монако",
+    monacoYachtShow: "Monaco Yacht Show",
+    niceCarnival: "Карнавал у Ніцці",
+    sanremoMusicFestival: "Фестиваль Санремо",
+    rolexMasters: "Rolex Monte-Carlo Masters",
+    monacoEPrix: "Monaco E-Prix",
+    otherEvent: "Інше",
+    dateFlexibility: "Ваші дати гнучкі?",
+    fixedDates: "Фіксовані дати",
+    oneTwoDays: "Гнучкі на 1-2 дні",
+    sameWeek: "Гнучкі в межах того ж тижня",
+    flexibleMonth: "Гнучкий місяць / потрібні пропозиції",
     yes: "Так",
     no: "Ні",
     notSureShort: "Не впевнений/впевнена",
@@ -153,6 +222,7 @@ export function BookingRequestForm({
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const today = new Date().toISOString().slice(0, 10);
   const labels = formCopy[locale];
   const hasTrackedStart = useRef(false);
@@ -168,12 +238,17 @@ export function BookingRequestForm({
     const childrenCount = Number(formData?.get("children") ?? 0);
     const nights = daysBetweenDates(checkIn, checkOut);
     const leadDays = leadTimeDays(checkIn);
+    const sourceAttribution = attributionFromSearchParams(searchParams, pathname);
 
     return {
       locale,
       page_path: pathname,
       page_type: getBookingFunnelPageType(pathname),
+      ...compactBookingAttributionProps(sourceAttribution),
       apartment: apartment || "unset",
+      apartmentPreference: apartment || "unset",
+      visitingForEvent: String(formData?.get("visitingForEvent") ?? "not-sure"),
+      dateFlexibility: String(formData?.get("dateFlexibility") ?? "fixed"),
       parking: String(formData?.get("parking") ?? "unset"),
       preferred_language: String(formData?.get("preferredLanguage") ?? locale),
       has_dates: Boolean(checkIn && checkOut),
@@ -184,7 +259,7 @@ export function BookingRequestForm({
       ...(nights !== undefined ? { stay_nights: nights } : {}),
       ...(leadDays !== undefined ? { lead_time_days: leadDays } : {}),
     };
-  }, [locale, pathname]);
+  }, [locale, pathname, searchParams]);
 
   function trackFormStart() {
     if (hasTrackedStart.current) {
@@ -275,6 +350,32 @@ export function BookingRequestForm({
                   {localeLabels[item]}
                 </option>
               ))}
+            </select>
+          </label>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
+            {labels.visitingForEvent}
+            <select className="field" name="visitingForEvent" defaultValue="not-sure">
+              <option value="not-sure">{labels.eventNotSure}</option>
+              <option value="menton-lemon-festival">{labels.lemonFestival}</option>
+              <option value="monaco-grand-prix">{labels.monacoGrandPrix}</option>
+              <option value="monaco-yacht-show">{labels.monacoYachtShow}</option>
+              <option value="nice-carnival">{labels.niceCarnival}</option>
+              <option value="sanremo-music-festival">{labels.sanremoMusicFestival}</option>
+              <option value="rolex-monte-carlo-masters">{labels.rolexMasters}</option>
+              <option value="monaco-e-prix">{labels.monacoEPrix}</option>
+              <option value="other">{labels.otherEvent}</option>
+            </select>
+          </label>
+          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
+            {labels.dateFlexibility}
+            <select className="field" name="dateFlexibility" defaultValue="fixed">
+              <option value="fixed">{labels.fixedDates}</option>
+              <option value="one-two-days">{labels.oneTwoDays}</option>
+              <option value="same-week">{labels.sameWeek}</option>
+              <option value="flexible-month">{labels.flexibleMonth}</option>
             </select>
           </label>
         </div>

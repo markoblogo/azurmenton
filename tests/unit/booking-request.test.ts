@@ -15,6 +15,8 @@ function validPayload(overrides: Partial<BookingRequestPayload> = {}): BookingRe
     adults: "2",
     children: "0",
     parking: "not-sure",
+    visitingForEvent: "not-sure",
+    dateFlexibility: "fixed",
     preferredLanguage: "en",
     name: "Guest Name",
     email: "guest@example.com",
@@ -50,6 +52,29 @@ describe("validateBookingRequest", () => {
     expect(validateBookingRequest(validPayload({ apartment: "unknown" }))).toMatchObject({
       ok: false,
       error: "Please choose a valid apartment option.",
+    });
+  });
+
+  it("accepts event intent and date flexibility categories", () => {
+    expect(
+      validateBookingRequest(
+        validPayload({
+          visitingForEvent: "monaco-grand-prix",
+          dateFlexibility: "same-week",
+        }),
+      ),
+    ).toMatchObject({ ok: true });
+  });
+
+  it("rejects unknown event intent and date flexibility values", () => {
+    expect(validateBookingRequest(validPayload({ visitingForEvent: "free text" }))).toMatchObject({
+      ok: false,
+      error: "Please choose a valid event option.",
+    });
+
+    expect(validateBookingRequest(validPayload({ dateFlexibility: "anytime" }))).toMatchObject({
+      ok: false,
+      error: "Please choose a valid date flexibility option.",
     });
   });
 });

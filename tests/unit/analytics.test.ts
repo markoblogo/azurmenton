@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { daysBetweenDates, getBookingFunnelPageType, leadTimeDays } from "../../src/lib/analytics";
+import {
+  attributionFromSearchParams,
+  bookingAttributionHref,
+  daysBetweenDates,
+  getBookingFunnelPageType,
+  leadTimeDays,
+  sourcePageTypeFromPathname,
+} from "../../src/lib/analytics";
 
 describe("booking funnel analytics helpers", () => {
   it("classifies localized page paths by booking funnel page type", () => {
@@ -16,5 +23,29 @@ describe("booking funnel analytics helpers", () => {
     expect(daysBetweenDates("2026-08-01", "2026-08-08")).toBe(7);
     expect(daysBetweenDates("not-a-date", "2026-08-08")).toBeUndefined();
     expect(leadTimeDays("not-a-date")).toBeUndefined();
+  });
+
+  it("builds safe booking source attribution without personal data", () => {
+    expect(sourcePageTypeFromPathname("/en/guide/stay-cool-in-menton-summer")).toBe("guide");
+    expect(sourcePageTypeFromPathname("/en/apartments/sea-view-balcony-studio")).toBe("apartment");
+
+    expect(
+      bookingAttributionHref("en", {
+        sourcePageType: "event",
+        sourceSlug: "monaco-e-prix",
+        sourceEventSlug: "monaco-e-prix",
+      }),
+    ).toBe("/en/check-availability?sourcePageType=event&sourceSlug=monaco-e-prix&sourceEventSlug=monaco-e-prix");
+
+    const attribution = attributionFromSearchParams(
+      new URLSearchParams("sourcePageType=guide&sourceSlug=stay-cool-in-menton-summer&sourceGuideSlug=stay-cool-in-menton-summer"),
+      "/en/check-availability",
+    );
+
+    expect(attribution).toEqual({
+      sourcePageType: "guide",
+      sourceSlug: "stay-cool-in-menton-summer",
+      sourceGuideSlug: "stay-cool-in-menton-summer",
+    });
   });
 });

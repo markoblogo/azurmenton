@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
@@ -17,6 +18,7 @@ import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localiz
 import { getPlaces } from "@/content/places";
 import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
@@ -59,6 +61,16 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedPlaces = getPlaces(relatedPlaceIds);
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
+  const sourceAttribution = {
+    sourcePageType: "guide" as const,
+    sourceSlug: article.slug,
+    sourceGuideSlug: article.slug,
+  };
+  const guideCtaProps = {
+    locale,
+    ...compactBookingAttributionProps(sourceAttribution),
+  };
+  const guideBookingHref = bookingAttributionHref(locale, sourceAttribution);
 
   return (
     <>
@@ -98,7 +110,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
               </div>
               {article.sourceStatus === "needs_verification" ? <p className="mt-5 border-t border-[#dfd2b8] pt-4 text-xs italic leading-5 text-[#71665b]">{copy.sourceNote}</p> : null}
               <div className="mt-5 flex flex-wrap gap-3">
-                <Link className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${locale}/check-availability` as Route}>{copy.check}</Link>
+                <TrackedLink className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" eventName={bookingFunnelEvents.guideCtaClick} href={guideBookingHref} props={guideCtaProps}>{copy.check}</TrackedLink>
                 <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
               </div>
               <div className="mt-4">
@@ -180,7 +192,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
               <div className="border border-[#173f36] bg-[#173f36] p-5 text-white">
                 <h2 className="serif-heading text-2xl leading-none">{copy.finalTitle}</h2>
                 <p className="mt-3 text-sm leading-6 text-[#e8dcc9]">{copy.finalText}</p>
-                <Link className="mt-4 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${locale}/check-availability` as Route}>{copy.check}</Link>
+                <TrackedLink className="mt-4 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" eventName={bookingFunnelEvents.guideCtaClick} href={guideBookingHref} props={guideCtaProps}>{copy.check}</TrackedLink>
               </div>
             </aside>
           </div>
@@ -214,6 +226,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
             text={isTransportGuide ? copy.transportFinalText : isWalkingGuide ? copy.walkingFinalText : (page?.cta.text ?? copy.finalText)}
             primaryLabel={copy.check}
             secondaryLabel={copy.apartments}
+            sourceAttribution={sourceAttribution}
+            trackingEventName={bookingFunnelEvents.guideCtaClick}
+            trackingProps={guideCtaProps}
           />
         </Container>
       </Section>

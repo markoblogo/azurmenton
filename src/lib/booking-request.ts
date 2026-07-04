@@ -5,6 +5,8 @@ export type BookingRequestPayload = {
   adults: string;
   children: string;
   parking: string;
+  visitingForEvent: string;
+  dateFlexibility: string;
   preferredLanguage: string;
   name: string;
   email: string;
@@ -39,6 +41,18 @@ const validApartments = new Set([
 ]);
 
 const validParking = new Set(["yes", "no", "not-sure"]);
+const validVisitingForEvent = new Set([
+  "not-sure",
+  "menton-lemon-festival",
+  "monaco-grand-prix",
+  "monaco-yacht-show",
+  "nice-carnival",
+  "sanremo-music-festival",
+  "rolex-monte-carlo-masters",
+  "monaco-e-prix",
+  "other",
+]);
+const validDateFlexibility = new Set(["fixed", "one-two-days", "same-week", "flexible-month"]);
 const validLanguages = new Set(["en", "fr", "it", "uk"]);
 const honeypotFields = ["website", "company", "url", "homepage"];
 
@@ -64,6 +78,8 @@ export function formDataToBookingPayload(formData: FormData): BookingRequestPayl
     adults: String(formData.get("adults") ?? "").trim(),
     children: String(formData.get("children") ?? "").trim(),
     parking: String(formData.get("parking") ?? "").trim(),
+    visitingForEvent: String(formData.get("visitingForEvent") ?? "not-sure").trim() || "not-sure",
+    dateFlexibility: String(formData.get("dateFlexibility") ?? "fixed").trim() || "fixed",
     preferredLanguage: String(formData.get("preferredLanguage") ?? "").trim(),
     name: String(formData.get("name") ?? "").trim(),
     email: String(formData.get("email") ?? "").trim(),
@@ -87,6 +103,8 @@ export function unknownToBookingPayload(input: unknown): BookingRequestPayload |
     adults: String(record.adults ?? "").trim(),
     children: String(record.children ?? "").trim(),
     parking: String(record.parking ?? "").trim(),
+    visitingForEvent: String(record.visitingForEvent ?? "not-sure").trim() || "not-sure",
+    dateFlexibility: String(record.dateFlexibility ?? "fixed").trim() || "fixed",
     preferredLanguage: String(record.preferredLanguage ?? "").trim(),
     name: String(record.name ?? "").trim(),
     email: String(record.email ?? "").trim(),
@@ -148,6 +166,14 @@ export function validateBookingRequest(payload: BookingRequestPayload): BookingR
 
   if (!validParking.has(payload.parking)) {
     return { ok: false, error: "Please choose a valid parking option." };
+  }
+
+  if (!validVisitingForEvent.has(payload.visitingForEvent)) {
+    return { ok: false, error: "Please choose a valid event option." };
+  }
+
+  if (!validDateFlexibility.has(payload.dateFlexibility)) {
+    return { ok: false, error: "Please choose a valid date flexibility option." };
   }
 
   if (!validLanguages.has(payload.preferredLanguage)) {
@@ -214,6 +240,8 @@ export function createBookingRequestLog(payload: BookingRequestPayload) {
       adults: payload.adults,
       children: payload.children,
       parking: payload.parking,
+      visitingForEvent: payload.visitingForEvent,
+      dateFlexibility: payload.dateFlexibility,
       preferredLanguage: payload.preferredLanguage,
       hasEmail: Boolean(payload.email),
       hasPhone: Boolean(payload.phone),
