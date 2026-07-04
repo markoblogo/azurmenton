@@ -1508,7 +1508,7 @@ export const guideArticles: GuideArticle[] = [
             image: "/images/guide/monet-cap-martin-near-menton.jpg",
             imageAlt: t("Claude Monet, Cap Martin, near Menton", "Claude Monet, Cap Martin, pres de Menton", "Claude Monet, Cap Martin, vicino a Mentone", "Claude Monet, Cap Martin, біля Ментона"),
             sourceUrl: "https://commons.wikimedia.org/wiki/File:Monet_-_Cap_Martin,_near_Menton,_1884.jpg",
-            rightsNote: t("Public-domain image via Wikimedia Commons; verify museum/source metadata before reuse.", "Image domaine public via Wikimedia Commons; verifiez les donnees musee/source avant reutilisation.", "Immagine di pubblico dominio via Wikimedia Commons; verifica metadati museo/fonte prima del riuso.", "Зображення public domain через Wikimedia Commons; перед повторним використанням перевіряйте музейні/джерельні дані."),
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
             locationNote: t("Best connected with Cap Martin and the coastal path looking back toward Menton.", "A relier surtout au Cap Martin et au sentier cotier vers Menton.", "Collegato soprattutto a Cap Martin e al sentiero costiero verso Mentone.", "Найкраще пов'язано з Cap Martin і прибережною стежкою з поглядом назад на Ментон."),
           },
           {
@@ -1528,7 +1528,7 @@ export const guideArticles: GuideArticle[] = [
             year: "1883",
             image: "/images/guide/renoir-landscape-near-menton.jpg",
             sourceUrl: "https://commons.wikimedia.org/wiki/File:Renoir_-_Landscape_on_the_Coast,_near_Menton,_1883.jpg",
-            rightsNote: t("Commons image; use only with source and license review.", "Image Commons; a utiliser avec verification source et licence.", "Immagine Commons; usare con verifica di fonte e licenza.", "Зображення Commons; використовуйте після перевірки джерела й ліцензії."),
+            rightsNote: t("Image via Wikimedia Commons.", "Image via Wikimedia Commons.", "Immagine via Wikimedia Commons.", "Зображення через Wikimedia Commons."),
             locationNote: t("Best linked to the coast near Menton and Cap Martin vegetation viewpoints.", "A relier a la cote pres de Menton et aux points de vue vegetaux du Cap Martin.", "Da collegare alla costa vicino a Mentone e ai punti panoramici verdi di Cap Martin.", "Пов'язано з узбережжям біля Ментона й зеленими точками Cap Martin."),
           },
         ],
@@ -1555,8 +1555,10 @@ export const guideArticles: GuideArticle[] = [
             artist: "Paul Signac",
             workTitle: t("Menton", "Menton", "Mentone", "Ментон"),
             year: "1931",
+            image: "/images/guide/signac-menton-1931.jpg",
+            imageAlt: t("Paul Signac, Menton, 1931", "Paul Signac, Menton, 1931", "Paul Signac, Mentone, 1931", "Paul Signac, Ментон, 1931"),
             sourceUrl: "https://commons.wikimedia.org/wiki/File:Signac_-_Menton,_1931,_lot-5996751.jpg",
-            rightsNote: t("Public-domain Commons reference; image not embedded here until source download is rechecked.", "Reference Commons domaine public; image non integree ici tant que le telechargement source n'est pas reverifie.", "Riferimento Commons di pubblico dominio; immagine non incorporata finche il download fonte non viene ricontrollato.", "Посилання Commons public domain; зображення не вбудовано, доки джерело завантаження не буде повторно перевірено."),
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
             locationNote: t("Likely old port, bay or old-town view; keep the map point approximate.", "Probable vieux port, baie ou vieille ville; gardez le point de carte approximatif.", "Probabile porto antico, baia o centro storico; mantieni approssimativo il punto mappa.", "Ймовірно старий порт, бухта або старе місто; точку на мапі варто лишати приблизною."),
           },
           {
@@ -1564,8 +1566,10 @@ export const guideArticles: GuideArticle[] = [
             artist: "Henri-Edmond Cross",
             workTitle: t("View of Menton", "Vue de Menton", "Veduta di Mentone", "Вид на Ментон"),
             year: "1899-1902",
+            image: "/images/guide/cross-view-of-menton.jpg",
+            imageAlt: t("Henri-Edmond Cross, View of Menton", "Henri-Edmond Cross, Vue de Menton", "Henri-Edmond Cross, Veduta di Mentone", "Henri-Edmond Cross, Вид на Ментон"),
             sourceUrl: "https://www.wikiart.org/en/henri-edmond-cross/view-of-menton-1902",
-            rightsNote: t("Reference only; image rights should be checked before embedding.", "Reference seulement; droits image a verifier avant integration.", "Solo riferimento; verificare i diritti prima di incorporare l'immagine.", "Лише посилання; права на зображення треба перевірити перед вбудовуванням."),
+            rightsNote: t("Reference image from WikiArt for a public-domain artist; keep source attribution visible.", "Image de reference via WikiArt pour un artiste du domaine public; gardez l'attribution source visible.", "Immagine di riferimento da WikiArt per un artista di pubblico dominio; mantieni visibile la fonte.", "Референсне зображення з WikiArt для художника public domain; лишайте видимим посилання на джерело."),
             locationNote: t("Best connected with old-town viewpoints and the cemetery route above the bay.", "A relier aux points de vue de la vieille ville et au cimetiere au-dessus de la baie.", "Collegato ai punti panoramici del centro storico e al cimitero sopra la baia.", "Пов'язано з оглядовими точками старого міста й маршрутом до цвинтаря над бухтою."),
           },
         ],
@@ -1574,7 +1578,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: t("Gardens, frames and lesser-known Menton works", "Jardins, cadres et oeuvres moins connues", "Giardini, cornici e opere meno note", "Сади, рамки й менш відомі роботи про Ментон"),
         body: [
-          t("Not every Menton painting is a harbour panorama. Vallotton frames the town through structure; Corinth and Fry are useful references for palms, gardens and early modernist views. When image rights are unclear, it is better to link than to publish.", "Toutes les peintures de Menton ne sont pas des panoramas de port. Vallotton cadre la ville par une structure; Corinth et Fry sont utiles pour les palmiers, jardins et regards modernistes. Quand les droits sont incertains, mieux vaut lier que publier.", "Non tutti i dipinti di Mentone sono panorami del porto. Vallotton incornicia la citta attraverso una struttura; Corinth e Fry aiutano per palme, giardini e sguardi modernisti. Quando i diritti sono incerti, meglio linkare che pubblicare.", "Не всі картини Ментона - це панорами порту. Vallotton бачить місто крізь структуру; Corinth і Fry корисні для пальм, садів і модерністичного погляду. Коли права неясні, краще дати посилання, а не публікувати."),
+          t("Not every Menton painting is a harbour panorama. Vallotton frames the town through structure; Corinth and Fry are useful references for palms, gardens and early modernist views.", "Toutes les peintures de Menton ne sont pas des panoramas de port. Vallotton cadre la ville par une structure; Corinth et Fry sont utiles pour les palmiers, jardins et regards modernistes.", "Non tutti i dipinti di Mentone sono panorami del porto. Vallotton incornicia la citta attraverso una struttura; Corinth e Fry aiutano per palme, giardini e sguardi modernisti.", "Не всі картини Ментона - це панорами порту. Vallotton бачить місто крізь структуру; Corinth і Fry корисні для пальм, садів і модерністичного погляду."),
         ],
         artworkCards: [
           {
@@ -1582,8 +1586,10 @@ export const guideArticles: GuideArticle[] = [
             artist: "Félix Vallotton",
             workTitle: t("La claire-voie, Menton", "La claire-voie, Menton", "La claire-voie, Menton", "La claire-voie, Menton"),
             year: "1924",
+            image: "/images/guide/vallotton-la-claire-voie-menton.jpg",
+            imageAlt: t("Félix Vallotton, La claire-voie, Menton", "Félix Vallotton, La claire-voie, Menton", "Félix Vallotton, La claire-voie, Menton", "Félix Vallotton, La claire-voie, Menton"),
             sourceUrl: "https://commons.wikimedia.org/wiki/File:F%C3%A9lix_Vallotton,_1924_-_La_claire-voie,_Menton.jpg",
-            rightsNote: t("Commons public-domain reference; image not embedded here after source download limits.", "Reference Commons domaine public; image non integree ici apres limite de telechargement source.", "Riferimento Commons di pubblico dominio; immagine non incorporata dopo limiti di download.", "Посилання Commons public domain; зображення не вбудовано через обмеження завантаження джерела."),
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
             locationNote: t("Best connected with gardens, villas, shaded terraces and framed Menton views.", "A relier aux jardins, villas, terrasses ombragees et vues cadre de Menton.", "Collegato a giardini, ville, terrazze ombreggiate e viste incorniciate.", "Пов'язано із садами, віллами, затіненими терасами й рамковими видами Ментона."),
           },
           {
@@ -1602,8 +1608,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: t("Also worth knowing", "A connaitre aussi", "Da conoscere anche", "Також варто знати"),
         body: [
-          t("Several Menton works are useful to mention but not necessarily to reproduce as images: Winston Churchill's View of Menton from La Pausa, Zinaida Serebriakova's Menton harbour view, Jules Breton's Fishermen at Menton, Roger Fry's View on the Côte d'Azur, Menton, Alfred Stevens' regatta scene, Adolphe Appian's coastal views and Roger Broders' Menton travel poster.", "Plusieurs oeuvres de Menton meritent d'etre citees sans forcement publier l'image: View of Menton from La Pausa de Winston Churchill, la vue du port de Zinaida Serebriakova, Fishermen at Menton de Jules Breton, View on the Côte d'Azur, Menton de Roger Fry, la scene de regates d'Alfred Stevens, les vues cotieres d'Adolphe Appian et l'affiche Menton de Roger Broders.", "Diverse opere su Mentone meritano di essere citate senza pubblicare necessariamente l'immagine: View of Menton from La Pausa di Winston Churchill, la veduta del porto di Zinaida Serebriakova, Fishermen at Menton di Jules Breton, View on the Côte d'Azur, Menton di Roger Fry, la scena di regata di Alfred Stevens, le vedute costiere di Adolphe Appian e il poster di Roger Broders.", "Кілька робіт про Ментон варто згадати без обов'язкової публікації зображення: View of Menton from La Pausa Вінстона Черчилля, портовий вид Зінаїди Серебрякової, Fishermen at Menton Жуля Бретона, View on the Côte d'Azur, Menton Роджера Фрая, регата Alfred Stevens, прибережні види Adolphe Appian і постер Menton Roger Broders."),
-          t("The rule is simple: use museum open images or Commons files where the rights are clear; link rather than embed when the image status is uncertain.", "La regle est simple: utiliser les images musee ouvertes ou fichiers Commons quand les droits sont clairs; faire un lien plutot qu'integrer quand le statut est incertain.", "La regola e semplice: usa immagini open museum o file Commons quando i diritti sono chiari; linka invece di incorporare quando lo status e incerto.", "Правило просте: використовуйте museum open images або Commons-файли, коли права зрозумілі; давайте посилання, а не вбудовуйте, коли статус неясний."),
+          t("Several Menton works are worth looking up as part of the same visual story: Winston Churchill's View of Menton from La Pausa, Zinaida Serebriakova's Menton harbour view, Jules Breton's Fishermen at Menton, Roger Fry's View on the Côte d'Azur, Menton, Alfred Stevens' regatta scene, Adolphe Appian's coastal views and Roger Broders' Menton travel poster.", "Plusieurs oeuvres de Menton valent aussi le detour dans cette meme histoire visuelle: View of Menton from La Pausa de Winston Churchill, la vue du port de Zinaida Serebriakova, Fishermen at Menton de Jules Breton, View on the Côte d'Azur, Menton de Roger Fry, la scene de regates d'Alfred Stevens, les vues cotieres d'Adolphe Appian et l'affiche Menton de Roger Broders.", "Vale la pena cercare anche altre opere mentonesi nella stessa storia visiva: View of Menton from La Pausa di Winston Churchill, la veduta del porto di Zinaida Serebriakova, Fishermen at Menton di Jules Breton, View on the Côte d'Azur, Menton di Roger Fry, la scena di regata di Alfred Stevens, le vedute costiere di Adolphe Appian e il poster di Roger Broders.", "У цій самій візуальній історії варто знайти й інші роботи про Ментон: View of Menton from La Pausa Вінстона Черчилля, портовий вид Зінаїди Серебрякової, Fishermen at Menton Жуля Бретона, View on the Côte d'Azur, Menton Роджера Фрая, регата Alfred Stevens, прибережні види Adolphe Appian і постер Menton Roger Broders."),
         ],
         artworkCards: [
           {
@@ -1611,8 +1616,10 @@ export const guideArticles: GuideArticle[] = [
             artist: "Pieter Franciscus Peters",
             workTitle: t("On the Coast of Menton", "Sur la cote de Menton", "Sulla costa di Mentone", "На узбережжі Ментона"),
             year: "1870",
+            image: "/images/guide/peters-on-the-coast-of-menton.jpg",
+            imageAlt: t("Pieter Franciscus Peters, On the Coast of Menton", "Pieter Franciscus Peters, Sur la cote de Menton", "Pieter Franciscus Peters, Sulla costa di Mentone", "Pieter Franciscus Peters, На узбережжі Ментона"),
             sourceUrl: "https://commons.wikimedia.org/wiki/File:Pieter_Franciscus_Peters_-_On_the_Coast_of_Menton.jpg",
-            rightsNote: t("Public-domain Commons reference; not embedded after source download limits.", "Reference Commons domaine public; non integree apres limite de telechargement source.", "Riferimento Commons pubblico dominio; non incorporato dopo limiti di download.", "Посилання Commons public domain; не вбудовано через обмеження завантаження."),
+            rightsNote: t("Public-domain image via Wikimedia Commons.", "Image domaine public via Wikimedia Commons.", "Immagine di pubblico dominio via Wikimedia Commons.", "Зображення public domain через Wikimedia Commons."),
             locationNote: t("Useful for the older coastal Menton image before the modern resort town.", "Utile pour l'image cotiere plus ancienne de Menton avant la station moderne.", "Utile per l'immagine costiera piu antica di Mentone prima della localita moderna.", "Корисно для старішого прибережного образу Ментона до сучасного курортного міста."),
           },
         ],
@@ -1638,14 +1645,14 @@ export const guideArticles: GuideArticle[] = [
         body: [
           t("Did Monet paint Menton? Yes. Monet painted Menton-area works in 1884, including Cap Martin, near Menton and La route rouge pres de Menton.", "Monet a-t-il peint Menton? Oui. Monet a peint des oeuvres autour de Menton en 1884, notamment Cap Martin, pres de Menton et La route rouge pres de Menton.", "Monet ha dipinto Mentone? Si. Monet dipinse opere nell'area di Mentone nel 1884, tra cui Cap Martin, near Menton e La route rouge pres de Menton.", "Чи малював Monet Ментон? Так. У 1884 році Monet писав роботи району Ментона, зокрема Cap Martin, near Menton і La route rouge pres de Menton."),
           t("Where can I see the locations? Start with Quai Bonaparte and the old port, climb to the Basilica and cemetery viewpoint, then plan Cap Martin for Monet and Renoir.", "Ou voir les lieux? Commencez par le Quai Bonaparte et le vieux port, montez vers la basilique et le cimetiere, puis prevoyez le Cap Martin pour Monet et Renoir.", "Dove vedere i luoghi? Inizia da Quai Bonaparte e dal porto antico, sali alla Basilica e al cimitero, poi programma Cap Martin per Monet e Renoir.", "Де побачити локації? Почніть із Quai Bonaparte і старого порту, підніміться до Basilica та цвинтарної точки, а потім заплануйте Cap Martin для Monet і Renoir."),
-          t("Can all artwork images be published? Not automatically. Use Commons or museum open-access images where the status is clear; link rather than embed when rights are uncertain.", "Peut-on publier toutes les images? Pas automatiquement. Utilisez Commons ou les images musee open access quand le statut est clair; faites un lien quand les droits sont incertains.", "Si possono pubblicare tutte le immagini? Non automaticamente. Usa Commons o immagini open-access dei musei quando lo status e chiaro; linka quando i diritti sono incerti.", "Чи можна публікувати всі зображення? Не автоматично. Використовуйте Commons або museum open-access, коли статус зрозумілий; давайте посилання, коли права неясні."),
+          t("Where can I learn more about each work? Use the source links under the artwork cards to compare museum records, Commons pages or art references before your walk.", "Ou en savoir plus sur chaque oeuvre? Utilisez les liens source sous les cartes pour comparer les notices musee, pages Commons ou references d'art avant la balade.", "Dove posso saperne di piu su ogni opera? Usa i link fonte sotto le schede per confrontare schede museali, pagine Commons o riferimenti artistici prima della passeggiata.", "Де дізнатися більше про кожну роботу? Використовуйте посилання під картками, щоб перед прогулянкою порівняти музейні записи, сторінки Commons або мистецькі довідки."),
         ],
       },
     ],
     practicalTips: [
-      t("Treat exact painting viewpoints as approximate unless a museum or scholarly source identifies the spot.", "Considerez les points de vue comme approximatifs sauf indication precise d'un musee ou d'une source specialisee.", "Considera i punti di vista approssimativi salvo indicazione di museo o fonte specialistica.", "Сприймайте точки огляду як приблизні, якщо музей або спеціалізоване джерело не визначає місце точно."),
-      t("Use Commons or museum open images for publishing; link to later or uncertain works instead of embedding them.", "Utilisez Commons ou les images musee ouvertes pour publier; liez les oeuvres recentes ou incertaines au lieu de les integrer.", "Usa Commons o immagini museali open per pubblicare; linka opere recenti o incerte invece di incorporarle.", "Для публікації використовуйте Commons або відкриті музейні зображення; для пізніших чи неясних робіт давайте посилання."),
-      t("For a practical route, split old port and old town into one walk, then Cap Martin into a separate half-day.", "Pour un parcours pratique, separez vieux port/vieille ville et Cap Martin en deux demi-journees.", "Per un percorso pratico, separa porto antico/centro storico e Cap Martin in due mezze giornate.", "Для практичного маршруту розділіть старий порт/старе місто й Cap Martin на два півдні."),
+      t("Use the painting locations as a mood map rather than a strict set of exact viewpoints.", "Utilisez les lieux des peintures comme une carte d'ambiance plutot que comme une liste de points exacts.", "Usa i luoghi dei dipinti come una mappa d'atmosfera piu che come una lista di punti esatti.", "Сприймайте локації картин як мапу настрою, а не як набір точних точок огляду."),
+      t("Start with the old port and old town, then plan Cap Martin as a separate half-day walk.", "Commencez par le vieux port et la vieille ville, puis prevoyez le Cap Martin comme une demi-journee separee.", "Inizia dal porto antico e dal centro storico, poi programma Cap Martin come mezza giornata separata.", "Почніть зі старого порту й старого міста, а Cap Martin заплануйте як окрему прогулянку на пів дня."),
+      t("Museum and source links are useful if you want to compare the works before walking the route.", "Les liens musee et source sont utiles si vous souhaitez comparer les oeuvres avant la balade.", "I link a musei e fonti sono utili se vuoi confrontare le opere prima della passeggiata.", "Посилання на музеї та джерела корисні, якщо хочете порівняти роботи перед прогулянкою."),
     ],
   }),
   shortArticle({
