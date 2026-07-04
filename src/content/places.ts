@@ -42,6 +42,7 @@ export type Place = {
   address?: string;
   area?: LocalizedText;
   image?: string;
+  images?: string[];
   imageAlt?: LocalizedText;
   visualTheme?: GuideVisualTheme;
   googleMapsUrl?: string;
@@ -2261,7 +2262,7 @@ const rawPlaces: Place[] = [
   },
 ];
 
-const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualTheme">> = {
+const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
   "halles-du-marche": {
     image: "/images/guide/halles-du-marche-place.jpg",
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
@@ -2316,6 +2317,67 @@ const placeVisuals: Record<string, Pick<Place, "image" | "imageAlt" | "visualThe
     image: "/images/guide/office-tourisme-menton-riviera-merveilles.jpg",
     imageAlt: text("Illustration of Office de Tourisme Menton, Riviera & Merveilles", "Illustration de l'Office de Tourisme Menton, Riviera & Merveilles", "Illustrazione dell'Office de Tourisme Menton, Riviera & Merveilles", "Ілюстрація Office de Tourisme Menton, Riviera & Merveilles"),
     visualTheme: "transport",
+  },
+  "col-de-turini": {
+    image: "/images/guide/col-de-turini.jpg",
+    imageAlt: text("Illustration of Col de Turini in the Alpes-Maritimes", "Illustration du Col de Turini dans les Alpes-Maritimes", "Illustrazione del Col de Turini nelle Alpi Marittime", "Ілюстрація Col de Turini в Alpes-Maritimes"),
+    visualTheme: "walk",
+  },
+  "turini-camp-dargent": {
+    image: "/images/guide/turini-camp-dargent.jpg",
+    imageAlt: text("Illustration of Turini Camp d'Argent", "Illustration de Turini Camp d'Argent", "Illustrazione di Turini Camp d'Argent", "Ілюстрація Turini Camp d'Argent"),
+    visualTheme: "family",
+  },
+  "authion-massif": {
+    image: "/images/guide/authion-massif.jpg",
+    images: ["/images/guide/authion-massif.jpg", "/images/guide/authion-massif-2.jpg"],
+    imageAlt: text("Illustration of the Authion Massif above the Riviera", "Illustration du massif de l'Authion au-dessus de la Riviera", "Illustrazione del Massiccio dell'Authion sopra la Riviera", "Ілюстрація масиву Authion над Рив'єрою"),
+    visualTheme: "walk",
+  },
+  "la-colmiane": {
+    image: "/images/guide/la-colmiane.jpg",
+    imageAlt: text("Illustration of La Colmiane in the Southern Alps", "Illustration de La Colmiane dans les Alpes du Sud", "Illustrazione di La Colmiane nelle Alpi del Sud", "Ілюстрація La Colmiane в Південних Альпах"),
+    visualTheme: "family",
+  },
+  "auron-ski-resort": {
+    image: "/images/guide/auron-ski-resort.jpg",
+    imageAlt: text("Illustration of Auron ski resort", "Illustration de la station d'Auron", "Illustrazione della stazione sciistica di Auron", "Ілюстрація гірськолижного курорту Auron"),
+    visualTheme: "family",
+  },
+  "isola-2000": {
+    image: "/images/guide/isola-2000.jpg",
+    imageAlt: text("Illustration of Isola 2000 ski resort", "Illustration de la station Isola 2000", "Illustrazione della stazione sciistica Isola 2000", "Ілюстрація гірськолижного курорту Isola 2000"),
+    visualTheme: "family",
+  },
+  "valberg": {
+    image: "/images/guide/valberg.jpg",
+    imageAlt: text("Illustration of Valberg in the Southern Alps", "Illustration de Valberg dans les Alpes du Sud", "Illustrazione di Valberg nelle Alpi del Sud", "Ілюстрація Valberg у Південних Альпах"),
+    visualTheme: "family",
+  },
+  "limone-piemonte": {
+    image: "/images/guide/limone-piemonte.jpg",
+    imageAlt: text("Illustration of Limone Piemonte in Italy", "Illustration de Limone Piemonte en Italie", "Illustrazione di Limone Piemonte in Italia", "Ілюстрація Limone Piemonte в Італії"),
+    visualTheme: "family",
+  },
+  "sospel-bevera-valley": {
+    image: "/images/guide/sospel-bevera-valley.jpg",
+    imageAlt: text("Illustration of Sospel and the Bévéra Valley", "Illustration de Sospel et de la vallee de la Bevera", "Illustrazione di Sospel e della Valle Bevera", "Ілюстрація Sospel і долини Bévéra"),
+    visualTheme: "walk",
+  },
+  "la-brigue": {
+    image: "/images/guide/la-brigue.jpg",
+    imageAlt: text("Illustration of La Brigue in the Roya Valley", "Illustration de La Brigue dans la vallee de la Roya", "Illustrazione di La Brigue nella Valle Roya", "Ілюстрація La Brigue у долині Roya"),
+    visualTheme: "walk",
+  },
+  tende: {
+    image: "/images/guide/tende.jpg",
+    imageAlt: text("Illustration of Tende in the Roya Valley", "Illustration de Tende dans la vallee de la Roya", "Illustrazione di Tende nella Valle Roya", "Ілюстрація Tende у долині Roya"),
+    visualTheme: "walk",
+  },
+  "mercantour-national-park": {
+    image: "/images/guide/mercantour-national-park.jpg",
+    imageAlt: text("Illustration of Mercantour National Park", "Illustration du parc national du Mercantour", "Illustrazione del Parco nazionale del Mercantour", "Ілюстрація національного парку Mercantour"),
+    visualTheme: "walk",
   },
   "nabucco-wine-bar-cellar": {
     image: "/images/guide/nabucco-wine-bar-cellar.jpg",

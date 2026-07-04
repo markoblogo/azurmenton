@@ -3,6 +3,7 @@ import type { Route } from "next";
 import type { Locale } from "@/i18n/locales";
 import type { Place } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
+import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
 
 const labels = {
   en: { map: "Open in Google Maps", programme: "View current programme", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
@@ -16,22 +17,28 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
   const location = place.address ?? place.area?.[locale];
   const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
   const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;
+  const visualLabel = place.type.replaceAll("-", " ");
+  const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
 
   return (
     <article className="group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">
-      <GuideVisual
-        image={place.image}
-        imageAlt={place.imageAlt?.[locale]}
-        locale={locale}
-        theme={place.visualTheme ?? "walk"}
-        label={place.type.replaceAll("-", " ")}
-        className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"}
-        expandable
-      />
+      {place.images && place.images.length > 1 ? (
+        <PlaceImageCarousel images={place.images} imageAlt={imageAlt} locale={locale} label={visualLabel} className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"} />
+      ) : (
+        <GuideVisual
+          image={place.image}
+          imageAlt={place.imageAlt?.[locale]}
+          locale={locale}
+          theme={place.visualTheme ?? "walk"}
+          label={visualLabel}
+          className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"}
+          expandable
+        />
+      )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{place.type.replaceAll("-", " ")}</p>
+            <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{visualLabel}</p>
             <h3 className="mt-2 serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
           </div>
         </div>
