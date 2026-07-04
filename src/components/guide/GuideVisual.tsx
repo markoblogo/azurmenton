@@ -81,7 +81,7 @@ export function GuideVisual({
   const alt = imageAlt ?? visualLabel;
 
   return (
-    <div className={`relative overflow-hidden border-b border-[#dfd2b8] bg-[#f7efe1] ${className}`}>
+    <div className={`relative overflow-hidden border-b border-[#dfd2b8] bg-[#f7efe1] ${image ? "photo-shine-surface photo-shine-visible" : ""} ${className}`}>
       {image ? (
         <Image
           src={image}
