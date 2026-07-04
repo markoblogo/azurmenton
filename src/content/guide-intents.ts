@@ -177,6 +177,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "local-food-menton", ignore: ["cluster"], reason: "standalone food guide supporting market, restaurant and itinerary content" },
   { slug: "menton-one-day-itinerary", ignore: ["cluster"], reason: "standalone itinerary guide rather than a search-intent cluster entry" },
   { slug: "michelin-restaurants-menton-nice-monaco", ignore: ["cluster"], reason: "standalone restaurant guide supporting food, day-trip and evening content" },
+  { slug: "music-videos-filmed-in-menton", ignore: ["cluster"], reason: "standalone visual-culture guide supporting photo, old-town and performing-arts content" },
   { slug: "monaco-events-from-menton", ignore: ["places"], reason: "event logistics guide; location context is handled by event detail pages and the Monaco hub place" },
   { slug: "morning-walk-france-to-italy", ignore: ["cluster"], reason: "focused walk guide supporting car-free and Italian Riviera planning" },
   { slug: "nightlife-in-menton", ignore: ["cluster"], reason: "standalone evening guide supporting restaurants, bars and events content" },

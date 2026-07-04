@@ -20,10 +20,25 @@ export type GuideCategory =
 export type GuideDuration = "1 hour" | "1-2 hours" | "half-day" | "full-day" | "2-3 days" | "evening" | "flexible" | "reference";
 export type SourceStatus = "editorial" | "needs_verification" | "verified";
 
+export type GuideVideoEmbed = {
+  id: string;
+  title: LocalizedText;
+  provider: "youtube" | "vimeo" | "external";
+  embedUrl: string;
+  watchUrl: string;
+  caption?: LocalizedText;
+};
+
+export type LocalizedGuideVideoEmbed = Omit<GuideVideoEmbed, "title" | "caption"> & {
+  title: string;
+  caption?: string;
+};
+
 export type GuideSection = {
   heading: string;
   body: string[];
   bullets?: string[];
+  videoEmbeds?: LocalizedGuideVideoEmbed[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -33,6 +48,7 @@ export type LocalizedGuideSection = {
   heading: LocalizedText;
   body: LocalizedText[];
   bullets?: LocalizedText[];
+  videoEmbeds?: GuideVideoEmbed[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -1429,6 +1445,136 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "music-videos-filmed-in-menton",
+    slug: "music-videos-filmed-in-menton",
+    title: t("Music videos filmed in Menton: a small visual guide", "Clips musicaux tournes a Menton: petit guide visuel", "Video musicali girate a Mentone: piccola guida visiva", "Музичні відео, зняті в Ментоні: короткий візуальний гід"),
+    seoTitle: t("Music Videos Filmed in Menton: Songs, Streets and Riviera Locations", "Clips musicaux tournes a Menton: chansons, rues et decors Riviera", "Video musicali girate a Mentone: canzoni, strade e luoghi Riviera", "Музичні відео, зняті в Ментоні: пісні, вулиці та локації Рив'єри"),
+    seoDescription: t("A small visual guide to music videos filmed in Menton or featuring Menton: sunny Riviera streets, the old town, Palais de l'Europe, nearby villages and locations you can visit during your stay.", "Petit guide visuel des clips tournes a Menton ou montrant Menton: rues ensoleillees, vieille ville, Palais de l'Europe, villages proches et lieux a visiter pendant le sejour.", "Piccola guida visiva ai video musicali girati a Mentone o con Mentone: strade soleggiate, centro storico, Palais de l'Europe, borghi vicini e luoghi da visitare durante il soggiorno.", "Короткий візуальний гід по музичних відео, знятих у Ментоні або з Ментоном у кадрі: сонячні вулиці Рив'єри, старе місто, Palais de l'Europe, сусідні села й місця, які можна відвідати під час перебування."),
+    excerpt: t("Menton is not a music-video capital, but its colours, old streets, sea views and Mediterranean light make it a natural film set for songs and short visual stories.", "Menton n'est pas une capitale du clip, mais ses couleurs, ses vieilles rues, ses vues mer et sa lumiere mediterraneenne en font un decor naturel pour chansons et recits visuels courts.", "Mentone non e una capitale dei videoclip, ma colori, strade antiche, vista mare e luce mediterranea la rendono un set naturale per canzoni e brevi storie visive.", "Ментон не є столицею музичних кліпів, але його кольори, старі вулиці, море й середземноморське світло природно працюють як декорація для пісень і коротких візуальних історій."),
+    category: "photo-spots",
+    coverImage: "/images/guide/music-videos-filmed-in-menton.jpg",
+    coverImageAlt: t("Illustration for music videos filmed in Menton", "Illustration pour les clips musicaux tournes a Menton", "Illustrazione per video musicali girati a Mentone", "Ілюстрація до музичних відео, знятих у Ментоні"),
+    visualTheme: "old-town",
+    visualStatus: "project_illustration",
+    tags: [t("music videos", "clips musicaux", "video musicali", "музичні відео"), t("visual culture", "culture visuelle", "cultura visiva", "візуальна культура"), t("old town", "vieille ville", "centro storico", "старе місто"), t("Riviera light", "lumiere Riviera", "luce Riviera", "світло Рив'єри")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[7].label],
+    duration: "1-2 hours",
+    locationTags: ["old-town", "menton-centre", "seafront"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["palais-de-leurope-menton", "gorbio", "rue-saint-michel-menton", "basilica-saint-michel-archange", "quai-bonaparte-menton", "promenade-du-soleil"],
+    relatedArticles: ["best-photo-spots-menton", "menton-old-town", "theatre-opera-performing-arts-near-menton", "cinemas-in-menton-nice-monaco", "fete-du-citron-menton-practical-guide", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Menton as a music-video backdrop", "Menton comme decor de clip", "Mentone come sfondo per videoclip", "Ментон як фон для музичного відео"),
+        body: [
+          t("Menton appears in music videos for the same reason it works so well for photographs: the town gives colour, sea, old streets and warm light within a very small area.", "Menton apparait dans des clips pour la meme raison qu'elle fonctionne si bien en photo: la ville offre couleurs, mer, vieilles rues et lumiere chaude dans un espace tres compact.", "Mentone compare nei videoclip per lo stesso motivo per cui funziona cosi bene in fotografia: colori, mare, strade antiche e luce calda in uno spazio compatto.", "Ментон з'являється в музичних відео з тієї ж причини, з якої він добре працює для фото: кольори, море, старі вулиці й тепле світло на дуже компактній території."),
+          t("This is a small guide rather than a complete filmography. Use it as a gentle visual walk: watch a clip, then notice the same textures around Palais de l'Europe, the old town, the seafront and nearby villages.", "Ce n'est pas une filmographie complete, mais un petit guide visuel. Regardez un clip, puis cherchez les memes textures autour du Palais de l'Europe, de la vieille ville, du front de mer et des villages voisins.", "Non e una filmografia completa, ma una piccola guida visiva. Guarda un video, poi cerca le stesse texture intorno al Palais de l'Europe, al centro storico, al lungomare e nei borghi vicini.", "Це не повна фільмографія, а короткий візуальний гід. Подивіться кліп, а потім шукайте ті самі фактури біля Palais de l'Europe, у старому місті, на набережній і в сусідніх селах."),
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton", "rue-saint-michel-menton", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days"),
+        body: [
+          t("Dimitri von Buren's official video for Sunny Days was filmed in Menton in summer 2022. It fits the town naturally: bright streets, relaxed movement and the kind of light that makes even a short walk feel cinematic.", "Le clip officiel Sunny Days de Dimitri von Buren a ete tourne a Menton pendant l'ete 2022. Il correspond naturellement a la ville: rues lumineuses, mouvement detendu et cette lumiere qui rend meme une courte marche cinematographique.", "Il video ufficiale Sunny Days di Dimitri von Buren e stato girato a Mentone nell'estate 2022. Funziona con la citta in modo naturale: strade luminose, movimento rilassato e una luce che rende cinematografica anche una breve passeggiata.", "Офіційне відео Sunny Days Дімітрі фон Бюрена було зняте в Ментоні влітку 2022 року. Воно природно пасує місту: світлі вулиці, розслаблений рух і світло, яке робить кінематографічною навіть коротку прогулянку."),
+          t("After watching, walk the seafront and the central old-town streets rather than trying to treat the clip as a strict map. The mood matters more than one exact corner.", "Apres le visionnage, parcourez le front de mer et les rues centrales de la vieille ville plutot que de transformer le clip en carte exacte. L'ambiance compte plus qu'un angle precis.", "Dopo averlo visto, cammina sul lungomare e nelle strade centrali del centro storico invece di trattare il video come una mappa esatta. Conta piu l'atmosfera del singolo angolo.", "Після перегляду пройдіться набережною й центральними вулицями старого міста, а не намагайтеся перетворити кліп на точну мапу. Тут важливіший настрій, ніж один конкретний кут."),
+        ],
+        videoEmbeds: [
+          {
+            id: "dimitri-von-buren-sunny-days",
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/rBdEUKKcpuA",
+            watchUrl: "https://www.youtube.com/watch?v=rBdEUKKcpuA",
+            title: t("Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days", "Dimitri von Buren - Sunny Days"),
+            caption: t("Official video, filmed in Menton in summer 2022.", "Clip officiel, tourne a Menton pendant l'ete 2022.", "Video ufficiale, girato a Mentone nell'estate 2022.", "Офіційне відео, зняте в Ментоні влітку 2022 року."),
+          },
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "rue-saint-michel-menton", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude"),
+        body: [
+          t("Yolo's Prelude is especially useful for visitors because it connects two different textures: Palais de l'Europe in Menton and the streets of Gorbio above town. The result feels more architectural and village-like than a pure seafront clip.", "Prelude de Yolo est particulierement utile pour les visiteurs car il relie deux textures differentes: le Palais de l'Europe a Menton et les rues de Gorbio au-dessus de la ville. Le resultat est plus architectural et villageois qu'un simple clip de bord de mer.", "Prelude di Yolo e particolarmente utile per i visitatori perche collega due texture diverse: il Palais de l'Europe a Mentone e le strade di Gorbio sopra la citta. Il risultato e piu architettonico e da borgo rispetto a un semplice video sul mare.", "Prelude Yolo корисний для гостей тим, що поєднує дві різні фактури: Palais de l'Europe у Ментоні та вулиці Gorbio над містом. Відео відчувається більш архітектурним і сільським, ніж просто кліп біля моря."),
+          t("Gorbio is best treated as a separate half-day idea. Check transport before going; it is close on the map but less immediate than the seafront walks.", "Gorbio se prevoit plutot comme une idee de demi-journee. Verifiez le transport avant de partir: c'est proche sur la carte, mais moins immediat qu'une promenade sur le front de mer.", "Gorbio funziona meglio come idea di mezza giornata. Controlla i trasporti prima di partire: sulla mappa e vicino, ma meno immediato delle passeggiate sul lungomare.", "Gorbio краще планувати як окрему ідею на пів дня. Перевірте транспорт перед поїздкою: на мапі це близько, але менш просто, ніж прогулянки набережною."),
+        ],
+        videoEmbeds: [
+          {
+            id: "yolo-prelude",
+            provider: "external",
+            embedUrl: "https://radiotopside.com/videos/yolo-prelude-clip-officiel-12",
+            watchUrl: "https://radiotopside.com/videos/yolo-prelude-clip-officiel-12",
+            title: t("Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude", "Yolo - Prelude"),
+            caption: t("Official clip page from Radio Top Side; if the embed is blocked, use the source link.", "Page du clip sur Radio Top Side; si l'integration est bloquee, utilisez le lien source.", "Pagina del video su Radio Top Side; se l'embed e bloccato, usa il link alla fonte.", "Сторінка кліпу на Radio Top Side; якщо вбудовування заблоковане, скористайтеся посиланням на джерело."),
+          },
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton", "gorbio"],
+      },
+      {
+        heading: t("Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France"),
+        body: [
+          t("Michel Pruvot's Menton, perle de la France is less about contemporary video style and more about affectionate local imagery. It is useful for recognising the classic Menton postcard: the old town, the church silhouette and the bay.", "Menton, perle de la France de Michel Pruvot releve moins du clip contemporain que de l'image locale affectueuse. Il aide a reconnaitre la carte postale classique de Menton: vieille ville, silhouette de l'eglise et baie.", "Menton, perle de la France di Michel Pruvot e meno un videoclip contemporaneo e piu un'immagine locale affettuosa. Aiuta a riconoscere la cartolina classica di Mentone: centro storico, profilo della chiesa e baia.", "Menton, perle de la France Мішеля Прюво - це не стільки сучасна відеоестетика, скільки теплий локальний образ. Він допомагає впізнати класичну листівку Ментона: старе місто, силует церкви й бухту."),
+        ],
+        videoEmbeds: [
+          {
+            id: "michel-pruvot-menton-perle-de-la-france",
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/yXVHAAf9r40",
+            watchUrl: "https://www.youtube.com/watch?v=yXVHAAf9r40",
+            title: t("Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France", "Michel Pruvot - Menton, perle de la France"),
+            caption: t("A local-song view of Menton's familiar silhouettes.", "Une vision chanson locale des silhouettes familieres de Menton.", "Uno sguardo da canzone locale sulle silhouette familiari di Mentone.", "Локальний пісенний погляд на знайомі силуети Ментона."),
+          },
+        ],
+        relatedPlaceIds: ["basilica-saint-michel-archange", "quai-bonaparte-menton", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Festival, citrus and nearby Riviera clips", "Festival, agrumes et clips Riviera proches", "Festival, agrumi e video Riviera vicini", "Фестиваль, цитрусові та сусідні відео Рив'єри"),
+        body: [
+          t("Menton also appears constantly in short festival and tourism videos, especially around the Fete du Citron. These are not always music videos in the strict sense, but they are part of the town's visual culture: citrus sculptures, processions, brass bands, crowds and winter light.", "Menton apparait aussi souvent dans des videos courtes de festival et de tourisme, surtout autour de la Fete du Citron. Ce ne sont pas toujours des clips musicaux au sens strict, mais ils font partie de la culture visuelle de la ville: sculptures d'agrumes, corsos, fanfares, foule et lumiere d'hiver.", "Mentone appare spesso anche in brevi video turistici e di festival, soprattutto intorno alla Festa del Limone. Non sono sempre videoclip in senso stretto, ma fanno parte della cultura visiva della citta: sculture di agrumi, cortei, bande, folla e luce invernale.", "Ментон часто з'являється і в коротких фестивальних та туристичних відео, особливо навколо Fete du Citron. Це не завжди музичні кліпи у строгому сенсі, але це частина візуальної культури міста: цитрусові скульптури, процесії, оркестри, натовпи й зимове світло."),
+          t("Some Riviera videos are nearby rather than Menton itself. Florent Pagny's Si une chanson, for example, is useful context for the wider coastal mood, but it should not be read as a Menton filming-location guide.", "Certains clips Riviera sont proches sans etre tournes a Menton meme. Si une chanson de Florent Pagny, par exemple, donne un contexte d'ambiance cotiere, mais ne doit pas etre lu comme un guide de lieux de tournage a Menton.", "Alcuni video Riviera sono vicini ma non a Mentone. Si une chanson di Florent Pagny, per esempio, aiuta a capire l'atmosfera costiera piu ampia, ma non va letto come guida alle location mentonesi.", "Деякі відео Рив'єри радше сусідні, ніж ментонські. Наприклад, Si une chanson Флорана Паньї корисне як контекст ширшого узбережного настрою, але не як гід по місцях зйомки в Ментоні."),
+        ],
+        videoEmbeds: [
+          {
+            id: "florent-pagny-si-une-chanson",
+            provider: "vimeo",
+            embedUrl: "https://player.vimeo.com/video/359401472",
+            watchUrl: "https://vimeo.com/359401472",
+            title: t("Florent Pagny - Si une chanson", "Florent Pagny - Si une chanson", "Florent Pagny - Si une chanson", "Florent Pagny - Si une chanson"),
+            caption: t("Nearby Riviera context rather than a confirmed Menton filming-location item.", "Contexte Riviera proche plutot qu'un lieu de tournage confirme a Menton.", "Contesto Riviera vicino, non un luogo di ripresa confermato a Mentone.", "Контекст сусідньої Рив'єри, а не підтверджена ментонська локація зйомки."),
+          },
+        ],
+        relatedEventIds: ["menton-lemon-festival"],
+        relatedPlaceIds: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Suggested Menton music-video walk", "Balade suggeree autour des clips a Menton", "Passeggiata suggerita tra i video a Mentone", "Запропонована прогулянка музичними відео Ментона"),
+        body: [
+          t("Start at Palais de l'Europe, then drift towards Rue Saint-Michel and the old town. Climb towards Basilica Saint-Michel-Archange if you want the postcard view, return down towards Quai Bonaparte and finish along Promenade du Soleil.", "Commencez au Palais de l'Europe, puis glissez vers la Rue Saint-Michel et la vieille ville. Montez vers la basilique Saint-Michel-Archange pour la vue carte postale, redescendez vers le Quai Bonaparte et terminez par la Promenade du Soleil.", "Inizia dal Palais de l'Europe, poi vai verso Rue Saint-Michel e il centro storico. Sali verso la Basilica Saint-Michel-Archange per la vista da cartolina, scendi verso Quai Bonaparte e chiudi sulla Promenade du Soleil.", "Почніть біля Palais de l'Europe, потім ідіть до Rue Saint-Michel і старого міста. Підніміться до Basilica Saint-Michel-Archange за листівковим видом, спустіться до Quai Bonaparte і завершіть на Promenade du Soleil."),
+          t("This route is not a claim that every shot was filmed at each stop. It is a practical way to feel the same visual language: ochre facades, blue sea, stairs, arcades, palms and reflected light.", "Ce parcours ne pretend pas que chaque plan a ete tourne a chaque arret. C'est une maniere pratique de retrouver le meme langage visuel: facades ocres, mer bleue, escaliers, arcades, palmiers et lumiere reflechie.", "Questo percorso non sostiene che ogni inquadratura sia stata girata in ogni tappa. E un modo pratico per sentire lo stesso linguaggio visivo: facciate ocra, mare blu, scale, arcate, palme e luce riflessa.", "Цей маршрут не стверджує, що кожен кадр знімали в кожній точці. Це практичний спосіб відчути ту саму візуальну мову: охристі фасади, синє море, сходи, аркади, пальми й відбите світло."),
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton", "rue-saint-michel-menton", "basilica-saint-michel-archange", "quai-bonaparte-menton", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Staying in Menton if you love visual culture", "Sejourner a Menton si vous aimez la culture visuelle", "Soggiornare a Mentone se ami la cultura visiva", "Де зупинитися в Ментоні, якщо вам близька візуальна культура"),
+        body: [
+          t("One advantage of staying in Menton is that visual walks do not require a special plan. You can watch a video in the morning, step outside for similar colours and views, then return to a quiet seaside apartment between photo walks, theatre evenings or day trips.", "L'un des avantages d'un sejour a Menton est que les balades visuelles ne demandent pas de grand programme. Regardez une video le matin, sortez retrouver les memes couleurs et vues, puis revenez dans un appartement calme au bord de mer entre photos, theatre ou excursions.", "Uno dei vantaggi di soggiornare a Mentone e che le passeggiate visive non richiedono un piano speciale. Guarda un video al mattino, esci a ritrovare colori e viste simili, poi torna in un appartamento tranquillo sul mare tra foto, teatro o gite.", "Перевага перебування в Ментоні в тому, що візуальні прогулянки не потребують складного плану. Подивіться відео вранці, вийдіть за схожими кольорами й видами, а потім поверніться до тихих апартаментів біля моря між фотопрогулянками, театральними вечорами або поїздками."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Are there many famous music videos filmed in Menton? Not many. Menton is more of a small visual backdrop than a major music-video destination, which is why this guide stays selective.", "Y a-t-il beaucoup de clips celebres tournes a Menton? Non. Menton est plutot un petit decor visuel qu'une grande destination de clips, d'ou le choix selectif de ce guide.", "Ci sono molti videoclip famosi girati a Mentone? No. Mentone e piu un piccolo sfondo visivo che una grande destinazione per videoclip, per questo la guida resta selettiva.", "Чи багато відомих музичних кліпів знято в Ментоні? Ні. Ментон радше невелика візуальна декорація, ніж великий центр музичних відео, тому цей гід залишається вибірковим."),
+          t("Can I visit the locations on foot? Most central Menton places are walkable. Gorbio is a separate village above Menton and needs a separate transport check.", "Peut-on visiter les lieux a pied? La plupart des lieux centraux de Menton se font a pied. Gorbio est un village separe au-dessus de Menton et demande de verifier le transport.", "Posso visitare i luoghi a piedi? La maggior parte dei luoghi centrali di Mentone e raggiungibile a piedi. Gorbio e un borgo separato sopra Mentone e richiede un controllo dei trasporti.", "Чи можна відвідати локації пішки? Більшість центральних місць Ментона доступні пішки. Gorbio - окреме село над Ментоном, для нього треба перевірити транспорт."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Treat exact filming spots as editorial notes unless the source states them clearly.", "Considerez les lieux de tournage exacts comme des notes editoriales sauf si la source les confirme clairement.", "Considera i luoghi esatti di ripresa come note editoriali salvo conferma chiara della fonte.", "Сприймайте точні місця зйомки як редакційні нотатки, якщо джерело не підтверджує їх прямо."),
+      t("For your own photos or short videos, early morning and late afternoon give the softest light.", "Pour vos photos ou courtes videos, le matin tot et la fin d'apres-midi donnent la lumiere la plus douce.", "Per foto o brevi video, mattina presto e tardo pomeriggio danno la luce piu morbida.", "Для власних фото або коротких відео найм'якше світло зранку та наприкінці дня."),
+      t("Check access and current programmes before planning around Palais de l'Europe.", "Verifiez l'acces et le programme actuel avant d'organiser une visite autour du Palais de l'Europe.", "Controlla accesso e programma aggiornato prima di organizzarti intorno al Palais de l'Europe.", "Перевіряйте доступ і актуальну програму, якщо плануєте щось навколо Palais de l'Europe."),
+    ],
+  }),
+  shortArticle({
     id: "best-photo-spots-menton",
     slug: "best-photo-spots-menton",
     title: t("Best photo spots in Menton", "Meilleurs spots photo a Menton", "Migliori luoghi fotografici a Mentone", "Найкращі місця для фото в Ментоні"),
@@ -1445,8 +1591,8 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "seafront", "garavan", "monaco", "nice"],
     featured: true,
-    relatedPlaces: ["rampes-saint-michel", "promenade-du-soleil", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "cimetiere-vieux-chateau", "port-de-garavan", "plage-sablettes"],
-    relatedArticles: ["quiet-evening-in-menton", "menton-old-town", "day-trips-from-menton", "menton-without-a-car"],
+    relatedPlaces: ["rampes-saint-michel", "basilica-saint-michel-archange", "promenade-du-soleil", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "cimetiere-vieux-chateau", "port-de-garavan", "plage-sablettes", "gorbio"],
+    relatedArticles: ["music-videos-filmed-in-menton", "quiet-evening-in-menton", "menton-old-town", "day-trips-from-menton", "menton-without-a-car"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -2279,7 +2425,7 @@ export const guideArticles: GuideArticle[] = [
       "cinematheque-de-nice",
       "megarama-nice",
     ],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["music-videos-filmed-in-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3203,8 +3349,8 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[7].label],
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
-    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
+    relatedArticles: ["music-videos-filmed-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -3740,7 +3886,8 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedPlaces: ["monaco-monte-carlo", "nice-old-town", "eze-village", "ventimiglia", "bordighera", "sanremo", "gorbio"],
+    relatedArticles: ["music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -3915,7 +4062,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil", "rampes-saint-michel", "cimetiere-vieux-chateau", "halles-du-marche", "plage-casino", "plage-fossan"],
-    relatedArticles: ["where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "best-photo-spots-menton", "menton-with-kids-family-guide", "local-food-menton"],
+    relatedArticles: ["music-videos-filmed-in-menton", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "best-photo-spots-menton", "menton-with-kids-family-guide", "local-food-menton"],
     relatedEvents: ["menton-lemon-festival", "nice-carnival", "monte-carlo-circus-festival"],
     relatedApartments: allApartments,
     sections: [
@@ -4009,7 +4156,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4103,6 +4250,11 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       heading: section.heading[locale],
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),
+      videoEmbeds: section.videoEmbeds?.map((video) => ({
+        ...video,
+        title: video.title[locale],
+        caption: video.caption?.[locale],
+      })),
     })),
     appTools: article.appTools?.map((tool) => ({
       ...tool,

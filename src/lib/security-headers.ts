@@ -32,7 +32,7 @@ export function createCspHeader(nonce: string) {
       "https://vitals.vercel-insights.com",
       "https://*.vercel-insights.com",
     ].join(" "),
-    "frame-src https://challenges.cloudflare.com",
+    "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://player.vimeo.com https://radiotopside.com",
     "upgrade-insecure-requests",
   ];
 
