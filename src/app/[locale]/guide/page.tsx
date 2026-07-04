@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { GuideVisual } from "@/components/guide/GuideVisual";
+import { UsefulPlacesMiniMapPreview } from "@/components/places/UsefulPlacesMiniMapPreview";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
@@ -11,6 +12,7 @@ import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
+import { placeMapPoints } from "@/content/planning/place-map-points";
 import { getPlaces } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -32,6 +34,7 @@ const labels = {
     clusterEvents: "Related events",
     eventsTitle: "Planning around an event?",
     eventsText: "Menton and the nearby Riviera have a busy calendar, from the Lemon Festival and summer music to Monaco weekends and Nice events.",
+    eventsNote: "Seasonal events, confirmed dates and planning pages",
     eventsCta: "View events calendar",
     mapCta: "Open useful places map",
     transportTitle: "Easy routes from Menton",
@@ -56,6 +59,7 @@ const labels = {
     clusterEvents: "Evenements lies",
     eventsTitle: "Vous venez pour un evenement?",
     eventsText: "Menton et la Riviera voisine ont un calendrier anime, de la Fete du Citron aux concerts d'ete, week-ends a Monaco et evenements a Nice.",
+    eventsNote: "Evenements saisonniers, dates confirmees et pages de preparation",
     eventsCta: "Voir le calendrier des evenements",
     mapCta: "Ouvrir la carte des lieux utiles",
     transportTitle: "Trajets faciles depuis Menton",
@@ -80,6 +84,7 @@ const labels = {
     clusterEvents: "Eventi correlati",
     eventsTitle: "Stai pianificando per un evento?",
     eventsText: "Mentone e la Riviera vicina hanno un calendario vivace: Festa del Limone, musica estiva, weekend a Monaco ed eventi a Nizza.",
+    eventsNote: "Eventi stagionali, date confermate e pagine pratiche",
     eventsCta: "Vedi calendario eventi",
     mapCta: "Apri mappa dei luoghi utili",
     transportTitle: "Percorsi facili da Mentone",
@@ -104,6 +109,7 @@ const labels = {
     clusterEvents: "Пов'язані події",
     eventsTitle: "Плануєте поїздку навколо події?",
     eventsText: "У Ментоні та на сусідній Рив'єрі насичений календар: Фестиваль лимонів, літня музика, вікенди в Монако та події в Ніцці.",
+    eventsNote: "Сезонні події, підтверджені дати й сторінки планування",
     eventsCta: "Переглянути календар подій",
     mapCta: "Відкрити карту корисних місць",
     transportTitle: "Зручні маршрути з Ментона",
@@ -154,7 +160,13 @@ export default async function GuideLandingPage({ params }: PageProps) {
       visualStatus: localized.visualStatus,
     };
   });
-  const mapPreviewPlaces = getPlaces(["promenade-du-soleil", "plage-sablettes", "halles-du-marche"]);
+  const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
+  const mapPreviewPlaces = getPlaces(["promenade-du-soleil", "plage-sablettes", "halles-du-marche", "plage-casino", "jardins-bioves", "office-tourisme-menton-riviera-merveilles"])
+    .map((place) => {
+      const mapPoint = mapPointByPlaceId.get(place.id);
+      return mapPoint ? { ...place, mapPoint } : null;
+    })
+    .filter((place): place is NonNullable<typeof place> => Boolean(place));
   const featuredPriority = seasonalGuideSlugs();
   const featuredArticles = guideArticles
     .filter((article) => featuredPriority.includes(article.slug) || article.featured)
@@ -206,7 +218,8 @@ export default async function GuideLandingPage({ params }: PageProps) {
                         locale={safeLocale}
                         theme={localized.visualTheme ?? "sea"}
                         label={localized.categoryLabel}
-                        className="aspect-[4/1.65]"
+                        className="aspect-[4/2.25]"
+                        showLabel={false}
                       />
                       <div className="p-3">
                         <h2 className="serif-heading text-base leading-[1.08] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{localized.title}</h2>
@@ -220,7 +233,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section className="bg-[#fffaf0] pb-3 pt-5 sm:pb-4 sm:pt-6">
+      <Section className="!pb-0 !pt-5 bg-[#fffaf0] sm:!pt-6">
         <Container>
           <div className="mb-4 grid gap-4 md:grid-cols-[0.38fr_1fr] md:items-end">
             <div>
@@ -239,7 +252,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
                 href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}
                 className="group overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:border-[#173f36] hover:bg-[#f3ead7]"
               >
-                <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/1.35]" />
+                <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/2.05]" showLabel={false} />
                 <div className="p-2.5">
                   <h3 className="serif-heading text-base leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
                   <p className="mt-1.5 overflow-hidden text-[0.68rem] leading-4 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{cluster.excerpt[safeLocale]}</p>
@@ -251,28 +264,33 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#f8f3ea] py-4 sm:py-5">
+      <Section className="!py-2 bg-[#f8f3ea] sm:!py-3">
         <Container>
           <GuideExplorer locale={safeLocale} articles={articles} />
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-5 sm:py-6">
+      <Section className="!py-4 bg-[#fffaf0] sm:!py-5">
         <Container>
-          <div className="mb-5 grid gap-4 md:grid-cols-[0.42fr_1fr] md:items-end">
+          <div className="mb-4 grid gap-4 md:grid-cols-[0.42fr_1fr] md:items-end">
             <div>
               <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.clustersEyebrow}</p>
               <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.clustersTitle}</h2>
             </div>
             <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.clustersIntro}</p>
           </div>
-          <div className="grid gap-3 lg:grid-cols-7">
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-7">
             {guideIntentClusters.map((cluster) => {
+              const article = guideArticles.find((item) => item.slug === cluster.canonicalGuideSlug);
+              const localized = article ? localizeGuideArticle(article, safeLocale) : undefined;
               return (
-                <Link key={cluster.id} href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route} className="group border border-[#dfd2b8] bg-[#f8f3ea] p-3 transition hover:border-[#173f36] hover:bg-[#f3ead7]">
-                  <h3 className="serif-heading text-lg leading-tight text-[#173f36] group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
-                  <p className="mt-2 text-xs leading-5 text-[#5c5044]">{getGuideTitle(cluster.canonicalGuideSlug)}</p>
-                  <p className="mt-3 text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#b49353]">{cluster.supportingGuideSlugs.length + 1} guides · {cluster.relatedApartmentKeys.length} stays</p>
+                <Link key={cluster.id} href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route} className="group overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:border-[#173f36] hover:bg-[#f3ead7]">
+                  <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/1.45]" showLabel={false} />
+                  <div className="p-2.5">
+                    <h3 className="serif-heading text-base leading-tight text-[#173f36] group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
+                    <p className="mt-1.5 overflow-hidden text-[0.68rem] leading-4 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{getGuideTitle(cluster.canonicalGuideSlug)}</p>
+                    <p className="mt-2 text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#b49353]">{cluster.supportingGuideSlugs.length + 1} guides · {cluster.relatedApartmentKeys.length} stays</p>
+                  </div>
                 </Link>
               );
             })}
@@ -280,31 +298,21 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#173f36] py-6 text-white sm:py-7">
+      <Section className="!py-3 bg-[#173f36] text-white sm:!py-4">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-[0.65fr_1fr] lg:items-center">
+          <div className="grid gap-4 lg:grid-cols-[0.45fr_1fr] lg:items-center">
             <div>
               <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">Menton map</p>
-              <h2 className="mt-2 serif-heading text-4xl leading-none">{local.mapTitle}</h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#e8dcc9]">{local.mapText}</p>
-              <Link className="mt-5 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
+              <h2 className="mt-2 serif-heading text-3xl leading-none">{local.mapTitle}</h2>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-[#e8dcc9]">{local.mapText}</p>
+              <Link className="mt-4 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
             </div>
-            <div className="grid gap-3 md:grid-cols-3">
-              {mapPreviewPlaces.map((place) => (
-                <div key={place.id} className="overflow-hidden border border-[#c6a66a]/70 bg-white/5">
-                  <GuideVisual image={place.image} imageAlt={place.imageAlt?.[safeLocale]} locale={safeLocale} theme={place.visualTheme ?? "walk"} label={place.type.replaceAll("-", " ")} className="aspect-[4/1.75] border-b border-[#c6a66a]/70" />
-                  <div className="p-3">
-                    <h3 className="serif-heading text-lg leading-tight">{place.name}</h3>
-                    <p className="mt-1 text-xs leading-5 text-[#e8dcc9]">{place.shortNote[safeLocale]}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <UsefulPlacesMiniMapPreview locale={safeLocale} places={mapPreviewPlaces} />
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#f8f3ea] py-6 sm:py-8">
+      <Section className="!py-4 bg-[#f8f3ea] sm:!py-5">
         <Container>
           <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
@@ -316,13 +324,27 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </Section>
 
-      <Section className="bg-[#173f36] py-8 text-white sm:py-10">
+      <Section className="!py-5 bg-[#173f36] text-white sm:!py-6">
         <Container>
-          <div className="grid gap-5 md:grid-cols-[0.78fr_1fr] md:items-center">
-            <h2 className="serif-heading text-3xl leading-none sm:text-4xl">{local.eventsTitle}</h2>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="max-w-2xl text-sm leading-6 text-[#e8dcc9]">{local.eventsText}</p>
-              <Link className="inline-flex shrink-0 border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
+          <div className="grid gap-5 md:grid-cols-[0.52fr_1fr] md:items-center">
+            <div>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">{local.eventsNote}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none sm:text-4xl">{local.eventsTitle}</h2>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div className="grid grid-cols-3 gap-2" aria-hidden="true">
+                {["Lemon", "Monaco", "Nice"].map((event) => (
+                  <div key={event} className="border border-[#c6a66a]/70 bg-white/5 p-3">
+                    <p className="text-[0.56rem] font-bold uppercase tracking-[0.14em] text-[#c6a66a]">{event}</p>
+                    <div className="mt-2 h-1.5 bg-[#c6a66a]" />
+                    <div className="mt-2 h-1.5 w-2/3 bg-[#e8dcc9]/70" />
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="max-w-xl text-sm leading-6 text-[#e8dcc9]">{local.eventsText}</p>
+                <Link className="mt-3 inline-flex shrink-0 border border-[#c6a66a] px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/events` as Route}>{local.eventsCta}</Link>
+              </div>
             </div>
           </div>
         </Container>

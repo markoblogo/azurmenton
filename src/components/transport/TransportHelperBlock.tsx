@@ -27,10 +27,18 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
       ) : null}
       <div className={`grid gap-3 ${compact ? "md:grid-cols-3" : "mt-5 md:grid-cols-3"}`}>
         {items.map((item) => (
-          <article key={item.id} className="border border-[#dfd2b8] bg-[#f8f3ea] p-4">
-            <h3 className={`serif-heading leading-tight text-[#173f36] ${compact ? "text-xl" : "text-2xl"}`}>{item.destination[locale]}</h3>
-            <p className="mt-3 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.actions}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
+          <article key={item.id} className={`border border-[#dfd2b8] bg-[#f8f3ea] ${compact ? "grid gap-3 p-3" : "p-4"}`}>
+            <div className="flex items-start gap-3">
+              {compact ? <TransportIcon /> : null}
+              <div>
+                <h3 className={`serif-heading leading-tight text-[#173f36] ${compact ? "text-xl" : "text-2xl"}`}>{item.destination[locale]}</h3>
+                {compact ? (
+                  <p className="mt-1 text-xs leading-5 text-[#5c5044]">{item.options[0]?.note[locale]}</p>
+                ) : null}
+              </div>
+            </div>
+            <p className={`${compact ? "sr-only" : "mt-3"} text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]`}>{labels.actions}</p>
+            <div className="flex flex-wrap gap-2">
               {item.actionLinks.map((action) => (
                 <Link
                   key={action.url}
@@ -44,19 +52,37 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
                 </Link>
               ))}
             </div>
-            <p className="mt-3 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.notes}</p>
-            <div className="mt-3 grid gap-2">
-              {item.options.slice(0, compact ? 1 : 2).map((option) => (
-                <div key={`${item.id}-${option.mode}`} className="border-l-2 border-[#c6a66a] pl-3">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">{transportModeLabels[option.mode][locale]} · {option.timeLabel[locale]}</p>
-                  <p className="mt-1 text-xs leading-5 text-[#5c5044]">{option.note[locale]}</p>
+            {!compact ? (
+              <>
+                <p className="mt-3 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.notes}</p>
+                <div className="mt-3 grid gap-2">
+                  {item.options.slice(0, 2).map((option) => (
+                    <div key={`${item.id}-${option.mode}`} className="border-l-2 border-[#c6a66a] pl-3">
+                      <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">{transportModeLabels[option.mode][locale]} · {option.timeLabel[locale]}</p>
+                      <p className="mt-1 text-xs leading-5 text-[#5c5044]">{option.note[locale]}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            ) : null}
             {!compact ? <p className="mt-4 text-xs italic leading-5 text-[#71665b]">{item.practicalNote[locale]}</p> : null}
           </article>
         ))}
       </div>
     </section>
+  );
+}
+
+function TransportIcon() {
+  return (
+    <span className="grid h-10 w-10 shrink-0 place-items-center border border-[#c6a66a] bg-[#fffaf0] text-[#173f36]" aria-hidden="true">
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 4h12a2 2 0 0 1 2 2v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2Z" />
+        <path d="M8 17 6 21" />
+        <path d="m16 17 2 4" />
+        <path d="M8 8h8" />
+        <path d="M8 12h8" />
+      </svg>
+    </span>
   );
 }

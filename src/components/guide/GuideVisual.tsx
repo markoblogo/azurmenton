@@ -65,6 +65,7 @@ export function GuideVisual({
   priority = false,
   className = "",
   expandable = false,
+  showLabel = true,
 }: {
   image?: string;
   imageAlt?: string;
@@ -74,6 +75,7 @@ export function GuideVisual({
   priority?: boolean;
   className?: string;
   expandable?: boolean;
+  showLabel?: boolean;
 }) {
   const visualLabel = label ?? themeLabels[locale][theme];
   const alt = imageAlt ?? visualLabel;
@@ -96,7 +98,7 @@ export function GuideVisual({
       {image && expandable ? <ImageLightboxButton src={image} alt={alt} locale={locale} /> : null}
       <div className="absolute inset-0 bg-gradient-to-t from-[#173f36]/45 via-transparent to-white/10" />
       <div className="relative flex h-full min-h-[9rem] flex-col justify-between p-3">
-        <p className="max-w-[86%] truncate bg-[#fffaf0]/90 px-2 py-1 text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{visualLabel}</p>
+        {showLabel ? <p className="max-w-[86%] truncate bg-[#fffaf0]/90 px-2 py-1 text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{visualLabel}</p> : <span aria-hidden="true" />}
         {!image ? (
           <svg aria-hidden="true" className="h-16 w-16 text-[#173f36]/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d={iconPaths[theme]} />

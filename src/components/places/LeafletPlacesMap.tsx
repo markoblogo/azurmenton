@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import type { Locale } from "@/i18n/locales";
+import type { Apartment } from "@/content/apartments";
 import type { UsefulPlaceWithMapPoint } from "@/components/places/UsefulPlacesMap";
 
 const markerIcon = L.divIcon({
@@ -16,19 +17,38 @@ const markerIcon = L.divIcon({
   popupAnchor: [0, -12],
 });
 
+const apartmentIcon = L.divIcon({
+  className: "azur-apartment-marker",
+  html: "<span>A</span>",
+  iconSize: [30, 30],
+  iconAnchor: [15, 15],
+  popupAnchor: [0, -14],
+});
+
+type ApartmentMarker = {
+  apartmentSlug: string;
+  lat: number;
+  lng: number;
+  apartment: Apartment;
+};
+
 export function LeafletPlacesMap({
   center,
   places,
+  apartments,
   locale,
   openLabel,
   guideLabel,
+  apartmentLabel,
   onSelectPlace,
 }: {
   center: [number, number];
   places: UsefulPlaceWithMapPoint[];
+  apartments: ApartmentMarker[];
   locale: Locale;
   openLabel: string;
   guideLabel: string;
+  apartmentLabel: string;
   onSelectPlace: (placeId: string) => void;
 }) {
   return (
@@ -38,6 +58,17 @@ export function LeafletPlacesMap({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MapFocus center={center} />
+      {apartments.map((point) => (
+        <Marker key={point.apartmentSlug} position={[point.lat, point.lng]} icon={apartmentIcon}>
+          <Popup>
+            <div className="max-w-52">
+              <p className="text-xs font-bold uppercase tracking-[0.08em] text-[#b49353]">{apartmentLabel}</p>
+              <p className="mt-1 font-semibold text-[#173f36]">{point.apartment.shortName[locale]}</p>
+              <Link className="mt-2 inline-block" href={`/${locale}/apartments/${point.apartmentSlug}` as Route}>{point.apartment.name[locale]}</Link>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
       {places.map((place) => {
         const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
         const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;

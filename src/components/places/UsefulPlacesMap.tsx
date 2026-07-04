@@ -5,6 +5,8 @@ import type { Route } from "next";
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locales";
+import { apartments } from "@/content/apartments";
+import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
 import type { Place, PlaceType } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 
@@ -22,10 +24,10 @@ export type UsefulPlaceWithMapPoint = Place & {
 };
 
 const copy = {
-  en: { all: "All", map: "Show on map", open: "Open in Google Maps", guide: "Related guide", showing: "Showing", places: "mapped places", note: "Check current hours and routes before relying on a visit." },
-  fr: { all: "Tout", map: "Voir sur la carte", open: "Ouvrir dans Google Maps", guide: "Guide lie", showing: "Affiche", places: "lieux cartographies", note: "Verifiez horaires et trajets actuels avant de vous deplacer." },
-  it: { all: "Tutto", map: "Mostra sulla mappa", open: "Apri in Google Maps", guide: "Guida correlata", showing: "Mostra", places: "luoghi in mappa", note: "Controlla orari e percorsi aggiornati prima della visita." },
-  uk: { all: "Усі", map: "Показати на карті", open: "Відкрити в Google Maps", guide: "Пов'язаний гід", showing: "Показано", places: "місць на карті", note: "Перед візитом перевіряйте актуальні години й маршрути." },
+  en: { all: "All", map: "Show on map", open: "Open in Google Maps", guide: "Related guide", showing: "Showing", places: "mapped places", note: "Check current hours and routes before relying on a visit.", apartment: "Apartment" },
+  fr: { all: "Tout", map: "Voir sur la carte", open: "Ouvrir dans Google Maps", guide: "Guide lie", showing: "Affiche", places: "lieux cartographies", note: "Verifiez horaires et trajets actuels avant de vous deplacer.", apartment: "Appartement" },
+  it: { all: "Tutto", map: "Mostra sulla mappa", open: "Apri in Google Maps", guide: "Guida correlata", showing: "Mostra", places: "luoghi in mappa", note: "Controlla orari e percorsi aggiornati prima della visita.", apartment: "Appartamento" },
+  uk: { all: "Усі", map: "Показати на карті", open: "Відкрити в Google Maps", guide: "Пов'язаний гід", showing: "Показано", places: "місць на карті", note: "Перед візитом перевіряйте актуальні години й маршрути.", apartment: "Апартаменти" },
 } satisfies Record<Locale, Record<string, string>>;
 
 const LeafletPlacesMap = dynamic(() => import("./LeafletPlacesMap").then((module) => module.LeafletPlacesMap), {
@@ -45,15 +47,22 @@ export function UsefulPlacesMap({ locale, places, categories }: { locale: Locale
 
   const selected = filtered.find((place) => place.id === selectedPlaceId) ?? filtered[0];
   const center: [number, number] = selected ? [selected.mapPoint.lat, selected.mapPoint.lng] : [43.775, 7.5];
+  const apartmentMarkers = apartmentMapPoints
+    .map((point) => {
+      const apartment = apartments.find((item) => item.slug === point.apartmentSlug);
+      return apartment ? { ...point, apartment } : null;
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.72fr_1fr]">
-      <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-4 lg:sticky lg:top-28 lg:self-start">
-        <div className="flex flex-wrap gap-2">
+    <div className="grid gap-6">
+      <section className="border border-[#dfd2b8] bg-[#fffaf0]" aria-label={labels.map}>
+        <div className="bg-[#173f36] p-4 text-white">
+          <div className="flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => setActiveCategory("")}
-            className={`border px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] ${activeCategory === "" ? "border-[#173f36] bg-[#173f36] text-white" : "border-[#dfd2b8] text-[#173f36] hover:bg-[#f3ead7]"}`}
+            className={`border px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] ${activeCategory === "" ? "border-[#c6a66a] bg-[#c6a66a] text-[#173f36]" : "border-[#c6a66a]/70 text-white hover:bg-white/10"}`}
           >
             {labels.all}
           </button>
@@ -62,21 +71,22 @@ export function UsefulPlacesMap({ locale, places, categories }: { locale: Locale
               key={category.id}
               type="button"
               onClick={() => setActiveCategory(category.id)}
-              className={`border px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] ${activeCategory === category.id ? "border-[#173f36] bg-[#173f36] text-white" : "border-[#dfd2b8] text-[#173f36] hover:bg-[#f3ead7]"}`}
+              className={`border px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] ${activeCategory === category.id ? "border-[#c6a66a] bg-[#c6a66a] text-[#173f36]" : "border-[#c6a66a]/70 text-white hover:bg-white/10"}`}
             >
               {category.label[locale]}
             </button>
           ))}
+          </div>
+          <p className="mt-3 text-xs leading-5 text-[#e8dcc9]">
+            {labels.showing} <span className="font-semibold text-white">{filtered.length}</span> {labels.places}. {labels.note}
+          </p>
         </div>
-        <p className="mt-4 text-xs leading-5 text-[#71665b]">
-          {labels.showing} <span className="font-semibold text-[#173f36]">{filtered.length}</span> {labels.places}. {labels.note}
-        </p>
-        <div className="mt-5 overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea]">
-          <LeafletPlacesMap center={center} places={filtered} locale={locale} openLabel={labels.open} guideLabel={labels.guide} onSelectPlace={setSelectedPlaceId} />
+        <div className="overflow-hidden bg-[#f8f3ea]">
+          <LeafletPlacesMap center={center} places={filtered} apartments={apartmentMarkers} locale={locale} openLabel={labels.open} guideLabel={labels.guide} apartmentLabel={labels.apartment} onSelectPlace={setSelectedPlaceId} />
         </div>
-      </aside>
+      </section>
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((place) => {
           const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
           const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;

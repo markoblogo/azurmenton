@@ -142,7 +142,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
               <div className="mt-6 flex justify-center">
                 <button
                   type="button"
-                  className="inline-flex min-h-11 items-center border border-[#173f36] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                  className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
                   onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
                 >
                   {local.showMore}

@@ -115,19 +115,19 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
         })}
       />
 
-      <Section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
+      <Section className="!py-8 border-b border-[#dfd2b8] bg-[#f8f3ea] sm:!py-10">
         <Container>
           <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{labels.eyebrow}</p>
-          <h1 className="mt-4 max-w-4xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{labels.title}</h1>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-[#5c5044]">{labels.intro}</p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <h1 className="mt-3 max-w-4xl serif-heading text-4xl leading-[0.96] text-[#173f36] sm:text-5xl">{labels.title}</h1>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5c5044]">{labels.intro}</p>
+          <div className="mt-5 flex flex-wrap gap-3">
             <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/guide` as Route}>{labels.guide}</Link>
             <Link className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${locale}/check-availability` as Route}>{labels.availability}</Link>
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-10 sm:py-14">
+      <Section className="!py-6 bg-[#fffaf0] sm:!py-8">
         <Container>
           <UsefulPlacesMap locale={locale} places={usefulPlaces} categories={categories} />
         </Container>
