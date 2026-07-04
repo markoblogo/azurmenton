@@ -857,7 +857,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
     relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
-    relatedArticles: ["wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1092,7 +1092,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "evening",
     locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1519,6 +1519,7 @@ export const guideArticles: GuideArticle[] = [
       "useful-numbers-emergency-contacts-menton",
       "supermarkets-in-menton",
       "cinemas-in-menton-nice-monaco",
+      "theatre-opera-performing-arts-near-menton",
       "museums-in-menton-nice-monaco",
       "public-transport-in-menton",
       "best-beaches-in-menton",
@@ -1807,6 +1808,7 @@ export const guideArticles: GuideArticle[] = [
       "stay-cool-in-menton-summer",
       "supermarkets-in-menton",
       "cinemas-in-menton-nice-monaco",
+      "theatre-opera-performing-arts-near-menton",
       "museums-in-menton-nice-monaco",
       "public-transport-in-menton",
       "day-trips-from-menton",
@@ -2051,7 +2053,7 @@ export const guideArticles: GuideArticle[] = [
       "cinematheque-de-nice",
       "megarama-nice",
     ],
-    relatedArticles: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2113,6 +2115,134 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "theatre-opera-performing-arts-near-menton",
+    slug: "theatre-opera-performing-arts-near-menton",
+    title: t("Theatre, opera and performing arts near Menton: the complete guide", "Theatre, opera et spectacle vivant pres de Menton: le guide complet", "Teatro, opera e spettacoli vicino a Mentone: guida completa", "Театр, опера та сценічне мистецтво біля Ментона: повний гід"),
+    seoTitle: t("Theatre, Opera and Performing Arts Near Menton", "Theatre, opera et spectacle vivant pres de Menton", "Teatro, opera e spettacoli vicino a Mentone", "Театр, опера та сценічне мистецтво біля Ментона"),
+    seoDescription: t("A practical guide to opera, theatre, ballet, musicals and open-air performances near Menton, including Monaco, Nice and Sanremo venues with programme links.", "Guide pratique opera, theatre, ballet, comedies musicales et plein air pres de Menton: Monaco, Nice et Sanremo avec liens vers les programmes.", "Guida pratica a opera, teatro, balletto, musical e spettacoli all'aperto vicino a Mentone: Monaco, Nizza e Sanremo con link ai programmi.", "Практичний гід по опері, театру, балету, мюзиклах і виставах просто неба біля Ментона: Монако, Ніцца та Санремо з посиланнями на програми."),
+    excerpt: t("Stay in Menton and you can reach opera in Nice, elegant Monaco theatres, summer open-air stages and Sanremo's Teatro Ariston by train.", "Depuis Menton, rejoignez l'opera a Nice, les theatres elegants de Monaco, les scenes d'ete en plein air et le Teatro Ariston de Sanremo en train.", "Da Mentone puoi raggiungere l'opera a Nizza, i teatri eleganti di Monaco, i palchi estivi all'aperto e il Teatro Ariston di Sanremo in treno.", "З Ментона легко дістатися опери в Ніцці, елегантних театрів Монако, літніх сцен просто неба та Teatro Ariston у Санремо потягом."),
+    category: "events",
+    visualTheme: "event",
+    visualStatus: "editorial_placeholder",
+    tags: [
+      t("theatre", "theatre", "teatro", "театр"),
+      t("opera", "opera", "opera", "опера"),
+      t("ballet", "ballet", "balletto", "балет"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца"),
+      t("Sanremo", "Sanremo", "Sanremo", "Санремо"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[5].label, guideBestForOptions[8].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "le-lavoir-theatre-menton",
+      "palais-de-leurope-menton",
+      "opera-de-monte-carlo",
+      "theatre-princesse-grace-monaco",
+      "theatre-du-fort-antoine-monaco",
+      "grimaldi-forum-monaco",
+      "ballets-de-monte-carlo",
+      "opera-de-nice",
+      "theatre-national-de-nice",
+      "theatre-francis-gag-nice",
+      "theatre-lino-ventura-nice",
+      "theatre-de-verdure-nice",
+      "theatre-de-la-cite-nice",
+      "teatro-ariston-sanremo",
+      "teatro-comunale-luigi-maccario-ventimiglia",
+    ],
+    relatedArticles: ["cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedEvents: ["menton-music-festival", "sanremo-music-festival", "monaco-red-cross-gala", "monte-carlo-circus-festival"],
+    relatedApartments: seaViewApartments,
+    sections: [
+      {
+        heading: t("Why Menton works for performing arts", "Pourquoi Menton fonctionne pour le spectacle vivant", "Perche Mentone funziona per gli spettacoli", "Чому Ментон зручний для сценічного мистецтва"),
+        body: [
+          t("Many visitors come to the Riviera for beaches and sunshine. Others come for something the Cote d'Azur quietly does exceptionally well: opera, ballet, theatre, musicals and live performance.", "Beaucoup de voyageurs viennent sur la Riviera pour plages et soleil. D'autres viennent pour ce que la Cote d'Azur reussit tres bien, plus discretement: opera, ballet, theatre, comedies musicales et spectacle vivant.", "Molti visitatori vengono in Riviera per spiagge e sole. Altri arrivano per qualcosa che la Costa Azzurra fa molto bene, con discrezione: opera, balletto, teatro, musical e spettacoli dal vivo.", "Багато гостей їдуть на Рив'єру за пляжами й сонцем. Інші - за тим, що Лазурний берег робить тихо, але дуже добре: опера, балет, театр, мюзикли та живі виступи."),
+          t("The advantage of staying in Menton is that Monaco, Nice and Sanremo are close enough for a planned evening, while Menton stays quieter when you return after the performance.", "L'avantage de loger a Menton est que Monaco, Nice et Sanremo restent assez proches pour une soiree planifiee, tandis que Menton redevient plus calme au retour.", "Il vantaggio di soggiornare a Mentone e che Monaco, Nizza e Sanremo sono abbastanza vicine per una serata programmata, mentre Mentone resta piu tranquilla al ritorno.", "Перевага Ментона в тому, що Монако, Ніцца й Санремо достатньо близько для запланованого вечора, а після вистави ви повертаєтесь у спокійніше місто."),
+        ],
+        relatedApartmentKeys: seaViewApartments,
+      },
+      {
+        heading: t("Menton: small theatre and touring performances", "Menton: petit theatre et spectacles en tournee", "Mentone: piccolo teatro e spettacoli in tournee", "Ментон: малий театр і гастрольні вистави"),
+        body: [
+          t("Menton's scene is compact. Le Lavoir Théâtre is the local address for intimate French-language theatre, comedy and independent productions. Palais de l'Europe is not a theatre in the strict sense, but it hosts concerts, touring shows, children's performances, festival events and exhibitions.", "La scene mentonnaise est compacte. Le Lavoir Theatre est l'adresse locale pour theatre intime en francais, comedie et creations independantes. Le Palais de l'Europe n'est pas un theatre au sens strict, mais accueille concerts, spectacles en tournee, jeune public, festivals et expositions.", "La scena di Mentone e compatta. Le Lavoir Théâtre e l'indirizzo locale per teatro intimo in francese, commedia e produzioni indipendenti. Palais de l'Europe non e un teatro in senso stretto, ma ospita concerti, spettacoli in tournee, eventi per bambini, festival e mostre.", "Сцена Ментона компактна. Le Lavoir Théâtre - локальна адреса для камерного театру французькою, комедії та незалежних постановок. Palais de l'Europe не є театром у вузькому сенсі, але приймає концерти, гастролі, дитячі вистави, фестивалі й виставки."),
+          t("For classical music, Festival de Musique de Menton is better treated as a separate event plan because many concerts use the basilica and outdoor heritage settings.", "Pour la musique classique, le Festival de Musique de Menton se planifie plutot comme un evenement a part, avec concerts a la basilique et dans des lieux patrimoniaux.", "Per la musica classica, il Festival de Musique de Menton va pianificato come evento separato, con concerti in basilica e luoghi storici.", "Для класичної музики Festival de Musique de Menton краще планувати як окрему подію: багато концертів проходять у базиліці та історичних локаціях."),
+        ],
+        relatedPlaceIds: ["le-lavoir-theatre-menton", "palais-de-leurope-menton"],
+        relatedEventIds: ["menton-music-festival"],
+      },
+      {
+        heading: t("Monaco: opera, drama, musicals and ballet", "Monaco: opera, theatre, comedies musicales et ballet", "Monaco: opera, teatro, musical e balletto", "Монако: опера, театр, мюзикли та балет"),
+        body: [
+          t("Monaco is the strongest performing-arts option from Menton. Opéra de Monte-Carlo is the must-check address for opera and recitals. Théâtre Princesse Grace is better for contemporary drama and polished French-language theatre.", "Monaco est l'option la plus forte depuis Menton. L'Opera de Monte-Carlo est l'adresse indispensable pour opera et recitals. Le Theatre Princesse Grace convient mieux au theatre contemporain et aux soirees francophones soignees.", "Monaco e l'opzione piu forte da Mentone. L'Opéra de Monte-Carlo e l'indirizzo da controllare per opera e recital. Théâtre Princesse Grace e piu adatto a teatro contemporaneo e serate in francese curate.", "Монако - найсильніший напрям для сценічного мистецтва з Ментона. Opéra de Monte-Carlo обов'язково варто перевіряти для опери й концертів. Théâtre Princesse Grace краще підходить для сучасної драми й вишуканого театру французькою."),
+          t("Grimaldi Forum is a category of its own: it regularly hosts international musicals, concerts, ballet and large touring productions. Les Ballets de Monte-Carlo should be checked separately because performances may appear across different Monaco venues.", "Le Grimaldi Forum forme une categorie a part: comedies musicales internationales, concerts, ballet et grandes productions en tournee. Les Ballets de Monte-Carlo se verifient separement car les spectacles peuvent changer de salle.", "Il Grimaldi Forum e una categoria a parte: musical internazionali, concerti, balletto e grandi produzioni in tournee. Les Ballets de Monte-Carlo vanno controllati separatamente perche le sedi possono variare.", "Grimaldi Forum - окрема категорія: міжнародні мюзикли, концерти, балет і великі гастрольні постановки. Les Ballets de Monte-Carlo варто перевіряти окремо, бо виступи можуть проходити на різних майданчиках."),
+        ],
+        relatedPlaceIds: ["opera-de-monte-carlo", "theatre-princesse-grace-monaco", "theatre-du-fort-antoine-monaco", "grimaldi-forum-monaco", "ballets-de-monte-carlo"],
+      },
+      {
+        heading: t("Nice: the widest cultural choice", "Nice: le plus grand choix culturel", "Nizza: la scelta culturale piu ampia", "Ніцца: найширший культурний вибір"),
+        body: [
+          t("Nice has the broadest year-round mix. Opéra Nice Côte d'Azur is the major regional opera house, with opera, ballet and symphonic concerts. Théâtre National de Nice is the key address for contemporary theatre, dance, circus and puppetry.", "Nice offre le choix le plus large toute l'annee. L'Opera Nice Cote d'Azur est le grand opera regional, avec opera, ballet et concerts symphoniques. Le Theatre National de Nice est l'adresse majeure pour theatre contemporain, danse, cirque et marionnettes.", "Nizza offre la scelta piu ampia tutto l'anno. Opéra Nice Côte d'Azur e il grande teatro d'opera regionale, con opera, balletto e concerti sinfonici. Théâtre National de Nice e l'indirizzo chiave per teatro contemporaneo, danza, circo e marionette.", "Ніцца має найширший вибір протягом року. Opéra Nice Côte d'Azur - головна опера регіону з оперою, балетом і симфонічними концертами. Théâtre National de Nice - ключова адреса для сучасного театру, танцю, цирку й ляльок."),
+          t("For a more local city evening, check Théâtre Francis-Gag in Old Nice. Théâtre Lino Ventura and Théâtre de Verdure are more variable: they can be excellent for concerts, comedy, dance-style shows and summer open-air events when the programme fits.", "Pour une soiree plus locale, regardez le Theatre Francis-Gag dans le Vieux Nice. Le Theatre Lino Ventura et le Theatre de Verdure sont plus variables: concerts, humour, danse et evenements d'ete en plein air selon la programmation.", "Per una serata piu locale controlla Théâtre Francis-Gag nel Vieux Nice. Théâtre Lino Ventura e Théâtre de Verdure sono piu variabili: concerti, comicita, danza ed eventi estivi all'aperto secondo programma.", "Для більш локального вечора дивіться Théâtre Francis-Gag у старій Ніцці. Théâtre Lino Ventura і Théâtre de Verdure більш різнопланові: концерти, комедія, танцювальні шоу та літні події просто неба залежно від афіші."),
+        ],
+        relatedPlaceIds: ["opera-de-nice", "theatre-national-de-nice", "theatre-francis-gag-nice", "theatre-lino-ventura-nice", "theatre-de-verdure-nice"],
+      },
+      {
+        heading: t("Italy: Teatro Ariston and Ventimiglia", "Italie: Teatro Ariston et Vintimille", "Italia: Teatro Ariston e Ventimiglia", "Італія: Teatro Ariston і Вентімілья"),
+        body: [
+          t("Teatro Ariston in Sanremo deserves more than a Sanremo Festival footnote. It is a year-round theatre and cinema with concerts, stage shows, events and Italian cultural programming.", "Le Teatro Ariston de Sanremo merite mieux qu'une simple mention du Festival. C'est un theatre-cinema actif toute l'annee avec concerts, spectacles, evenements et programmation italienne.", "Il Teatro Ariston di Sanremo merita piu di una nota sul Festival. E un teatro-cinema attivo tutto l'anno con concerti, spettacoli, eventi e programmazione italiana.", "Teatro Ariston у Санремо - це не лише фестиваль. Це цілорічний театр-кінотеатр із концертами, виставами, подіями та італійською культурною програмою."),
+          t("Ventimiglia's Teatro Comunale Luigi Maccario is smaller and closer. It is useful when you want an Italian-language theatre evening without travelling as far as Sanremo.", "Le Teatro Comunale Luigi Maccario de Vintimille est plus petit et plus proche. Il est utile pour une soiree theatre en italien sans aller jusqu'a Sanremo.", "Il Teatro Comunale Luigi Maccario di Ventimiglia e piu piccolo e vicino. E utile per una serata teatrale in italiano senza arrivare fino a Sanremo.", "Teatro Comunale Luigi Maccario у Вентімільї менший і ближчий. Він корисний для вечора італійською без поїздки аж до Санремо."),
+        ],
+        relatedPlaceIds: ["teatro-ariston-sanremo", "teatro-comunale-luigi-maccario-ventimiglia"],
+      },
+      {
+        heading: t("Family performances and children", "Spectacles en famille et enfants", "Spettacoli per famiglie e bambini", "Сімейні вистави та діти"),
+        body: [
+          t("For children, start with local listings rather than assuming every venue is suitable. Palais de l'Europe sometimes has family-friendly touring shows. In Nice, Théâtre National de Nice and Théâtre de la Cité are useful to check for puppetry, early-childhood theatre and family performances.", "Pour les enfants, commencez par les programmes actuels plutot que de supposer que chaque salle convient. Le Palais de l'Europe accueille parfois des spectacles familiaux. A Nice, Theatre National de Nice et Theatre de la Cite sont utiles pour marionnettes, petite enfance et jeune public.", "Per bambini, parti dai programmi attuali invece di presumere che ogni sede sia adatta. Palais de l'Europe ospita a volte spettacoli per famiglie. A Nizza, Théâtre National de Nice e Théâtre de la Cité sono utili per marionette, prima infanzia e famiglie.", "Для дітей починайте з актуальних афіш, а не припускайте, що кожен майданчик підходить. Palais de l'Europe інколи має сімейні гастролі. У Ніцці корисно перевіряти Théâtre National de Nice і Théâtre de la Cité для ляльок, раннього віку й сімейних вистав."),
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton", "theatre-national-de-nice", "theatre-de-la-cite-nice"],
+        relatedApartmentKeys: ["beachside-family-apartment"],
+      },
+      {
+        heading: t("Musicals, ballet and open-air evenings", "Comedies musicales, ballet et soirees plein air", "Musical, balletto e serate all'aperto", "Мюзикли, балет і вечори просто неба"),
+        body: [
+          t("For musicals, Monaco is usually the first place to check because Grimaldi Forum has a history of bringing major international productions and West End-style shows. For ballet, compare Les Ballets de Monte-Carlo with Opéra de Nice's ballet and opera-house season.", "Pour les comedies musicales, Monaco est souvent le premier reflexe car le Grimaldi Forum accueille de grandes productions internationales et des spectacles de type West End. Pour le ballet, comparez Les Ballets de Monte-Carlo et la saison de l'Opera de Nice.", "Per i musical, Monaco e spesso il primo controllo perche il Grimaldi Forum ospita grandi produzioni internazionali e spettacoli stile West End. Per il balletto confronta Les Ballets de Monte-Carlo con la stagione dell'Opera di Nizza.", "Для мюзиклів спершу перевіряйте Монако: Grimaldi Forum регулярно приймає великі міжнародні постановки й шоу в стилі West End. Для балету порівнюйте Les Ballets de Monte-Carlo із сезоном Opéra de Nice."),
+          t("For open-air performance, Théâtre du Fort Antoine in Monaco and Théâtre de Verdure in Nice are the two useful names. Both are seasonal, so check dates before building a trip around them.", "Pour le plein air, le Theatre du Fort Antoine a Monaco et le Theatre de Verdure a Nice sont les deux noms utiles. Les deux sont saisonniers: verifiez les dates avant d'organiser le sejour autour d'eux.", "Per spettacoli all'aperto, Théâtre du Fort Antoine a Monaco e Théâtre de Verdure a Nizza sono i due nomi utili. Entrambi sono stagionali: controlla le date prima di organizzare il viaggio.", "Для вистав просто неба корисні дві назви: Théâtre du Fort Antoine у Монако та Théâtre de Verdure у Ніцці. Обидва сезонні, тому перевіряйте дати перед плануванням поїздки."),
+        ],
+        relatedPlaceIds: ["grimaldi-forum-monaco", "ballets-de-monte-carlo", "opera-de-nice", "theatre-du-fort-antoine-monaco", "theatre-de-verdure-nice"],
+      },
+      {
+        heading: t("Dress code and booking rhythm", "Tenue et rythme de reservation", "Dress code e prenotazione", "Дрес-код і бронювання"),
+        body: [
+          t("Opera does not usually require black tie. Smart casual is normally enough, while Monaco gala evenings may feel better with a jacket or more polished outfit. Summer open-air theatre is more relaxed; bring a light layer for the return.", "L'opera n'exige generalement pas de smoking. Une tenue smart casual suffit souvent, tandis que les soirees de gala a Monaco appellent une veste ou une tenue plus soignee. Le plein air d'ete est plus detendu; prenez une couche legere pour le retour.", "L'opera di solito non richiede smoking. Smart casual basta spesso, mentre le serate gala a Monaco funzionano meglio con giacca o look piu curato. Il teatro estivo all'aperto e piu informale; porta uno strato leggero.", "Опера зазвичай не вимагає смокінга. Smart casual часто достатньо, а для гала-вечорів у Монако краще підходить піджак або вишуканіший одяг. Літній театр просто неба більш невимушений; візьміть легкий шар на повернення."),
+          t("Book Opéra de Monte-Carlo, Les Ballets de Monte-Carlo and Grimaldi Forum musicals several weeks ahead during spring, holidays and event weekends. Le Lavoir Théâtre and municipal theatres often have better last-minute availability, but small rooms can still sell out.", "Reservez l'Opera de Monte-Carlo, Les Ballets de Monte-Carlo et les comedies musicales du Grimaldi Forum plusieurs semaines en avance au printemps, pendant les vacances et week-ends d'evenements. Le Lavoir et les theatres municipaux gardent souvent plus de derniere minute, mais les petites salles peuvent etre completes.", "Prenota Opéra de Monte-Carlo, Les Ballets de Monte-Carlo e musical del Grimaldi Forum varie settimane prima in primavera, vacanze e weekend di eventi. Le Lavoir e i teatri municipali spesso hanno piu disponibilita last minute, ma le sale piccole possono esaurirsi.", "Opéra de Monte-Carlo, Les Ballets de Monte-Carlo і мюзикли Grimaldi Forum бронюйте за кілька тижнів навесні, у канікули та event-вікенди. Le Lavoir і муніципальні театри часто доступніші в останній момент, але малі зали теж розкуповуються."),
+        ],
+      },
+      {
+        heading: t("Which theatre is right for you?", "Quel theatre choisir?", "Quale teatro scegliere?", "Який театр обрати?"),
+        body: [
+          t("Opera: Opéra de Nice for the broadest regional programme, or Opéra de Monte-Carlo for the most elegant evening. Luxury: Opéra de Monte-Carlo. Drama: Théâtre Princesse Grace or Théâtre National de Nice. Summer evenings: Fort Antoine or Théâtre de Verdure. Musicals: Grimaldi Forum. Family: Théâtre de la Cité, TNN or Palais de l'Europe listings. Italian culture: Teatro Ariston. Small authentic theatre: Le Lavoir Théâtre.", "Opera: Opera de Nice pour le programme regional le plus large, ou Opera de Monte-Carlo pour la soiree la plus elegante. Luxe: Opera de Monte-Carlo. Theatre: Theatre Princesse Grace ou Theatre National de Nice. Ete: Fort Antoine ou Theatre de Verdure. Comedies musicales: Grimaldi Forum. Famille: Theatre de la Cite, TNN ou Palais de l'Europe. Culture italienne: Teatro Ariston. Petit theatre: Le Lavoir.", "Opera: Opéra de Nice per il programma regionale piu ampio, o Opéra de Monte-Carlo per la serata piu elegante. Lusso: Opéra de Monte-Carlo. Teatro: Théâtre Princesse Grace o Théâtre National de Nice. Estate: Fort Antoine o Théâtre de Verdure. Musical: Grimaldi Forum. Famiglie: Théâtre de la Cité, TNN o Palais de l'Europe. Cultura italiana: Teatro Ariston. Piccolo teatro: Le Lavoir.", "Опера: Opéra de Nice для найширшої регіональної програми або Opéra de Monte-Carlo для найелегантнішого вечора. Люкс: Opéra de Monte-Carlo. Драма: Théâtre Princesse Grace або Théâtre National de Nice. Літо: Fort Antoine або Théâtre de Verdure. Мюзикли: Grimaldi Forum. Сім'ї: Théâtre de la Cité, TNN або Palais de l'Europe. Італійська культура: Teatro Ariston. Малий театр: Le Lavoir."),
+        ],
+      },
+      {
+        heading: t("Stay in Menton after the performance", "Rentrer dormir a Menton apres le spectacle", "Dormire a Mentone dopo lo spettacolo", "Зупинитися в Ментоні після вистави"),
+        body: [
+          t("One of the advantages of staying in Menton is that you can enjoy an evening performance in Monaco, Nice or Sanremo and return to a quieter seaside apartment the same night. Direct trains make Menton an excellent base for theatre lovers who prefer a relaxed atmosphere after the performance.", "L'un des avantages de Menton est de profiter d'un spectacle a Monaco, Nice ou Sanremo puis de rentrer le soir dans un appartement plus calme pres de la mer. Les trains directs font de Menton une bonne base pour les amateurs de theatre qui veulent une atmosphere detendue apres le spectacle.", "Uno dei vantaggi di Mentone e poter vedere uno spettacolo a Monaco, Nizza o Sanremo e tornare la stessa sera in un appartamento piu tranquillo sul mare. I treni diretti rendono Mentone una base ottima per chi ama il teatro ma preferisce calma dopo lo spettacolo.", "Одна з переваг Ментона: можна піти на вечірню виставу в Монако, Ніцці або Санремо й тієї ж ночі повернутися в тихіші апартаменти біля моря. Прямі потяги роблять Ментон доброю базою для любителів театру, які хочуть спокою після виступу."),
+        ],
+        relatedApartmentKeys: seaViewApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check official programme links before buying tickets; seasons and venues change.", "Verifiez les liens de programme officiels avant achat; saisons et salles changent.", "Controlla i programmi ufficiali prima di comprare; stagioni e sedi cambiano.", "Перевіряйте офіційні програми перед купівлею; сезони й майданчики змінюються."),
+      t("For Monaco or Nice, check the last train before booking a late performance.", "Pour Monaco ou Nice, verifiez le dernier train avant une representation tardive.", "Per Monaco o Nizza controlla l'ultimo treno prima di prenotare uno spettacolo tardi.", "Для Монако або Ніцци перевіряйте останній потяг перед пізньою виставою."),
+      t("For Sanremo, plan the return carefully; some evenings may be easier with a car, taxi or overnight Italian plan.", "Pour Sanremo, prevoyez le retour avec soin; certaines soirees sont plus simples en voiture, taxi ou nuit italienne.", "Per Sanremo pianifica bene il ritorno; alcune serate sono piu semplici con auto, taxi o notte in Italia.", "Для Санремо ретельно плануйте повернення; деякі вечори простіші з авто, таксі або ночівлею в Італії."),
+      t("For children, check language, age guidance and duration before booking.", "Avec enfants, verifiez langue, age conseille et duree avant de reserver.", "Con bambini controlla lingua, eta consigliata e durata prima di prenotare.", "Для дітей перевіряйте мову, вікові рекомендації й тривалість перед бронюванням."),
+    ],
+  }),
+  shortArticle({
     id: "museums-in-menton-nice-monaco",
     slug: "museums-in-menton-nice-monaco",
     title: t("Museums in Menton, Nice and Monaco: a practical guide from Menton", "Musees a Menton, Nice et Monaco: guide pratique depuis Menton", "Musei a Mentone, Nizza e Monaco: guida pratica da Mentone", "Музеї в Ментоні, Ніцці та Монако: практичний гід з Ментона"),
@@ -2156,7 +2286,7 @@ export const guideArticles: GuideArticle[] = [
       "musee-arts-asiatiques-nice",
       "musee-national-du-sport-nice",
     ],
-    relatedArticles: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "halles-du-marche-menton", "day-trips-from-menton", "cinemas-in-menton-nice-monaco", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2846,7 +2976,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "promenade-du-soleil", "plage-sablettes"],
-    relatedArticles: ["stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -3382,7 +3512,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedArticles: ["wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -3469,7 +3599,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
@@ -3651,7 +3781,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[1].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
-    relatedArticles: ["menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    relatedArticles: ["theatre-opera-performing-arts-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
