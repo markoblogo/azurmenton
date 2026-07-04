@@ -27,17 +27,18 @@ export function TrackedLink({
   const handleClick = () => {
     trackBookingFunnelEvent(eventName, props);
   };
+  const safeRel = target === "_blank" ? Array.from(new Set([...(rel?.split(/\s+/).filter(Boolean) ?? []), "noopener", "noreferrer"])).join(" ") : rel;
 
   if (href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("tel:")) {
     return (
-      <a className={className} href={href} onClick={handleClick} rel={rel} target={target}>
+      <a className={className} href={href} onClick={handleClick} rel={safeRel} target={target}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link className={className} href={href as Route} onClick={handleClick} rel={rel} target={target}>
+    <Link className={className} href={href as Route} onClick={handleClick} rel={safeRel} target={target}>
       {children}
     </Link>
   );

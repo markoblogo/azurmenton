@@ -47,6 +47,8 @@ npm run lint
 npm run typecheck
 npm test
 npm run preflight
+npm run content:report
+npm run events:review
 npm run images:check
 npm run build
 npm run preflight:postbuild
@@ -56,11 +58,11 @@ Optional checks:
 
 ```bash
 npm run content:audit
-npm run content:report
-npm run events:review
+npm run weekly:validate
 npm run test:e2e
 npm run images:generate
 npm run seo:validate
+npm audit
 ```
 
 Do not commit `.env.local`, generated build output or private API keys.
@@ -178,6 +180,8 @@ The CSP is nonce-based and generated per request in `src/proxy.ts`. This intenti
 
 Run `npm run preflight:postbuild` after `npm run build` for the current CSP/cache audit. Notes and follow-up options live in `docs/csp-cache-audit.md`.
 
+Security headers are split between `next.config.ts` and `src/lib/security-headers.ts`. The CSP allows the configured Plausible host and, when `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC` is set, the origin of that managed script URL. External tracked links are normalized with `noopener noreferrer` when opened in a new tab.
+
 ### Analytics
 
 Analytics is intentionally limited:
@@ -188,11 +192,16 @@ Analytics is intentionally limited:
 Canonical funnel event names:
 
 - `check_availability_view`
+- `guide_cta_click`
+- `event_cta_click`
+- `apartment_cta_click`
 - `booking_form_start`
 - `booking_request_submit_success`
 - `booking_request_submit_error`
+- `whatsapp_click`
+- `email_click`
 
-Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: `locale`, `page_type`, `page_path`, `apartment`, `parking`, `preferred_language`, `has_dates`, `has_email`, `has_phone`, `has_message`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
+Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: locale/page context, source attribution (`sourcePageType`, `sourceSlug`, guide/event/apartment slugs), trip intent (`apartmentPreference`, `visitingForEvent`, `dateFlexibility`) and coarse form context such as `has_dates`, `has_email`, `has_phone`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
 
 Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, source page, guide/event/apartment slug and apartment preference. See `docs/ANALYTICS.md` for the internal analytics contract. Actual dashboards are configured in Plausible/Vercel outside the repository.
 
@@ -222,6 +231,8 @@ docs/               Operational docs and archived working notes
 - Do not remove old event content solely because the date passed; annual events stay archived for future refresh.
 - Use `docs/content-operations.md` as the checklist for guide, place, event, image, linking and preflight work.
 - TypeScript content modules remain the source of truth for now. `npm run content:lint`, `npm run content:audit` and `npm run content:report` provide lightweight schema and content-graph checks before any future JSON/YAML or CMS migration.
+- Weekly digest content is human-reviewed. `npm run weekly:validate` prevents draft or unreviewed weekly items from becoming public; `npm run weekly:draft` is only a non-publishing stub.
+- `npm run events:review` is an operational maintenance report, not a hard failure gate. A clean high-risk count means no stale annual event is silently promoted; pending seasonal placeholders can still appear as review items until official programmes are published.
 
 ## Deployment
 
@@ -231,4 +242,4 @@ Production domain: `azurmenton.com`
 
 CI runs on pushes and pull requests to `main`: install, lint, typecheck, unit tests, content/funnel preflight, image derivative manifest validation, production build and post-build CSP/cache preflight.
 
-See `docs/content-operations.md`, `docs/csp-cache-audit.md` and `docs/search-console-validation.md` for operational checklists.
+See `docs/content-operations.md`, `docs/ANALYTICS.md`, `docs/WEEKLY_DIGEST.md`, `docs/csp-cache-audit.md` and `docs/search-console-validation.md` for operational checklists.
