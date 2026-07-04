@@ -33,11 +33,13 @@ type GuideExplorerProps = {
 };
 
 const filters = {
-  en: { featured: "Featured local notes", articles: "Guide articles", active: "Active filters" },
-  fr: { featured: "Notes locales a la une", articles: "Articles du guide", active: "Filtres actifs" },
-  it: { featured: "Appunti locali in evidenza", articles: "Guide", active: "Filtri attivi" },
-  uk: { featured: "Рекомендовані локальні нотатки", articles: "Статті гіда", active: "Активні фільтри" },
+  en: { articles: "Guide articles", searchTitle: "Search the Menton guide", searchText: "Find beaches, food, family ideas, car-free routes, transport notes and local places in one pass.", showMore: "Show more guides", showingRange: "Showing" },
+  fr: { articles: "Articles du guide", searchTitle: "Rechercher dans le guide de Menton", searchText: "Trouvez plages, cuisine, idees famille, trajets sans voiture, transport et lieux utiles en une recherche.", showMore: "Afficher plus de guides", showingRange: "Affichage" },
+  it: { articles: "Guide", searchTitle: "Cerca nella guida di Mentone", searchText: "Trova spiagge, cibo, idee famiglia, percorsi senza auto, trasporti e luoghi utili in un passaggio.", showMore: "Mostra altre guide", showingRange: "Mostrando" },
+  uk: { articles: "Статті гіда", searchTitle: "Пошук у гіді Ментона", searchText: "Знайдіть пляжі, їжу, сімейні ідеї, маршрути без авто, транспорт і корисні місця одним пошуком.", showMore: "Показати більше гідів", showingRange: "Показано" },
 };
+
+const PAGE_SIZE = 12;
 
 export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
   const [query, setQuery] = useState("");
@@ -45,6 +47,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
   const [bestFor, setBestFor] = useState("");
   const [duration, setDuration] = useState("");
   const [location, setLocation] = useState("");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const copy = guideFilterLabels;
   const local = filters[locale];
 
@@ -71,15 +74,12 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
     });
   }, [articles, bestFor, category, duration, location, query]);
 
-  const featuredPriority = ["stay-cool-in-menton-summer", "menton-in-autumn", "menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
-  const featured = articles
-    .filter((article) => article.featured)
-    .sort((a, b) => {
-      const aIndex = featuredPriority.indexOf(a.slug);
-      const bIndex = featuredPriority.indexOf(b.slug);
-      return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
-    })
-    .slice(0, 4);
+  function resetVisible() {
+    setVisibleCount(PAGE_SIZE);
+  }
+
+  const visibleArticles = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   function clearFilters() {
     setQuery("");
@@ -87,41 +87,41 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
     setBestFor("");
     setDuration("");
     setLocation("");
+    resetVisible();
   }
 
   return (
     <div className="space-y-8">
-      <section aria-labelledby="featured-guides">
-        <div className="flex items-end justify-between gap-4 border-b border-[#dfd2b8] pb-4">
-          <h2 id="featured-guides" className="serif-heading text-3xl leading-none text-[#173f36]">{local.featured}</h2>
+      <section className="border border-[#173f36] bg-[#173f36] p-4 text-white sm:p-5" aria-label="Guide filters">
+        <div className="mb-4 grid gap-2 md:grid-cols-[0.42fr_1fr] md:items-end">
+          <div>
+            <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">Guide finder</p>
+            <h2 className="mt-2 serif-heading text-3xl leading-none">{local.searchTitle}</h2>
+          </div>
+          <p className="max-w-3xl text-sm leading-6 text-[#e8dcc9]">{local.searchText}</p>
         </div>
-        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {featured.map((article, index) => (
-            <GuideArticleCard key={article.slug} article={article} locale={locale} priority={index === 0} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border border-[#dfd2b8] bg-[#fffaf0] p-4 sm:p-5" aria-label="Guide filters">
         <div className="grid gap-3 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <label className="block">
             <span className="sr-only">{copy.searchPlaceholder[locale]}</span>
             <input
-              className="h-11 w-full border border-[#dfd2b8] bg-white px-3 text-sm text-[#173f36] outline-none focus:border-[#173f36]"
+              className="h-11 w-full border border-[#c6a66a] bg-white px-3 text-sm text-[#173f36] outline-none focus:border-[#c6a66a]"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                resetVisible();
+                setQuery(event.target.value);
+              }}
               placeholder={copy.searchPlaceholder[locale]}
             />
           </label>
-          <Select value={category} onChange={setCategory} label={copy.category[locale]} options={Object.entries(guideCategoryLabels).map(([value, label]) => ({ value, label: label[locale] }))} allLabel={copy.all[locale]} />
-          <Select value={bestFor} onChange={setBestFor} label={copy.bestFor[locale]} options={guideBestForOptions.map((option) => ({ value: option.label[locale], label: option.label[locale] }))} allLabel={copy.all[locale]} />
-          <Select value={duration} onChange={setDuration} label={copy.duration[locale]} options={Object.entries(guideDurationLabels).map(([value, label]) => ({ value, label: label[locale] }))} allLabel={copy.all[locale]} />
-          <Select value={location} onChange={setLocation} label={copy.location[locale]} options={guideLocationOptions.map((option) => ({ value: option.value, label: option.label[locale] }))} allLabel={copy.all[locale]} />
+          <Select value={category} onChange={(value) => { resetVisible(); setCategory(value); }} label={copy.category[locale]} options={Object.entries(guideCategoryLabels).map(([value, label]) => ({ value, label: label[locale] }))} allLabel={copy.all[locale]} />
+          <Select value={bestFor} onChange={(value) => { resetVisible(); setBestFor(value); }} label={copy.bestFor[locale]} options={guideBestForOptions.map((option) => ({ value: option.label[locale], label: option.label[locale] }))} allLabel={copy.all[locale]} />
+          <Select value={duration} onChange={(value) => { resetVisible(); setDuration(value); }} label={copy.duration[locale]} options={Object.entries(guideDurationLabels).map(([value, label]) => ({ value, label: label[locale] }))} allLabel={copy.all[locale]} />
+          <Select value={location} onChange={(value) => { resetVisible(); setLocation(value); }} label={copy.location[locale]} options={guideLocationOptions.map((option) => ({ value: option.value, label: option.label[locale] }))} allLabel={copy.all[locale]} />
         </div>
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-[#71665b]">
-          <p>{copy.showing[locale]} <span className="font-semibold text-[#173f36]">{filtered.length}</span> {copy.guides[locale]}</p>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-[#e8dcc9]">
+          <p>{copy.showing[locale]} <span className="font-semibold text-white">{filtered.length}</span> {copy.guides[locale]}</p>
           {activeFilters.length ? (
-            <button className="border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" type="button" onClick={clearFilters}>
+            <button className="border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" type="button" onClick={clearFilters}>
               {copy.clear[locale]}
             </button>
           ) : null}
@@ -131,11 +131,25 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
       <section aria-labelledby="guide-results">
         <div className="flex items-end justify-between gap-4 border-b border-[#dfd2b8] pb-4">
           <h2 id="guide-results" className="serif-heading text-3xl leading-none text-[#173f36]">{local.articles}</h2>
+          {filtered.length ? <p className="text-xs text-[#71665b]">{local.showingRange} {visibleArticles.length} / {filtered.length}</p> : null}
         </div>
         {filtered.length ? (
-          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} />)}
-          </div>
+          <>
+            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {visibleArticles.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} />)}
+            </div>
+            {hasMore ? (
+              <div className="mt-6 flex justify-center">
+                <button
+                  type="button"
+                  className="inline-flex min-h-11 items-center border border-[#173f36] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                  onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+                >
+                  {local.showMore}
+                </button>
+              </div>
+            ) : null}
+          </>
         ) : (
           <div className="mt-5 border border-[#dfd2b8] bg-[#fffaf0] p-6 text-sm text-[#5c5044]">{copy.empty[locale]}</div>
         )}
@@ -148,7 +162,7 @@ function Select({ value, onChange, label, options, allLabel }: { value: string; 
   return (
     <label className="block">
       <span className="sr-only">{label}</span>
-      <select className="h-11 w-full border border-[#dfd2b8] bg-white px-3 text-xs font-semibold uppercase tracking-[0.09em] text-[#173f36] outline-none focus:border-[#173f36]" value={value} onChange={(event) => onChange(event.target.value)}>
+      <select className="h-11 w-full border border-[#c6a66a] bg-white px-3 text-xs font-semibold uppercase tracking-[0.09em] text-[#173f36] outline-none focus:border-[#c6a66a]" value={value} onChange={(event) => onChange(event.target.value)}>
         <option value="">{label}: {allLabel}</option>
         {options.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
       </select>

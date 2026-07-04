@@ -95,8 +95,8 @@ export function GuideVisual({
       )}
       {image && expandable ? <ImageLightboxButton src={image} alt={alt} locale={locale} /> : null}
       <div className="absolute inset-0 bg-gradient-to-t from-[#173f36]/45 via-transparent to-white/10" />
-      <div className="relative flex h-full min-h-[9rem] flex-col justify-between p-4">
-        <p className="w-fit bg-[#fffaf0]/90 px-2 py-1 text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#173f36]">{visualLabel}</p>
+      <div className="relative flex h-full min-h-[9rem] flex-col justify-between p-3">
+        <p className="max-w-[86%] truncate bg-[#fffaf0]/90 px-2 py-1 text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{visualLabel}</p>
         {!image ? (
           <svg aria-hidden="true" className="h-16 w-16 text-[#173f36]/80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d={iconPaths[theme]} />

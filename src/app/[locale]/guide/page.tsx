@@ -4,7 +4,6 @@ import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { GuideVisual } from "@/components/guide/GuideVisual";
-import { PlaceCard } from "@/components/guide/PlaceCard";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
@@ -13,7 +12,6 @@ import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
 import { getPlaces } from "@/content/places";
-import { rivieraEvents, summerOnTheRivieraEvent } from "@/content/riviera-events";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -21,12 +19,14 @@ import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
 const labels = {
   en: {
     usefulPlaces: "Useful places in Menton",
-    usefulIntro: "Addresses and local stops to help you plan food, walks, beaches and easy evenings. Check current hours before relying on a visit.",
+    usefulIntro: "A real map for beaches, markets, gardens, viewpoints, family stops and practical errands.",
+    mapTitle: "Open the useful places map",
+    mapText: "Filter mapped places from the guide and open live routes in Google Maps.",
     clustersEyebrow: "Stay planning clusters",
     clustersTitle: "Guide routes for common Menton trips",
-    clustersIntro: "Use these compact clusters when you are planning around a real travel need: children, no car, beaches, summer heat, day trips or practical errands.",
+    clustersIntro: "Fast routes into the guide when you know the kind of trip you are planning.",
     mainGuide: "Start with",
-    supportingGuides: "Related guides",
+    supportingGuides: "More guides",
     clusterPlaces: "Useful places",
     clusterApartments: "Relevant apartments",
     clusterEvents: "Related events",
@@ -35,6 +35,7 @@ const labels = {
     eventsCta: "View events calendar",
     mapCta: "Open useful places map",
     transportTitle: "Easy routes from Menton",
+    transportText: "Open train, bus and station links for common Riviera routes.",
     apartmentsTitle: "Where to stay for guide trips",
     apartmentsText: "Choose a central seaside base, then shape each day around beaches, markets, old-town walks and Riviera day trips.",
     viewApartments: "View apartments",
@@ -42,12 +43,14 @@ const labels = {
   },
   fr: {
     usefulPlaces: "Adresses utiles a Menton",
-    usefulIntro: "Lieux pratiques pour organiser cuisine, balades, plages et soirees faciles. Verifiez les horaires actuels avant de vous deplacer.",
+    usefulIntro: "Une vraie carte pour plages, marches, jardins, points de vue, famille et adresses pratiques.",
+    mapTitle: "Ouvrir la carte des lieux utiles",
+    mapText: "Filtrez les lieux du guide et ouvrez les itineraire actuels dans Google Maps.",
     clustersEyebrow: "Parcours de sejour",
     clustersTitle: "Guides par besoin de voyage a Menton",
     clustersIntro: "Utilisez ces groupes pour planifier un vrai besoin: enfants, sans voiture, plages, chaleur d'ete, excursions ou aspects pratiques.",
     mainGuide: "Commencer par",
-    supportingGuides: "Guides lies",
+    supportingGuides: "Autres guides",
     clusterPlaces: "Lieux utiles",
     clusterApartments: "Appartements pertinents",
     clusterEvents: "Evenements lies",
@@ -56,6 +59,7 @@ const labels = {
     eventsCta: "Voir le calendrier des evenements",
     mapCta: "Ouvrir la carte des lieux utiles",
     transportTitle: "Trajets faciles depuis Menton",
+    transportText: "Ouvrir les liens train, bus et gare pour les trajets Riviera utiles.",
     apartmentsTitle: "Ou sejourner pour explorer",
     apartmentsText: "Choisissez une base centrale en bord de mer, puis organisez vos journees entre plages, marches, vieille ville et excursions.",
     viewApartments: "Voir les appartements",
@@ -63,12 +67,14 @@ const labels = {
   },
   it: {
     usefulPlaces: "Luoghi utili a Mentone",
-    usefulIntro: "Indirizzi e tappe locali per organizzare cibo, passeggiate, spiagge e serate semplici. Controlla gli orari aggiornati prima della visita.",
+    usefulIntro: "Una vera mappa per spiagge, mercati, giardini, panorami, famiglia e indirizzi pratici.",
+    mapTitle: "Apri la mappa dei luoghi utili",
+    mapText: "Filtra i luoghi della guida e apri percorsi aggiornati in Google Maps.",
     clustersEyebrow: "Percorsi di soggiorno",
     clustersTitle: "Guide per esigenze reali a Mentone",
     clustersIntro: "Usa questi gruppi per pianificare bisogni concreti: bambini, senza auto, spiagge, caldo estivo, gite o aspetti pratici.",
     mainGuide: "Inizia da",
-    supportingGuides: "Guide correlate",
+    supportingGuides: "Altre guide",
     clusterPlaces: "Luoghi utili",
     clusterApartments: "Appartamenti pertinenti",
     clusterEvents: "Eventi correlati",
@@ -77,6 +83,7 @@ const labels = {
     eventsCta: "Vedi calendario eventi",
     mapCta: "Apri mappa dei luoghi utili",
     transportTitle: "Percorsi facili da Mentone",
+    transportText: "Apri link treno, bus e stazione per le rotte utili della Riviera.",
     apartmentsTitle: "Dove soggiornare per esplorare",
     apartmentsText: "Scegli una base centrale sul mare, poi organizza le giornate tra spiagge, mercati, centro storico e gite.",
     viewApartments: "Vedi appartamenti",
@@ -84,12 +91,14 @@ const labels = {
   },
   uk: {
     usefulPlaces: "Корисні місця в Ментоні",
-    usefulIntro: "Адреси й локальні зупинки для їжі, прогулянок, пляжів і спокійних вечорів. Перед візитом перевіряйте актуальні години роботи.",
+    usefulIntro: "Справжня карта для пляжів, ринків, садів, краєвидів, сімейних місць і практичних адрес.",
+    mapTitle: "Відкрити карту корисних місць",
+    mapText: "Фільтруйте місця з гіда й відкривайте актуальні маршрути в Google Maps.",
     clustersEyebrow: "Маршрути планування",
     clustersTitle: "Гіди під реальні сценарії поїздки",
     clustersIntro: "Використовуйте ці групи для практичного планування: діти, без авто, пляжі, літня спека, поїздки або побутові справи.",
     mainGuide: "Почніть з",
-    supportingGuides: "Пов'язані гіди",
+    supportingGuides: "Інші гіди",
     clusterPlaces: "Корисні місця",
     clusterApartments: "Релевантні апартаменти",
     clusterEvents: "Пов'язані події",
@@ -98,6 +107,7 @@ const labels = {
     eventsCta: "Переглянути календар подій",
     mapCta: "Відкрити карту корисних місць",
     transportTitle: "Зручні маршрути з Ментона",
+    transportText: "Відкрийте посилання на потяги, автобуси й станції для маршрутів Рив'єрою.",
     apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
     apartmentsText: "Оберіть центральну базу біля моря, а дні плануйте навколо пляжів, ринків, старого міста й поїздок Рив'єрою.",
     viewApartments: "Переглянути апартаменти",
@@ -144,30 +154,17 @@ export default async function GuideLandingPage({ params }: PageProps) {
       visualStatus: localized.visualStatus,
     };
   });
-  const usefulPlaces = getPlaces([
-    "halles-du-marche",
-    "plage-sablettes",
-    "rampes-saint-michel",
-    "promenade-du-soleil",
-    "jardin-val-rahmeh",
-    "port-de-garavan",
-  ]);
-  const featuredPriority = ["stay-cool-in-menton-summer", "menton-in-autumn", "menton-without-a-car", "best-beaches-in-menton", "local-food-menton", "menton-one-day-itinerary"];
+  const mapPreviewPlaces = getPlaces(["promenade-du-soleil", "plage-sablettes", "halles-du-marche"]);
+  const featuredPriority = seasonalGuideSlugs();
   const featuredArticles = guideArticles
-    .filter((article) => article.featured)
+    .filter((article) => featuredPriority.includes(article.slug) || article.featured)
     .sort((a, b) => {
       const aIndex = featuredPriority.indexOf(a.slug);
       const bIndex = featuredPriority.indexOf(b.slug);
       return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
     })
     .slice(0, 4);
-  const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
   const getGuideTitle = (slug: string) => guideArticles.find((article) => article.slug === slug)?.title[safeLocale] ?? slug;
-  const getApartmentName = (slug: string) => apartments.find((apartment) => apartment.slug === slug)?.shortName[safeLocale] ?? slug;
-  const getEventTitle = (slug: string) => {
-    const event = allEvents.find((item) => item.slug === slug);
-    return event?.titleLocalized?.[safeLocale] ?? event?.title ?? slug;
-  };
 
   return (
     <>
@@ -185,7 +182,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
           })),
         })}
       />
-      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-14 sm:py-20">
+      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-10 sm:py-14">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.78fr] lg:items-end">
             <div>
@@ -197,7 +194,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
                 <Link className="inline-flex min-h-11 items-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/check-availability` as Route}>{copy.cta.secondaryLabel}</Link>
               </div>
             </div>
-            <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">
+            <div className="border border-[#dfd2b8] bg-[#fffaf0] p-3">
               <div className="grid grid-cols-2 gap-3">
                 {featuredArticles.map((article) => {
                   const localized = localizeGuideArticle(article, safeLocale);
@@ -209,10 +206,10 @@ export default async function GuideLandingPage({ params }: PageProps) {
                         locale={safeLocale}
                         theme={localized.visualTheme ?? "sea"}
                         label={localized.categoryLabel}
-                        className="aspect-[4/2.05]"
+                        className="aspect-[4/1.65]"
                       />
-                      <div className="p-3.5">
-                        <h2 className="serif-heading text-lg leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{localized.title}</h2>
+                      <div className="p-3">
+                        <h2 className="serif-heading text-base leading-[1.08] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{localized.title}</h2>
                       </div>
                     </Link>
                   );
@@ -223,127 +220,99 @@ export default async function GuideLandingPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section className="bg-[#fffaf0] py-8 sm:py-10">
+      <Section className="bg-[#fffaf0] pb-3 pt-5 sm:pb-4 sm:pt-6">
         <Container>
-          <div className="mb-5 max-w-3xl">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{intentCopy.eyebrow}</p>
-            <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{intentCopy.title}</h2>
-            <p className="mt-3 text-sm leading-7 text-[#5c5044]">{intentCopy.intro}</p>
+          <div className="mb-4 grid gap-4 md:grid-cols-[0.38fr_1fr] md:items-end">
+            <div>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{intentCopy.eyebrow}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{intentCopy.title}</h2>
+            </div>
+            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{intentCopy.intro}</p>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {guideIntentClusters.map((cluster) => (
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-7">
+            {guideIntentClusters.map((cluster) => {
+              const article = guideArticles.find((item) => item.slug === cluster.canonicalGuideSlug);
+              const localized = article ? localizeGuideArticle(article, safeLocale) : undefined;
+              return (
               <Link
                 key={cluster.id}
                 href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}
-                className="group flex min-h-36 flex-col justify-between border border-[#dfd2b8] bg-[#f8f3ea] p-4 transition hover:border-[#173f36] hover:bg-[#f3ead7]"
+                className="group overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:border-[#173f36] hover:bg-[#f3ead7]"
               >
-                <div>
-                  <h3 className="serif-heading text-xl leading-[1.08] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
-                  <p className="mt-3 text-xs leading-5 text-[#5c5044]">{cluster.excerpt[safeLocale]}</p>
+                <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/1.35]" />
+                <div className="p-2.5">
+                  <h3 className="serif-heading text-base leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
+                  <p className="mt-1.5 overflow-hidden text-[0.68rem] leading-4 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{cluster.excerpt[safeLocale]}</p>
+                  <span className="mt-2 inline-flex text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{intentCopy.cta}</span>
                 </div>
-                <span className="mt-5 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">{intentCopy.cta}</span>
               </Link>
-            ))}
+            );})}
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#f8f3ea] py-10 sm:py-14">
+      <Section className="bg-[#f8f3ea] py-4 sm:py-5">
         <Container>
           <GuideExplorer locale={safeLocale} articles={articles} />
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-10 sm:py-14">
+      <Section className="bg-[#fffaf0] py-5 sm:py-6">
         <Container>
-          <div className="mb-6 max-w-3xl">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{local.clustersEyebrow}</p>
-            <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{local.clustersTitle}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.clustersIntro}</p>
+          <div className="mb-5 grid gap-4 md:grid-cols-[0.42fr_1fr] md:items-end">
+            <div>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.clustersEyebrow}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.clustersTitle}</h2>
+            </div>
+            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.clustersIntro}</p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-3 lg:grid-cols-7">
             {guideIntentClusters.map((cluster) => {
-              const places = getPlaces(cluster.relatedPlaceIds).slice(0, 4);
-              const events = (cluster.relatedEventSlugs ?? []).slice(0, 3);
-
               return (
-                <section key={cluster.id} aria-labelledby={`guide-cluster-${cluster.id}`} className="border border-[#dfd2b8] bg-[#f8f3ea] p-5">
-                  <h3 id={`guide-cluster-${cluster.id}`} className="serif-heading text-2xl leading-none text-[#173f36]">{cluster.title[safeLocale]}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#5c5044]">{cluster.excerpt[safeLocale]}</p>
-
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.mainGuide}</p>
-                      <Link className="mt-2 inline-flex text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}>
-                        {getGuideTitle(cluster.canonicalGuideSlug)}
-                      </Link>
-                    </div>
-                    <div>
-                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.supportingGuides}</p>
-                      <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5">
-                        {cluster.supportingGuideSlugs.slice(0, 4).map((slug) => (
-                          <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/guide/${slug}` as Route}>
-                            {getGuideTitle(slug)}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                    <div>
-                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterPlaces}</p>
-                      <ul className="mt-2 space-y-1.5 text-sm leading-5 text-[#5c5044]">
-                        {places.map((place) => <li key={place.id}>{place.name}</li>)}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterApartments}</p>
-                      <div className="mt-2 flex flex-col gap-1.5">
-                        {cluster.relatedApartmentKeys.slice(0, 3).map((slug) => (
-                          <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/apartments/${slug}` as Route}>
-                            {getApartmentName(slug)}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    {events.length ? (
-                      <div>
-                        <p className="text-[0.64rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{local.clusterEvents}</p>
-                        <div className="mt-2 flex flex-col gap-1.5">
-                          {events.map((slug) => (
-                            <Link key={slug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${safeLocale}/events/${slug}` as Route}>
-                              {getEventTitle(slug)}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
-                </section>
+                <Link key={cluster.id} href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route} className="group border border-[#dfd2b8] bg-[#f8f3ea] p-3 transition hover:border-[#173f36] hover:bg-[#f3ead7]">
+                  <h3 className="serif-heading text-lg leading-tight text-[#173f36] group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
+                  <p className="mt-2 text-xs leading-5 text-[#5c5044]">{getGuideTitle(cluster.canonicalGuideSlug)}</p>
+                  <p className="mt-3 text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#b49353]">{cluster.supportingGuideSlugs.length + 1} guides · {cluster.relatedApartmentKeys.length} stays</p>
+                </Link>
               );
             })}
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-[#fffaf0] py-10 sm:py-14">
+      <Section className="bg-[#173f36] py-6 text-white sm:py-7">
         <Container>
-          <div className="mb-6 max-w-3xl">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">Menton notes</p>
-            <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{local.usefulPlaces}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.usefulIntro}</p>
+          <div className="grid gap-6 lg:grid-cols-[0.65fr_1fr] lg:items-center">
+            <div>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">Menton map</p>
+              <h2 className="mt-2 serif-heading text-4xl leading-none">{local.mapTitle}</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#e8dcc9]">{local.mapText}</p>
+              <Link className="mt-5 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
+            </div>
+            <div className="grid gap-3 md:grid-cols-3">
+              {mapPreviewPlaces.map((place) => (
+                <div key={place.id} className="overflow-hidden border border-[#c6a66a]/70 bg-white/5">
+                  <GuideVisual image={place.image} imageAlt={place.imageAlt?.[safeLocale]} locale={safeLocale} theme={place.visualTheme ?? "walk"} label={place.type.replaceAll("-", " ")} className="aspect-[4/1.75] border-b border-[#c6a66a]/70" />
+                  <div className="p-3">
+                    <h3 className="serif-heading text-lg leading-tight">{place.name}</h3>
+                    <p className="mt-1 text-xs leading-5 text-[#e8dcc9]">{place.shortNote[safeLocale]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {usefulPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={safeLocale} compact />)}
-          </div>
-          <Link className="mt-6 inline-flex min-h-10 items-center border border-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
         </Container>
       </Section>
 
-      <Section className="bg-[#f8f3ea] py-8 sm:py-10">
+      <Section className="bg-[#f8f3ea] py-6 sm:py-8">
         <Container>
-          <TransportHelperBlock locale={safeLocale} />
+          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.transportTitle}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.transportText}</h2>
+            </div>
+          </div>
+          <TransportHelperBlock locale={safeLocale} compact />
         </Container>
       </Section>
 
@@ -372,4 +341,22 @@ export default async function GuideLandingPage({ params }: PageProps) {
       </Section>
     </>
   );
+}
+
+function seasonalGuideSlugs() {
+  const month = new Date().getMonth() + 1;
+
+  if (month >= 6 && month <= 9) {
+    return ["stay-cool-in-menton-summer", "best-beaches-in-menton", "best-ice-cream-menton", "menton-without-a-car"];
+  }
+
+  if (month >= 10 && month <= 11) {
+    return ["menton-in-autumn", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton"];
+  }
+
+  if (month === 12 || month <= 2) {
+    return ["fete-du-citron-menton-practical-guide", "winter-events-near-menton", "museums-in-menton-nice-monaco", "mountains-snow-skiing-near-menton"];
+  }
+
+  return ["menton-without-a-car", "day-trips-from-menton", "local-food-menton", "where-to-stay-in-menton"];
 }

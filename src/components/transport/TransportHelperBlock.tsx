@@ -10,22 +10,26 @@ const copy = {
   uk: { eyebrow: "Транспортна підказка", title: "Перевірте маршрут перед виїздом", intro: "Відкрийте актуальну інформацію про потяги, автобуси або станцію перед виїздом з Ментона. Ці посилання надійніші за статичний розклад у гіді.", actions: "Корисні посилання", notes: "Нотатки для планування" },
 } satisfies Record<Locale, Record<string, string>>;
 
-export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice", "ventimiglia"] }: { locale: Locale; destinationIds?: string[] }) {
+export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice", "ventimiglia"], compact = false }: { locale: Locale; destinationIds?: string[]; compact?: boolean }) {
   const labels = copy[locale];
   const items = destinationTransport.filter((item) => destinationIds.includes(item.id));
 
   if (!items.length) return null;
 
   return (
-    <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-6">
-      <p className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{labels.eyebrow}</p>
-      <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36]">{labels.title}</h2>
-      <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{labels.intro}</p>
-      <div className="mt-5 grid gap-3 md:grid-cols-3">
+    <section className={`border border-[#dfd2b8] bg-[#fffaf0] ${compact ? "p-4" : "p-5 sm:p-6"}`}>
+      {!compact ? (
+        <>
+          <p className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{labels.eyebrow}</p>
+          <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36]">{labels.title}</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{labels.intro}</p>
+        </>
+      ) : null}
+      <div className={`grid gap-3 ${compact ? "md:grid-cols-3" : "mt-5 md:grid-cols-3"}`}>
         {items.map((item) => (
           <article key={item.id} className="border border-[#dfd2b8] bg-[#f8f3ea] p-4">
-            <h3 className="serif-heading text-2xl leading-tight text-[#173f36]">{item.destination[locale]}</h3>
-            <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.actions}</p>
+            <h3 className={`serif-heading leading-tight text-[#173f36] ${compact ? "text-xl" : "text-2xl"}`}>{item.destination[locale]}</h3>
+            <p className="mt-3 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.actions}</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {item.actionLinks.map((action) => (
                 <Link
@@ -40,16 +44,16 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
                 </Link>
               ))}
             </div>
-            <p className="mt-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.notes}</p>
-            <div className="mt-4 grid gap-3">
-              {item.options.slice(0, 2).map((option) => (
+            <p className="mt-3 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{labels.notes}</p>
+            <div className="mt-3 grid gap-2">
+              {item.options.slice(0, compact ? 1 : 2).map((option) => (
                 <div key={`${item.id}-${option.mode}`} className="border-l-2 border-[#c6a66a] pl-3">
                   <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">{transportModeLabels[option.mode][locale]} · {option.timeLabel[locale]}</p>
                   <p className="mt-1 text-xs leading-5 text-[#5c5044]">{option.note[locale]}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs italic leading-5 text-[#71665b]">{item.practicalNote[locale]}</p>
+            {!compact ? <p className="mt-4 text-xs italic leading-5 text-[#71665b]">{item.practicalNote[locale]}</p> : null}
           </article>
         ))}
       </div>
