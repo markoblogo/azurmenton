@@ -12,6 +12,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { getGuideArticle } from "@/content/guide";
 import { eventApartmentScenarios } from "@/content/contextual-apartment-recommendations";
+import { getEventOccurrencePage } from "@/content/event-occurrences";
 import {
   eventCategoryLabels,
   eventDateStatusLabels,
@@ -23,6 +24,7 @@ import {
   rivieraEvents,
   sourceStatusLabels,
 } from "@/content/riviera-events";
+import { stayPages } from "@/content/stay-pages";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -75,6 +77,10 @@ const copy = {
     getThere: "How to get there",
     arrive: "Best time to arrive",
     combine: "What to combine nearby",
+    occurrencePage: "2027 planning page",
+    evergreenEvent: "Evergreen event page",
+    stayGuide: "Where to stay guide",
+    eventGuide: "Practical guide",
   },
   fr: {
     eyebrow: "Guide evenement Riviera",
@@ -115,6 +121,10 @@ const copy = {
     getThere: "Comment y aller",
     arrive: "Meilleur moment d'arrivee",
     combine: "A combiner a proximite",
+    occurrencePage: "Page de preparation 2027",
+    evergreenEvent: "Page evenement permanente",
+    stayGuide: "Guide ou sejourner",
+    eventGuide: "Guide pratique",
   },
   it: {
     eyebrow: "Guida eventi Riviera",
@@ -155,6 +165,10 @@ const copy = {
     getThere: "Come arrivare",
     arrive: "Quando arrivare",
     combine: "Cosa abbinare vicino",
+    occurrencePage: "Pagina di pianificazione 2027",
+    evergreenEvent: "Pagina evento evergreen",
+    stayGuide: "Guida dove soggiornare",
+    eventGuide: "Guida pratica",
   },
   uk: {
     eyebrow: "Гід подій Рив'єри",
@@ -195,6 +209,10 @@ const copy = {
     getThere: "Як дістатися",
     arrive: "Коли краще приїхати",
     combine: "Що поєднати поруч",
+    occurrencePage: "Сторінка планування 2027",
+    evergreenEvent: "Постійна сторінка події",
+    stayGuide: "Гід де зупинитися",
+    eventGuide: "Практичний гід",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -211,17 +229,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale, slug } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const event = getEventDetail(slug);
+  const occurrence = getEventOccurrencePage(slug);
 
   if (!event) {
     return {};
   }
-  const title = getEventTitle(event, safeLocale);
+  const title = occurrence?.seoTitle[safeLocale] ?? getEventTitle(event, safeLocale);
 
   return createMetadata({
     locale: safeLocale,
     path: `events/${slug}`,
     title: `${title} | Azur Menton`,
-    description: event.shortDescription[safeLocale],
+    description: occurrence?.metaDescription[safeLocale] ?? event.shortDescription[safeLocale],
     image: event.media?.image,
     imageAlt: event.media?.imageAlt?.[safeLocale],
     type: "article",
@@ -242,11 +261,14 @@ export default async function EventArticlePage({ params }: PageProps) {
   }
 
   const labels = copy[locale];
-  const title = getEventTitle(event, locale);
-  const dateLabel = getEventDateLabel(event, locale);
+  const occurrence = getEventOccurrencePage(slug);
+  const title = occurrence?.title[locale] ?? getEventTitle(event, locale);
+  const description = occurrence?.summary[locale] ?? event.shortDescription[locale];
+  const dateLabel = occurrence?.dateNote[locale] ?? getEventDateLabel(event, locale);
   const pageUrl = absoluteUrl(localizedPath(locale, `events/${slug}`));
   const eventStatus = getEventDateStatus(event);
-  const relatedGuides = (event.relatedGuideSlugs ?? ["menton-without-a-car", "public-transport-in-menton"])
+  const occurrenceGuide = occurrence?.relatedGuideSlug ? [occurrence.relatedGuideSlug] : [];
+  const relatedGuides = [...new Set([...occurrenceGuide, ...(event.relatedGuideSlugs ?? ["menton-without-a-car", "public-transport-in-menton"])])]
     .map((guideSlug) => getGuideArticle(guideSlug))
     .filter((guide): guide is NonNullable<ReturnType<typeof getGuideArticle>> => Boolean(guide))
     .slice(0, 5);
@@ -259,12 +281,14 @@ export default async function EventArticlePage({ params }: PageProps) {
     .filter((candidate) => candidate.location === event.location || candidate.category.some((category) => event.category.includes(category)))
     .slice(0, 3);
   const relatedApartmentKeys =
+    occurrence?.relatedApartmentSlugs ??
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
   const apartmentScenario = eventApartmentScenarios[event.slug];
+  const relatedStayPage = occurrence?.relatedStaySlug ? stayPages.find((page) => page.slug === occurrence.relatedStaySlug) : undefined;
   const sourceAttribution = {
     sourcePageType: "event" as const,
-    sourceSlug: event.slug,
+    sourceSlug: occurrence?.slug ?? event.slug,
     sourceEventSlug: event.slug,
   };
   const eventCtaProps = {
@@ -290,7 +314,7 @@ export default async function EventArticlePage({ params }: PageProps) {
       <JsonLdScript
         data={articleJsonLd({
           title,
-          description: event.shortDescription[locale],
+          description,
           url: pageUrl,
           image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
           locale,
@@ -307,7 +331,7 @@ export default async function EventArticlePage({ params }: PageProps) {
         <JsonLdScript
           data={eventJsonLd({
             name: title,
-            description: event.shortDescription[locale],
+            description,
             url: pageUrl,
             startDate: event.startDate!,
             endDate: event.endDate,
@@ -326,7 +350,7 @@ export default async function EventArticlePage({ params }: PageProps) {
               <h1 className="serif-heading mt-4 max-w-4xl break-words text-4xl leading-[0.96] text-[#173f36] sm:text-6xl sm:leading-[0.92]">
                 {title}
               </h1>
-              <p className="mt-5 max-w-2xl text-lg leading-7 text-[#5f574c]">{event.shortDescription[locale]}</p>
+              <p className="mt-5 max-w-2xl text-lg leading-7 text-[#5f574c]">{description}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {event.category.map((category) => (
                   <span key={category} className="border border-[#dfd4c1] bg-[#fffdf8] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#4f5b57]">
@@ -394,6 +418,41 @@ export default async function EventArticlePage({ params }: PageProps) {
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
+                {occurrence ? (
+                  <section className="border border-[#dfd4c1] bg-[#fffdf8] p-5 md:col-span-2">
+                    <p className="editorial-label">{labels.occurrencePage}</p>
+                    <div className="mt-4 grid gap-4 md:grid-cols-3">
+                      <div>
+                        <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.whyStay}</h2>
+                        <p className="mt-4 text-sm leading-7 text-[#5c5044]">{occurrence.whyStayInMenton[locale]}</p>
+                      </div>
+                      <div>
+                        <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.getThere}</h2>
+                        <p className="mt-4 text-sm leading-7 text-[#5c5044]">{occurrence.transportNote[locale]}</p>
+                      </div>
+                      <div>
+                        <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.plan}</h2>
+                        <p className="mt-4 text-sm leading-7 text-[#5c5044]">{occurrence.bookingAdvice[locale]}</p>
+                      </div>
+                    </div>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      <Link href={`/${locale}/events/${event.slug}` as Route} className="border border-[#dfd4c1] px-3 py-2 text-xs font-semibold text-[#0b6f8f] hover:border-[#c6a66a]">
+                        {labels.evergreenEvent}
+                      </Link>
+                      {relatedGuides[0] ? (
+                        <Link href={`/${locale}/guide/${relatedGuides[0].slug}` as Route} className="border border-[#dfd4c1] px-3 py-2 text-xs font-semibold text-[#0b6f8f] hover:border-[#c6a66a]">
+                          {labels.eventGuide}
+                        </Link>
+                      ) : null}
+                      {relatedStayPage ? (
+                        <Link href={`/${locale}/stay/${relatedStayPage.slug}` as Route} className="border border-[#dfd4c1] px-3 py-2 text-xs font-semibold text-[#0b6f8f] hover:border-[#c6a66a]">
+                          {labels.stayGuide}
+                        </Link>
+                      ) : null}
+                    </div>
+                  </section>
+                ) : null}
+
                 <section className="border border-[#dfd4c1] bg-[#fffdf8] p-5">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{labels.why}</h2>
                   <p className="mt-4 font-serif text-xl italic leading-8 text-[#315d53]">{event.whyShowOnSite[locale]}</p>

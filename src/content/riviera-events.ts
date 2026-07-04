@@ -1769,6 +1769,7 @@ const rivieraEventsBase: RivieraEvent[] = [
   {
     id: "menton-lemon-festival-2027",
     slug: "menton-lemon-festival",
+    occurrenceSlug: "fete-du-citron-2027",
     title: "Fete du Citron / Menton Lemon Festival",
     seriesSlug: "menton-lemon-festival",
     occurrenceYear: 2027,

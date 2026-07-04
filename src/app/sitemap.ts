@@ -13,6 +13,7 @@ const staticRoutes = [
   "check-availability",
   "guide",
   "events",
+  "events/this-week",
   "stay",
   "faq",
   "contact",
