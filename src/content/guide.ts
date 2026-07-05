@@ -297,7 +297,7 @@ const articles: GuideArticle[] = [
             "Наявність змінюється залежно від сезону, дня й ятки, тому сприймайте цей гід як карту дегустації, а не як жорсткий список.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "rue-saint-michel-menton"],
         relatedApartmentKeys: allApartments,
       },
       {
@@ -319,7 +319,7 @@ const articles: GuideArticle[] = [
             "Схожа класика - pissaladière, де акцент зазвичай на карамелізованій цибулі й анчоусах. У Ментоні обидва варіанти можуть бути на одному прилавку. Запитайте, що щойно з печі, і візьміть шматок до набережної або в апартаменти для простого обіду.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "rue-saint-michel-menton"],
       },
       {
         heading: t("Socca and warm street food", "Socca et street food chaude", "Socca e street food calda", "Socca й тепла вулична їжа"),
@@ -340,7 +340,7 @@ const articles: GuideArticle[] = [
             "Найкраща перша дегустація - гаряча й проста: широкі шматки, руками, з чорним перцем. Якщо бачите на дошці socca chaude, беріть порцію, поки вона ще тепла.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "rue-saint-michel-menton"],
       },
       {
         heading: t("Barbajuans and market picnic bites", "Barbajuans et pique-nique de marche", "Barbajuans e assaggi da picnic", "Barbajuans і ринковий пікнік"),
@@ -361,7 +361,7 @@ const articles: GuideArticle[] = [
             "Корисний ринковий прийом: купіть трохи barbajuans, socca і pichade в різних ятках, а потім зробіть власний дегустаційний пікнік біля моря замість того, щоб одразу сідати в ресторан.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "promenade-du-soleil"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "promenade-du-soleil"],
       },
       {
         heading: t("Fougasse mentonnaise and citrus sweets", "Fougasse mentonnaise et douceurs aux agrumes", "Fougasse mentonnaise e dolci agli agrumi", "Fougasse mentonnaise і цитрусові солодощі"),
@@ -382,7 +382,7 @@ const articles: GuideArticle[] = [
             "Цитрусова ідентичність Ментона також помітна в лимонних тартах, кексах, джемах, цукатах, печиві й лікерах. Спеціалізовані крамниці з лимонними продуктами добре підходять для сувенірів, які легше везти додому, ніж свіжу випічку.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton", "petit-casino-saint-michel"],
+        relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton", "petit-casino-saint-michel"],
       },
       {
         heading: t("Ice cream, gelato and lemon sorbet", "Glace, gelato et sorbet citron", "Gelato, gelaterie e sorbetto al limone", "Морозиво, gelato й лимонний сорбет"),
@@ -445,7 +445,7 @@ const articles: GuideArticle[] = [
             "Окрім ринку, заглядайте в невеликі пекарні старого міста й дивіться дошки кафе, де socca або barbajuans можуть бути в спеціальних пропозиціях. Запитуйте продавців, що місцеве, домашнє або особливо вдале саме сьогодні.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel"],
       },
     ],
     practicalTips: [
@@ -453,7 +453,7 @@ const articles: GuideArticle[] = [
       t("Ask what is homemade, local or just out of the oven.", "Demandez ce qui est fait maison, local ou tout juste sorti du four.", "Chiedi cosa e fatto in casa, locale o appena uscito dal forno.", "Запитуйте, що домашнє, місцеве або щойно з печі."),
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
-    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
+    relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
     relatedArticles: ["best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
@@ -715,7 +715,7 @@ const articles: GuideArticle[] = [
             "Якщо не знаєте, що обрати, запитайте продавців, що сьогодні місцеве, домашнє або саме з Ментона. Якщо після ринку плануєте довгу прогулянку чи кілька годин на пляжі, обирайте те, що добре переносить дорогу: хліб, фрукти, горіхи й солодощі, а не делікатні свіжі сири чи м'ясні продукти.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
+        relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton"],
       },
     ],
     practicalTips: [
@@ -3389,7 +3389,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["menton-centre", "old-town", "seafront"],
     featured: true,
-    relatedPlaces: ["halles-du-marche", "rampes-saint-michel", "plage-sablettes", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "promenade-du-soleil"],
+    relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel", "plage-sablettes", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "promenade-du-soleil"],
     relatedArticles: ["supermarkets-in-menton", "halles-du-marche-menton", "best-beaches-in-menton", "quiet-evening-in-menton"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -3428,7 +3428,7 @@ export const guideArticles: GuideArticle[] = [
             "Коли будете готові, йдіть до Les Rampes Saint-Michel і повільно піднімайтеся старим містом, зупиняючись на майданчиках, щоб подивитися на бухту й черепичні дахи навколо базиліки.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel"],
       },
       {
         heading: t("Late morning: viewpoints and a simple lunch", "Fin de matinee: vues et dejeuner simple", "Tarda mattina: panorami e pranzo semplice", "Пізній ранок: краєвиди й простий обід"),
@@ -3674,7 +3674,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[7].label],
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
-    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
+    relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes"],
     relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -3703,7 +3703,7 @@ export const guideArticles: GuideArticle[] = [
           t("For something sweet, look for lemon tarts, cakes and sometimes fougasse mentonnaise, a soft festive bread with candied fruit and orange blossom. Jam-makers such as Maison Herbin, close to the old town, specialise in citrus marmalades and traditional recipes; check current opening before planning around a specific shop.", "Pour le sucre, cherchez tartes au citron, gateaux et parfois fougasse mentonnaise, un pain doux de fete aux fruits confits et a la fleur d'oranger. Des confituriers comme Maison Herbin, pres de la vieille ville, travaillent les marmelades d'agrumes et les recettes traditionnelles; verifiez les horaires actuels avant d'organiser votre parcours autour d'une adresse precise.", "Per il dolce, cerca crostate al limone, torte e a volte fougasse mentonnaise, un pane morbido da festa con frutta candita e fiori d'arancio. Produttori come Maison Herbin, vicino al centro storico, sono specializzati in marmellate di agrumi e ricette tradizionali; controlla gli orari aggiornati prima di pianificare una visita a un negozio preciso.", "На солодке шукайте лимонні тарти, тістечка й інколи fougasse mentonnaise - м'який святковий хліб із цукатами та ароматом помаранчевого цвіту. Виробники джемів на кшталт Maison Herbin біля старого міста спеціалізуються на цитрусових мармеладах і традиційних рецептах; перед плануванням візиту до конкретної крамниці перевірте актуальний графік."),
           t("Pedestrian streets also have cafes and small restaurants where you can stop for coffee, a glass of wine or a simple lunch between walks.", "Les rues pietonnes comptent aussi des cafes et petits restaurants pour un cafe, un verre de vin ou un dejeuner simple entre deux promenades.", "Le vie pedonali hanno anche caffe e piccoli ristoranti dove fermarsi per un caffe, un bicchiere di vino o un pranzo semplice tra una passeggiata e l'altra.", "На пішохідних вулицях також є кав'ярні та невеликі ресторани, де можна зупинитися на каву, келих вина або простий обід між прогулянками."),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton"],
       },
       {
         heading: t("Souvenir and lemon shops", "Boutiques au citron et souvenirs", "Negozi al limone e souvenir", "Лимонні крамниці та сувеніри"),
@@ -4392,7 +4392,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "seafront", "old-town"],
     sourceStatus: "needs_verification",
-    relatedPlaces: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil", "rampes-saint-michel", "cimetiere-vieux-chateau", "halles-du-marche", "plage-casino", "plage-fossan"],
+    relatedPlaces: ["jardins-bioves", "palais-de-leurope-menton", "promenade-du-soleil", "rampes-saint-michel", "cimetiere-vieux-chateau", "halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton", "plage-casino", "plage-fossan"],
     relatedArticles: ["music-videos-filmed-in-menton", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "best-photo-spots-menton", "menton-with-kids-family-guide", "local-food-menton"],
     relatedEvents: ["menton-lemon-festival", "nice-carnival", "monte-carlo-circus-festival"],
     relatedApartments: allApartments,
@@ -4634,7 +4634,7 @@ export const guideArticles: GuideArticle[] = [
           t("This area works well if you like to start the day at the market, decide the plan over coffee, and walk up into the old town in the evening before returning towards the port.", "Ce secteur convient si vous aimez commencer la journee au marche, decider du programme autour d'un cafe et monter dans la vieille ville le soir avant de redescendre vers le port.", "Questa zona funziona bene se ti piace iniziare la giornata al mercato, decidere il programma davanti a un caffe e salire nel centro storico la sera prima di tornare verso il porto.", "Цей район добрий, якщо любите починати день на ринку, вирішувати план за кавою й увечері підніматися в старе місто перед поверненням до порту."),
           t("Azur Menton focuses more on central beachfront than inside the old town itself, but from the Victoria Beach apartments you can still walk to the market and basilica area in about 10-15 minutes.", "Azur Menton se concentre davantage sur le front de mer central que dans la vieille ville elle-meme, mais depuis les appartements Victoria Beach vous pouvez rejoindre le marche et la basilique a pied en environ 10 a 15 minutes.", "Azur Menton e piu orientato al lungomare centrale che al centro storico vero e proprio, ma dagli appartamenti Victoria Beach puoi comunque camminare fino al mercato e alla basilica in circa 10-15 minuti.", "Azur Menton більше зосереджений на центральній набережній, ніж безпосередньо всередині старого міста, але від апартаментів Victoria Beach до ринку й району базиліки можна дійти приблизно за 10-15 хвилин."),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau"],
+        relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel", "cimetiere-vieux-chateau"],
       },
       {
         heading: t("Station area and upper town", "Quartier de la gare et haut de ville", "Zona stazione e parte alta", "Район станції та верхнє місто"),

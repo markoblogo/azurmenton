@@ -6,6 +6,8 @@ export type PlaceMapPoint = {
 
 export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "halles-du-marche", lat: 43.7754, lng: 7.5062 },
+  { placeId: "chez-mimi-menton", lat: 43.7754, lng: 7.5062 },
+  { placeId: "maison-herbin-menton", lat: 43.7762, lng: 7.5042 },
   { placeId: "rue-saint-michel-menton", lat: 43.7758, lng: 7.5035 },
   { placeId: "quai-bonaparte-menton", lat: 43.7802, lng: 7.5026 },
   { placeId: "plage-sablettes", lat: 43.7806, lng: 7.5024 },

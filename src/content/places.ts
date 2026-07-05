@@ -125,7 +125,7 @@ const rawPlaces: Place[] = [
   {
     id: "chez-mimi-menton",
     name: "Chez Mimi",
-    type: "market",
+    type: "restaurant",
     address: "Halles de Menton, 5 Quai de Monléon, 06500 Menton",
     googleMapsUrl: mapsSearch("Chez Mimi", "Halles de Menton, 5 Quai de Monléon, 06500 Menton"),
     openingHoursLabel: checkHours,
@@ -137,7 +137,7 @@ const rawPlaces: Place[] = [
       "Корисна адреса біля Halles для солоних спеціалітетів Ментона й Рив'єри: socca, barbajuans, pichade, pissaladière і тарти, коли є.",
     ),
     bestFor: [text("local bites", "specialites salees", "assaggi locali", "локальні закуски"), text("market morning", "matin au marche", "mattina al mercato", "ринковий ранок")],
-    relatedArticleIds: ["halles-du-marche-menton", "local-food-menton", "menton-one-day-itinerary"],
+    relatedArticleIds: ["halles-du-marche-menton", "local-food-menton", "menton-one-day-itinerary", "menton-old-town"],
   },
   {
     id: "maison-herbin-menton",
@@ -154,7 +154,7 @@ const rawPlaces: Place[] = [
       "Відоме місце в Ментоні для artisan jams, marmalades і цитрусових продуктів поруч із ринком і старими вулицями.",
     ),
     bestFor: [text("citrus gifts", "cadeaux aux agrumes", "regali agli agrumi", "цитрусові подарунки"), text("Menton lemons", "citrons de Menton", "limoni di Mentone", "лимони Ментона")],
-    relatedArticleIds: ["halles-du-marche-menton", "local-food-menton", "fete-du-citron-menton-practical-guide"],
+    relatedArticleIds: ["halles-du-marche-menton", "local-food-menton", "fete-du-citron-menton-practical-guide", "menton-old-town"],
   },
   {
     id: "quai-bonaparte-menton",
@@ -2575,6 +2575,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     image: "/images/guide/halles-du-marche-place.jpg",
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
+  },
+  "chez-mimi-menton": {
+    image: "/images/guide/chez-mimi-menton.jpg",
+    imageAlt: text("Illustration of Chez Mimi market bites in Menton", "Illustration des specialites salees de Chez Mimi a Menton", "Illustrazione degli assaggi salati di Chez Mimi a Mentone", "Ілюстрація локальних закусок Chez Mimi у Ментоні"),
+    visualTheme: "food",
+  },
+  "maison-herbin-menton": {
+    image: "/images/guide/maison-herbin-menton.jpg",
+    imageAlt: text("Illustration of Maison Herbin citrus jams and gifts in Menton", "Illustration des confitures et cadeaux aux agrumes de Maison Herbin a Menton", "Illustrazione di confetture e regali agli agrumi di Maison Herbin a Mentone", "Ілюстрація цитрусових джемів і подарунків Maison Herbin у Ментоні"),
+    visualTheme: "food",
   },
   "centre-hospitalier-la-palmosa-menton": {
     image: "/images/guide/centre-hospitalier-la-palmosa-menton.jpg",
