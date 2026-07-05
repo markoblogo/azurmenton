@@ -1915,8 +1915,8 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "seafront", "garavan", "monaco", "nice"],
     featured: true,
-    relatedPlaces: ["rampes-saint-michel", "basilica-saint-michel-archange", "promenade-du-soleil", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "cimetiere-vieux-chateau", "port-de-garavan", "plage-sablettes", "gorbio"],
-    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "quiet-evening-in-menton", "menton-old-town", "day-trips-from-menton", "menton-without-a-car"],
+    relatedPlaces: ["rampes-saint-michel", "basilica-saint-michel-archange", "promenade-du-soleil", "jardin-serre-de-la-madone", "jardin-val-rahmeh", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "musee-jean-cocteau-bastion", "port-de-garavan", "rondelli-garavan-side", "sentier-douaniers-menton", "plage-sablettes", "plage-casino", "casino-barriere-menton", "gorbio", "roquebrune-cap-martin-coastal-walk", "monaco-monte-carlo", "nice-old-town"],
+    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "quiet-evening-in-menton", "menton-old-town", "best-beaches-in-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "day-trips-from-menton", "menton-without-a-car"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -1942,7 +1942,7 @@ export const guideArticles: GuideArticle[] = [
             "Підніміться вище до Cimetière du Vieux Château для панорам на бухту й італійський кордон. Ранкове світло м'якше; ближче до заходу сонця з'являються тепліші тони й довші тіні. Рухайтеся доріжками, щоб включити в кадр марину, Cap Martin або Plage des Sablettes унизу.",
           ),
         ],
-        relatedPlaceIds: ["rampes-saint-michel", "cimetiere-vieux-chateau", "plage-sablettes"],
+        relatedPlaceIds: ["rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "quai-bonaparte-menton", "plage-sablettes"],
       },
       {
         heading: t("Gardens and details", "Jardins et details", "Giardini e dettagli", "Сади й деталі"),
@@ -1978,7 +1978,7 @@ export const guideArticles: GuideArticle[] = [
             "Використовуйте вигин набережної, ліхтарі й пальми як провідні лінії. Plage des Sablettes і старий порт ідеальні для листівкового силуету: з пляжу поставте море на передній план, з порту використовуйте човни, щогли й віддзеркалення.",
           ),
         ],
-        relatedPlaceIds: ["promenade-du-soleil", "plage-sablettes"],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "casino-barriere-menton", "musee-jean-cocteau-bastion"],
       },
       {
         heading: t("Port de Garavan and quieter corners", "Port de Garavan et coins plus calmes", "Port de Garavan e angoli piu tranquilli", "Port de Garavan і тихіші куточки"),
@@ -1996,7 +1996,7 @@ export const guideArticles: GuideArticle[] = [
             "Вулиці й сходи над Garavan дають інтимніші деталі: віконниці, рослини на балконах, вузькі провулки й проблиски моря між будинками. Це хороший район для прогулянки без жорсткого плану, якщо вам цікавіші текстури, ніж широкі панорами.",
           ),
         ],
-        relatedPlaceIds: ["port-de-garavan"],
+        relatedPlaceIds: ["port-de-garavan", "rondelli-garavan-side", "sentier-douaniers-menton"],
       },
       {
         heading: t("Beyond Menton: Monaco, Nice, sea and mountains", "Au-dela de Menton: Monaco, Nice, mer et montagnes", "Oltre Mentone: Monaco, Nizza, mare e montagne", "За межами Ментона: Монако, Ніцца, море й гори"),
@@ -2020,6 +2020,7 @@ export const guideArticles: GuideArticle[] = [
             "Яку б комбінацію ви не обрали, заплануйте одну-дві ключові точки на світанок або захід сонця, а решту дня залиште гнучкою. Зазвичай цього достатньо для сильного набору фото без перетворення всієї поїздки на чеклист.",
           ),
         ],
+        relatedPlaceIds: ["monaco-monte-carlo", "nice-old-town", "roquebrune-cap-martin-coastal-walk", "gorbio"],
       },
     ],
     practicalTips: [
@@ -4214,8 +4215,8 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
-    relatedPlaces: ["monaco-monte-carlo", "nice-old-town", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "gorbio", "roquebrune-medieval-village"],
-    relatedArticles: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedPlaces: ["monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
+    relatedArticles: ["best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4234,7 +4235,7 @@ export const guideArticles: GuideArticle[] = [
           t("Then walk down to the harbour and finish in the Casino district for architecture, gardens and people-watching. Even if you do not go inside the casino, the square gives you classic Monaco images.", "Descendez ensuite vers le port et terminez dans le quartier du Casino pour l'architecture, les jardins et l'observation de la vie monagasque. Meme sans entrer au casino, la place donne les images classiques de Monaco.", "Poi scendi verso il porto e chiudi nel quartiere del Casino per architettura, giardini e people-watching. Anche senza entrare nel casino, la piazza offre immagini classiche di Monaco.", "Потім спускайтеся до порту й завершуйте в районі Casino заради архітектури, садів і спостереження за людьми. Навіть без входу в казино площа дає класичні кадри Монако."),
           t("If you stay into the evening, Monaco gives livelier nightlife than Menton, from harbour bars to famous spots such as La Rascasse with live music and DJs. Check current programmes and last return options, then come back to quieter Menton to sleep.", "Si vous restez le soir, Monaco offre une vie nocturne plus animee que Menton, des bars du port a des adresses connues comme La Rascasse avec musique live et DJs. Verifiez les programmes actuels et les derniers retours, puis rentrez dormir dans le calme de Menton.", "Se resti la sera, Monaco offre una nightlife piu vivace di Mentone, dai bar del porto a luoghi famosi come La Rascasse con live music e DJ. Controlla programmi aggiornati e ultimi ritorni, poi rientra a dormire nella calma di Mentone.", "Якщо залишитися до вечора, Монако дає жвавіше нічне життя, ніж Ментон: від барів у порту до відомих місць на кшталт La Rascasse з живою музикою та DJs. Перевірте актуальні програми й останні варіанти повернення, а потім вертайтеся спати до спокійнішого Ментона."),
         ],
-        relatedPlaceIds: ["monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection"],
+        relatedPlaceIds: ["monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco"],
       },
       {
         heading: t("Nice: big-city Riviera for a day", "Nice: Riviera plus urbaine pour une journee", "Nizza: Riviera da grande citta per un giorno", "Ніцца: міська Рив'єра на день"),
@@ -4243,7 +4244,7 @@ export const guideArticles: GuideArticle[] = [
           t("In the afternoon, walk or cycle along Promenade des Anglais, climb Colline du Château for panoramic views over Baie des Anges, then choose between a beach stop or museums depending on your interests.", "L'apres-midi, marchez ou pedalez sur la Promenade des Anglais, montez a la Colline du Château pour les panoramas sur la Baie des Anges, puis choisissez entre plage ou musees selon vos envies.", "Nel pomeriggio cammina o pedala sulla Promenade des Anglais, sali alla Colline du Château per viste panoramiche sulla Baie des Anges, poi scegli tra spiaggia o musei secondo i tuoi interessi.", "Вдень пройдіться або проїдьтеся Promenade des Anglais, підніміться на Colline du Château за панорамами Baie des Anges, а потім обирайте пляж або музеї залежно від інтересів."),
           t("If you want one bigger night out during your stay, Nice has the densest bar and nightlife scene in the area. You can still return to Menton the same evening if you check last trains and keep a taxi or ride-hailing option as backup.", "Si vous voulez une soiree plus grande pendant le sejour, Nice a la scene de bars et nightlife la plus dense de la region. Vous pouvez quand meme rentrer a Menton le soir meme si vous verifiez les derniers trains et gardez taxi ou VTC en plan B.", "Se vuoi una serata piu grande durante il soggiorno, Nizza ha la scena di bar e nightlife piu densa della zona. Puoi comunque rientrare a Mentone la stessa sera se controlli gli ultimi treni e tieni taxi o ride-hailing come backup.", "Якщо хочете один більший вечір під час перебування, у Ніцці найнасиченіша сцена барів і нічного життя в регіоні. Ви все одно можете повернутися до Ментона того ж вечора, якщо перевірите останні потяги й матимете таксі або ride-hailing як запасний варіант."),
         ],
-        relatedPlaceIds: ["nice-old-town", "musee-matisse-nice", "musee-chagall-nice"],
+        relatedPlaceIds: ["nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice"],
       },
       {
         heading: t("Hilltop villages: Èze and the mountains above Menton", "Villages perches: Eze et les montagnes au-dessus de Menton", "Borghi collinari: Eze e le montagne sopra Mentone", "Гірські села: Ез і гори над Ментоном"),
@@ -4252,7 +4253,7 @@ export const guideArticles: GuideArticle[] = [
           t("Closer to Menton, villages such as Sainte-Agnès or Gorbio offer even more dramatic balcony-style views over sea and mountains, with a quieter, almost Alpine feel. They work best with a car or carefully checked bus times, especially for the return.", "Plus pres de Menton, des villages comme Sainte-Agnes ou Gorbio offrent des vues encore plus spectaculaires en balcon sur la mer et les montagnes, dans une ambiance plus calme presque alpine. Ils fonctionnent mieux en voiture ou avec des horaires de bus soigneusement verifies, surtout pour le retour.", "Piu vicino a Mentone, villaggi come Sainte-Agnès o Gorbio offrono viste ancora piu spettacolari a balcone su mare e montagne, con un'atmosfera piu tranquilla quasi alpina. Funzionano meglio in auto o con orari bus controllati con attenzione, soprattutto per il ritorno.", "Ближче до Ментона села на кшталт Sainte-Agnès або Gorbio дають ще драматичніші види-балкони на море й гори, зі спокійнішим, майже альпійським настроєм. Вони найкраще працюють з авто або дуже уважно перевіреним розкладом автобусів, особливо на повернення."),
           t("These villages are good if you want to pair one city day with one slower day in the hills, rather than spending every excursion on the coast.", "Ces villages sont utiles si vous voulez associer une journee urbaine a une journee plus lente dans les collines, plutot que de passer toutes les excursions sur la cote.", "Questi borghi sono ideali se vuoi abbinare una giornata urbana a una giornata piu lenta sulle colline, invece di passare tutte le gite sulla costa.", "Такі села добрі, якщо хочете поєднати один міський день із повільнішим днем у пагорбах, а не проводити всі поїздки лише на узбережжі."),
         ],
-        relatedPlaceIds: ["eze-village", "gorbio", "roquebrune-medieval-village"],
+        relatedPlaceIds: ["eze-village", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley"],
       },
       {
         heading: t("Italian Riviera: Ventimiglia, Bordighera and Sanremo", "Riviera italienne: Vintimille, Bordighera et Sanremo", "Riviera italiana: Ventimiglia, Bordighera e Sanremo", "Італійська Рив'єра: Вентімілья, Бордігера та Санремо"),
@@ -4261,7 +4262,7 @@ export const guideArticles: GuideArticle[] = [
           t("Farther along the line, Bordighera and Sanremo offer promenades, beaches, old streets and a different architectural rhythm from the French side. Choose one town for a focused day or combine two shorter stops if you are comfortable with the train schedule.", "Plus loin sur la ligne, Bordighera et Sanremo offrent promenades, plages, vieilles rues et un rythme architectural different du cote francais. Choisissez une ville pour une journee ciblee ou combinez deux arrets plus courts si les horaires de train vous conviennent.", "Piu avanti sulla linea, Bordighera e Sanremo offrono passeggiate, spiagge, strade antiche e un ritmo architettonico diverso dal lato francese. Scegli una citta per una giornata concentrata o combina due soste brevi se gli orari dei treni sono comodi.", "Далі по лінії Бордігера й Санремо пропонують променады, пляжі, старі вулиці й інший архітектурний ритм, ніж французький бік. Оберіть одне місто для сфокусованого дня або поєднайте дві коротші зупинки, якщо вам зручний розклад потягів."),
           t("For most guests, Italy works best as a food-and-walk day: coffee, market or old streets, a pasta or seafood lunch, then a train back to Menton for an easy evening.", "Pour la plupart des visiteurs, l'Italie fonctionne mieux comme journee nourriture et balade: cafe, marche ou vieilles rues, dejeuner de pates ou fruits de mer, puis train retour vers Menton pour une soiree simple.", "Per molti ospiti, l'Italia funziona meglio come giornata di cibo e passeggiata: caffe, mercato o vie antiche, pranzo di pasta o pesce, poi treno di ritorno a Mentone per una serata facile.", "Для більшості гостей Італія найкраще працює як день їжі та прогулянок: кава, ринок або старі вулиці, обід із пастою чи морепродуктами, а потім потяг назад у Ментон на легкий вечір."),
         ],
-        relatedPlaceIds: ["ventimiglia", "bordighera", "sanremo"],
+        relatedPlaceIds: ["ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua"],
       },
       {
         heading: t("Short boat trips and coastal views", "Petites sorties en bateau et vues cotieres", "Brevi uscite in barca e viste costiere", "Короткі морські прогулянки й види узбережжя"),
@@ -4269,7 +4270,7 @@ export const guideArticles: GuideArticle[] = [
           t("Depending on the season, boat excursions may run from nearby ports, giving a chance to see Menton, Cap Martin and Monaco from the sea. Treat them as optional and check current availability locally, because programmes change with weather and season.", "Selon la saison, des excursions en bateau peuvent partir de ports proches et offrir une autre vue sur Menton, Cap Martin et Monaco depuis la mer. Voyez-les comme une option et verifiez la disponibilite actuelle sur place, car les programmes changent avec la meteo et la saison.", "Secondo la stagione, escursioni in barca possono partire da porti vicini e offrire un'altra vista di Mentone, Cap Martin e Monaco dal mare. Considerale opzionali e controlla disponibilita aggiornata sul posto, perche programmi cambiano con meteo e stagione.", "Залежно від сезону, з сусідніх портів можуть бути морські екскурсії, що дають змогу побачити Ментон, Cap Martin і Монако з моря. Сприймайте їх як опцію й перевіряйте актуальну доступність на місці, бо програми залежать від погоди та сезону."),
           t("If you prefer to keep things simple, the Menton-Monaco-Nice train line can work like a moving balcony: sit by the window, choose one or two stops, and enjoy the sea views between stations without over-planning.", "Si vous preferez rester simple, la ligne Menton-Monaco-Nice peut fonctionner comme un balcon mobile: asseyez-vous cote fenetre, choisissez un ou deux arrets et profitez des vues mer entre les gares sans trop planifier.", "Se preferisci semplificare, la linea Mentone-Monaco-Nizza puo diventare un balcone in movimento: siediti al finestrino, scegli una o due fermate e goditi le viste sul mare tra le stazioni senza pianificare troppo.", "Якщо хочете все спростити, лінія Menton-Monaco-Nice може працювати як рухомий балкон: сідайте біля вікна, оберіть одну-дві зупинки й насолоджуйтеся морськими видами між станціями без надмірного планування."),
         ],
-        relatedPlaceIds: ["villefranche-sur-mer", "roquebrune-cap-martin-coastal-walk", "monaco-monte-carlo"],
+        relatedPlaceIds: ["villefranche-sur-mer", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monaco-monte-carlo"],
       },
       {
         heading: t("How to choose and plan", "Comment choisir et organiser", "Come scegliere e pianificare", "Як обрати й спланувати"),
