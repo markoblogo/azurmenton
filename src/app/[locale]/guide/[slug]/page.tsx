@@ -99,7 +99,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-center">
             <div>
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{localized.categoryLabel}</p>
               <h1 className="mt-4 max-w-4xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localized.title}</h1>
