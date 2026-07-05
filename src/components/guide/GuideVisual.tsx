@@ -88,7 +88,7 @@ export function GuideVisual({
           alt={alt}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
+          className="next-fill-cover object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
           quality={90}
           preload={priority}
         />
