@@ -1,7 +1,10 @@
 import Link from "next/link";
 import type { Route } from "next";
+import { GuideVisual, type GuideVisualTheme } from "@/components/guide/GuideVisual";
+import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
+import { getPlaces, type Place } from "@/content/places";
 import type { Locale } from "@/i18n/locales";
-import { walkingCategoryLabels, walkingCategoryNotes, walkingCategoryOrder, walkingDistanceItems } from "@/content/walking-distances";
+import { walkingCategoryLabels, walkingCategoryNotes, walkingCategoryOrder, walkingDistanceItems, type WalkingCategory, type WalkingDistanceItem } from "@/content/walking-distances";
 
 const labels = {
   en: { title: "Walking-distance map from the centre", intro: "Approximate walks from Promenade du Soleil / Casino Barrière. Use this as orientation, not a live navigation map.", place: "Place", time: "Walk", note: "Note", map: "Map", verify: "Check current details", quick: "Can you stay in Menton without a car?", quickAnswer: "Yes. If you stay in central Menton near the seafront, most daily plans can be done on foot: beaches, the old town, the market, cafés and the train station are close. A car is useful for hill villages, luggage-heavy trips or more remote gardens, but not essential for a beach-focused stay.", practical: "Practical walking notes", walkingVsTransport: "Walking vs public transport", walkingVsTransportText: "Walk for the seafront, old town, beaches and market. Use the train for Monaco, Nice and Ventimiglia. Consider bus or taxi for gardens, hill villages, late returns and luggage.", transportGuide: "Public transport in Menton", tips: ["Menton is linear and stretches along the sea.", "The promenade is the easiest orientation line.", "The old town climbs uphill, especially toward Saint-Michel and the cemetery viewpoint.", "Comfortable shoes are useful, and summer hill walks are easier in the morning or evening.", "During festivals or parades, access and traffic rules can change."], transport: "For farther gardens or Italy, check current transport information before travelling." },
@@ -20,8 +23,45 @@ const categoryIcons: Record<string, string> = {
   "train-day-trips": "→",
 };
 
+const categoryThemes: Record<WalkingCategory, GuideVisualTheme> = {
+  beaches: "beach",
+  "old-town": "old-town",
+  "museums-market": "museum",
+  "gardens-nature": "garden",
+  "italy-border": "itinerary",
+  "central-essentials": "walk",
+  "train-day-trips": "transport",
+};
+
+const walkingPlaceIdByItemId: Partial<Record<string, string>> = {
+  "plage-sablettes": "plage-sablettes",
+  "plage-casino": "plage-casino",
+  "plage-fossan": "plage-fossan",
+  "plage-garavan": "plage-rondelli",
+  "borrigo-beaches": "promenade-du-soleil",
+  "promenade-du-soleil": "promenade-du-soleil",
+  "rue-saint-michel": "rue-saint-michel-menton",
+  "rampes-saint-michel": "rampes-saint-michel",
+  "basilique-saint-michel": "basilica-saint-michel-archange",
+  "cimetiere-vieux-chateau": "cimetiere-vieux-chateau",
+  "musee-bastion": "musee-jean-cocteau-bastion",
+  "marche-halles": "halles-du-marche",
+  "palais-europe": "palais-de-leurope-menton",
+  "serre-madone": "jardin-serre-de-la-madone",
+  "val-rahmeh": "jardin-val-rahmeh",
+  "jardins-bioves": "jardins-bioves",
+  "ventimiglia-centre": "ventimiglia",
+  "biera-daqui": "biera-daqui",
+  "inky-bar-sablettes": "inky-bar",
+  "tourist-office": "palais-de-leurope-menton",
+  "monaco-train": "monaco-monte-carlo",
+  "ventimiglia-train": "ventimiglia",
+};
+
 export function WalkingDistanceGuide({ locale }: { locale: Locale }) {
   const copy = labels[locale];
+  const placeIds = [...new Set(Object.values(walkingPlaceIdByItemId).filter((id): id is string => Boolean(id)))];
+  const placeById = new Map(getPlaces(placeIds).map((place) => [place.id, place]));
 
   return (
     <div className="space-y-6">
@@ -60,32 +100,22 @@ export function WalkingDistanceGuide({ locale }: { locale: Locale }) {
       {walkingCategoryOrder.map((category) => {
         const items = walkingDistanceItems.filter((item) => item.category === category);
         return (
-          <section id={`walk-${category}`} key={category} className="scroll-mt-24 border border-[#dfd2b8] bg-[#fffaf0]">
-            <div className="grid gap-5 border-b border-[#dfd2b8] p-5 sm:p-6 lg:grid-cols-[0.32fr_1fr]">
-              <div className="flex items-start gap-3">
+          <section id={`walk-${category}`} key={category} className="scroll-mt-24 border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-6">
+            <div className="grid gap-4 lg:grid-cols-[0.26fr_1fr] lg:items-start">
+              <div className="flex items-start gap-3 lg:max-w-sm">
                 <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center border border-[#c6a66a] text-xs font-bold text-[#173f36]">{categoryIcons[category]}</span>
                 <div>
                   <h3 className="serif-heading text-3xl leading-none text-[#173f36]">{walkingCategoryLabels[category][locale]}</h3>
                   <p className="mt-2 text-xs leading-5 text-[#71665b]">{walkingCategoryNotes[category][locale]}</p>
                 </div>
               </div>
-              <div className="grid gap-3 md:grid-cols-2">
-                {items.map((item) => (
-                  <article key={item.id} className="border border-[#eadfc9] bg-white/60 p-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h4 className="font-semibold leading-snug text-[#173f36]">{item.name}</h4>
-                        {item.address ? <p className="mt-1 text-xs text-[#71665b]">{item.address}</p> : null}
-                      </div>
-                      <span className="shrink-0 border border-[#c6a66a] px-2 py-1 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{item.walkingTime}</span>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-[#5c5044]">{item.direction ? `${item.direction[locale]} · ` : ""}{item.note[locale]}</p>
-                    <div className="mt-3 flex flex-wrap items-center gap-3">
-                      {item.googleMapsUrl ? <Link className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#0b6f8f] underline-offset-4 hover:underline" href={item.googleMapsUrl as Route} target="_blank" rel="noopener noreferrer">{copy.map}</Link> : null}
-                      {item.sourceStatus === "needs_verification" ? <span className="text-[0.64rem] italic text-[#71665b]">{copy.verify}</span> : null}
-                    </div>
-                  </article>
-                ))}
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {items.map((item) => {
+                  const placeId = walkingPlaceIdByItemId[item.id];
+                  const place = placeId ? placeById.get(placeId) : undefined;
+
+                  return <WalkingPlaceCard key={item.id} item={item} place={place} category={category} locale={locale} copy={copy} />;
+                })}
               </div>
             </div>
           </section>
@@ -104,5 +134,57 @@ export function WalkingDistanceGuide({ locale }: { locale: Locale }) {
         </div>
       </section>
     </div>
+  );
+}
+
+function WalkingPlaceCard({
+  item,
+  place,
+  category,
+  locale,
+  copy,
+}: {
+  item: WalkingDistanceItem;
+  place?: Place;
+  category: WalkingCategory;
+  locale: Locale;
+  copy: (typeof labels)[Locale];
+}) {
+  const mapsHref = item.googleMapsUrl ?? place?.googleMapsSearchUrl ?? place?.googleMapsUrl;
+  const location = item.address ?? place?.address ?? place?.area?.[locale];
+  const visualLabel = place?.type.replaceAll("-", " ") ?? walkingCategoryLabels[category][locale];
+  const imageAlt = place?.imageAlt?.[locale] ?? item.name;
+
+  return (
+    <article className="group relative overflow-hidden border border-[#dfd2b8] bg-white/70 transition-all duration-300 hover:border-[#c6a66a]">
+      {place?.images && place.images.length > 1 ? (
+        <PlaceImageCarousel images={place.images} imageAlt={imageAlt} locale={locale} label={visualLabel} className="aspect-[4/1.65]" />
+      ) : (
+        <GuideVisual
+          image={place?.image}
+          imageAlt={imageAlt}
+          locale={locale}
+          theme={place?.visualTheme ?? categoryThemes[category]}
+          label={visualLabel}
+          className="aspect-[4/1.65]"
+          expandable={Boolean(place?.image)}
+        />
+      )}
+      <div className="p-4 sm:p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{walkingCategoryLabels[category][locale]}</p>
+            <h4 className="mt-2 font-semibold leading-snug text-[#173f36]">{item.name}</h4>
+          </div>
+          <span className="shrink-0 border border-[#c6a66a] px-2 py-1 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{item.walkingTime}</span>
+        </div>
+        <p className="mt-3 text-sm leading-6 text-[#5c5044]">{item.direction ? `${item.direction[locale]} · ` : ""}{item.note[locale]}</p>
+        {location ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{location}</p> : null}
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          {mapsHref ? <Link className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#0b6f8f] underline-offset-4 hover:underline" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">{copy.map}</Link> : null}
+          {item.sourceStatus === "needs_verification" ? <span className="text-[0.64rem] italic text-[#71665b]">{copy.verify}</span> : null}
+        </div>
+      </div>
+    </article>
   );
 }

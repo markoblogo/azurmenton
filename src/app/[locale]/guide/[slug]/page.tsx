@@ -143,7 +143,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
             <article className="space-y-5">
               {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {isTransportGuide ? <PublicTransportGuide locale={locale} /> : null}
-              {transportDestinationIds.length && !isTransportGuide ? <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} /> : null}
+              {transportDestinationIds.length && !isTransportGuide ? <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} compact /> : null}
               {localized.appTools?.length ? (
                 <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.appToolkit}</h2>
