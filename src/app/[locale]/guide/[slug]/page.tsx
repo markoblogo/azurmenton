@@ -97,9 +97,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
         { name: localized.title, url: pageUrl },
       ])} />
 
-      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
+      <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] pb-4 pt-10 sm:pb-6 sm:pt-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_27rem] lg:items-start">
+          <div>
             <div>
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{localized.categoryLabel}</p>
               <h1 className="mt-4 max-w-4xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localized.title}</h1>
@@ -108,36 +108,11 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 {localized.tags.map((tag) => <span key={tag} className="border border-[#dfd2b8] bg-[#fffaf0] px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#71665b]">{tag}</span>)}
               </div>
             </div>
-            <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
-              <GuideVisual
-                image={localized.coverImage}
-                imageAlt={localized.coverImageAlt}
-                locale={locale}
-                theme={localized.visualTheme ?? "sea"}
-                label={localized.categoryLabel}
-                priority
-                className="-m-5 mb-5 aspect-[4/2.2]"
-                expandable
-              />
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <Fact label={copy.category} value={guideCategoryLabels[article.category][locale]} />
-                {localized.durationLabel ? <Fact label={copy.duration} value={localized.durationLabel} /> : null}
-                <Fact label={copy.bestFor} value={localized.bestFor.slice(0, 3).join(", ")} wide />
-              </div>
-              {article.sourceStatus === "needs_verification" ? <p className="mt-5 border-t border-[#dfd2b8] pt-4 text-xs italic leading-5 text-[#71665b]">{copy.sourceNote}</p> : null}
-              <div className="mt-5 flex flex-wrap gap-3">
-                <TrackedLink className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" eventName={bookingFunnelEvents.guideCtaClick} href={guideBookingHref} props={guideCtaProps}>{copy.check}</TrackedLink>
-                <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
-              </div>
-              <div className="mt-4">
-                <ShareActions locale={locale} title={localized.title} url={pageUrl} />
-              </div>
-            </aside>
           </div>
         </Container>
       </section>
 
-      <Section className="bg-[#f8f3ea] py-10 sm:py-14 lg:-mt-56">
+      <Section className="bg-[#f8f3ea] py-6 sm:py-8">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
             <article className="space-y-5">
@@ -204,7 +179,32 @@ export default async function GuideArticlePage({ params }: PageProps) {
               })}
             </article>
 
-            <aside className="h-fit space-y-4 lg:sticky lg:top-24 lg:pt-56">
+            <aside className="h-fit space-y-4 lg:sticky lg:top-24">
+              <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+                <GuideVisual
+                  image={localized.coverImage}
+                  imageAlt={localized.coverImageAlt}
+                  locale={locale}
+                  theme={localized.visualTheme ?? "sea"}
+                  label={localized.categoryLabel}
+                  priority
+                  className="-m-5 mb-5 aspect-[4/2.2]"
+                  expandable
+                />
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <Fact label={copy.category} value={guideCategoryLabels[article.category][locale]} />
+                  {localized.durationLabel ? <Fact label={copy.duration} value={localized.durationLabel} /> : null}
+                  <Fact label={copy.bestFor} value={localized.bestFor.slice(0, 3).join(", ")} wide />
+                </div>
+                {article.sourceStatus === "needs_verification" ? <p className="mt-5 border-t border-[#dfd2b8] pt-4 text-xs italic leading-5 text-[#71665b]">{copy.sourceNote}</p> : null}
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <TrackedLink className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" eventName={bookingFunnelEvents.guideCtaClick} href={guideBookingHref} props={guideCtaProps}>{copy.check}</TrackedLink>
+                  <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
+                </div>
+                <div className="mt-4">
+                  <ShareActions locale={locale} title={localized.title} url={pageUrl} />
+                </div>
+              </div>
               {localized.practicalTips?.length ? (
                 <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
                   <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.practicalTips}</h2>
