@@ -59,6 +59,7 @@ const categories: UsefulPlaceMapCategory[] = [
   category("supermarkets", ["supermarket"], "Supermarkets", "Supermarches", "Supermercati", "Супермаркети"),
   category("restaurants", ["restaurant"], "Restaurants", "Restaurants", "Ristoranti", "Ресторани"),
   category("bars", ["bar", "wine-bar", "winery", "rooftop"], "Bars & wine", "Bars et vins", "Bar e vino", "Бари й вино"),
+  category("casinos", ["casino"], "Casinos", "Casinos", "Casino", "Казино"),
   category("ice-cream", ["ice-cream"], "Ice cream", "Glaciers", "Gelaterie", "Морозиво"),
   category("museums", ["museum"], "Museums", "Musees", "Musei", "Музеї"),
   category("cinemas", ["cinema"], "Cinemas", "Cinemas", "Cinema", "Кінотеатри"),

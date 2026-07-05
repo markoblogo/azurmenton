@@ -1464,7 +1464,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "evening",
     locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
+    relatedArticles: ["casinos-near-menton", "theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1577,6 +1577,206 @@ export const guideArticles: GuideArticle[] = [
       t("Start earlier in Menton than you would in a big city.", "Commencez plus tot a Menton que dans une grande ville.", "Inizia prima a Mentone rispetto a una grande citta.", "У Ментоні починайте вечір раніше, ніж у великому місті."),
       t("Check last return options before going to Monaco or Nice at night.", "Verifiez les retours tardifs avant de sortir a Monaco ou Nice.", "Controlla i ritorni serali prima di uscire a Monaco o Nizza.", "Перед вечором у Монако або Ніцці перевірте варіанти пізнього повернення."),
       t("Seasonal music, DJ and karaoke nights should be checked locally.", "Les soirees musique, DJ et karaoke saisonnieres sont a verifier sur place.", "Musica, DJ e karaoke stagionali vanno controllati sul posto.", "Сезонні музичні, DJ- і караоке-вечори перевіряйте на місці."),
+    ],
+  }),
+  shortArticle({
+    id: "casinos-near-menton",
+    slug: "casinos-near-menton",
+    title: t("Casinos near Menton: Menton, Monte-Carlo and Riviera casino nights", "Casinos pres de Menton: Menton, Monte-Carlo et soirees casino Riviera", "Casino vicino a Mentone: Mentone, Monte-Carlo e serate Riviera", "Казино біля Ментона: Ментон, Монте-Карло й вечори Riviera"),
+    seoTitle: t("Casinos Near Menton: Casino Barriere Menton, Monte-Carlo & Riviera Casino Nights", "Casinos pres de Menton: Casino Barriere Menton, Monte-Carlo et soirees Riviera", "Casino vicino a Mentone: Casino Barriere Menton, Monte-Carlo e serate Riviera", "Казино біля Ментона: Casino Barriere Menton, Monte-Carlo і вечори Riviera"),
+    seoDescription: t("A practical guide to casinos near Menton: Casino Barriere Menton, Casino de Monte-Carlo, Casino Cafe de Paris, dress codes, ID rules, transport tips and responsible gaming.", "Guide pratique des casinos pres de Menton: Casino Barriere Menton, Casino de Monte-Carlo, Casino Cafe de Paris, tenue, piece d'identite, transport et jeu responsable.", "Guida pratica ai casino vicino a Mentone: Casino Barriere Menton, Casino de Monte-Carlo, Casino Cafe de Paris, dress code, documenti, trasporti e gioco responsabile.", "Практичний гід казино біля Ментона: Casino Barriere Menton, Casino de Monte-Carlo, Casino Cafe de Paris, dress code, документи, транспорт і відповідальна гра."),
+    excerpt: t("Menton has its own seaside casino, while Monaco's legendary Casino Square is only a short train ride away. Here is how to plan a casino evening without stress.", "Menton a son casino en bord de mer, tandis que la mythique place du Casino de Monaco est a un court trajet en train. Voici comment organiser une soiree casino sans stress.", "Mentone ha il suo casino sul mare, mentre la leggendaria Casino Square di Monaco e a breve distanza in treno. Ecco come organizzare una serata casino senza stress.", "У Ментона є власне казино на набережній, а легендарна Casino Square у Монако лише за коротку поїздку потягом. Ось як спланувати casino-вечір без стресу."),
+    category: "nightlife-drinks",
+    coverImage: "/images/guide/casinos-near-menton.jpg",
+    coverImageAlt: t("Casino evening near Menton and Monte-Carlo", "Soiree casino pres de Menton et Monte-Carlo", "Serata casino vicino a Mentone e Monte-Carlo", "Casino-вечір біля Ментона й Монте-Карло"),
+    visualTheme: "nightlife",
+    visualStatus: "project_illustration",
+    tags: [t("casino", "casino", "casino", "казино"), t("Monaco", "Monaco", "Monaco", "Монако"), t("nightlife", "soiree", "sera", "вечір"), t("smart casual", "smart casual", "smart casual", "smart casual")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[6].label],
+    duration: "evening",
+    locationTags: ["menton-centre", "seafront", "monaco"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["casino-barriere-menton", "casino-de-monte-carlo", "casino-cafe-de-paris", "casino-square-monaco", "menton-station", "monaco-monte-carlo-station", "monaco-monte-carlo", "promenade-du-soleil"],
+    relatedArticles: ["nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
+    relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monaco-e-prix", "rolex-monte-carlo-masters"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("A casino evening from Menton", "Une soiree casino depuis Menton", "Una serata casino da Mentone", "Casino-вечір з Ментона"),
+        body: [
+          t(
+            "A casino night on the Riviera works best as a polished after-dinner plan, not as a Las Vegas-style programme. From Menton, you can keep it simple at Casino Barriere Menton or take the train to Monte-Carlo for the classic Casino Square atmosphere.",
+            "Une soiree casino sur la Riviera fonctionne mieux comme une sortie soignee apres le diner, pas comme un programme facon Las Vegas. Depuis Menton, vous pouvez rester simple au Casino Barriere Menton ou prendre le train vers Monte-Carlo pour l'ambiance classique de la place du Casino.",
+            "Una serata casino in Riviera funziona meglio come uscita curata dopo cena, non come programma stile Las Vegas. Da Mentone puoi restare sul semplice al Casino Barriere Menton o prendere il treno per Monte-Carlo e vivere l'atmosfera classica di Casino Square.",
+            "Casino-вечір на Рив'єрі найкраще працює як охайний план після вечері, а не як програма в стилі Las Vegas. З Ментона можна залишитися поруч у Casino Barriere Menton або поїхати потягом до Monte-Carlo за класичною атмосферою Casino Square.",
+          ),
+          t(
+            "For most guests, the easiest choice is Menton's own casino. For architecture, glamour and a special-occasion feeling, choose Casino de Monte-Carlo. For a more modern Monaco gaming room, Casino Cafe de Paris is usually the more relaxed option.",
+            "Pour la plupart des voyageurs, le choix le plus facile est le casino de Menton. Pour l'architecture, le glamour et une impression d'occasion speciale, choisissez le Casino de Monte-Carlo. Pour une salle de jeu monégasque plus moderne, le Casino Cafe de Paris est souvent l'option plus detendue.",
+            "Per la maggior parte degli ospiti, la scelta piu facile e il casino di Mentone. Per architettura, glamour e atmosfera da occasione speciale, scegli Casino de Monte-Carlo. Per una sala da gioco monegasca piu moderna, Casino Cafe de Paris e di solito l'opzione piu rilassata.",
+            "Для більшості гостей найпростіший вибір - казино в Ментоні. За архітектурою, glamour і відчуттям особливого вечора обирайте Casino de Monte-Carlo. Для сучаснішої gaming room у Монако зазвичай спокійніший варіант - Casino Cafe de Paris.",
+          ),
+        ],
+        relatedPlaceIds: ["casino-barriere-menton", "casino-de-monte-carlo", "casino-cafe-de-paris", "casino-square-monaco"],
+      },
+      {
+        heading: t("Quick recommendations", "Choix rapides", "Scelte rapide", "Швидкий вибір"),
+        body: [
+          t("Use this as the short version before choosing the full evening plan.", "Utilisez ceci comme version courte avant de choisir le plan de soiree complet.", "Usa questa come versione breve prima di scegliere il piano completo della serata.", "Використайте це як коротку версію перед вибором повного вечірнього плану."),
+        ],
+        bullets: [
+          t("Easiest casino night: Casino Barriere Menton.", "Soiree casino la plus simple : Casino Barriere Menton.", "Serata casino piu semplice: Casino Barriere Menton.", "Найпростіший casino-вечір: Casino Barriere Menton."),
+          t("Most iconic: Casino de Monte-Carlo.", "Le plus iconique : Casino de Monte-Carlo.", "Il piu iconico: Casino de Monte-Carlo.", "Найзнаковіше: Casino de Monte-Carlo."),
+          t("Modern Monaco option: Casino Cafe de Paris.", "Option monégasque plus moderne : Casino Cafe de Paris.", "Opzione moderna a Monaco: Casino Cafe de Paris.", "Сучасний варіант у Монако: Casino Cafe de Paris."),
+          t("Bring valid passport or national photo ID, and avoid beachwear, flip-flops and sportswear.", "Prenez un passeport ou une piece d'identite nationale avec photo, et evitez tenue de plage, tongs et vetements de sport.", "Porta passaporto o documento nazionale con foto, ed evita abbigliamento da spiaggia, infradito e sportivo.", "Візьміть паспорт або національний документ з фото; уникайте пляжного одягу, в'єтнамок і спортивного стилю."),
+        ],
+      },
+      {
+        heading: t("Casino Barriere Menton", "Casino Barriere Menton", "Casino Barriere Menton", "Casino Barriere Menton"),
+        body: [
+          t(
+            "Casino Barriere Menton is the low-friction choice: central, seaside, and close to Promenade du Soleil, Plage du Casino and the apartment side of town. It suits a casual couple evening, a rainy evening, or a drink and small gaming budget after dinner.",
+            "Le Casino Barriere Menton est le choix sans complication : central, en bord de mer, proche de la Promenade du Soleil, de la Plage du Casino et du cote appartements. Il convient pour une soiree en couple, un soir de pluie ou un verre avec petit budget jeu apres le diner.",
+            "Casino Barriere Menton e la scelta piu semplice: centrale, sul mare, vicino a Promenade du Soleil, Plage du Casino e alla zona degli appartamenti. Va bene per una serata di coppia, una sera di pioggia o un drink con piccolo budget gioco dopo cena.",
+            "Casino Barriere Menton - найпростіший варіант: центр, набережна, поруч Promenade du Soleil, Plage du Casino і район апартаментів. Підійде для вечора удвох, дощового вечора або напою й невеликого gaming-бюджету після вечері.",
+          ),
+          t(
+            "Check current opening hours and events before relying on it. Entry rules can include age checks, ID checks and refusal if dress or behaviour is not appropriate.",
+            "Verifiez les horaires et evenements actuels avant de vous organiser. Les regles d'entree peuvent inclure controle d'age, piece d'identite et refus si la tenue ou le comportement ne convient pas.",
+            "Controlla orari ed eventi aggiornati prima di organizzarti. Le regole d'ingresso possono includere controllo eta, documento e rifiuto se abbigliamento o comportamento non sono adeguati.",
+            "Перевіряйте актуальні години й події перед плануванням. Правила входу можуть включати перевірку віку, документів і відмову, якщо одяг або поведінка не відповідають очікуванням.",
+          ),
+        ],
+        relatedPlaceIds: ["casino-barriere-menton", "plage-casino", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Casino de Monte-Carlo", "Casino de Monte-Carlo", "Casino de Monte-Carlo", "Casino de Monte-Carlo"),
+        body: [
+          t(
+            "Casino de Monte-Carlo is the classic special-occasion choice: Belle Epoque architecture, famous gaming rooms and the full Casino Square setting. It is also more formal, so plan clothes and documents before leaving Menton.",
+            "Le Casino de Monte-Carlo est le choix classique pour une occasion speciale : architecture Belle Epoque, salles de jeu celebres et decor complet de la place du Casino. Il est aussi plus formel, donc prevoyez tenue et documents avant de quitter Menton.",
+            "Casino de Monte-Carlo e la scelta classica per un'occasione speciale: architettura Belle Epoque, sale da gioco famose e tutto il contesto di Casino Square. E anche piu formale, quindi prepara abiti e documenti prima di lasciare Mentone.",
+            "Casino de Monte-Carlo - класичний вибір для особливого вечора: архітектура Belle Epoque, знамениті зали й повна атмосфера Casino Square. Це також формальніший варіант, тож продумайте одяг і документи до виїзду з Ментона.",
+          ),
+          t(
+            "The official casino pages should be checked for current visiting hours, games, access rules and dress code. Treat online summaries as planning help, not as a substitute for current rules.",
+            "Les pages officielles du casino doivent etre verifiees pour les horaires, jeux, regles d'acces et tenue actuels. Utilisez les resumes en ligne comme aide a la preparation, pas comme remplacement des regles a jour.",
+            "Le pagine ufficiali del casino vanno controllate per orari, giochi, accesso e dress code aggiornati. Considera i riassunti online come aiuto alla pianificazione, non come sostituto delle regole attuali.",
+            "Офіційні сторінки казино варто перевіряти щодо актуальних годин, ігор, правил доступу й dress code. Онлайн-резюме сприймайте як допомогу для планування, а не заміну чинних правил.",
+          ),
+        ],
+        relatedPlaceIds: ["casino-de-monte-carlo", "casino-square-monaco", "monaco-monte-carlo"],
+      },
+      {
+        heading: t("Casino Cafe de Paris", "Casino Cafe de Paris", "Casino Cafe de Paris", "Casino Cafe de Paris"),
+        body: [
+          t(
+            "Casino Cafe de Paris is useful when you want Monaco, but not the most formal version of Monaco. It is a better fit for slot machines, a modern gaming room and a shorter visit around Casino Square.",
+            "Le Casino Cafe de Paris est utile si vous voulez Monaco, mais pas sa version la plus formelle. Il convient mieux aux machines a sous, a une salle de jeu moderne et a une visite plus courte autour de la place du Casino.",
+            "Casino Cafe de Paris e utile quando vuoi Monaco, ma non la versione piu formale. E piu adatto a slot machine, sala gioco moderna e visita piu breve intorno a Casino Square.",
+            "Casino Cafe de Paris зручний, коли хочеться Монако, але не його найформальнішої версії. Він краще підходить для slot machines, сучасної зали й коротшого візиту навколо Casino Square.",
+          ),
+        ],
+        relatedPlaceIds: ["casino-cafe-de-paris", "casino-square-monaco"],
+      },
+      {
+        heading: t("Menton or Monaco?", "Menton ou Monaco ?", "Mentone o Monaco?", "Ментон чи Монако?"),
+        body: [
+          t(
+            "Choose Menton if you want the easiest evening, no return-train planning and a relaxed seaside rhythm. Choose Monaco if the point of the night is architecture, dress-up atmosphere or a memorable Casino Square walk.",
+            "Choisissez Menton pour la soiree la plus simple, sans organiser le retour en train, avec un rythme detendu en bord de mer. Choisissez Monaco si l'objectif est l'architecture, une atmosphere plus habillee ou une promenade memorable place du Casino.",
+            "Scegli Mentone se vuoi la serata piu facile, senza pianificare il treno di ritorno e con ritmo rilassato sul mare. Scegli Monaco se cerchi architettura, atmosfera piu elegante o una passeggiata memorabile in Casino Square.",
+            "Обирайте Ментон, якщо потрібен найпростіший вечір без планування зворотного потяга й зі спокійним морським ритмом. Обирайте Монако, якщо головне - архітектура, dress-up атмосфера або пам'ятна прогулянка Casino Square.",
+          ),
+          t(
+            "Do not rely on older references to other Monaco casino options unless you have confirmed current access on official pages. For most visitors, Casino de Monte-Carlo and Casino Cafe de Paris are the reliable Monaco choices.",
+            "Ne vous appuyez pas sur d'anciennes references a d'autres options casino a Monaco sans confirmer l'acces actuel sur les pages officielles. Pour la plupart des visiteurs, Casino de Monte-Carlo et Casino Cafe de Paris sont les choix fiables.",
+            "Non basarti su vecchi riferimenti ad altre opzioni casino a Monaco senza confermare l'accesso attuale sulle pagine ufficiali. Per la maggior parte dei visitatori, Casino de Monte-Carlo e Casino Cafe de Paris sono le scelte affidabili.",
+            "Не спирайтеся на старі згадки інших casino-варіантів у Монако без перевірки актуального доступу на офіційних сторінках. Для більшості гостей надійні варіанти - Casino de Monte-Carlo і Casino Cafe de Paris.",
+          ),
+        ],
+      },
+      {
+        heading: t("Getting from Menton to Monaco", "Aller de Menton a Monaco", "Da Mentone a Monaco", "Як дістатися з Ментона до Монако"),
+        body: [
+          t(
+            "The easiest route is usually the TER train from Menton to Monaco-Monte-Carlo, then walking, lifts or local connections toward Casino Square. Before leaving, check the return train and keep a taxi fallback in mind for late evenings or major event nights.",
+            "Le plus simple est souvent le TER de Menton a Monaco-Monte-Carlo, puis marche, ascenseurs ou liaisons locales vers la place du Casino. Avant de partir, verifiez le train retour et gardez une option taxi pour les soirees tardives ou les grands evenements.",
+            "La soluzione piu semplice e di solito il TER da Mentone a Monaco-Monte-Carlo, poi camminata, ascensori o collegamenti locali verso Casino Square. Prima di partire controlla il treno di ritorno e tieni un taxi come backup per serate tarde o grandi eventi.",
+            "Найпростіший маршрут зазвичай TER з Ментона до Monaco-Monte-Carlo, потім пішки, ліфтами або місцевими переходами до Casino Square. Перед виїздом перевірте зворотний потяг і майте таксі як резерв для пізніх вечорів або великих подій.",
+          ),
+          t(
+            "Monaco is steep in places. Comfortable smart shoes are a better idea than new dress shoes if you plan to walk between the station, dinner and the casino.",
+            "Monaco est pentu par endroits. Des chaussures elegantes mais confortables valent mieux que des chaussures neuves si vous marchez entre gare, diner et casino.",
+            "Monaco e ripida in alcuni punti. Scarpe eleganti ma comode sono meglio di scarpe nuove se prevedi di camminare tra stazione, cena e casino.",
+            "Монако місцями круте. Зручне smart-взуття краще, ніж нові dress shoes, якщо плануєте йти між вокзалом, вечерею й казино.",
+          ),
+        ],
+        relatedPlaceIds: ["menton-station", "monaco-monte-carlo-station", "casino-square-monaco"],
+      },
+      {
+        heading: t("Dress code, ID and responsible gaming", "Tenue, identite et jeu responsable", "Dress code, documenti e gioco responsabile", "Dress code, документи й відповідальна гра"),
+        body: [
+          t(
+            "For Menton, neat smart casual is usually the right baseline. For Monte-Carlo gaming rooms, dress more carefully and avoid shorts, beachwear, flip-flops, sportswear and overly casual shoes. Bring original photo ID rather than relying on a phone picture.",
+            "A Menton, une tenue smart casual soignee est generalement la bonne base. Pour les salles de jeu de Monte-Carlo, habillez-vous plus soigneusement et evitez shorts, plage, tongs, sport et chaussures trop casual. Prenez une piece d'identite originale avec photo plutot qu'une photo sur telephone.",
+            "A Mentone, uno smart casual curato e di solito la base giusta. Per le sale gioco di Monte-Carlo, vestiti con piu attenzione ed evita shorts, abbigliamento da spiaggia, infradito, sportivo e scarpe troppo casual. Porta un documento originale con foto, non solo una foto sul telefono.",
+            "У Ментоні зазвичай достатньо охайного smart casual. Для gaming rooms у Monte-Carlo одягайтеся уважніше й уникайте шортів, пляжного одягу, в'єтнамок, спортивного стилю та надто casual взуття. Беріть оригінал документа з фото, а не фото в телефоні.",
+          ),
+          t(
+            "Treat casino time as entertainment. Set a small budget before you go, stop when it is finished, and do not chase losses.",
+            "Considerez le casino comme un divertissement. Fixez un petit budget avant de partir, arretez-vous quand il est termine et ne cherchez pas a compenser les pertes.",
+            "Considera il casino come intrattenimento. Stabilisci un piccolo budget prima di uscire, fermati quando finisce e non inseguire le perdite.",
+            "Сприймайте казино як розвагу. Встановіть невеликий бюджет до виходу, зупиніться, коли він закінчиться, і не намагайтеся відіграти втрати.",
+          ),
+        ],
+      },
+      {
+        heading: t("Simple casino evening plans", "Plans simples pour une soiree casino", "Piani semplici per una serata casino", "Прості плани casino-вечора"),
+        body: [
+          t("Keep the evening compact and check return transport before committing to Monaco.", "Gardez une soiree compacte et verifiez le retour avant de choisir Monaco.", "Mantieni la serata compatta e controlla il ritorno prima di scegliere Monaco.", "Тримайте вечір компактним і перевіряйте повернення перед вибором Монако."),
+        ],
+        bullets: [
+          t("Easy local evening: dinner in Menton, walk along Promenade du Soleil, then Casino Barriere Menton.", "Soiree locale facile : diner a Menton, promenade sur la Promenade du Soleil, puis Casino Barriere Menton.", "Serata locale facile: cena a Mentone, passeggiata sulla Promenade du Soleil, poi Casino Barriere Menton.", "Простий місцевий вечір: вечеря в Ментоні, прогулянка Promenade du Soleil, потім Casino Barriere Menton."),
+          t("Classic Monte-Carlo evening: train to Monaco, Casino Square, dinner or a drink, then Casino de Monte-Carlo.", "Soiree Monte-Carlo classique : train vers Monaco, place du Casino, diner ou verre, puis Casino de Monte-Carlo.", "Serata classica a Monte-Carlo: treno per Monaco, Casino Square, cena o drink, poi Casino de Monte-Carlo.", "Класичний вечір Monte-Carlo: потяг до Монако, Casino Square, вечеря або напій, потім Casino de Monte-Carlo."),
+          t("Modern Monaco version: Casino Square photos, Casino Cafe de Paris, then return to quieter Menton.", "Version Monaco plus moderne : photos place du Casino, Casino Cafe de Paris, puis retour au calme de Menton.", "Versione moderna di Monaco: foto in Casino Square, Casino Cafe de Paris, poi ritorno alla calma di Mentone.", "Сучасний варіант Монако: фото на Casino Square, Casino Cafe de Paris, потім повернення до тихішого Ментона."),
+          t("Non-gambler version: architecture, terraces, people-watching and a short look inside only where access rules allow.", "Version sans jeu : architecture, terrasses, observation et bref coup d'oeil interieur seulement lorsque les regles d'acces le permettent.", "Versione senza gioco: architettura, terrazze, people-watching e breve visita interna solo dove le regole lo consentono.", "Версія без гри: архітектура, тераси, спостереження за людьми й короткий огляд інтер'єру лише там, де це дозволяють правила доступу."),
+        ],
+      },
+      {
+        heading: t("Staying in Menton for casino nights", "Sejourner a Menton pour les soirees casino", "Dormire a Mentone per serate casino", "Жити в Ментоні для casino-вечорів"),
+        body: [
+          t(
+            "Menton works well as a calmer base: you can enjoy a polished evening in Monaco or a simple local casino night, then return to a seaside apartment instead of sleeping in the most crowded event zones.",
+            "Menton fonctionne bien comme base plus calme : vous pouvez profiter d'une soiree soignee a Monaco ou d'une sortie casino locale, puis revenir dans un appartement en bord de mer au lieu de dormir dans les zones les plus chargees.",
+            "Mentone funziona bene come base piu calma: puoi goderti una serata elegante a Monaco o una semplice serata casino locale, poi tornare in un appartamento sul mare invece di dormire nelle zone piu affollate.",
+            "Ментон добре працює як спокійніша база: можна провести охайний вечір у Монако або простий локальний casino-вечір, а потім повернутися до апартаменту біля моря, не ночуючи в найзавантаженіших зонах.",
+          ),
+          t(
+            "For couples, the Sea View Balcony Studio and Panoramic Sea View Studio fit an evening-focused stay. For families or longer trips, the Beachside Apartment with Terrace & Parking gives more space and an easier base.",
+            "Pour les couples, Sea View Balcony Studio et Panoramic Sea View Studio conviennent a un sejour centre sur les soirees. Pour les familles ou les sejours plus longs, Beachside Apartment with Terrace & Parking offre plus d'espace et une base plus simple.",
+            "Per le coppie, Sea View Balcony Studio e Panoramic Sea View Studio si adattano a un soggiorno orientato alle serate. Per famiglie o soggiorni piu lunghi, Beachside Apartment with Terrace & Parking offre piu spazio e una base piu facile.",
+            "Для пар Sea View Balcony Studio і Panoramic Sea View Studio пасують до вечірнього формату поїздки. Для сімей або довших перебувань Beachside Apartment with Terrace & Parking дає більше простору й простішу базу.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Common questions", "Questions frequentes", "Domande frequenti", "Поширені питання"),
+        body: [
+          t("The details below cover the questions guests usually ask before planning a casino evening.", "Les points ci-dessous couvrent les questions que les voyageurs posent souvent avant une soiree casino.", "I punti sotto coprono le domande che gli ospiti fanno spesso prima di una serata casino.", "Нижче - питання, які гості найчастіше ставлять перед плануванням casino-вечора."),
+        ],
+        bullets: [
+          t("Is there a casino in Menton? Yes, Casino Barriere Menton is on the central seafront.", "Y a-t-il un casino a Menton ? Oui, le Casino Barriere Menton est sur le front de mer central.", "C'e un casino a Mentone? Si, Casino Barriere Menton e sul lungomare centrale.", "Чи є казино в Ментоні? Так, Casino Barriere Menton розташований на центральній набережній."),
+          t("What is the most famous casino near Menton? Casino de Monte-Carlo is the iconic choice.", "Quel est le casino le plus connu pres de Menton ? Le Casino de Monte-Carlo est le choix iconique.", "Qual e il casino piu famoso vicino a Mentone? Casino de Monte-Carlo e la scelta iconica.", "Яке найвідоміше казино біля Ментона? Casino de Monte-Carlo - знаковий вибір."),
+          t("Do I need ID? For casino access, bring valid passport or national photo ID and check current rules before going.", "Faut-il une piece d'identite ? Pour l'acces casino, prenez passeport ou piece nationale avec photo et verifiez les regles actuelles.", "Serve un documento? Per l'accesso al casino porta passaporto o documento nazionale con foto e controlla le regole aggiornate.", "Чи потрібен документ? Для входу в казино беріть паспорт або національний документ з фото й перевіряйте актуальні правила."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check current opening hours and access rules on official casino pages.", "Verifiez horaires et regles d'acces sur les pages officielles des casinos.", "Controlla orari e regole d'accesso sulle pagine ufficiali dei casino.", "Перевіряйте актуальні години й правила входу на офіційних сторінках казино."),
+      t("Plan the return from Monaco before leaving Menton.", "Planifiez le retour depuis Monaco avant de quitter Menton.", "Pianifica il ritorno da Monaco prima di lasciare Mentone.", "Сплануйте повернення з Монако до виїзду з Ментона."),
+      t("Keep the evening as entertainment: set a budget and do not chase losses.", "Gardez la soiree comme divertissement : fixez un budget et ne poursuivez pas les pertes.", "Mantieni la serata come intrattenimento: fissa un budget e non inseguire le perdite.", "Сприймайте вечір як розвагу: встановіть бюджет і не відігравайте втрати."),
     ],
   }),
   shortArticle({
@@ -4116,7 +4316,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -4170,7 +4370,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -4252,7 +4452,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4345,7 +4545,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
@@ -4643,7 +4843,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "casino-barriere-menton", "plage-fossan", "plage-sablettes", "halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "port-de-garavan", "rondelli-garavan-side"],
-    relatedArticles: ["menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
+    relatedArticles: ["casinos-near-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {

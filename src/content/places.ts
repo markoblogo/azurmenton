@@ -8,6 +8,7 @@ export type PlaceType =
   | "supermarket"
   | "cinema"
   | "theatre"
+  | "casino"
   | "ice-cream"
   | "restaurant"
   | "bar"
@@ -672,7 +673,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Main Menton station for TER trains to Monaco, Nice, Ventimiglia and airport-side connections.", "Gare principale de Menton pour les TER vers Monaco, Nice, Vintimille et les liaisons cote aeroport.", "Stazione principale di Mentone per TER verso Monaco, Nizza, Ventimiglia e collegamenti aeroportuali.", "Головна станція Ментона для TER до Монако, Ніцци, Вентімільї та сполучень з аеропортом."),
     bestFor: [text("car-free trips", "sejours sans voiture", "soggiorni senza auto", "поїздки без авто"), text("regional trains", "trains regionaux", "treni regionali", "регіональні потяги")],
-    relatedArticleIds: ["how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["casinos-near-menton", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "menton-garavan-station",
@@ -696,7 +697,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Main Monaco station for direct TER trips from Menton to events, museums, the port and Casino area.", "Gare principale de Monaco pour les TER directs depuis Menton vers evenements, musees, port et Casino.", "Stazione principale di Monaco per TER diretti da Mentone verso eventi, musei, porto e Casino.", "Головна станція Монако для прямих TER з Ментона до подій, музеїв, порту й району Casino."),
     bestFor: [text("Monaco events", "evenements a Monaco", "eventi a Monaco", "події в Монако"), text("day trips", "excursions", "gite", "поїздки на день")],
-    relatedArticleIds: ["public-transport-in-menton", "day-trips-from-menton", "monaco-events-from-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticleIds: ["casinos-near-menton", "public-transport-in-menton", "day-trips-from-menton", "monaco-events-from-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport"],
   },
   {
     id: "ventimiglia-station",
@@ -1997,6 +1998,7 @@ const rawPlaces: Place[] = [
       "menton-without-a-car",
       "where-to-stay-in-menton",
       "public-transport-in-menton",
+      "casinos-near-menton",
     ],
   },
   {
@@ -2126,18 +2128,58 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A practical central beach for quick swims between the promenade, cafes and the apartment.", "Une plage centrale pratique pour une baignade rapide entre la promenade, les cafes et l'appartement.", "Una spiaggia centrale pratica per bagni rapidi tra passeggiata, cafe e appartamento.", "Практичний центральний пляж для швидкого купання між набережною, кав'ярнями й апартаментами."),
     bestFor: [text("quick swim", "baignade rapide", "bagno rapido", "швидке купання"), text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "best-photo-spots-menton", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town"],
+    relatedArticleIds: ["casinos-near-menton", "fete-du-citron-menton-practical-guide", "best-photo-spots-menton", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town"],
   },
   {
     id: "casino-barriere-menton",
     name: "Casino Barrière Menton",
-    type: "neighbourhood",
+    type: "casino",
     address: "2 Avenue Félix Faure, 06500 Menton",
     googleMapsUrl: mapsSearch("Casino Barrière Menton", "2 Avenue Félix Faure, 06500 Menton"),
+    programmeUrl: "https://www.casinosbarriere.com/menton",
     sourceStatus: "editorial",
-    shortNote: text("A central seafront landmark beside Promenade du Soleil and Plage du Casino.", "Un repere central du front de mer, pres de la Promenade du Soleil et de la Plage du Casino.", "Un riferimento centrale sul lungomare, vicino alla Promenade du Soleil e alla Plage du Casino.", "Центральний орієнтир на набережній поруч із Promenade du Soleil та Plage du Casino."),
-    bestFor: [text("central landmark", "repere central", "punto di riferimento centrale", "центральний орієнтир"), text("seafront orientation", "orientation front de mer", "orientamento sul lungomare", "орієнтація на набережній")],
-    relatedArticleIds: ["menton-without-a-car", "best-photo-spots-menton", "best-beaches-in-menton", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town"],
+    shortNote: text("A central seafront casino for an easy evening without leaving Menton.", "Un casino central en bord de mer pour une soiree simple sans quitter Menton.", "Un casino centrale sul mare per una serata facile senza lasciare Mentone.", "Центральне казино на набережній для простого вечора без виїзду з Ментона."),
+    bestFor: [text("easy casino night", "soiree casino facile", "serata casino facile", "простий casino-вечір"), text("seafront orientation", "orientation front de mer", "orientamento sul lungomare", "орієнтація на набережній")],
+    relatedArticleIds: ["casinos-near-menton", "menton-without-a-car", "best-photo-spots-menton", "best-beaches-in-menton", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town", "nightlife-in-menton"],
+  },
+  {
+    id: "casino-de-monte-carlo",
+    name: "Casino de Monte-Carlo",
+    type: "casino",
+    area: text("Monte-Carlo", "Monte-Carlo", "Monte-Carlo", "Монте-Карло"),
+    address: "Place du Casino, 98000 Monaco",
+    googleMapsUrl: mapsSearch("Casino de Monte-Carlo", "Monaco"),
+    programmeUrl: "https://www.montecarlosbm.com/en/casino-monaco/casino-monte-carlo",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("The classic Monaco casino for architecture, atmosphere and a formal Riviera evening.", "Le casino classique de Monaco pour l'architecture, l'ambiance et une soiree Riviera plus habillee.", "Il casino classico di Monaco per architettura, atmosfera e una serata Riviera piu elegante.", "Класичне казино Монако для архітектури, атмосфери й більш урочистого вечора на Рив'єрі."),
+    bestFor: [text("iconic casino evening", "soiree casino iconique", "serata casino iconica", "знаковий casino-вечір"), text("smart dress", "tenue elegante", "abbigliamento elegante", "smart dress")],
+    relatedArticleIds: ["casinos-near-menton", "monaco-events-from-menton", "day-trips-from-menton", "nightlife-in-menton", "theatre-opera-performing-arts-near-menton", "where-to-stay-in-menton"],
+  },
+  {
+    id: "casino-cafe-de-paris",
+    name: "Casino Café de Paris",
+    type: "casino",
+    area: text("Monte-Carlo", "Monte-Carlo", "Monte-Carlo", "Монте-Карло"),
+    address: "Place du Casino, 98000 Monaco",
+    googleMapsUrl: mapsSearch("Casino Café de Paris", "Monaco"),
+    programmeUrl: "https://www.montecarlosbm.com/en/casino-monaco/casino-cafe-de-paris",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("A modern Monaco casino option for slot machines and a more casual Casino Square evening.", "Une option casino plus moderne a Monaco pour les machines a sous et une soiree plus simple place du Casino.", "Un'opzione casino piu moderna a Monaco per slot machine e una serata piu informale in Casino Square.", "Сучасніший варіант казино в Монако для slot machines і менш формального вечора на Casino Square."),
+    bestFor: [text("slot machines", "machines a sous", "slot machine", "slot machines"), text("modern Monaco night", "soiree Monaco moderne", "serata moderna a Monaco", "сучасний вечір у Монако")],
+    relatedArticleIds: ["casinos-near-menton", "monaco-events-from-menton", "day-trips-from-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+  },
+  {
+    id: "casino-square-monaco",
+    name: "Casino Square Monaco",
+    type: "viewpoint",
+    area: text("Monte-Carlo", "Monte-Carlo", "Monte-Carlo", "Монте-Карло"),
+    googleMapsUrl: mapsSearch("Casino Square", "Monaco"),
+    sourceStatus: "editorial",
+    shortNote: text("The public square around Monaco's casino, hotels and evening terraces.", "La place publique autour du casino de Monaco, des hotels et des terrasses du soir.", "La piazza pubblica intorno al casino di Monaco, agli hotel e alle terrazze serali.", "Площа навколо казино Монако, готелів і вечірніх терас."),
+    bestFor: [text("evening atmosphere", "ambiance du soir", "atmosfera serale", "вечірня атмосфера"), text("architecture", "architecture", "architettura", "архітектура")],
+    relatedArticleIds: ["casinos-near-menton", "monaco-events-from-menton", "day-trips-from-menton", "nightlife-in-menton", "best-photo-spots-menton"],
   },
   {
     id: "rondelli-garavan-side",
@@ -2553,7 +2595,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A close autumn day or evening trip from Menton for harbour views, concerts, casino architecture and Riviera events.", "Une excursion proche depuis Menton en automne pour le port, les concerts, l'architecture du Casino et les evenements Riviera.", "Una gita vicina da Mentone in autunno per porto, concerti, architettura del Casino ed eventi in Riviera.", "Близька осіння поїздка з Ментона заради порту, концертів, архітектури Casino й подій Рив'єри."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("events", "evenements", "eventi", "події")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary"],
+    relatedArticleIds: ["casinos-near-menton", "menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary"],
   },
   {
     id: "nice-old-town",
@@ -3684,6 +3726,7 @@ function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
     supermarket: "market",
     cinema: "event",
     theatre: "event",
+    casino: "nightlife",
     "ice-cream": "food",
     restaurant: "food",
     bar: "bar",
