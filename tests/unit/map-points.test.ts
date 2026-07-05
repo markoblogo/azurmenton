@@ -11,9 +11,13 @@ const minLandLatitudeByPlaceId = new Map<string, number>([
   ["rondelli-garavan-side", 43.7835],
   ["promenade-du-soleil", 43.7773],
   ["port-de-garavan", 43.7848],
+  ["jardin-val-rahmeh", 43.7822],
   ["musee-jean-cocteau-bastion", 43.7795],
+  ["u-express-menton-garavan", 43.7825],
+  ["mini-golf-du-pian-menton", 43.7828],
   ["borrigo-beaches", 43.7767],
   ["inky-bar", 43.7802],
+  ["sentier-douaniers-menton", 43.786],
 ]);
 
 const minLandLatitudeByApartmentSlug = new Map<string, number>([
