@@ -157,9 +157,28 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 return (
                   <section key={section.heading} className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                     <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{section.heading}</h2>
+                    {section.image ? (
+                      <GuideVisual
+                        image={section.image}
+                        imageAlt={section.imageAlt}
+                        locale={locale}
+                        theme={section.visualTheme ?? localized.visualTheme ?? "sea"}
+                        label={section.heading}
+                        className="mt-5 aspect-[4/1.55]"
+                        expandable
+                      />
+                    ) : null}
                     <div className="mt-4 space-y-3 text-base leading-8 text-[#5c5044]">
                       {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     </div>
+                    {section.guideLinkSlug && section.guideLinkLabel ? (
+                      <Link
+                        className="mt-5 inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
+                        href={`/${locale}/guide/${section.guideLinkSlug}` as Route}
+                      >
+                        {section.guideLinkLabel}
+                      </Link>
+                    ) : null}
                     {section.bullets?.length ? (
                       <ul className="mt-5 grid gap-2 text-sm leading-6 text-[#5c5044] sm:grid-cols-2">
                         {section.bullets.map((bullet) => <li key={bullet} className="border-l-2 border-[#c6a66a] pl-3">{bullet}</li>)}

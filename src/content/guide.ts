@@ -58,6 +58,11 @@ export type GuideSection = {
   heading: string;
   body: string[];
   bullets?: string[];
+  image?: string;
+  imageAlt?: string;
+  visualTheme?: GuideVisualTheme;
+  guideLinkSlug?: string;
+  guideLinkLabel?: string;
   videoEmbeds?: LocalizedGuideVideoEmbed[];
   artworkCards?: LocalizedGuideArtworkCard[];
   relatedApartmentKeys?: string[];
@@ -69,6 +74,11 @@ export type LocalizedGuideSection = {
   heading: LocalizedText;
   body: LocalizedText[];
   bullets?: LocalizedText[];
+  image?: string;
+  imageAlt?: LocalizedText;
+  visualTheme?: GuideVisualTheme;
+  guideLinkSlug?: string;
+  guideLinkLabel?: LocalizedText;
   videoEmbeds?: GuideVideoEmbed[];
   artworkCards?: GuideArtworkCard[];
   relatedApartmentKeys?: string[];
@@ -286,11 +296,14 @@ const articles: GuideArticle[] = [
             "Наявність змінюється залежно від сезону, дня й ятки, тому сприймайте цей гід як карту дегустації, а не як жорсткий список.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
         relatedApartmentKeys: allApartments,
       },
       {
         heading: t("Pichade and pissaladière", "Pichade et pissaladiere", "Pichade e pissaladière", "Pichade і pissaladière"),
+        image: "/images/guide/local-food-pichade-pissaladiere.jpg",
+        imageAlt: t("Illustration of pichade and pissaladiere in Menton", "Illustration de pichade et pissaladiere a Menton", "Illustrazione di pichade e pissaladiere a Mentone", "Ілюстрація pichade і pissaladiere у Ментоні"),
+        visualTheme: "food",
         body: [
           t(
             "Pichade is one of Menton's signature savoury bites: a thick olive-oil dough topped with tomato, slow-cooked onions, anchovies, garlic and olives. It feels somewhere between a pizza and a southern tart, often eaten at aperitif time or as a quick bakery snack.",
@@ -305,10 +318,13 @@ const articles: GuideArticle[] = [
             "Схожа класика - pissaladière, де акцент зазвичай на карамелізованій цибулі й анчоусах. У Ментоні обидва варіанти можуть бути на одному прилавку. Запитайте, що щойно з печі, і візьміть шматок до набережної або в апартаменти для простого обіду.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
       },
       {
         heading: t("Socca and warm street food", "Socca et street food chaude", "Socca e street food calda", "Socca й тепла вулична їжа"),
+        image: "/images/guide/local-food-socca-street-food.jpg",
+        imageAlt: t("Illustration of socca and warm street food in Menton", "Illustration de socca et street food chaude a Menton", "Illustrazione di socca e street food calda a Mentone", "Ілюстрація socca й теплої вуличної їжі у Ментоні"),
+        visualTheme: "food",
         body: [
           t(
             "Socca is a large, thin chickpea pancake made with chickpea flour, olive oil, water and salt, traditionally baked until crisp at the edges and soft in the middle. It comes from nearby Nice, but it is easy to associate with a Menton market morning too.",
@@ -323,10 +339,13 @@ const articles: GuideArticle[] = [
             "Найкраща перша дегустація - гаряча й проста: широкі шматки, руками, з чорним перцем. Якщо бачите на дошці socca chaude, беріть порцію, поки вона ще тепла.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton"],
       },
       {
         heading: t("Barbajuans and market picnic bites", "Barbajuans et pique-nique de marche", "Barbajuans e assaggi da picnic", "Barbajuans і ринковий пікнік"),
+        image: "/images/guide/local-food-barbajuans-market-picnic.jpg",
+        imageAlt: t("Illustration of barbajuans and market picnic bites in Menton", "Illustration de barbajuans et pique-nique de marche a Menton", "Illustrazione di barbajuans e assaggi da picnic a Mentone", "Ілюстрація barbajuans і ринкового пікніка у Ментоні"),
+        visualTheme: "food",
         body: [
           t(
             "Barbajuans are fried pastries often filled with chard or spinach, fresh cheese, rice and herbs. They appear on market stands, in some bakeries and as starters in casual restaurants. One or two are a good salty snack with a glass of wine or beer.",
@@ -345,6 +364,9 @@ const articles: GuideArticle[] = [
       },
       {
         heading: t("Fougasse mentonnaise and citrus sweets", "Fougasse mentonnaise et douceurs aux agrumes", "Fougasse mentonnaise e dolci agli agrumi", "Fougasse mentonnaise і цитрусові солодощі"),
+        image: "/images/guide/local-food-fougasse-citrus-sweets.jpg",
+        imageAlt: t("Illustration of fougasse mentonnaise and citrus sweets", "Illustration de fougasse mentonnaise et douceurs aux agrumes", "Illustrazione di fougasse mentonnaise e dolci agli agrumi", "Ілюстрація fougasse mentonnaise і цитрусових солодощів"),
+        visualTheme: "food",
         body: [
           t(
             "Fougasse mentonnaise is the sweet side of local baking: a soft enriched bread often scented with orange blossom and dotted with candied fruit, almonds or sugared almonds. It is best kept simple, sliced for breakfast with coffee or in the afternoon with tea.",
@@ -359,10 +381,36 @@ const articles: GuideArticle[] = [
             "Цитрусова ідентичність Ментона також помітна в лимонних тартах, кексах, джемах, цукатах, печиві й лікерах. Спеціалізовані крамниці з лимонними продуктами добре підходять для сувенірів, які легше везти додому, ніж свіжу випічку.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton", "petit-casino-saint-michel"],
+      },
+      {
+        heading: t("Ice cream, gelato and lemon sorbet", "Glace, gelato et sorbet citron", "Gelato, gelaterie e sorbetto al limone", "Морозиво, gelato й лимонний сорбет"),
+        image: "/images/guide/best-ice-cream-menton.jpg",
+        imageAlt: t("Illustration of ice cream and lemon sorbet in Menton", "Illustration de glace et sorbet citron a Menton", "Illustrazione di gelato e sorbetto al limone a Mentone", "Ілюстрація морозива й лимонного сорбету в Ментоні"),
+        visualTheme: "food",
+        body: [
+          t(
+            "Ice cream is not just a dessert stop in Menton. It fits naturally into an old-town walk, a beach afternoon or a family route along Rue Saint-Michel, especially when lemon sorbet or seasonal fruit flavours are available.",
+            "La glace n'est pas seulement une pause dessert a Menton. Elle s'integre naturellement a une balade dans la vieille ville, un apres-midi de plage ou un parcours famille rue Saint-Michel, surtout quand le sorbet citron ou les parfums de saison sont disponibles.",
+            "Il gelato non e solo una pausa dessert a Mentone. Si inserisce naturalmente in una passeggiata nel centro storico, in un pomeriggio al mare o in un percorso famiglia su Rue Saint-Michel, soprattutto quando ci sono sorbetto al limone o gusti di stagione.",
+            "Морозиво в Ментоні - це не лише десертна зупинка. Воно природно вписується в прогулянку старим містом, пляжний день або сімейний маршрут Rue Saint-Michel, особливо коли є лимонний сорбет чи сезонні фруктові смаки.",
+          ),
+          t(
+            "For shop-by-shop ideas, use the dedicated ice-cream guide and treat this section as the food-guide reminder to leave space for one cold stop.",
+            "Pour les adresses detaillees, utilisez le guide dedie aux glaces et gardez cette section comme rappel de prevoir une pause fraiche.",
+            "Per idee negozio per negozio, usa la guida dedicata al gelato e considera questa sezione come promemoria per lasciare spazio a una pausa fresca.",
+            "Для конкретних адрес використовуйте окремий гід по морозиву, а цей розділ сприймайте як нагадування залишити місце для однієї холодної зупинки.",
+          ),
+        ],
+        guideLinkSlug: "best-ice-cream-menton",
+        guideLinkLabel: t("Open the ice cream guide", "Ouvrir le guide des glaces", "Apri la guida gelato", "Відкрити гід по морозиву"),
+        relatedPlaceIds: ["puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "gelateria-sofia-menton"],
       },
       {
         heading: t("Citrus drinks and apartment pairings", "Boissons aux agrumes et repas a l'appartement", "Bevande agli agrumi e abbinamenti in appartamento", "Цитрусові напої й прості поєднання в апартаментах"),
+        image: "/images/guide/local-food-citrus-drinks.jpg",
+        imageAlt: t("Illustration of citrus drinks and apartment pairings in Menton", "Illustration de boissons aux agrumes et repas a l'appartement a Menton", "Illustrazione di bevande agli agrumi e abbinamenti in appartamento a Mentone", "Ілюстрація цитрусових напоїв і поєднань для апартаментів у Ментоні"),
+        visualTheme: "food",
         body: [
           t(
             "For drinks, lemon is the obvious Menton flavour. A small chilled glass of lemon liqueur or limoncello can finish a meal, while citrus beers, syrups or soft drinks work for an afternoon option without a full aperitif.",
@@ -377,6 +425,7 @@ const articles: GuideArticle[] = [
             "Купуючи продукти, запитуйте, що зроблено саме з лимонів Ментона, а що є ширшими рецептами Рив'єри. Проста вечеря в апартаментах може складатися зі свіжого хліба, сиру, оливок, сезонних фруктів і одного-двох лимонних продуктів, наприклад джему, тапенади або гірчиці.",
           ),
         ],
+        relatedPlaceIds: ["intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
         relatedApartmentKeys: allApartments,
       },
       {
@@ -395,7 +444,7 @@ const articles: GuideArticle[] = [
             "Окрім ринку, заглядайте в невеликі пекарні старого міста й дивіться дошки кафе, де socca або barbajuans можуть бути в спеціальних пропозиціях. Запитуйте продавців, що місцеве, домашнє або особливо вдале саме сьогодні.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel"],
       },
     ],
     practicalTips: [
@@ -403,7 +452,7 @@ const articles: GuideArticle[] = [
       t("Ask what is homemade, local or just out of the oven.", "Demandez ce qui est fait maison, local ou tout juste sorti du four.", "Chiedi cosa e fatto in casa, locale o appena uscito dal forno.", "Запитуйте, що домашнє, місцеве або щойно з печі."),
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
-    relatedPlaces: ["halles-du-marche", "promenade-du-soleil"],
+    relatedPlaces: ["halles-du-marche", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
     relatedArticles: ["best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
@@ -4583,6 +4632,8 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       heading: section.heading[locale],
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),
+      imageAlt: section.imageAlt?.[locale],
+      guideLinkLabel: section.guideLinkLabel?.[locale],
       videoEmbeds: section.videoEmbeds?.map((video) => ({
         ...video,
         title: video.title[locale],
