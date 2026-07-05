@@ -3099,8 +3099,8 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "event",
   },
   "musee-jean-cocteau-bastion": {
-    image: "/images/guide/musee-jean-cocteau-collection-wunderman.jpg",
-    imageAlt: text("Illustration of Musée Jean Cocteau - Collection Wunderman in Menton", "Illustration du Musée Jean Cocteau - Collection Wunderman a Menton", "Illustrazione del Musée Jean Cocteau - Collection Wunderman a Mentone", "Ілюстрація Musée Jean Cocteau - Collection Wunderman у Ментоні"),
+    image: "/images/guide/musee-jean-cocteau-bastion.jpg",
+    imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),
     visualTheme: "museum",
   },
   "musee-prehistoire-regionale-menton": {
