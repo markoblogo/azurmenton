@@ -74,7 +74,7 @@ const categories: UsefulPlaceMapCategory[] = [
   category("playgrounds", ["playground"], "Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики"),
   category("family-activities", ["family-activity"], "Activities", "Activites", "Attivita", "Активності"),
   category("shopping", ["shopping-centre"], "Shopping", "Shopping", "Shopping", "Шопінг"),
-  category("services", ["tourist-office", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
+  category("services", ["tourist-office", "station", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
 ];
 
 function category(id: string, placeTypes: PlaceType[], en: string, fr: string, it: string, uk: string): UsefulPlaceMapCategory {
