@@ -5,7 +5,7 @@ export type ApartmentMapPoint = {
 };
 
 export const apartmentMapPoints: ApartmentMapPoint[] = [
-  { apartmentSlug: "sea-view-balcony-studio", lat: 43.7754, lng: 7.4942 },
-  { apartmentSlug: "beachside-family-apartment", lat: 43.7753, lng: 7.4934 },
-  { apartmentSlug: "panoramic-sea-view-studio", lat: 43.7805, lng: 7.5144 },
+  { apartmentSlug: "sea-view-balcony-studio", lat: 43.7775, lng: 7.4934 },
+  { apartmentSlug: "beachside-family-apartment", lat: 43.7774, lng: 7.4928 },
+  { apartmentSlug: "panoramic-sea-view-studio", lat: 43.7854, lng: 7.5089 },
 ];
