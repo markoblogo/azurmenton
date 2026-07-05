@@ -99,7 +99,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
       <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-center">
+          <div className="relative grid gap-8 lg:block lg:pr-[31rem]">
             <div>
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{localized.categoryLabel}</p>
               <h1 className="mt-4 max-w-4xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localized.title}</h1>
@@ -108,7 +108,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 {localized.tags.map((tag) => <span key={tag} className="border border-[#dfd2b8] bg-[#fffaf0] px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[#71665b]">{tag}</span>)}
               </div>
             </div>
-            <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
+            <aside className="border border-[#dfd2b8] bg-[#fffaf0] p-5 lg:absolute lg:right-0 lg:top-0 lg:w-[27rem]">
               <GuideVisual
                 image={localized.coverImage}
                 imageAlt={localized.coverImageAlt}
@@ -204,7 +204,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
               })}
             </article>
 
-            <aside className="h-fit space-y-4 lg:sticky lg:top-24">
+            <aside className="h-fit space-y-4 lg:sticky lg:top-24 lg:pt-[34rem]">
               {localized.practicalTips?.length ? (
                 <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
                   <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.practicalTips}</h2>
