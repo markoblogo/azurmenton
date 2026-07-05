@@ -3520,7 +3520,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[0].label, guideBestForOptions[1].label],
     duration: "2-3 days",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
-    relatedArticles: ["supermarkets-in-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "best-beaches-in-menton", "menton-one-day-itinerary"],
+    relatedArticles: ["menton-one-day-itinerary", "menton-old-town", "local-food-menton", "best-beaches-in-menton", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "public-transport-in-menton", "menton-without-a-car", "supermarkets-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3569,7 +3569,7 @@ export const guideArticles: GuideArticle[] = [
             "Увечері пройдіться Promenade du Soleil, коли світло м'якшає. Зупиніться на аперитив біля Sablettes або вздовж набережної, а потім оберіть спокійне завершення біля Port de Garavan або rooftop на кшталт Med Rooftop, якщо він відкритий і хочеться коктейлю з ширшим видом.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "rampes-saint-michel", "cimetiere-vieux-chateau", "plage-sablettes", "jardin-val-rahmeh", "promenade-du-soleil", "port-de-garavan", "med-rooftop"],
+        relatedPlaceIds: ["halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "plage-sablettes", "plage-casino", "casino-barriere-menton", "jardin-val-rahmeh", "promenade-du-soleil", "port-de-garavan", "med-rooftop"],
       },
       {
         heading: t("Day 2: Monaco from a Menton base", "Jour 2: Monaco depuis Menton", "Giorno 2: Monaco da Mentone", "День 2: Монако з базою в Ментоні"),
@@ -3599,6 +3599,7 @@ export const guideArticles: GuideArticle[] = [
             "На вечір або залишайтеся на жвавіше Монако біля порту, перевіривши актуальні програми таких місць, як La Rascasse, або повечеряйте раніше й повертайтеся до Ментона на спокійніший напій біля моря.",
           ),
         ],
+        relatedPlaceIds: ["monaco-monte-carlo"],
       },
       {
         heading: t("Day 3 option A: Nice, the big-city Riviera", "Jour 3 option A: Nice, la grande ville Riviera", "Giorno 3 opzione A: Nizza, Riviera da grande citta", "День 3 варіант A: Ніцца, міська Рив'єра"),
@@ -3622,6 +3623,7 @@ export const guideArticles: GuideArticle[] = [
             "Якщо хочете один більший вечір перед від'їздом із Рив'єри, у Ніцці більше барів, pubs і клубів, ніж у Ментоні. Інакше повечеряйте раніше в Ніцці й повертайтеся потягом на останню тиху прогулянку Promenade du Soleil.",
           ),
         ],
+        relatedPlaceIds: ["nice-old-town", "promenade-du-soleil"],
       },
       {
         heading: t("Day 3 option B: Ventimiglia and the Italian coast", "Jour 3 option B: Vintimille et la cote italienne", "Giorno 3 opzione B: Ventimiglia e costa italiana", "День 3 варіант B: Вентімілья та італійське узбережжя"),
@@ -3645,6 +3647,7 @@ export const guideArticles: GuideArticle[] = [
             "Вдень або повертайтеся раніше до Ментона для ще одного купання на Sablettes чи Fossan, або проїдьте трохи далі Лігурійським узбережжям перед поверненням. Завершіть останньою вечерею в Ментоні біля ринку, Sablettes або Port de Garavan.",
           ),
         ],
+        relatedPlaceIds: ["ventimiglia", "bordighera", "sanremo", "plage-sablettes", "plage-fossan", "port-de-garavan"],
       },
     ],
     practicalTips: [
