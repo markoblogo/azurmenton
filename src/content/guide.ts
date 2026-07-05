@@ -17,7 +17,7 @@ export type GuideCategory =
   | "events"
   | "practical";
 
-export type GuideDuration = "1 hour" | "1-2 hours" | "half-day" | "full-day" | "2-3 days" | "evening" | "flexible" | "reference";
+export type GuideDuration = "45 to 90 minutes" | "1 hour" | "1-2 hours" | "half-day" | "full-day" | "2-3 days" | "evening" | "flexible" | "reference";
 export type SourceStatus = "editorial" | "needs_verification" | "verified";
 
 export type GuideVideoEmbed = {
@@ -205,6 +205,7 @@ export const guideBestForOptions = [
 ];
 
 export const guideDurationLabels: Record<GuideDuration, LocalizedText> = {
+  "45 to 90 minutes": t("45 to 90 minutes", "45 a 90 minutes", "45-90 minuti", "45-90 хвилин"),
   "1 hour": t("1 hour", "1 heure", "1 ora", "1 година"),
   "1-2 hours": t("1-2 hours", "1-2 heures", "1-2 ore", "1-2 години"),
   "half-day": t("Half-day", "Demi-journee", "Mezza giornata", "Пів дня"),
