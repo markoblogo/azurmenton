@@ -1036,7 +1036,21 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["italian-riviera", "menton-centre", "seafront"],
     sourceStatus: "editorial",
-    relatedPlaces: ["ventimiglia", "bordighera", "sanremo", "promenade-du-soleil"],
+    relatedPlaces: [
+      "ventimiglia",
+      "bordighera",
+      "sanremo",
+      "dolceacqua",
+      "conad-city-ventimiglia-carso",
+      "conad-city-ventimiglia-corso-nizza",
+      "conad-superstore-vallecrosia",
+      "conad-city-bordighera",
+      "conad-city-sanremo",
+      "casa-del-grillo",
+      "terre-bianche-dolceacqua",
+      "altavia-winery",
+      "promenade-du-soleil",
+    ],
     relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
@@ -1060,7 +1074,7 @@ export const guideArticles: GuideArticle[] = [
           t("Ventimiglia is the first Italian town across the border. The atmosphere changes quickly: Italian cafes, bakeries, Ligurian food, different architecture and a more traditional market rhythm.", "Vintimille est la premiere ville italienne apres la frontiere. L'ambiance change vite: cafes italiens, boulangeries, cuisine ligure, architecture differente et rythme de marche plus traditionnel.", "Ventimiglia e la prima citta italiana oltre il confine. L'atmosfera cambia subito: cafe italiani, panetterie, cucina ligure, architettura diversa e ritmo di mercato piu tradizionale.", "Вентімілья - перше італійське місто за кордоном. Атмосфера швидко змінюється: італійські кафе, пекарні, лігурійська їжа, інша архітектура й більш традиційний ринковий ритм."),
           t("The Friday market is the busiest classic, with stalls for clothing, leather goods, food products, olive oil, cheeses and household goods. Ventimiglia Alta adds the old-town contrast: medieval lanes, stone buildings, the cathedral area and sea views.", "Le marche du vendredi est le grand classique, avec vetements, cuir, produits alimentaires, huile d'olive, fromages et objets du quotidien. Vintimille Alta ajoute le contraste historique: ruelles medievales, pierres, secteur de la cathedrale et vues mer.", "Il mercato del venerdi e il grande classico, con abbigliamento, pelle, prodotti alimentari, olio d'oliva, formaggi e articoli per la casa. Ventimiglia Alta aggiunge il contrasto storico: vicoli medievali, pietra, zona della cattedrale e viste mare.", "П'ятничний ринок - головна класика: одяг, шкіра, продукти, оливкова олія, сири й побутові речі. Ventimiglia Alta додає історичний контраст: середньовічні вулички, кам'яні будівлі, район собору й види на море."),
         ],
-        relatedPlaceIds: ["ventimiglia"],
+        relatedPlaceIds: ["ventimiglia", "conad-city-ventimiglia-carso", "conad-city-ventimiglia-corso-nizza"],
       },
       {
         heading: t("Bordighera: palms and seaside elegance", "Bordighera: palmiers et elegance en bord de mer", "Bordighera: palme ed eleganza sul mare", "Бордігера: пальми й морська елегантність"),
@@ -1068,14 +1082,30 @@ export const guideArticles: GuideArticle[] = [
           t("A short ride beyond Ventimiglia, Bordighera feels quieter and more local than many French Riviera resorts. Its palm-lined promenade, villas, beaches and sea views make it a good second stop after a market morning.", "A quelques minutes apres Vintimille, Bordighera semble plus calme et locale que beaucoup de stations de la Riviera francaise. Sa promenade bordee de palmiers, ses villas, plages et vues mer en font une bonne seconde halte apres une matinee de marche.", "Poco oltre Ventimiglia, Bordighera sembra piu tranquilla e locale di molte localita della Costa Azzurra. Il lungomare con palme, le ville, le spiagge e le viste mare la rendono una buona seconda tappa dopo una mattina al mercato.", "За кілька хвилин після Вентімільї Бордігера здається тихішою й локальнішою за багато курортів Французької Рив'єри. Пальмова набережна, вілли, пляжі й море роблять її доброю другою зупинкою після ринкового ранку."),
           t("The town also has an artistic association with Claude Monet, who painted Bordighera's gardens and coastal light. Even without a museum plan, the waterfront is strong for a slow walk, cafes and sunset photos.", "La ville est aussi liee a Claude Monet, qui a peint les jardins et la lumiere cotiere de Bordighera. Meme sans programme musee, le front de mer est parfait pour une balade lente, des cafes et des photos au coucher du soleil.", "La citta e legata anche a Claude Monet, che dipinse giardini e luce costiera di Bordighera. Anche senza programma museale, il lungomare e forte per una passeggiata lenta, cafe e foto al tramonto.", "Місто також пов'язане з Claude Monet, який писав сади й прибережне світло Бордігери. Навіть без музейного плану набережна добре працює для повільної прогулянки, кафе й фото на заході сонця."),
         ],
-        relatedPlaceIds: ["bordighera"],
+        relatedPlaceIds: ["bordighera", "conad-city-bordighera", "conad-superstore-vallecrosia"],
       },
       {
         heading: t("Continue to Sanremo if you have a full day", "Continuer vers Sanremo si vous avez la journee", "Prosegui verso Sanremo se hai tutta la giornata", "Продовжуйте до Санремо, якщо маєте повний день"),
         body: [
           t("Sanremo is larger and more energetic, known for flowers, shopping streets, the casino, beaches, restaurants and cafes. It works best when you want a fuller Italian Riviera day rather than a short border hop.", "Sanremo est plus grande et plus animee, connue pour les fleurs, les rues commerçantes, le casino, les plages, restaurants et cafes. Elle convient si vous voulez une vraie journee Riviera italienne plutot qu'un simple passage de frontiere.", "Sanremo e piu grande e vivace, nota per fiori, vie dello shopping, casino, spiagge, ristoranti e cafe. Funziona se vuoi una giornata piu completa in Riviera italiana invece di un breve salto oltre confine.", "Санремо більше й жвавіше: квіти, торгові вулиці, казино, пляжі, ресторани й кафе. Воно підходить, якщо хочеться повнішого дня на Італійській Рив'єрі, а не лише короткого перетину кордону."),
         ],
-        relatedPlaceIds: ["sanremo"],
+        relatedPlaceIds: ["sanremo", "conad-city-sanremo"],
+      },
+      {
+        heading: t("Food shopping and Ligurian products to bring back", "Courses et produits ligures a rapporter", "Spesa e prodotti liguri da riportare", "Продукти й лігурійські покупки, які варто привезти"),
+        body: [
+          t("Since this trip starts so close to Menton, it also works as a practical food-shopping day. In Ventimiglia, Bordighera or Sanremo, look for Italian coffee, pasta, olive oil, pesto, biscuits, wine and simple picnic ingredients for the apartment.", "Comme cette excursion commence tout pres de Menton, elle fonctionne aussi comme journee de courses italiennes. A Vintimille, Bordighera ou Sanremo, cherchez cafe italien, pates, huile d'olive, pesto, biscuits, vin et ingredients simples pour un repas a l'appartement.", "Poiche questa gita parte cosi vicino a Mentone, funziona anche come giornata di spesa italiana. A Ventimiglia, Bordighera o Sanremo cerca caffe italiano, pasta, olio d'oliva, pesto, biscotti, vino e ingredienti semplici per l'appartamento.", "Оскільки ця поїздка починається зовсім поруч із Ментоном, вона добре працює і як день італійських закупівель. У Вентімільї, Бордігері або Санремо шукайте каву, пасту, оливкову олію, песто, печиво, вино й прості інгредієнти для апартаментів."),
+          t("For a quick train day, choose a small central Conad near your stop. If you have a car, the larger Vallecrosia supermarket between Ventimiglia and Bordighera is more useful for a proper stock-up.", "Pour une journee en train, choisissez un petit Conad central pres de votre arret. Si vous avez une voiture, le plus grand supermarche de Vallecrosia entre Vintimille et Bordighera est plus utile pour de vraies courses.", "Per una giornata in treno scegli un piccolo Conad centrale vicino alla fermata. Se hai l'auto, il supermercato piu grande di Vallecrosia tra Ventimiglia e Bordighera e piu utile per una spesa completa.", "Для поїздки потягом оберіть невеликий центральний Conad біля своєї зупинки. Якщо ви на авто, більший супермаркет у Vallecrosia між Вентімільєю та Бордігерою зручніший для повної закупівлі."),
+        ],
+        relatedPlaceIds: ["conad-city-ventimiglia-carso", "conad-city-ventimiglia-corso-nizza", "conad-superstore-vallecrosia", "conad-city-bordighera", "conad-city-sanremo"],
+      },
+      {
+        heading: t("Optional inland detour: Dolceacqua and Rossese wine", "Detour interieur optionnel: Dolceacqua et vin Rossese", "Deviazione interna opzionale: Dolceacqua e vino Rossese", "Опційний маршрут углиб: Dolceacqua і вино Rossese"),
+        body: [
+          t("If you are not limited to the train line, Dolceacqua adds a very different Ligurian mood: a medieval village, stone bridge, hill streets and Rossese di Dolceacqua wine. It is better by car, taxi or a carefully checked bus plan than as a casual rail stop.", "Si vous n'etes pas limite a la ligne de train, Dolceacqua ajoute une ambiance ligure tres differente: village medieval, pont de pierre, ruelles en pente et vin Rossese di Dolceacqua. C'est mieux en voiture, taxi ou avec un bus bien verifie que comme simple arret ferroviaire.", "Se non sei limitato alla linea ferroviaria, Dolceacqua aggiunge un'atmosfera ligure molto diversa: borgo medievale, ponte in pietra, vie in salita e vino Rossese di Dolceacqua. E meglio in auto, taxi o con autobus ben controllato, non come semplice fermata in treno.", "Якщо ви не обмежені залізничною лінією, Dolceacqua додає зовсім інший лігурійський настрій: середньовічне село, кам'яний міст, вулички на пагорбі й вино Rossese di Dolceacqua. Це краще робити авто, таксі або з добре перевіреним автобусним планом, а не як випадкову зупинку потягом."),
+          t("For wine-focused guests, nearby producers and tasting options can turn the Italian day into a slower countryside plan. Confirm opening hours and tasting availability before building the day around them.", "Pour les voyageurs interesses par le vin, les producteurs et options de degustation proches peuvent transformer la journee italienne en programme plus lent cote campagne. Verifiez horaires et disponibilite des degustations avant d'organiser la journee autour d'eux.", "Per chi ama il vino, produttori e degustazioni nei dintorni possono trasformare la giornata italiana in un programma piu lento nell'entroterra. Conferma orari e disponibilita prima di costruire la giornata intorno a loro.", "Для гостей, яким цікаве вино, місцеві виробники й дегустації можуть перетворити італійський день на повільніший маршрут углиб країни. Перевіряйте години й доступність дегустацій перед тим, як будувати день навколо них."),
+        ],
+        relatedPlaceIds: ["dolceacqua", "casa-del-grillo", "terre-bianche-dolceacqua", "altavia-winery"],
       },
       {
         heading: t("Why Italy feels different", "Pourquoi l'Italie semble differente", "Perche l'Italia sembra diversa", "Чому Італія відчувається інакше"),
