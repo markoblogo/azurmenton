@@ -3259,6 +3259,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Nice Côte d'Azur Airport", "Illustration de l'aeroport Nice Cote d'Azur", "Illustrazione dell'aeroporto Nice Côte d'Azur", "Ілюстрація аеропорту Nice Côte d'Azur"),
     visualTheme: "transport",
   },
+  "nice-saint-augustin-station": {
+    image: "/images/guide/nice-saint-augustin-station.jpg",
+    imageAlt: text("Illustration of Nice Saint-Augustin Station", "Illustration de la gare Nice Saint-Augustin", "Illustrazione della stazione Nice Saint-Augustin", "Ілюстрація станції Nice Saint-Augustin"),
+    visualTheme: "transport",
+  },
+  "nice-ville-station": {
+    image: "/images/guide/nice-ville-station.jpg",
+    imageAlt: text("Illustration of Nice-Ville Station", "Illustration de la gare Nice-Ville", "Illustrazione della stazione Nice-Ville", "Ілюстрація станції Nice-Ville"),
+    visualTheme: "transport",
+  },
+  "menton-station": {
+    image: "/images/guide/menton-station.jpg",
+    imageAlt: text("Illustration of Menton Station", "Illustration de la gare de Menton", "Illustrazione della stazione di Mentone", "Ілюстрація станції Menton"),
+    visualTheme: "transport",
+  },
+  "menton-garavan-station": {
+    image: "/images/guide/menton-garavan-station.jpg",
+    imageAlt: text("Illustration of Menton Garavan Station", "Illustration de la gare de Menton Garavan", "Illustrazione della stazione di Menton Garavan", "Ілюстрація станції Menton Garavan"),
+    visualTheme: "transport",
+  },
+  "monaco-monte-carlo-station": {
+    image: "/images/guide/monaco-monte-carlo-station.jpg",
+    imageAlt: text("Illustration of Monaco-Monte-Carlo Station", "Illustration de la gare Monaco-Monte-Carlo", "Illustrazione della stazione Monaco-Monte-Carlo", "Ілюстрація станції Monaco-Monte-Carlo"),
+    visualTheme: "transport",
+  },
+  "ventimiglia-station": {
+    image: "/images/guide/ventimiglia-station.jpg",
+    imageAlt: text("Illustration of Ventimiglia Station", "Illustration de la gare de Vintimille", "Illustrazione della stazione di Ventimiglia", "Ілюстрація станції Ventimiglia"),
+    visualTheme: "transport",
+  },
   "oceanographic-museum-monaco": {
     image: "/images/guide/oceanographic-museum-monaco.jpg",
     imageAlt: text("Illustration of the Oceanographic Museum of Monaco", "Illustration du Musee oceanographique de Monaco", "Illustrazione del Museo Oceanografico di Monaco", "Ілюстрація Океанографічного музею Монако"),
