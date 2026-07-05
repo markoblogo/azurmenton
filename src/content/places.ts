@@ -295,7 +295,7 @@ const rawPlaces: Place[] = [
       "Компактна культурна зупинка біля старого порту, корисна для перерви в приміщенні під час сильної післяобідньої спеки.",
     ),
     bestFor: [text("indoor pause", "pause interieure", "pausa al chiuso", "перерва в приміщенні"), text("culture", "culture", "cultura", "культура")],
-    relatedArticleIds: ["museums-in-menton-nice-monaco", "stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-three-day-itinerary"],
+    relatedArticleIds: ["museums-in-menton-nice-monaco", "stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-three-day-itinerary", "menton-old-town", "where-to-stay-in-menton"],
   },
   {
     id: "musee-prehistoire-regionale-menton",
@@ -308,7 +308,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A compact Menton museum for archaeology, early human history and a calm indoor family stop.", "Un musee compact a Menton pour archeologie, prehistoire locale et pause interieure en famille.", "Un museo compatto a Mentone per archeologia, preistoria locale e una pausa al chiuso in famiglia.", "Компактний музей у Ментоні про археологію, давню історію людини й спокійну сімейну паузу в приміщенні."),
     bestFor: [text("families", "familles", "famiglie", "сім'ї"), text("prehistory", "prehistoire", "preistoria", "праісторія")],
-    relatedArticleIds: ["museums-in-menton-nice-monaco", "stay-cool-in-menton-summer", "menton-old-town"],
+    relatedArticleIds: ["museums-in-menton-nice-monaco", "stay-cool-in-menton-summer", "menton-old-town", "where-to-stay-in-menton"],
   },
   {
     id: "salle-des-mariages-jean-cocteau",
@@ -321,7 +321,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A Cocteau-decorated civic interior inside Menton's town hall, best treated as a short cultural stop.", "Un interieur municipal decore par Cocteau dans la mairie de Menton, a voir comme courte halte culturelle.", "Un interno civico decorato da Cocteau nel municipio di Mentone, ideale come breve sosta culturale.", "Муніципальний інтер'єр роботи Кокто в мерії Ментона, найкраще як коротка культурна зупинка."),
     bestFor: [text("Cocteau", "Cocteau", "Cocteau", "Кокто"), text("short visits", "visites courtes", "visite brevi", "короткі візити")],
-    relatedArticleIds: ["museums-in-menton-nice-monaco", "menton-old-town"],
+    relatedArticleIds: ["museums-in-menton-nice-monaco", "menton-old-town", "where-to-stay-in-menton"],
   },
   {
     id: "oceanographic-museum-monaco",
@@ -623,7 +623,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Tourist office for maps, brochures, local events, guided tours and visitor information.", "Office de tourisme pour cartes, brochures, evenements locaux, visites guidees et informations visiteurs.", "Ufficio turistico per mappe, brochure, eventi locali, visite guidate e informazioni.", "Туристичний офіс для карт, брошур, подій, екскурсій та інформації для гостей."),
     bestFor: [text("visitor information", "information visiteurs", "informazioni turistiche", "туристична інформація"), text("maps", "cartes", "mappe", "карти")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "public-transport-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "public-transport-in-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
   },
   {
     id: "nabucco-wine-bar-cellar",
@@ -1945,7 +1945,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Menton's old-town landmark above the sea, useful for classic views, music-video mood and visual walks.", "Le repere de la vieille ville au-dessus de la mer, utile pour les vues classiques, l'ambiance de clip et les balades visuelles.", "Il simbolo del centro storico sopra il mare, utile per viste classiche, atmosfera da videoclip e passeggiate visive.", "Символ старого міста над морем, корисний для класичних видів, настрою музичного відео й візуальних прогулянок."),
     bestFor: [text("old-town views", "vues vieille ville", "viste centro storico", "види старого міста"), text("visual walks", "balades visuelles", "passeggiate visive", "візуальні прогулянки")],
-    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary"],
+    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "gorbio",
@@ -2040,7 +2040,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A practical central beach for quick swims between the promenade, cafes and the apartment.", "Une plage centrale pratique pour une baignade rapide entre la promenade, les cafes et l'appartement.", "Una spiaggia centrale pratica per bagni rapidi tra passeggiata, cafe e appartamento.", "Практичний центральний пляж для швидкого купання між набережною, кав'ярнями й апартаментами."),
     bestFor: [text("quick swim", "baignade rapide", "bagno rapido", "швидке купання"), text("central access", "acces central", "accesso centrale", "центральний доступ")],
-    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-three-day-itinerary"],
+    relatedArticleIds: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town"],
   },
   {
     id: "casino-barriere-menton",
@@ -2051,7 +2051,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A central seafront landmark beside Promenade du Soleil and Plage du Casino.", "Un repere central du front de mer, pres de la Promenade du Soleil et de la Plage du Casino.", "Un riferimento centrale sul lungomare, vicino alla Promenade du Soleil e alla Plage du Casino.", "Центральний орієнтир на набережній поруч із Promenade du Soleil та Plage du Casino."),
     bestFor: [text("central landmark", "repere central", "punto di riferimento centrale", "центральний орієнтир"), text("seafront orientation", "orientation front de mer", "orientamento sul lungomare", "орієнтація на набережній")],
-    relatedArticleIds: ["menton-without-a-car", "best-beaches-in-menton", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary"],
+    relatedArticleIds: ["menton-without-a-car", "best-beaches-in-menton", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary", "menton-old-town"],
   },
   {
     id: "rondelli-garavan-side",
@@ -2511,7 +2511,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("The closest Italian rail stop from Menton, useful for markets, Ligurian food and an easy cross-border walk day.", "La gare italienne la plus proche de Menton, utile pour les marches, la cuisine ligure et une journee facile de l'autre cote de la frontiere.", "La fermata italiana piu vicina a Mentone, utile per mercati, cucina ligure e una facile giornata oltre confine.", "Найближча італійська залізнична зупинка від Ментона, зручна для ринків, лігурійської їжі й легкої поїздки через кордон."),
     bestFor: [text("markets", "marches", "mercati", "ринки"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
-    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "bordighera",
@@ -2544,7 +2544,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("An easy coastal border walk with sea views, rocky coves and a clear Menton-to-Italy atmosphere.", "Une balade cotiere facile vers la frontiere, avec vues mer, criques rocheuses et ambiance Menton-Italie.", "Una passeggiata costiera facile verso il confine, con vista mare, calette rocciose e atmosfera Mentone-Italia.", "Легка прибережна прогулянка до кордону з морськими видами, скелями й атмосферою Ментона біля Італії."),
     bestFor: [text("easy walk", "balade facile", "passeggiata facile", "легка прогулянка"), text("sea views", "vues mer", "vista mare", "вид на море")],
-    relatedArticleIds: ["best-walks-and-hikes-around-menton", "menton-in-autumn", "menton-without-a-car", "morning-walk-france-to-italy"],
+    relatedArticleIds: ["best-walks-and-hikes-around-menton", "menton-in-autumn", "menton-without-a-car", "morning-walk-france-to-italy", "where-to-stay-in-menton"],
   },
   {
     id: "roquebrune-cap-martin-coastal-walk",
