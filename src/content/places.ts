@@ -3491,6 +3491,21 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Casino Barriere Menton and the central seafront", "Illustration du Casino Barriere Menton et du front de mer central", "Illustrazione del Casino Barriere Menton e del lungomare centrale", "Ілюстрація Casino Barriere Menton і центральної набережної"),
     visualTheme: "old-town",
   },
+  "casino-de-monte-carlo": {
+    image: "/images/guide/casino-de-monte-carlo.jpg",
+    imageAlt: text("Illustration of Casino de Monte-Carlo in Monaco", "Illustration du Casino de Monte-Carlo a Monaco", "Illustrazione del Casino de Monte-Carlo a Monaco", "Ілюстрація Casino de Monte-Carlo у Монако"),
+    visualTheme: "nightlife",
+  },
+  "casino-cafe-de-paris": {
+    image: "/images/guide/casino-cafe-de-paris.jpg",
+    imageAlt: text("Illustration of Casino Cafe de Paris in Monaco", "Illustration du Casino Cafe de Paris a Monaco", "Illustrazione del Casino Cafe de Paris a Monaco", "Ілюстрація Casino Cafe de Paris у Монако"),
+    visualTheme: "nightlife",
+  },
+  "casino-square-monaco": {
+    image: "/images/guide/casino-square-monaco.jpg",
+    imageAlt: text("Illustration of Casino Square in Monaco", "Illustration de la place du Casino a Monaco", "Illustrazione di Casino Square a Monaco", "Ілюстрація Casino Square у Монако"),
+    visualTheme: "nightlife",
+  },
   "rondelli-garavan-side": {
     image: "/images/guide/rondelli-garavan-side.jpg",
     imageAlt: text("Illustration of Rondelli and the Garavan side in Menton", "Illustration de Rondelli et du cote Garavan a Menton", "Illustrazione di Rondelli e del lato Garavan a Mentone", "Ілюстрація Rondelli та боку Garavan у Ментоні"),
