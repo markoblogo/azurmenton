@@ -116,6 +116,7 @@ const walkingPlaceIdByItemId: Partial<Record<string, string>> = {
   "ventimiglia-centre": "ventimiglia",
   "biera-daqui": "biera-daqui",
   "inky-bar-sablettes": "inky-bar",
+  "casino-barriere": "casino-barriere-menton",
   "tourist-office": "palais-de-leurope-menton",
   "monaco-train": "monaco-monte-carlo",
   "ventimiglia-train": "ventimiglia",

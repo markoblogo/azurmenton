@@ -2043,6 +2043,17 @@ const rawPlaces: Place[] = [
     relatedArticleIds: ["fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
+    id: "casino-barriere-menton",
+    name: "Casino Barrière Menton",
+    type: "neighbourhood",
+    address: "2 Avenue Félix Faure, 06500 Menton",
+    googleMapsUrl: mapsSearch("Casino Barrière Menton", "2 Avenue Félix Faure, 06500 Menton"),
+    sourceStatus: "editorial",
+    shortNote: text("A central seafront landmark beside Promenade du Soleil and Plage du Casino.", "Un repere central du front de mer, pres de la Promenade du Soleil et de la Plage du Casino.", "Un riferimento centrale sul lungomare, vicino alla Promenade du Soleil e alla Plage du Casino.", "Центральний орієнтир на набережній поруч із Promenade du Soleil та Plage du Casino."),
+    bestFor: [text("central landmark", "repere central", "punto di riferimento centrale", "центральний орієнтир"), text("seafront orientation", "orientation front de mer", "orientamento sul lungomare", "орієнтація на набережній")],
+    relatedArticleIds: ["menton-without-a-car", "best-beaches-in-menton", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+  },
+  {
     id: "rondelli-garavan-side",
     name: "Rondelli and the Garavan side",
     type: "beach",
@@ -3308,9 +3319,14 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "beach",
   },
   "plage-casino": {
+    image: "/images/guide/plage-du-casino.jpg",
+    imageAlt: text("Illustration of Plage du Casino in Menton", "Illustration de la Plage du Casino a Menton", "Illustrazione della Plage du Casino a Mentone", "Ілюстрація Plage du Casino у Ментоні"),
+    visualTheme: "beach",
+  },
+  "casino-barriere-menton": {
     image: "/images/guide/casino-barriere-menton.jpg",
     imageAlt: text("Illustration of Casino Barriere Menton and the central seafront", "Illustration du Casino Barriere Menton et du front de mer central", "Illustrazione del Casino Barriere Menton e del lungomare centrale", "Ілюстрація Casino Barriere Menton і центральної набережної"),
-    visualTheme: "beach",
+    visualTheme: "old-town",
   },
   "rondelli-garavan-side": {
     image: "/images/guide/rondelli-garavan-side.jpg",
