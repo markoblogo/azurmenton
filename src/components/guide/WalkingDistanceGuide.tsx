@@ -4,7 +4,7 @@ import { GuideVisual, type GuideVisualTheme } from "@/components/guide/GuideVisu
 import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
 import { getPlaces, type Place } from "@/content/places";
 import type { Locale } from "@/i18n/locales";
-import { walkingCategoryLabels, walkingCategoryNotes, walkingCategoryOrder, walkingDistanceItems, type WalkingCategory, type WalkingDistanceItem } from "@/content/walking-distances";
+import { walkingCategoryLabels, walkingCategoryNotes, walkingCategoryOrder, walkingDistanceItems, type LocalizedText, type WalkingCategory, type WalkingDistanceItem } from "@/content/walking-distances";
 
 const labels = {
   en: { title: "Walking-distance map from the centre", intro: "Approximate walks from Promenade du Soleil / Casino Barrière. Use this as orientation, not a live navigation map.", place: "Place", time: "Walk", note: "Note", map: "Map", verify: "Check current details", quick: "Can you stay in Menton without a car?", quickAnswer: "Yes. If you stay in central Menton near the seafront, most daily plans can be done on foot: beaches, the old town, the market, cafés and the train station are close. A car is useful for hill villages, luggage-heavy trips or more remote gardens, but not essential for a beach-focused stay.", practical: "Practical walking notes", walkingVsTransport: "Walking vs public transport", walkingVsTransportText: "Walk for the seafront, old town, beaches and market. Use the train for Monaco, Nice and Ventimiglia. Consider bus or taxi for gardens, hill villages, late returns and luggage.", transportGuide: "Public transport in Menton", tips: ["Menton is linear and stretches along the sea.", "The promenade is the easiest orientation line.", "The old town climbs uphill, especially toward Saint-Michel and the cemetery viewpoint.", "Comfortable shoes are useful, and summer hill walks are easier in the morning or evening.", "During festivals or parades, access and traffic rules can change."], transport: "For farther gardens or Italy, check current transport information before travelling." },
@@ -31,6 +31,69 @@ const categoryThemes: Record<WalkingCategory, GuideVisualTheme> = {
   "italy-border": "itinerary",
   "central-essentials": "walk",
   "train-day-trips": "transport",
+};
+
+const walkingItemVisuals: Partial<Record<string, { image: string; imageAlt: LocalizedText; visualTheme: GuideVisualTheme }>> = {
+  "casino-barriere": {
+    image: "/images/guide/casino-barriere-menton.jpg",
+    imageAlt: {
+      en: "Casino Barriere Menton on the central seafront",
+      fr: "Casino Barriere Menton sur le front de mer central",
+      it: "Casino Barriere Menton sul lungomare centrale",
+      uk: "Casino Barriere Menton на центральній набережній",
+    },
+    visualTheme: "sea",
+  },
+  "chapelle-penitents-noirs": {
+    image: "/images/guide/chapelle-des-penitents-noirs.jpg",
+    imageAlt: {
+      en: "Chapelle des Penitents Noirs in Menton old town",
+      fr: "Chapelle des Penitents Noirs dans la vieille ville de Menton",
+      it: "Chapelle des Penitents Noirs nel centro storico di Mentone",
+      uk: "Chapelle des Penitents Noirs у старому місті Ментона",
+    },
+    visualTheme: "old-town",
+  },
+  "musee-wunderman": {
+    image: "/images/guide/musee-jean-cocteau-collection-wunderman.jpg",
+    imageAlt: {
+      en: "Musee Jean Cocteau Collection Wunderman in Menton",
+      fr: "Musee Jean Cocteau Collection Wunderman a Menton",
+      it: "Musee Jean Cocteau Collection Wunderman a Mentone",
+      uk: "Musee Jean Cocteau Collection Wunderman у Ментоні",
+    },
+    visualTheme: "museum",
+  },
+  "italian-border": {
+    image: "/images/guide/french-italian-border-walk.jpg",
+    imageAlt: {
+      en: "French Italian border walk from Menton",
+      fr: "Marche frontiere France Italie depuis Menton",
+      it: "Passeggiata al confine Francia Italia da Mentone",
+      uk: "Прогулянка до французько-італійського кордону з Ментона",
+    },
+    visualTheme: "walk",
+  },
+  "gare-menton": {
+    image: "/images/guide/gare-de-menton.jpg",
+    imageAlt: {
+      en: "Gare de Menton train station",
+      fr: "Gare de Menton",
+      it: "Stazione Gare de Menton",
+      uk: "Залізничний вокзал Gare de Menton",
+    },
+    visualTheme: "transport",
+  },
+  "nice-train": {
+    image: "/images/guide/nice-by-train.jpg",
+    imageAlt: {
+      en: "Nice by train from Menton",
+      fr: "Nice en train depuis Menton",
+      it: "Nizza in treno da Mentone",
+      uk: "Ніцца потягом із Ментона",
+    },
+    visualTheme: "transport",
+  },
 };
 
 const walkingPlaceIdByItemId: Partial<Record<string, string>> = {
@@ -152,22 +215,24 @@ function WalkingPlaceCard({
 }) {
   const mapsHref = item.googleMapsUrl ?? place?.googleMapsSearchUrl ?? place?.googleMapsUrl;
   const location = item.address ?? place?.address ?? place?.area?.[locale];
+  const itemVisual = walkingItemVisuals[item.id];
   const visualLabel = place?.type.replaceAll("-", " ") ?? walkingCategoryLabels[category][locale];
-  const imageAlt = place?.imageAlt?.[locale] ?? item.name;
+  const image = itemVisual?.image ?? place?.image;
+  const imageAlt = itemVisual?.imageAlt[locale] ?? place?.imageAlt?.[locale] ?? item.name;
 
   return (
     <article className="group relative overflow-hidden border border-[#dfd2b8] bg-white/70 transition-all duration-300 hover:border-[#c6a66a]">
-      {place?.images && place.images.length > 1 ? (
+      {!itemVisual && place?.images && place.images.length > 1 ? (
         <PlaceImageCarousel images={place.images} imageAlt={imageAlt} locale={locale} label={visualLabel} className="aspect-[4/1.65]" />
       ) : (
         <GuideVisual
-          image={place?.image}
+          image={image}
           imageAlt={imageAlt}
           locale={locale}
-          theme={place?.visualTheme ?? categoryThemes[category]}
+          theme={itemVisual?.visualTheme ?? place?.visualTheme ?? categoryThemes[category]}
           label={visualLabel}
           className="aspect-[4/1.65]"
-          expandable={Boolean(place?.image)}
+          expandable={Boolean(image)}
         />
       )}
       <div className="p-4 sm:p-5">

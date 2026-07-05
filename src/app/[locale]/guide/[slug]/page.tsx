@@ -254,7 +254,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
         </Section>
       ) : null}
 
-      <Section className="py-12 sm:py-16">
+      <Section className="pt-6 pb-12 sm:pt-8 sm:pb-16">
         <Container>
           <BookingCTA
             locale={locale}

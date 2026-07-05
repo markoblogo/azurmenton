@@ -3099,8 +3099,8 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "event",
   },
   "musee-jean-cocteau-bastion": {
-    image: "/images/guide/musee-jean-cocteau-bastion.jpg",
-    imageAlt: text("Illustration of Musée Jean Cocteau - Le Bastion in Menton", "Illustration du Musée Jean Cocteau - Le Bastion a Menton", "Illustrazione del Musée Jean Cocteau - Le Bastion a Mentone", "Ілюстрація Musée Jean Cocteau - Le Bastion у Ментоні"),
+    image: "/images/guide/musee-jean-cocteau-collection-wunderman.jpg",
+    imageAlt: text("Illustration of Musée Jean Cocteau - Collection Wunderman in Menton", "Illustration du Musée Jean Cocteau - Collection Wunderman a Menton", "Illustrazione del Musée Jean Cocteau - Collection Wunderman a Mentone", "Ілюстрація Musée Jean Cocteau - Collection Wunderman у Ментоні"),
     visualTheme: "museum",
   },
   "musee-prehistoire-regionale-menton": {
@@ -3264,8 +3264,8 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "beach",
   },
   "plage-casino": {
-    image: "/images/guide/plage-du-casino.jpg",
-    imageAlt: text("Illustration of Plage du Casino in Menton", "Illustration de la Plage du Casino a Menton", "Illustrazione della Plage du Casino a Mentone", "Ілюстрація Plage du Casino у Ментоні"),
+    image: "/images/guide/casino-barriere-menton.jpg",
+    imageAlt: text("Illustration of Casino Barriere Menton and the central seafront", "Illustration du Casino Barriere Menton et du front de mer central", "Illustrazione del Casino Barriere Menton e del lungomare centrale", "Ілюстрація Casino Barriere Menton і центральної набережної"),
     visualTheme: "beach",
   },
   "rondelli-garavan-side": {
@@ -3439,8 +3439,8 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "viewpoint",
   },
   "sentier-douaniers-menton": {
-    image: "/images/guide/sentier-des-douaniers.jpg",
-    imageAlt: text("Illustration of Sentier des Douaniers near Menton", "Illustration du Sentier des Douaniers pres de Menton", "Illustrazione del Sentier des Douaniers vicino a Mentone", "Ілюстрація Sentier des Douaniers біля Ментона"),
+    image: "/images/guide/french-italian-border-walk.jpg",
+    imageAlt: text("Illustration of the French-Italian border walk near Menton", "Illustration de la marche frontiere France-Italie pres de Menton", "Illustrazione della passeggiata al confine Francia-Italia vicino a Mentone", "Ілюстрація прогулянки французько-італійським кордоном біля Ментона"),
     visualTheme: "walk",
   },
   "roquebrune-cap-martin-coastal-walk": {
