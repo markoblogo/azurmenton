@@ -38,6 +38,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
+    formats: ["image/avif", "image/webp"],
     qualities: [75, 90],
   },
   turbopack: {
