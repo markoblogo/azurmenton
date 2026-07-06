@@ -3406,6 +3406,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Nice Côte d'Azur Airport", "Illustration de l'aeroport Nice Cote d'Azur", "Illustrazione dell'aeroporto Nice Côte d'Azur", "Ілюстрація аеропорту Nice Côte d'Azur"),
     visualTheme: "transport",
   },
+  "nice-airport-car-rental-center": {
+    image: "/images/guide/nice-airport-car-rental-center.jpg",
+    imageAlt: text("Illustration of the Nice Airport car rental centre", "Illustration du centre de location de voitures de l'aeroport de Nice", "Illustrazione del centro autonoleggio dell'aeroporto di Nizza", "Ілюстрація центру оренди авто в аеропорту Ніцци"),
+    visualTheme: "transport",
+  },
+  "europcar-menton": {
+    image: "/images/guide/europcar-menton.jpg",
+    imageAlt: text("Illustration of Europcar Menton", "Illustration d'Europcar Menton", "Illustrazione di Europcar Menton", "Ілюстрація Europcar Menton"),
+    visualTheme: "transport",
+  },
+  "ada-menton-gare": {
+    image: "/images/guide/ada-menton-gare.jpg",
+    imageAlt: text("Illustration of ADA Menton Gare", "Illustration d'ADA Menton Gare", "Illustrazione di ADA Menton Gare", "Ілюстрація ADA Menton Gare"),
+    visualTheme: "transport",
+  },
+  "rent-a-car-menton": {
+    image: "/images/guide/rent-a-car-menton.jpg",
+    imageAlt: text("Illustration of Rent A Car Menton", "Illustration de Rent A Car Menton", "Illustrazione di Rent A Car Menton", "Ілюстрація Rent A Car Menton"),
+    visualTheme: "transport",
+  },
+  "free2move-rent-menton": {
+    image: "/images/guide/free2move-rent-menton.jpg",
+    imageAlt: text("Illustration of Free2Move Rent Menton", "Illustration de Free2Move Rent Menton", "Illustrazione di Free2Move Rent Menton", "Ілюстрація Free2Move Rent Menton"),
+    visualTheme: "transport",
+  },
+  "sixt-nice-airport": {
+    image: "/images/guide/sixt-nice-airport.jpg",
+    imageAlt: text("Illustration of SIXT Nice Airport", "Illustration de SIXT Nice Airport", "Illustrazione di SIXT Nice Airport", "Ілюстрація SIXT Nice Airport"),
+    visualTheme: "transport",
+  },
+  "rent-a-classic-car-nice": {
+    image: "/images/guide/rent-a-classic-car-nice.jpg",
+    imageAlt: text("Illustration of Rent A Classic Car Nice", "Illustration de Rent A Classic Car Nice", "Illustrazione di Rent A Classic Car Nice", "Ілюстрація Rent A Classic Car Nice"),
+    visualTheme: "transport",
+  },
+  "sunset-ride-nice": {
+    image: "/images/guide/sunset-ride-nice.jpg",
+    imageAlt: text("Illustration of Sunset Ride Nice", "Illustration de Sunset Ride Nice", "Illustrazione di Sunset Ride Nice", "Ілюстрація Sunset Ride Nice"),
+    visualTheme: "transport",
+  },
   "nice-saint-augustin-station": {
     image: "/images/guide/nice-saint-augustin-station.jpg",
     imageAlt: text("Illustration of Nice Saint-Augustin Station", "Illustration de la gare Nice Saint-Augustin", "Illustrazione della stazione Nice Saint-Augustin", "Ілюстрація станції Nice Saint-Augustin"),
