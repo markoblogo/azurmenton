@@ -13,7 +13,7 @@ import { apartments } from "@/content/apartments";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
 import { placeMapPoints } from "@/content/planning/place-map-points";
-import { getPlaces } from "@/content/places";
+import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -44,7 +44,7 @@ const labels = {
     hostText:
       "Use the guide to choose beaches, day trips, restaurants, events and the right apartment base. If you are planning a stay, send your dates and we will help match the trip to the apartment that fits best.",
     statGuides: "Local guides",
-    statPlaces: "Mapped places",
+    statPlaces: "Useful places",
     statTripStyles: "Trip styles",
     statApartments: "Apartments",
     apartmentsTitle: "Where to stay for guide trips",
@@ -77,7 +77,7 @@ const labels = {
     hostText:
       "Utilisez le guide pour choisir plages, excursions, restaurants, evenements et la bonne base d'appartement. Si vous preparez un sejour, envoyez vos dates et nous vous aiderons a choisir l'appartement le plus adapte.",
     statGuides: "Guides locaux",
-    statPlaces: "Lieux cartographies",
+    statPlaces: "Lieux utiles",
     statTripStyles: "Styles de sejour",
     statApartments: "Appartements",
     apartmentsTitle: "Ou sejourner pour explorer",
@@ -110,7 +110,7 @@ const labels = {
     hostText:
       "Usa la guida per scegliere spiagge, gite, ristoranti, eventi e la base giusta. Se stai pianificando un soggiorno, inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto.",
     statGuides: "Guide locali",
-    statPlaces: "Luoghi in mappa",
+    statPlaces: "Luoghi utili",
     statTripStyles: "Stili di viaggio",
     statApartments: "Appartamenti",
     apartmentsTitle: "Dove soggiornare per esplorare",
@@ -143,7 +143,7 @@ const labels = {
     hostText:
       "Використовуйте гід, щоб обрати пляжі, поїздки, ресторани, події та правильну базу для проживання. Якщо плануєте зупинку, надішліть дати, і ми допоможемо підібрати апартамент під сценарій поїздки.",
     statGuides: "Локальні гіди",
-    statPlaces: "Місця на карті",
+    statPlaces: "Корисні місця",
     statTripStyles: "Сценарії поїздки",
     statApartments: "Апартаменти",
     apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
@@ -227,7 +227,7 @@ export default async function GuideLandingPage({ params }: PageProps) {
   const numberFormatter = new Intl.NumberFormat(safeLocale);
   const guideStats = [
     { value: guideArticles.length, label: local.statGuides },
-    { value: new Set(placeMapPoints.map((point) => point.placeId)).size, label: local.statPlaces },
+    { value: places.length, label: local.statPlaces },
     { value: guideIntentClusters.length, label: local.statTripStyles },
     { value: apartments.length, label: local.statApartments },
   ];
