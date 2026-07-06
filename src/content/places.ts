@@ -38,7 +38,8 @@ export type PlaceType =
   | "shopping-centre"
   | "pool"
   | "theme-park"
-  | "playground";
+  | "playground"
+  | "skatepark";
 
 export type PlaceSourceStatus = "needs_verification" | "verified" | "editorial";
 
@@ -339,7 +340,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A major Monaco museum for aquariums, marine science, historic collections and sea views from the Rock.", "Un grand musee de Monaco pour aquariums, sciences marines, collections historiques et vues mer depuis le Rocher.", "Un grande museo di Monaco per acquari, scienza marina, collezioni storiche e viste dal Rocher.", "Головний музей Монако з акваріумами, морською наукою, історичними колекціями й видами з Rocher."),
     bestFor: [text("families", "familles", "famiglie", "сім'ї"), text("Monaco day trip", "excursion a Monaco", "gita a Monaco", "поїздка до Монако")],
-    relatedArticleIds: ["menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton"],
+    relatedArticleIds: ["menton-with-kids-family-guide", "skateparks-near-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton"],
   },
   {
     id: "prince-monaco-car-collection",
@@ -869,7 +870,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Central Nice rail station for TER trips between Menton, Nice and the wider Côte d'Azur.", "Gare centrale de Nice pour les trajets TER entre Menton, Nice et la Cote d'Azur.", "Stazione centrale di Nizza per TER tra Mentone, Nizza e Costa Azzurra.", "Центральний вокзал Ніцци для TER між Ментоном, Ніццою та ширшою Côte d'Azur."),
     bestFor: [text("Nice day trips", "excursions a Nice", "gite a Nizza", "поїздки до Ніцци"), text("regional trains", "trains regionaux", "treni regionali", "регіональні потяги")],
-    relatedArticleIds: ["how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "menton-without-a-car"],
+    relatedArticleIds: ["how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "skateparks-near-menton", "menton-without-a-car"],
   },
   {
     id: "menton-station",
@@ -2078,7 +2079,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A Roya Valley mountain village for heritage, cooler air and a slower inland day from Menton.", "Un village de la Roya pour patrimoine, fraicheur et journee interieure plus lente depuis Menton.", "Un borgo della Roya per patrimonio, fresco e giornata interna piu lenta da Mentone.", "Гірське село долини Roya для спадщини, прохолоди й повільнішого дня в горах з Ментона."),
     bestFor: [text("Roya Valley", "vallee de la Roya", "Valle Roya", "долина Roya"), text("heritage", "patrimoine", "patrimonio", "спадщина")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "skateparks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
   },
   {
     id: "tende",
@@ -2089,7 +2090,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A higher Roya Valley town and gateway idea for Mercantour culture, mountain roads and summer cool air.", "Une commune plus haute de la Roya, utile pour culture Mercantour, routes de montagne et fraicheur d'ete.", "Un paese piu alto della Roya, utile per cultura Mercantour, strade di montagna e fresco estivo.", "Вище містечко долини Roya для культури Mercantour, гірських доріг і літньої прохолоди."),
     bestFor: [text("Mercantour gateway", "porte du Mercantour", "porta del Mercantour", "ворота Mercantour"), text("mountain culture", "culture montagne", "cultura montana", "гірська культура")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "skateparks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
   },
   {
     id: "mercantour-national-park",
@@ -2263,7 +2264,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter marina walk for late afternoon or an easy evening detour.", "Une promenade de port plus calme pour la fin d'apres-midi ou le soir.", "Una passeggiata piu tranquilla al porto per il tardo pomeriggio o la sera.", "Спокійніша прогулянка біля марини наприкінці дня або ввечері."),
     bestFor: [text("quiet evening", "soiree calme", "serata tranquilla", "тихий вечір"), text("marina walk", "promenade au port", "passeggiata al porto", "прогулянка біля марини")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "cimetiere-vieux-chateau",
@@ -2398,7 +2399,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter eastern-side beach idea for morning swims, sea views and an easier pace on hot days.", "Une idee de plage plus calme cote est pour les baignades du matin, les vues mer et un rythme plus doux par forte chaleur.", "Un'idea piu tranquilla sul lato est per bagni al mattino, vista mare e ritmo piu lento nei giorni caldi.", "Тихіша пляжна ідея на східному боці: ранкове купання, види на море й спокійніший ритм у спеку."),
     bestFor: [text("quieter mornings", "matins plus calmes", "mattine piu tranquille", "тихіші ранки"), text("sea views", "vues mer", "vista mare", "вид на море")],
-    relatedArticleIds: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "best-photo-spots-menton", "best-beaches-in-menton", "where-to-stay-in-menton"],
+    relatedArticleIds: ["menton-with-kids-family-guide", "skateparks-near-menton", "stay-cool-in-menton-summer", "best-photo-spots-menton", "best-beaches-in-menton", "where-to-stay-in-menton"],
   },
   {
     id: "plage-rondelli",
@@ -2409,7 +2410,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A beach area to consider when choosing the eastern side of Menton.", "Une zone de plage a envisager cote est de Menton.", "Una zona spiaggia da considerare sul lato est di Mentone.", "Пляжна зона, яку варто розглянути на східному боці Ментона."),
     bestFor: [text("beach time", "plage", "mare", "пляж")],
-    relatedArticleIds: ["best-beaches-in-menton", "stay-cool-in-menton-summer"],
+    relatedArticleIds: ["best-beaches-in-menton", "skateparks-near-menton", "stay-cool-in-menton-summer"],
   },
   {
     id: "plage-fossan",
@@ -2560,6 +2561,72 @@ const rawPlaces: Place[] = [
     shortNote: text("A small local amusement park near the seafront, useful when younger children need movement without a full day trip.", "Un petit parc de loisirs local pres du front de mer, utile quand les jeunes enfants ont besoin de bouger sans grande excursion.", "Un piccolo parco divertimenti locale vicino al mare, utile quando i bambini piccoli hanno bisogno di muoversi senza una gita lunga.", "Невеликий локальний парк розваг біля моря, корисний, коли молодшим дітям потрібно порухатися без великої поїздки."),
     bestFor: [text("young children", "jeunes enfants", "bambini piccoli", "молодші діти"), text("easy local activity", "activite locale simple", "attivita locale semplice", "проста локальна активність")],
     relatedArticleIds: ["menton-with-kids-family-guide", "stay-cool-in-menton-summer", "golf-near-menton"],
+  },
+  {
+    id: "skatepark-youri-laleg-menton",
+    name: "Skatepark Youri Laleg / Skatepark Garavan",
+    type: "skatepark",
+    address: "9 Quai Gordon Bennett, 06500 Menton",
+    area: text("Garavan / Rondelli side", "Garavan / cote Rondelli", "Garavan / lato Rondelli", "Garavan / район Rondelli"),
+    googleMapsUrl: mapsQuery("Skatepark Youri Laleg", "9 Quai Gordon Bennett", "06500 Menton"),
+    programmeUrl: "https://www.menton.fr/skatepark-youri-laleg.html",
+    openingHoursLabel: text("Free access; check current local rules before riding.", "Acces libre; verifiez les regles locales actuelles avant de rouler.", "Accesso libero; controlla le regole locali aggiornate prima di andare.", "Вільний доступ; перед катанням перевіряйте актуальні місцеві правила."),
+    sourceStatus: "needs_verification",
+    shortNote: text("Menton's local seaside skatepark, useful for a short skateboard, scooter or supervised family session near Garavan.", "Le skatepark local de Menton pres de la mer, pratique pour une courte session skate, trottinette ou famille surveillee vers Garavan.", "Lo skatepark locale di Mentone vicino al mare, utile per una breve sessione skate, monopattino o famiglia vicino a Garavan.", "Локальний скейтпарк Ментона біля моря, зручний для короткої сесії на скейті, самокаті або з підлітками біля Garavan."),
+    bestFor: [text("local skate session", "session skate locale", "sessione skate locale", "локальна скейт-сесія"), text("teenagers", "ados", "ragazzi", "підлітки")],
+    relatedArticleIds: ["skateparks-near-menton", "menton-with-kids-family-guide", "cycling-bike-rental-menton"],
+  },
+  {
+    id: "monaco-skatepark",
+    name: "Monaco Skatepark",
+    type: "skatepark",
+    area: text("Monaco-Ville / Oceanographic Museum side", "Monaco-Ville / cote Musee oceanographique", "Monaco-Ville / zona Museo Oceanografico", "Monaco-Ville / район Океанографічного музею"),
+    googleMapsUrl: mapsQuery("Skatepark Monaco", "Monaco-Ville"),
+    programmeUrl: "https://www.visitmonaco.com/en/explore/activities/with-the-family/monaco-in-the-fresh-air/monaco-s-playgrounds/playground-skatepark",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("A small scenic Monaco skatepark that works best as an add-on to Monaco-Ville or the Oceanographic Museum.", "Un petit skatepark panoramique a Monaco, surtout utile avec Monaco-Ville ou le Musee oceanographique.", "Un piccolo skatepark panoramico a Monaco, ideale insieme a Monaco-Ville o al Museo Oceanografico.", "Невеликий мальовничий скейтпарк у Монако, найкраще як доповнення до Monaco-Ville або Океанографічного музею."),
+    bestFor: [text("Monaco family day", "journee famille a Monaco", "giornata famiglia a Monaco", "сімейний день у Монако"), text("scooters and skates", "trottinettes et skates", "monopattini e skate", "самокати й скейти")],
+    relatedArticleIds: ["skateparks-near-menton", "menton-with-kids-family-guide", "day-trips-from-menton"],
+  },
+  {
+    id: "skate-park-comte-de-falicon-nice",
+    name: "Skate Park Comte de Falicon",
+    type: "skatepark",
+    area: text("north Nice", "nord de Nice", "nord di Nizza", "північ Ніцци"),
+    googleMapsUrl: mapsQuery("Skate Park Comte de Falicon", "Nice"),
+    programmeUrl: "https://sports.nice.fr/actualite/skate-park-falicon-jean-bouin/",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("A larger Nice skatepark with street and bowl areas, better for experienced riders and BMX than a casual local stop.", "Un skatepark plus grand a Nice avec street et bowl, plus adapte aux riders experimentes et BMX qu'a une petite halte.", "Uno skatepark piu grande a Nizza con street e bowl, piu adatto a rider esperti e BMX che a una sosta casuale.", "Більший скейтпарк у Ніцці зі street і bowl зонами, краще для досвідчених райдерів і BMX, ніж для випадкової зупинки."),
+    bestFor: [text("experienced riders", "riders experimentes", "rider esperti", "досвідчені райдери"), text("BMX", "BMX", "BMX", "BMX")],
+    relatedArticleIds: ["skateparks-near-menton", "menton-with-kids-family-guide", "day-trips-from-menton"],
+  },
+  {
+    id: "skatepark-jean-bouin-nice",
+    name: "Skatepark Jean Bouin",
+    type: "skatepark",
+    address: "4 Rue Jean Allègre, 06000 Nice",
+    googleMapsUrl: mapsQuery("Skatepark Jean Bouin", "4 Rue Jean Allègre", "Nice"),
+    programmeUrl: "https://theplacetoride.com/fr/spot/skatepark/skatepark-jean-bouin-nice-303",
+    openingHoursLabel: text("Access may be regulated; check current rules before going.", "L'acces peut etre reglemente; verifiez les regles actuelles avant de partir.", "L'accesso puo essere regolato; controlla le regole aggiornate prima di andare.", "Доступ може регулюватися; перед поїздкою перевіряйте актуальні правила."),
+    sourceStatus: "needs_verification",
+    shortNote: text("A Nice city skatepark with larger modules, better for older or more confident riders than beginners.", "Un skatepark urbain a Nice avec modules plus grands, mieux pour ados confirmes que debutants.", "Uno skatepark urbano a Nizza con moduli piu grandi, meglio per ragazzi esperti che principianti.", "Міський скейтпарк у Ніцці з більшими модулями, краще для старших або впевнених райдерів, ніж для початківців."),
+    bestFor: [text("larger modules", "modules plus grands", "moduli piu grandi", "більші модулі"), text("older teenagers", "ados plus ages", "ragazzi piu grandi", "старші підлітки")],
+    relatedArticleIds: ["skateparks-near-menton", "day-trips-from-menton"],
+  },
+  {
+    id: "city-park-tende",
+    name: "City Park Tende",
+    type: "skatepark",
+    area: text("Tende / Roya valley", "Tende / vallee de la Roya", "Tenda / valle Roya", "Tende / долина Roya"),
+    googleMapsUrl: mapsQuery("City Park Tende", "Tende"),
+    programmeUrl: "https://www.menton-riviera-merveilles.co.uk/offers/city-park-tende-en-4232713/",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("A small skatepark and sports stop to consider only if you are already planning a Tende or Roya valley day.", "Une petite halte skate et sport a envisager seulement si vous prevoyez deja Tende ou la vallee de la Roya.", "Una piccola tappa skate e sport da considerare solo se stai gia pianificando Tenda o la valle Roya.", "Невелика спортивна й skate-зупинка, яку варто розглядати лише якщо ви вже плануєте Tende або долину Roya."),
+    bestFor: [text("mountain day add-on", "complement de journee montagne", "aggiunta a una giornata in montagna", "доповнення до гірського дня"), text("teenagers", "ados", "ragazzi", "підлітки")],
+    relatedArticleIds: ["skateparks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
   },
   {
     id: "cap3000-saint-laurent-du-var",
@@ -2803,7 +2870,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A close autumn day or evening trip from Menton for harbour views, concerts, casino architecture and Riviera events.", "Une excursion proche depuis Menton en automne pour le port, les concerts, l'architecture du Casino et les evenements Riviera.", "Una gita vicina da Mentone in autunno per porto, concerti, architettura del Casino ed eventi in Riviera.", "Близька осіння поїздка з Ментона заради порту, концертів, архітектури Casino й подій Рив'єри."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("events", "evenements", "eventi", "події")],
-    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary"],
+    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "skateparks-near-menton", "menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary"],
   },
   {
     id: "nice-old-town",
@@ -4060,6 +4127,7 @@ function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
     pool: "sea",
     "theme-park": "family",
     playground: "family",
+    skatepark: "family",
   };
   return themes[type];
 }

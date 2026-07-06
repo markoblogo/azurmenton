@@ -186,4 +186,5 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "morning-walk-france-to-italy", ignore: ["cluster"], reason: "focused walk guide supporting car-free and Italian Riviera planning" },
   { slug: "nightlife-in-menton", ignore: ["cluster"], reason: "standalone evening guide supporting restaurants, bars and events content" },
   { slug: "public-transport-in-menton", ignore: ["places"], reason: "transport reference guide; useful links are service and route oriented" },
+  { slug: "skateparks-near-menton", ignore: ["cluster"], reason: "standalone teen and outdoor guide supporting family, cycling and day-trip content" },
 ];

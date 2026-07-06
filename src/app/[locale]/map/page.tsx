@@ -74,7 +74,7 @@ const categories: UsefulPlaceMapCategory[] = [
   category("pools", ["pool"], "Pools", "Piscines", "Piscine", "Басейни"),
   category("theme-parks", ["theme-park"], "Theme parks", "Parcs de loisirs", "Parchi", "Парки"),
   category("playgrounds", ["playground"], "Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики"),
-  category("family-activities", ["family-activity"], "Activities", "Activites", "Attivita", "Активності"),
+  category("family-activities", ["family-activity", "skatepark"], "Activities", "Activites", "Attivita", "Активності"),
   category("shopping", ["shopping-centre"], "Shopping", "Shopping", "Shopping", "Шопінг"),
   category("services", ["tourist-office", "station", "car-rental", "bike-shop", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
 ];

@@ -1198,7 +1198,7 @@ export const guideArticles: GuideArticle[] = [
       "tende",
       "mercantour-national-park",
     ],
-    relatedArticles: ["cycling-bike-rental-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2247,7 +2247,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "gelateria-sofia-menton", "quai-bonaparte-menton", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["cycling-bike-rental-menton", "best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2699,6 +2699,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "fete-du-citron-menton-practical-guide",
+      "skateparks-near-menton",
       "best-ice-cream-menton",
       "best-beaches-in-menton",
       "mountains-snow-skiing-near-menton",
@@ -4362,7 +4363,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "garavan", "seafront", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["r-bike-menton", "bike-trip-atelier-velo-riviera", "sport-21-cycles", "pony-menton", "menton-cycle-path", "promenade-reine-astrid", "pont-saint-ludovic", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "col-de-la-madone", "sospel-bevera-valley", "tende", "la-brigue"],
-    relatedArticles: ["menton-without-a-car", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "italian-riviera-day-trip-from-menton", "best-beaches-in-menton", "golf-near-menton", "where-to-stay-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
+    relatedArticles: ["menton-without-a-car", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "italian-riviera-day-trip-from-menton", "best-beaches-in-menton", "golf-near-menton", "where-to-stay-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4448,6 +4449,96 @@ export const guideArticles: GuideArticle[] = [
       t("Book performance bikes ahead in busy seasons.", "Reservez les velos sportifs a l'avance en haute saison.", "Prenota bici sportive in anticipo in alta stagione.", "У високий сезон бронюйте спортивні велосипеди заздалегідь."),
       t("Avoid the hottest hours for climbs in July and August.", "Evitez les heures les plus chaudes pour les montees en juillet et aout.", "Evita le ore piu calde per le salite in luglio e agosto.", "У липні й серпні уникайте найспекотніших годин для підйомів."),
       t("Ask about bike storage before arriving with expensive bikes.", "Demandez le rangement velo avant d'arriver avec des velos chers.", "Chiedi del deposito bici prima di arrivare con bici costose.", "Перед приїздом із дорогими велосипедами уточніть зберігання."),
+    ],
+  }),
+  shortArticle({
+    id: "skateparks-near-menton",
+    slug: "skateparks-near-menton",
+    title: t("Skateparks near Menton: where to ride skateboards, scooters and BMX", "Skateparks pres de Menton : ou faire du skate, de la trottinette et du BMX", "Skatepark vicino a Mentone: dove andare con skateboard, monopattino e BMX", "Скейтпарки біля Ментона: де кататися на скейті, самокаті й BMX"),
+    seoTitle: t("Skateparks Near Menton: Skateboarding, Scooters and BMX on the Riviera", "Skateparks pres de Menton : skate, trottinette et BMX sur la Riviera", "Skatepark vicino a Mentone: skateboard, monopattini e BMX in Riviera", "Скейтпарки біля Ментона: скейт, самокат і BMX на Рив'єрі"),
+    seoDescription: t("A practical guide to skateparks near Menton for skaters, BMX riders, freestyle scooters and families with teenagers: Menton Garavan, Monaco Skatepark, Nice skateparks and safety tips.", "Guide pratique des skateparks pres de Menton pour skateurs, BMX, trottinettes freestyle et familles avec ados : Garavan, Monaco, Nice et conseils securite.", "Guida pratica agli skatepark vicino a Mentone per skater, BMX, monopattini freestyle e famiglie con ragazzi: Garavan, Monaco, Nizza e consigli di sicurezza.", "Практичний гід по скейтпарках біля Ментона для скейтерів, BMX, freestyle-самокатів і сімей із підлітками: Garavan, Monaco, Nice і поради безпеки."),
+    excerpt: t("Menton is not a major skateboarding city, but it has a local skatepark by the sea, Monaco has a small scenic skatepark, and Nice offers larger parks for more serious riders.", "Menton n'est pas une grande ville de skate, mais elle a un skatepark local pres de la mer, Monaco une petite option panoramique et Nice des parks plus grands.", "Mentone non e una grande citta dello skate, ma ha uno skatepark locale sul mare, Monaco una piccola opzione panoramica e Nizza park piu grandi.", "Ментон не є великою скейт-столицею, але має локальний скейтпарк біля моря; у Монако є невеликий мальовничий парк, а в Ніцці - більші варіанти."),
+    category: "with-children",
+    coverImage: "/images/guide/skateparks-near-menton.jpg",
+    coverImageAlt: t("Illustration of skateparks near Menton", "Illustration des skateparks pres de Menton", "Illustrazione degli skatepark vicino a Mentone", "Ілюстрація скейтпарків біля Ментона"),
+    visualTheme: "family",
+    visualStatus: "project_illustration",
+    tags: [t("skateparks", "skateparks", "skatepark", "скейтпарки"), t("teenagers", "ados", "ragazzi", "підлітки"), t("BMX", "BMX", "BMX", "BMX"), t("family activities", "activites famille", "attivita famiglia", "сімейні активності")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[6].label],
+    duration: "half-day",
+    locationTags: ["menton-centre", "garavan", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["skatepark-youri-laleg-menton", "rondelli-garavan-side", "plage-rondelli", "port-de-garavan", "monaco-skatepark", "oceanographic-museum-monaco", "skate-park-comte-de-falicon-nice", "skatepark-jean-bouin-nice", "city-park-tende", "tende"],
+    relatedArticles: ["cycling-bike-rental-menton", "menton-with-kids-family-guide", "day-trips-from-menton", "menton-without-a-car", "best-beaches-in-menton", "mountains-snow-skiing-near-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Skateboarding and BMX during a Menton stay", "Skate et BMX pendant un sejour a Menton", "Skate e BMX durante un soggiorno a Mentone", "Скейт і BMX під час відпочинку в Ментоні"),
+        body: [
+          t("Menton is usually about beaches, old-town walks and gardens. But if you travel with a teenager who skates, rides a freestyle scooter or brings a BMX, the useful question is simple: where can they ride?", "Menton evoque surtout les plages, la vieille ville et les jardins. Mais avec un ado qui fait du skate, de la trottinette freestyle ou du BMX, la vraie question devient simple : ou peut-il rouler ?", "Mentone fa pensare a spiagge, centro storico e giardini. Ma con un ragazzo che fa skate, monopattino freestyle o BMX, la domanda pratica e: dove puo andare?", "Ментон зазвичай асоціюється з пляжами, старим містом і садами. Але якщо з вами підліток зі скейтом, freestyle-самокатом або BMX, практичне питання просте: де кататися?"),
+          t("The easiest answer is the local skatepark on the Garavan side of Menton. Monaco works as a small add-on during a family day, while Nice is better for serious riders who need larger modules.", "La reponse la plus simple est le skatepark local cote Garavan. Monaco fonctionne comme petite halte pendant une journee famille, tandis que Nice convient mieux aux riders confirmes.", "La risposta piu semplice e lo skatepark locale lato Garavan. Monaco funziona come breve tappa in una giornata famiglia, mentre Nizza e meglio per rider esperti.", "Найпростіша відповідь - локальний скейтпарк у районі Garavan. Монако підходить як коротка зупинка під час сімейного дня, а Ніцца - для досвідченіших райдерів."),
+        ],
+        relatedPlaceIds: ["skatepark-youri-laleg-menton", "monaco-skatepark", "skate-park-comte-de-falicon-nice"],
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Короткі рекомендації"),
+        body: [
+          t("For the easiest local session, start with Skatepark Youri Laleg / Skatepark Garavan. If you are already visiting Monaco-Ville, add Monaco Skatepark. If your teenager is experienced and wants a bigger park, plan Nice Comte de Falicon or Jean Bouin as a dedicated outing.", "Pour la session locale la plus simple, commencez par Skatepark Youri Laleg / Garavan. Si vous visitez deja Monaco-Ville, ajoutez le skatepark de Monaco. Pour un ado experimente, prevoyez Nice Comte de Falicon ou Jean Bouin comme sortie dediee.", "Per la sessione locale piu semplice, inizia da Skatepark Youri Laleg / Garavan. Se visiti gia Monaco-Ville, aggiungi lo skatepark di Monaco. Per un ragazzo esperto, pianifica Nice Comte de Falicon o Jean Bouin.", "Для найпростішої локальної сесії почніть зі Skatepark Youri Laleg / Garavan. Якщо ви вже їдете в Monaco-Ville, додайте Monaco Skatepark. Для досвідченого підлітка плануйте Nice Comte de Falicon або Jean Bouin окремо."),
+          t("For BMX, always check local rules before riding. Some small skateparks are described mainly for skateboards, scooters and rollerblades.", "Pour le BMX, verifiez toujours les regles locales avant de rouler. Certains petits skateparks sont surtout decrits pour skates, trottinettes et rollers.", "Per BMX, controlla sempre le regole locali prima di andare. Alcuni piccoli skatepark sono descritti soprattutto per skate, monopattini e roller.", "Для BMX завжди перевіряйте місцеві правила. Деякі невеликі скейтпарки описані переважно для скейтів, самокатів і роликів."),
+        ],
+        relatedPlaceIds: ["skatepark-youri-laleg-menton", "monaco-skatepark", "skatepark-jean-bouin-nice"],
+      },
+      {
+        heading: t("Skatepark Youri Laleg / Skatepark Garavan, Menton", "Skatepark Youri Laleg / Garavan, Menton", "Skatepark Youri Laleg / Garavan, Mentone", "Skatepark Youri Laleg / Garavan, Ментон"),
+        body: [
+          t("This is the key local spot: a free-access skatepark at 9 Quai Gordon Bennett, close to Rondelli beach and the Garavan side of town. It is useful for a short session, not a major destination skatepark.", "C'est le spot local principal : un skatepark en acces libre au 9 Quai Gordon Bennett, pres de la plage Rondelli et de Garavan. Il est utile pour une courte session, pas comme grande destination skate.", "E il posto locale principale: skatepark ad accesso libero al 9 Quai Gordon Bennett, vicino a Plage Rondelli e Garavan. Utile per una sessione breve, non come grande destinazione skate.", "Це головна локальна точка: скейтпарк із вільним доступом за адресою 9 Quai Gordon Bennett, поруч із Plage Rondelli та Garavan. Він корисний для короткої сесії, не як велика skate destination."),
+          t("It pairs naturally with Rondelli beach, Port Garavan and a walk toward the Italian border. Bring your own board, scooter or BMX, and go in the morning or late afternoon during hot months.", "Il se combine naturellement avec la plage Rondelli, le port Garavan et une balade vers la frontiere italienne. Apportez votre materiel et privilegiez matin ou fin d'apres-midi en ete.", "Si abbina bene a Plage Rondelli, Port Garavan e una passeggiata verso il confine italiano. Porta la tua attrezzatura e scegli mattina o tardo pomeriggio in estate.", "Його природно поєднати з Plage Rondelli, Port Garavan і прогулянкою до італійського кордону. Беріть власне спорядження й обирайте ранок або пізній день у спеку."),
+        ],
+        relatedPlaceIds: ["skatepark-youri-laleg-menton", "plage-rondelli", "port-de-garavan"],
+      },
+      {
+        heading: t("Monaco Skatepark", "Skatepark de Monaco", "Skatepark Monaco", "Monaco Skatepark"),
+        body: [
+          t("Monaco's small skatepark works best as an add-on to a Monaco family day. It is near the Monaco-Ville / Oceanographic Museum side, so it can fit around the museum, the palace area or a short old-town walk.", "Le petit skatepark de Monaco fonctionne surtout en complement d'une journee famille. Il est vers Monaco-Ville / Musee oceanographique, donc facile avec le musee, le palais ou une balade.", "Il piccolo skatepark di Monaco funziona soprattutto come aggiunta a una giornata famiglia. E verso Monaco-Ville / Museo Oceanografico, quindi comodo con museo, palazzo o passeggiata.", "Невеликий скейтпарк Монако найкраще працює як доповнення до сімейного дня. Він біля Monaco-Ville / Океанографічного музею, тому поєднується з музеєм, палацом або короткою прогулянкою."),
+          t("It is not large enough to justify a special trip on its own. Check safety rules and equipment requirements before riding.", "Il n'est pas assez grand pour justifier un trajet dedie. Verifiez les regles de securite et d'equipement avant de rouler.", "Non e abbastanza grande da giustificare un viaggio dedicato. Controlla regole di sicurezza e protezioni prima di andare.", "Він не настільки великий, щоб їхати тільки заради нього. Перед катанням перевірте правила безпеки та вимоги до захисту."),
+        ],
+        relatedPlaceIds: ["monaco-skatepark", "oceanographic-museum-monaco", "monaco-monte-carlo"],
+      },
+      {
+        heading: t("Bigger skateparks in Nice", "Grands skateparks a Nice", "Skatepark piu grandi a Nizza", "Більші скейтпарки в Ніцці"),
+        body: [
+          t("Nice is the better option for serious teenagers and experienced riders. Comte de Falicon has street and bowl areas and is the strongest confirmed option for BMX. Jean Bouin is another city skatepark with larger modules and a more experienced feel.", "Nice est meilleure pour les ados serieux et riders experimentes. Comte de Falicon propose street et bowl et reste l'option BMX la plus claire. Jean Bouin est une autre option urbaine avec modules plus grands.", "Nizza e migliore per ragazzi seri e rider esperti. Comte de Falicon ha street e bowl ed e l'opzione piu chiara per BMX. Jean Bouin e un'altra opzione urbana con moduli piu grandi.", "Ніцца краще підходить для серйозних підлітків і досвідчених райдерів. Comte de Falicon має street і bowl зони та є найчіткішим варіантом для BMX. Jean Bouin - ще один міський парк із більшими модулями."),
+          t("Treat either Nice skatepark as a planned half-day rather than a casual detour from Menton. Check access, transport and heat before going.", "Considerez ces skateparks comme une demi-journee planifiee plutot qu'un detour rapide depuis Menton. Verifiez acces, transport et chaleur avant de partir.", "Considera questi skatepark come mezza giornata pianificata, non una deviazione casuale da Mentone. Controlla accesso, trasporto e caldo.", "Розглядайте ці скейтпарки як запланований південь, а не випадковий відступ із Ментона. Перевіряйте доступ, транспорт і спеку."),
+        ],
+        relatedPlaceIds: ["skate-park-comte-de-falicon-nice", "skatepark-jean-bouin-nice", "nice-ville-station"],
+      },
+      {
+        heading: t("City Park Tende", "City Park Tende", "City Park Tende", "City Park Tende"),
+        body: [
+          t("Tende is only a secondary option. Do not travel from Menton to Tende just for the skatepark; use it as a bonus if you are already planning a Roya valley, mountain village or train day.", "Tende est seulement une option secondaire. Ne partez pas de Menton uniquement pour le skatepark; utilisez-le comme bonus avec une journee Roya, village de montagne ou train.", "Tenda e solo un'opzione secondaria. Non partire da Mentone solo per lo skatepark; usalo come bonus in una giornata Roya, borgo di montagna o treno.", "Tende - лише вторинний варіант. Не їдьте з Ментона тільки заради скейтпарку; використовуйте його як бонус до дня в Roya, гірському селі або поїздки потягом."),
+        ],
+        relatedPlaceIds: ["city-park-tende", "tende"],
+      },
+      {
+        heading: t("Safety and etiquette", "Securite et etiquette", "Sicurezza e comportamento", "Безпека й етикет"),
+        body: [
+          t("Bring your own helmet and protection. Check whether BMX is allowed before riding. Let younger children watch from a safe distance, avoid peak heat in July and August, and do not ride on crowded pedestrian seafront areas.", "Apportez casque et protections. Verifiez si le BMX est autorise. Laissez les jeunes enfants regarder a distance, evitez la forte chaleur en juillet-aout et ne roulez pas sur les zones pietonnes chargees.", "Porta casco e protezioni. Controlla se BMX e consentito. Fai guardare i bambini piccoli da distanza sicura, evita il caldo forte in luglio-agosto e non andare nelle zone pedonali affollate.", "Беріть шолом і захист. Перевіряйте, чи дозволений BMX. Молодші діти мають дивитися з безпечної відстані; уникайте спеки липня-серпня і не катайтеся в людних пішохідних зонах набережної."),
+          t("Advanced riders can take bigger risks in small spaces, so a small park is not automatically safer. Check the surface after rain, sand or sea wind.", "Les riders avances peuvent prendre plus de risques dans un petit espace; un petit park n'est donc pas automatiquement plus sur. Verifiez le sol apres pluie, sable ou vent marin.", "I rider esperti possono rischiare di piu in spazi piccoli; un park piccolo non e automaticamente piu sicuro. Controlla la superficie dopo pioggia, sabbia o vento marino.", "Досвідчені райдери можуть більше ризикувати в малому просторі, тому невеликий парк не автоматично безпечніший. Перевіряйте покриття після дощу, піску або морського вітру."),
+        ],
+      },
+      {
+        heading: t("Staying in Menton with a teenager who skates", "Sejourner a Menton avec un ado qui skate", "Soggiornare a Mentone con un ragazzo che fa skate", "Проживання в Ментоні з підлітком, який катається"),
+        body: [
+          t("Menton works well for families because it can mix beach, trains, Monaco, Italy, mountains and local sports. The Beachside Apartment with Terrace & Parking is the most practical Azur Menton option if you bring equipment, beach bags or a car. The sea-view studios suit shorter stays where skating is a side activity.", "Menton fonctionne bien en famille car elle combine plage, trains, Monaco, Italie, montagne et sports locaux. Beachside Apartment with Terrace & Parking est l'option Azur Menton la plus pratique avec materiel, sacs de plage ou voiture. Les studios vue mer conviennent aux courts sejours ou le skate reste secondaire.", "Mentone funziona bene per famiglie perche combina spiaggia, treni, Monaco, Italia, montagna e sport locali. Beachside Apartment with Terrace & Parking e l'opzione Azur Menton piu pratica con attrezzatura, borse mare o auto. Gli studi vista mare vanno bene per soggiorni brevi dove lo skate e secondario.", "Ментон добре працює для сімей, бо поєднує пляж, потяги, Монако, Італію, гори й локальний спорт. Beachside Apartment with Terrace & Parking - найпрактичніший варіант Azur Menton, якщо є спорядження, пляжні сумки або авто. Студії з видом на море підходять для коротших поїздок, де скейт - додаткова активність."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Start with Menton Garavan for the easiest local skate session.", "Commencez par Menton Garavan pour la session locale la plus simple.", "Inizia da Mentone Garavan per la sessione locale piu semplice.", "Почніть із Menton Garavan для найпростішої локальної сесії."),
+      t("Bring helmets and protection; do not assume rental is available.", "Apportez casques et protections; ne supposez pas qu'une location existe sur place.", "Porta casco e protezioni; non dare per scontato il noleggio sul posto.", "Беріть шоломи й захист; не розраховуйте на оренду на місці."),
+      t("Check BMX rules before riding in smaller parks.", "Verifiez les regles BMX avant de rouler dans les petits parks.", "Controlla le regole BMX prima di andare nei park piccoli.", "Перед BMX у малих парках перевіряйте правила."),
+      t("Avoid midday sessions during July and August heat.", "Evitez les sessions de midi en juillet et aout.", "Evita le sessioni di mezzogiorno in luglio e agosto.", "У липні й серпні уникайте сесій опівдні."),
     ],
   }),
   shortArticle({
@@ -4665,7 +4756,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
