@@ -3549,6 +3549,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Sunset Ride Nice", "Illustration de Sunset Ride Nice", "Illustrazione di Sunset Ride Nice", "Ілюстрація Sunset Ride Nice"),
     visualTheme: "transport",
   },
+  "r-bike-menton": {
+    image: "/images/guide/r-bike-menton.jpg",
+    imageAlt: text("Illustration of R Bike Menton", "Illustration de R Bike Menton", "Illustrazione di R Bike Menton", "Ілюстрація R Bike Menton"),
+    visualTheme: "transport",
+  },
+  "bike-trip-atelier-velo-riviera": {
+    image: "/images/guide/bike-trip-atelier-velo-riviera.jpg",
+    imageAlt: text("Illustration of Bike Trip / Atelier Vélo Riviera", "Illustration de Bike Trip / Atelier Velo Riviera", "Illustrazione di Bike Trip / Atelier Vélo Riviera", "Ілюстрація Bike Trip / Atelier Vélo Riviera"),
+    visualTheme: "transport",
+  },
+  "sport-21-cycles": {
+    image: "/images/guide/sport-21-cycles.jpg",
+    imageAlt: text("Illustration of Sport 21 Cycles", "Illustration de Sport 21 Cycles", "Illustrazione di Sport 21 Cycles", "Ілюстрація Sport 21 Cycles"),
+    visualTheme: "transport",
+  },
+  "pony-menton": {
+    image: "/images/guide/pony-menton.jpg",
+    imageAlt: text("Illustration of Pony Menton", "Illustration de Pony Menton", "Illustrazione di Pony Menton", "Ілюстрація Pony Menton"),
+    visualTheme: "transport",
+  },
+  "menton-cycle-path": {
+    image: "/images/guide/menton-cycle-path.jpg",
+    imageAlt: text("Illustration of the Menton cycle path", "Illustration de la piste cyclable de Menton", "Illustrazione della pista ciclabile di Mentone", "Ілюстрація велодоріжки Ментона"),
+    visualTheme: "walk",
+  },
+  "promenade-reine-astrid": {
+    image: "/images/guide/promenade-reine-astrid.jpg",
+    imageAlt: text("Illustration of Promenade Reine Astrid", "Illustration de la Promenade Reine Astrid", "Illustrazione della Promenade Reine Astrid", "Ілюстрація Promenade Reine Astrid"),
+    visualTheme: "walk",
+  },
+  "pont-saint-ludovic": {
+    image: "/images/guide/pont-saint-ludovic.jpg",
+    imageAlt: text("Illustration of Pont Saint-Ludovic", "Illustration du Pont Saint-Ludovic", "Illustrazione del Pont Saint-Ludovic", "Ілюстрація Pont Saint-Ludovic"),
+    visualTheme: "walk",
+  },
+  "col-de-la-madone": {
+    image: "/images/guide/col-de-la-madone.jpg",
+    imageAlt: text("Illustration of Col de la Madone", "Illustration du Col de la Madone", "Illustrazione del Col de la Madone", "Ілюстрація Col de la Madone"),
+    visualTheme: "walk",
+  },
   "nice-saint-augustin-station": {
     image: "/images/guide/nice-saint-augustin-station.jpg",
     imageAlt: text("Illustration of Nice Saint-Augustin Station", "Illustration de la gare Nice Saint-Augustin", "Illustrazione della stazione Nice Saint-Augustin", "Ілюстрація станції Nice Saint-Augustin"),
