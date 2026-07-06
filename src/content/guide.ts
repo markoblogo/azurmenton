@@ -4213,7 +4213,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedPlaces: ["nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "menton-station", "menton-garavan-station", "monaco-monte-carlo-station"],
     relatedApartments: allApartments,
     sections: [
@@ -4316,7 +4316,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -4345,6 +4345,113 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "car-rental-menton-nice-airport-convertibles",
+    slug: "car-rental-menton-nice-airport-convertibles",
+    title: t("Car rental in Menton: local agencies, Nice Airport pickup and convertible drives", "Location de voiture a Menton: agences locales, aeroport de Nice et cabriolets", "Noleggio auto a Mentone: agenzie locali, aeroporto di Nizza e cabriolet", "Оренда авто в Ментоні: місцеві агенції, аеропорт Ніцци й кабріолети"),
+    seoTitle: t("Car Rental in Menton: Local Agencies, Nice Airport Pickup & Convertible Drives", "Location de voiture a Menton: agences locales, aeroport de Nice et cabriolets", "Noleggio auto a Mentone: agenzie locali, aeroporto di Nizza e cabriolet", "Оренда авто в Ментоні: агенції, аеропорт Ніцци й кабріолети"),
+    seoDescription: t("A practical guide to renting a car for a stay in Menton: local agencies, Nice Airport pickup and return, parking tips, mountain day trips, Italian border routes and convertible rentals on the French Riviera.", "Guide pratique pour louer une voiture pendant un sejour a Menton: agences locales, retrait et retour a l'aeroport de Nice, parking, montagnes, Italie et cabriolets sur la Riviera.", "Guida pratica al noleggio auto per un soggiorno a Mentone: agenzie locali, ritiro e ritorno a Nizza aeroporto, parcheggio, montagne, Italia e cabriolet in Riviera.", "Практичний гід з оренди авто для перебування в Ментоні: місцеві агенції, аеропорт Ніцци, паркування, гори, Італія й кабріолети на Рив'єрі."),
+    excerpt: t("You do not need a car for every Menton stay, but the right rental can help with mountain villages, golf, Italy, ski days or a classic Riviera convertible drive.", "Une voiture n'est pas necessaire pour chaque sejour a Menton, mais la bonne location aide pour villages de montagne, golf, Italie, neige ou cabriolet Riviera.", "Non serve un'auto per ogni soggiorno a Mentone, ma il noleggio giusto aiuta per borghi di montagna, golf, Italia, neve o un giro cabriolet in Riviera.", "Авто потрібне не для кожного перебування в Ментоні, але правильна оренда допоможе з гірськими селами, гольфом, Італією, снігом або кабріолетом на Рив'єрі."),
+    category: "practical",
+    coverImage: "/images/guide/car-rental-menton-nice-airport-convertibles.jpg",
+    coverImageAlt: t("Car rental and Riviera driving from Menton", "Location de voiture et routes Riviera depuis Menton", "Noleggio auto e strade Riviera da Mentone", "Оренда авто й поїздки Рив'єрою з Ментона"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    tags: [t("car rental", "location voiture", "noleggio auto", "оренда авто"), t("Nice Airport", "Aeroport de Nice", "Aeroporto di Nizza", "аеропорт Ніцци"), t("parking", "parking", "parcheggio", "паркування"), t("convertible", "cabriolet", "cabriolet", "кабріолет")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[6].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "nice", "monaco", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton", "nice-airport-car-rental-center", "sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "nice-cote-dazur-airport", "menton-station", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "eze-village", "monaco-monte-carlo", "monte-carlo-golf-club"],
+    relatedArticles: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Do you need a car in Menton?", "Faut-il une voiture a Menton ?", "Serve un'auto a Mentone?", "Чи потрібне авто в Ментоні?"),
+        body: [
+          t("Not always. Menton centre, beaches, old town, restaurants, market, train station and seafront walks are easy without a car. Trains work well for Monaco, Nice and Ventimiglia.", "Pas toujours. Centre, plages, vieille ville, restaurants, marche, gare et promenades en bord de mer se font facilement sans voiture. Le train fonctionne bien pour Monaco, Nice et Vintimille.", "Non sempre. Centro, spiagge, centro storico, ristoranti, mercato, stazione e lungomare sono facili senza auto. I treni funzionano bene per Monaco, Nizza e Ventimiglia.", "Не завжди. Центр, пляжі, старе місто, ресторани, ринок, вокзал і набережна зручні без авто. Потяги добре працюють для Монако, Ніцци й Вентімільї."),
+          t("A rental car becomes useful when you want mountain villages, ski or snow days, golf, Bellet or Dolceacqua wine, flexible family outings, late returns or a scenic convertible day.", "Une voiture de location devient utile pour villages de montagne, neige ou ski, golf, vins de Bellet ou Dolceacqua, sorties famille flexibles, retours tardifs ou journee cabriolet.", "Un'auto a noleggio diventa utile per borghi di montagna, neve o sci, golf, vini di Bellet o Dolceacqua, uscite familiari flessibili, rientri tardi o giornata cabriolet.", "Орендоване авто корисне для гірських сіл, снігу чи лиж, гольфу, вин Bellet або Dolceacqua, гнучких сімейних виїздів, пізніх повернень або дня з кабріолетом."),
+        ],
+        relatedPlaceIds: ["menton-station", "monaco-monte-carlo", "dolceacqua", "col-de-turini"],
+      },
+      {
+        heading: t("The three rental scenarios", "Les trois scenarios de location", "I tre scenari di noleggio", "Три сценарії оренди"),
+        body: [
+          t("First, rent locally in Menton for one or two strategic days. Second, rent at Nice Airport if you want the car from arrival to departure. Third, rent a special car, such as a cabriolet or classic car, for one memorable Riviera drive.", "Premier scenario: louer localement a Menton pour un ou deux jours utiles. Deuxieme: louer a l'aeroport de Nice pour toute la periode. Troisieme: louer une voiture speciale, cabriolet ou classique, pour une route Riviera memorable.", "Primo: noleggiare localmente a Mentone per uno o due giorni mirati. Secondo: ritirare a Nizza aeroporto per tutto il soggiorno. Terzo: noleggiare un'auto speciale, cabriolet o classica, per una guida Riviera memorabile.", "Перший варіант: оренда в Ментоні на один-два стратегічні дні. Другий: оренда в аеропорту Ніцци на весь період. Третій: спеціальне авто, кабріолет або класика, для пам'ятної поїздки Рив'єрою."),
+        ],
+        bullets: [
+          t("Local rental is often best for a mostly car-free week.", "La location locale convient souvent a une semaine surtout sans voiture.", "Il noleggio locale va bene per una settimana quasi senza auto.", "Локальна оренда часто найкраща для тижня переважно без авто."),
+          t("Airport rental works best when parking is arranged.", "La location aeroport marche mieux avec parking prevu.", "Il noleggio in aeroporto funziona meglio se il parcheggio e previsto.", "Оренда в аеропорту найкраща, коли паркування вже вирішене."),
+          t("Convertibles are special-day cars, not practical luggage cars.", "Les cabriolets sont pour une journee speciale, pas pour les bagages.", "I cabriolet sono auto da giornata speciale, non da bagagli.", "Кабріолет - авто для особливого дня, не для багажу."),
+        ],
+      },
+      {
+        heading: t("Renting locally in Menton", "Louer localement a Menton", "Noleggiare localmente a Mentone", "Оренда авто в Ментоні"),
+        body: [
+          t("Local rental is sensible if you arrive by train, taxi or transfer and only need a car for a mountain, golf, wine or Italian Riviera day. Check current hours directly before booking.", "La location locale est logique si vous arrivez en train, taxi ou transfert et n'avez besoin d'une voiture que pour montagne, golf, vin ou Riviera italienne. Verifiez les horaires actuels avant de reserver.", "Il noleggio locale ha senso se arrivi in treno, taxi o transfer e ti serve l'auto solo per montagna, golf, vino o Riviera italiana. Controlla gli orari aggiornati prima di prenotare.", "Локальна оренда має сенс, якщо ви прибуваєте потягом, таксі чи трансфером і авто потрібне лише для гір, гольфу, вина або Італійської Рив'єри. Перед бронюванням перевіряйте актуальні години."),
+          t("Useful local options include Europcar Menton near the station, ADA Menton Gare, Rent A Car Menton and Free2Move Rent on the Sospel road.", "Options locales utiles: Europcar Menton pres de la gare, ADA Menton Gare, Rent A Car Menton et Free2Move Rent route de Sospel.", "Opzioni locali utili: Europcar Menton vicino alla stazione, ADA Menton Gare, Rent A Car Menton e Free2Move Rent sulla strada per Sospel.", "Корисні локальні варіанти: Europcar Menton біля вокзалу, ADA Menton Gare, Rent A Car Menton і Free2Move Rent на дорозі до Sospel."),
+        ],
+        relatedPlaceIds: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton"],
+      },
+      {
+        heading: t("Renting at Nice Airport", "Louer a l'aeroport de Nice", "Noleggiare all'aeroporto di Nizza", "Оренда в аеропорту Ніцци"),
+        body: [
+          t("Airport pickup is convenient if you travel with family and luggage, have parking arranged in Menton, plan several car days and want one pickup and one return. Nice Airport lists major rental companies and uses a dedicated Terminal 2 car-rental centre for collection and return.", "Le retrait aeroport est pratique avec famille et bagages, parking prevu a Menton, plusieurs jours en voiture et un seul retrait/retour. L'aeroport de Nice liste les grandes enseignes et utilise un centre de location Terminal 2 pour retrait et retour.", "Il ritiro in aeroporto e comodo con famiglia e bagagli, parcheggio previsto a Mentone, piu giorni in auto e un solo ritiro/ritorno. L'aeroporto di Nizza lista grandi compagnie e usa un centro noleggio al Terminal 2.", "Оренда в аеропорту зручна з родиною й багажем, якщо паркування в Ментоні вирішене, заплановано кілька car days і потрібне одне отримання/повернення. Аеропорт Ніцци має rental center біля Terminal 2."),
+          t("The drive from Nice Airport to Menton is often 35-45 minutes in quiet traffic, but summer, rush hours and Monaco event periods can make it much longer.", "Le trajet Nice aeroport-Menton prend souvent 35-45 minutes quand la circulation est calme, mais ete, heures de pointe et evenements a Monaco peuvent l'allonger nettement.", "Il tragitto Nizza aeroporto-Mentone dura spesso 35-45 minuti con traffico calmo, ma estate, ore di punta ed eventi a Monaco possono allungarlo molto.", "Дорога з аеропорту Ніцци до Ментона часто займає 35-45 хвилин у спокійному трафіку, але літо, rush hour і події в Монако можуть суттєво збільшити час."),
+        ],
+        relatedPlaceIds: ["nice-cote-dazur-airport", "nice-airport-car-rental-center", "sixt-nice-airport"],
+      },
+      {
+        heading: t("Parking in Menton", "Parking a Menton", "Parcheggio a Mentone", "Паркування в Ментоні"),
+        body: [
+          t("Think about parking before you rent. Central Menton can be tight in summer, during Fete du Citron and on busy weekends. Ask whether parking is included, reserved or unnecessary for your plan.", "Pensez au parking avant de louer. Le centre de Menton peut etre serre en ete, pendant la Fete du Citron et les week-ends charges. Demandez si le parking est inclus, reserve ou inutile pour votre plan.", "Pensa al parcheggio prima di noleggiare. Il centro di Mentone puo essere stretto in estate, durante la Fete du Citron e nei weekend pieni. Chiedi se il parcheggio e incluso, prenotato o non necessario.", "Подумайте про паркування до оренди. Центральний Ментон може бути тісним улітку, під час Fete du Citron і на насичених вихідних. Уточніть, чи паркування включене, резервується або не потрібне."),
+          t("For Azur Menton guests, Beachside Apartment with Terrace & Parking is the most practical apartment when a car is central to the trip. The sea-view studios often suit guests who stay mostly car-free and rent locally for one day.", "Pour les voyageurs Azur Menton, Beachside Apartment with Terrace & Parking est le plus pratique si la voiture est centrale. Les studios vue mer conviennent souvent a ceux qui restent surtout sans voiture et louent localement une journee.", "Per gli ospiti Azur Menton, Beachside Apartment with Terrace & Parking e il piu pratico se l'auto e centrale. Gli studi vista mare sono spesso adatti a chi resta quasi senza auto e noleggia localmente un giorno.", "Для гостей Azur Menton Beachside Apartment with Terrace & Parking найпрактичніший, якщо авто важливе для поїздки. Sea-view studios часто пасують тим, хто здебільшого без авто й орендує локально на день."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Best car types", "Quel type de voiture choisir", "Che auto scegliere", "Яке авто обрати"),
+        body: [
+          t("For most guests, a small automatic car is easier than a large vehicle: Riviera streets, car parks and village roads can be narrow. Families may prefer a compact family car, while vans and minibuses should be chosen only when truly needed.", "Pour la plupart des voyageurs, une petite automatique est plus simple qu'un grand vehicule: rues, parkings et routes de village sont parfois etroits. Les familles peuvent preferer une compacte familiale; vans et minibus seulement si vraiment necessaires.", "Per molti ospiti, una piccola automatica e piu semplice di un veicolo grande: strade, parcheggi e borghi possono essere stretti. Le famiglie possono preferire una compatta familiare; van e minibus solo se servono davvero.", "Для більшості гостей невелике automatic авто простіше за велике: вулиці, паркінги й дороги сіл можуть бути вузькими. Сім'ям підійде компактне сімейне авто; фургони й minibuses лише за справжньої потреби."),
+          t("Electric cars are possible, but confirm charging before booking. Do not assume apartment parking includes charging.", "Les voitures electriques sont possibles, mais confirmez la recharge avant de reserver. Ne supposez pas que le parking d'appartement inclut une borne.", "Le auto elettriche sono possibili, ma conferma la ricarica prima di prenotare. Non presumere che il parcheggio dell'appartamento abbia ricarica.", "Електроавто можливі, але зарядку треба підтвердити до бронювання. Не припускайте, що паркування апартаменту має зарядку."),
+        ],
+      },
+      {
+        heading: t("Convertible and classic-car days", "Journees cabriolet et voitures classiques", "Giornate cabriolet e auto classiche", "Дні з кабріолетом або класичним авто"),
+        body: [
+          t("A cabriolet makes emotional sense on the Côte d'Azur: sea roads, palm trees, Monaco, Cap Ferrat, corniches, Italy and golden light. It is best for couples, short scenic drives, spring or autumn weather and one special day rather than a practical full stay.", "Un cabriolet a du sens sur la Cote d'Azur: routes mer, palmiers, Monaco, Cap Ferrat, corniches, Italie et lumiere doree. Ideal pour couples, courts trajets panoramiques, printemps ou automne et une journee speciale plutot qu'un sejour pratique complet.", "Un cabriolet ha senso in Costa Azzurra: strade sul mare, palme, Monaco, Cap Ferrat, corniches, Italia e luce dorata. Ideale per coppie, giri brevi, primavera o autunno e una giornata speciale, non per tutto il soggiorno.", "Кабріолет на Côte d'Azur має емоційний сенс: морські дороги, пальми, Монако, Cap Ferrat, corniches, Італія й золоте світло. Найкраще для пар, коротких scenic drives, весни чи осені й одного особливого дня, а не всього практичного перебування."),
+          t("For modern convertibles, check mainstream airport options such as SIXT. For vintage or premium cars, specialist options around Nice include Rent A Classic Car and Sunset Ride; confirm delivery, insurance and cross-border rules carefully.", "Pour cabriolets modernes, verifiez les options aeroport classiques comme SIXT. Pour voitures vintage ou premium, des specialistes autour de Nice incluent Rent A Classic Car et Sunset Ride; confirmez livraison, assurance et regles transfrontalieres.", "Per cabriolet moderni controlla opzioni aeroportuali come SIXT. Per auto vintage o premium, specialisti intorno a Nizza includono Rent A Classic Car e Sunset Ride; conferma consegna, assicurazione e regole transfrontaliere.", "Для сучасних кабріолетів перевіряйте airport options на кшталт SIXT. Для vintage або premium авто поруч із Ніццою є Rent A Classic Car і Sunset Ride; ретельно уточнюйте доставку, страхування й правила перетину кордону."),
+        ],
+        relatedPlaceIds: ["sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "monaco-monte-carlo", "eze-village", "dolceacqua"],
+      },
+      {
+        heading: t("Best drives from Menton", "Belles routes depuis Menton", "Belle strade da Mentone", "Найкращі маршрути з Ментона"),
+        body: [
+          t("Good car days from Menton include Monaco by the coast, Cap Ferrat via Villefranche and Beaulieu, Dolceacqua in Liguria, Col de Turini for confident mountain drivers, and Eze or La Turbie for a shorter viewpoint route.", "Belles journees voiture depuis Menton: Monaco par la cote, Cap Ferrat via Villefranche et Beaulieu, Dolceacqua en Ligurie, Col de Turini pour conducteurs a l'aise en montagne, Eze ou La Turbie pour une route courte avec vues.", "Buone giornate in auto da Mentone: Monaco sulla costa, Cap Ferrat via Villefranche e Beaulieu, Dolceacqua in Liguria, Col de Turini per guidatori sicuri in montagna, Eze o La Turbie per un giro breve con viste.", "Добрі car days з Ментона: Монако узбережжям, Cap Ferrat через Villefranche і Beaulieu, Dolceacqua в Лігурії, Col de Turini для впевнених водіїв гір, Eze або La Turbie для короткого маршруту з видами."),
+          t("For Italy or mountain roads, check rental cross-border rules, winter equipment and insurance excess before leaving.", "Pour l'Italie ou les routes de montagne, verifiez autorisation transfrontaliere, equipement hiver et franchise avant de partir.", "Per Italia o strade di montagna controlla regole transfrontaliere, equipaggiamento invernale e franchigia prima di partire.", "Для Італії або гірських доріг перевіряйте правила перетину кордону, зимове обладнання й insurance excess до виїзду."),
+        ],
+        relatedPlaceIds: ["monaco-monte-carlo", "eze-village", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "monte-carlo-golf-club"],
+      },
+      {
+        heading: t("Practical checklist", "Checklist pratique", "Checklist pratica", "Практичний чекліст"),
+        body: [
+          t("Book early in summer, photograph the car at pickup and return, check insurance excess, bring the main driver's credit card and ID, avoid oversized cars and never leave luggage visible at scenic stops.", "Reservez tot en ete, photographiez la voiture au retrait et au retour, verifiez la franchise, prenez carte bancaire et piece d'identite du conducteur principal, evitez les grandes voitures et ne laissez pas de bagages visibles.", "Prenota presto in estate, fotografa l'auto a ritiro e ritorno, controlla la franchigia, porta carta e documento del conducente principale, evita auto grandi e non lasciare bagagli visibili.", "Бронюйте завчасно влітку, фотографуйте авто при отриманні й поверненні, перевіряйте franchise, беріть картку й документ основного водія, уникайте великих авто й не лишайте багаж видимим."),
+        ],
+      },
+      {
+        heading: t("Common questions", "Questions frequentes", "Domande frequenti", "Поширені питання"),
+        body: [
+          t("You can rent a car in Menton through local agencies or at Nice Airport. Airport rental is better for a full car-based stay; local rental is better for one or two excursions. A convertible is possible, but usually best as a special scenic day rather than a practical family car.", "Vous pouvez louer a Menton via agences locales ou a l'aeroport de Nice. L'aeroport convient mieux a un sejour avec voiture; la location locale a une ou deux excursions. Un cabriolet est possible, mais plutot pour une journee panoramique speciale.", "Puoi noleggiare a Mentone tramite agenzie locali o all'aeroporto di Nizza. L'aeroporto e meglio per un soggiorno con auto; il locale per una o due gite. Un cabriolet e possibile, ma meglio per una giornata panoramica speciale.", "Орендувати авто можна в Ментоні через локальні агенції або в аеропорту Ніцци. Аеропорт кращий для поїздки з авто на весь час; локальна оренда - для одного-двох виїздів. Кабріолет можливий, але краще для особливого scenic day."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Rent locally if you only need one or two car days.", "Louez localement si vous n'avez besoin que d'un ou deux jours voiture.", "Noleggia localmente se ti servono solo uno o due giorni in auto.", "Орендуйте локально, якщо авто потрібне лише на один-два дні."),
+      t("Arrange parking before choosing airport pickup.", "Reglez le parking avant de choisir le retrait aeroport.", "Organizza il parcheggio prima di scegliere il ritiro in aeroporto.", "Узгодьте паркування до вибору airport pickup."),
+      t("Check cross-border permission before driving into Italy.", "Verifiez l'autorisation transfrontaliere avant l'Italie.", "Controlla l'autorizzazione transfrontaliera prima dell'Italia.", "Перевірте дозвіл на перетин кордону перед Італією."),
+      t("Choose a small automatic unless you truly need a larger car.", "Choisissez une petite automatique sauf vrai besoin d'un grand vehicule.", "Scegli una piccola automatica salvo reale bisogno di un'auto grande.", "Обирайте невелике automatic авто, якщо справді не потрібне більше."),
+    ],
+  }),
+  shortArticle({
     id: "public-transport-in-menton",
     slug: "public-transport-in-menton",
     title: t("Public transport in Menton: trains, buses and day trips without a car", "Transports publics a Menton : trains, bus et excursions sans voiture", "Trasporti pubblici a Mentone: treni, autobus e gite senza auto", "Громадський транспорт у Ментоні: поїзди, автобуси та поїздки без авто"),
@@ -4370,7 +4477,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -4452,7 +4559,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4545,7 +4652,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
@@ -4741,7 +4848,7 @@ export const guideArticles: GuideArticle[] = [
       "monaco-mini-golf-parc-princesse-antoinette",
       "parc-princesse-antoinette-monaco",
     ],
-    relatedArticles: ["day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4843,7 +4950,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "casino-barriere-menton", "plage-fossan", "plage-sablettes", "halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "port-de-garavan", "rondelli-garavan-side"],
-    relatedArticles: ["casinos-near-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {

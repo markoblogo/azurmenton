@@ -171,6 +171,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
+  { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
   { slug: "casinos-near-menton", ignore: ["cluster"], reason: "standalone evening and Monaco planning guide linked through nightlife, transport and Monaco content" },
   { slug: "day-trips-from-menton", ignore: ["places"], reason: "route-style hub; place coverage lives in supporting day-trip articles and sections" },
   { slug: "famous-paintings-of-menton", ignore: ["cluster"], reason: "standalone art and visual-culture guide supporting photo, old-town and museum content" },
