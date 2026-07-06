@@ -39,6 +39,14 @@ const labels = {
     mapCta: "Open useful places map",
     transportTitle: "Easy routes from Menton",
     transportText: "Open train, bus and station links for common Riviera routes.",
+    hostEyebrow: "For current and future guests",
+    hostTitle: "Local planning, tied to real stays",
+    hostText:
+      "Use the guide to choose beaches, day trips, restaurants, events and the right apartment base. If you are planning a stay, send your dates and we will help match the trip to the apartment that fits best.",
+    statGuides: "Local guides",
+    statPlaces: "Mapped places",
+    statTripStyles: "Trip styles",
+    statApartments: "Apartments",
     apartmentsTitle: "Where to stay for guide trips",
     apartmentsText: "Choose a central seaside base, then shape each day around beaches, markets, old-town walks and Riviera day trips.",
     viewApartments: "View apartments",
@@ -64,6 +72,14 @@ const labels = {
     mapCta: "Ouvrir la carte des lieux utiles",
     transportTitle: "Trajets faciles depuis Menton",
     transportText: "Ouvrir les liens train, bus et gare pour les trajets Riviera utiles.",
+    hostEyebrow: "Pour les voyageurs actuels et futurs",
+    hostTitle: "Conseils locaux relies a un vrai sejour",
+    hostText:
+      "Utilisez le guide pour choisir plages, excursions, restaurants, evenements et la bonne base d'appartement. Si vous preparez un sejour, envoyez vos dates et nous vous aiderons a choisir l'appartement le plus adapte.",
+    statGuides: "Guides locaux",
+    statPlaces: "Lieux cartographies",
+    statTripStyles: "Styles de sejour",
+    statApartments: "Appartements",
     apartmentsTitle: "Ou sejourner pour explorer",
     apartmentsText: "Choisissez une base centrale en bord de mer, puis organisez vos journees entre plages, marches, vieille ville et excursions.",
     viewApartments: "Voir les appartements",
@@ -89,6 +105,14 @@ const labels = {
     mapCta: "Apri mappa dei luoghi utili",
     transportTitle: "Percorsi facili da Mentone",
     transportText: "Apri link treno, bus e stazione per le rotte utili della Riviera.",
+    hostEyebrow: "Per ospiti attuali e futuri",
+    hostTitle: "Consigli locali collegati a soggiorni reali",
+    hostText:
+      "Usa la guida per scegliere spiagge, gite, ristoranti, eventi e la base giusta. Se stai pianificando un soggiorno, inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto.",
+    statGuides: "Guide locali",
+    statPlaces: "Luoghi in mappa",
+    statTripStyles: "Stili di viaggio",
+    statApartments: "Appartamenti",
     apartmentsTitle: "Dove soggiornare per esplorare",
     apartmentsText: "Scegli una base centrale sul mare, poi organizza le giornate tra spiagge, mercati, centro storico e gite.",
     viewApartments: "Vedi appartamenti",
@@ -114,6 +138,14 @@ const labels = {
     mapCta: "Відкрити карту корисних місць",
     transportTitle: "Зручні маршрути з Ментона",
     transportText: "Відкрийте посилання на потяги, автобуси й станції для маршрутів Рив'єрою.",
+    hostEyebrow: "Для нинішніх і майбутніх гостей",
+    hostTitle: "Локальне планування, пов'язане з реальним проживанням",
+    hostText:
+      "Використовуйте гід, щоб обрати пляжі, поїздки, ресторани, події та правильну базу для проживання. Якщо плануєте зупинку, надішліть дати, і ми допоможемо підібрати апартамент під сценарій поїздки.",
+    statGuides: "Локальні гіди",
+    statPlaces: "Місця на карті",
+    statTripStyles: "Сценарії поїздки",
+    statApartments: "Апартаменти",
     apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
     apartmentsText: "Оберіть центральну базу біля моря, а дні плануйте навколо пляжів, ринків, старого міста й поїздок Рив'єрою.",
     viewApartments: "Переглянути апартаменти",
@@ -192,6 +224,13 @@ export default async function GuideLandingPage({ params }: PageProps) {
     })
     .slice(0, 4);
   const getGuideTitle = (slug: string) => guideArticles.find((article) => article.slug === slug)?.title[safeLocale] ?? slug;
+  const numberFormatter = new Intl.NumberFormat(safeLocale);
+  const guideStats = [
+    { value: guideArticles.length, label: local.statGuides },
+    { value: new Set(placeMapPoints.map((point) => point.placeId)).size, label: local.statPlaces },
+    { value: guideIntentClusters.length, label: local.statTripStyles },
+    { value: apartments.length, label: local.statApartments },
+  ];
 
   return (
     <>
@@ -220,6 +259,19 @@ export default async function GuideLandingPage({ params }: PageProps) {
                 <Link className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]" href={`/${safeLocale}/apartments` as Route}>{copy.cta.primaryLabel}</Link>
                 <Link className="inline-flex min-h-11 items-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/check-availability` as Route}>{copy.cta.secondaryLabel}</Link>
               </div>
+              <aside className="mt-8 border-y border-[#dfd2b8] py-5" aria-label={local.hostTitle}>
+                <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.hostEyebrow}</p>
+                <div className="mt-3 grid gap-3 sm:grid-cols-4">
+                  {guideStats.map((stat) => (
+                    <div key={stat.label}>
+                      <p className="serif-heading text-3xl leading-none text-[#173f36]">{numberFormatter.format(stat.value)}</p>
+                      <p className="mt-1 text-[0.58rem] font-bold uppercase tracking-[0.13em] text-[#6f665a]">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <h2 className="mt-4 serif-heading text-2xl leading-tight text-[#173f36]">{local.hostTitle}</h2>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5c5044]">{local.hostText}</p>
+              </aside>
             </div>
             <div className="border border-[#dfd2b8] bg-[#fffaf0] p-3">
               <div className="grid grid-cols-2 gap-3">
