@@ -3160,6 +3160,21 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Maison Herbin citrus jams and gifts in Menton", "Illustration des confitures et cadeaux aux agrumes de Maison Herbin a Menton", "Illustrazione di confetture e regali agli agrumi di Maison Herbin a Mentone", "Ілюстрація цитрусових джемів і подарунків Maison Herbin у Ментоні"),
     visualTheme: "food",
   },
+  "au-pays-du-citron-menton": {
+    image: "/images/guide/au-pays-du-citron-menton.jpg",
+    imageAlt: text("Illustration of Au Pays du Citron in Menton", "Illustration d'Au Pays du Citron a Menton", "Illustrazione di Au Pays du Citron a Mentone", "Ілюстрація Au Pays du Citron у Ментоні"),
+    visualTheme: "food",
+  },
+  "maison-gannac-menton": {
+    image: "/images/guide/maison-gannac-menton.jpg",
+    imageAlt: text("Illustration of Maison Gannac citrus products in Menton", "Illustration des produits aux agrumes de Maison Gannac a Menton", "Illustrazione dei prodotti agli agrumi di Maison Gannac a Mentone", "Ілюстрація цитрусових продуктів Maison Gannac у Ментоні"),
+    visualTheme: "food",
+  },
+  "zeste-de-menton": {
+    image: "/images/guide/zeste-de-menton.jpg",
+    imageAlt: text("Illustration of Zeste de Menton lemon gifts", "Illustration des cadeaux au citron Zeste de Menton", "Illustrazione dei regali al limone Zeste de Menton", "Ілюстрація лимонних подарунків Zeste de Menton"),
+    visualTheme: "food",
+  },
   "centre-hospitalier-la-palmosa-menton": {
     image: "/images/guide/centre-hospitalier-la-palmosa-menton.jpg",
     imageAlt: text("Illustration of Centre Hospitalier La Palmosa in Menton", "Illustration du Centre Hospitalier La Palmosa a Menton", "Illustrazione del Centre Hospitalier La Palmosa a Mentone", "Ілюстрація Centre Hospitalier La Palmosa у Ментоні"),
@@ -3851,6 +3866,21 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of the Oceanographic Museum of Monaco", "Illustration du Musee oceanographique de Monaco", "Illustrazione del Museo Oceanografico di Monaco", "Ілюстрація Океанографічного музею Монако"),
     visualTheme: "museum",
   },
+  "monaco-ville-souvenir-shops": {
+    image: "/images/guide/monaco-ville-souvenir-shops.jpg",
+    imageAlt: text("Illustration of souvenir shops in Monaco-Ville", "Illustration des boutiques de souvenirs a Monaco-Ville", "Illustrazione dei negozi di souvenir a Monaco-Ville", "Ілюстрація сувенірних крамниць у Monaco-Ville"),
+    visualTheme: "old-town",
+  },
+  "chocolaterie-de-monaco": {
+    image: "/images/guide/chocolaterie-de-monaco.jpg",
+    imageAlt: text("Illustration of Chocolaterie de Monaco", "Illustration de la Chocolaterie de Monaco", "Illustrazione della Chocolaterie de Monaco", "Ілюстрація Chocolaterie de Monaco"),
+    visualTheme: "food",
+  },
+  "automobile-club-monaco-boutique": {
+    image: "/images/guide/automobile-club-monaco-boutique.jpg",
+    imageAlt: text("Illustration of the Automobile Club de Monaco boutique", "Illustration de la boutique de l'Automobile Club de Monaco", "Illustrazione della boutique Automobile Club de Monaco", "Ілюстрація бутика Automobile Club de Monaco"),
+    visualTheme: "event",
+  },
   "prince-monaco-car-collection": {
     image: "/images/guide/prince-monaco-car-collection.jpg",
     imageAlt: text("Illustration of the Prince of Monaco's Car Collection", "Illustration de la Collection automobile du Prince de Monaco", "Illustrazione della Collezione auto del Principe di Monaco", "Ілюстрація автомобільної колекції князя Монако"),
@@ -4205,6 +4235,21 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     image: "/images/guide/nice-old-town.jpg",
     imageAlt: text("Illustration of Nice Old Town", "Illustration du Vieux Nice", "Illustrazione del centro storico di Nizza", "Ілюстрація старого міста Ніцци"),
     visualTheme: "old-town",
+  },
+  "nicolas-alziari-nice": {
+    image: "/images/guide/nicolas-alziari-nice.jpg",
+    imageAlt: text("Illustration of Nicolas Alziari in Nice", "Illustration de Nicolas Alziari a Nice", "Illustrazione di Nicolas Alziari a Nizza", "Ілюстрація Nicolas Alziari у Ніцці"),
+    visualTheme: "food",
+  },
+  "maison-auer-nice": {
+    image: "/images/guide/maison-auer-nice.jpg",
+    imageAlt: text("Illustration of Maison Auer in Nice", "Illustration de Maison Auer a Nice", "Illustrazione di Maison Auer a Nizza", "Ілюстрація Maison Auer у Ніцці"),
+    visualTheme: "food",
+  },
+  "cours-saleya-nice": {
+    image: "/images/guide/cours-saleya-nice.jpg",
+    imageAlt: text("Illustration of Cours Saleya Market in Nice", "Illustration du marche du Cours Saleya a Nice", "Illustrazione del mercato di Cours Saleya a Nizza", "Ілюстрація ринку Cours Saleya у Ніцці"),
+    visualTheme: "market",
   },
   "villefranche-sur-mer": {
     image: "/images/guide/villefranche-sur-mer.jpg",
