@@ -993,7 +993,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
     relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "promenade-du-soleil", "port-de-garavan"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1085,7 +1085,7 @@ export const guideArticles: GuideArticle[] = [
       "altavia-winery",
       "promenade-du-soleil",
     ],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
+    relatedArticles: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "supermarkets-in-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-in-autumn"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1198,7 +1198,7 @@ export const guideArticles: GuideArticle[] = [
       "tende",
       "mercantour-national-park",
     ],
-    relatedArticles: ["best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2247,7 +2247,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "gelateria-sofia-menton", "quai-bonaparte-menton", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4316,7 +4316,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -4345,6 +4345,112 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "cycling-bike-rental-menton",
+    slug: "cycling-bike-rental-menton",
+    title: t("Cycling in Menton: bike rental, repairs and the best local routes", "Velo a Menton: location, reparations et meilleurs itineraire locaux", "Andare in bici a Mentone: noleggio, riparazioni e migliori percorsi locali", "Велосипед у Ментоні: оренда, ремонт і найкращі локальні маршрути"),
+    seoTitle: t("Cycling in Menton: Bike Rental, Repairs and Best Local Routes", "Velo a Menton: location, reparations et meilleurs itineraires locaux", "Bici a Mentone: noleggio, riparazioni e migliori percorsi locali", "Велосипед у Ментоні: оренда, ремонт і маршрути"),
+    seoDescription: t("A practical guide to cycling in Menton: where to rent bikes and e-bikes, where to repair your own bike, local bike shops, the Menton cycle path, coastal rides, mountain climbs and family-friendly cycling tips.", "Guide pratique du velo a Menton: ou louer velos et velos electriques, ou reparer son velo, boutiques locales, piste cyclable de Menton, routes cotieres, montees et conseils famille.", "Guida pratica alla bici a Mentone: dove noleggiare bici ed e-bike, dove riparare la propria bici, negozi locali, pista ciclabile di Mentone, percorsi costieri, salite e consigli famiglia.", "Практичний гід про велосипед у Ментоні: де орендувати bike/e-bike, де ремонтувати власний велосипед, веломагазини, велодоріжка Ментона, узбережжя, підйоми й поради для сімей."),
+    excerpt: t("A bicycle can be a smart alternative to a car in Menton: easy for short seafront rides, useful for Garavan and the Italian border, and excellent for serious cyclists who want Cap Martin, Col de la Madone or mountain routes.", "Le velo peut etre une bonne alternative a la voiture a Menton: pratique pour le bord de mer, Garavan et la frontiere italienne, et excellent pour les cyclistes visant Cap Martin, le Col de la Madone ou les routes de montagne.", "La bici puo essere una buona alternativa all'auto a Mentone: comoda per il lungomare, Garavan e il confine italiano, ottima per ciclisti verso Cap Martin, Col de la Madone o percorsi di montagna.", "Велосипед може бути розумною альтернативою авто в Ментоні: зручно для набережної, Garavan і кордону з Італією, а для сильних райдерів - Cap Martin, Col de la Madone і гірські маршрути."),
+    category: "practical",
+    coverImage: "/images/guide/cycling-bike-rental-menton.jpg",
+    coverImageAlt: t("Cycling and bike rental in Menton", "Velo et location de velos a Menton", "Ciclismo e noleggio bici a Mentone", "Велосипед і оренда велосипедів у Ментоні"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    tags: [t("cycling", "velo", "bici", "велосипед"), t("bike rental", "location velo", "noleggio bici", "оренда велосипеда"), t("Menton", "Menton", "Mentone", "Ментон"), t("outdoor", "plein air", "outdoor", "активний відпочинок")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[6].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "garavan", "seafront", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["r-bike-menton", "bike-trip-atelier-velo-riviera", "sport-21-cycles", "pony-menton", "menton-cycle-path", "promenade-reine-astrid", "pont-saint-ludovic", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "col-de-la-madone", "sospel-bevera-valley", "tende", "la-brigue"],
+    relatedArticles: ["menton-without-a-car", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "italian-riviera-day-trip-from-menton", "best-beaches-in-menton", "golf-near-menton", "where-to-stay-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Is cycling a good alternative to a car in Menton?", "Le velo remplace-t-il bien la voiture a Menton ?", "La bici e una buona alternativa all'auto a Mentone?", "Чи є велосипед хорошою альтернативою авто в Ментоні?"),
+        body: [
+          t("Sometimes, yes. For short local movement, a city bike or e-bike can work well for the seafront, Garavan, the port, the lower Italian border, errands and relaxed afternoon plans.", "Parfois oui. Pour les petits deplacements locaux, un velo de ville ou electrique fonctionne bien pour le bord de mer, Garavan, le port, la frontiere italienne basse, les courses et les apres-midi tranquilles.", "A volte si. Per brevi spostamenti locali, una city bike o e-bike funziona bene per lungomare, Garavan, porto, confine basso italiano, commissioni e pomeriggi tranquilli.", "Іноді так. Для коротких локальних переміщень міський велосипед або e-bike добре підходить для набережної, Garavan, порту, нижнього кордону з Італією, дрібних справ і спокійних планів."),
+          t("For serious riders, Menton is much stronger: Cap Martin, La Turbie, Col d'Eze, Col de la Madone and roads toward Sospel and the Bevera valley are close. For families with small children, cycling is more limited because much of the Riviera network still uses shared roads.", "Pour les cyclistes entraines, Menton est beaucoup plus forte: Cap Martin, La Turbie, Col d'Eze, Col de la Madone et les routes vers Sospel et la Bevera sont proches. Avec de jeunes enfants, c'est plus limite car beaucoup d'axes restent partages avec les voitures.", "Per ciclisti allenati, Mentone e molto piu forte: Cap Martin, La Turbie, Col d'Eze, Col de la Madone e le strade verso Sospel e la Bevera sono vicine. Con bambini piccoli e piu limitato perche molte strade sono condivise con il traffico.", "Для підготовлених велосипедистів Ментон значно сильніший: поруч Cap Martin, La Turbie, Col d'Eze, Col de la Madone і дороги до Sospel та долини Bevera. З малими дітьми можливості обмеженіші, бо багато маршрутів ідуть спільними дорогами."),
+        ],
+        relatedPlaceIds: ["menton-cycle-path", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "col-de-la-madone"],
+      },
+      {
+        heading: t("Where to rent or repair a bike", "Ou louer ou reparer un velo", "Dove noleggiare o riparare una bici", "Де орендувати або ремонтувати велосипед"),
+        body: [
+          t("For high-quality road bikes, e-bikes and city bikes, start with R Bike Menton at Port Garavan. For central rental and repairs, Bike Trip / Atelier Velo Riviera is practical near Esplanade Georges Pompidou. Sport 21 Cycles on Route de Sospel is useful for repairs, accessories and local bike-shop support.", "Pour velos de route de qualite, velos electriques et velos de ville, commencez par R Bike Menton au port Garavan. Pour location et reparations au centre, Bike Trip / Atelier Velo Riviera est pratique pres de l'Esplanade Georges Pompidou. Sport 21 Cycles route de Sospel aide pour reparations, accessoires et conseils.", "Per bici da strada di qualita, e-bike e city bike, inizia da R Bike Menton al Port Garavan. Per noleggio e riparazioni centrali, Bike Trip / Atelier Velo Riviera e pratico vicino all'Esplanade Georges Pompidou. Sport 21 Cycles sulla Route de Sospel e utile per riparazioni, accessori e supporto.", "Для якісних шосейних велосипедів, e-bike і city bike починайте з R Bike Menton у Port Garavan. Для центральної оренди й ремонту зручний Bike Trip / Atelier Velo Riviera біля Esplanade Georges Pompidou. Sport 21 Cycles на Route de Sospel корисний для ремонту, аксесуарів і консультацій."),
+          t("Pony can be useful for short app-based urban rides, but it is not the same as renting a road bike or planning a full day route. Check current availability, parking rules, helmets and local restrictions before relying on it.", "Pony peut etre utile pour de courts trajets urbains via application, mais ce n'est pas une location de velo de route ni un plan de journee complete. Verifiez disponibilite, stationnement, casques et regles locales.", "Pony puo servire per brevi tragitti urbani via app, ma non equivale a noleggiare una bici da strada o pianificare una giornata. Controlla disponibilita, parcheggio, caschi e regole locali.", "Pony може бути зручним для коротких міських поїздок через застосунок, але це не оренда шосейного велосипеда і не план на цілий день. Перевіряйте наявність, паркування, шоломи й місцеві правила."),
+        ],
+        relatedPlaceIds: ["r-bike-menton", "bike-trip-atelier-velo-riviera", "sport-21-cycles", "pony-menton"],
+      },
+      {
+        heading: t("The official Menton cycle path", "La piste cyclable officielle de Menton", "La pista ciclabile ufficiale di Mentone", "Офіційна велодоріжка Ментона"),
+        body: [
+          t("Menton has a useful but short official cycle path. It runs from the old-town side toward Garavan, Porte de France, Promenade Reine Astrid and the lower border area near Pont Saint-Ludovic.", "Menton possede une piste cyclable utile mais courte. Elle part du cote vieille ville vers Garavan, Porte de France, Promenade Reine Astrid et la frontiere basse pres du Pont Saint-Ludovic.", "Mentone ha una pista ciclabile utile ma breve. Va dal lato centro storico verso Garavan, Porte de France, Promenade Reine Astrid e il confine basso vicino al Pont Saint-Ludovic.", "У Ментоні є корисна, але коротка офіційна велодоріжка. Вона йде від старого міста до Garavan, Porte de France, Promenade Reine Astrid і нижньої прикордонної зони біля Pont Saint-Ludovic."),
+          t("This is the best easy local cycling idea for visitors. Treat it as a scenic local section, not a complete city-wide cycling network.", "C'est la meilleure idee velo facile pour les visiteurs. Considerez-la comme un beau troncon local, pas comme un reseau cyclable complet.", "E la migliore idea bici facile per visitatori. Considerala un tratto locale panoramico, non una rete ciclabile completa.", "Це найкраща проста велоідея для гостей. Сприймайте її як красиву локальну ділянку, а не повну міську веломережу."),
+        ],
+        relatedPlaceIds: ["menton-cycle-path", "promenade-reine-astrid", "pont-saint-ludovic", "port-de-garavan"],
+      },
+      {
+        heading: t("Easy local cycling ideas", "Idees faciles a velo", "Idee facili in bici", "Прості ідеї для велопрогулянок"),
+        body: [
+          t("For a first ride, rent a city bike or e-bike and ride slowly from the old-town side toward Garavan and the lower border, with a coffee or ice-cream stop before returning.", "Pour une premiere sortie, louez un velo de ville ou electrique et roulez doucement de la vieille ville vers Garavan et la frontiere basse, avec pause cafe ou glace avant le retour.", "Per la prima uscita, noleggia una city bike o e-bike e vai piano dal centro storico verso Garavan e il confine basso, con pausa caffe o gelato prima del ritorno.", "Для першої поїздки орендуйте city bike або e-bike і повільно проїдьте від старого міста до Garavan і нижнього кордону, з паузою на каву чи морозиво."),
+          t("More confident riders can continue toward Roquebrune-Cap-Martin and Cap Martin, choosing roads carefully. This is scenic, but it is not a protected flat cycle path.", "Les cyclistes plus confiants peuvent continuer vers Roquebrune-Cap-Martin et Cap Martin en choisissant les routes avec soin. C'est beau, mais ce n'est pas une piste plate protegee.", "Chi ha piu confidenza puo continuare verso Roquebrune-Cap-Martin e Cap Martin scegliendo bene le strade. E panoramico, ma non e una pista piatta protetta.", "Більш упевнені райдери можуть їхати до Roquebrune-Cap-Martin і Cap Martin, уважно обираючи дороги. Це красиво, але не захищена рівна велодоріжка."),
+        ],
+        relatedPlaceIds: ["roquebrune-cap-martin-coastal-walk", "promenade-reine-astrid", "pont-saint-ludovic"],
+      },
+      {
+        heading: t("Serious road cycling from Menton", "Velo de route sportif depuis Menton", "Ciclismo su strada serio da Mentone", "Серйозні шосейні маршрути з Ментона"),
+        body: [
+          t("Menton is excellent for trained road cyclists because it sits below major climbs. Col de la Madone is the classic local test and should be treated as a serious climb, not a casual family route.", "Menton est excellente pour les cyclistes de route entraines car elle se trouve sous de grandes montees. Le Col de la Madone est le test local classique et doit etre considere comme une vraie montee, pas une sortie famille.", "Mentone e eccellente per ciclisti allenati perche si trova sotto grandi salite. Il Col de la Madone e il test locale classico e va considerato una salita seria, non un giro famiglia.", "Ментон чудовий для підготовлених шосейних велосипедистів, бо лежить біля серйозних підйомів. Col de la Madone - класичний локальний тест, це не сімейний маршрут."),
+          t("Routes toward Sospel, the Bevera valley, La Turbie and Eze can be memorable, but they require fitness, heat planning, lights for shade and tunnels, and confidence on shared roads.", "Les routes vers Sospel, la Bevera, La Turbie et Eze peuvent etre memorables, mais elles demandent forme physique, gestion de chaleur, lumieres pour ombre/tunnels et confiance sur routes partagees.", "Le strade verso Sospel, Bevera, La Turbie ed Eze possono essere memorabili, ma richiedono forma fisica, gestione del caldo, luci per ombra/tunnel e sicurezza su strade condivise.", "Маршрути до Sospel, долини Bevera, La Turbie й Eze можуть бути дуже красивими, але потребують форми, планування спеки, світла для тіні/тунелів і впевненості на спільних дорогах."),
+        ],
+        relatedPlaceIds: ["col-de-la-madone", "sospel-bevera-valley", "tende", "la-brigue"],
+      },
+      {
+        heading: t("Mountain biking and e-MTB", "VTT et VTT electrique", "Mountain bike ed e-MTB", "Гірський велосипед і e-MTB"),
+        body: [
+          t("For true mountain biking, plan properly. The best terrain is often inland, and some routes around Tende, La Brigue and the Merveilles area need the right bike, battery planning, offline maps and sometimes a guide.", "Pour le vrai VTT, planifiez serieusement. Les meilleurs terrains sont souvent dans l'arriere-pays, et certains parcours vers Tende, La Brigue et les Merveilles demandent bon velo, batterie, cartes hors ligne et parfois guide.", "Per vera mountain bike, pianifica bene. I terreni migliori sono spesso nell'entroterra, e alcuni percorsi verso Tende, La Brigue e Merveilles richiedono bici giusta, batteria, mappe offline e talvolta guida.", "Для справжнього MTB плануйте серйозно. Найкращі терени часто в глибині регіону, а маршрути біля Tende, La Brigue і Merveilles потребують правильного велосипеда, батареї, offline maps і іноді гіда."),
+        ],
+        relatedPlaceIds: ["r-bike-menton", "tende", "la-brigue", "sospel-bevera-valley"],
+      },
+      {
+        heading: t("Cycling with children", "Faire du velo avec des enfants", "Andare in bici con bambini", "Велосипед із дітьми"),
+        body: [
+          t("Keep family cycling short and simple: official cycle path, quiet seafront sections, slow Garavan rides and daylight only. Avoid busy summer roads, mountain routes and trying to combine beach bags, young children and traffic stress.", "Gardez le velo en famille court et simple: piste officielle, sections calmes du bord de mer, Garavan lentement et de jour. Evitez routes chargees l'ete, montagne et le melange sacs de plage, jeunes enfants et stress circulation.", "Mantieni la bici in famiglia breve e semplice: pista ufficiale, tratti tranquilli del lungomare, Garavan piano e solo di giorno. Evita strade estive trafficate, montagna e la combinazione borse mare, bambini piccoli e traffico.", "Для сімей тримайте велопрогулянки короткими й простими: офіційна доріжка, тихі ділянки набережної, повільний Garavan і лише вдень. Уникайте літнього трафіку, гір і поєднання пляжних сумок, малих дітей та машин."),
+        ],
+        relatedPlaceIds: ["menton-cycle-path", "promenade-reine-astrid", "port-de-garavan"],
+      },
+      {
+        heading: t("Where cycling works better than a car", "Quand le velo marche mieux que la voiture", "Quando la bici funziona meglio dell'auto", "Коли велосипед кращий за авто"),
+        body: [
+          t("A bike can be better than a car for short seafront movement, Garavan, parking-free errands, slow local exploration and one scenic ride during the stay. A car is still better for young children with beach equipment, ski days, golf bags, late-night returns and long hot summer day trips.", "Le velo peut etre meilleur que la voiture pour petits trajets en bord de mer, Garavan, courses sans parking, exploration lente et une belle sortie. La voiture reste meilleure avec jeunes enfants et affaires de plage, ski, sacs de golf, retours tardifs et longues journees chaudes.", "La bici puo essere meglio dell'auto per brevi spostamenti sul mare, Garavan, commissioni senza parcheggio, esplorazione lenta e una gita panoramica. L'auto resta migliore con bambini e borse mare, sci, sacche da golf, rientri tardi e lunghe giornate calde.", "Велосипед може бути кращим за авто для коротких переміщень набережною, Garavan, справ без паркування, повільного огляду й однієї красивої поїздки. Авто все ще краще для малих дітей з пляжними речами, лиж, гольфу, пізніх повернень і довгих спекотних day trips."),
+        ],
+        relatedPlaceIds: ["menton-cycle-path", "r-bike-menton", "bike-trip-atelier-velo-riviera"],
+      },
+      {
+        heading: t("Staying in Menton with a bike", "Sejourner a Menton avec un velo", "Soggiornare a Mentone con una bici", "Проживання в Ментоні з велосипедом"),
+        body: [
+          t("Beachside Apartment with Terrace & Parking is the most practical Azur Menton option if you bring bikes by car, plan day trips or need more space and parking by reservation. The sea-view studios suit couples who stay mostly car-free and use bikes for selected rides.", "Beachside Apartment with Terrace & Parking est l'option Azur Menton la plus pratique si vous venez avec des velos en voiture, prevoyez des sorties ou avez besoin d'espace et parking sur reservation. Les studios vue mer conviennent aux couples surtout sans voiture avec quelques sorties velo.", "Beachside Apartment with Terrace & Parking e l'opzione Azur Menton piu pratica se porti bici in auto, pianifichi gite o hai bisogno di spazio e parcheggio su prenotazione. Gli studi vista mare vanno bene per coppie quasi senza auto con qualche uscita in bici.", "Beachside Apartment with Terrace & Parking - найпрактичніший варіант Azur Menton, якщо ви привозите велосипеди авто, плануєте виїзди або потребуєте більше простору й паркування за резервацією. Студії з видом на море підходять парам, які переважно без авто й беруть велосипед для окремих поїздок."),
+          t("If you bring expensive road bikes, ask in advance about practical storage. Do not assume every building or apartment is ideal for indoor bike storage.", "Si vous apportez des velos de route chers, demandez a l'avance pour le rangement pratique. Ne supposez pas que chaque immeuble ou appartement convient au stockage interieur.", "Se porti bici da strada costose, chiedi in anticipo per il deposito pratico. Non dare per scontato che ogni edificio o appartamento sia ideale per tenere bici dentro.", "Якщо ви привозите дорогі шосейні велосипеди, заздалегідь уточніть практичне зберігання. Не припускайте, що кожна будівля чи апартамент ідеальні для indoor bike storage."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Can I rent a bike in Menton? Yes. R Bike Menton, Bike Trip / Atelier Velo Riviera and other local options cover different needs, from road bikes and e-bikes to repairs and central rental.", "Peut-on louer un velo a Menton ? Oui. R Bike Menton, Bike Trip / Atelier Velo Riviera et d'autres options locales couvrent des besoins differents, du velo de route au velo electrique, reparations et location centrale.", "Si puo noleggiare una bici a Mentone? Si. R Bike Menton, Bike Trip / Atelier Velo Riviera e altre opzioni locali coprono esigenze diverse, da strada ed e-bike a riparazioni e noleggio centrale.", "Чи можна орендувати велосипед у Ментоні? Так. R Bike Menton, Bike Trip / Atelier Velo Riviera та інші локальні варіанти покривають різні потреби: шосейні велосипеди, e-bike, ремонт і центральна оренда."),
+          t("Is there a cycle path in Menton? Yes, but it is short. It is useful for the old-town to Garavan direction, not a complete Riviera cycling network.", "Y a-t-il une piste cyclable a Menton ? Oui, mais elle est courte. Elle est utile entre vieille ville et Garavan, pas comme reseau cyclable complet de la Riviera.", "C'e una pista ciclabile a Mentone? Si, ma breve. E utile tra centro storico e Garavan, non e una rete ciclabile completa della Riviera.", "Чи є велодоріжка в Ментоні? Так, але коротка. Вона корисна для напрямку старе місто-Garavan, але це не повна веломережа Рив'єри."),
+          t("Is Menton good for serious road cycling? Yes, especially for trained riders who want climbs such as Col de la Madone and shared-road routes toward Eze, La Turbie, Sospel and Nice.", "Menton est-elle bonne pour le velo de route sportif ? Oui, surtout pour cyclistes entraines visant Col de la Madone et routes partagees vers Eze, La Turbie, Sospel et Nice.", "Mentone e buona per ciclismo su strada serio? Si, soprattutto per ciclisti allenati verso Col de la Madone e strade condivise verso Eze, La Turbie, Sospel e Nizza.", "Чи підходить Ментон для серйозного шосейного велоспорту? Так, особливо для підготовлених райдерів на Col de la Madone і дороги до Eze, La Turbie, Sospel і Ніцци."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Use the official cycle path for the simplest local ride.", "Utilisez la piste officielle pour la sortie locale la plus simple.", "Usa la pista ufficiale per il giro locale piu semplice.", "Для найпростішої локальної поїздки використовуйте офіційну велодоріжку."),
+      t("Book performance bikes ahead in busy seasons.", "Reservez les velos sportifs a l'avance en haute saison.", "Prenota bici sportive in anticipo in alta stagione.", "У високий сезон бронюйте спортивні велосипеди заздалегідь."),
+      t("Avoid the hottest hours for climbs in July and August.", "Evitez les heures les plus chaudes pour les montees en juillet et aout.", "Evita le ore piu calde per le salite in luglio e agosto.", "У липні й серпні уникайте найспекотніших годин для підйомів."),
+      t("Ask about bike storage before arriving with expensive bikes.", "Demandez le rangement velo avant d'arriver avec des velos chers.", "Chiedi del deposito bici prima di arrivare con bici costose.", "Перед приїздом із дорогими велосипедами уточніть зберігання."),
+    ],
+  }),
+  shortArticle({
     id: "car-rental-menton-nice-airport-convertibles",
     slug: "car-rental-menton-nice-airport-convertibles",
     title: t("Car rental in Menton: local agencies, Nice Airport pickup and convertible drives", "Location de voiture a Menton: agences locales, aeroport de Nice et cabriolets", "Noleggio auto a Mentone: agenzie locali, aeroporto di Nizza e cabriolet", "Оренда авто в Ментоні: місцеві агенції, аеропорт Ніцци й кабріолети"),
@@ -4362,7 +4468,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "nice", "monaco", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton", "nice-airport-car-rental-center", "sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "nice-cote-dazur-airport", "menton-station", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "eze-village", "monaco-monte-carlo", "monte-carlo-golf-club"],
-    relatedArticles: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4477,7 +4583,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -4559,7 +4665,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4848,7 +4954,7 @@ export const guideArticles: GuideArticle[] = [
       "monaco-mini-golf-parc-princesse-antoinette",
       "parc-princesse-antoinette-monaco",
     ],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {

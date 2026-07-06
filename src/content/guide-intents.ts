@@ -173,6 +173,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
   { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
   { slug: "casinos-near-menton", ignore: ["cluster"], reason: "standalone evening and Monaco planning guide linked through nightlife, transport and Monaco content" },
+  { slug: "cycling-bike-rental-menton", ignore: ["cluster"], reason: "standalone cycling and practical mobility guide supporting car-free, rental and outdoor content" },
   { slug: "day-trips-from-menton", ignore: ["places"], reason: "route-style hub; place coverage lives in supporting day-trip articles and sections" },
   { slug: "famous-paintings-of-menton", ignore: ["cluster"], reason: "standalone art and visual-culture guide supporting photo, old-town and museum content" },
   { slug: "halles-du-marche-menton", ignore: ["cluster"], reason: "focused market guide supporting food, itinerary and practical-stay content" },

@@ -66,6 +66,7 @@ const categories: UsefulPlaceMapCategory[] = [
   category("theatres", ["theatre"], "Theatres", "Theatres", "Teatri", "Театри"),
   category("gardens", ["garden"], "Gardens", "Jardins", "Giardini", "Сади"),
   category("viewpoints", ["viewpoint"], "Viewpoints", "Points de vue", "Panorami", "Оглядові місця"),
+  category("cycling", ["bike-shop", "cycle-route"], "Cycling", "Velo", "Bici", "Велосипеди"),
   category("ports", ["port"], "Ports", "Ports", "Porti", "Порти"),
   category("golf", ["golf-course"], "Golf", "Golf", "Golf", "Гольф"),
   category("ski", ["ski-resort"], "Ski", "Ski", "Sci", "Лижі"),
@@ -75,7 +76,7 @@ const categories: UsefulPlaceMapCategory[] = [
   category("playgrounds", ["playground"], "Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики"),
   category("family-activities", ["family-activity"], "Activities", "Activites", "Attivita", "Активності"),
   category("shopping", ["shopping-centre"], "Shopping", "Shopping", "Shopping", "Шопінг"),
-  category("services", ["tourist-office", "station", "car-rental", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
+  category("services", ["tourist-office", "station", "car-rental", "bike-shop", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
 ];
 
 function category(id: string, placeTypes: PlaceType[], en: string, fr: string, it: string, uk: string): UsefulPlaceMapCategory {
