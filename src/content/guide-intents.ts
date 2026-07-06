@@ -162,8 +162,8 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "Супермаркети, корисні застосунки, екстрені контакти й локальна логістика.",
     ),
     canonicalGuideSlug: "useful-apps-websites-menton-monaco-italian-riviera",
-    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport"],
-    relatedPlaceIds: ["halles-du-marche", "u-express-menton-centre", "office-tourisme-menton-riviera-merveilles", "centre-hospitalier-la-palmosa-menton", "commissariat-police-menton"],
+    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "best-souvenir-shops-menton-monaco-nice", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "au-pays-du-citron-menton", "u-express-menton-centre", "office-tourisme-menton-riviera-merveilles", "centre-hospitalier-la-palmosa-menton", "commissariat-police-menton"],
     relatedApartmentKeys: allApartments,
   },
 ];
