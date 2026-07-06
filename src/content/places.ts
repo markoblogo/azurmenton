@@ -3926,6 +3926,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Koaland in Menton", "Illustration de Koaland a Menton", "Illustrazione di Koaland a Mentone", "Ілюстрація Koaland у Ментоні"),
     visualTheme: "family",
   },
+  "skatepark-youri-laleg-menton": {
+    image: "/images/guide/skatepark-youri-laleg-menton.jpg",
+    imageAlt: text("Illustration of Skatepark Youri Laleg / Skatepark Garavan in Menton", "Illustration du Skatepark Youri Laleg / Skatepark Garavan a Menton", "Illustrazione dello Skatepark Youri Laleg / Skatepark Garavan a Mentone", "Ілюстрація Skatepark Youri Laleg / Skatepark Garavan у Ментоні"),
+    visualTheme: "family",
+  },
+  "monaco-skatepark": {
+    image: "/images/guide/monaco-skatepark.jpg",
+    imageAlt: text("Illustration of Monaco Skatepark", "Illustration du Monaco Skatepark", "Illustrazione del Monaco Skatepark", "Ілюстрація Monaco Skatepark"),
+    visualTheme: "family",
+  },
+  "skate-park-comte-de-falicon-nice": {
+    image: "/images/guide/skate-park-comte-de-falicon-nice.jpg",
+    imageAlt: text("Illustration of Skate Park Comte de Falicon in Nice", "Illustration du Skate Park Comte de Falicon a Nice", "Illustrazione dello Skate Park Comte de Falicon a Nizza", "Ілюстрація Skate Park Comte de Falicon у Ніцці"),
+    visualTheme: "family",
+  },
+  "skatepark-jean-bouin-nice": {
+    image: "/images/guide/skatepark-jean-bouin-nice.jpg",
+    imageAlt: text("Illustration of Skatepark Jean Bouin in Nice", "Illustration du Skatepark Jean Bouin a Nice", "Illustrazione dello Skatepark Jean Bouin a Nizza", "Ілюстрація Skatepark Jean Bouin у Ніцці"),
+    visualTheme: "family",
+  },
+  "city-park-tende": {
+    image: "/images/guide/city-park-tende.jpg",
+    imageAlt: text("Illustration of City Park Tende", "Illustration du City Park Tende", "Illustrazione del City Park Tende", "Ілюстрація City Park Tende"),
+    visualTheme: "family",
+  },
   "cap3000-saint-laurent-du-var": {
     image: "/images/guide/cap3000-saint-laurent-du-var.jpg",
     imageAlt: text("Illustration of CAP3000 in Saint-Laurent-du-Var", "Illustration de CAP3000 a Saint-Laurent-du-Var", "Illustrazione di CAP3000 a Saint-Laurent-du-Var", "Ілюстрація CAP3000 у Saint-Laurent-du-Var"),
