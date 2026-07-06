@@ -145,6 +145,8 @@ Photography lives under `public/images/apartments/` and selected homepage images
 
 Place cards support local imagery, Google Maps links, official programme/source links where useful, related guide links and full-image lightbox previews. Do not scrape Google Maps photos, hotlink third-party images, invent ratings or publish unverified opening hours.
 
+`/[locale]/guide` is the main guide portal, not only a reverse-chronological article list. It combines a seasonal editorial selection, dynamic planning summary counts, trip-style entry cards, the guide finder, compact intent clusters, a useful-places map preview, transport helper links and apartment recommendations. Keep this page compact and booking-aware when adding new guide features.
+
 Guide intent clusters in `src/content/guide-intents.ts` group existing articles around search intents such as family stays, car-free stays, beachfront stays, day trips, summer heat and practical errands. Keep cluster guide slugs, place ids and apartment keys synchronized with the article content graph.
 
 `/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources.
