@@ -2700,6 +2700,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "fete-du-citron-menton-practical-guide",
+      "tennis-padel-courts-menton",
       "skateparks-near-menton",
       "best-ice-cream-menton",
       "best-beaches-in-menton",
@@ -3982,6 +3983,8 @@ export const guideArticles: GuideArticle[] = [
       "useful-numbers-emergency-contacts-menton",
       "stay-cool-in-menton-summer",
       "supermarkets-in-menton",
+      "best-souvenir-shops-menton-monaco-nice",
+      "tennis-padel-courts-menton",
       "michelin-restaurants-menton-nice-monaco",
       "cinemas-in-menton-nice-monaco",
       "museums-in-menton-nice-monaco",
@@ -4364,7 +4367,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "garavan", "seafront", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["r-bike-menton", "bike-trip-atelier-velo-riviera", "sport-21-cycles", "pony-menton", "menton-cycle-path", "promenade-reine-astrid", "pont-saint-ludovic", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "col-de-la-madone", "sospel-bevera-valley", "tende", "la-brigue"],
-    relatedArticles: ["menton-without-a-car", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "italian-riviera-day-trip-from-menton", "best-beaches-in-menton", "golf-near-menton", "where-to-stay-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
+    relatedArticles: ["tennis-padel-courts-menton", "menton-without-a-car", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "italian-riviera-day-trip-from-menton", "best-beaches-in-menton", "golf-near-menton", "where-to-stay-in-menton", "useful-apps-websites-menton-monaco-italian-riviera"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4470,7 +4473,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "garavan", "monaco", "nice"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["skatepark-youri-laleg-menton", "rondelli-garavan-side", "plage-rondelli", "port-de-garavan", "monaco-skatepark", "oceanographic-museum-monaco", "skate-park-comte-de-falicon-nice", "skatepark-jean-bouin-nice", "city-park-tende", "tende"],
-    relatedArticles: ["cycling-bike-rental-menton", "menton-with-kids-family-guide", "day-trips-from-menton", "menton-without-a-car", "best-beaches-in-menton", "mountains-snow-skiing-near-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-with-kids-family-guide", "day-trips-from-menton", "menton-without-a-car", "best-beaches-in-menton", "mountains-snow-skiing-near-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4560,7 +4563,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "nice", "monaco", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton", "nice-airport-car-rental-center", "sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "nice-cote-dazur-airport", "menton-station", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "eze-village", "monaco-monte-carlo", "monte-carlo-golf-club"],
-    relatedArticles: ["cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4757,7 +4760,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4850,7 +4853,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
@@ -5046,7 +5049,7 @@ export const guideArticles: GuideArticle[] = [
       "monaco-mini-golf-parc-princesse-antoinette",
       "parc-princesse-antoinette-monaco",
     ],
-    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "day-trips-from-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "menton-with-kids-family-guide", "wine-tasting-near-menton", "where-to-stay-in-menton", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -5124,6 +5127,127 @@ export const guideArticles: GuideArticle[] = [
       t("Book tee times in advance; nearby golf courses are not casual walk-up tourist activities.", "Reservez les departs a l'avance; les parcours proches ne sont pas des activites touristiques improvisees.", "Prenota tee time in anticipo; i campi vicini non sono attivita turistiche improvvisate.", "Бронюйте tee time завчасно; найближчі поля не є спонтанними туристичними активностями."),
       t("Check handicap rules, green fees, dress code and restaurant hours directly before going.", "Verifiez handicap, green fees, dress code et horaires de restaurant directement avant de partir.", "Controlla handicap, green fee, dress code e orari ristorante direttamente prima di andare.", "Перед виїздом напряму перевіряйте handicap, green fee, dress code і години ресторану."),
       t("For real golf, plan a car or taxi day; for family mini-golf, stay local in Menton.", "Pour le vrai golf, prevoyez voiture ou taxi; pour le mini-golf en famille, restez local a Menton.", "Per il golf vero pianifica auto o taxi; per mini-golf in famiglia resta locale a Mentone.", "Для справжнього гольфу плануйте авто або таксі; для сімейного міні-гольфу залишайтеся локально в Ментоні."),
+    ],
+  }),
+  shortArticle({
+    id: "tennis-padel-courts-menton",
+    slug: "tennis-padel-courts-menton",
+    title: t("Tennis and padel near Menton: where to play during your stay", "Tennis et padel pres de Menton : ou jouer pendant votre sejour", "Tennis e padel vicino a Mentone: dove giocare durante il soggiorno", "Теніс і падел біля Ментона: де пограти під час перебування"),
+    seoTitle: t("Tennis and Padel Near Menton: Courts, Clubs and Booking Tips", "Tennis et padel pres de Menton : courts, clubs et conseils de reservation", "Tennis e padel vicino a Mentone: campi, club e consigli di prenotazione", "Теніс і падел біля Ментона: корти, клуби та поради з бронювання"),
+    seoDescription: t("A practical guide to tennis and padel near Menton: local tennis courts in Menton, the municipal La Madone tennis and padel site, Roquebrune-Cap-Martin clay courts, Tennis Padel Soleil near Monaco and booking tips for visitors.", "Guide pratique du tennis et du padel pres de Menton : courts locaux, site municipal de La Madone, terre battue a Roquebrune-Cap-Martin, Tennis Padel Soleil pres de Monaco et conseils de reservation.", "Guida pratica a tennis e padel vicino a Mentone: campi locali, Tennis Municipal de la Madone, campi in terra a Roquebrune-Cap-Martin, Tennis Padel Soleil vicino a Monaco e consigli per prenotare.", "Практичний гід з тенісу й паделу біля Ментона: локальні корти, Tennis Municipal de la Madone, ґрунтові корти Roquebrune-Cap-Martin, Tennis Padel Soleil біля Монако та поради з бронювання."),
+    excerpt: t("If you play tennis or padel, Menton is a useful base: tennis in town, municipal padel at La Madone, clay courts in Roquebrune-Cap-Martin and larger tennis-padel clubs near Monaco.", "Si vous jouez au tennis ou au padel, Menton est une base pratique : tennis en ville, padel municipal a La Madone, terre battue a Roquebrune-Cap-Martin et grands clubs pres de Monaco.", "Se giochi a tennis o padel, Mentone e una base pratica: tennis in citta, padel comunale a La Madone, terra battuta a Roquebrune-Cap-Martin e club piu grandi vicino a Monaco.", "Якщо ви граєте в теніс або падел, Ментон зручна база: теніс у місті, муніципальний падел у La Madone, ґрунтові корти в Roquebrune-Cap-Martin і більші клуби біля Монако."),
+    category: "practical",
+    coverImage: "/images/guide/tennis-padel-courts-menton.jpg",
+    coverImageAlt: t("Tennis and padel courts near Menton", "Courts de tennis et padel pres de Menton", "Campi da tennis e padel vicino a Mentone", "Тенісні та падел-корти біля Ментона"),
+    visualTheme: "family",
+    visualStatus: "project_illustration",
+    tags: [
+      t("tennis", "tennis", "tennis", "теніс"),
+      t("padel", "padel", "padel", "падел"),
+      t("sport", "sport", "sport", "спорт"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("families", "familles", "famiglie", "сім'ї"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "monaco", "seafront"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "tennis-club-de-menton",
+      "tennis-municipal-la-madone",
+      "tennis-club-roquebrune-cap-martin",
+      "tennis-padel-soleil-beausoleil",
+      "tennis-padel-soleil-la-turbie",
+      "monte-carlo-country-club",
+      "roquebrune-cap-martin",
+      "la-turbie",
+      "monaco-monte-carlo",
+    ],
+    relatedArticles: ["golf-near-menton", "cycling-bike-rental-menton", "skateparks-near-menton", "menton-with-kids-family-guide", "monaco-events-from-menton", "menton-without-a-car", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedEvents: ["rolex-monte-carlo-masters"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Can you play tennis or padel in Menton?", "Peut-on jouer au tennis ou au padel a Menton ?", "Si puo giocare a tennis o padel a Mentone?", "Чи можна грати в теніс або падел у Ментоні?"),
+        body: [
+          t("Yes. Menton is not only beaches, gardens and old-town walks. It also has practical options for visitors who want to keep playing tennis or padel during a holiday.", "Oui. Menton n'est pas seulement plages, jardins et vieille ville. Il existe aussi des options pratiques pour continuer a jouer au tennis ou au padel pendant les vacances.", "Si. Mentone non e solo spiagge, giardini e centro storico. Ci sono anche opzioni pratiche per continuare a giocare a tennis o padel durante la vacanza.", "Так. Ментон - це не лише пляжі, сади й старе місто. Тут є практичні варіанти для гостей, які хочуть грати в теніс або падел під час відпочинку."),
+          t("For tennis, start with Tennis Club de Menton. For padel inside Menton, check Tennis Municipal de la Madone first. For a larger tennis and padel setup, look at Tennis Padel Soleil near Monaco.", "Pour le tennis, commencez par le Tennis Club de Menton. Pour le padel dans Menton, verifiez d'abord Tennis Municipal de la Madone. Pour une structure tennis-padel plus complete, regardez Tennis Padel Soleil pres de Monaco.", "Per il tennis, inizia dal Tennis Club de Menton. Per il padel dentro Mentone, controlla prima Tennis Municipal de la Madone. Per una struttura piu completa, guarda Tennis Padel Soleil vicino a Monaco.", "Для тенісу почніть із Tennis Club de Menton. Для паделу в Ментоні спершу перевірте Tennis Municipal de la Madone. Для більшого tennis/padel комплексу дивіться Tennis Padel Soleil біля Монако."),
+        ],
+        relatedPlaceIds: ["tennis-club-de-menton", "tennis-municipal-la-madone", "tennis-padel-soleil-beausoleil"],
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Короткі рекомендації"),
+        body: [
+          t("Choose Tennis Club de Menton for classic tennis in town, La Madone for the first padel check inside Menton, Roquebrune-Cap-Martin for nearby clay courts, Tennis Padel Soleil for a stronger padel setup, and Monte-Carlo Country Club as a special tennis outing.", "Choisissez Tennis Club de Menton pour le tennis classique en ville, La Madone pour verifier le padel dans Menton, Roquebrune-Cap-Martin pour la terre battue proche, Tennis Padel Soleil pour un padel plus complet, et Monte-Carlo Country Club comme sortie tennis speciale.", "Scegli Tennis Club de Menton per il tennis classico in citta, La Madone per il primo controllo padel in Mentone, Roquebrune-Cap-Martin per la terra vicina, Tennis Padel Soleil per un padel piu completo e Monte-Carlo Country Club come uscita speciale.", "Обирайте Tennis Club de Menton для класичного тенісу в місті, La Madone для першої перевірки паделу в Ментоні, Roquebrune-Cap-Martin для ґрунтових кортів поруч, Tennis Padel Soleil для сильнішого паделу, а Monte-Carlo Country Club як особливий тенісний виїзд."),
+        ],
+        bullets: [
+          t("Without a car: start in Menton before planning Monaco-side clubs.", "Sans voiture : commencez a Menton avant les clubs cote Monaco.", "Senza auto: inizia a Mentone prima dei club lato Monaco.", "Без авто: починайте в Ментоні перед клубами в бік Монако."),
+          t("With children or teenagers: ask directly about lessons, junior sessions and rental equipment.", "Avec enfants ou ados : demandez directement cours, sessions juniors et location de materiel.", "Con bambini o ragazzi: chiedi direttamente lezioni, sessioni junior e noleggio attrezzatura.", "З дітьми або підлітками: напряму уточнюйте уроки, junior sessions і оренду спорядження."),
+          t("In summer: prefer morning or evening slots.", "En ete : preferez matin ou soiree.", "In estate: preferisci mattina o sera.", "Влітку: обирайте ранок або вечір."),
+        ],
+      },
+      {
+        heading: t("Tennis Club de Menton", "Tennis Club de Menton", "Tennis Club de Menton", "Tennis Club de Menton"),
+        body: [
+          t("Tennis Club de Menton is the main local tennis reference: a clay-court club in town at 16 rue Albert 1er. It is the most natural first stop if you are staying in Menton and want proper tennis without turning the day into a transfer.", "Tennis Club de Menton est la reference locale principale : un club sur terre battue en ville, 16 rue Albert 1er. C'est le premier choix naturel si vous logez a Menton et voulez jouer sans transformer la journee en trajet.", "Tennis Club de Menton e il riferimento locale principale: club su terra in citta, 16 rue Albert 1er. E la prima scelta naturale se soggiorni a Mentone e vuoi giocare senza trasformare il giorno in trasferimento.", "Tennis Club de Menton - головна локальна тенісна точка: клуб із ґрунтовими кортами в місті, 16 rue Albert 1er. Це найприродніший перший вибір, якщо ви живете в Ментоні й хочете пограти без окремого трансферу."),
+          t("Contact the club before going. Ask about visitor access, hourly court rental, racket rental, balls, dress code, payment and whether non-members can book the day you want.", "Contactez le club avant d'y aller. Demandez acces visiteurs, location horaire, location de raquettes, balles, dress code, paiement et possibilite de reserver sans etre membre.", "Contatta il club prima di andare. Chiedi accesso visitatori, affitto orario, noleggio racchette, palline, dress code, pagamento e prenotazione per non soci.", "Зв'яжіться з клубом перед візитом. Уточніть доступ для гостей, погодинну оренду корту, ракетки, м'ячі, dress code, оплату й бронювання для не-членів."),
+        ],
+        relatedPlaceIds: ["tennis-club-de-menton"],
+        relatedApartmentKeys: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
+      },
+      {
+        heading: t("Padel inside Menton: La Madone", "Padel a Menton : La Madone", "Padel a Mentone: La Madone", "Падел у Ментоні: La Madone"),
+        body: [
+          t("Tennis Municipal de la Madone is the first local place to check for padel because the official tourism listing describes a municipal tennis site with several courts including a padel tennis court.", "Tennis Municipal de la Madone est le premier endroit local a verifier pour le padel, car la fiche officielle indique plusieurs courts dont un court de padel tennis.", "Tennis Municipal de la Madone e il primo posto locale da controllare per il padel, perche la scheda ufficiale indica vari campi incluso un campo da padel tennis.", "Tennis Municipal de la Madone - перше локальне місце для перевірки паделу, бо офіційний опис згадує кілька кортів, включно з padel tennis court."),
+          t("Call ahead for booking rules, visitor access, equipment rental and evening availability. Padel courts can fill quickly at popular times.", "Appelez avant pour les regles de reservation, acces visiteurs, location de materiel et disponibilite en soiree. Les courts de padel peuvent se remplir vite.", "Chiama prima per regole di prenotazione, accesso visitatori, noleggio attrezzatura e disponibilita serale. I campi da padel si riempiono rapidamente.", "Зателефонуйте заздалегідь щодо правил бронювання, доступу для гостей, оренди спорядження й вечірніх слотів. Падел-корти швидко заповнюються."),
+        ],
+        relatedPlaceIds: ["tennis-municipal-la-madone"],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio"],
+      },
+      {
+        heading: t("Roquebrune, Tennis Padel Soleil and Monte-Carlo Country Club", "Roquebrune, Tennis Padel Soleil et Monte-Carlo Country Club", "Roquebrune, Tennis Padel Soleil e Monte-Carlo Country Club", "Roquebrune, Tennis Padel Soleil і Monte-Carlo Country Club"),
+        body: [
+          t("Roquebrune-Cap-Martin is the closest Monaco-side neighbour of Menton. Tennis Club de Roquebrune-Cap-Martin is useful for clay courts and a short tennis outing when Menton courts are full.", "Roquebrune-Cap-Martin est le voisin cote Monaco le plus proche de Menton. Tennis Club de Roquebrune-Cap-Martin est utile pour la terre battue et une courte sortie tennis si Menton est complet.", "Roquebrune-Cap-Martin e il vicino lato Monaco piu vicino a Mentone. Tennis Club de Roquebrune-Cap-Martin e utile per terra battuta e una breve uscita se Mentone e piena.", "Roquebrune-Cap-Martin - найближчий сусід Ментона в бік Монако. Tennis Club de Roquebrune-Cap-Martin корисний для ґрунтових кортів і короткого виїзду, якщо в Ментоні немає місць."),
+          t("For stronger padel facilities, Tennis Padel Soleil near Monaco is the clearest nearby option. La Turbie is more scenic and works best with a car-based day. Monte-Carlo Country Club is iconic, but verify access, rules and dress code before planning around it.", "Pour un padel plus complet, Tennis Padel Soleil pres de Monaco est l'option proche la plus claire. La Turbie est plus panoramique et convient mieux avec une voiture. Monte-Carlo Country Club est iconique, mais verifiez acces, regles et tenue avant de planifier.", "Per strutture padel piu complete, Tennis Padel Soleil vicino a Monaco e l'opzione piu chiara. La Turbie e piu panoramica e funziona meglio con l'auto. Monte-Carlo Country Club e iconico, ma verifica accesso, regole e dress code.", "Для сильнішої падел-інфраструктури Tennis Padel Soleil біля Монако - найочевидніший варіант. La Turbie більш мальовнича й краще працює з авто. Monte-Carlo Country Club знаковий, але перевіряйте доступ, правила й dress code."),
+        ],
+        relatedPlaceIds: ["tennis-club-roquebrune-cap-martin", "roquebrune-cap-martin", "tennis-padel-soleil-beausoleil", "tennis-padel-soleil-la-turbie", "la-turbie", "monte-carlo-country-club", "monaco-monte-carlo"],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio"],
+      },
+      {
+        heading: t("What to bring and how to book", "Quoi apporter et comment reserver", "Cosa portare e come prenotare", "Що взяти й як бронювати"),
+        body: [
+          t("For tennis, bring racket, tennis shoes, water, cap, sunscreen, towel, balls and clay-court shoes if you are playing on clay. For padel, bring a padel racket unless renting, padel balls, non-marking sports shoes, water and a towel.", "Pour le tennis, prenez raquette, chaussures, eau, casquette, creme solaire, serviette, balles et chaussures terre battue si besoin. Pour le padel, prenez raquette de padel sauf location, balles, chaussures non marquantes, eau et serviette.", "Per tennis porta racchetta, scarpe, acqua, cappello, crema, asciugamano, palline e scarpe da terra se serve. Per padel porta racchetta salvo noleggio, palline, scarpe non-marking, acqua e asciugamano.", "Для тенісу беріть ракетку, взуття, воду, кепку, сонцезахист, рушник, м'ячі й взуття для ґрунту за потреби. Для паделу - ракетку або оренду, м'ячі, non-marking shoes, воду й рушник."),
+          t("Always call or book before going. Ask whether non-members can book, what the hourly price is, whether rackets and balls are available, whether cards are accepted, whether shoes are required and whether evening play is possible.", "Appelez ou reservez toujours avant. Demandez si les non-membres peuvent reserver, le prix horaire, location de raquettes et balles, paiement carte, chaussures obligatoires et jeu en soiree.", "Chiama o prenota sempre prima. Chiedi se i non soci possono prenotare, prezzo orario, noleggio racchette e palline, pagamento carta, scarpe richieste e gioco serale.", "Завжди телефонуйте або бронюйте заздалегідь. Уточнюйте, чи можуть бронювати не-члени, погодинну ціну, ракетки й м'ячі, оплату карткою, вимоги до взуття й вечірню гру."),
+        ],
+      },
+      {
+        heading: t("Suggested tennis and padel plans", "Idees de plans tennis et padel", "Idee per tennis e padel", "Ідеї для тенісу й паделу"),
+        body: [
+          t("Easy tennis morning: book Tennis Club de Menton, play early, then return for the beach, market or lunch. Local padel session: check La Madone first, then Tennis Padel Soleil if it is full or equipment is an issue.", "Matinee tennis facile : reservez Tennis Club de Menton, jouez tot, puis revenez plage, marche ou dejeuner. Session padel locale : verifiez La Madone d'abord, puis Tennis Padel Soleil si c'est complet ou si le materiel manque.", "Mattina tennis facile: prenota Tennis Club de Menton, gioca presto, poi torna per spiaggia, mercato o pranzo. Sessione padel locale: controlla prima La Madone, poi Tennis Padel Soleil se e pieno o manca attrezzatura.", "Легкий тенісний ранок: забронюйте Tennis Club de Menton, зіграйте рано, потім поверніться до пляжу, ринку або обіду. Локальна сесія паделу: спершу La Madone, потім Tennis Padel Soleil, якщо зайнято або потрібне спорядження."),
+          t("Padel evening near Monaco: book Tennis Padel Soleil, play in the evening, then have dinner nearby or return to Menton. Tennis with sea-view atmosphere: check Roquebrune-Cap-Martin or Monte-Carlo Country Club depending on access and budget.", "Soiree padel pres de Monaco : reservez Tennis Padel Soleil, jouez le soir, puis dinez proche ou revenez a Menton. Tennis avec ambiance vue mer : verifiez Roquebrune-Cap-Martin ou Monte-Carlo Country Club selon acces et budget.", "Serata padel vicino a Monaco: prenota Tennis Padel Soleil, gioca la sera, poi cena vicino o rientra a Mentone. Tennis con atmosfera vista mare: controlla Roquebrune-Cap-Martin o Monte-Carlo Country Club secondo accesso e budget.", "Вечірній падел біля Монако: забронюйте Tennis Padel Soleil, зіграйте ввечері, потім вечеря поруч або повернення в Ментон. Теніс із видом на море: перевірте Roquebrune-Cap-Martin або Monte-Carlo Country Club залежно від доступу й бюджету."),
+        ],
+        relatedPlaceIds: ["tennis-club-de-menton", "tennis-municipal-la-madone", "tennis-padel-soleil-beausoleil", "monte-carlo-country-club"],
+      },
+      {
+        heading: t("Staying in Menton as a tennis or padel player", "Sejourner a Menton comme joueur de tennis ou padel", "Soggiornare a Mentone da giocatore di tennis o padel", "Жити в Ментоні як гравець у теніс або падел"),
+        body: [
+          t("Menton works well because sport does not have to become the whole trip. You can play in the morning, return to the apartment, swim, take the train to Monaco or walk through the old town in the evening.", "Menton fonctionne bien car le sport ne doit pas devenir tout le voyage. Vous pouvez jouer le matin, revenir a l'appartement, vous baigner, prendre le train vers Monaco ou marcher dans la vieille ville le soir.", "Mentone funziona bene perche lo sport non deve diventare tutto il viaggio. Puoi giocare al mattino, tornare in appartamento, nuotare, prendere il treno per Monaco o camminare nel centro storico la sera.", "Ментон зручний тим, що спорт не мусить ставати всією поїздкою. Можна зіграти зранку, повернутися в апартамент, поплавати, поїхати потягом у Монако або гуляти старим містом увечері."),
+          t("Sea View Balcony Studio suits couples adding one or two tennis sessions. Beachside Apartment with Terrace & Parking is most practical for families or car-based trips to Roquebrune, La Turbie or Tennis Padel Soleil. Panoramic Sea View Studio suits shorter stays where tennis or padel is one optional activity.", "Sea View Balcony Studio convient aux couples qui ajoutent une ou deux sessions. Beachside Apartment with Terrace & Parking est le plus pratique pour familles ou sorties en voiture vers Roquebrune, La Turbie ou Tennis Padel Soleil. Panoramic Sea View Studio convient aux courts sejours ou le tennis/padel reste optionnel.", "Sea View Balcony Studio va bene per coppie con una o due sessioni. Beachside Apartment with Terrace & Parking e piu pratico per famiglie o uscite in auto verso Roquebrune, La Turbie o Tennis Padel Soleil. Panoramic Sea View Studio va bene per soggiorni brevi dove tennis/padel e opzionale.", "Sea View Balcony Studio підходить парам із однією-двома сесіями. Beachside Apartment with Terrace & Parking найпрактичніший для сімей або поїздок авто до Roquebrune, La Turbie чи Tennis Padel Soleil. Panoramic Sea View Studio підходить для коротших поїздок, де теніс або падел - опція."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("FAQ", "FAQ", "FAQ", "FAQ"),
+        body: [
+          t("Is there a tennis club in Menton? Yes. Tennis Club de Menton is the main local tennis club. Can I play padel in Menton? Check Tennis Municipal de la Madone first, then Tennis Padel Soleil near Monaco for a larger setup.", "Y a-t-il un club de tennis a Menton ? Oui, Tennis Club de Menton est le principal club local. Peut-on jouer au padel a Menton ? Verifiez d'abord Tennis Municipal de la Madone, puis Tennis Padel Soleil pres de Monaco pour une structure plus grande.", "C'e un tennis club a Mentone? Si, Tennis Club de Menton e il principale club locale. Posso giocare a padel a Mentone? Controlla prima Tennis Municipal de la Madone, poi Tennis Padel Soleil vicino a Monaco.", "Чи є тенісний клуб у Ментоні? Так, Tennis Club de Menton - головний локальний клуб. Чи можна грати в падел у Ментоні? Спершу перевірте Tennis Municipal de la Madone, потім Tennis Padel Soleil біля Монако."),
+          t("Which option is easiest without a car? Start with Tennis Club de Menton or La Madone. For Roquebrune, La Turbie and Monte-Carlo Country Club, plan transport carefully.", "Quelle option est la plus simple sans voiture ? Commencez par Tennis Club de Menton ou La Madone. Pour Roquebrune, La Turbie et Monte-Carlo Country Club, planifiez le transport avec soin.", "Quale opzione e piu facile senza auto? Inizia da Tennis Club de Menton o La Madone. Per Roquebrune, La Turbie e Monte-Carlo Country Club pianifica bene il trasporto.", "Що найпростіше без авто? Починайте з Tennis Club de Menton або La Madone. Для Roquebrune, La Turbie й Monte-Carlo Country Club уважно плануйте транспорт."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Call or book before going; visitor access and prices can change by season.", "Appelez ou reservez avant; acces visiteurs et prix peuvent changer selon la saison.", "Chiama o prenota prima; accesso visitatori e prezzi possono cambiare per stagione.", "Телефонуйте або бронюйте заздалегідь; доступ і ціни можуть змінюватися за сезоном."),
+      t("Ask about racket rental, balls, shoes, payment and whether non-members can book.", "Demandez location de raquettes, balles, chaussures, paiement et reservation non-membres.", "Chiedi noleggio racchette, palline, scarpe, pagamento e prenotazione non soci.", "Уточнюйте оренду ракеток, м'ячі, взуття, оплату й бронювання для не-членів."),
+      t("In July and August, choose morning or evening court times when possible.", "En juillet et aout, choisissez matin ou soiree si possible.", "In luglio e agosto scegli mattina o sera se possibile.", "У липні й серпні за можливості обирайте ранкові або вечірні слоти."),
     ],
   }),
   shortArticle({
