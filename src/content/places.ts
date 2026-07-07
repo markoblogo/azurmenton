@@ -3334,6 +3334,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Office de Tourisme Menton, Riviera & Merveilles", "Illustration de l'Office de Tourisme Menton, Riviera & Merveilles", "Illustrazione dell'Office de Tourisme Menton, Riviera & Merveilles", "Ілюстрація Office de Tourisme Menton, Riviera & Merveilles"),
     visualTheme: "transport",
   },
+  "tennis-club-de-menton": {
+    image: "/images/guide/tennis-club-de-menton.jpg",
+    imageAlt: text("Illustration of Tennis Club de Menton", "Illustration du Tennis Club de Menton", "Illustrazione del Tennis Club de Menton", "Ілюстрація Tennis Club de Menton"),
+    visualTheme: "family",
+  },
+  "tennis-municipal-la-madone": {
+    image: "/images/guide/tennis-municipal-la-madone.jpg",
+    imageAlt: text("Illustration of Tennis Municipal de la Madone", "Illustration du Tennis Municipal de la Madone", "Illustrazione del Tennis Municipal de la Madone", "Ілюстрація Tennis Municipal de la Madone"),
+    visualTheme: "family",
+  },
+  "tennis-club-roquebrune-cap-martin": {
+    image: "/images/guide/tennis-club-roquebrune-cap-martin.jpg",
+    imageAlt: text("Illustration of Tennis Club de Roquebrune-Cap-Martin", "Illustration du Tennis Club de Roquebrune-Cap-Martin", "Illustrazione del Tennis Club de Roquebrune-Cap-Martin", "Ілюстрація Tennis Club de Roquebrune-Cap-Martin"),
+    visualTheme: "family",
+  },
+  "tennis-padel-soleil-beausoleil": {
+    image: "/images/guide/tennis-padel-soleil-beausoleil.jpg",
+    imageAlt: text("Illustration of Tennis Padel Soleil near Monaco", "Illustration de Tennis Padel Soleil pres de Monaco", "Illustrazione di Tennis Padel Soleil vicino a Monaco", "Ілюстрація Tennis Padel Soleil біля Монако"),
+    visualTheme: "family",
+  },
+  "tennis-padel-soleil-la-turbie": {
+    image: "/images/guide/tennis-padel-soleil-la-turbie.jpg",
+    imageAlt: text("Illustration of Tennis Padel Soleil La Turbie", "Illustration de Tennis Padel Soleil La Turbie", "Illustrazione di Tennis Padel Soleil La Turbie", "Ілюстрація Tennis Padel Soleil La Turbie"),
+    visualTheme: "family",
+  },
+  "monte-carlo-country-club": {
+    image: "/images/guide/monte-carlo-country-club.jpg",
+    imageAlt: text("Illustration of Monte-Carlo Country Club", "Illustration du Monte-Carlo Country Club", "Illustrazione del Monte-Carlo Country Club", "Ілюстрація Monte-Carlo Country Club"),
+    visualTheme: "family",
+  },
+  "roquebrune-cap-martin": {
+    image: "/images/guide/roquebrune-cap-martin.jpg",
+    imageAlt: text("Illustration of Roquebrune-Cap-Martin", "Illustration de Roquebrune-Cap-Martin", "Illustrazione di Roquebrune-Cap-Martin", "Ілюстрація Roquebrune-Cap-Martin"),
+    visualTheme: "old-town",
+  },
+  "la-turbie": {
+    image: "/images/guide/la-turbie.jpg",
+    imageAlt: text("Illustration of La Turbie", "Illustration de La Turbie", "Illustrazione di La Turbie", "Ілюстрація La Turbie"),
+    visualTheme: "viewpoint",
+  },
   "rue-saint-michel-menton": {
     image: "/images/guide/rue-saint-michel-menton.jpg",
     imageAlt: text("Illustration of Rue Saint-Michel in Menton", "Illustration de la rue Saint-Michel a Menton", "Illustrazione di Rue Saint-Michel a Mentone", "Ілюстрація Rue Saint-Michel у Ментоні"),
