@@ -178,6 +178,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "famous-paintings-of-menton", ignore: ["cluster"], reason: "standalone art and visual-culture guide supporting photo, old-town and museum content" },
   { slug: "halles-du-marche-menton", ignore: ["cluster"], reason: "focused market guide supporting food, itinerary and practical-stay content" },
   { slug: "how-to-get-to-menton-from-nice-airport", ignore: ["places"], reason: "transport reference guide; links are route and planning oriented" },
+  { slug: "latin-dancing-salsa-bachata-menton", ignore: ["cluster"], reason: "standalone evening dance guide linked through nightlife, Monaco, transport and Italian Riviera content" },
   { slug: "local-food-menton", ignore: ["cluster"], reason: "standalone food guide supporting market, restaurant and itinerary content" },
   { slug: "menton-one-day-itinerary", ignore: ["cluster"], reason: "standalone itinerary guide rather than a search-intent cluster entry" },
   { slug: "michelin-restaurants-menton-nice-monaco", ignore: ["cluster"], reason: "standalone restaurant guide supporting food, day-trip and evening content" },

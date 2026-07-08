@@ -1371,7 +1371,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "1-2 hours",
     locationTags: ["old-town", "seafront", "garavan"],
     relatedPlaces: ["rampes-saint-michel", "plage-sablettes", "port-de-garavan", "cimetiere-vieux-chateau", "promenade-du-soleil", "med-rooftop"],
-    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton", "latin-dancing-salsa-bachata-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1464,7 +1464,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "evening",
     locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["casinos-near-menton", "theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1580,6 +1580,93 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "latin-dancing-salsa-bachata-menton",
+    slug: "latin-dancing-salsa-bachata-menton",
+    title: t("Latin dancing near Menton: salsa, bachata and kizomba nights", "Danse latine pres de Menton : soirees salsa, bachata et kizomba", "Balli latini vicino a Mentone: serate salsa, bachata e kizomba", "Латиноамериканські танці біля Ментона: salsa, bachata та kizomba"),
+    seoTitle: t("Latin Dancing Near Menton: Salsa, Bachata and Kizomba Nights", "Danse latine pres de Menton : salsa, bachata et kizomba", "Balli latini vicino a Mentone: salsa, bachata e kizomba", "Латиноамериканські танці біля Ментона: salsa, bachata та kizomba"),
+    seoDescription: t("A practical guide to Latin dancing near Menton: salsa, bachata and kizomba classes, SBK parties in Menton, Monaco dance events, Nice Latin nights and Sanremo AfroLatin congress tips.", "Guide pratique de la danse latine pres de Menton : cours salsa, bachata et kizomba, soirees SBK a Menton, evenements a Monaco, nuits latines a Nice et pistes Sanremo.", "Guida pratica ai balli latini vicino a Mentone: corsi di salsa, bachata e kizomba, serate SBK a Mentone, eventi a Monaco, notti latine a Nizza e idee Sanremo.", "Практичний гід з Latin dancing біля Ментона: заняття salsa, bachata та kizomba, SBK-вечори в Ментоні, події в Монако, латино-вечори в Ніцці та Sanremo."),
+    excerpt: t("Menton has a smaller Latin dance scene than Nice, but local classes, occasional SBK parties, Monaco event weekends and Riviera congresses can still make salsa, bachata or kizomba part of a stay.", "Menton a une scene latine plus petite que Nice, mais les cours locaux, soirees SBK ponctuelles, week-ends a Monaco et congres Riviera permettent quand meme d'ajouter salsa, bachata ou kizomba au sejour.", "Mentone ha una scena latina piu piccola di Nizza, ma corsi locali, serate SBK occasionali, weekend a Monaco e congressi Riviera possono comunque aggiungere salsa, bachata o kizomba al soggiorno.", "У Ментоні латино-сцена менша, ніж у Ніцці, але локальні заняття, окремі SBK-вечори, події в Монако та congress-вікенди Рив'єри можуть додати salsa, bachata або kizomba до подорожі."),
+    category: "nightlife-drinks",
+    coverImage: "/images/guide/latin-dancing-salsa-bachata-menton.jpg",
+    coverImageAlt: t("Latin dancing evening near Menton", "Soiree danse latine pres de Menton", "Serata di balli latini vicino a Mentone", "Латиноамериканський танцювальний вечір біля Ментона"),
+    visualTheme: "nightlife",
+    visualStatus: "project_illustration",
+    tags: [t("salsa", "salsa", "salsa", "salsa"), t("bachata", "bachata", "bachata", "bachata"), t("kizomba", "kizomba", "kizomba", "kizomba"), t("evening plans", "sorties du soir", "serate", "вечірні плани")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[6].label, guideBestForOptions[4].label],
+    duration: "evening",
+    locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["axess-dance-menton", "espace-gravity-menton", "studio-mroad-menton", "londa-restaurant-menton", "alls-stars-menton", "salle-henri-monin-gorbio", "espace-leo-ferre-monaco", "monaco-monte-carlo", "monaco-monte-carlo-station", "nice-palais-de-justice", "nice-old-town", "nice-ville-station", "sanremo", "grand-hotel-des-anglais-sanremo", "breil-sur-roya", "menton-station"],
+    relatedArticles: ["nightlife-in-menton", "monaco-events-from-menton", "theatre-opera-performing-arts-near-menton", "casinos-near-menton", "menton-without-a-car", "public-transport-in-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Can you dance salsa and bachata in Menton?", "Peut-on danser salsa et bachata a Menton ?", "Si puo ballare salsa e bachata a Mentone?", "Чи можна танцювати salsa і bachata в Ментоні?"),
+        body: [
+          t("Yes, but with realistic expectations. Menton is not a large Latin dance city, so you should not expect a guaranteed salsa club every night.", "Oui, mais avec des attentes realistes. Menton n'est pas une grande ville de danse latine : il ne faut pas attendre un club salsa garanti tous les soirs.", "Si, ma con aspettative realistiche. Mentone non e una grande citta di balli latini, quindi non aspettarti un club salsa garantito ogni sera.", "Так, але з реалістичними очікуваннями. Ментон не є великим містом Latin dance, тому не варто чекати гарантований salsa club щовечора."),
+          t("The useful rhythm is to check Menton first, Monaco if a special event overlaps with your dates, Nice for the strongest weekly scene, and Sanremo when a congress or Riviera dance weekend is running.", "Le bon reflexe : regarder d'abord Menton, Monaco si un evenement special tombe pendant votre sejour, Nice pour la scene hebdomadaire la plus forte, puis Sanremo lors d'un congres ou week-end danse Riviera.", "Il ritmo giusto e controllare prima Mentone, Monaco se c'e un evento speciale nelle tue date, Nizza per la scena settimanale piu forte e Sanremo quando c'e un congresso o weekend Riviera.", "Практичний підхід: спершу перевірити Ментон, Монако якщо є спеціальна подія, Ніццу для найсильнішої щотижневої сцени, і Sanremo під час congress або Riviera dance weekend."),
+          t("SBK usually means Salsa, Bachata and Kizomba. Some evenings may also include Cuban salsa, urban kiz, semba, kompa, merengue or reggaeton.", "SBK signifie generalement Salsa, Bachata et Kizomba. Certaines soirees ajoutent salsa cubaine, urban kiz, semba, kompa, merengue ou reggaeton.", "SBK di solito significa Salsa, Bachata e Kizomba. Alcune serate aggiungono salsa cubana, urban kiz, semba, kompa, merengue o reggaeton.", "SBK зазвичай означає Salsa, Bachata і Kizomba. Деякі вечори також додають Cuban salsa, urban kiz, semba, kompa, merengue або reggaeton."),
+        ],
+        relatedPlaceIds: ["axess-dance-menton", "alls-stars-menton"],
+      },
+      {
+        heading: t("Start with Axess Dance in Menton", "Commencer par Axess Dance a Menton", "Inizia da Axess Dance a Mentone", "Почніть з Axess Dance у Ментоні"),
+        body: [
+          t("Axess Dance is the clearest local starting point for salsa, bachata, kizomba and West Coast Swing in Menton. It is useful both for classes and for understanding what is happening locally during your stay.", "Axess Dance est le point de depart local le plus clair pour salsa, bachata, kizomba et West Coast Swing a Menton. C'est utile pour les cours et pour comprendre ce qui se passe pendant votre sejour.", "Axess Dance e il punto di partenza locale piu chiaro per salsa, bachata, kizomba e West Coast Swing a Mentone. E utile sia per i corsi sia per capire cosa succede durante il soggiorno.", "Axess Dance - найзрозуміліший локальний старт для salsa, bachata, kizomba та West Coast Swing у Ментоні. Це корисно і для занять, і для розуміння актуальних подій під час перебування."),
+          t("Their listed Menton venues include Espace Gravity, Studio M'Road and L'Onda Restaurant, with Salle Henri Monin in nearby Gorbio also appearing in the class information. Treat the venue list as current only after checking the organiser's own programme.", "Parmi les lieux indiques figurent Espace Gravity, Studio M'Road et L'Onda Restaurant a Menton, ainsi que Salle Henri Monin a Gorbio. Ne considerez la liste comme actuelle qu'apres verification du programme de l'organisateur.", "Tra le sedi indicate figurano Espace Gravity, Studio M'Road e L'Onda Restaurant a Mentone, oltre a Salle Henri Monin a Gorbio. Considera la lista attuale solo dopo aver controllato il programma dell'organizzatore.", "Серед вказаних локацій є Espace Gravity, Studio M'Road і L'Onda Restaurant у Ментоні, а також Salle Henri Monin у Gorbio. Вважайте список актуальним лише після перевірки програми організатора."),
+          t("For visitors, message or check before going: ask about the level, whether you need a partner, whether the class is followed by social dancing and whether the evening is mostly salsa, bachata, kizomba or mixed SBK.", "Pour les visiteurs, verifiez avant de partir : niveau, besoin d'un partenaire, danse sociale apres le cours et dominante salsa, bachata, kizomba ou SBK mixte.", "Per i visitatori, controlla prima di andare: livello, eventuale partner, social dopo la lezione e se la serata e soprattutto salsa, bachata, kizomba o SBK misto.", "Гостям варто перевірити наперед: рівень, чи потрібен партнер, чи є social dancing після заняття, і чи вечір більше salsa, bachata, kizomba або mixed SBK."),
+        ],
+        relatedPlaceIds: ["axess-dance-menton", "espace-gravity-menton", "studio-mroad-menton", "londa-restaurant-menton", "salle-henri-monin-gorbio"],
+      },
+      {
+        heading: t("SBK nights in Menton", "Soirees SBK a Menton", "Serate SBK a Mentone", "SBK-вечори в Ментоні"),
+        body: [
+          t("Menton sometimes appears in regional SBK calendars. If a local evening is scheduled during your stay, choose it first: there is no late train, no taxi problem and no need to turn the night into a full excursion.", "Menton apparait parfois dans les agendas SBK regionaux. Si une soiree locale est prevue pendant votre sejour, choisissez-la d'abord : pas de dernier train, pas de taxi et pas besoin d'en faire une grande sortie.", "Mentone compare talvolta nei calendari SBK regionali. Se c'e una serata locale nelle tue date, sceglila per prima: niente ultimo treno, niente taxi e niente grande spostamento.", "Ментон іноді з'являється в регіональних SBK-календарях. Якщо локальний вечір є у ваші дати, обирайте його першим: без останнього потяга, таксі й великої поїздки."),
+          t("Salsa06 and organiser social posts are useful for current listings. Venue, DJ, level and even the day of the week can change, so use guide pages as orientation, not as a fixed timetable.", "Salsa06 et les reseaux des organisateurs sont utiles pour les annonces actuelles. Lieu, DJ, niveau et jour peuvent changer : utilisez le guide comme orientation, pas comme horaire fixe.", "Salsa06 e i social degli organizzatori sono utili per le liste aggiornate. Sede, DJ, livello e giorno possono cambiare: usa la guida come orientamento, non come orario fisso.", "Salsa06 і соцмережі організаторів корисні для актуальних анонсів. Локація, DJ, рівень і навіть день можуть змінюватися, тому гід - це орієнтир, не фіксований розклад."),
+        ],
+        relatedPlaceIds: ["alls-stars-menton", "axess-dance-menton"],
+      },
+      {
+        heading: t("Monaco: event-based Latin dance weekends", "Monaco : week-ends danse latine evenementiels", "Monaco: weekend latini legati agli eventi", "Монако: подієві Latin dance weekends"),
+        body: [
+          t("Monaco is close to Menton, but its Latin dance scene is better treated as event-based than weekly casual. Monaco Salsa Congress is the main name to watch, with salsa, bachata and kizomba classes, shows and DJ parties when an edition is running.", "Monaco est proche de Menton, mais sa scene latine fonctionne davantage par evenements que par soirees hebdomadaires. Monaco Salsa Congress est le nom principal a surveiller, avec cours, shows et DJ parties quand une edition a lieu.", "Monaco e vicino a Mentone, ma la scena latina funziona piu per eventi che per serate settimanali. Monaco Salsa Congress e il nome principale da seguire, con corsi, show e DJ party quando c'e un'edizione.", "Монако близько до Ментона, але його Latin dance сцена радше подієва, ніж щотижнева. Monaco Salsa Congress - головна назва для перевірки: заняття, show і DJ parties, коли проходить випуск."),
+          t("If you go from Menton, plan the return before you leave. Late-night trains may be limited, especially after long congress evenings.", "Depuis Menton, planifiez le retour avant de partir. Les trains tardifs peuvent etre limites, surtout apres les longues soirees de congres.", "Da Mentone, pianifica il rientro prima di partire. I treni notturni possono essere limitati, soprattutto dopo lunghe serate di congresso.", "Якщо їдете з Ментона, сплануйте повернення до виїзду. Пізні потяги можуть бути обмежені, особливо після довгих congress-вечорів."),
+        ],
+        relatedPlaceIds: ["espace-leo-ferre-monaco", "monaco-monte-carlo", "monaco-monte-carlo-station"],
+      },
+      {
+        heading: t("Nice: the strongest nearby weekly scene", "Nice : la scene hebdomadaire la plus forte", "Nizza: la scena settimanale piu forte", "Ніцца: найсильніша щотижнева сцена поруч"),
+        body: [
+          t("If your priority is dancing, Nice usually gives the best chance of a proper Latin social night near Menton. There are more schools, bars and recurring socials than in smaller coastal towns.", "Si votre priorite est de danser, Nice donne generalement les meilleures chances de trouver une vraie soiree latine pres de Menton. Il y a plus d'ecoles, de bars et de rendez-vous recurrents.", "Se la priorita e ballare, Nizza offre di solito la migliore probabilita di una vera serata latina vicino a Mentone. Ci sono piu scuole, bar e social ricorrenti.", "Якщо головна мета - танці, Ніцца зазвичай дає найкращий шанс на повноцінний Latin social night біля Ментона. Тут більше шкіл, барів і регулярних social-вечорів."),
+          t("The trade-off is transport. Nice is easy by train in the daytime and early evening, but a social ending at 1 or 2 a.m. needs a last-train check, taxi plan or an early exit.", "La contrepartie, c'est le transport. Nice est simple en train en journee et debut de soiree, mais une soiree finissant a 1h ou 2h demande verification du dernier train, taxi ou depart plus tot.", "Il compromesso e il trasporto. Nizza e facile in treno di giorno e a inizio sera, ma un social che finisce all'1 o alle 2 richiede ultimo treno, taxi o uscita anticipata.", "Компроміс - транспорт. До Ніцци легко дістатися потягом удень і на початку вечора, але social до 1-2 ночі потребує перевірки останнього потяга, плану таксі або раннього виходу."),
+        ],
+        relatedPlaceIds: ["nice-palais-de-justice", "nice-old-town", "nice-ville-station"],
+      },
+      {
+        heading: t("Sanremo and Breil-sur-Roya", "Sanremo et Breil-sur-Roya", "Sanremo e Breil-sur-Roya", "Sanremo та Breil-sur-Roya"),
+        body: [
+          t("Sanremo is useful when a congress or Afro-Latin weekend overlaps with your dates. Treat published listings as leads to verify, especially for past or next-edition dates.", "Sanremo est utile lorsqu'un congres ou week-end Afro-Latin tombe sur vos dates. Traitez les annonces comme des pistes a verifier, surtout pour les dates passees ou prochaines editions.", "Sanremo e utile quando un congresso o weekend Afro-Latin coincide con le tue date. Tratta le liste come piste da verificare, soprattutto per date passate o prossime edizioni.", "Sanremo корисне, якщо congress або Afro-Latin weekend збігається з вашими датами. Анонси варто сприймати як привід для перевірки, особливо для минулих або наступних випусків."),
+          t("Breil-sur-Roya is a more niche idea: tourism-office listings have mentioned salsa classes there, but it is not the first choice for a simple dance night from Menton.", "Breil-sur-Roya est une idee plus specifique : des annonces touristiques ont mentionne des cours de salsa, mais ce n'est pas le premier choix pour une simple soiree danse depuis Menton.", "Breil-sur-Roya e un'idea piu di nicchia: alcune liste turistiche hanno citato corsi di salsa, ma non e la prima scelta per una semplice serata di ballo da Mentone.", "Breil-sur-Roya - більш нішевий варіант: туристичні анонси згадували там salsa classes, але це не перший вибір для простого dance night з Ментона."),
+        ],
+        relatedPlaceIds: ["sanremo", "grand-hotel-des-anglais-sanremo", "breil-sur-roya"],
+      },
+      {
+        heading: t("Staying in Menton as a Latin dance lover", "Loger a Menton quand on aime danser", "Soggiornare a Mentone se ami ballare", "Жити в Ментоні, якщо любите Latin dance"),
+        body: [
+          t("Menton works well when Latin dancing is one part of the stay, not the only purpose of the trip. You can keep the sea, old town and restaurants as the base, then add one local SBK night, one Monaco event or one Nice social.", "Menton fonctionne bien quand la danse latine fait partie du sejour sans en etre le seul but. Gardez la mer, la vieille ville et les restaurants comme base, puis ajoutez une soiree SBK locale, un evenement a Monaco ou une soiree a Nice.", "Mentone funziona bene quando i balli latini sono una parte del soggiorno, non l'unico scopo. Tieni mare, centro storico e ristoranti come base, poi aggiungi una serata SBK locale, un evento a Monaco o un social a Nizza.", "Ментон добре працює, коли Latin dancing - частина подорожі, а не єдина мета. Морe, старе місто й ресторани залишаються базою, а до них можна додати один локальний SBK-вечір, подію в Монако або social у Ніцці."),
+          t("If dancing matters to your trip, check event calendars before choosing dates, especially outside the September-June class season.", "Si la danse compte pour votre voyage, verifiez les calendriers avant de choisir vos dates, surtout hors saison de cours septembre-juin.", "Se ballare e importante per il viaggio, controlla i calendari prima di scegliere le date, soprattutto fuori dalla stagione corsi settembre-giugno.", "Якщо танці важливі для поїздки, перевірте календарі до вибору дат, особливо поза сезоном занять вересень-червень."),
+        ],
+        relatedPlaceIds: ["menton-station"],
+      },
+    ],
+    practicalTips: [
+      t("Check the organiser's current Instagram, Facebook or website post during the same week, ideally the same day.", "Verifiez le post actuel de l'organisateur sur Instagram, Facebook ou son site la meme semaine, idealement le jour meme.", "Controlla il post aggiornato dell'organizzatore su Instagram, Facebook o sito nella stessa settimana, meglio lo stesso giorno.", "Перевіряйте актуальний пост організатора в Instagram, Facebook або на сайті того ж тижня, бажано того ж дня."),
+      t("Confirm start time, level, booking rules, entry price and whether the evening is salsa, bachata, kizomba or mixed SBK.", "Confirmez horaire, niveau, reservation, tarif et dominante salsa, bachata, kizomba ou SBK mixte.", "Conferma orario, livello, prenotazione, prezzo e se la serata e salsa, bachata, kizomba o SBK mista.", "Підтвердіть час, рівень, бронювання, вартість і чи це salsa, bachata, kizomba або mixed SBK."),
+      t("For Nice, Monaco or Sanremo nights, check your return before leaving Menton.", "Pour Nice, Monaco ou Sanremo, verifiez le retour avant de quitter Menton.", "Per Nizza, Monaco o Sanremo, controlla il rientro prima di lasciare Mentone.", "Для Ніцци, Монако або Sanremo перевіряйте повернення до виїзду з Ментона."),
+      t("Wear comfortable shoes with a smooth sole; avoid beach flip-flops if you plan to dance properly.", "Portez des chaussures confortables a semelle lisse; evitez les tongs de plage si vous voulez vraiment danser.", "Indossa scarpe comode con suola liscia; evita infradito da spiaggia se vuoi ballare davvero.", "Візьміть зручне взуття з гладкою підошвою; пляжні шльопанці не підходять для нормальних танців."),
+    ],
+  }),
+  shortArticle({
     id: "casinos-near-menton",
     slug: "casinos-near-menton",
     title: t("Casinos near Menton: Menton, Monte-Carlo and Riviera casino nights", "Casinos pres de Menton: Menton, Monte-Carlo et soirees casino Riviera", "Casino vicino a Mentone: Mentone, Monte-Carlo e serate Riviera", "Казино біля Ментона: Ментон, Монте-Карло й вечори Riviera"),
@@ -1597,7 +1684,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "monaco"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["casino-barriere-menton", "casino-de-monte-carlo", "casino-cafe-de-paris", "casino-square-monaco", "menton-station", "monaco-monte-carlo-station", "monaco-monte-carlo", "promenade-du-soleil"],
-    relatedArticles: ["nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monaco-e-prix", "rolex-monte-carlo-masters"],
     relatedApartments: allApartments,
     sections: [
@@ -3056,7 +3143,7 @@ export const guideArticles: GuideArticle[] = [
       "teatro-ariston-sanremo",
       "teatro-comunale-luigi-maccario-ventimiglia",
     ],
-    relatedArticles: ["cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedEvents: ["menton-music-festival", "sanremo-music-festival", "monaco-red-cross-gala", "monte-carlo-circus-festival"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -4678,7 +4765,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -4760,7 +4847,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4853,7 +4940,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
