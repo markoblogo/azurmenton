@@ -120,6 +120,8 @@ describe("structured data builders", () => {
       endDate: "2027-02-28",
       locationName: "Nice",
       eventStatus: "scheduled",
+      organizerUrl: "https://www.nicecarnaval.com/",
+      offerUrl: "https://www.nicecarnaval.com/tickets",
     });
 
     expect(data).toMatchObject({
@@ -129,6 +131,35 @@ describe("structured data builders", () => {
       eventStatus: "https://schema.org/EventScheduled",
       location: {
         "@type": "Place",
+      },
+      organizer: {
+        "@type": "Organization",
+        url: "https://www.nicecarnaval.com/",
+      },
+      offers: {
+        "@type": "Offer",
+        url: "https://www.nicecarnaval.com/tickets",
+      },
+    });
+    expect(data).not.toHaveProperty("performer");
+  });
+
+  it("outputs event performer only when an explicit performer is provided", () => {
+    const data = eventJsonLd({
+      name: "Concert",
+      description: "A confirmed concert.",
+      url: "https://azurmenton.com/en/events/concert",
+      startDate: "2027-07-01",
+      locationName: "Menton",
+      performerName: "Festival Orchestra",
+      performerUrl: "https://example.com/orchestra",
+    });
+
+    expect(data).toMatchObject({
+      performer: {
+        "@type": "Organization",
+        name: "Festival Orchestra",
+        url: "https://example.com/orchestra",
       },
     });
   });

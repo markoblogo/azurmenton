@@ -57,6 +57,8 @@ export type RivieraEvent = {
   lastChecked?: string;
   programmeUrl?: string;
   ticketsUrl?: string;
+  performerName?: string;
+  performerUrl?: string;
   distanceFromMentonKm?: number;
   travelNote?: LocalizedText;
   category: EventCategory[];

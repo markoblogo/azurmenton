@@ -327,7 +327,7 @@ export default async function EventArticlePage({ params }: PageProps) {
           { name: title, url: pageUrl },
         ])}
       />
-      {canRenderEventJsonLd(event) ? (
+      {canRenderEventJsonLd(event) && (event.programmeUrl || event.sourceUrl) ? (
         <JsonLdScript
           data={eventJsonLd({
             name: title,
@@ -338,6 +338,10 @@ export default async function EventArticlePage({ params }: PageProps) {
             locationName: event.city ?? event.location,
             image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
             eventStatus: eventStatus === "past" ? "completed" : "scheduled",
+            organizerUrl: event.programmeUrl ?? event.sourceUrl,
+            offerUrl: event.ticketsUrl,
+            performerName: event.performerName,
+            performerUrl: event.performerUrl,
           })}
         />
       ) : null}

@@ -159,6 +159,9 @@ function validateVacationRental(jsonLd, path) {
 function validateConfirmedEvent(jsonLd, path) {
   const event = findJsonLd(jsonLd, "Event");
   if (!event?.startDate) throw new Error(`${path} confirmed Event JSON-LD missing startDate`);
+  if (!event?.organizer?.url) throw new Error(`${path} confirmed Event JSON-LD missing organizer.url`);
+  if (event.offers && !event.offers.url) throw new Error(`${path} Event JSON-LD offers missing url`);
+  if (event.performer && !event.performer.name) throw new Error(`${path} Event JSON-LD performer missing name`);
 }
 
 function validatePendingEvent(jsonLd, path) {

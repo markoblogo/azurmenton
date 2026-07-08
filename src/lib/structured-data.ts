@@ -272,6 +272,10 @@ export function eventJsonLd(input: {
   locationName: string;
   image?: string;
   eventStatus?: "scheduled" | "completed";
+  organizerUrl?: string;
+  offerUrl?: string;
+  performerName?: string;
+  performerUrl?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -296,7 +300,25 @@ export function eventJsonLd(input: {
     organizer: {
       "@type": "Organization",
       name: "Official event organiser",
+      ...(input.organizerUrl ? { url: input.organizerUrl } : {}),
     },
+    ...(input.offerUrl
+      ? {
+          offers: {
+            "@type": "Offer",
+            url: input.offerUrl,
+          },
+        }
+      : {}),
+    ...(input.performerName
+      ? {
+          performer: {
+            "@type": "Organization",
+            name: input.performerName,
+            ...(input.performerUrl ? { url: input.performerUrl } : {}),
+          },
+        }
+      : {}),
   };
 }
 
