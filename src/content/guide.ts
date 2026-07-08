@@ -1371,7 +1371,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "1-2 hours",
     locationTags: ["old-town", "seafront", "garavan"],
     relatedPlaces: ["rampes-saint-michel", "plage-sablettes", "port-de-garavan", "cimetiere-vieux-chateau", "promenade-du-soleil", "med-rooftop"],
-    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton", "latin-dancing-salsa-bachata-menton"],
+    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1464,7 +1464,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "evening",
     locationTags: ["menton-centre", "seafront", "monaco", "nice"],
     relatedPlaces: ["inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "public-transport-in-menton", "day-trips-from-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -1597,7 +1597,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["axess-dance-menton", "espace-gravity-menton", "studio-mroad-menton", "londa-restaurant-menton", "alls-stars-menton", "salle-henri-monin-gorbio", "espace-leo-ferre-monaco", "monaco-monte-carlo", "monaco-monte-carlo-station", "nice-palais-de-justice", "nice-old-town", "nice-ville-station", "sanremo", "grand-hotel-des-anglais-sanremo", "breil-sur-roya", "menton-station"],
-    relatedArticles: ["nightlife-in-menton", "monaco-events-from-menton", "theatre-opera-performing-arts-near-menton", "casinos-near-menton", "menton-without-a-car", "public-transport-in-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "nightlife-in-menton", "monaco-events-from-menton", "theatre-opera-performing-arts-near-menton", "casinos-near-menton", "menton-without-a-car", "public-transport-in-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "quiet-evening-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1667,6 +1667,90 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "jazz-live-music-near-menton",
+    slug: "jazz-live-music-near-menton",
+    title: t("Jazz near Menton: live jazz, music bars and Riviera festivals", "Jazz pres de Menton : bars live, lounges de Monaco et festivals Riviera", "Jazz vicino a Mentone: live jazz, music bar e festival della Riviera", "Jazz біля Ментона: live jazz, music bars і фестивалі Рив'єри"),
+    seoTitle: t("Jazz Near Menton: Live Jazz Bars, Monaco Lounges, Nice Clubs and Riviera Festivals", "Jazz pres de Menton : bars live, lounges de Monaco et festivals Riviera", "Jazz vicino a Mentone: jazz bar, lounge di Monaco, club di Nizza e festival Riviera", "Jazz біля Ментона: live jazz bars, лаунжі Монако, клуби Ніцци й фестивалі Рив'єри"),
+    seoDescription: t("A practical guide to jazz near Menton: where to hear live jazz, soul, funk and swing in Menton, Monaco and Nice, plus Jazz à Juan, Nice Jazz Fest and summer music tips.", "Guide pratique du jazz pres de Menton : jazz live, soul, funk et swing a Menton, Monaco et Nice, Jazz a Juan, Nice Jazz Fest et conseils d'ete.", "Guida pratica al jazz vicino a Mentone: live jazz, soul, funk e swing a Mentone, Monaco e Nizza, Jazz a Juan, Nice Jazz Fest e consigli estivi.", "Практичний гід по jazz біля Ментона: live jazz, soul, funk і swing у Ментоні, Монако й Ніцці, Jazz a Juan, Nice Jazz Fest і літні поради."),
+    excerpt: t("Menton is not a big jazz-club city, but it is a good base for jazz lovers. Monaco has elegant live music lounges, Nice has real jazz bars, and the Riviera hosts major summer festivals.", "Menton n'est pas une grande ville de clubs de jazz, mais c'est une bonne base pour les amateurs de jazz. Monaco a des lounges elegants, Nice de vrais bars jazz et la Riviera de grands festivals d'ete.", "Mentone non e una grande citta di jazz club, ma e una buona base per chi ama il jazz. Monaco ha lounge eleganti, Nizza veri jazz bar e la Riviera grandi festival estivi.", "Ментон не є великим містом jazz clubs, але це добра база для любителів jazz. У Монако є елегантні live music lounges, у Ніцці - справжні jazz bars, а на Рив'єрі - великі літні фестивалі."),
+    category: "nightlife-drinks",
+    coverImage: "/images/guide/jazz-live-music-near-menton.jpg",
+    coverImageAlt: t("Riviera evening jazz illustration near Menton", "Illustration d'une soiree jazz Riviera pres de Menton", "Illustrazione di una serata jazz in Riviera vicino a Mentone", "Ілюстрація вечірнього jazz на Рив'єрі біля Ментона"),
+    visualTheme: "nightlife",
+    visualStatus: "project_illustration",
+    tags: [t("jazz", "jazz", "jazz", "jazz"), t("live music", "musique live", "musica live", "жива музика"), t("Monaco", "Monaco", "Monaco", "Монако"), t("Nice", "Nice", "Nizza", "Ніцца")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[6].label, guideBestForOptions[10].label],
+    duration: "evening",
+    locationTags: ["menton-centre", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["palais-de-leurope-menton", "la-note-bleue-monaco", "bar-americain-monaco", "shapko-nice", "cave-romagnan-nice", "b-spot-nice", "theatre-de-verdure-nice", "pinede-gould-juan-les-pins", "monaco-monte-carlo", "nice-old-town", "menton-station", "monaco-monte-carlo-station", "nice-ville-station"],
+    relatedArticles: ["nightlife-in-menton", "latin-dancing-salsa-bachata-menton", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "monaco-events-from-menton", "public-transport-in-menton", "day-trips-from-menton", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+    relatedEvents: ["menton-music-festival", "nice-jazz-fest", "jazz-a-juan"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Is there jazz in Menton?", "Y a-t-il du jazz a Menton ?", "C'e jazz a Mentone?", "Чи є jazz у Ментоні?"),
+        body: [
+          t("Menton is not the place for a guaranteed jazz club every night. It is a seaside town, not a large nightlife city.", "Menton n'est pas une ville ou l'on trouve un club de jazz garanti chaque soir. C'est une ville de bord de mer, pas une grande destination nightlife.", "Mentone non e il posto per un jazz club garantito ogni sera. E una citta di mare, non una grande capitale della notte.", "Ментон - не місце з гарантованим jazz club щовечора. Це морське місто, а не велика nightlife-столиця."),
+          t("The useful approach is layered: check Menton for seasonal concerts and live music, Monaco for elegant jazz, soul and funk evenings, Nice for proper jazz bars, and the July festivals if your dates match.", "La bonne approche se fait par couches : Menton pour concerts saisonniers et musique live, Monaco pour des soirees jazz, soul et funk elegantes, Nice pour de vrais bars jazz, et les festivals de juillet si vos dates correspondent.", "L'approccio utile e a strati: Mentone per concerti stagionali e musica live, Monaco per serate eleganti jazz, soul e funk, Nizza per veri jazz bar e i festival di luglio se le date coincidono.", "Практичний підхід багатошаровий: Ментон для сезонних концертів і live music, Монако для елегантних jazz, soul і funk вечорів, Ніцца для справжніх jazz bars, і липневі фестивалі, якщо збігаються дати."),
+          t("Always verify the current programme before travelling. Jazz evenings, jam sessions and live music schedules change often.", "Verifiez toujours le programme actuel avant de vous deplacer. Soirees jazz, jam sessions et horaires de musique live changent souvent.", "Controlla sempre il programma aggiornato prima di partire. Serate jazz, jam session e calendari live cambiano spesso.", "Завжди перевіряйте актуальну програму перед поїздкою. Jazz evenings, jam sessions і live music schedules часто змінюються."),
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton", "menton-station"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Menton: start local, but check the programme", "Menton : commencer localement, mais verifier le programme", "Mentone: inizia sul posto, ma controlla il programma", "Ментон: почніть локально, але перевіряйте програму"),
+        body: [
+          t("For the easiest evening, check Menton's cultural calendar, Palais de l'Europe and current restaurant or bar listings. Local jazz here is usually seasonal or event-based rather than a fixed weekly club.", "Pour la soiree la plus simple, consultez le calendrier culturel de Menton, le Palais de l'Europe et les annonces actuelles des restaurants ou bars. Le jazz local y est plutot saisonnier ou evenementiel qu'un club hebdomadaire fixe.", "Per la serata piu semplice, controlla il calendario culturale di Mentone, il Palais de l'Europe e i programmi attuali di ristoranti o bar. Qui il jazz e di solito stagionale o legato agli eventi, non un club settimanale fisso.", "Для найпростішого вечора перевірте культурний календар Ментона, Palais de l'Europe і актуальні програми ресторанів або барів. Локальний jazz тут радше сезонний або подієвий, ніж регулярний щотижневий club."),
+          t("This works well for guests who want a pleasant live-music evening without worrying about late trains or taxis from Nice.", "C'est ideal pour les voyageurs qui veulent une soiree musicale agreable sans se soucier des trains tardifs ou taxis depuis Nice.", "Funziona bene per ospiti che vogliono una serata live piacevole senza preoccuparsi di treni notturni o taxi da Nizza.", "Це добре для гостей, які хочуть приємний live-music evening без турбот про пізні потяги або таксі з Ніцци."),
+        ],
+        relatedPlaceIds: ["palais-de-leurope-menton"],
+        relatedEventIds: ["menton-music-festival"],
+      },
+      {
+        heading: t("Monaco: La Note Bleue and Bar Américain", "Monaco : La Note Bleue et Bar Americain", "Monaco: La Note Bleue e Bar Americain", "Монако: La Note Bleue і Bar Americain"),
+        body: [
+          t("La Note Bleue on Larvotto Beach is the nearby choice for a seaside dinner with jazz, soul, funk, Brazilian music or DJ sets depending on the night.", "La Note Bleue au Larvotto est l'option proche pour un diner en bord de mer avec jazz, soul, funk, musique bresilienne ou DJ sets selon le soir.", "La Note Bleue al Larvotto e la scelta vicina per una cena sul mare con jazz, soul, funk, musica brasiliana o DJ set secondo la serata.", "La Note Bleue на Larvotto - близький варіант для вечері біля моря з jazz, soul, funk, Brazilian music або DJ sets залежно від вечора."),
+          t("Bar Américain at Hôtel de Paris Monte-Carlo is more polished: a classic cocktail lounge with live music and a Casino Square atmosphere. Dress smarter than beach casual.", "Le Bar Americain de l'Hotel de Paris Monte-Carlo est plus raffine : lounge cocktail classique, musique live et ambiance place du Casino. Habillez-vous plus soigneusement que pour la plage.", "Il Bar Americain dell'Hotel de Paris Monte-Carlo e piu elegante: cocktail lounge classico, musica live e atmosfera di Casino Square. Vestiti meglio che per la spiaggia.", "Bar Americain в Hôtel de Paris Monte-Carlo більш вишуканий: classic cocktail lounge, live music і атмосфера Casino Square. Одягайтеся охайніше, ніж на пляж."),
+          t("Plan the return to Menton before leaving, especially outside the busiest summer evenings.", "Prevoyez le retour a Menton avant de partir, surtout hors des grandes soirees d'ete.", "Organizza il rientro a Mentone prima di partire, soprattutto fuori dalle serate estive piu frequentate.", "Сплануйте повернення до Ментона до виїзду, особливо поза найжвавішими літніми вечорами."),
+        ],
+        relatedPlaceIds: ["la-note-bleue-monaco", "bar-americain-monaco", "monaco-monte-carlo", "monaco-monte-carlo-station"],
+      },
+      {
+        heading: t("Nice: the closest real jazz-bar feeling", "Nice : l'ambiance jazz bar la plus proche", "Nizza: il jazz bar piu vicino", "Ніцца: найближче відчуття справжнього jazz bar"),
+        body: [
+          t("Nice is the strongest nearby city for live jazz and late music. Shapko is useful for jazz, blues, soul and funk nights when the programme fits.", "Nice est la ville proche la plus forte pour jazz live et musique tardive. Shapko est utile pour les soirees jazz, blues, soul et funk quand le programme correspond.", "Nizza e la citta vicina piu forte per live jazz e musica serale. Shapko e utile per serate jazz, blues, soul e funk quando il programma coincide.", "Ніцца - найсильніше місто поруч для live jazz і вечірньої музики. Shapko корисний для jazz, blues, soul і funk, коли програма підходить."),
+          t("La Cave Romagnan is more intimate and local, often a better fit for serious jazz listeners. B Spot is worth checking when you want a broader live-music evening in central Nice.", "La Cave Romagnan est plus intime et locale, souvent plus adaptee aux vrais amateurs de jazz. B Spot vaut la peine d'etre verifie pour une soiree live plus large au centre de Nice.", "La Cave Romagnan e piu intima e locale, spesso piu adatta agli ascoltatori jazz seri. B Spot vale un controllo per una serata live piu ampia nel centro di Nizza.", "La Cave Romagnan більш камерна й локальна, часто краще пасує серйозним слухачам jazz. B Spot варто перевірити для ширшого live-music evening у центрі Ніцци."),
+          t("Nice evenings need transport discipline: check the last train before choosing a club night, or be ready for an earlier exit or taxi.", "Les soirees a Nice demandent de la discipline transport : verifiez le dernier train avant de choisir une soiree club, ou prevoyez depart plus tot ou taxi.", "Le serate a Nizza richiedono attenzione ai trasporti: controlla l'ultimo treno prima di scegliere una club night, oppure prevedi uscita anticipata o taxi.", "Вечори в Ніцці потребують транспортної дисципліни: перевірте останній потяг перед вибором club night або плануйте ранній вихід чи таксі."),
+        ],
+        relatedPlaceIds: ["shapko-nice", "cave-romagnan-nice", "b-spot-nice", "nice-old-town", "nice-ville-station"],
+      },
+      {
+        heading: t("Summer festivals: Jazz à Juan and Nice Jazz Fest", "Festivals d'ete : Jazz a Juan et Nice Jazz Fest", "Festival estivi: Jazz a Juan e Nice Jazz Fest", "Літні фестивалі: Jazz a Juan і Nice Jazz Fest"),
+        body: [
+          t("If you are visiting in July, check Jazz à Juan in Juan-les-Pins and Nice Jazz Fest. They are bigger commitments than a Monaco or Nice bar night, but they are the strongest Riviera jazz moments of the season.", "Si vous venez en juillet, regardez Jazz a Juan a Juan-les-Pins et Nice Jazz Fest. C'est plus engageant qu'un bar a Monaco ou Nice, mais ce sont les grands moments jazz de la saison Riviera.", "Se visiti a luglio, controlla Jazz a Juan a Juan-les-Pins e Nice Jazz Fest. Richiedono piu organizzazione di un bar a Monaco o Nizza, ma sono i momenti jazz piu forti della stagione Riviera.", "Якщо ви приїжджаєте в липні, перевірте Jazz a Juan у Juan-les-Pins і Nice Jazz Fest. Це більші плани, ніж бар у Монако чи Ніцці, але це найсильніші jazz-моменти сезону на Рив'єрі."),
+          t("For a festival evening from Menton, treat transport as part of the plan: check return trains, walking time from the venue and whether a late taxi is realistic.", "Pour une soiree festival depuis Menton, traitez le transport comme une partie du plan : trains retour, marche depuis le lieu et taxi tardif realiste.", "Per una serata festival da Mentone, considera il trasporto parte del piano: treni di ritorno, camminata dalla sede e taxi notturno realistico.", "Для festival evening з Ментона сприймайте транспорт як частину плану: зворотні потяги, шлях від майданчика і реалістичність пізнього таксі."),
+        ],
+        relatedPlaceIds: ["pinede-gould-juan-les-pins", "theatre-de-verdure-nice", "nice-ville-station", "menton-station"],
+        relatedEventIds: ["jazz-a-juan", "nice-jazz-fest"],
+      },
+      {
+        heading: t("Where to stay for jazz evenings", "Ou loger pour les soirees jazz", "Dove soggiornare per serate jazz", "Де зупинитися для jazz evenings"),
+        body: [
+          t("Menton works best when jazz is one part of a Riviera stay: beach days, quiet mornings, then one or two music evenings in Monaco, Nice or at a summer festival.", "Menton fonctionne tres bien quand le jazz fait partie d'un sejour Riviera : journees plage, matins calmes, puis une ou deux soirees musique a Monaco, Nice ou en festival d'ete.", "Mentone funziona meglio quando il jazz e una parte del soggiorno Riviera: giornate al mare, mattine tranquille, poi una o due serate musicali a Monaco, Nizza o a un festival estivo.", "Ментон добре працює, коли jazz - частина Riviera stay: пляжні дні, спокійні ранки, потім один-два музичні вечори в Монако, Ніцці або на літньому фестивалі."),
+          t("A central seaside apartment keeps the everyday rhythm easy while leaving Monaco and Nice reachable by train. For late shows, always check return options before committing to the evening.", "Un appartement central pres de la mer garde le rythme quotidien simple tout en laissant Monaco et Nice accessibles en train. Pour les spectacles tardifs, verifiez toujours le retour avant de vous engager.", "Un appartamento centrale vicino al mare mantiene semplice il ritmo quotidiano e lascia Monaco e Nizza raggiungibili in treno. Per show tardivi, controlla sempre il ritorno prima di decidere.", "Центральні апартаменти біля моря роблять щоденний ритм простим, а Монако й Ніццу залишають доступними потягом. Для пізніх show завжди перевіряйте повернення до остаточного плану."),
+        ],
+        relatedPlaceIds: ["menton-station", "monaco-monte-carlo-station", "nice-ville-station"],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check the venue programme during the same week, ideally on the day of the evening.", "Verifiez le programme la meme semaine, idealement le jour meme.", "Controlla il programma nella stessa settimana, meglio il giorno stesso.", "Перевіряйте програму того ж тижня, бажано в день вечора."),
+      t("Ask whether the evening is live jazz, lounge music, funk, soul or a DJ set before planning around it.", "Demandez si la soiree est jazz live, lounge, funk, soul ou DJ set avant de vous organiser autour.", "Chiedi se la serata e live jazz, lounge, funk, soul o DJ set prima di organizzarti.", "Уточніть, чи це live jazz, lounge music, funk, soul або DJ set, перш ніж будувати план."),
+      t("For Nice, Juan-les-Pins or late Monaco nights, check return transport before leaving Menton.", "Pour Nice, Juan-les-Pins ou Monaco tard, verifiez le retour avant de quitter Menton.", "Per Nizza, Juan-les-Pins o Monaco tarda sera, controlla il ritorno prima di lasciare Mentone.", "Для Ніцци, Juan-les-Pins або пізнього Монако перевіряйте повернення до виїзду з Ментона."),
+    ],
+  }),
+  shortArticle({
     id: "casinos-near-menton",
     slug: "casinos-near-menton",
     title: t("Casinos near Menton: Menton, Monte-Carlo and Riviera casino nights", "Casinos pres de Menton: Menton, Monte-Carlo et soirees casino Riviera", "Casino vicino a Mentone: Mentone, Monte-Carlo e serate Riviera", "Казино біля Ментона: Ментон, Монте-Карло й вечори Riviera"),
@@ -1684,7 +1768,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "monaco"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["casino-barriere-menton", "casino-de-monte-carlo", "casino-cafe-de-paris", "casino-square-monaco", "menton-station", "monaco-monte-carlo-station", "monaco-monte-carlo", "promenade-du-soleil"],
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monaco-e-prix", "rolex-monte-carlo-masters"],
     relatedApartments: allApartments,
     sections: [
@@ -3143,7 +3227,7 @@ export const guideArticles: GuideArticle[] = [
       "teatro-ariston-sanremo",
       "teatro-comunale-luigi-maccario-ventimiglia",
     ],
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedEvents: ["menton-music-festival", "sanremo-music-festival", "monaco-red-cross-gala", "monte-carlo-circus-festival"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -4765,7 +4849,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -4847,7 +4931,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -4940,7 +5024,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["monaco", "transport", "events"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
-    relatedArticles: ["latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "jumping-international-monte-carlo", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run"],
     relatedApartments: allApartments,
     sections: [
