@@ -3466,6 +3466,36 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "la-note-bleue-monaco": {
+    image: "/images/guide/la-note-bleue-monaco.jpg",
+    imageAlt: text("Illustration of La Note Bleue in Monaco", "Illustration de La Note Bleue a Monaco", "Illustrazione di La Note Bleue a Monaco", "Ілюстрація La Note Bleue у Монако"),
+    visualTheme: "nightlife",
+  },
+  "bar-americain-monaco": {
+    image: "/images/guide/bar-americain-monaco.jpg",
+    imageAlt: text("Illustration of Bar Américain in Monte-Carlo", "Illustration du Bar Americain a Monte-Carlo", "Illustrazione del Bar Américain a Monte-Carlo", "Ілюстрація Bar Américain у Монте-Карло"),
+    visualTheme: "nightlife",
+  },
+  "shapko-nice": {
+    image: "/images/guide/shapko-nice.jpg",
+    imageAlt: text("Illustration of Shapko live music bar in Nice", "Illustration du bar live Shapko a Nice", "Illustrazione dello Shapko live music bar a Nizza", "Ілюстрація Shapko live music bar у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "cave-romagnan-nice": {
+    image: "/images/guide/cave-romagnan-nice.jpg",
+    imageAlt: text("Illustration of La Cave Romagnan in Nice", "Illustration de La Cave Romagnan a Nice", "Illustrazione di La Cave Romagnan a Nizza", "Ілюстрація La Cave Romagnan у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "b-spot-nice": {
+    image: "/images/guide/b-spot-nice.jpg",
+    imageAlt: text("Illustration of B Spot live music venue in Nice", "Illustration de B Spot, lieu de musique live a Nice", "Illustrazione di B Spot, locale live a Nizza", "Ілюстрація B Spot live music venue у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "pinede-gould-juan-les-pins": {
+    image: "/images/guide/pinede-gould-juan-les-pins.jpg",
+    imageAlt: text("Illustration of Pinède Gould in Juan-les-Pins", "Illustration de la Pinede Gould a Juan-les-Pins", "Illustrazione della Pinède Gould a Juan-les-Pins", "Ілюстрація Pinède Gould у Juan-les-Pins"),
+    visualTheme: "event",
+  },
   "halles-du-marche": {
     image: "/images/guide/halles-du-marche-place.jpg",
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
