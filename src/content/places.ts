@@ -4573,6 +4573,56 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Sanremo on the Italian Riviera", "Illustration de Sanremo sur la Riviera italienne", "Illustrazione di Sanremo sulla Riviera italiana", "Ілюстрація Санремо на Італійській Рив'єрі"),
     visualTheme: "old-town",
   },
+  "axess-dance-menton": {
+    image: "/images/guide/axess-dance-menton.jpg",
+    imageAlt: text("Illustration of Axess Dance Menton", "Illustration d'Axess Dance Menton", "Illustrazione di Axess Dance Menton", "Ілюстрація Axess Dance Menton"),
+    visualTheme: "nightlife",
+  },
+  "espace-gravity-menton": {
+    image: "/images/guide/espace-gravity-menton.jpg",
+    imageAlt: text("Illustration of Espace Gravity in Menton", "Illustration d'Espace Gravity a Menton", "Illustrazione di Espace Gravity a Mentone", "Ілюстрація Espace Gravity у Ментоні"),
+    visualTheme: "nightlife",
+  },
+  "studio-mroad-menton": {
+    image: "/images/guide/studio-mroad-menton.jpg",
+    imageAlt: text("Illustration of Studio M'Road in Menton", "Illustration de Studio M'Road a Menton", "Illustrazione di Studio M'Road a Mentone", "Ілюстрація Studio M'Road у Ментоні"),
+    visualTheme: "nightlife",
+  },
+  "londa-restaurant-menton": {
+    image: "/images/guide/londa-restaurant-menton.jpg",
+    imageAlt: text("Illustration of L'Onda Restaurant in Menton", "Illustration de L'Onda Restaurant a Menton", "Illustrazione di L'Onda Restaurant a Mentone", "Ілюстрація L'Onda Restaurant у Ментоні"),
+    visualTheme: "nightlife",
+  },
+  "alls-stars-menton": {
+    image: "/images/guide/alls-stars-menton.jpg",
+    imageAlt: text("Illustration of All's Stars Menton", "Illustration d'All's Stars Menton", "Illustrazione di All's Stars Menton", "Ілюстрація All's Stars Menton"),
+    visualTheme: "nightlife",
+  },
+  "salle-henri-monin-gorbio": {
+    image: "/images/guide/salle-henri-monin-gorbio.jpg",
+    imageAlt: text("Illustration of Salle Henri Monin in Gorbio", "Illustration de Salle Henri Monin a Gorbio", "Illustrazione di Salle Henri Monin a Gorbio", "Ілюстрація Salle Henri Monin у Gorbio"),
+    visualTheme: "nightlife",
+  },
+  "espace-leo-ferre-monaco": {
+    image: "/images/guide/espace-leo-ferre-monaco.jpg",
+    imageAlt: text("Illustration of Espace Leo Ferre in Monaco", "Illustration d'Espace Leo Ferre a Monaco", "Illustrazione di Espace Leo Ferre a Monaco", "Ілюстрація Espace Leo Ferre у Монако"),
+    visualTheme: "nightlife",
+  },
+  "nice-palais-de-justice": {
+    image: "/images/guide/nice-palais-de-justice.jpg",
+    imageAlt: text("Illustration of Place du Palais de Justice in Nice", "Illustration de la Place du Palais de Justice a Nice", "Illustrazione di Place du Palais de Justice a Nizza", "Ілюстрація Place du Palais de Justice у Ніцці"),
+    visualTheme: "old-town",
+  },
+  "grand-hotel-des-anglais-sanremo": {
+    image: "/images/guide/grand-hotel-des-anglais-sanremo.jpg",
+    imageAlt: text("Illustration of Grand Hotel & Des Anglais in Sanremo", "Illustration du Grand Hotel & Des Anglais a Sanremo", "Illustrazione del Grand Hotel & Des Anglais a Sanremo", "Ілюстрація Grand Hotel & Des Anglais у Sanremo"),
+    visualTheme: "nightlife",
+  },
+  "breil-sur-roya": {
+    image: "/images/guide/breil-sur-roya.jpg",
+    imageAlt: text("Illustration of Breil-sur-Roya", "Illustration de Breil-sur-Roya", "Illustrazione di Breil-sur-Roya", "Ілюстрація Breil-sur-Roya"),
+    visualTheme: "viewpoint",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {
