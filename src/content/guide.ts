@@ -116,6 +116,16 @@ export type LocalizedGuideAppTool = Omit<GuideAppTool, "useFor" | "bestFor" | "i
   imageAlt?: string;
 };
 
+export type GuideUtilityBlockRegion = "menton" | "loire";
+
+export type GuideUtilityBlock = {
+  type: "localRadio";
+  region: GuideUtilityBlockRegion;
+  title?: string;
+  description?: string;
+  stationIds?: string[];
+};
+
 export type GuideArticle = {
   id: string;
   slug: string;
@@ -142,6 +152,7 @@ export type GuideArticle = {
   relatedArticles?: string[];
   relatedEvents?: string[];
   relatedApartments?: string[];
+  utilityBlocks?: GuideUtilityBlock[];
 };
 
 export type GuidePageContent = {
@@ -157,6 +168,7 @@ export type GuidePageContent = {
   durationLabel?: string;
   sections: GuideSection[];
   practicalTips?: string[];
+  utilityBlocks?: GuideUtilityBlock[];
   relatedLinks: RelatedLink[];
   cta: { title: string; text: string; primaryLabel: string; secondaryLabel?: string };
 };
@@ -1220,6 +1232,7 @@ function shortArticle(input: {
   sourceStatus?: SourceStatus;
   coverImage?: string;
   coverImageAlt?: LocalizedText;
+  utilityBlocks?: GuideUtilityBlock[];
   visualTheme?: GuideVisualTheme;
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sections: LocalizedGuideSection[];
@@ -6210,6 +6223,15 @@ export const guideArticles: GuideArticle[] = [
         "best-beaches-in-menton",
       ],
       relatedApartments: allApartments,
+      utilityBlocks: [
+        {
+          type: "localRadio",
+          region: "menton",
+          title: "Local radio for practical planning",
+          description: "Useful stations for transport updates, weather changes and weekend event news.",
+          stationIds: ["france-bleu-cote-azur", "rmc-azur", "monaco-mondiale-radio"],
+        },
+      ],
       sections: [
         {
           heading: t("France.fr", "France.fr", "France.fr", "France.fr"),
@@ -6372,6 +6394,7 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       bestFor: tool.bestFor[locale],
       imageAlt: tool.imageAlt?.[locale],
     })),
+    utilityBlocks: article.utilityBlocks,
     practicalTips: article.practicalTips?.map((tip) => tip[locale]),
   };
 }
@@ -6392,6 +6415,7 @@ export function getGuidePage(locale: Locale, slug: string): GuidePageContent | u
     categoryLabel: localized.categoryLabel,
     durationLabel: localized.durationLabel,
     sections: localized.sections,
+    utilityBlocks: localized.utilityBlocks,
     practicalTips: localized.practicalTips,
     relatedLinks: (article.relatedArticles ?? []).map((relatedSlug) => {
       const related = getGuideArticle(relatedSlug);

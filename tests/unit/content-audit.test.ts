@@ -8,6 +8,7 @@ import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/g
 import { localPartners, partnerLinkRel } from "../../src/content/partners";
 import { places } from "../../src/content/places";
 import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
+import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
 import { getEventDateStatus } from "../../src/lib/events";
 
 const publicPathExists = (sitePath: string) => existsSync(join(process.cwd(), "public", sitePath.replace(/^\//, "")));
@@ -18,6 +19,7 @@ const placeIds = new Set(places.map((place) => place.id));
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const eventSlugs = new Set([...rivieraEvents.map((event) => event.slug), summerOnTheRivieraEvent.slug]);
+const radioStationIds = new Set(radioStations.map((station) => station.id));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 
 const evergreenPracticalSlugs = [
@@ -85,6 +87,29 @@ describe("content graph audit", () => {
 
     for (const place of places) {
       if (place.image && !publicPathExists(place.image)) failures.push(`${place.id} image not found: ${place.image}`);
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps guide utility blocks resolvable", () => {
+    const failures: string[] = [];
+
+    for (const article of guideArticles) {
+      for (const block of article.utilityBlocks ?? []) {
+        if (block.type === "localRadio") {
+          const stations = getRadioStationsForTenant(block.region, block.stationIds);
+          if (block.stationIds?.length) {
+            for (const stationId of block.stationIds) {
+              if (!radioStationIds.has(stationId)) {
+                failures.push(`${article.slug} utility block references missing radio station ${stationId}`);
+              }
+            }
+          } else if (!stations.length) {
+            failures.push(`${article.slug} localRadio block for ${block.region} has no stations`);
+          }
+        }
+      }
     }
 
     expect(failures).toEqual([]);

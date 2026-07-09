@@ -13,6 +13,7 @@ import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
 import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
+import { UtilityBlockRenderer } from "@/components/guide/utility/UtilityBlockRenderer";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { Container } from "@/components/ui/Container";
@@ -229,6 +230,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   </ul>
                 </div>
               ) : null}
+              {page?.utilityBlocks?.length ? <UtilityBlockRenderer locale={locale} blocks={page.utilityBlocks} /> : null}
               {article.relatedArticles?.length ? (
                 <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
                   <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.relatedGuides}</h2>
