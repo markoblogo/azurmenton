@@ -4200,6 +4200,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of La Musa in Ventimiglia", "Illustration de La Musa a Ventimille", "Illustrazione di La Musa a Ventimiglia", "Ілюстрація La Musa у Вентімільї"),
     visualTheme: "food",
   },
+  "la-makolet-nice": {
+    image: "/images/guide/la-makolet-nice.jpg",
+    imageAlt: text("Illustration of La Makolet in Nice", "Illustration de La Makolet a Nizza", "Illustrazione di La Makolet a Nizza", "Ілюстрація La Makolet у Ніцці"),
+    visualTheme: "food",
+  },
+  "le-kineret-nice": {
+    image: "/images/guide/le-kineret-nice.jpg",
+    imageAlt: text("Illustration of Le Kineret in Nice", "Illustration de Le Kineret a Nizza", "Illustrazione di Le Kineret a Nizza", "Ілюстрація Le Kineret у Ніцці"),
+    visualTheme: "food",
+  },
+  "bistro-k-nice": {
+    image: "/images/guide/bistro-k-nice.jpg",
+    imageAlt: text("Illustration of Bistro K in Nice", "Illustration de Bistro K a Nizza", "Illustrazione di Bistro K a Nizza", "Ілюстрація Bistro K у Ніцці"),
+    visualTheme: "food",
+  },
+  "le-leviathan-nice": {
+    image: "/images/guide/le-leviathan-nice.jpg",
+    imageAlt: text("Illustration of Le Leviathan in Nice", "Illustration du Le Leviathan a Nizza", "Illustrazione di Le Leviathan a Nizza", "Ілюстрація Le Leviathan у Ніцці"),
+    visualTheme: "food",
+  },
+  "falafel-sahara-nice": {
+    image: "/images/guide/falafel-sahara-nice.jpg",
+    imageAlt: text("Illustration of Falafel Sahara in Nice", "Illustration de Falafel Sahara a Nizza", "Illustrazione di Falafel Sahara a Nizza", "Ілюстрація Falafel Sahara у Ніцці"),
+    visualTheme: "food",
+  },
+  "chabad-nice": {
+    image: "/images/guide/chabad-nice.jpg",
+    imageAlt: text("Illustration of Chabad Nice", "Illustration de Chabad Nizza", "Illustrazione di Chabad Nizza", "Ілюстрація Chabad у Ніцці"),
+    visualTheme: "civic",
+  },
+  "jcc-monaco": {
+    image: "/images/guide/jcc-monaco.jpg",
+    imageAlt: text("Illustration of JCC Monaco", "Illustration du JCC Monaco", "Illustrazione di JCC Monaco", "Ілюстрація JCC Monaco"),
+    visualTheme: "civic",
+  },
+  "communaute-israelite-de-menton": {
+    image: "/images/guide/communaute-israelite-de-menton.jpg",
+    imageAlt: text("Illustration of Communauté Israélite de Menton", "Illustration de la Communauté Israélite de Menton", "Illustrazione della Comunita Israelita di Mentone", "Ілюстрація Communauté Israélite de Menton"),
+    visualTheme: "civic",
+  },
   "paper-plane-nice": {
     image: "/images/guide/paper-plane-nice.jpg",
     imageAlt: text("Illustration of Paper Plane in Nice", "Illustration de Paper Plane à Nice", "Illustrazione di Paper Plane a Nizza", "Ілюстрація Paper Plane у Ніцці"),
