@@ -11,7 +11,6 @@ type LocalizedCopy = {
   contentTypes: string;
   musicStyles: string;
   usefulFor: string;
-  listen: string;
   website: string;
   noStations: string;
   audioUnavailable: string;
@@ -26,7 +25,6 @@ const labels = {
     contentTypes: "Content",
     musicStyles: "Music",
     usefulFor: "Useful for",
-    listen: "Listen online",
     website: "Website",
     noStations: "No station details available yet.",
     audioUnavailable: "Audio stream may not be available for this link.",
@@ -39,7 +37,6 @@ const labels = {
     contentTypes: "Rubriques",
     musicStyles: "Styles musicaux",
     usefulFor: "Utile pour",
-    listen: "Écouter en ligne",
     website: "Site web",
     noStations: "Aucune station enregistrée pour le moment.",
     audioUnavailable: "Le flux audio peut ne pas être disponible depuis ce lien.",
@@ -52,7 +49,6 @@ const labels = {
     musicStyles: "Stili musicali",
     usefulFor: "Utile per",
     languages: "Lingue",
-    listen: "Ascolta online",
     website: "Sito web",
     noStations: "Nessuna radio disponibile al momento.",
     audioUnavailable: "Lo streaming audio potrebbe non essere disponibile da questo link.",
@@ -65,7 +61,6 @@ const labels = {
     contentTypes: "Формат",
     musicStyles: "Музика",
     usefulFor: "Корисно для",
-    listen: "Слухати онлайн",
     website: "Сайт",
     noStations: "Поки що немає деталей по станціях.",
     audioUnavailable: "Аудіо-стрім може бути недоступний за цим посиланням.",
@@ -140,17 +135,6 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     <audio controls className="w-full max-w-sm" preload="none" src={streamUrl} />
                     {streamLooksPlayable ? null : <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>}
                   </>
-                ) : null}
-
-                {hasStream ? (
-                  <a
-                    className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
-                    href={streamUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {copy.listen}
-                  </a>
                 ) : null}
 
                 {station.websiteUrl ? (
