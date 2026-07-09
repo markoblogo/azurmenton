@@ -9,6 +9,7 @@ export type RadioStation = {
   tenant: RadioTenantOrRegion;
   name: LocalizedText;
   image?: string;
+  audioStreamUrl?: string;
   fmFrequency?: string;
   languages?: string[];
   contentTypes?: string[];
@@ -545,6 +546,8 @@ export const radioStations: RadioStation[] = [
       it: "M Radio",
       uk: "M Radio",
     },
+    audioStreamUrl:
+      "https://mfm.ice.infomaniak.ch/mfm-128.mp3?aw_0_1st.playerId=mradio_web&i=26641",
     fmFrequency: "90.3 MHz / 104.1 MHz",
     contentTypes: ["music", "easy listening"],
     languages: ["French"],

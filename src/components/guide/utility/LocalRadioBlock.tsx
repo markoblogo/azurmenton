@@ -120,25 +120,30 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 {station.usefulFor?.length ? <p><span className="font-semibold text-[#173f36]">{copy.usefulFor}:</span> {station.usefulFor.join(", ")}</p> : null}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {station.onlineStreamUrl ? (
+                {station.audioStreamUrl ? (
                   <>
-                    <audio controls className="w-full max-w-sm" preload="none" src={station.onlineStreamUrl} />
+                    <audio controls className="w-full max-w-sm" preload="none" src={station.audioStreamUrl} />
                     <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>
-                    <a
-                      className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
-                      href={station.onlineStreamUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {copy.listen}
-                    </a>
                   </>
                 ) : null}
+
+                {(station.audioStreamUrl || station.onlineStreamUrl) ? (
+                  <a
+                    className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+                    href={station.audioStreamUrl ?? station.onlineStreamUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {copy.listen}
+                  </a>
+                ) : null}
+
                 {station.websiteUrl ? (
                   <a className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]" href={station.websiteUrl} target="_blank" rel="noopener noreferrer">
                     {copy.website}
                   </a>
                 ) : null}
+                
               </div>
             </div>
           );
