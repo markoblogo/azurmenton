@@ -128,6 +128,11 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   </div>
                 </section>
               ) : null}
+              {page?.utilityBlocks?.length ? (
+                <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+                  <UtilityBlockRenderer locale={locale} blocks={page.utilityBlocks} />
+                </section>
+              ) : null}
               {localized.sections.map((section) => {
                 const sectionPlaces = getPlaces(section.relatedPlaceIds ?? []);
                 return (
@@ -230,7 +235,6 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   </ul>
                 </div>
               ) : null}
-              {page?.utilityBlocks?.length ? <UtilityBlockRenderer locale={locale} blocks={page.utilityBlocks} /> : null}
               {article.relatedArticles?.length ? (
                 <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
                   <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.relatedGuides}</h2>
