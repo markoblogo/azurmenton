@@ -13,7 +13,6 @@ type LocalizedCopy = {
   usefulFor: string;
   website: string;
   noStations: string;
-  audioUnavailable: string;
 };
 
 const labels = {
@@ -26,8 +25,7 @@ const labels = {
     musicStyles: "Music",
     usefulFor: "Useful for",
     website: "Website",
-    noStations: "No station details available yet.",
-    audioUnavailable: "Audio stream may not be available for this link.",
+  noStations: "No station details available yet.",
   },
   fr: {
     title: "Radio locale",
@@ -38,8 +36,7 @@ const labels = {
     musicStyles: "Styles musicaux",
     usefulFor: "Utile pour",
     website: "Site web",
-    noStations: "Aucune station enregistrée pour le moment.",
-    audioUnavailable: "Le flux audio peut ne pas être disponible depuis ce lien.",
+  noStations: "Aucune station enregistrée pour le moment.",
   },
   it: {
     title: "Radio locali",
@@ -50,8 +47,7 @@ const labels = {
     usefulFor: "Utile per",
     languages: "Lingue",
     website: "Sito web",
-    noStations: "Nessuna radio disponibile al momento.",
-    audioUnavailable: "Lo streaming audio potrebbe non essere disponibile da questo link.",
+  noStations: "Nessuna radio disponibile al momento.",
   },
   uk: {
     title: "Локальне радіо",
@@ -62,17 +58,9 @@ const labels = {
     musicStyles: "Музика",
     usefulFor: "Корисно для",
     website: "Сайт",
-    noStations: "Поки що немає деталей по станціях.",
-    audioUnavailable: "Аудіо-стрім може бути недоступний за цим посиланням.",
+  noStations: "Поки що немає деталей по станціях.",
   },
 };
-
-const streamFileTypes = /\.(mp3|m3u|m3u8|aac|ogg|wav|flac)(\?|$)/i;
-const streamPathHints = /\/(stream|listen|live|ecouter|player|webradio|web-radio)(\/|$|\?)/i;
-
-function isLikelyStreamUrl(url: string): boolean {
-  return streamFileTypes.test(url) || streamPathHints.test(url);
-}
 
 export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
   const copy = labels[locale] as LocalizedCopy;
@@ -96,25 +84,24 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
         {stations.map((station) => {
           const notes = station.notes?.[locale] ?? station.notes?.en;
           const stationName = getRadioStationLabel(station, locale);
-          const streamUrl = station.audioStreamUrl ?? station.onlineStreamUrl;
+          const streamUrl = station.audioStreamUrl;
           const hasStream = Boolean(streamUrl);
-          const streamLooksPlayable = Boolean(streamUrl && isLikelyStreamUrl(streamUrl));
 
           return (
             <div key={station.id} className="border border-[#e6d9c6] bg-white/65 p-3 sm:p-4">
               {station.image ? (
-                <div className="relative aspect-[16/9] overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea]">
+                <div className="relative mt-2 h-52 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-56">
                   <Image
                     src={station.image}
                     alt={`${stationName} logo`}
                     fill
-                    sizes="(min-width: 1024px) 320px, 100vw"
-                    className="object-cover"
+                    sizes="(min-width: 1024px) 420px, 92vw"
+                    className="object-cover object-center"
                     priority={false}
                   />
                 </div>
               ) : (
-                <div className="relative aspect-[16/9] overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea]">
+                <div className="relative mt-2 h-52 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-56">
                   <div className="flex h-full items-center justify-center px-4 text-center text-xs leading-6 text-[#71665b]">{stationName}</div>
                 </div>
               )}
@@ -133,7 +120,6 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 {hasStream ? (
                   <>
                     <audio controls className="w-full max-w-sm" preload="none" src={streamUrl} />
-                    {streamLooksPlayable ? null : <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>}
                   </>
                 ) : null}
 
