@@ -3658,9 +3658,24 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Bar Américain in Monte-Carlo", "Illustration du Bar Americain a Monte-Carlo", "Illustrazione del Bar Américain a Monte-Carlo", "Ілюстрація Bar Américain у Монте-Карло"),
     visualTheme: "nightlife",
   },
+  "blue-gin-monaco": {
+    image: "/images/guide/blue-gin-monaco.jpg",
+    imageAlt: text("Illustration of Blue Gin in Monaco", "Illustration de Blue Gin à Monaco", "Illustrazione di Blue Gin a Monaco", "Ілюстрація Blue Gin у Монако"),
+    visualTheme: "nightlife",
+  },
+  "buddha-bar-monte-carlo": {
+    image: "/images/guide/buddha-bar-monte-carlo.jpg",
+    imageAlt: text("Illustration of Buddha-Bar Monte-Carlo", "Illustration de Buddha-Bar Monte-Carlo", "Illustrazione di Buddha-Bar Monte-Carlo", "Ілюстрація Buddha-Bar Monte-Carlo"),
+    visualTheme: "nightlife",
+  },
   "shapko-nice": {
     image: "/images/guide/shapko-nice.jpg",
     imageAlt: text("Illustration of Shapko live music bar in Nice", "Illustration du bar live Shapko a Nice", "Illustrazione dello Shapko live music bar a Nizza", "Ілюстрація Shapko live music bar у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "corner-house-menton": {
+    image: "/images/guide/corner-house-menton.jpg",
+    imageAlt: text("Illustration of Corner House in Menton", "Illustration de Corner House à Menton", "Illustrazione di Corner House a Mentone", "Ілюстрація Corner House в Ментоні"),
     visualTheme: "nightlife",
   },
   "cave-romagnan-nice": {
@@ -3668,9 +3683,39 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of La Cave Romagnan in Nice", "Illustration de La Cave Romagnan a Nice", "Illustrazione di La Cave Romagnan a Nizza", "Ілюстрація La Cave Romagnan у Ніцці"),
     visualTheme: "nightlife",
   },
+  "hookah-lounge-menton": {
+    image: "/images/guide/hookah-lounge-menton.jpg",
+    imageAlt: text("Illustration of Hookah Lounge in Menton", "Illustration du Hookah Lounge à Menton", "Illustrazione di Hookah Lounge a Mentone", "Ілюстрація Hookah Lounge у Ментоні"),
+    visualTheme: "nightlife",
+  },
+  "chichkhan-lounge-nice": {
+    image: "/images/guide/chichkhan-lounge-nice.jpg",
+    imageAlt: text("Illustration of CHICHKHAN Lounge in Nice", "Illustration de CHICHKHAN Lounge à Nice", "Illustrazione di CHICHKHAN Lounge a Nizza", "Ілюстрація CHICHKHAN Lounge у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "pacific-nice": {
+    image: "/images/guide/pacific-nice.jpg",
+    imageAlt: text("Illustration of Pacific Nice", "Illustration de Pacific Nice", "Illustrazione di Pacific Nice", "Ілюстрація Pacific Nice у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "soho-hookah-bar-lounge-nice": {
+    image: "/images/guide/soho-hookah-bar-lounge-nice.jpg",
+    imageAlt: text("Illustration of Soho Hookah Bar & Lounge in Nice", "Illustration de Soho Hookah Bar & Lounge à Nice", "Illustrazione di Soho Hookah Bar & Lounge a Nizza", "Ілюстрація Soho Hookah Bar & Lounge в Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "le-ryad-zaman-nice": {
+    image: "/images/guide/le-ryad-zaman-nice.jpg",
+    imageAlt: text("Illustration of Le Ryad Zaman in Nice", "Illustration de Le Ryad Zaman à Nice", "Illustrazione di Le Ryad Zaman a Nizza", "Ілюстрація Le Ryad Zaman у Ніцці"),
+    visualTheme: "nightlife",
+  },
   "b-spot-nice": {
     image: "/images/guide/b-spot-nice.jpg",
     imageAlt: text("Illustration of B Spot live music venue in Nice", "Illustration de B Spot, lieu de musique live a Nice", "Illustrazione di B Spot, locale live a Nizza", "Ілюстрація B Spot live music venue у Ніцці"),
+    visualTheme: "nightlife",
+  },
+  "twiga-monte-carlo": {
+    image: "/images/guide/twiga-monte-carlo.jpg",
+    imageAlt: text("Illustration of Twiga Monte Carlo", "Illustration de Twiga Monte Carlo", "Illustrazione di Twiga Monte Carlo", "Ілюстрація Twiga Monte Carlo"),
     visualTheme: "nightlife",
   },
   "pinede-gould-juan-les-pins": {
