@@ -4228,17 +4228,17 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
   "chabad-nice": {
     image: "/images/guide/chabad-nice.jpg",
     imageAlt: text("Illustration of Chabad Nice", "Illustration de Chabad Nizza", "Illustrazione di Chabad Nizza", "Ілюстрація Chabad у Ніцці"),
-    visualTheme: "civic",
+    visualTheme: "old-town",
   },
   "jcc-monaco": {
     image: "/images/guide/jcc-monaco.jpg",
     imageAlt: text("Illustration of JCC Monaco", "Illustration du JCC Monaco", "Illustrazione di JCC Monaco", "Ілюстрація JCC Monaco"),
-    visualTheme: "civic",
+    visualTheme: "old-town",
   },
   "communaute-israelite-de-menton": {
     image: "/images/guide/communaute-israelite-de-menton.jpg",
     imageAlt: text("Illustration of Communauté Israélite de Menton", "Illustration de la Communauté Israélite de Menton", "Illustrazione della Comunita Israelita di Mentone", "Ілюстрація Communauté Israélite de Menton"),
-    visualTheme: "civic",
+    visualTheme: "old-town",
   },
   "paper-plane-nice": {
     image: "/images/guide/paper-plane-nice.jpg",
