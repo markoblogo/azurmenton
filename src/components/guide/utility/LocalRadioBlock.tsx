@@ -15,6 +15,7 @@ type LocalizedCopy = {
   musicStyles: string;
   usefulFor: string;
   website: string;
+  listenOnline: string;
   noStations: string;
   streamUnavailable: string;
 };
@@ -29,6 +30,7 @@ const labels = {
     musicStyles: "Music",
     usefulFor: "Useful for",
     website: "Website",
+    listenOnline: "Listen online",
     noStations: "No station details available yet.",
     streamUnavailable: "Stream currently unavailable. Use station website.",
   },
@@ -41,6 +43,7 @@ const labels = {
     musicStyles: "Styles musicaux",
     usefulFor: "Utile pour",
     website: "Site web",
+    listenOnline: "Écouter en ligne",
     noStations: "Aucune station enregistrée pour le moment.",
     streamUnavailable: "Le flux n'est pas disponible pour le moment. Ouvrez le site de la station.",
   },
@@ -53,6 +56,7 @@ const labels = {
     usefulFor: "Utile per",
     languages: "Lingue",
     website: "Sito web",
+    listenOnline: "Ascolta online",
     noStations: "Nessuna radio disponibile al momento.",
     streamUnavailable: "Streaming non disponibile al momento. Apri il sito della stazione.",
   },
@@ -65,6 +69,7 @@ const labels = {
     musicStyles: "Музика",
     usefulFor: "Корисно для",
     website: "Сайт",
+    listenOnline: "Слухати онлайн",
     noStations: "Поки що немає деталей по станціях.",
     streamUnavailable: "Потік зараз недоступний. Перейдіть на сайт станції.",
   },
@@ -76,6 +81,12 @@ const getStreamMimeType = (url: string) => {
   if (lower.includes(".aac")) return "audio/aac";
   if (lower.includes(".mp3")) return "audio/mpeg";
   return "audio/mpeg";
+};
+
+const isKnownPlayableFormat = (url: string) => {
+  const lower = url.toLowerCase();
+  if (lower.includes(".m3u8")) return false;
+  return true;
 };
 
 export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
@@ -97,8 +108,8 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
     const blocked = new Set<string>();
     const probe = document.createElement("audio");
     stations.forEach((station) => {
-      if (!station.audioStreamUrl) return;
-      const mime = getStreamMimeType(station.audioStreamUrl);
+        if (!station.audioStreamUrl) return;
+        const mime = getStreamMimeType(station.audioStreamUrl);
       if (!probe.canPlayType(mime)) {
         blocked.add(station.id);
       }
@@ -137,6 +148,7 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     fill
                     sizes="(min-width: 1024px) 420px, 92vw"
                     className="object-cover"
+                    style={{ objectFit: "cover", padding: 0 }}
                     priority={false}
                   />
                 </div>
@@ -157,7 +169,10 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 {station.usefulFor?.length ? <p><span className="font-semibold text-[#173f36]">{copy.usefulFor}:</span> {station.usefulFor.join(", ")}</p> : null}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {hasStream && !failedStreams.has(station.id) && !unsupportedStreams.has(station.id) ? (
+                {hasStream &&
+                isKnownPlayableFormat(streamUrl) &&
+                !failedStreams.has(station.id) &&
+                !unsupportedStreams.has(station.id) ? (
                   <audio
                     controls
                     className="w-full max-w-sm"
@@ -175,7 +190,7 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {copy.website}
+                    {station.audioStreamUrl ? copy.listenOnline : copy.website}
                   </a>
                 ) : null}
 
