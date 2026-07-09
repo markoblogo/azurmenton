@@ -91,8 +91,8 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
   }
 
   return (
-    <div className="space-y-8">
-      <section className="border border-[#173f36] bg-[#173f36] p-4 text-white sm:p-5" aria-label="Guide filters">
+    <div className="space-y-6">
+      <section className="border border-[#173f36] bg-[#173f36] p-4 shadow-[0_10px_22px_-18px_rgba(9,42,34,0.45)] text-white sm:p-5" aria-label="Guide filters">
         <div className="mb-4 grid gap-2 md:grid-cols-[0.42fr_1fr] md:items-end">
           <div>
             <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">Guide finder</p>
@@ -100,7 +100,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
           </div>
           <p className="max-w-3xl text-sm leading-6 text-[#e8dcc9]">{local.searchText}</p>
         </div>
-        <div className="grid gap-3 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+        <div className="grid gap-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <label className="block">
             <span className="sr-only">{copy.searchPlaceholder[locale]}</span>
             <input
@@ -121,7 +121,11 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
         <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-[#e8dcc9]">
           <p>{copy.showing[locale]} <span className="font-semibold text-white">{filtered.length}</span> {copy.guides[locale]}</p>
           {activeFilters.length ? (
-            <button className="border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" type="button" onClick={clearFilters}>
+            <button
+              className="border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f3ead7]"
+              type="button"
+              onClick={clearFilters}
+            >
               {copy.clear[locale]}
             </button>
           ) : null}
@@ -129,20 +133,20 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
       </section>
 
       <section aria-labelledby="guide-results">
-        <div className="flex items-end justify-between gap-4 border-b border-[#dfd2b8] pb-4">
+        <div className="flex items-end justify-between gap-4 border-b border-[#dfd2b8] pb-3">
           <h2 id="guide-results" className="serif-heading text-3xl leading-none text-[#173f36]">{local.articles}</h2>
           {filtered.length ? <p className="text-xs text-[#71665b]">{local.showingRange} {visibleArticles.length} / {filtered.length}</p> : null}
         </div>
         {filtered.length ? (
           <>
-            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {visibleArticles.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} />)}
             </div>
             {hasMore ? (
-              <div className="mt-6 flex justify-center">
+              <div className="mt-5 flex justify-center">
                 <button
                   type="button"
-                  className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
+                  className="inline-flex min-h-11 items-center border border-[#b49353] bg-[#b49353] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#fff8e8] transition hover:bg-[#a27f49] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
                   onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
                 >
                   {local.showMore}
@@ -186,17 +190,17 @@ function GuideArticleCard({ article, locale, priority = false }: { article: Guid
           priority={priority}
           className={priority ? "aspect-[4/2.35]" : "aspect-[4/2.05]"}
         />
-        <div className="p-5">
+        <div className="p-4">
           <div className="flex flex-wrap gap-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#71665b]">
             {article.durationLabel ? <span>{article.durationLabel}</span> : null}
             {article.tags.slice(0, 2).map((tag) => <span key={tag}>/ {tag}</span>)}
           </div>
-          <h3 className="mt-3 serif-heading text-2xl leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{article.title}</h3>
-          <p className="mt-3 overflow-hidden text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">{article.excerpt}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
+          <h3 className="mt-2 serif-heading text-2xl leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{article.title}</h3>
+          <p className="mt-2 overflow-hidden text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{article.excerpt}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
             {article.bestFor.slice(0, 3).map((item) => <span key={item} className="border border-[#dfd2b8] px-2 py-1 text-[0.62rem] text-[#71665b]">{item}</span>)}
           </div>
-          <span aria-hidden="true" className="mt-5 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors group-hover:bg-[#f3ead7]">
+          <span aria-hidden="true" className="mt-4 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors group-hover:bg-[#f3ead7]">
             {guideFilterLabels.read[locale]}
           </span>
         </div>
