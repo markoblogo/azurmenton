@@ -159,6 +159,22 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         {section.bullets.map((bullet) => <li key={bullet} className="border-l-2 border-[#c6a66a] pl-3">{bullet}</li>)}
                       </ul>
                     ) : null}
+                    {section.officialLinks?.length ? (
+                      <ul className="mt-5 space-y-2">
+                        {section.officialLinks.map((link) => (
+                          <li key={link.url} className="text-sm leading-6">
+                            <a
+                              className="underline underline-offset-4 hover:text-[#173f36]"
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                     {section.videoEmbeds?.length ? (
                       <div className="mt-5 grid gap-4">
                         {section.videoEmbeds.map((video) => <VideoEmbed key={video.id} video={video} watchLabel={copy.watchSource} opensOnSourceLabel={copy.opensOnSource} />)}

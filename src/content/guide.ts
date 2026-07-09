@@ -65,9 +65,20 @@ export type GuideSection = {
   guideLinkLabel?: string;
   videoEmbeds?: LocalizedGuideVideoEmbed[];
   artworkCards?: LocalizedGuideArtworkCard[];
+  officialLinks?: GuideSectionOfficialLink[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
+};
+
+export type GuideSectionOfficialLink = {
+  label: string;
+  url: string;
+};
+
+export type LocalizedGuideSectionOfficialLink = {
+  label: LocalizedText;
+  url: string;
 };
 
 export type LocalizedGuideSection = {
@@ -81,6 +92,7 @@ export type LocalizedGuideSection = {
   guideLinkLabel?: LocalizedText;
   videoEmbeds?: GuideVideoEmbed[];
   artworkCards?: GuideArtworkCard[];
+  officialLinks?: LocalizedGuideSectionOfficialLink[];
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -6142,6 +6154,115 @@ export const guideArticles: GuideArticle[] = [
       t("If trains are your priority, check walking distance to Menton station, but you do not need to give up the seafront entirely.", "Si le train est votre priorite, verifiez la marche jusqu'a la gare de Menton, mais vous n'avez pas besoin de renoncer completement au front de mer.", "Se i treni sono la priorita, controlla la distanza a piedi dalla stazione di Mentone, ma non devi rinunciare del tutto al lungomare.", "Якщо потяги - ваш пріоритет, перевірте пішу відстань до станції Ментона, але не обов'язково повністю відмовлятися від набережної."),
     ],
   }),
+  shortArticle({
+      id: "official-tourism-websites-menton-riviera",
+      slug: "official-tourism-websites-menton-riviera",
+      title: t("Official tourism websites for Menton and the French Riviera", "Sites officiels de tourisme pour Menton et la Riviera", "Siti turistici ufficiali per Menton e la Riviera", "Офіційні туристичні сайти Ментона та Французької Рив'єри"),
+      seoTitle: t("Official Tourism Websites for Menton and the French Riviera", "Sites officiels de tourisme pour Menton et la Riviera", "Siti turistici ufficiali per Menton e la Riviera", "Офіційні туристичні сайти Ментона та Французької Рив'єри"),
+      seoDescription: t(
+        "If you cannot find something in our Azur Menton guides, these official tourism websites can help you check dates, events, transport, activities and practical information for Menton, the French Riviera and France.",
+        "Si vous ne trouvez pas tout dans nos guides Azur Menton, ces sites officiels vous aident a verifier dates, evenements, transport, activites et informations pratiques pour Menton, la Riviera et la France.",
+        "Se nelle nostre guide Azur Menton manca un dettaglio, questi siti ufficiali aiutano a controllare date, eventi, trasporti, attivita e informazioni pratiche per Menton, la Riviera e la Francia.",
+        "Якщо у наших гідах Azur Menton чогось бракує, ці офіційні туристичні сайти допоможуть перевірити дати, події, транспорт, активності та практичну інформацію для Ментона, Рив'єри та Франції.",
+      ),
+      excerpt: t("A practical reference list of official websites for dates, transport and practical planning in and around Menton.", "Liste pratique des sites officiels pour dates, transports et planification autour de Menton.", "Elenco pratico di siti ufficiali per date, trasporti e pianificazione pratica intorno a Menton.", "Практичний перелік офіційних сайтів для дат, транспорту і планування подорожі довкола Ментона."),
+      category: "practical",
+      tags: [
+        t("official websites", "sites officiels", "siti ufficiali", "офіційні сайти"),
+        t("practical planning", "planification pratique", "pianificazione pratica", "практичне планування"),
+        t("events", "evenements", "eventi", "події"),
+        t("transport", "transport", "trasporto", "транспорт"),
+        t("trips beyond Menton", "sejours au-dela de Menton", "viaggi oltre Menton", "подорожі поза Ментоном"),
+      ],
+      bestFor: [
+        t("Families", "Familles", "Famiglie", "Сім'ї"),
+        t("First-time visitors", "Premier sejour", "Prima visita", "Перший візит"),
+        t("Couples", "Couples", "Coppie", "Пари"),
+        t("Without a car", "Sans voiture", "Senza auto", "Без авто"),
+      ],
+      duration: "flexible",
+      locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+      coverImage: "/images/guide/official-tourism-websites-menton-riviera.png",
+      coverImageAlt: t(
+        "Illustration of official tourism websites for Menton and the French Riviera",
+        "Illustration des sites officiels de tourisme pour Menton et la Riviera",
+        "Illustrazione dei siti turistici ufficiali per Menton e la Riviera",
+        "Ілюстрація офіційних туристичних сайтів Ментона та Французької Рив'єри",
+      ),
+      visualTheme: "old-town",
+      visualStatus: "project_illustration",
+      sourceStatus: "verified",
+      relatedPlaces: [
+        "office-tourisme-menton-riviera-merveilles",
+        "palais-de-leurope-menton",
+        "menton-station",
+        "roquebrune-cap-martin",
+        "la-turbie",
+        "sospel-bevera-valley",
+        "mercantour-national-park",
+      ],
+      relatedArticles: [
+        "menton-without-a-car",
+        "day-trips-from-menton",
+        "monaco-events-from-menton",
+        "how-to-get-to-menton-from-nice-airport",
+        "fete-du-citron-menton-practical-guide",
+        "best-beaches-in-menton",
+      ],
+      relatedApartments: allApartments,
+      sections: [
+        {
+          heading: t("Official tourism websites", "Sites officiels", "Siti ufficiali", "Офіційні туристичні сайти"),
+          body: [
+            t(
+              "Use this page as a practical shortcut to trusted sources. If you need official dates, municipal updates, transport notices, program links or broader Riviera guidance, start here and then continue with Azur Menton practical notes.",
+              "Utilisez cette page comme un raccourci pratique vers des sources fiables. Si vous avez besoin de dates officielles, d'annonces municipales, d'avis transport, de programmes et de conseils plus larges de la Riviera, commencez ici puis continuez avec les notes pratiques Azur Menton.",
+              "Usa questa pagina come scorciatoia pratica verso fonti affidabili. Se hai bisogno di date ufficiali, aggiornamenti comunali, avvisi sui trasporti, programmi o indicazioni piu ampie sulla Riviera, inizia qui e poi passa ai consigli pratici di Azur Menton.",
+              "Використовуйте цю сторінку як практичний короткий шлях до надійних джерел. Якщо вам потрібні офіційні дати, міські оновлення, повідомлення про транспорт, програми заходів або ширші поради з Рив'єри, почніть тут і далі продовжуйте практичні поради Azur Menton.",
+            ),
+          ],
+          officialLinks: [
+            { label: t("France.fr", "France.fr", "France.fr", "France.fr"), url: "https://www.france.fr/en/" },
+            {
+              label: t("Cote d'Azur France", "Cote d'Azur France", "Cote d'Azur France", "Cote d'Azur France"),
+              url: "https://cotedazurfrance.com/",
+            },
+            { label: t("Menton.fr", "Ville de Menton", "Menton.fr", "Ментон.fr"), url: "https://www.menton.fr/" },
+            {
+              label: t("Menton Riviera & Merveilles", "Menton Riviera & Merveilles", "Menton Riviera & Merveilles", "Menton Riviera & Merveilles"),
+              url: "https://www.menton-riviera-merveilles.fr/",
+            },
+          ],
+        },
+        {
+          heading: t(
+            "How to combine official sources with practical planning",
+            "Comment combiner sources officielles et planification pratique",
+            "Come combinare fonti ufficiali e pianificazione pratica",
+            "Як поєднати офіційні джерела з практичним плануванням",
+          ),
+          body: [
+            t(
+              "For events, check the official source close to your travel dates: festival programmes, venue notices, opening hours and temporary access rules can change from year to year.",
+              "Pour les evenements, verifiez la source officielle proche de vos dates de voyage : programmes de festival, notices des lieux, horaires et regles d'acces peuvent changer d'une annee sur l'autre.",
+              "Per gli eventi, controlla la fonte ufficiale vicino alle date di viaggio: programmi, avvisi dei luoghi, orari e regole temporanee di accesso possono cambiare ogni anno.",
+              "Для подій перевіряйте офіційну сторінку поблизу дат подорожі: фестивальні програми, сповіщення майданчиків, графік роботи та тимчасові правила доступу можуть змінюватися щороку.",
+            ),
+            t(
+              "Keep one trusted official page open alongside your transport and apartment planning to avoid outdated editions while preserving practical local guidance in Azur Menton.",
+              "Gardez une page officielle de reference ouverte avec votre plan transport et sejour, afin d'eviter les versions obsoletes, tout en gardant les conseils locaux pratiques d'Azur Menton.",
+              "Tieni aperta una pagina ufficiale di riferimento insieme ai piani di trasporto e alloggio, per evitare versioni obsolete, mantenendo i consigli pratici locali di Azur Menton.",
+              "Майте відкриту одну офіційну сторінку поряд з планами транспорту та вибором апартаменту, щоб уникати застарілих версій, зберігаючи практичні локальні поради Azur Menton.",
+            ),
+          ],
+        },
+      ],
+      practicalTips: [
+        t("Check official pages for exact dates, accessibility notes and transport changes before purchasing.", "Verifiez les pages officielles pour les dates exactes, les notes d'accessibilite et les changements de transport avant l'achat." , "Controlla le pagine ufficiali per date esatte, note di accessibilita e cambi trasporti prima di acquistare.", "Перевіряйте офіційні сторінки на точні дати, умови доступу та зміни транспорту перед покупкою."),
+        t("Use the official city and regional tourism sites as a confirmation layer, not as a replacement for practical local guidance.", "Utilisez les sites officiels ville et region comme verification, pas comme remplacement des conseils pratiques locaux.", "Usa i siti turistici ufficiali comunali e regionali come livello di verifica, non come sostituto delle guide pratiche locali.", "Використовуйте офіційні міські й регіональні туристичні сайти для перевірки, а не замість практичних локальних порад."),
+        t("If a guide detail needs confirmation, add the official source in your planning notes and keep your date window explicit.", "Si un point du guide doit etre confirme, ajoutez la source officielle dans vos notes et precisez la periode.", "Se un dettaglio della guida richiede conferma, aggiungi la fonte ufficiale alle note di pianificazione e indica chiaramente la finestra di date.", "Якщо деталь гіда потребує підтвердження, додайте офіційну джерело в свої нотатки та чітко вкажіть період дат."),
+      ],
+    }),
 ];
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
@@ -6173,6 +6294,10 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
         ...video,
         title: video.title[locale],
         caption: video.caption?.[locale],
+      })),
+      officialLinks: section.officialLinks?.map((link) => ({
+        ...link,
+        label: link.label[locale],
       })),
       artworkCards: section.artworkCards?.map((artwork) => ({
         ...artwork,
