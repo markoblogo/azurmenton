@@ -4200,6 +4200,11 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of La Musa in Ventimiglia", "Illustration de La Musa a Ventimille", "Illustrazione di La Musa a Ventimiglia", "Ілюстрація La Musa у Вентімільї"),
     visualTheme: "food",
   },
+  "paper-plane-nice": {
+    image: "/images/guide/paper-plane-nice.jpg",
+    imageAlt: text("Illustration of Paper Plane in Nice", "Illustration de Paper Plane à Nice", "Illustrazione di Paper Plane a Nizza", "Ілюстрація Paper Plane у Ніцці"),
+    visualTheme: "food",
+  },
   "ami-glace-menton": {
     image: "/images/guide/ami-glace-menton.jpg",
     imageAlt: text("Illustration of L'Ami Glacé in Menton", "Illustration de L'Ami Glace a Menton", "Illustrazione di L'Ami Glacé a Mentone", "Ілюстрація L'Ami Glacé у Ментоні"),
