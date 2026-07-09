@@ -458,6 +458,152 @@ const articles: GuideArticle[] = [
     relatedApartments: allApartments,
   },
   {
+    id: "vegan-restaurants-cafes-menton",
+    slug: "vegan-restaurants-cafes-menton",
+    title: t(
+      "Vegan and vegan-friendly restaurants near Menton",
+      "Restaurants végétariens et vegan autour de Menton",
+      "Ristoranti vegan e vegetariani intorno a Mentone",
+      "Веганська й веган-дружня їжа біля Ментона",
+    ),
+    seoTitle: t(
+      "Vegan Restaurants Near Menton: Plant-Based Cafés, Vegan-Friendly Dining & Day Trips",
+      "Restaurants vegan près de Menton : cafés végétaux, restauration vegan-friendly et sorties",
+      "Ristoranti vegan vicino a Mentone: caffè vegetali, cena vegan-friendly e gite",
+      "Веган-ресторани біля Ментона: веганські кафе, веган-дружня їжа та поїздки",
+    ),
+    seoDescription: t(
+      "A practical vegan guide to Menton and nearby Riviera towns: vegan restaurants, vegan-friendly cafés, Indian and Mediterranean options, Nice day trips and Italian-side options.",
+      "Un guide pratique des options vegan à Menton et aux villes voisines: restaurants vegan, cafés végétaliens, cuisine indienne et méditerranéenne, Nice et options italiennes.",
+      "Una guida pratica per Mentone e dintorni: ristoranti vegan, caffè vegani, cucina indiana e mediterranea, gite a Nizza e opzioni italiane.",
+      "Практичний гід по веганських та веган-дружніх варіантах в Ментона й сусідніх містах Рив'єри: кафе, індійська та середземноморська кухня, поїздки до Ніцци та на італійський бік.",
+    ),
+    excerpt: t(
+      "Menton can work for vegan stays when planned: combine clear vegan options in town with day-trip fallback choices in Nice and Ventimiglia.",
+      "Menton peut fonctionner pour un séjour vegan si la planification est faite: combinez les options clairement vegan en ville et des alternatives a Nice ou Vintimille.",
+      "Mentone può funzionare per un soggiorno vegan se pianificato: combina opzioni davvero vegan in città con opzioni di backup a Nizza e Ventimiglia.",
+      "Ментон можна робити придатним для веганів, якщо все запланувати: поєднуйте чіткі локальні веган-пункти з точками-резервами в Ніцці та Вентімільї.",
+    ),
+    category: "food-markets",
+    coverImage: "/images/guide/vegan-restaurants-cafes-menton.png",
+    coverImageAlt: t(
+      "Vegan dining options in Menton and nearby Riviera cities",
+      "Options de restauration vegan à Menton et villes voisines",
+      "Opzioni di ristorazione vegan a Mentone e dintorni",
+      "Веганські варіанти в Ментоні та сусідніх містах",
+    ),
+    visualTheme: "food",
+    visualStatus: "editorial_placeholder",
+    tags: [t("vegan", "végétalien", "vegano", "веган"), t("vegetarian", "végétarien", "vegetariano", "вегетаріанський"), t("city trips", "sorties", "gite", "поїздки"), t("cafe", "café", "caffè", "кафе"), t("restaurants", "restaurants", "ristoranti", "ресторани")],
+    bestFor: [guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[9].label, guideBestForOptions[0].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "old-town", "monaco", "nice", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    featured: true,
+    relatedPlaces: [
+      "le-rouge-gorge-restaurant",
+      "a-braijade-meridiounale-palais-des-princes",
+      "o-petit-corner",
+      "le-taj-menton",
+      "little-bao-menton",
+      "paper-plane-nice",
+      "la-musa-ventimiglia",
+      "monaco-monte-carlo",
+      "nice-old-town",
+      "ventimiglia",
+      "halles-du-marche",
+    ],
+    relatedArticles: ["local-food-menton", "best-ice-cream-menton", "wine-tasting-near-menton", "day-trips-from-menton", "menton-without-a-car", "italian-riviera-day-trip-from-menton", "best-souvenir-shops-menton-monaco-nice"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі поради"),
+        body: [
+          t(
+            "If you want a clearly vegan option in Menton, start with Le Rouge-gorge. For larger menus with more choice, A Braijade Meridiounale / Palais des Princes and Le Taj are usually the most practical alternatives.",
+            "Si vous cherchez une option clairement vegan à Menton, commencez par Le Rouge-gorge. Pour un menu plus vaste, A Braijade Meridiounale / Palais des Princes et Le Taj sont souvent les alternatives les plus pratiques.",
+            "Se cerchi un'opzione chiaramente vegan a Mentone, inizia da Le Rouge-gorge. Per menu più ricchi, A Braijade Meridiounale / Palais des Princes e Le Taj sono spesso le alternative più pratiche.",
+            "Для чітко веганської опції в Ментоні почніть із Le Rouge-gorge. Для ширшого меню практичні альтернативи — A Braijade / Palais des Princes і Le Taj.",
+          ),
+          t(
+            "For day trips, Paper Plane in Nice is the clearest fallback for brunch/lunch, while La Musa in Ventimiglia is a common Italian-side practical option.",
+            "Pour les sorties, Paper Plane à Nice reste la meilleure solution de secours pour brunch/ lunch, et La Musa à Vintimille une option pratique du côté italien.",
+            "Per le gite, Paper Plane a Nizza resta il back-up più chiaro per brunch/pranzo, mentre La Musa a Ventimiglia e un'opzione pratica lato italiano.",
+            "Для поїздок найнадійніший резервний варіант у Ніцці — Paper Plane (брunch/lunch), з італійського боку — La Musa у Вентімільї.",
+          ),
+        ],
+      },
+      {
+        heading: t("In Menton", "À Menton", "A Mentone", "У Ментона"),
+        body: [
+          t(
+            "Practical options in Menton for vegan stays, from dedicated options to practical fallback venues.",
+            "Options pratiques à Menton pour un séjour vegan, des adresses dédiées aux solutions de secours.",
+            "Opzioni pratiche a Mentone per un soggiorno vegan, da proposte dedicate a soluzioni di riserva.",
+            "Практичні варіанти у Ментоні для веган-подорожей: від спеціалізованих до запасних рішень.",
+          ),
+        ],
+        bullets: [
+          t("Le Rouge-gorge Restaurant — fully vegan-focused option in Menton.", "Le Rouge-gorge Restaurant — option la plus claire orientée vegan.", "Le Rouge-gorge Restaurant — opzione più orientata al vegan a Mentone.", "Le Rouge-gorge Restaurant — найбільш чіткий веган-орієнтований варіант."),
+          t("A Braijade Meridiounale / Palais des Princes — vegan-friendly menu structure, confirm on the day.", "A Braijade Meridiounale / Palais des Princes — carte orientée vegan-friendly, à confirmer le jour J.", "A Braijade Meridiounale / Palais des Princes — menu vegan-friendly, confermare nel giorno.", "A Braijade Meridiounale / Palais des Princes — веган-дружній формат меню, уточнюйте на момент відвідування."),
+          t("O’ Petit Corner — useful for breakfast, coffee and light midday vegetarian lunches.", "O’ Petit Corner — utile pour le petit-déjeuner, le café et des déjeuners végétariens légers.", "O’ Petit Corner — utile per colazione, caffè e pranzi leggeri vegetariani.", "O’ Petit Corner — корисний для сніданку, кави та легкого обіду."),
+          t("Le Taj Menton — useful vegetarian/vegan-friendly dinner choice with rice and vegetables.", "Le Taj Menton — choix utile de souper vegan-friendly avec riz et legumes.", "Le Taj Menton — buona scelta cena con opzioni vegan-friendly e riso/verdure.", "Le Taj Menton — корисний варіант для веган-дружньої вечері з рисом і овочами."),
+          t("Little Bao Menton — useful but confirm oil, fryer and sauce details before ordering.", "Little Bao Menton — utile mais confirmez huile, friteuse et sauces avant de commander.", "Little Bao Menton — utile ma conferma olio, friggitore e salse prima di ordinare.", "Little Bao Menton — зручний варіант, але уточнюйте масло, спосіб смаження й соуси."),
+        ],
+        relatedPlaceIds: ["le-rouge-gorge-restaurant", "a-braijade-meridiounale-palais-des-princes", "o-petit-corner", "le-taj-menton", "little-bao-menton"],
+      },
+      {
+        heading: t("Day trips from Menton", "Sorties d'une journée", "Gite giornaliere", "Поїздки на день"),
+        body: [
+          t(
+            "Nearby city trips are the most reliable option when Menton is light on fully vegan choices.",
+            "Les sorties d'une journée dans les villes voisines sont l'option la plus fiable quand Menton propose peu d'offres vegan.",
+            "Le gite giornaliere nelle città vicine sono spesso la soluzione più affidabile quando Menton ha poche opzioni vegan.",
+            "Коли в Ментоні мало повноцінних веган-варіантів, найбільш надійний спосіб — поїздки в сусідні міста.",
+          ),
+        ],
+        bullets: [
+          t("Nice: strongest nearby vegan-friendly city base for brunch, lunch and local mobility.", "Nice: base la plus forte proche pour brunch, déjeuner et mobilité locale.", "Nizza: base più forte nelle vicinanze per brunch, pranzo e mobilità locale.", "Ніцца: найбільш сильна база неподалік для brunch, lunch і пересування."),
+          t("Monaco: often vegan-friendly but usually requires confirmation on menus and substitutions.", "Monaco: souvent vegan-friendly mais demande souvent confirmation des menus et adaptations.", "Monaco: spesso vegan-friendly ma spesso richiede conferma del menu.", "Монако: часто веган-дружнє, але зазвичай потрібно уточнювати меню й заміни."),
+          t("Ventimiglia: practical Italian option for casual vegan-friendly pizza and pasta alternatives.", "Ventimiglia: option italienne pratique pour pizza et pasta avec alternatives vegan.", "Ventimiglia: opzione pratica italiana per pizza e pasta con alternative vegan.", "Вентімілья: практичний італійський варіант для неформальної веган-спрямованої піци й пасти."),
+        ],
+        relatedPlaceIds: ["paper-plane-nice", "monaco-monte-carlo", "la-musa-ventimiglia", "nice-old-town", "ventimiglia"],
+      },
+      {
+        heading: t("Booking approach from apartments", "Organisation pratique depuis l'appartement", "Approccio pratico dall'appartamento", "Практичний підхід з апартаментів"),
+        body: [
+          t(
+            "For high-intent vegan stays, self-catering is usually your strongest foundation: buy fruit, bread, olive oil, rice, legumes and pantry basics, then plan one evening meal outside.",
+            "Pour un séjour vegan, l'auto-catering est souvent le socle le plus fort: achetez fruits, pain, huile d'olive, riz, legumes et completer la semaine avec un repas dehors.",
+            "Per un soggiorno vegan, il self-catering è spesso la base più forte: compra frutta, pane, olio d'oliva, riso, legumi e organizza un pasto all'esterno.",
+            "Для веган-гурту/сім'ї найкраща основа — самообслуговування: фрукт, хліб, оливкова олія, рис, бобові й базові продукти, а потім один вечірній прийом їжі назовні.",
+          ),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Practical phrases", "Phrases utiles", "Frasi pratiche", "Практичні фрази"),
+        body: [
+          t(
+            "Keep the most useful short phrases ready before you go.",
+            "Ayez ces phrases utiles à portée de main avant de partir.",
+            "Tieni a portata di mano queste frasi pratiche prima di uscire.",
+            "Майте під рукою кілька практичних фраз заздалегідь.",
+          ),
+        ],
+        bullets: [
+          t("I am vegan.", "Je suis végan(e).", "Sono vegano/vegana.", "Я веган/веганка."),
+          t("No fish stock, no butter, no cream, no cheese, no eggs, please.", "Pas de bouillon de poisson, pas de beurre, de crème, de fromage, pas d'œufs, s'il vous plaît.", "Nessun brodo di pesce, burro, panna, formaggio e uova, per favore.", "Будь ласка, без рибного бульййону, масла, вершків, сиру, яєць."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Check current hours before visiting; seasonal schedules change often.", "Vérifiez les horaires actuels avant de venir; les horaires saisonniers changent souvent.", "Controlla gli orari aggiornati prima di andarci; i programmi stagionali cambiano spesso.", "Перевіряйте актуальні години: сезонність часто змінює графік."),
+      t("Ask explicitly about vegan substitutions for sauces, dressings and cooked oil.", "Demandez explicitement les substitutions vegan pour sauces, assaisonnements et huiles de cuisson.", "Chiedi esplicitamente alle sostituzioni vegan per salse, condimenti e oli di cottura.", "Окремо уточнюйте про заміни в соусах, заправках і способах приготування."),
+      t("If one option is uncertain, keep a backup with more reliable day-trip places in Nice or Ventimiglia.", "Si une option est incertaine, gardez un plan de secours avec Nice ou Vintimille.", "Se una opzione è incerta, tieni un piano B con Nizza o Ventimiglia.", "Якщо щось невизначене — тримайте резервний план з Ніцци чи Вентімільї."),
+    ],
+  },
+  {
     id: "best-ice-cream-menton",
     slug: "best-ice-cream-menton",
     title: t("Best ice cream in Menton: gelato, artisan glaciers and lemon sorbet", "Meilleures glaces a Menton: gelato, glaciers artisanaux et sorbet citron", "Miglior gelato a Mentone: gelaterie artigianali e sorbetto al limone", "Найкраще морозиво в Ментоні: gelato, artisan glaciers і лимонний сорбет"),
