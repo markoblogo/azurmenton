@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/locales";
 import type { GuideUtilityBlock } from "@/content/guide";
+import Image from "next/image";
 import { getRadioStationsForTenant, getRadioStationLabel } from "@/content/utility/radio";
 
 type LocalizedCopy = {
@@ -13,6 +14,7 @@ type LocalizedCopy = {
   listen: string;
   website: string;
   noStations: string;
+  audioUnavailable: string;
 };
 
 const labels = {
@@ -27,6 +29,7 @@ const labels = {
     listen: "Listen online",
     website: "Website",
     noStations: "No station details available yet.",
+    audioUnavailable: "Audio stream may not be available for this link.",
   },
   fr: {
     title: "Radio locale",
@@ -39,6 +42,7 @@ const labels = {
     listen: "Écouter en ligne",
     website: "Site web",
     noStations: "Aucune station enregistrée pour le moment.",
+    audioUnavailable: "Le flux audio peut ne pas être disponible depuis ce lien.",
   },
   it: {
     title: "Radio locali",
@@ -51,6 +55,7 @@ const labels = {
     listen: "Ascolta online",
     website: "Sito web",
     noStations: "Nessuna radio disponibile al momento.",
+    audioUnavailable: "Lo streaming audio potrebbe non essere disponibile da questo link.",
   },
   uk: {
     title: "Локальне радіо",
@@ -63,6 +68,7 @@ const labels = {
     listen: "Слухати онлайн",
     website: "Сайт",
     noStations: "Поки що немає деталей по станціях.",
+    audioUnavailable: "Аудіо-стрім може бути недоступний за цим посиланням.",
   },
 };
 
@@ -91,7 +97,18 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
 
           return (
             <div key={station.id} className="border border-[#e6d9c6] bg-white/65 p-3 sm:p-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#b49353]">{copy.station}</p>
+              {station.image ? (
+                <div className="relative aspect-[16/9] overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea]">
+                  <Image
+                    src={station.image}
+                    alt={`${stationName} logo`}
+                    fill
+                    sizes="(min-width: 1024px) 320px, 100vw"
+                    className="object-contain p-2"
+                  />
+                </div>
+              ) : null}
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#b49353]">{copy.station}</p>
               <h4 className="mt-1 text-lg font-semibold text-[#173f36]">{stationName}</h4>
               {station.fmFrequency ? <p className="mt-1 text-sm text-[#5c5044]">{station.fmFrequency}</p> : null}
               <p className="mt-3 text-sm leading-6 text-[#5c5044]">{station.shortLabel?.[locale] ?? station.shortLabel?.en}</p>
@@ -104,9 +121,18 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {station.onlineStreamUrl ? (
-                  <a className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]" href={station.onlineStreamUrl} target="_blank" rel="noopener noreferrer">
-                    {copy.listen}
-                  </a>
+                  <>
+                    <audio controls className="w-full max-w-sm" preload="none" src={station.onlineStreamUrl} />
+                    <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>
+                    <a
+                      className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+                      href={station.onlineStreamUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {copy.listen}
+                    </a>
+                  </>
                 ) : null}
                 {station.websiteUrl ? (
                   <a className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]" href={station.websiteUrl} target="_blank" rel="noopener noreferrer">

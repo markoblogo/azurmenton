@@ -8,6 +8,7 @@ export type RadioStation = {
   id: string;
   tenant: RadioTenantOrRegion;
   name: LocalizedText;
+  image?: string;
   fmFrequency?: string;
   languages?: string[];
   contentTypes?: string[];
@@ -22,6 +23,7 @@ export type RadioStation = {
 export const radioStations: RadioStation[] = [
   {
     id: "france-bleu-cote-azur",
+    image: "/images/guide/ici-azur-france-bleu-azur.png",
     tenant: "menton",
     name: {
       en: "France Bleu Côte d'Azur",
@@ -49,6 +51,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "rmc-azur",
+    image: "/images/guide/rmc.png",
     tenant: "menton",
     name: {
       en: "RMC",
@@ -76,6 +79,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "radio-classique-loire",
+    image: "/images/guide/radio-classique.png",
     tenant: "loire",
     name: {
       en: "Radio Classique",
@@ -103,6 +107,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "monaco-mondiale-radio",
+    image: "/images/guide/radio-monaco.png",
     tenant: "menton",
     name: {
       en: "Monaco Info Radio",
@@ -123,6 +128,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "radio-vinci-autoroutes-1077",
+    image: "/images/guide/radio-vinci-autoroutes.png",
     tenant: "menton",
     name: {
       en: "Radio VINCI Autoroutes",
@@ -152,6 +158,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "ici-azur-france-bleu-azur",
+    image: "/images/guide/ici-azur-france-bleu-azur.png",
     tenant: "menton",
     name: {
       en: "Ici Azur / France Bleu Azur",
@@ -180,6 +187,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "riviera-radio",
+    image: "/images/guide/riviera-radio.png",
     tenant: "menton",
     name: {
       en: "Riviera Radio",
@@ -209,6 +217,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "radio-monaco",
+    image: "/images/guide/radio-monaco.png",
     tenant: "menton",
     name: {
       en: "Radio Monaco",
@@ -238,6 +247,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "france-info",
+    image: "/images/guide/france-info.png",
     tenant: "menton",
     name: {
       en: "France Info",
@@ -266,6 +276,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "france-inter",
+    image: "/images/guide/france-inter.png",
     tenant: "menton",
     name: {
       en: "France Inter",
@@ -288,6 +299,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "france-culture",
+    image: "/images/guide/france-culture.png",
     tenant: "menton",
     name: {
       en: "France Culture",
@@ -310,6 +322,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "france-musique",
+    image: "/images/guide/france-musique.png",
     tenant: "menton",
     name: {
       en: "France Musique",
@@ -333,6 +346,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "radio-classique",
+    image: "/images/guide/radio-classique.png",
     tenant: "menton",
     name: {
       en: "Radio Classique",
@@ -356,6 +370,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "rmc",
+    image: "/images/guide/rmc.png",
     tenant: "menton",
     name: {
       en: "RMC",
@@ -378,6 +393,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "radio-monte-carlo-italia",
+    image: "/images/guide/radio-monte-carlo.png",
     tenant: "menton",
     name: {
       en: "Radio Monte Carlo",
@@ -401,6 +417,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "nrj-cote-dazur",
+    image: "/images/guide/nrj-cote-d-azur.png",
     tenant: "menton",
     name: {
       en: "NRJ Côte d’Azur",
@@ -424,6 +441,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "rtl2-cote-dazur",
+    image: "/images/guide/rtl2-cote-d-azur.png",
     tenant: "menton",
     name: {
       en: "RTL2 Côte d’Azur",
@@ -447,6 +465,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "nostalgie",
+    image: "/images/guide/nostalgie.png",
     tenant: "menton",
     name: {
       en: "Nostalgie",
@@ -470,6 +489,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "europe-2",
+    image: "/images/guide/europe-2.png",
     tenant: "menton",
     name: {
       en: "Europe 2",
@@ -493,6 +513,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "rfm",
+    image: "/images/guide/rfm.png",
     tenant: "menton",
     name: {
       en: "RFM",
@@ -516,6 +537,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "m-radio",
+    image: "/images/guide/m-radio.png",
     tenant: "menton",
     name: {
       en: "M Radio",
@@ -539,6 +561,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "melody-dazur",
+    image: "/images/guide/melody-d-azur.png",
     tenant: "menton",
     name: {
       en: "Melody d’Azur",
@@ -560,6 +583,7 @@ export const radioStations: RadioStation[] = [
   },
   {
     id: "agora-cote-dazur",
+    image: "/images/guide/agora-cote-d-azur.png",
     tenant: "menton",
     name: {
       en: "Agora Côte d’Azur",
