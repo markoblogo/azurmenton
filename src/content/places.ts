@@ -3996,6 +3996,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Le Tropic in Menton", "Illustration de Le Tropic a Menton", "Illustrazione di Le Tropic a Mentone", "Ілюстрація Le Tropic у Ментоні"),
     visualTheme: "food",
   },
+  "a-braijade-meridiounale-palais-des-princes": {
+    image: "/images/guide/a-braijade-meridiounale-palais-des-princes.jpg",
+    imageAlt: text("Illustration of A Braijade Meridiounale / Palais des Princes", "Illustration d'A Braijade Meridiounale / Palais des Princes", "Illustrazione de A Braijade Meridiounale / Palais des Princes", "Ілюстрація A Braijade Meridiounale / Palais des Princes"),
+    visualTheme: "food",
+  },
+  "le-rouge-gorge-restaurant": {
+    image: "/images/guide/le-rouge-gorge-restaurant.jpg",
+    imageAlt: text("Illustration of Le Rouge-gorge Restaurant in Menton", "Illustration du restaurant Le Rouge-gorge a Menton", "Illustrazione del ristorante Le Rouge-gorge a Mentone", "Ілюстрація ресторану Le Rouge-gorge в Ментоні"),
+    visualTheme: "food",
+  },
+  "o-petit-corner": {
+    image: "/images/guide/o-petit-corner.jpg",
+    imageAlt: text("Illustration of O' Petit Corner in Menton", "Illustration d'O' Petit Corner a Menton", "Illustrazione di O' Petit Corner a Mentone", "Ілюстрація O' Petit Corner у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-taj-menton": {
+    image: "/images/guide/le-taj-menton.jpg",
+    imageAlt: text("Illustration of Le Taj in Menton", "Illustration du Le Taj a Menton", "Illustrazione del Le Taj a Mentone", "Ілюстрація Le Taj у Ментоні"),
+    visualTheme: "food",
+  },
+  "little-bao-menton": {
+    image: "/images/guide/little-bao-menton.jpg",
+    imageAlt: text("Illustration of Little Bao in Menton", "Illustration de Little Bao a Menton", "Illustrazione di Little Bao a Mentone", "Ілюстрація Little Bao в Ментоні"),
+    visualTheme: "food",
+  },
+  "la-musa-ventimiglia": {
+    image: "/images/guide/la-musa-ventimiglia.jpg",
+    imageAlt: text("Illustration of La Musa in Ventimiglia", "Illustration de La Musa a Ventimille", "Illustrazione di La Musa a Ventimiglia", "Ілюстрація La Musa у Вентімільї"),
+    visualTheme: "food",
+  },
   "ami-glace-menton": {
     image: "/images/guide/ami-glace-menton.jpg",
     imageAlt: text("Illustration of L'Ami Glacé in Menton", "Illustration de L'Ami Glace a Menton", "Illustrazione di L'Ami Glacé a Mentone", "Ілюстрація L'Ami Glacé у Ментоні"),
