@@ -34,6 +34,7 @@ export const radioStations: RadioStation[] = [
     },
     contentTypes: ["local news", "current affairs", "music"],
     languages: ["French"],
+    audioStreamUrl: "https://stream.radiofrance.fr/fbazur/fbazur.m3u8?id=radiofrance",
     onlineStreamUrl: "https://www.francebleu.fr/",
     websiteUrl: "https://www.francebleu.fr/",
     shortLabel: {
@@ -62,6 +63,7 @@ export const radioStations: RadioStation[] = [
     },
     contentTypes: ["news", "lifestyle", "music"],
     languages: ["French"],
+    audioStreamUrl: "https://audio.bfmtv.com/rmcradio_128.mp3",
     onlineStreamUrl: "https://www.rmc.fr/stream",
     websiteUrl: "https://www.rmc.fr/",
     shortLabel: {
@@ -141,6 +143,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["traffic", "road info", "weather", "news"],
     languages: ["French"],
     musicStyles: [],
+    audioStreamUrl: "https://sc.creacast.com/rva-cofiroute-1",
     websiteUrl: "https://www.radio-vinci-autoroutes.fr/",
     onlineStreamUrl: "https://www.radio-vinci-autoroutes.fr/ecouter/",
     shortLabel: {
@@ -170,6 +173,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "94.8 MHz",
     contentTypes: ["local news", "weather", "practical updates"],
     languages: ["French"],
+    audioStreamUrl: "https://stream.radiofrance.fr/fbazur/fbazur.m3u8?id=radiofrance",
     websiteUrl: "https://www.francebleu.fr/",
     onlineStreamUrl: "https://www.francebleu.fr/",
     shortLabel: {
@@ -200,6 +204,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["traffic", "entertainment", "news", "lifestyle"],
     languages: ["English"],
     musicStyles: ["pop", "adult contemporary", "easy listening"],
+    audioStreamUrl: "https://rivieraradio.ice.infomaniak.ch/stream",
     websiteUrl: "https://www.rivieraradio.mc/",
     onlineStreamUrl: "https://www.rivieraradio.mc/en/radio/player",
     shortLabel: {
@@ -259,6 +264,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "105.5 MHz",
     contentTypes: ["news", "alerts", "national context"],
     languages: ["French"],
+    audioStreamUrl: "https://icecast.radiofrance.fr/franceinfo-hifi.aac",
     websiteUrl: "https://www.francetvinfo.fr/",
     onlineStreamUrl: "https://www.radiofrance.fr/franceinfo",
     shortLabel: {
@@ -288,6 +294,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "97.0 MHz",
     contentTypes: ["talk", "culture", "news", "magazines"],
     languages: ["French"],
+    audioStreamUrl: "https://stream.radiofrance.fr/monpetitfranceinter/monpetitfranceinter_hifi.m3u8",
     websiteUrl: "https://www.radiofrance.fr/franceinter",
     onlineStreamUrl: "https://www.radiofrance.fr/franceinter",
     shortLabel: {
@@ -311,6 +318,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "89.6 MHz",
     contentTypes: ["culture", "documentary", "debate", "history"],
     languages: ["French"],
+    audioStreamUrl: "https://icecast.radiofrance.fr/franceculture-hifi.aac",
     websiteUrl: "https://www.radiofrance.fr/franceculture",
     onlineStreamUrl: "https://www.radiofrance.fr/franceculture",
     shortLabel: {
@@ -335,6 +343,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "classical", "jazz", "concerts"],
     languages: ["French"],
     musicStyles: ["classical", "jazz"],
+    audioStreamUrl: "https://icecast.radiofrance.fr/francemusique-hifi.aac",
     websiteUrl: "https://www.radiofrance.fr/francemusique",
     onlineStreamUrl: "https://www.radiofrance.fr/francemusique",
     shortLabel: {
@@ -382,6 +391,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "98.5 MHz",
     contentTypes: ["talk", "sport", "news", "entertainment"],
     languages: ["French"],
+    audioStreamUrl: "https://audio.bfmtv.com/rmcradio_128.mp3",
     websiteUrl: "https://rmc.bfmtv.com/",
     onlineStreamUrl: "https://rmc.bfmtv.com/",
     shortLabel: {
@@ -526,6 +536,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "adult pop", "easy listening"],
     languages: ["French"],
     musicStyles: ["adult contemporary", "popular classics"],
+    audioStreamUrl: "https://rfm.lmn.fm/rfm.mp3",
     websiteUrl: "https://www.rfm.fr/",
     onlineStreamUrl: "https://www.rfm.fr/",
     shortLabel: {

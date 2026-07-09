@@ -96,7 +96,7 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     alt={`${stationName} logo`}
                     fill
                     sizes="(min-width: 1024px) 420px, 92vw"
-                    className="object-cover object-center"
+                    className="object-contain object-center p-1"
                     priority={false}
                   />
                 </div>
