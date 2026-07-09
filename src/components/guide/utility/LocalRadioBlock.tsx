@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Image from "next/image";
 import type { Locale } from "@/i18n/locales";
@@ -14,6 +14,9 @@ type LocalizedCopy = {
   contentTypes: string;
   musicStyles: string;
   usefulFor: string;
+  play: string;
+  pause: string;
+  loading: string;
   website: string;
   listenOnline: string;
   noStations: string;
@@ -29,6 +32,9 @@ const labels = {
     contentTypes: "Content",
     musicStyles: "Music",
     usefulFor: "Useful for",
+    play: "Play",
+    pause: "Pause",
+    loading: "Connecting",
     website: "Website",
     listenOnline: "Listen online",
     noStations: "No station details available yet.",
@@ -42,6 +48,9 @@ const labels = {
     contentTypes: "Rubriques",
     musicStyles: "Styles musicaux",
     usefulFor: "Utile pour",
+    play: "Écouter",
+    pause: "Pause",
+    loading: "Connexion",
     website: "Site web",
     listenOnline: "Écouter en ligne",
     noStations: "Aucune station enregistrée pour le moment.",
@@ -55,6 +64,9 @@ const labels = {
     musicStyles: "Stili musicali",
     usefulFor: "Utile per",
     languages: "Lingue",
+    play: "Ascolta",
+    pause: "Pausa",
+    loading: "Connessione",
     website: "Sito web",
     listenOnline: "Ascolta online",
     noStations: "Nessuna radio disponibile al momento.",
@@ -68,6 +80,9 @@ const labels = {
     contentTypes: "Формат",
     musicStyles: "Музика",
     usefulFor: "Корисно для",
+    play: "Слухати",
+    pause: "Пауза",
+    loading: "Підключення",
     website: "Сайт",
     listenOnline: "Слухати онлайн",
     noStations: "Поки що немає деталей по станціях.",
@@ -75,47 +90,120 @@ const labels = {
   },
 };
 
-const getStreamMimeType = (url: string) => {
+const isKnownDirectStream = (url: string) => {
   const lower = url.toLowerCase();
-  if (lower.includes(".m3u8")) return "application/vnd.apple.mpegurl";
-  if (lower.includes(".aac")) return "audio/aac";
-  if (lower.includes(".mp3")) return "audio/mpeg";
-  return "audio/mpeg";
+
+  if (lower.includes(".m3u8")) {
+    return false;
+  }
+
+  if (lower.includes(".mp3") || lower.includes(".aac") || lower.includes(".m4a")) {
+    return true;
+  }
+
+  if (lower.includes("audio.bfmtv.com") || lower.includes("icecast") || lower.includes("rivieraradio.ice.infomaniak.ch") || lower.includes("sc.creacast.com") || lower.includes("rfm.lmn.fm") || lower.includes("mfm.ice.infomaniak.ch")) {
+    return true;
+  }
+
+  return false;
 };
 
-const isKnownPlayableFormat = (url: string) => {
-  const lower = url.toLowerCase();
-  if (lower.includes(".m3u8")) return false;
-  return true;
-};
+type PlayerState = "idle" | "loading" | "playing" | "error";
+
+function RadioPlayer({
+  streamUrl,
+  copy,
+  websiteUrl,
+}: {
+  streamUrl: string;
+  copy: Pick<LocalizedCopy, "play" | "pause" | "loading" | "listenOnline" | "streamUnavailable">;
+  websiteUrl?: string;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [state, setState] = useState<PlayerState>("idle");
+
+  const handleTogglePlay = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (state === "playing") {
+      audio.pause();
+      setState("idle");
+      return;
+    }
+
+    try {
+      setState("loading");
+      audio.load();
+      await audio.play();
+      setState("playing");
+    } catch {
+      setState("error");
+    }
+  };
+
+  if (!isKnownDirectStream(streamUrl)) {
+    if (!websiteUrl) return null;
+    return (
+      <a
+        className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+        href={websiteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {copy.listenOnline}
+      </a>
+    );
+  }
+
+  if (state === "error") {
+    if (!websiteUrl) {
+      return <p className="w-full text-xs italic text-[#71665b]">{copy.streamUnavailable}</p>;
+    }
+
+    return (
+      <div className="flex flex-wrap gap-2">
+        <p className="w-full text-xs italic text-[#71665b]">{copy.streamUnavailable}</p>
+        <a
+          className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+          href={websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {copy.listenOnline}
+        </a>
+      </div>
+    );
+  }
+
+  const buttonLabel = state === "loading" ? copy.loading : state === "playing" ? copy.pause : copy.play;
+
+  return (
+    <div className="mt-1 flex flex-wrap gap-2">
+      <audio
+        ref={audioRef}
+        className="sr-only"
+        preload="none"
+        crossOrigin="anonymous"
+        src={streamUrl}
+        onError={() => setState("error")}
+        onPause={() => setState("idle")}
+      />
+      <button
+        type="button"
+        className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+        onClick={handleTogglePlay}
+      >
+        {buttonLabel}
+      </button>
+      {state === "loading" ? <span className="text-xs text-[#71665b]">{copy.loading}…</span> : null}
+    </div>
+  );
+}
 
 export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
   const copy = labels[locale] as LocalizedCopy;
   const stations = getRadioStationsForTenant(block.region, block.stationIds);
-  const [failedStreams, setFailedStreams] = useState<Set<string>>(new Set());
-
-  const handleStreamError = (stationId: string) => {
-    setFailedStreams((prev) => {
-      if (prev.has(stationId)) return prev;
-      const next = new Set(prev);
-      next.add(stationId);
-      return next;
-    });
-  };
-
-  const unsupportedStreams = (() => {
-    if (typeof window === "undefined") return new Set<string>();
-    const blocked = new Set<string>();
-    const probe = document.createElement("audio");
-    stations.forEach((station) => {
-        if (!station.audioStreamUrl) return;
-        const mime = getStreamMimeType(station.audioStreamUrl);
-      if (!probe.canPlayType(mime)) {
-        blocked.add(station.id);
-      }
-    });
-    return blocked;
-  })();
 
   if (!stations.length) {
     return (
@@ -136,24 +224,22 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
           const notes = station.notes?.[locale] ?? station.notes?.en;
           const stationName = getRadioStationLabel(station, locale);
           const streamUrl = station.audioStreamUrl ?? "";
-          const hasStream = Boolean(station.audioStreamUrl);
 
           return (
             <div key={station.id} className="border border-[#e6d9c6] bg-white/65 p-3 sm:p-4">
               {station.image ? (
-                <div className="relative mt-2 h-56 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-60">
+                <div className="relative mt-2 h-64 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-72">
                   <Image
                     src={station.image}
                     alt={`${stationName} logo`}
                     fill
                     sizes="(min-width: 1024px) 420px, 92vw"
-                    className="object-cover"
-                    style={{ objectFit: "cover", padding: 0 }}
+                    className="object-cover object-center"
                     priority={false}
                   />
                 </div>
               ) : (
-                <div className="relative mt-2 h-56 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-60">
+                <div className="relative mt-2 h-64 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-72">
                   <div className="flex h-full items-center justify-center px-4 text-center text-xs leading-6 text-[#71665b]">{stationName}</div>
                 </div>
               )}
@@ -168,34 +254,18 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 {station.musicStyles?.length ? <p><span className="font-semibold text-[#173f36]">{copy.musicStyles}:</span> {station.musicStyles.join(", ")}</p> : null}
                 {station.usefulFor?.length ? <p><span className="font-semibold text-[#173f36]">{copy.usefulFor}:</span> {station.usefulFor.join(", ")}</p> : null}
               </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {hasStream &&
-                isKnownPlayableFormat(streamUrl) &&
-                !failedStreams.has(station.id) &&
-                !unsupportedStreams.has(station.id) ? (
-                  <audio
-                    controls
-                    className="w-full max-w-sm"
-                    preload="none"
-                    onError={() => handleStreamError(station.id)}
-                  >
-                    <source src={streamUrl} type={getStreamMimeType(streamUrl)} />
-                  </audio>
-                ) : null}
-
-                {(!hasStream || failedStreams.has(station.id) || unsupportedStreams.has(station.id)) && station.websiteUrl ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                {streamUrl ? (
+                  <RadioPlayer streamUrl={streamUrl} copy={copy} websiteUrl={station.websiteUrl} />
+                ) : station.websiteUrl ? (
                   <a
                     className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
                     href={station.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {station.audioStreamUrl ? copy.listenOnline : copy.website}
+                    {copy.listenOnline}
                   </a>
-                ) : null}
-
-                {(failedStreams.has(station.id) || unsupportedStreams.has(station.id)) ? (
-                  <p className="w-full text-xs italic text-[#71665b]">{copy.streamUnavailable}</p>
                 ) : null}
               </div>
             </div>
