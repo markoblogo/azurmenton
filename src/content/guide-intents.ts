@@ -181,6 +181,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "jazz-live-music-near-menton", ignore: ["cluster"], reason: "standalone live-music guide linked through nightlife, Monaco, transport and events content" },
   { slug: "latin-dancing-salsa-bachata-menton", ignore: ["cluster"], reason: "standalone evening dance guide linked through nightlife, Monaco, transport and Italian Riviera content" },
   { slug: "local-food-menton", ignore: ["cluster"], reason: "standalone food guide supporting market, restaurant and itinerary content" },
+  { slug: "shisha-hookah-near-menton", ignore: ["cluster"], reason: "standalone nightlife guide linked through nightlife and practical evening planning content" },
   { slug: "menton-one-day-itinerary", ignore: ["cluster"], reason: "standalone itinerary guide rather than a search-intent cluster entry" },
   { slug: "michelin-restaurants-menton-nice-monaco", ignore: ["cluster"], reason: "standalone restaurant guide supporting food, day-trip and evening content" },
   { slug: "music-videos-filmed-in-menton", ignore: ["cluster"], reason: "standalone visual-culture guide supporting photo, old-town and performing-arts content" },
