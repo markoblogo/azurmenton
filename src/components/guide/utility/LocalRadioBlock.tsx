@@ -72,6 +72,13 @@ const labels = {
   },
 };
 
+const streamFileTypes = /\.(mp3|m3u|m3u8|aac|ogg|wav|flac)(\?|$)/i;
+const streamPathHints = /\/(stream|listen|live|ecouter|player|webradio|web-radio)(\/|$|\?)/i;
+
+function isLikelyStreamUrl(url: string): boolean {
+  return streamFileTypes.test(url) || streamPathHints.test(url);
+}
+
 export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
   const copy = labels[locale] as LocalizedCopy;
   const stations = getRadioStationsForTenant(block.region, block.stationIds);
@@ -94,6 +101,9 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
         {stations.map((station) => {
           const notes = station.notes?.[locale] ?? station.notes?.en;
           const stationName = getRadioStationLabel(station, locale);
+          const streamUrl = station.audioStreamUrl ?? station.onlineStreamUrl;
+          const hasStream = Boolean(streamUrl);
+          const streamLooksPlayable = Boolean(streamUrl && isLikelyStreamUrl(streamUrl));
 
           return (
             <div key={station.id} className="border border-[#e6d9c6] bg-white/65 p-3 sm:p-4">
@@ -104,10 +114,15 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     alt={`${stationName} logo`}
                     fill
                     sizes="(min-width: 1024px) 320px, 100vw"
-                    className="object-contain p-2"
+                    className="object-cover"
+                    priority={false}
                   />
                 </div>
-              ) : null}
+              ) : (
+                <div className="relative aspect-[16/9] overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea]">
+                  <div className="flex h-full items-center justify-center px-4 text-center text-xs leading-6 text-[#71665b]">{stationName}</div>
+                </div>
+              )}
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#b49353]">{copy.station}</p>
               <h4 className="mt-1 text-lg font-semibold text-[#173f36]">{stationName}</h4>
               {station.fmFrequency ? <p className="mt-1 text-sm text-[#5c5044]">{station.fmFrequency}</p> : null}
@@ -120,17 +135,17 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 {station.usefulFor?.length ? <p><span className="font-semibold text-[#173f36]">{copy.usefulFor}:</span> {station.usefulFor.join(", ")}</p> : null}
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {station.audioStreamUrl ? (
+                {hasStream ? (
                   <>
-                    <audio controls className="w-full max-w-sm" preload="none" src={station.audioStreamUrl} />
-                    <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>
+                    <audio controls className="w-full max-w-sm" preload="none" src={streamUrl} />
+                    {streamLooksPlayable ? null : <span className="text-[0.62rem] text-[#71665b]">{copy.audioUnavailable}</span>}
                   </>
                 ) : null}
 
-                {(station.audioStreamUrl || station.onlineStreamUrl) ? (
+                {hasStream ? (
                   <a
                     className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
-                    href={station.audioStreamUrl ?? station.onlineStreamUrl}
+                    href={streamUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -139,11 +154,16 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 ) : null}
 
                 {station.websiteUrl ? (
-                  <a className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]" href={station.websiteUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
+                    href={station.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {copy.website}
                   </a>
                 ) : null}
-                
+
               </div>
             </div>
           );
