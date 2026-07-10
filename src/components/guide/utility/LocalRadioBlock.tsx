@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import Hls from "hls.js";
 import Image from "next/image";
 import type { Locale } from "@/i18n/locales";
 import type { GuideUtilityBlock } from "@/content/guide";
@@ -103,7 +102,7 @@ function RadioStream({
     const audio = audioRef.current;
     if (!audio) return undefined;
 
-    let hls: Hls | null = null;
+    let hls: import("hls.js").default | null = null;
     let cancelled = false;
 
     const handleError = () => setState("error");
@@ -120,17 +119,26 @@ function RadioStream({
 
       if (canPlayNativeHls) {
         audio.src = streamUrl;
-      } else if (Hls.isSupported()) {
-        hls = new Hls({});
-        hls.on(Hls.Events.ERROR, (_event, data) => {
-          if (data.fatal) setState("error");
-        });
-        hls.loadSource(streamUrl);
-        hls.attachMedia(audio);
       } else {
-        queueMicrotask(() => {
-          if (!cancelled) setState("error");
-        });
+        void import("hls.js")
+          .then(({ default: Hls }) => {
+            if (cancelled) return;
+
+            if (!Hls.isSupported()) {
+              setState("error");
+              return;
+            }
+
+            hls = new Hls({});
+            hls.on(Hls.Events.ERROR, (_event, data) => {
+              if (data.fatal && !cancelled) setState("error");
+            });
+            hls.loadSource(streamUrl);
+            hls.attachMedia(audio);
+          })
+          .catch(() => {
+            if (!cancelled) setState("error");
+          });
       }
     }
 

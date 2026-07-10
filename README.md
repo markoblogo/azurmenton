@@ -58,7 +58,6 @@ Optional checks:
 
 ```bash
 npm run content:audit
-npm run weekly:validate
 npm run test:e2e
 npm run images:generate
 npm run seo:validate
@@ -149,6 +148,8 @@ Place cards support local imagery, Google Maps links, official programme/source 
 
 Guide intent clusters in `src/content/guide-intents.ts` group existing articles around search intents such as family stays, car-free stays, beachfront stays, day trips, summer heat and practical errands. Keep cluster guide slugs, place ids and apartment keys synchronized with the article content graph.
 
+Reusable guide utility blocks live under `src/components/guide/utility/` with typed data under `src/content/utility/`. They belong in the main reading column when they are central to the guide. Radio playback accepts only direct HTTPS audio streams; HLS support is loaded on demand instead of being included in every guide page.
+
 `/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources.
 
 Use `docs/content-operations.md` before adding guide articles, places, events, images or apartment-facing recommendations.
@@ -186,6 +187,8 @@ Events use a pragmatic annual-series model inside the typed content: `seriesSlug
 
 Use `next/image` for site imagery. Large source images live in `public/images/`; selected generated derivatives are tracked under `generated/` folders and verified by `npm run images:check`.
 
+Prefer WebP or AVIF for new editorial and utility imagery, keep stable dimensions, and replace multi-megabyte PNG exports before publishing. The content audit enforces a 500 KiB limit for radio utility images so this media set cannot silently regress.
+
 The image lightbox is implemented in `src/components/media/ImageLightboxButton.tsx` and renders via a portal above the page. The subtle photo shine effect is implemented in `src/components/media/PhotoShineObserver.tsx` and `src/app/globals.css`; keep it restrained and respect reduced-motion behavior.
 
 ### SEO
@@ -205,7 +208,7 @@ Apartment `VacationRental` schema must keep stable `identifier`, `geo` and `cont
 - `src/lib/security-headers.ts`
 - `src/app/api/booking-request/route.ts`
 
-The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Do not reintroduce `unsafe-inline` in production CSP.
+The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Scripts remain nonce-protected without `script-src 'unsafe-inline'`; `style-src-attr` permits the inline style attributes required by React and `next/image`.
 
 Run `npm run preflight:postbuild` after `npm run build` for the current CSP/cache audit. Notes and follow-up options live in `docs/csp-cache-audit.md`.
 

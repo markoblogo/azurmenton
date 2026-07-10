@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { apartments } from "../../src/content/apartments";
@@ -12,6 +12,7 @@ import { getRadioStationsForTenant, radioStations } from "../../src/content/util
 import { getEventDateStatus } from "../../src/lib/events";
 
 const publicPathExists = (sitePath: string) => existsSync(join(process.cwd(), "public", sitePath.replace(/^\//, "")));
+const publicPathSize = (sitePath: string) => statSync(join(process.cwd(), "public", sitePath.replace(/^\//, ""))).size;
 const unique = (items: string[]) => new Set(items).size === items.length;
 
 const guideSlugs = new Set(guideArticles.map((article) => article.slug));
@@ -115,6 +116,8 @@ describe("content graph audit", () => {
           for (const station of stations) {
             if (!station.image || !publicPathExists(station.image)) {
               failures.push(`${article.slug} radio station ${station.id} is missing its image`);
+            } else if (publicPathSize(station.image) > 500 * 1024) {
+              failures.push(`${article.slug} radio station ${station.id} image exceeds 500 KiB`);
             }
             if (station.audioStreamUrl && !station.audioStreamUrl.startsWith("https://")) {
               failures.push(`${article.slug} radio station ${station.id} uses a non-HTTPS stream`);

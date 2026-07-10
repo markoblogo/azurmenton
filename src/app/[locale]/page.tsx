@@ -337,6 +337,7 @@ export default async function LocaleHome({ params }: PageProps) {
                 apartment={apartment}
                 imageOverride={homeCardImages[apartment.slug]}
                 locale={safeLocale}
+                eagerImage={apartment.slug === "sea-view-balcony-studio"}
               />
             ))}
           </div>

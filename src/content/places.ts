@@ -836,7 +836,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Town hall contact for local administration and some lost-property routing.", "Mairie pour administration locale et orientation de certains objets perdus.", "Municipio per amministrazione locale e alcuni oggetti smarriti.", "Мерія для місцевої адміністрації та деяких питань щодо загублених речей."),
     bestFor: [text("local administration", "administration locale", "amministrazione locale", "місцева адміністрація"), text("lost property routing", "orientation objets perdus", "indirizzo per oggetti smarriti", "пошук загублених речей")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "menton-without-a-car", "official-tourism-websites-menton-riviera"],
   },
   {
     id: "office-tourisme-menton-riviera-merveilles",
@@ -848,7 +848,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Tourist office for maps, brochures, local events, guided tours and visitor information.", "Office de tourisme pour cartes, brochures, evenements locaux, visites guidees et informations visiteurs.", "Ufficio turistico per mappe, brochure, eventi locali, visite guidate e informazioni.", "Туристичний офіс для карт, брошур, подій, екскурсій та інформації для гостей."),
     bestFor: [text("visitor information", "information visiteurs", "informazioni turistiche", "туристична інформація"), text("maps", "cartes", "mappe", "карти")],
-    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "best-souvenir-shops-menton-monaco-nice", "menton-without-a-car", "public-transport-in-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
+    relatedArticleIds: ["useful-numbers-emergency-contacts-menton", "best-souvenir-shops-menton-monaco-nice", "menton-without-a-car", "public-transport-in-menton", "useful-apps-websites-menton-monaco-italian-riviera", "official-tourism-websites-menton-riviera", "where-to-stay-in-menton"],
   },
   {
     id: "nice-cote-dazur-airport",
@@ -1089,7 +1089,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Central Nice rail station for TER trips between Menton, Nice and the wider Côte d'Azur.", "Gare centrale de Nice pour les trajets TER entre Menton, Nice et la Cote d'Azur.", "Stazione centrale di Nizza per TER tra Mentone, Nizza e Costa Azzurra.", "Центральний вокзал Ніцци для TER між Ментоном, Ніццою та ширшою Côte d'Azur."),
     bestFor: [text("Nice day trips", "excursions a Nice", "gite a Nizza", "поїздки до Ніцци"), text("regional trains", "trains regionaux", "treni regionali", "регіональні потяги")],
-    relatedArticleIds: ["how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "skateparks-near-menton", "menton-without-a-car", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
+    relatedArticleIds: ["how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "skateparks-near-menton", "menton-without-a-car", "kosher-food-restaurants-menton-monaco-nice", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
   },
   {
     id: "menton-station",
@@ -1101,7 +1101,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Main Menton station for TER trains to Monaco, Nice, Ventimiglia and airport-side connections.", "Gare principale de Menton pour les TER vers Monaco, Nice, Vintimille et les liaisons cote aeroport.", "Stazione principale di Mentone per TER verso Monaco, Nizza, Ventimiglia e collegamenti aeroportuali.", "Головна станція Ментона для TER до Монако, Ніцци, Вентімільї та сполучень з аеропортом."),
     bestFor: [text("car-free trips", "sejours sans voiture", "soggiorni senza auto", "поїздки без авто"), text("regional trains", "trains regionaux", "treni regionali", "регіональні потяги")],
-    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "menton-without-a-car", "where-to-stay-in-menton", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
+    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "menton-without-a-car", "where-to-stay-in-menton", "kosher-food-restaurants-menton-monaco-nice", "official-tourism-websites-menton-riviera", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
   },
   {
     id: "menton-garavan-station",
@@ -3766,7 +3766,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A close autumn day or evening trip from Menton for harbour views, concerts, casino architecture and Riviera events.", "Une excursion proche depuis Menton en automne pour le port, les concerts, l'architecture du Casino et les evenements Riviera.", "Una gita vicina da Mentone in autunno per porto, concerti, architettura del Casino ed eventi in Riviera.", "Близька осіння поїздка з Ментона заради порту, концертів, архітектури Casino й подій Рив'єри."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("events", "evenements", "eventi", "події")],
-    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "skateparks-near-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
+    relatedArticleIds: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "skateparks-near-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "monaco-events-from-menton", "public-transport-in-menton", "nightlife-in-menton", "best-walks-and-hikes-around-menton", "menton-with-kids-family-guide", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "vegan-restaurants-cafes-menton", "menton-three-day-itinerary", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
   },
   {
     id: "nice-old-town",
@@ -3777,7 +3777,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A compact Riviera day trip for lanes, cafes, Cours Saleya and a livelier city rhythm than Menton.", "Une excursion compacte pour ruelles, cafes, Cours Saleya et un rythme plus urbain que Menton.", "Una gita compatta per vicoli, cafe, Cours Saleya e un ritmo piu urbano di Mentone.", "Компактна поїздка на день заради вуличок, кафе, Cours Saleya й більш міського ритму, ніж у Ментоні."),
     bestFor: [text("day trips", "excursions", "gite", "поїздки"), text("old town", "vieille ville", "centro storico", "старе місто")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "best-souvenir-shops-menton-monaco-nice", "public-transport-in-menton", "nightlife-in-menton", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
+    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "best-photo-spots-menton", "best-souvenir-shops-menton-monaco-nice", "public-transport-in-menton", "nightlife-in-menton", "museums-in-menton-nice-monaco", "michelin-restaurants-menton-nice-monaco", "useful-apps-websites-menton-monaco-italian-riviera", "vegan-restaurants-cafes-menton", "menton-three-day-itinerary", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
   },
   {
     id: "nicolas-alziari-nice",
@@ -3864,7 +3864,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("The closest Italian rail stop from Menton, useful for markets, Ligurian food and an easy cross-border walk day.", "La gare italienne la plus proche de Menton, utile pour les marches, la cuisine ligure et une journee facile de l'autre cote de la frontiere.", "La fermata italiana piu vicina a Mentone, utile per mercati, cucina ligure e una facile giornata oltre confine.", "Найближча італійська залізнична зупинка від Ментона, зручна для ринків, лігурійської їжі й легкої поїздки через кордон."),
     bestFor: [text("markets", "marches", "mercati", "ринки"), text("Italian day trip", "excursion italienne", "gita italiana", "поїздка в Італію")],
-    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy", "useful-apps-websites-menton-monaco-italian-riviera", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticleIds: ["italian-riviera-day-trip-from-menton", "menton-in-autumn", "day-trips-from-menton", "public-transport-in-menton", "morning-walk-france-to-italy", "useful-apps-websites-menton-monaco-italian-riviera", "vegan-restaurants-cafes-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "bordighera",

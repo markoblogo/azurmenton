@@ -57,8 +57,18 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Put source images through the project image derivative workflow.
 - Keep generated derivatives and manifests in sync.
+- Prefer WebP or AVIF for editorial and utility images; do not publish multi-megabyte PNG exports when a visually equivalent optimized asset is available.
+- Keep radio utility images below 500 KiB. `npm run content:audit` enforces this limit for stations used by published guides.
 - Use descriptive alt text in every locale.
 - Avoid broken placeholders on published guide covers.
+
+## Guide Utility Blocks
+
+- Define reusable block configuration in guide metadata and typed data under `src/content/utility/`; do not duplicate the same utility dataset in article copy.
+- Keep a utility block in the main reading column when it is central to the guide and leave related articles or booking CTAs secondary.
+- Use `audioStreamUrl` only for a direct HTTPS audio stream. General station or web-player pages belong in `websiteUrl`, not in the native audio player.
+- When adding a new stream origin, update the CSP media/connect allowlist and its tests together.
+- Keep HLS support dynamically imported so guides without an HLS player do not pay its JavaScript cost.
 
 ## Internal Linking
 
@@ -79,6 +89,8 @@ npm run content:report
 npm run images:check
 npm run preflight
 ```
+
+`npm run preflight` includes content schema lint, weekly digest validation and the booking funnel contract report.
 
 For larger changes also run:
 

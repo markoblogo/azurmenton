@@ -47,7 +47,8 @@ export function createCspHeader(nonce: string) {
       ...plausibleOrigins,
       isDev ? "'unsafe-eval'" : "",
     ].filter(Boolean).join(" "),
-    ["style-src", "'self'", `'nonce-${nonce}'`].join(" "),
+    ["style-src", "'self'", isDev ? "'unsafe-inline'" : `'nonce-${nonce}'`].join(" "),
+    "style-src-attr 'unsafe-inline'",
     "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
     "font-src 'self' data:",
     [

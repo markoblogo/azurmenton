@@ -12,6 +12,7 @@ export function ApartmentCard({
   locale,
   imageOverride,
   compact = false,
+  eagerImage = false,
 }: {
   apartment: Apartment;
   locale: Locale;
@@ -20,6 +21,7 @@ export function ApartmentCard({
     alt: string;
   };
   compact?: boolean;
+  eagerImage?: boolean;
 }) {
   const copy = t[locale];
   const contentImage = getCardImage(apartment);
@@ -38,6 +40,7 @@ export function ApartmentCard({
             src={imageSrc}
             alt={imageAlt}
             fill
+            loading={eagerImage ? "eager" : "lazy"}
             quality={90}
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
             className={`next-fill-cover object-cover transition duration-500 group-hover:scale-[1.025] ${imageOverride ? "" : imageObjectPosition(apartment, contentImage)}`}

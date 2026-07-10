@@ -52,8 +52,8 @@ export function HeroImageSlides({ mainSlides, insetSlides }: HeroImageSlidesProp
               src={slide.src}
               alt=""
               fill
-              fetchPriority={index === 0 ? "high" : "auto"}
-              loading={index === 0 ? "eager" : "lazy"}
+              preload={index === 0}
+              loading={index === 0 ? undefined : "lazy"}
               quality={90}
               sizes="(min-width: 1280px) 54vw, (min-width: 1024px) 50vw, 100vw"
               className={`next-fill-cover object-cover transition-opacity duration-[1600ms] ease-out ${index === mainIndex ? "opacity-100" : "opacity-0"}`}
@@ -70,7 +70,7 @@ export function HeroImageSlides({ mainSlides, insetSlides }: HeroImageSlidesProp
               src={slide.src}
               alt=""
               fill
-              loading={index === 0 ? "eager" : "lazy"}
+              loading="lazy"
               quality={90}
               sizes="224px"
               className={`next-fill-cover object-cover transition-opacity duration-[1100ms] ease-out ${index === insetIndex ? "opacity-100" : "opacity-0"}`}

@@ -4698,6 +4698,8 @@ export const guideArticles: GuideArticle[] = [
       "italian-riviera-day-trip-from-menton",
       "day-trips-from-menton",
       "useful-numbers-emergency-contacts-menton",
+      "official-tourism-websites-menton-riviera",
+      "radio-stations-menton-riviera",
       "stay-cool-in-menton-summer",
       "supermarkets-in-menton",
       "best-souvenir-shops-menton-monaco-nice",

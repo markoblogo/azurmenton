@@ -7,15 +7,17 @@ afterEach(() => {
 });
 
 describe("security headers", () => {
-  it("keeps the production CSP nonce-based without unsafe-inline", () => {
+  it("keeps production scripts nonce-based while allowing framework style attributes", () => {
     vi.stubEnv("NODE_ENV", "production");
     vi.stubEnv("NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC", "");
 
     const csp = createCspHeader("test-nonce");
+    const scriptDirective = csp.split(";").find((directive) => directive.trim().startsWith("script-src"));
 
-    expect(csp).toContain("script-src 'self' 'nonce-test-nonce' 'strict-dynamic'");
+    expect(scriptDirective).toContain("script-src 'self' 'nonce-test-nonce' 'strict-dynamic'");
+    expect(scriptDirective).not.toContain("'unsafe-inline'");
+    expect(csp).toContain("style-src-attr 'unsafe-inline'");
     expect(csp).toContain("https://plausible.io");
-    expect(csp).not.toContain("'unsafe-inline'");
   });
 
   it("allows the origin of a managed Plausible script URL", () => {

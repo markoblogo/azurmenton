@@ -162,7 +162,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "Супермаркети, корисні застосунки, екстрені контакти й локальна логістика.",
     ),
     canonicalGuideSlug: "useful-apps-websites-menton-monaco-italian-riviera",
-    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "best-souvenir-shops-menton-monaco-nice", "tennis-padel-courts-menton", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "best-souvenir-shops-menton-monaco-nice", "tennis-padel-courts-menton", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "official-tourism-websites-menton-riviera", "radio-stations-menton-riviera"],
     relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "au-pays-du-citron-menton", "u-express-menton-centre", "office-tourisme-menton-riviera-merveilles", "tennis-club-de-menton", "centre-hospitalier-la-palmosa-menton", "commissariat-police-menton"],
     relatedApartmentKeys: allApartments,
   },
@@ -179,6 +179,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "halles-du-marche-menton", ignore: ["cluster"], reason: "focused market guide supporting food, itinerary and practical-stay content" },
   { slug: "how-to-get-to-menton-from-nice-airport", ignore: ["places"], reason: "transport reference guide; links are route and planning oriented" },
   { slug: "jazz-live-music-near-menton", ignore: ["cluster"], reason: "standalone live-music guide linked through nightlife, Monaco, transport and events content" },
+  { slug: "kosher-food-restaurants-menton-monaco-nice", ignore: ["cluster"], reason: "focused dietary guide connected through food, supermarket and practical-stay content" },
   { slug: "latin-dancing-salsa-bachata-menton", ignore: ["cluster"], reason: "standalone evening dance guide linked through nightlife, Monaco, transport and Italian Riviera content" },
   { slug: "local-food-menton", ignore: ["cluster"], reason: "standalone food guide supporting market, restaurant and itinerary content" },
   { slug: "shisha-hookah-near-menton", ignore: ["cluster"], reason: "standalone nightlife guide linked through nightlife and practical evening planning content" },
@@ -190,4 +191,5 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "nightlife-in-menton", ignore: ["cluster"], reason: "standalone evening guide supporting restaurants, bars and events content" },
   { slug: "public-transport-in-menton", ignore: ["places"], reason: "transport reference guide; useful links are service and route oriented" },
   { slug: "skateparks-near-menton", ignore: ["cluster"], reason: "standalone teen and outdoor guide supporting family, cycling and day-trip content" },
+  { slug: "vegan-restaurants-cafes-menton", ignore: ["cluster"], reason: "focused dietary guide connected through food, supermarket and day-trip content" },
 ];
