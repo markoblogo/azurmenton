@@ -235,6 +235,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "news", "entertainment"],
     languages: ["French"],
     musicStyles: ["electro-pop", "house", "chill-out", "jazz", "rock"],
+    audioStreamUrl: "https://radiomonaco.ice.infomaniak.ch/radiomonaco-128.mp3",
     websiteUrl: "https://www.radiomonaco.org/",
     onlineStreamUrl: "https://www.radiomonaco.org/ecouter/",
     shortLabel: {
@@ -294,7 +295,7 @@ export const radioStations: RadioStation[] = [
     fmFrequency: "97.0 MHz",
     contentTypes: ["talk", "culture", "news", "magazines"],
     languages: ["French"],
-    audioStreamUrl: "https://stream.radiofrance.fr/monpetitfranceinter/monpetitfranceinter_hifi.m3u8",
+    audioStreamUrl: "https://icecast.radiofrance.fr/franceinter-hifi.aac",
     websiteUrl: "https://www.radiofrance.fr/franceinter",
     onlineStreamUrl: "https://www.radiofrance.fr/franceinter",
     shortLabel: {
@@ -368,6 +369,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "classical", "business", "news"],
     languages: ["French"],
     musicStyles: ["classical"],
+    audioStreamUrl: "https://radioclassique.ice.infomaniak.ch/radioclassique-high.mp3",
     websiteUrl: "https://www.radioclassique.fr/",
     onlineStreamUrl: "https://www.radioclassique.fr/",
     shortLabel: {
@@ -416,6 +418,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "italian", "cross-border"],
     languages: ["Italian"],
     musicStyles: ["italian pop", "international pop"],
+    audioStreamUrl: "https://icy.unitedradio.it/RMC.mp3",
     websiteUrl: "https://www.radiomontecarlo.it/",
     onlineStreamUrl: "https://www.radiomontecarlo.it/",
     shortLabel: {
@@ -464,6 +467,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "pop-rock", "drive"],
     languages: ["French"],
     musicStyles: ["pop-rock", "adult contemporary"],
+    audioStreamUrl: "https://streamingp.shoutcast.com/RTL2",
     websiteUrl: "https://www.rtl2.fr/",
     onlineStreamUrl: "https://www.rtl2.fr/",
     shortLabel: {
@@ -512,6 +516,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "pop", "rock"],
     languages: ["French"],
     musicStyles: ["pop", "rock", "adult pop"],
+    audioStreamUrl: "https://europe2.ice.infomaniak.ch/europe2-128.mp3",
     websiteUrl: "https://www.europe2.fr/",
     onlineStreamUrl: "https://www.europe2.fr/",
     shortLabel: {

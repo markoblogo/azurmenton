@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
+import Hls from "hls.js";
 import Image from "next/image";
 import type { Locale } from "@/i18n/locales";
 import type { GuideUtilityBlock } from "@/content/guide";
@@ -13,8 +16,8 @@ type LocalizedCopy = {
   contentTypes: string;
   musicStyles: string;
   usefulFor: string;
-  play: string;
-  website: string;
+  loading: string;
+  streamUnavailable: string;
   noStations: string;
 };
 
@@ -27,8 +30,8 @@ const labels = {
     contentTypes: "Content",
     musicStyles: "Music",
     usefulFor: "Useful for",
-    play: "Play",
-    website: "Website",
+    loading: "Loading",
+    streamUnavailable: "This stream is unavailable right now.",
     noStations: "No station details available yet.",
   },
   fr: {
@@ -39,8 +42,8 @@ const labels = {
     contentTypes: "Rubriques",
     musicStyles: "Styles musicaux",
     usefulFor: "Utile pour",
-    play: "Écouter",
-    website: "Site web",
+    loading: "Chargement",
+    streamUnavailable: "Ce flux est indisponible pour le moment.",
     noStations: "Aucune station enregistrée pour le moment.",
   },
   it: {
@@ -51,8 +54,8 @@ const labels = {
     musicStyles: "Stili musicali",
     usefulFor: "Utile per",
     languages: "Lingue",
-    play: "Ascolta",
-    website: "Sito web",
+    loading: "Caricamento",
+    streamUnavailable: "Questo flusso non è disponibile al momento.",
     noStations: "Nessuna radio disponibile al momento.",
   },
   uk: {
@@ -63,43 +66,93 @@ const labels = {
     contentTypes: "Формат",
     musicStyles: "Музика",
     usefulFor: "Корисно для",
-    play: "Слухати",
-    website: "Сайт",
+    loading: "Завантаження",
+    streamUnavailable: "Цей потік зараз недоступний.",
     noStations: "Поки що немає деталей по станціях.",
   },
 };
 
-const isKnownStream = (url: string) => {
-  const lower = url.toLowerCase();
+type PlayerState = "idle" | "loading" | "error";
 
-  if (lower.includes(".mp3") || lower.includes(".aac") || lower.includes(".m4a") || lower.includes(".m3u8")) {
-    return true;
-  }
+type RadioStreamCopy = Pick<LocalizedCopy, "loading" | "streamUnavailable">;
 
-  if (
-    lower.includes("audio.bfmtv.com") ||
-    lower.includes("icecast") ||
-    lower.includes("rivieraradio.ice.infomaniak.ch") ||
-    lower.includes("sc.creacast.com") ||
-    lower.includes("rfm.lmn.fm") ||
-    lower.includes("mfm.ice.infomaniak.ch")
-  ) {
-    return true;
-  }
+function RadioStream({
+  streamUrl,
+  copy,
+}: {
+  streamUrl: string;
+  copy: RadioStreamCopy;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [state, setState] = useState<PlayerState>("idle");
+  const isHlsStream = streamUrl.toLowerCase().includes(".m3u8");
+  const canPlayNativeHls =
+    typeof window !== "undefined"
+      ? (() => {
+          const probe = document.createElement("audio");
+          const support = probe.canPlayType("application/vnd.apple.mpegurl");
+          return support === "probably" || support === "maybe";
+        })()
+      : false;
+  const hasHlsLibrary = Hls.isSupported();
+  const hasPlayableHls = isHlsStream ? canPlayNativeHls || hasHlsLibrary : true;
 
-  return false;
-};
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return undefined;
 
-function RadioStream({ streamUrl, label }: { streamUrl: string; label: string }) {
+    let hls: Hls | null = null;
+
+    const handleError = () => setState("error");
+    const handleLoadStart = () => setState("loading");
+    const handleCanPlay = () => setState("idle");
+
+    audio.addEventListener("error", handleError);
+    audio.addEventListener("loadstart", handleLoadStart);
+    audio.addEventListener("canplay", handleCanPlay);
+
+    if (isHlsStream) {
+      if (canPlayNativeHls) {
+        audio.src = streamUrl;
+        audio.load();
+      } else if (hasHlsLibrary) {
+        hls = new Hls({});
+        hls.on(Hls.Events.ERROR, (_event, data) => {
+          if (data.fatal) setState("error");
+        });
+        hls.loadSource(streamUrl);
+        hls.attachMedia(audio);
+      }
+    } else {
+      audio.src = streamUrl;
+      audio.load();
+    }
+
+    return () => {
+      audio.removeEventListener("error", handleError);
+      audio.removeEventListener("loadstart", handleLoadStart);
+      audio.removeEventListener("canplay", handleCanPlay);
+
+      if (hls) {
+        hls.destroy();
+        hls = null;
+      }
+    };
+  }, [canPlayNativeHls, hasHlsLibrary, isHlsStream, streamUrl]);
+
   return (
-    <audio
-      className="mt-2 block h-10 w-full"
-      controls
-      preload="none"
-      src={streamUrl}
-      crossOrigin="anonymous"
-      aria-label={label}
-    />
+    <div className="mt-2">
+      <audio
+        ref={audioRef}
+        controls
+        preload="none"
+        className="h-9 w-full"
+      >
+        {!isHlsStream || canPlayNativeHls ? <source src={streamUrl} type={isHlsStream ? "application/vnd.apple.mpegurl" : undefined} /> : null}
+      </audio>
+      {state === "loading" ? <p className="mt-2 text-[11px] text-[#71665b]">{copy.loading}</p> : null}
+      {state === "error" || !hasPlayableHls ? <p className="mt-2 text-[11px] text-[#71665b]">{copy.streamUnavailable}</p> : null}
+    </div>
   );
 }
 
@@ -126,14 +179,14 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
           const notes = station.notes?.[locale] ?? station.notes?.en;
           const stationName = getRadioStationLabel(station, locale);
           const streamUrl = station.audioStreamUrl?.trim() ?? "";
-          const stationImage = station.image;
-          const hasImage = Boolean(stationImage);
-          const hasStream = Boolean(streamUrl) && isKnownStream(streamUrl);
+          const stationImage = station.image ?? "";
+          const hasImage = stationImage.length > 0;
+          const hasStream = Boolean(streamUrl);
 
           return (
             <div key={station.id} className="border border-[#e6d9c6] bg-white/65 p-3 sm:p-4">
-              {stationImage ? (
-                <div className="relative mt-2 h-64 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-72">
+              <div className="relative mt-2 h-64 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-72">
+                {hasImage ? (
                   <Image
                     src={stationImage}
                     alt={`${stationName} logo`}
@@ -143,17 +196,17 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                     quality={90}
                     priority={false}
                   />
-                </div>
-              ) : (
-                <div className="relative mt-2 h-64 w-full overflow-hidden border border-[#e6d9c6] bg-[#f7f2ea] sm:h-72">
+                ) : (
                   <div className="flex h-full items-center justify-center px-4 text-center text-xs leading-6 text-[#71665b]">{stationName}</div>
-                </div>
-              )}
+                )}
+              </div>
+
               <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#b49353]">{copy.station}</p>
               <h4 className="mt-1 text-lg font-semibold text-[#173f36]">{stationName}</h4>
               {station.fmFrequency ? <p className="mt-1 text-sm text-[#5c5044]">{station.fmFrequency}</p> : null}
               <p className="mt-3 text-sm leading-6 text-[#5c5044]">{station.shortLabel?.[locale] ?? station.shortLabel?.en}</p>
               {notes ? <p className="mt-2 text-xs leading-5 text-[#71665b]">{notes}</p> : null}
+
               <div className="mt-3 grid gap-2 text-xs text-[#5c5044] sm:grid-cols-2">
                 {station.languages?.length ? (
                   <p>
@@ -176,19 +229,9 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                   </p>
                 ) : null}
               </div>
+
               <div className="mt-4">
-                {hasImage && hasStream ? (
-                  <RadioStream streamUrl={streamUrl} label={copy.play} />
-                ) : station.websiteUrl ? (
-                  <a
-                    className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]"
-                    href={station.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {copy.website}
-                  </a>
-                ) : null}
+                {hasStream ? <RadioStream streamUrl={streamUrl} copy={copy} /> : null}
               </div>
             </div>
           );

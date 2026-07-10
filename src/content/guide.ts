@@ -6606,7 +6606,7 @@ export const guideArticles: GuideArticle[] = [
           region: "menton",
           title: "Local radio for practical planning",
           description: "Useful stations for transport updates, weather changes and weekend event news.",
-          stationIds: ["france-bleu-cote-azur", "rmc-azur", "monaco-mondiale-radio"],
+          stationIds: ["ici-azur-france-bleu-azur", "rmc", "monaco-mondiale-radio"],
         },
       ],
       sections: [
