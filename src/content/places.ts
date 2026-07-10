@@ -5410,6 +5410,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Breil-sur-Roya", "Illustration de Breil-sur-Roya", "Illustrazione di Breil-sur-Roya", "Ілюстрація Breil-sur-Roya"),
     visualTheme: "viewpoint",
   },
+  "parc-du-pian": {
+    image: "/images/guide/parc-du-pian.webp",
+    imageAlt: text("Illustration of Parc du Pian in Menton", "Illustration du Parc du Pian a Menton", "Illustrazione del Parc du Pian a Mentone", "Ілюстрація Parc du Pian у Ментоні"),
+    visualTheme: "walk",
+  },
+  "la-pinede-picnic-area-la-turbie": {
+    image: "/images/guide/la-pinede-picnic-area-la-turbie.webp",
+    imageAlt: text("Illustration of La Pinède picnic area in La Turbie", "Illustration de l'aire de pique-nique La Pinede a La Turbie", "Illustrazione dell'area picnic La Pinède a La Turbie", "Ілюстрація зони для пікніка La Pinède у La Turbie"),
+    visualTheme: "viewpoint",
+  },
+  "sospel-picnic-area": {
+    image: "/images/guide/sospel-picnic-area.webp",
+    imageAlt: text("Illustration of the Sospel picnic area", "Illustration de l'aire de pique-nique de Sospel", "Illustrazione dell'area picnic di Sospel", "Ілюстрація зони для пікніка в Sospel"),
+    visualTheme: "family",
+  },
+  "camping-le-mas-fleuri": {
+    image: "/images/guide/camping-le-mas-fleuri.webp",
+    imageAlt: text("Illustration of Camping Le Mas Fleuri in Sospel", "Illustration du Camping Le Mas Fleuri a Sospel", "Illustrazione del Camping Le Mas Fleuri a Sospel", "Ілюстрація Camping Le Mas Fleuri у Sospel"),
+    visualTheme: "family",
+  },
+  "sainte-agnes": {
+    image: "/images/guide/sainte-agnes.webp",
+    imageAlt: text("Illustration of Sainte-Agnès above Menton", "Illustration de Sainte-Agnes au-dessus de Menton", "Illustrazione di Sainte-Agnès sopra Mentone", "Ілюстрація Sainte-Agnès над Ментоном"),
+    visualTheme: "viewpoint",
+  },
+  "menton-environmental-brigade": {
+    image: "/images/guide/brigade-environmental-menton.webp",
+    imageAlt: text("Illustration of Menton's environmental brigade", "Illustration de la brigade de l'environnement de Menton", "Illustrazione della brigata ambientale di Mentone", "Ілюстрація екологічної бригади Ментона"),
+    visualTheme: "itinerary",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {
