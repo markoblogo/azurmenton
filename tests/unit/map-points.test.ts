@@ -64,6 +64,23 @@ const reviewedPracticalMentonPointIds = [
   "petit-casino-saint-michel",
 ];
 
+const reviewedTransportAccessPointIds = [
+  "nice-cote-dazur-airport",
+  "nice-airport-car-rental-center",
+  "nice-saint-augustin-station",
+  "nice-ville-station",
+  "europcar-menton",
+  "ada-menton-gare",
+  "rent-a-car-menton",
+  "free2move-rent-menton",
+  "r-bike-menton",
+  "bike-trip-atelier-velo-riviera",
+  "sport-21-cycles",
+  "menton-cycle-path",
+  "promenade-reine-astrid",
+  "pont-saint-ludovic",
+];
+
 describe("map points", () => {
   it("keeps reviewed waterfront and old-town markers traceable", () => {
     for (const placeId of reviewedWaterfrontAndOldTownPointIds) {
@@ -94,10 +111,24 @@ describe("map points", () => {
     }
   });
 
+  it("keeps transport and arrival access points reviewed for map accuracy", () => {
+    for (const placeId of reviewedTransportAccessPointIds) {
+      const point = placeMapPoints.find((item) => item.placeId === placeId);
+      expect(point?.review, placeId).toMatchObject({ checkedOn: "2026-07-11" });
+      expect(point?.review?.sourceUrl, placeId).toBeTruthy();
+      expect(point?.lat, placeId).toBeGreaterThan(43.6);
+      expect(point?.lng, placeId).toBeGreaterThan(7.19);
+    }
+  });
+
   it("requires reviewed coordinates for places flagged as map-review critical", () => {
     const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
     const requiredPlaces = places.filter((place) => place.requiresMapReview);
-    const expectedRequiredPlaceIds = [...reviewedRestaurantEveningMuseumPointIds, ...reviewedPracticalMentonPointIds].sort();
+    const expectedRequiredPlaceIds = [
+      ...reviewedRestaurantEveningMuseumPointIds,
+      ...reviewedPracticalMentonPointIds,
+      ...reviewedTransportAccessPointIds,
+    ].sort();
 
     expect(requiredPlaces.map((place) => place.id).sort()).toEqual(expectedRequiredPlaceIds);
 

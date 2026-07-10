@@ -121,6 +121,20 @@ const mapReviewRequiredPlaceIds = new Set([
   "carrefour-city-felix-faure",
   "carrefour-express-menton",
   "petit-casino-saint-michel",
+  "nice-cote-dazur-airport",
+  "nice-airport-car-rental-center",
+  "nice-saint-augustin-station",
+  "nice-ville-station",
+  "europcar-menton",
+  "ada-menton-gare",
+  "rent-a-car-menton",
+  "free2move-rent-menton",
+  "r-bike-menton",
+  "bike-trip-atelier-velo-riviera",
+  "sport-21-cycles",
+  "menton-cycle-path",
+  "promenade-reine-astrid",
+  "pont-saint-ludovic",
 ]);
 
 const rawPlaces: Place[] = [
