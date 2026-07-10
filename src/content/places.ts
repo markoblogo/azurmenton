@@ -109,6 +109,18 @@ const mapReviewRequiredPlaceIds = new Set([
   "inky-bar",
   "les-incompris",
   "bar-lescalier",
+  "office-tourisme-menton-riviera-merveilles",
+  "centre-hospitalier-la-palmosa-menton",
+  "commissariat-police-menton",
+  "police-municipale-menton",
+  "mairie-menton",
+  "intermarche-hyper-menton",
+  "intermarche-super-borrigo",
+  "u-express-menton-centre",
+  "u-express-menton-garavan",
+  "carrefour-city-felix-faure",
+  "carrefour-express-menton",
+  "petit-casino-saint-michel",
 ]);
 
 const rawPlaces: Place[] = [

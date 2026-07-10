@@ -662,6 +662,35 @@ const localizedFacts: Record<
   },
 };
 
+const apartmentVideoEmbeds: Partial<
+  Record<string, { youtubeId: string; title: Record<Locale, string> }>
+> = {
+  "panoramic-sea-view-studio": {
+    youtubeId: "nk6bMDX9Kjg",
+    title: {
+      en: "Video tour of the Panoramic Sea View Studio in Menton",
+      fr: "Video du studio vue mer panoramique a Menton",
+      it: "Video del monolocale vista mare panoramica a Mentone",
+      uk: "Відео студії з панорамним видом на море в Ментоні",
+    },
+  },
+};
+
+function youtubeLoopEmbedUrl(videoId: string) {
+  const params = new URLSearchParams({
+    autoplay: "1",
+    controls: "1",
+    loop: "1",
+    modestbranding: "1",
+    mute: "1",
+    playlist: videoId,
+    playsinline: "1",
+    rel: "0",
+  });
+
+  return `https://www.youtube-nocookie.com/embed/${videoId}?${params.toString()}`;
+}
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     apartments.map((apartment) => ({
@@ -759,6 +788,7 @@ export default async function ApartmentPage({ params }: PageProps) {
   const apartmentBookingHref = bookingAttributionHref(safeLocale, sourceAttribution);
   const primaryButtonClassName = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonVariants.primary}`;
   const [hero, supportingOne, supportingTwo] = heroImages(apartment);
+  const videoEmbed = apartmentVideoEmbeds[apartment.slug];
 
   const glanceItems = [
     { label: labels.guests, value: facts.guests },
@@ -927,18 +957,46 @@ export default async function ApartmentPage({ params }: PageProps) {
                 {copy.amenitiesHeading}
               </h2>
             </div>
-            <div className="grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] md:grid-cols-2">
-              {story.amenityGroups.map((group) => (
-                <div key={group.title} className="bg-[#fbf7ef] p-5 sm:p-6">
-                  <h3 className="serif-heading text-3xl text-[#173f36]">{group.title}</h3>
-                  <ul className="mt-4 space-y-2.5 text-base leading-7 text-[#5f574c]">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+            {videoEmbed ? (
+              <div className="grid gap-4">
+                <div className="overflow-hidden border border-[#dfd4c1] bg-[#111615]">
+                  <iframe
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="aspect-video w-full"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    src={youtubeLoopEmbedUrl(videoEmbed.youtubeId)}
+                    title={videoEmbed.title[safeLocale]}
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] sm:grid-cols-2 xl:grid-cols-4">
+                  {story.amenityGroups.map((group) => (
+                    <div key={group.title} className="bg-[#fbf7ef] p-4">
+                      <h3 className="serif-heading text-2xl text-[#173f36]">{group.title}</h3>
+                      <ul className="mt-3 space-y-2 text-sm leading-6 text-[#5f574c]">
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] md:grid-cols-2">
+                {story.amenityGroups.map((group) => (
+                  <div key={group.title} className="bg-[#fbf7ef] p-5 sm:p-6">
+                    <h3 className="serif-heading text-3xl text-[#173f36]">{group.title}</h3>
+                    <ul className="mt-4 space-y-2.5 text-base leading-7 text-[#5f574c]">
+                      {group.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </Container>
       </Section>
