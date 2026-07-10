@@ -81,6 +81,14 @@ const reviewedTransportAccessPointIds = [
   "pont-saint-ludovic",
 ];
 
+const reviewedParkingPointIds = [
+  "parking-vieille-ville-sablettes",
+  "parking-hotel-de-ville-menton",
+  "parking-saint-roch-menton",
+  "parking-gare-sncf-menton",
+  "parking-george-v-menton",
+];
+
 describe("map points", () => {
   it("keeps reviewed waterfront and old-town markers traceable", () => {
     for (const placeId of reviewedWaterfrontAndOldTownPointIds) {
@@ -121,6 +129,16 @@ describe("map points", () => {
     }
   });
 
+  it("keeps public Menton parking points reviewed for map accuracy", () => {
+    for (const placeId of reviewedParkingPointIds) {
+      const point = placeMapPoints.find((item) => item.placeId === placeId);
+      expect(point?.review, placeId).toMatchObject({ checkedOn: "2026-07-11" });
+      expect(point?.review?.sourceUrl, placeId).toBeTruthy();
+      expect(point?.lat, placeId).toBeGreaterThan(43.7);
+      expect(point?.lng, placeId).toBeGreaterThan(7.45);
+    }
+  });
+
   it("requires reviewed coordinates for places flagged as map-review critical", () => {
     const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
     const requiredPlaces = places.filter((place) => place.requiresMapReview);
@@ -128,6 +146,7 @@ describe("map points", () => {
       ...reviewedRestaurantEveningMuseumPointIds,
       ...reviewedPracticalMentonPointIds,
       ...reviewedTransportAccessPointIds,
+      ...reviewedParkingPointIds,
     ].sort();
 
     expect(requiredPlaces.map((place) => place.id).sort()).toEqual(expectedRequiredPlaceIds);
