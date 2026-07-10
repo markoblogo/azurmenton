@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createCspHeader } from "../../src/lib/security-headers";
+import { radioStations } from "../../src/content/utility/radio";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -26,5 +27,20 @@ describe("security headers", () => {
 
     expect(csp).toContain("https://plausible.io");
     expect(csp).toContain("https://analytics.example.com");
+  });
+
+  it("allows configured radio streams as media and HLS connections", () => {
+    const csp = createCspHeader("test-nonce");
+    const streamOrigins = new Set(
+      radioStations.flatMap((station) => station.audioStreamUrl ? [new URL(station.audioStreamUrl).origin] : []),
+    );
+
+    expect(csp).toContain("media-src 'self' blob:");
+    expect(csp).toContain("https://streaming-ice.audiomeans.fr");
+
+    for (const origin of streamOrigins) {
+      const allowed = csp.includes(origin) || (origin.endsWith(".rcs.revma.com") && csp.includes("https://*.rcs.revma.com"));
+      expect(allowed, `${origin} missing from CSP`).toBe(true);
+    }
   });
 });

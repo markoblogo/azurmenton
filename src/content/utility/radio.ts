@@ -23,64 +23,6 @@ export type RadioStation = {
 
 export const radioStations: RadioStation[] = [
   {
-    id: "france-bleu-cote-azur",
-    image: "/images/guide/ici-azur-france-bleu-azur.png",
-    tenant: "menton",
-    name: {
-      en: "France Bleu Côte d'Azur",
-      fr: "France Bleu Côte d'Azur",
-      it: "France Bleu Côte d'Azur",
-      uk: "France Bleu Côte d'Azur",
-    },
-    contentTypes: ["local news", "current affairs", "music"],
-    languages: ["French"],
-    audioStreamUrl: "https://stream.radiofrance.fr/fbazur/fbazur.m3u8?id=radiofrance",
-    onlineStreamUrl: "https://www.francebleu.fr/",
-    websiteUrl: "https://www.francebleu.fr/",
-    shortLabel: {
-      en: "Useful for local weather, road and event updates",
-      fr: "Infos pratiques locales: météo, routes, agenda",
-      it: "Per aggiornamenti locali: meteo, traffico, eventi",
-      uk: "Місцеві новини: погода, дороги, події",
-    },
-    notes: {
-      en: "Official regional public-service station with broad Riviera coverage and practical updates.",
-      fr: "Station public-service régionale avec couverture Rivière large et informations pratiques.",
-      it: "Radio pubblica regionale con ampia copertura rivierasco e aggiornamenti pratici.",
-      uk: "Публічна регіональна радіостанція з широким покриттям Рив’єри й практичними оновленнями.",
-    },
-    usefulFor: ["practical planning", "travel", "commute"],
-  },
-  {
-    id: "rmc-azur",
-    image: "/images/guide/rmc.png",
-    tenant: "menton",
-    name: {
-      en: "RMC",
-      fr: "RMC",
-      it: "RMC",
-      uk: "RMC",
-    },
-    contentTypes: ["news", "lifestyle", "music"],
-    languages: ["French"],
-    audioStreamUrl: "https://audio.bfmtv.com/rmcradio_128.mp3",
-    onlineStreamUrl: "https://www.rmc.fr/stream",
-    websiteUrl: "https://www.rmc.fr/",
-    shortLabel: {
-      en: "General news, sports and travel-safe updates",
-      fr: "Actualités générales, sports et mises à jour utiles",
-      it: "Notizie, sport e aggiornamenti pratici",
-      uk: "Новини, спорт і корисні поінформування",
-    },
-    notes: {
-      en: "Useful for trip timing and general headlines alongside dedicated local sources.",
-      fr: "Pratique pour la gestion des horaires de voyage, en complément des sources locales.",
-      it: "Utile per orari e aggiornamenti di viaggio, insieme alle fonti locali dedicate.",
-      uk: "Корисна для орієнтації за подіями та новинами, поряд із локальними джерелами.",
-    },
-    usefulFor: ["trip headlines", "trip prep"],
-  },
-  {
     id: "radio-classique-loire",
     image: "/images/guide/radio-classique.png",
     tenant: "loire",
@@ -443,6 +385,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "hits", "lifestyle"],
     languages: ["French"],
     musicStyles: ["pop", "top 40"],
+    audioStreamUrl: "https://streaming.nrjaudio.fm/ou5k6tirv93h",
     websiteUrl: "https://www.nrj.fr/",
     onlineStreamUrl: "https://www.nrj.fr/",
     shortLabel: {
@@ -467,7 +410,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "pop-rock", "drive"],
     languages: ["French"],
     musicStyles: ["pop-rock", "adult contemporary"],
-    audioStreamUrl: "https://streamingp.shoutcast.com/RTL2",
+    audioStreamUrl: "https://icecast.rtl2.fr/rtl2-1-44-128",
     websiteUrl: "https://www.rtl2.fr/",
     onlineStreamUrl: "https://www.rtl2.fr/",
     shortLabel: {
@@ -492,6 +435,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "oldies", "classics"],
     languages: ["French"],
     musicStyles: ["oldies", "classic hits"],
+    audioStreamUrl: "https://streaming.nrjaudio.fm/ouwgwqsk6j4d",
     websiteUrl: "https://www.nostalgie.fr/",
     onlineStreamUrl: "https://www.nostalgie.fr/",
     shortLabel: {
@@ -592,6 +536,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["music", "variety", "local"],
     languages: ["French"],
     musicStyles: ["variety", "adult pop", "regional"],
+    audioStreamUrl: "https://stream.rcs.revma.com/4ty9verpuf9uv",
     shortLabel: {
       en: "Local-feeling variety station near the Riviera local scene.",
       fr: "Station musicale à ambiance locale en Riviera.",
@@ -614,6 +559,7 @@ export const radioStations: RadioStation[] = [
     contentTypes: ["community", "local-news", "talk", "music"],
     languages: ["French"],
     musicStyles: ["mixed local programming"],
+    audioStreamUrl: "https://agoracotedazur.ice.infomaniak.ch/agoracotedazur.mp3",
     shortLabel: {
       en: "Community-style local station for niche local updates.",
       fr: "Radio locale communautaire pour une couverture de proximité.",
@@ -629,12 +575,11 @@ export function getRadioStationById(id: string): RadioStation | undefined {
 }
 
 export function getRadioStationsForTenant(region: RadioTenantOrRegion, stationIds?: string[]): RadioStation[] {
-  const set = stationIds ? new Set(stationIds) : undefined;
+  if (!stationIds?.length) return radioStations.filter((station) => station.tenant === region);
 
-  return radioStations.filter((station) => {
-    if (station.tenant !== region) return false;
-    if (!set || set.size === 0) return true;
-    return set.has(station.id);
+  return stationIds.flatMap((stationId) => {
+    const station = getRadioStationById(stationId);
+    return station?.tenant === region ? [station] : [];
   });
 }
 

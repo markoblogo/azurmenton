@@ -121,8 +121,8 @@ export type GuideUtilityBlockRegion = "menton" | "loire";
 export type GuideUtilityBlock = {
   type: "localRadio";
   region: GuideUtilityBlockRegion;
-  title?: string;
-  description?: string;
+  title?: string | LocalizedText;
+  description?: string | LocalizedText;
   stationIds?: string[];
 };
 
@@ -153,6 +153,7 @@ export type GuideArticle = {
   relatedEvents?: string[];
   relatedApartments?: string[];
   utilityBlocks?: GuideUtilityBlock[];
+  utilityBlocksAfterSectionIndex?: number;
 };
 
 export type GuidePageContent = {
@@ -1233,6 +1234,7 @@ function shortArticle(input: {
   coverImage?: string;
   coverImageAlt?: LocalizedText;
   utilityBlocks?: GuideUtilityBlock[];
+  utilityBlocksAfterSectionIndex?: number;
   visualTheme?: GuideVisualTheme;
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sections: LocalizedGuideSection[];
@@ -6243,8 +6245,13 @@ export const guideArticles: GuideArticle[] = [
       {
         type: "localRadio",
         region: "menton",
-        title: "Local radio guide",
-        description: "Practical radio stations for planning travel, transport and city rhythm in Menton.",
+        title: t("Local radio guide", "Guide des radios locales", "Guida alle radio locali", "Гід місцевих радіостанцій"),
+        description: t(
+          "Practical radio stations for planning travel, transport and city rhythm in Menton.",
+          "Radios pratiques pour les trajets, les transports et le rythme local à Menton.",
+          "Radio utili per organizzare spostamenti, trasporti e vita locale a Mentone.",
+          "Практичні радіостанції для поїздок, транспорту й місцевого ритму Ментона.",
+        ),
         stationIds: [
           "radio-vinci-autoroutes-1077",
           "ici-azur-france-bleu-azur",
@@ -6265,11 +6272,10 @@ export const guideArticles: GuideArticle[] = [
           "m-radio",
           "melody-dazur",
           "agora-cote-dazur",
-          "rmc-azur",
-          "france-bleu-cote-azur",
         ],
       },
     ],
+    utilityBlocksAfterSectionIndex: 0,
     sections: [
       {
         heading: t(
@@ -6292,236 +6298,6 @@ export const guideArticles: GuideArticle[] = [
           t("For Monaco mood: Radio Monaco 95.4 and related Monaco channels.", "Pour ambiance Monaco: Radio Monaco 95.4 et canaux Monaco.", "Per atmosfera Monaco: Radio Monaco 95.4 e canali correlati.", "Для моноківського настрою: Radio Monaco 95.4 і канали Монако."),
         ],
       },
-      {
-        heading: t("Radio VINCI Autoroutes", "Radio VINCI Autoroutes", "Radio VINCI Autoroutes", "Radio VINCI Autoroutes"),
-        body: [
-          t(
-            "Best for motorway traffic, road safety and driving windows. The Menton area uses this station when routes are changing for Nice Airport, Monaco, Cannes, or Italian border trips.",
-            "Meilleure pour le trafic autoroutier, la securite routiere et les fenetres de conduite. Elle est utile autour de Menton lors de deplacements vers aeroport Nice, Monaco, Cannes ou frontiere italienne.",
-            "Ideale per traffico autostradale, sicurezza stradale e orari di guida. E utile da Mentone per spostamenti verso aeroporto di Nizza, Monaco, Cannes o verso il confine italiano.",
-            "Найкраще для дорожнього трафіку, безпеки на дорогах і вікон їзди. Зручно в Ментоні для поїздок на аеропорт Ніцци, до Монако, Канн або до італійського кордону.",
-          ),
-        ],
-        officialLinks: [
-          { label: t("Radio VINCI Autoroutes", "Radio VINCI Autoroutes", "Radio VINCI Autoroutes", "Radio VINCI Autoroutes"), url: "https://www.radio-vinci-autoroutes.fr/" },
-        ],
-      },
-      {
-        heading: t("Ici Azur / France Bleu Azur", "Ici Azur / France Bleu Azur", "Ici Azur / France Bleu Azur", "Ici Azur / France Bleu Azur"),
-        body: [
-          t(
-            "Useful first French option for local Riviera context. It helps check weather, local updates and municipal notices while you are in a Menton or Nice-facing trip window.",
-            "Premiere option francophone locale pour le contexte Riviera: meteo, infos pratiques et mises a jour municipales utiles pendant les week-ends et events.",
-            "Prima opzione francese locale per il contesto Riviera: tempo, aggiornamenti pratici e avvisi municipali utili durante eventi o weekend.",
-            "Головна локальна французька опція для контексту Рив'єри. Допомагає перевірити погоду, практичні новини та муніципальні оголошення під час подорожі.",
-          ),
-        ],
-        officialLinks: [
-          { label: t("France Bleu Côte d'Azur", "France Bleu Côte d'Azur", "France Bleu Côte d'Azur", "France Bleu Côte d'Azur"), url: "https://www.francebleu.fr/" },
-        ],
-      },
-      {
-        heading: t("Riviera Radio", "Riviera Radio", "Riviera Radio", "Riviera Radio"),
-        body: [
-          t(
-            "English-friendly station useful for practical updates, music and social rhythm between Monaco and the Côte d’Azur. Strong option for international guests arriving by train or staying in Menton with Riviera plans.",
-            "Station conviviale pour anglophones avec actualites pratiques, musique et rythme social entre Monaco et la Cote d'Azur.",
-            "Radio comoda per ospiti in inglese con aggiornamenti pratici, musica e ritmo del territorio tra Monaco e la Costa Azzurra.",
-            "Підходяща англомовним гостям станція з практичними оновленнями, музикою й ритмом подій між Монако та Французькою Рив'єрою.",
-          ),
-        ],
-        officialLinks: [{ label: t("Riviera Radio", "Riviera Radio", "Riviera Radio", "Riviera Radio"), url: "https://www.rivieraradio.mc/en/radio/player" }],
-      },
-      {
-        heading: t("Radio Monaco", "Radio Monaco", "Radio Monaco", "Radio Monaco"),
-        body: [
-          t(
-            "Useful for Monaco evenings and cross-border planning. This is a good music-led source with local references when your plan includes train day trips and evening returns.",
-            "Utile pour les soirees Monaco et les plans transfrontaliers. Bonne source musicaux avec references locales quand vous faites des journees en train et revenez le soir.",
-            "Utile per serate a Monaco e per la logica transfrontaliera. Buona radio musicale con riferimenti locali se fai gite in treno e rientri la sera.",
-            "Корисна для моноківських вечорів та транскордонного планування. Добре підходить для денних поїздок на потязі з поверненням ввечері.",
-          ),
-        ],
-        officialLinks: [{ label: t("Radio Monaco", "Radio Monaco", "Radio Monaco", "Radio Monaco"), url: "https://www.radiomonaco.org/" }],
-      },
-      {
-        heading: t("France Info", "France Info", "France Info", "France Info"),
-        body: [
-          t(
-            "Continuous French news feed with practical value during strikes, weather alerts and major transport changes. Useful when you need a quick overview and do not have local FM stability.",
-            "Flux d'information continue utile en cas de grèves, alertes meteo ou changements de transport majeurs.",
-            "Canale di news continue utile in caso di scioperi, allarmi meteo o cambi importanti nel trasporto.",
-            "Безперервний новинний канал з практичною користю під час страйків, погодних попереджень чи суттєвих змін транспорту.",
-          ),
-        ],
-        officialLinks: [{ label: t("France Info", "France Info", "France Info", "France Info"), url: "https://www.radiofrance.fr/franceinfo" }],
-      },
-      {
-        heading: t("France Inter", "France Inter", "France Inter", "France Inter"),
-        body: [
-          t(
-            "Depth radio for interviews, debates and culture. Good when you want slower local immersion instead of fast headlines or music-only listening.",
-            "Radio de profondeur avec interviews, debats et culture pour les moments moins utilitaires.",
-            "Radio piu profonda con interviste, dibattiti e cultura per momenti meno urgenti.",
-            "Радіо з глибшими програмами: інтерв'ю, дискусії, культура; доречно для тихих моментів замість шумної новинної хвилі.",
-          ),
-        ],
-        officialLinks: [{ label: t("France Inter", "France Inter", "France Inter", "France Inter"), url: "https://www.radiofrance.fr/franceinter" }],
-      },
-      {
-        heading: t("France Culture", "France Culture", "France Culture", "France Culture"),
-        body: [
-          t(
-            "Long-form cultural station with history, essays and ideas. Best suited for calm stays, reading pauses and slower overnight rhythm.",
-            "Radio culturelle de longue forme : histoires, essais et idées. Adaptee aux pauses calmes et aux sejours moins pressants.",
-            "Radio culturale di lungo formato con storia, saggi e idee. Adatta a pause tranquille e ritmi meno veloci.",
-            "Культурна довга форма: історія, есеї, ідеї. Краще для спокійних пауз під час більш повільного ритму перебування.",
-          ),
-        ],
-        officialLinks: [{ label: t("France Culture", "France Culture", "France Culture", "France Culture"), url: "https://www.radiofrance.fr/franceculture" }],
-      },
-      {
-        heading: t("France Musique", "France Musique", "France Musique", "France Musique"),
-        body: [
-          t(
-            "Best classical and jazz option for calm apartment mornings or evenings. Good fallback when the local trip intensity is lower and you want a settled atmosphere.",
-            "Meilleure option classique et jazz quand vous voulez un fond plus calme pour un matinnee ou soirnee a l'appt.",
-            "Migliore opzione classica e jazz quando vuoi una serata o mattina calma in appartamento.",
-            "Найкращий вибір для спокійних апартamentівських ранків або вечорів, якщо хочете більш зважену атмосферу.",
-          ),
-        ],
-        officialLinks: [{ label: t("France Musique", "France Musique", "France Musique", "France Musique"), url: "https://www.radiofrance.fr/francemusique" }],
-      },
-      {
-        heading: t("Radio Classique", "Radio Classique", "Radio Classique", "Radio Classique"),
-        body: [
-          t(
-            "Calmer classical station with practical use for work-from-Menton style mornings and short reflective windows before moving again.",
-            "Radio classique plus posee pour les matinees travail a Menton et les moments de transition.",
-            "Radio classica piu pacata, utile per mattine lavorative a Mentone e transizioni corte tra gli impegni.",
-            "Спокійніша класична станція, зручна для робочих ранків у Ментоні та коротких пауз перед новим етапом дню.",
-          ),
-        ],
-      },
-      {
-        heading: t("RMC", "RMC", "RMC", "RMC"),
-        body: [
-          t(
-            "Talk-heavy French station for big news cycles, sport and reactive commentary. Useful if you want fast opinionated listening while in transit.",
-            "Radio en debat pour cycles d'actualite et sport. Utile si vous voulez du commentaire dynamique en deplacement.",
-            "Radio di talk per grandi notizie e sport. Utile se vuoi ascolto reattivo durante spostamenti.",
-            "Радіо для швидких дискусій, великих новинних циклів і спорту; корисна якщо потрібен динамічний потік під час пересування.",
-          ),
-        ],
-        officialLinks: [{ label: t("RMC", "RMC", "RMC", "RMC"), url: "https://rmc.bfmtv.com/" }],
-      },
-      {
-        heading: t("Radio Monte Carlo", "Radio Monte Carlo", "Radio Monte Carlo", "Radio Monte Carlo"),
-        body: [
-          t(
-            "Italian-language station useful for Italian border mood and cross-border drives. Keep as a regional alternative in warmer evening schedules or Ventimiglia/Bordighera itineraries.",
-            "Station italophone utile pour l'ambiance frontiere italienne et les trajets transfrontaliers en fin de journee.",
-            "Radio in italiano utile per atmosfera di confine e spostamenti verso Italia, soprattutto in itinere serale.",
-            "Італійськомовна станція для настрою італійського напрямку та транскордонних поїздок, особливо для вечірніх маршрутах.",
-          ),
-        ],
-        officialLinks: [{ label: t("Radio Monte Carlo", "Radio Monte Carlo", "Radio Monte Carlo", "Radio Monte Carlo"), url: "https://www.radiomontecarlo.it/" }],
-      },
-      {
-        heading: t("NRJ Côte d’Azur", "NRJ Côte d’Azur", "NRJ Côte d’Azur", "NRJ Côte d’Azur"),
-        body: [
-          t(
-            "Mainstream chart station with high-energy playlists. Easy companion for beach days, social returns and casual drives around Menton and the coast.",
-            "Radio grand public et hits avec energie, utile sur la plage, pour les retours et les drives casuals.",
-            "Radio pop mainstream ad alto volume utile sui giorni di spiaggia, i ritorni e i drive casuali.",
-            "Основна чартова станція з енергійним плейлистом — зручна для пляжних днів, повертання з прогулянок і звичайних поїздок.",
-          ),
-        ],
-        officialLinks: [{ label: t("NRJ France", "NRJ France", "NRJ France", "NRJ France"), url: "https://www.nrj.fr/" }],
-      },
-      {
-        heading: t("RTL2 Côte d’Azur", "RTL2 Côte d’Azur", "RTL2 Côte d’Azur", "RTL2 Côte d’Azur"),
-        body: [
-          t(
-            "Pop-rock and adult contemporary style with practical listening for return drives and everyday stays.",
-            "Pop-rock et adulte contemporain, utile pour les trajets quotidiens et les soirees simples.",
-            "Pop-rock e adult contemporary, utile per ritorni in auto e serate semplici.",
-            "Поп-рок та adult contemporary, підходить для повернення додому на дорозі та неформальних вечорів.",
-          ),
-        ],
-        officialLinks: [{ label: t("RTL2", "RTL2", "RTL2", "RTL2"), url: "https://www.rtl2.fr/" }],
-      },
-      {
-        heading: t("Nostalgie", "Nostalgie", "Nostalgie", "Nostalgie"),
-        body: [
-          t(
-            "Friendly oldies and classic hits station for relaxed family listening, especially when you want gentle background sound after a day trip.",
-            "Radio oldies et classiques pour un fond doux en famille, parfaite apres une journee de sorties.",
-            "Radio oldies e hit classici per ascolto rilassato in famiglia, ideale dopo una giornata intensa.",
-            "Станція з кльовими класичними хітами для спокійного сімейного фону після дня прогулянок.",
-          ),
-        ],
-        officialLinks: [{ label: t("Nostalgie", "Nostalgie", "Nostalgie", "Nostalgie"), url: "https://www.nostalgie.fr/" }],
-      },
-      {
-        heading: t("Europe 2", "Europe 2", "Europe 2", "Europe 2"),
-        body: [
-          t(
-            "Pop-rock oriented commercial station, practical when you need familiar background music for car time and flexible plans around sea days.",
-            "Radio commerciale pop-rock, pratique quand vous cherchez un fond familier pour la voiture et des plans souples autour du bord de mer.",
-            "Radio commerciale pop-rock utile quando cerchi un sottofondo familiare per la macchina e programmi flessibili in giornata.",
-            "Комерційна станція поп-року для звичного фону під час поїздок авто та гнучких планів біля моря.",
-          ),
-        ],
-        officialLinks: [{ label: t("Europe 2", "Europe 2", "Europe 2", "Europe 2"), url: "https://www.europe2.fr/" }],
-      },
-      {
-        heading: t("RFM", "RFM", "RFM", "RFM"),
-        body: [
-          t(
-            "Adult contemporary and easy-listen station for predictable backgrounds. Useful during planning sessions and morning routines.",
-            "Radio adulte-contemporary pour une écoute stable et previsible, pratique pour la planification et les routines matinales.",
-            "Radio adulta contemporanea per ascolto prevedibile, utile per pianificazione e routine mattutine.",
-            "Радіостанція adult contemporary для прогнозованого фону, зручна для планування і ранкових рутин.",
-          ),
-        ],
-        officialLinks: [{ label: t("RFM", "RFM", "RFM", "RFM"), url: "https://www.rfm.fr/" }],
-      },
-      {
-        heading: t("M Radio", "M Radio", "M Radio", "M Radio"),
-        body: [
-          t(
-            "French chanson and softer French pop. Useful for cultural mood without aggressive rhythm, especially for apartment evenings.",
-            "Chanson francaise et pop douce. Pratique pour une ambiance culturelle sans rythme trop fort, surtout en appartement.",
-            "Canzone francese e pop dolce per un'atmosfera cultural senza ritmo troppo forte, soprattutto in appartamento.",
-            "Французька шансон і м'який поп, корисна для культурного настрою без зайвої насиченості, особливо в апартаментах.",
-          ),
-        ],
-        officialLinks: [{ label: t("M Radio", "M Radio", "M Radio", "M Radio"), url: "https://www.mradio.fr/" }],
-      },
-      {
-        heading: t("Melody d’Azur", "Melody d’Azur", "Melody d’Azur", "Melody d’Azur"),
-        body: [
-          t(
-            "Local-feel music option with regional references. Use as an extra flavor when you want alternatives to mainstream channels.",
-            "Option musicale locale avec references regionales. Utile en bonus si vous cherchez autre chose que les grandes chaines.",
-            "Opzione musicale locale con riferimenti regionali, utile come alternativa alle grandi radio.",
-            "Локально орієнтований музичний формат з регіональним відтінком, для різноманітності з альтернативи до великих мереж.",
-          ),
-        ],
-      },
-      {
-        heading: t("Agora Côte d’Azur", "Agora Côte d’Azur", "Agora Côte d’Azur", "Agora Côte d’Azur"),
-        body: [
-          t(
-            "Community-style station with local programming. Useful for a different sound profile and smaller local voices near Menton and the coast.",
-            "Radio communautaire et locale avec programmation plus proche, utile pour entendre un style local different.",
-            "Radio comunitaria locale con programmi piu di prossimita verso il territorio.",
-            "Спільнотна станція з локальнішими програмами, дає інший акустичний профіль і відчуття місцевих голосів.",
-          ),
-        ],
-        officialLinks: [{ label: t("Agora Côte d’Azur", "Agora Côte d’Azur", "Agora Côte d’Azur", "Agora Côte d’Azur"), url: "https://www.agora85.com/" }],
-      },
     ],
     practicalTips: [
       t(
@@ -6531,7 +6307,7 @@ export const guideArticles: GuideArticle[] = [
         "Перед від’їздом збережіть короткий список: одна станція для трафіку, одна французька локальна та одна англомовна.",
       ),
       t(
-        "If FM is weak, use Wi-Fi/mobile stream links from the station page in your gile or notes.",
+        "If FM is weak, use the players in this guide over Wi-Fi or mobile data.",
         "Si la FM est faible, utilisez les flux en ligne depuis la page officielle de la station.",
         "Se la FM e debole, usa gli stream online dalle pagine ufficiali delle radio.",
         "Якщо FM слабкий, користуйтеся стрімами зі сторінки станції через Wi-Fi/мобільні дані.",

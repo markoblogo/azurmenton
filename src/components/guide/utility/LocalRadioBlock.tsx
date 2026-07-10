@@ -18,6 +18,7 @@ type LocalizedCopy = {
   usefulFor: string;
   loading: string;
   streamUnavailable: string;
+  website: string;
   noStations: string;
 };
 
@@ -32,6 +33,7 @@ const labels = {
     usefulFor: "Useful for",
     loading: "Loading",
     streamUnavailable: "This stream is unavailable right now.",
+    website: "Website",
     noStations: "No station details available yet.",
   },
   fr: {
@@ -44,6 +46,7 @@ const labels = {
     usefulFor: "Utile pour",
     loading: "Chargement",
     streamUnavailable: "Ce flux est indisponible pour le moment.",
+    website: "Site web",
     noStations: "Aucune station enregistrée pour le moment.",
   },
   it: {
@@ -56,6 +59,7 @@ const labels = {
     languages: "Lingue",
     loading: "Caricamento",
     streamUnavailable: "Questo flusso non è disponibile al momento.",
+    website: "Sito web",
     noStations: "Nessuna radio disponibile al momento.",
   },
   uk: {
@@ -68,6 +72,7 @@ const labels = {
     usefulFor: "Корисно для",
     loading: "Завантаження",
     streamUnavailable: "Цей потік зараз недоступний.",
+    website: "Сайт",
     noStations: "Поки що немає деталей по станціях.",
   },
 };
@@ -76,69 +81,71 @@ type PlayerState = "idle" | "loading" | "error";
 
 type RadioStreamCopy = Pick<LocalizedCopy, "loading" | "streamUnavailable">;
 
+function localizeBlockText(value: GuideUtilityBlock["title"], locale: Locale) {
+  if (!value) return undefined;
+  return typeof value === "string" ? value : value[locale] ?? value.en;
+}
+
 function RadioStream({
   streamUrl,
+  stationName,
   copy,
 }: {
   streamUrl: string;
+  stationName: string;
   copy: RadioStreamCopy;
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [state, setState] = useState<PlayerState>("idle");
   const isHlsStream = streamUrl.toLowerCase().includes(".m3u8");
-  const canPlayNativeHls =
-    typeof window !== "undefined"
-      ? (() => {
-          const probe = document.createElement("audio");
-          const support = probe.canPlayType("application/vnd.apple.mpegurl");
-          return support === "probably" || support === "maybe";
-        })()
-      : false;
-  const hasHlsLibrary = Hls.isSupported();
-  const hasPlayableHls = isHlsStream ? canPlayNativeHls || hasHlsLibrary : true;
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return undefined;
 
     let hls: Hls | null = null;
+    let cancelled = false;
 
     const handleError = () => setState("error");
-    const handleLoadStart = () => setState("loading");
-    const handleCanPlay = () => setState("idle");
+    const handleWaiting = () => setState("loading");
+    const handlePlaying = () => setState("idle");
 
     audio.addEventListener("error", handleError);
-    audio.addEventListener("loadstart", handleLoadStart);
-    audio.addEventListener("canplay", handleCanPlay);
+    audio.addEventListener("waiting", handleWaiting);
+    audio.addEventListener("playing", handlePlaying);
 
     if (isHlsStream) {
+      const support = audio.canPlayType("application/vnd.apple.mpegurl");
+      const canPlayNativeHls = support === "probably" || support === "maybe";
+
       if (canPlayNativeHls) {
         audio.src = streamUrl;
-        audio.load();
-      } else if (hasHlsLibrary) {
+      } else if (Hls.isSupported()) {
         hls = new Hls({});
         hls.on(Hls.Events.ERROR, (_event, data) => {
           if (data.fatal) setState("error");
         });
         hls.loadSource(streamUrl);
         hls.attachMedia(audio);
+      } else {
+        queueMicrotask(() => {
+          if (!cancelled) setState("error");
+        });
       }
-    } else {
-      audio.src = streamUrl;
-      audio.load();
     }
 
     return () => {
+      cancelled = true;
       audio.removeEventListener("error", handleError);
-      audio.removeEventListener("loadstart", handleLoadStart);
-      audio.removeEventListener("canplay", handleCanPlay);
+      audio.removeEventListener("waiting", handleWaiting);
+      audio.removeEventListener("playing", handlePlaying);
 
       if (hls) {
         hls.destroy();
         hls = null;
       }
     };
-  }, [canPlayNativeHls, hasHlsLibrary, isHlsStream, streamUrl]);
+  }, [isHlsStream, streamUrl]);
 
   return (
     <div className="mt-2">
@@ -146,12 +153,12 @@ function RadioStream({
         ref={audioRef}
         controls
         preload="none"
+        src={isHlsStream ? undefined : streamUrl}
+        aria-label={`${stationName} live radio`}
         className="h-9 w-full"
-      >
-        {!isHlsStream || canPlayNativeHls ? <source src={streamUrl} type={isHlsStream ? "application/vnd.apple.mpegurl" : undefined} /> : null}
-      </audio>
+      />
       {state === "loading" ? <p className="mt-2 text-[11px] text-[#71665b]">{copy.loading}</p> : null}
-      {state === "error" || !hasPlayableHls ? <p className="mt-2 text-[11px] text-[#71665b]">{copy.streamUnavailable}</p> : null}
+      {state === "error" ? <p className="mt-2 text-[11px] text-[#71665b]">{copy.streamUnavailable}</p> : null}
     </div>
   );
 }
@@ -159,12 +166,14 @@ function RadioStream({
 export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
   const copy = labels[locale] as LocalizedCopy;
   const stations = getRadioStationsForTenant(block.region, block.stationIds);
+  const title = localizeBlockText(block.title, locale) ?? copy.title;
+  const description = localizeBlockText(block.description, locale) ?? copy.description;
 
   if (!stations.length) {
     return (
       <article className="border border-[#dfd2b8] bg-[#fffaf0] p-4 sm:p-5">
-        <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{block.title ?? copy.title}</h3>
-        <p className="mt-3 text-sm leading-6 text-[#5c5044]">{block.description ?? copy.description}</p>
+        <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{title}</h3>
+        <p className="mt-3 text-sm leading-6 text-[#5c5044]">{description}</p>
         <p className="mt-3 text-sm text-[#71665b]">{copy.noStations}</p>
       </article>
     );
@@ -172,8 +181,8 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
 
   return (
     <article className="border border-[#dfd2b8] bg-[#fffaf0] p-4 sm:p-5">
-      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{block.title ?? copy.title}</h3>
-      <p className="mt-3 text-sm leading-6 text-[#5c5044]">{block.description ?? copy.description}</p>
+      <h3 className="serif-heading text-2xl leading-none text-[#173f36]">{title}</h3>
+      <p className="mt-3 text-sm leading-6 text-[#5c5044]">{description}</p>
       <div className="mt-4 grid gap-3">
         {stations.map((station) => {
           const notes = station.notes?.[locale] ?? station.notes?.en;
@@ -230,8 +239,18 @@ export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; l
                 ) : null}
               </div>
 
-              <div className="mt-4">
-                {hasStream ? <RadioStream streamUrl={streamUrl} copy={copy} /> : null}
+              <div className="mt-4 space-y-3">
+                {hasStream ? <RadioStream streamUrl={streamUrl} stationName={stationName} copy={copy} /> : null}
+                {station.websiteUrl ? (
+                  <a
+                    href={station.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
+                  >
+                    {copy.website}
+                  </a>
+                ) : null}
               </div>
             </div>
           );

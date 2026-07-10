@@ -1,5 +1,24 @@
 export const nonceHeaderName = "x-nonce";
 
+const radioStreamOrigins = [
+  "https://stream.radiofrance.fr",
+  "https://icecast.radiofrance.fr",
+  "https://audio.bfmtv.com",
+  "https://sc.creacast.com",
+  "https://rivieraradio.ice.infomaniak.ch",
+  "https://radiomonaco.ice.infomaniak.ch",
+  "https://radioclassique.ice.infomaniak.ch",
+  "https://icy.unitedradio.it",
+  "https://icecast.rtl2.fr",
+  "https://streaming-ice.audiomeans.fr",
+  "https://europe2.ice.infomaniak.ch",
+  "https://streaming.nrjaudio.fm",
+  "https://rfm.lmn.fm",
+  "https://mfm.ice.infomaniak.ch",
+  "https://*.rcs.revma.com",
+  "https://agoracotedazur.ice.infomaniak.ch",
+];
+
 function originFromUrl(value: string) {
   try {
     return new URL(value).origin;
@@ -40,9 +59,11 @@ export function createCspHeader(nonce: string) {
       "https://*.tile.openstreetmap.org",
       "https://challenges.cloudflare.com",
       ...plausibleOrigins,
+      ...radioStreamOrigins,
       "https://vitals.vercel-insights.com",
       "https://*.vercel-insights.com",
     ].join(" "),
+    ["media-src", "'self'", "blob:", ...radioStreamOrigins].join(" "),
     "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://player.vimeo.com",
     "upgrade-insecure-requests",
   ];

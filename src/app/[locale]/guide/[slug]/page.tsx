@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
+import { Fragment } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
@@ -88,6 +89,14 @@ export default async function GuideArticlePage({ params }: PageProps) {
     ...compactBookingAttributionProps(sourceAttribution),
   };
   const guideBookingHref = bookingAttributionHref(locale, sourceAttribution);
+  const utilityBlocks = page?.utilityBlocks ?? [];
+  const utilityBlocksAfterSectionIndex = article.utilityBlocksAfterSectionIndex;
+
+  const utilityBlockSection = utilityBlocks.length ? (
+    <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+      <UtilityBlockRenderer locale={locale} blocks={utilityBlocks} />
+    </section>
+  ) : null;
 
   return (
     <>
@@ -128,15 +137,12 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   </div>
                 </section>
               ) : null}
-              {page?.utilityBlocks?.length ? (
-                <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
-                  <UtilityBlockRenderer locale={locale} blocks={page.utilityBlocks} />
-                </section>
-              ) : null}
-              {localized.sections.map((section) => {
+              {utilityBlocksAfterSectionIndex === undefined ? utilityBlockSection : null}
+              {localized.sections.map((section, sectionIndex) => {
                 const sectionPlaces = getPlaces(section.relatedPlaceIds ?? []);
                 return (
-                  <section key={section.heading} className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+                  <Fragment key={section.heading}>
+                    <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                     <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{section.heading}</h2>
                     {section.image ? (
                       <GuideVisual
@@ -196,7 +202,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} compact />)}
                       </div>
                     ) : null}
-                  </section>
+                    </section>
+                    {utilityBlocksAfterSectionIndex === sectionIndex ? utilityBlockSection : null}
+                  </Fragment>
                 );
               })}
             </article>

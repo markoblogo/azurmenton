@@ -100,6 +100,9 @@ describe("content graph audit", () => {
         if (block.type === "localRadio") {
           const stations = getRadioStationsForTenant(block.region, block.stationIds);
           if (block.stationIds?.length) {
+            if (new Set(block.stationIds).size !== block.stationIds.length) {
+              failures.push(`${article.slug} localRadio block contains duplicate station ids`);
+            }
             for (const stationId of block.stationIds) {
               if (!radioStationIds.has(stationId)) {
                 failures.push(`${article.slug} utility block references missing radio station ${stationId}`);
@@ -107,6 +110,15 @@ describe("content graph audit", () => {
             }
           } else if (!stations.length) {
             failures.push(`${article.slug} localRadio block for ${block.region} has no stations`);
+          }
+
+          for (const station of stations) {
+            if (!station.image || !publicPathExists(station.image)) {
+              failures.push(`${article.slug} radio station ${station.id} is missing its image`);
+            }
+            if (station.audioStreamUrl && !station.audioStreamUrl.startsWith("https://")) {
+              failures.push(`${article.slug} radio station ${station.id} uses a non-HTTPS stream`);
+            }
           }
         }
       }
