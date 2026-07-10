@@ -4551,6 +4551,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Carrefour Monaco Fontvieille", "Illustration de Carrefour Monaco Fontvieille", "Illustrazione di Carrefour Monaco Fontvieille", "Ілюстрація Carrefour Monaco Fontvieille"),
     visualTheme: "market",
   },
+  "carrefour-city-monaco": {
+    image: "/images/guide/carrefour-city-monaco.webp",
+    imageAlt: text("Illustration of Carrefour City Monaco", "Illustration de Carrefour City Monaco", "Illustrazione di Carrefour City Monaco", "Ілюстрація Carrefour City Monaco"),
+    visualTheme: "market",
+  },
+  "marche-u-monaco": {
+    image: "/images/guide/marche-u-monaco.webp",
+    imageAlt: text("Illustration of Marché U Monaco", "Illustration de Marché U Monaco", "Illustrazione di Marché U Monaco", "Ілюстрація Marché U Monaco"),
+    visualTheme: "market",
+  },
   "carrefour-nice-tnl": {
     image: "/images/guide/carrefour-nice-tnl.jpg",
     imageAlt: text("Illustration of Carrefour Nice TNL", "Illustration de Carrefour Nice TNL", "Illustrazione di Carrefour Nice TNL", "Ілюстрація Carrefour Nice TNL"),
