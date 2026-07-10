@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { apartments } = require("../src/content/apartments.ts");
+const { contentCollections, contentIntentMap } = require("../src/content/content-map.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { guideIntentClusters, guideLinkAuditProfiles } = require("../src/content/guide-intents.ts");
 const { places } = require("../src/content/places.ts");
@@ -194,6 +195,8 @@ console.log(`Places: ${places.length}`);
 console.log(`Events: ${allEvents.length}`);
 console.log(`Apartments: ${apartments.length}`);
 console.log(`Intent clusters: ${guideIntentClusters.length}`);
+console.log(`Guide collections: ${contentCollections.length}`);
+console.log(`Planned content intents: ${contentIntentMap.filter((intent) => intent.status === "planned").length}`);
 
 printGroup("Places without images", placesWithoutImages, (place) => `${place.id} (${place.name})`);
 printGroup(

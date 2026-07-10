@@ -30,6 +30,7 @@ type GuideCardItem = {
 type GuideExplorerProps = {
   locale: Locale;
   articles: GuideCardItem[];
+  initialCollection?: { title: string; articleSlugs: string[] };
 };
 
 const filters = {
@@ -41,17 +42,18 @@ const filters = {
 
 const PAGE_SIZE = 12;
 
-export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
+export function GuideExplorer({ locale, articles, initialCollection }: GuideExplorerProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [bestFor, setBestFor] = useState("");
   const [duration, setDuration] = useState("");
   const [location, setLocation] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [isCollectionActive, setIsCollectionActive] = useState(Boolean(initialCollection));
   const copy = guideFilterLabels;
   const local = filters[locale];
 
-  const activeFilters = [category, bestFor, duration, location, query.trim()].filter(Boolean);
+  const activeFilters = [category, bestFor, duration, location, query.trim(), isCollectionActive ? initialCollection?.title : ""].filter(Boolean);
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -60,6 +62,7 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
       const matchesBestFor = !bestFor || article.bestFor.some((item) => item.toLowerCase() === bestFor.toLowerCase());
       const matchesDuration = !duration || article.duration === duration;
       const matchesLocation = !location || article.locationTags.includes(location);
+      const matchesCollection = !isCollectionActive || !initialCollection || initialCollection.articleSlugs.includes(article.slug);
       const haystack = [
         article.title,
         article.excerpt,
@@ -70,9 +73,9 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
         ...article.placeNames,
       ].join(" ").toLowerCase();
       const matchesQuery = !normalizedQuery || haystack.includes(normalizedQuery);
-      return matchesCategory && matchesBestFor && matchesDuration && matchesLocation && matchesQuery;
+      return matchesCategory && matchesBestFor && matchesDuration && matchesLocation && matchesCollection && matchesQuery;
     });
-  }, [articles, bestFor, category, duration, location, query]);
+  }, [articles, bestFor, category, duration, initialCollection, isCollectionActive, location, query]);
 
   function resetVisible() {
     setVisibleCount(PAGE_SIZE);
@@ -87,12 +90,13 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
     setBestFor("");
     setDuration("");
     setLocation("");
+    setIsCollectionActive(false);
     resetVisible();
   }
 
   return (
     <div className="space-y-6">
-      <section className="border border-[#173f36] bg-[#173f36] p-4 shadow-[0_10px_22px_-18px_rgba(9,42,34,0.45)] text-white sm:p-5" aria-label="Guide filters">
+      <section id="guide-finder" className="scroll-mt-24 border border-[#173f36] bg-[#173f36] p-4 shadow-[0_10px_22px_-18px_rgba(9,42,34,0.45)] text-white sm:p-5" aria-label="Guide filters">
         <div className="mb-4 grid gap-2 md:grid-cols-[0.42fr_1fr] md:items-end">
           <div>
             <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#c6a66a]">Guide finder</p>
@@ -100,6 +104,9 @@ export function GuideExplorer({ locale, articles }: GuideExplorerProps) {
           </div>
           <p className="max-w-3xl text-sm leading-6 text-[#e8dcc9]">{local.searchText}</p>
         </div>
+        {isCollectionActive && initialCollection ? (
+          <p className="mb-3 inline-flex border border-[#c6a66a] bg-white/10 px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.12em] text-[#fff8e8]">{initialCollection.title}</p>
+        ) : null}
         <div className="grid gap-2 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <label className="block">
             <span className="sr-only">{copy.searchPlaceholder[locale]}</span>

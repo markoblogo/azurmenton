@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
+import { GuideCollections } from "@/components/guide/GuideCollections";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { UsefulPlacesMiniMapPreview } from "@/components/places/UsefulPlacesMiniMapPreview";
@@ -10,6 +11,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
+import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
 import { placeMapPoints } from "@/content/planning/place-map-points";
@@ -24,14 +26,9 @@ const labels = {
     usefulIntro: "A real map for beaches, markets, gardens, viewpoints, family stops and practical errands.",
     mapTitle: "Open the useful places map",
     mapText: "Filter mapped places from the guide and open live routes in Google Maps.",
-    clustersEyebrow: "Stay planning clusters",
-    clustersTitle: "Guide routes for common Menton trips",
-    clustersIntro: "Fast routes into the guide when you know the kind of trip you are planning.",
-    mainGuide: "Start with",
-    supportingGuides: "More guides",
-    clusterPlaces: "Useful places",
-    clusterApartments: "Relevant apartments",
-    clusterEvents: "Related events",
+    collectionsEyebrow: "Browse by interest",
+    collectionsTitle: "A compact catalogue for Menton days",
+    collectionsIntro: "Choose a subject, then use Guide Finder to explore the matching articles without leaving the page.",
     eventsTitle: "Planning around an event?",
     eventsText: "Menton and the nearby Riviera have a busy calendar, from the Lemon Festival and summer music to Monaco weekends and Nice events.",
     eventsNote: "Seasonal events, confirmed dates and planning pages",
@@ -45,7 +42,7 @@ const labels = {
       "Use the guide to choose beaches, day trips, restaurants, events and the right apartment base. If you are planning a stay, send your dates and we will help match the trip to the apartment that fits best.",
     statGuides: "Local guides",
     statPlaces: "Useful places",
-    statTripStyles: "Trip styles",
+    statCollections: "Guide collections",
     statApartments: "Apartments",
     apartmentsTitle: "Where to stay for guide trips",
     apartmentsText: "Choose a central seaside base, then shape each day around beaches, markets, old-town walks and Riviera day trips.",
@@ -57,14 +54,9 @@ const labels = {
     usefulIntro: "Une vraie carte pour plages, marches, jardins, points de vue, famille et adresses pratiques.",
     mapTitle: "Ouvrir la carte des lieux utiles",
     mapText: "Filtrez les lieux du guide et ouvrez les itineraire actuels dans Google Maps.",
-    clustersEyebrow: "Parcours de sejour",
-    clustersTitle: "Guides par besoin de voyage a Menton",
-    clustersIntro: "Utilisez ces groupes pour planifier un vrai besoin: enfants, sans voiture, plages, chaleur d'ete, excursions ou aspects pratiques.",
-    mainGuide: "Commencer par",
-    supportingGuides: "Autres guides",
-    clusterPlaces: "Lieux utiles",
-    clusterApartments: "Appartements pertinents",
-    clusterEvents: "Evenements lies",
+    collectionsEyebrow: "Explorer par sujet",
+    collectionsTitle: "Un catalogue compact pour vos journees a Menton",
+    collectionsIntro: "Choisissez un sujet, puis utilisez Guide Finder pour parcourir les articles correspondants sans quitter la page.",
     eventsTitle: "Vous venez pour un evenement?",
     eventsText: "Menton et la Riviera voisine ont un calendrier anime, de la Fete du Citron aux concerts d'ete, week-ends a Monaco et evenements a Nice.",
     eventsNote: "Evenements saisonniers, dates confirmees et pages de preparation",
@@ -78,7 +70,7 @@ const labels = {
       "Utilisez le guide pour choisir plages, excursions, restaurants, evenements et la bonne base d'appartement. Si vous preparez un sejour, envoyez vos dates et nous vous aiderons a choisir l'appartement le plus adapte.",
     statGuides: "Guides locaux",
     statPlaces: "Lieux utiles",
-    statTripStyles: "Styles de sejour",
+    statCollections: "Collections de guides",
     statApartments: "Appartements",
     apartmentsTitle: "Ou sejourner pour explorer",
     apartmentsText: "Choisissez une base centrale en bord de mer, puis organisez vos journees entre plages, marches, vieille ville et excursions.",
@@ -90,14 +82,9 @@ const labels = {
     usefulIntro: "Una vera mappa per spiagge, mercati, giardini, panorami, famiglia e indirizzi pratici.",
     mapTitle: "Apri la mappa dei luoghi utili",
     mapText: "Filtra i luoghi della guida e apri percorsi aggiornati in Google Maps.",
-    clustersEyebrow: "Percorsi di soggiorno",
-    clustersTitle: "Guide per esigenze reali a Mentone",
-    clustersIntro: "Usa questi gruppi per pianificare bisogni concreti: bambini, senza auto, spiagge, caldo estivo, gite o aspetti pratici.",
-    mainGuide: "Inizia da",
-    supportingGuides: "Altre guide",
-    clusterPlaces: "Luoghi utili",
-    clusterApartments: "Appartamenti pertinenti",
-    clusterEvents: "Eventi correlati",
+    collectionsEyebrow: "Esplora per interesse",
+    collectionsTitle: "Un catalogo compatto per le giornate a Mentone",
+    collectionsIntro: "Scegli un argomento, poi usa Guide Finder per esplorare gli articoli corrispondenti senza lasciare la pagina.",
     eventsTitle: "Stai pianificando per un evento?",
     eventsText: "Mentone e la Riviera vicina hanno un calendario vivace: Festa del Limone, musica estiva, weekend a Monaco ed eventi a Nizza.",
     eventsNote: "Eventi stagionali, date confermate e pagine pratiche",
@@ -111,7 +98,7 @@ const labels = {
       "Usa la guida per scegliere spiagge, gite, ristoranti, eventi e la base giusta. Se stai pianificando un soggiorno, inviaci le date e ti aiuteremo a scegliere l'appartamento piu adatto.",
     statGuides: "Guide locali",
     statPlaces: "Luoghi utili",
-    statTripStyles: "Stili di viaggio",
+    statCollections: "Raccolte di guide",
     statApartments: "Appartamenti",
     apartmentsTitle: "Dove soggiornare per esplorare",
     apartmentsText: "Scegli una base centrale sul mare, poi organizza le giornate tra spiagge, mercati, centro storico e gite.",
@@ -123,14 +110,9 @@ const labels = {
     usefulIntro: "Справжня карта для пляжів, ринків, садів, краєвидів, сімейних місць і практичних адрес.",
     mapTitle: "Відкрити карту корисних місць",
     mapText: "Фільтруйте місця з гіда й відкривайте актуальні маршрути в Google Maps.",
-    clustersEyebrow: "Маршрути планування",
-    clustersTitle: "Гіди під реальні сценарії поїздки",
-    clustersIntro: "Використовуйте ці групи для практичного планування: діти, без авто, пляжі, літня спека, поїздки або побутові справи.",
-    mainGuide: "Почніть з",
-    supportingGuides: "Інші гіди",
-    clusterPlaces: "Корисні місця",
-    clusterApartments: "Релевантні апартаменти",
-    clusterEvents: "Пов'язані події",
+    collectionsEyebrow: "Перегляд за інтересами",
+    collectionsTitle: "Компактний каталог для днів у Ментоні",
+    collectionsIntro: "Оберіть тему, а потім скористайтеся Guide Finder, щоб переглянути відповідні статті, не залишаючи сторінку.",
     eventsTitle: "Плануєте поїздку навколо події?",
     eventsText: "У Ментоні та на сусідній Рив'єрі насичений календар: Фестиваль лимонів, літня музика, вікенди в Монако та події в Ніцці.",
     eventsNote: "Сезонні події, підтверджені дати й сторінки планування",
@@ -144,7 +126,7 @@ const labels = {
       "Використовуйте гід, щоб обрати пляжі, поїздки, ресторани, події та правильну базу для проживання. Якщо плануєте зупинку, надішліть дати, і ми допоможемо підібрати апартамент під сценарій поїздки.",
     statGuides: "Локальні гіди",
     statPlaces: "Корисні місця",
-    statTripStyles: "Сценарії поїздки",
+    statCollections: "Добірки гідів",
     statApartments: "Апартаменти",
     apartmentsTitle: "Де зупинитися для прогулянок і поїздок",
     apartmentsText: "Оберіть центральну базу біля моря, а дні плануйте навколо пляжів, ринків, старого міста й поїздок Рив'єрою.",
@@ -153,9 +135,12 @@ const labels = {
   },
 };
 
-type PageProps = { params: Promise<{ locale: string }> };
+type PageProps = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ collection?: string | string[] }>;
+};
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Pick<PageProps, "params">): Promise<Metadata> {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
@@ -163,12 +148,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return createMetadata({ locale: safeLocale, path: "guide", title: copy.seoTitle, description: copy.seoDescription });
 }
 
-export default async function GuideLandingPage({ params }: PageProps) {
+export default async function GuideLandingPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
   const intentCopy = guideIntentClusterLabels[safeLocale];
+  const query = await searchParams;
+  const collectionQuery = typeof query.collection === "string" ? query.collection : undefined;
+  const selectedCollection = isContentCollectionId(collectionQuery) ? contentCollections.find((collection) => collection.id === collectionQuery) : undefined;
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "guide"));
   const articles = guideArticles.map((article) => {
     const localized = localizeGuideArticle(article, safeLocale);
@@ -223,12 +211,27 @@ export default async function GuideLandingPage({ params }: PageProps) {
       return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
     })
     .slice(0, 4);
-  const getGuideTitle = (slug: string) => guideArticles.find((article) => article.slug === slug)?.title[safeLocale] ?? slug;
+  const collectionCards = contentCollections.map((collection) => {
+    const guideSlugs = resolveContentCollectionGuideSlugs(collection, guideArticles);
+    const leadGuide = guideArticles.find((article) => article.slug === guideSlugs[0]);
+    const localizedLeadGuide = leadGuide ? localizeGuideArticle(leadGuide, safeLocale) : undefined;
+    return {
+      id: collection.id,
+      title: collection.title[safeLocale],
+      description: collection.description[safeLocale],
+      guideCount: guideSlugs.length,
+      leadGuide: localizedLeadGuide ? {
+        coverImage: localizedLeadGuide.coverImage,
+        coverImageAlt: localizedLeadGuide.coverImageAlt,
+        visualTheme: localizedLeadGuide.visualTheme,
+      } : undefined,
+    };
+  });
   const numberFormatter = new Intl.NumberFormat(safeLocale);
   const guideStats = [
     { value: guideArticles.length, label: local.statGuides },
     { value: places.length, label: local.statPlaces },
-    { value: guideIntentClusters.length, label: local.statTripStyles },
+    { value: contentCollections.length, label: local.statCollections },
     { value: apartments.length, label: local.statApartments },
   ];
 
@@ -333,7 +336,14 @@ export default async function GuideLandingPage({ params }: PageProps) {
 
       <Section className="!py-2 bg-[#f8f3ea] sm:!py-3">
         <Container>
-          <GuideExplorer locale={safeLocale} articles={articles} />
+          <GuideExplorer
+            locale={safeLocale}
+            articles={articles}
+            initialCollection={selectedCollection ? {
+              title: selectedCollection.title[safeLocale],
+              articleSlugs: resolveContentCollectionGuideSlugs(selectedCollection, guideArticles),
+            } : undefined}
+          />
         </Container>
       </Section>
 
@@ -341,27 +351,12 @@ export default async function GuideLandingPage({ params }: PageProps) {
         <Container>
           <div className="mb-4 grid gap-4 md:grid-cols-[0.42fr_1fr] md:items-end">
             <div>
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.clustersEyebrow}</p>
-              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.clustersTitle}</h2>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.collectionsEyebrow}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.collectionsTitle}</h2>
             </div>
-            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.clustersIntro}</p>
+            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.collectionsIntro}</p>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-7">
-            {guideIntentClusters.map((cluster) => {
-              const article = guideArticles.find((item) => item.slug === cluster.canonicalGuideSlug);
-              const localized = article ? localizeGuideArticle(article, safeLocale) : undefined;
-              return (
-                <Link key={cluster.id} href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route} className="group overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:border-[#173f36] hover:bg-[#f3ead7]">
-                  <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/1.45]" showLabel={false} />
-                  <div className="p-2.5">
-                    <h3 className="serif-heading text-base leading-tight text-[#173f36] group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
-                    <p className="mt-1.5 overflow-hidden text-[0.68rem] leading-4 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{getGuideTitle(cluster.canonicalGuideSlug)}</p>
-                    <p className="mt-2 text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#b49353]">{cluster.supportingGuideSlugs.length + 1} guides · {cluster.relatedApartmentKeys.length} stays</p>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          <GuideCollections locale={safeLocale} collections={collectionCards} />
         </Container>
       </Section>
 

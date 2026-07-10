@@ -2,6 +2,7 @@ import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { apartments } from "../../src/content/apartments";
+import { contentCollections, contentIntentMap, resolveContentCollectionGuideSlugs } from "../../src/content/content-map";
 import { guestPerks } from "../../src/content/guest-perks";
 import { guideArticles } from "../../src/content/guide";
 import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
@@ -140,6 +141,31 @@ describe("content graph audit", () => {
       for (const slug of unresolved(cluster.relatedApartmentKeys, apartmentSlugs)) failures.push(`${cluster.id} relatedApartmentKeys -> ${slug}`);
       for (const slug of unresolved(cluster.relatedEventSlugs, eventSlugs)) failures.push(`${cluster.id} relatedEventSlugs -> ${slug}`);
       if (!cluster.relatedApartmentKeys.length) failures.push(`${cluster.id} missing related apartments`);
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps guide collections and the compact intent map connected to valid guides", () => {
+    const failures: string[] = [];
+
+    if (!unique(contentCollections.map((collection) => collection.id))) failures.push("duplicate content collection ids");
+    if (!unique(contentIntentMap.map((intent) => intent.id))) failures.push("duplicate content intent ids");
+
+    for (const collection of contentCollections) {
+      const guideSlugs = resolveContentCollectionGuideSlugs(collection, guideArticles);
+      const collectionGuideSlugs = new Set(guideSlugs);
+      if (!guideSlugs.length) failures.push(`${collection.id} has no matching guides`);
+      for (const slug of unresolved(collection.priorityGuideSlugs, collectionGuideSlugs)) failures.push(`${collection.id} priorityGuideSlugs -> ${slug}`);
+      for (const slug of unresolved(collection.includeGuideSlugs, collectionGuideSlugs)) failures.push(`${collection.id} includeGuideSlugs -> ${slug}`);
+    }
+
+    const collectionIds = new Set(contentCollections.map((collection) => collection.id));
+    for (const intent of contentIntentMap) {
+      if (!collectionIds.has(intent.collectionId)) failures.push(`${intent.id} collectionId -> ${intent.collectionId}`);
+      if (intent.status === "covered" && (!intent.targetGuideSlug || !guideSlugs.has(intent.targetGuideSlug))) {
+        failures.push(`${intent.id} covered intent missing valid targetGuideSlug`);
+      }
     }
 
     expect(failures).toEqual([]);

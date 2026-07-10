@@ -76,6 +76,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Add new places to older articles only where naturally useful.
 - Update `relatedPlaces`, section-level `relatedPlaceIds` and place `relatedArticleIds` together.
 - Check whether the article belongs in an intent cluster.
+- Check whether it belongs in a living guide collection in `src/content/content-map.ts`. Add an item to the compact intent map only when it answers a meaningful guest or search question; do not inflate the count with near-duplicate queries.
 - Check whether the article needs apartment-aware linking.
 
 ## Preflight
