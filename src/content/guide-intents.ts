@@ -169,6 +169,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 ];
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "barbecue-picnic-areas-near-menton", ignore: ["cluster"], reason: "safety-first practical reference guide with direct links to verified picnic and controlled private options" },
   { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
   { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
