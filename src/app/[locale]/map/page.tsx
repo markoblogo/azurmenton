@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
-import { UsefulPlacesMap, type UsefulPlaceMapCategory } from "@/components/places/UsefulPlacesMap";
+import { UsefulPlacesMap } from "@/components/places/UsefulPlacesMap";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { placeMapPoints } from "@/content/planning/place-map-points";
-import { places, type PlaceType } from "@/content/places";
+import { mapCategories, mapPlaceTypes } from "@/content/planning/map-taxonomy";
+import { places } from "@/content/places";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -53,36 +54,6 @@ const copy = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-const categories: UsefulPlaceMapCategory[] = [
-  category("beaches", ["beach"], "Beaches", "Plages", "Spiagge", "Пляжі"),
-  category("markets", ["market"], "Markets", "Marches", "Mercati", "Ринки"),
-  category("supermarkets", ["supermarket"], "Supermarkets", "Supermarches", "Supermercati", "Супермаркети"),
-  category("restaurants", ["restaurant"], "Restaurants", "Restaurants", "Ristoranti", "Ресторани"),
-  category("bars", ["bar", "wine-bar", "winery", "rooftop"], "Bars & wine", "Bars et vins", "Bar e vino", "Бари й вино"),
-  category("casinos", ["casino"], "Casinos", "Casinos", "Casino", "Казино"),
-  category("ice-cream", ["ice-cream"], "Ice cream", "Glaciers", "Gelaterie", "Морозиво"),
-  category("museums", ["museum"], "Museums", "Musees", "Musei", "Музеї"),
-  category("cinemas", ["cinema"], "Cinemas", "Cinemas", "Cinema", "Кінотеатри"),
-  category("theatres", ["theatre"], "Theatres", "Theatres", "Teatri", "Театри"),
-  category("gardens", ["garden"], "Gardens", "Jardins", "Giardini", "Сади"),
-  category("viewpoints", ["viewpoint"], "Viewpoints", "Points de vue", "Panorami", "Оглядові місця"),
-  category("cycling", ["bike-shop", "cycle-route"], "Cycling", "Velo", "Bici", "Велосипеди"),
-  category("ports", ["port"], "Ports", "Ports", "Porti", "Порти"),
-  category("golf", ["golf-course"], "Golf", "Golf", "Golf", "Гольф"),
-  category("ski", ["ski-resort"], "Ski", "Ski", "Sci", "Лижі"),
-  category("mountains", ["mountain"], "Mountains", "Montagne", "Montagne", "Гори"),
-  category("pools", ["pool"], "Pools", "Piscines", "Piscine", "Басейни"),
-  category("theme-parks", ["theme-park"], "Theme parks", "Parcs de loisirs", "Parchi", "Парки"),
-  category("playgrounds", ["playground"], "Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики"),
-  category("family-activities", ["family-activity", "skatepark"], "Activities", "Activites", "Attivita", "Активності"),
-  category("shopping", ["shopping-centre"], "Shopping", "Shopping", "Shopping", "Шопінг"),
-  category("services", ["tourist-office", "station", "car-rental", "bike-shop", "healthcare", "hospital", "police", "civic"], "Services", "Services", "Servizi", "Сервіси"),
-];
-
-function category(id: string, placeTypes: PlaceType[], en: string, fr: string, it: string, uk: string): UsefulPlaceMapCategory {
-  return { id, placeTypes, label: { en, fr, it, uk } };
-}
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -101,10 +72,9 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
 
   const labels = copy[locale];
   const pageUrl = absoluteUrl(localizedPath(locale, "map"));
-  const categoryTypes = new Set(categories.flatMap((item) => item.placeTypes));
   const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
   const usefulPlaces = places
-    .filter((place) => categoryTypes.has(place.type))
+    .filter((place) => mapPlaceTypes.has(place.type))
     .map((place) => {
       const mapPoint = mapPointByPlaceId.get(place.id);
       return mapPoint ? { ...place, mapPoint } : null;
@@ -143,7 +113,7 @@ export default async function UsefulPlacesMapPage({ params }: PageProps) {
 
       <Section className="!py-6 bg-[#fffaf0] sm:!py-8">
         <Container>
-          <UsefulPlacesMap locale={locale} places={usefulPlaces} categories={categories} />
+          <UsefulPlacesMap locale={locale} places={usefulPlaces} categories={mapCategories} />
         </Container>
       </Section>
     </>

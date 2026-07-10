@@ -2,27 +2,32 @@ export type PlaceMapPoint = {
   placeId: string;
   lat: number;
   lng: number;
+  review?: {
+    source: "openstreetmap" | "host_verified";
+    precision: "entrance" | "landside" | "area";
+    checkedOn: string;
+  };
 };
 
 export const placeMapPoints: PlaceMapPoint[] = [
-  { placeId: "halles-du-marche", lat: 43.7754, lng: 7.5062 },
+  { placeId: "halles-du-marche", lat: 43.77608, lng: 7.50847, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
   { placeId: "chez-mimi-menton", lat: 43.7754, lng: 7.5062 },
-  { placeId: "maison-herbin-menton", lat: 43.7762, lng: 7.5042 },
-  { placeId: "rue-saint-michel-menton", lat: 43.7758, lng: 7.5035 },
+  { placeId: "maison-herbin-menton", lat: 43.7753, lng: 7.50379, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
+  { placeId: "rue-saint-michel-menton", lat: 43.77554, lng: 7.50571, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-10" } },
   { placeId: "quai-bonaparte-menton", lat: 43.7802, lng: 7.5026 },
-  { placeId: "plage-sablettes", lat: 43.7806, lng: 7.5024 },
-  { placeId: "plage-casino", lat: 43.7775, lng: 7.4942 },
+  { placeId: "plage-sablettes", lat: 43.77858, lng: 7.50812, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
+  { placeId: "plage-casino", lat: 43.77137, lng: 7.4966, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
   { placeId: "casino-barriere-menton", lat: 43.7773, lng: 7.4948 },
   { placeId: "plage-fossan", lat: 43.7792, lng: 7.4997 },
-  { placeId: "plage-rondelli", lat: 43.7832, lng: 7.5087 },
-  { placeId: "rondelli-garavan-side", lat: 43.7837, lng: 7.5095 },
+  { placeId: "plage-rondelli", lat: 43.78113, lng: 7.5102, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
+  { placeId: "rondelli-garavan-side", lat: 43.78135, lng: 7.51055, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-10" } },
   { placeId: "promenade-du-soleil", lat: 43.7775, lng: 7.4903 },
-  { placeId: "port-de-garavan", lat: 43.785, lng: 7.5102 },
-  { placeId: "jardin-val-rahmeh", lat: 43.7824, lng: 7.513 },
+  { placeId: "port-de-garavan", lat: 43.78317, lng: 7.51757, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
+  { placeId: "jardin-val-rahmeh", lat: 43.78485, lng: 7.51108, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
   { placeId: "jardin-serre-de-la-madone", lat: 43.7908, lng: 7.4908 },
-  { placeId: "cimetiere-vieux-chateau", lat: 43.7778, lng: 7.5062 },
-  { placeId: "musee-jean-cocteau-bastion", lat: 43.7797, lng: 7.5038 },
-  { placeId: "salle-des-mariages-jean-cocteau", lat: 43.7753, lng: 7.5004 },
+  { placeId: "cimetiere-vieux-chateau", lat: 43.77827, lng: 7.50565, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
+  { placeId: "musee-jean-cocteau-bastion", lat: 43.77488, lng: 7.50846, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
+  { placeId: "salle-des-mariages-jean-cocteau", lat: 43.77534, lng: 7.50289, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
   { placeId: "office-tourisme-menton-riviera-merveilles", lat: 43.7747, lng: 7.4961 },
   { placeId: "nice-cote-dazur-airport", lat: 43.6653, lng: 7.215 },
   { placeId: "nice-airport-car-rental-center", lat: 43.6624, lng: 7.2018 },
@@ -41,13 +46,13 @@ export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "promenade-reine-astrid", lat: 43.7855, lng: 7.5196 },
   { placeId: "pont-saint-ludovic", lat: 43.7872, lng: 7.5304 },
   { placeId: "col-de-la-madone", lat: 43.8032, lng: 7.4648 },
-  { placeId: "menton-garavan-station", lat: 43.7859, lng: 7.5172 },
+  { placeId: "menton-garavan-station", lat: 43.78519, lng: 7.51728, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
   { placeId: "monaco-monte-carlo-station", lat: 43.7384, lng: 7.4197 },
   { placeId: "ventimiglia-station", lat: 43.7921, lng: 7.6073 },
   { placeId: "centre-hospitalier-la-palmosa-menton", lat: 43.7863, lng: 7.4884 },
   { placeId: "commissariat-police-menton", lat: 43.777, lng: 7.4995 },
-  { placeId: "cinema-eden-menton", lat: 43.7754, lng: 7.5005 },
-  { placeId: "le-lavoir-theatre-menton", lat: 43.7769, lng: 7.5032 },
+  { placeId: "cinema-eden-menton", lat: 43.77569, lng: 7.5039, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
+  { placeId: "le-lavoir-theatre-menton", lat: 43.78527, lng: 7.50337, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10" } },
   { placeId: "palais-de-leurope-menton", lat: 43.775, lng: 7.5002 },
   { placeId: "gelateria-sofia-menton", lat: 43.7763, lng: 7.5066 },
   { placeId: "demontis-gelateria-menton", lat: 43.7756, lng: 7.5035 },

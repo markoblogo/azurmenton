@@ -7,14 +7,9 @@ import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locales";
 import { apartments } from "@/content/apartments";
 import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
-import type { Place, PlaceType } from "@/content/places";
+import type { MapCategory } from "@/content/planning/map-taxonomy";
+import type { Place } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
-
-export type UsefulPlaceMapCategory = {
-  id: string;
-  label: Record<Locale, string>;
-  placeTypes: PlaceType[];
-};
 
 export type UsefulPlaceWithMapPoint = Place & {
   mapPoint: {
@@ -35,7 +30,7 @@ const LeafletPlacesMap = dynamic(() => import("./LeafletPlacesMap").then((module
   loading: () => <div className="grid h-[34rem] place-items-center bg-[#f8f3ea] text-sm font-semibold uppercase tracking-[0.14em] text-[#173f36]">Loading map</div>,
 });
 
-export function UsefulPlacesMap({ locale, places, categories }: { locale: Locale; places: UsefulPlaceWithMapPoint[]; categories: UsefulPlaceMapCategory[] }) {
+export function UsefulPlacesMap({ locale, places, categories }: { locale: Locale; places: UsefulPlaceWithMapPoint[]; categories: MapCategory[] }) {
   const [activeCategory, setActiveCategory] = useState("");
   const [selectedPlaceId, setSelectedPlaceId] = useState(places[0]?.id ?? "");
   const labels = copy[locale];

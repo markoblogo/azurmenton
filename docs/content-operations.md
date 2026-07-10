@@ -31,6 +31,8 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep `relatedArticleIds` aligned with guide references.
 - Do not add backlinks only because a place card appears in a section; add them when the article is a real editorial match.
 - Confirm that useful public places still fit the filters on `src/app/[locale]/map/page.tsx`; add a new map category only when several places need it.
+- Keep map filters in `src/content/planning/map-taxonomy.ts`; do not create broad labels such as culture or family when a concrete place type exists.
+- For waterfront, old-town and apartment markers, record a reviewed coordinate source and date. Do not apply a blanket latitude/longitude offset to make markers look land-side: verify each affected landmark at map zoom instead.
 
 ## Stay Plans and Transport
 

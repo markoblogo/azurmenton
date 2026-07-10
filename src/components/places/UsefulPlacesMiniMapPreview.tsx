@@ -7,16 +7,10 @@ import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locales";
 import { apartments } from "@/content/apartments";
 import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
-import type { PlaceType } from "@/content/places";
+import { miniMapCategories } from "@/content/planning/map-taxonomy";
 import type { UsefulPlaceWithMapPoint } from "@/components/places/UsefulPlacesMap";
 
 type MiniMapPlace = UsefulPlaceWithMapPoint;
-
-type MiniMapCategory = {
-  id: string;
-  placeTypes: PlaceType[];
-  label: Record<Locale, string>;
-};
 
 const copy = {
   en: { all: "All", detail: "More", open: "Open in Google Maps", guide: "Related guide", apartment: "Apartment" },
@@ -25,11 +19,7 @@ const copy = {
   uk: { all: "Усі", detail: "Більше", open: "Відкрити в Google Maps", guide: "Пов'язаний гід", apartment: "Апартаменти" },
 } satisfies Record<Locale, Record<string, string>>;
 
-const categories: MiniMapCategory[] = [
-  { id: "beaches", placeTypes: ["beach"], label: { en: "Beaches", fr: "Plages", it: "Spiagge", uk: "Пляжі" } },
-  { id: "markets", placeTypes: ["market", "supermarket"], label: { en: "Markets", fr: "Marches", it: "Mercati", uk: "Ринки" } },
-  { id: "food", placeTypes: ["restaurant", "bar", "wine-bar", "ice-cream"], label: { en: "Food", fr: "Food", it: "Food", uk: "Їжа" } },
-];
+const categories = miniMapCategories;
 
 const LeafletMiniMap = dynamic(() => import("./LeafletPlacesMap").then((module) => module.LeafletPlacesMap), {
   ssr: false,
