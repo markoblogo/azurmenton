@@ -11,7 +11,8 @@ export type ContentCollectionId =
   | "culture-and-evenings"
   | "riviera-day-trips"
   | "practical-stay"
-  | "sport-and-outdoors";
+  | "sport-and-outdoors"
+  | "evening-plans";
 
 export type ContentCollection = {
   id: ContentCollectionId;
@@ -101,6 +102,34 @@ export const contentCollections: ContentCollection[] = [
     includeGuideSlugs: ["golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton"],
     priorityGuideSlugs: ["tennis-padel-courts-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "cycling-bike-rental-menton", "skateparks-near-menton"],
   },
+  {
+    id: "evening-plans",
+    title: t("Evening plans", "Idees de soiree", "Idee per la sera", "Вечірні плани"),
+    description: t("Bars, quiet evenings, live music, dancing, cinema, theatre and late plans near Menton.", "Bars, soirees calmes, musique live, danse, cinema, theatre et sorties autour de Menton.", "Bar, serate tranquille, musica dal vivo, ballo, cinema, teatro e uscite vicino a Mentone.", "Бари, спокійні вечори, жива музика, танці, кіно, театр і пізні плани біля Ментона."),
+    categories: [],
+    includeGuideSlugs: [
+      "bars-and-beer-in-menton",
+      "quiet-evening-in-menton",
+      "nightlife-in-menton",
+      "latin-dancing-salsa-bachata-menton",
+      "shisha-hookah-near-menton",
+      "jazz-live-music-near-menton",
+      "casinos-near-menton",
+      "cinemas-in-menton-nice-monaco",
+      "theatre-opera-performing-arts-near-menton",
+    ],
+    priorityGuideSlugs: [
+      "quiet-evening-in-menton",
+      "bars-and-beer-in-menton",
+      "nightlife-in-menton",
+      "jazz-live-music-near-menton",
+      "latin-dancing-salsa-bachata-menton",
+      "cinemas-in-menton-nice-monaco",
+      "theatre-opera-performing-arts-near-menton",
+      "casinos-near-menton",
+      "shisha-hookah-near-menton",
+    ],
+  },
 ];
 
 export const contentIntentMap: ContentIntent[] = [
@@ -126,6 +155,8 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-tennis-padel", query: t("tennis and padel near Menton", "tennis et padel pres de Menton", "tennis e padel vicino a Mentone", "теніс і падел біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "tennis-padel-courts-menton", season: "all-year" },
   { id: "menton-golf", query: t("golf near Menton", "golf pres de Menton", "golf vicino a Mentone", "гольф біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "golf-near-menton", season: "all-year" },
   { id: "menton-skateparks", query: t("skateparks near Menton", "skateparks pres de Menton", "skatepark vicino a Mentone", "скейтпарки біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "skateparks-near-menton", season: "all-year" },
+  { id: "menton-evening-plans", query: t("evening plans in Menton", "idees de soiree a Menton", "idee per la sera a Mentone", "вечірні плани в Ментоні"), collectionId: "evening-plans", priority: "now", status: "covered", targetGuideSlug: "quiet-evening-in-menton", season: "all-year" },
+  { id: "menton-live-music", query: t("live music near Menton", "musique live pres de Menton", "musica dal vivo vicino a Mentone", "жива музика біля Ментона"), collectionId: "evening-plans", priority: "now", status: "covered", targetGuideSlug: "jazz-live-music-near-menton", season: "all-year" },
 ];
 
 export function isContentCollectionId(value: string | undefined): value is ContentCollectionId {

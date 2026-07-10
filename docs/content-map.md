@@ -4,7 +4,7 @@
 
 ## Guide collections
 
-Collections are visible on `/[locale]/guide` and route visitors into the existing Guide Finder. They group current articles by stable guest interest, while `includeGuideSlugs` keeps genuinely useful cross-category guides in the right collection.
+Collections are visible on `/[locale]/guide` and route visitors into the existing Guide Finder. They group current articles by stable guest interest, while `includeGuideSlugs` keeps genuinely useful cross-category guides in the right collection. Current collections cover food, beaches, walks, family, culture, day trips, practical stay, sport/outdoors and evening plans.
 
 When adding a guide, prefer its existing `GuideCategory`. Update a collection only when the connection is editorially useful. Keep the main navigation unchanged.
 
@@ -19,3 +19,7 @@ When adding a guide, prefer its existing `GuideCategory`. Update a collection on
 ## Validation
 
 `npm run content:audit` verifies collection IDs, guide references and covered intent targets. Run it with the normal content preflight when changing articles or collections.
+
+## Map review metadata
+
+Curated map coordinates live in `src/content/planning/place-map-points.ts`. Public points that have been manually reviewed should record `source`, `sourceUrl`, `precision` and `checkedOn`; apartment markers use host-confirmed building precision in `src/content/planning/apartment-map-points.ts` and never include unit numbers.
