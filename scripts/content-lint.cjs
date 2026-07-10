@@ -10,12 +10,15 @@ registerTypescriptContent(root);
 const { guideArticles } = require("../src/content/guide.ts");
 const { guestPerks } = require("../src/content/guest-perks.ts");
 const { localPartners, partnerLinkRel } = require("../src/content/partners.ts");
+const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
 const { places } = require("../src/content/places.ts");
 const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { locales } = require("../src/i18n/locales.ts");
 
 const failures = [];
 const guideSlugs = new Set(guideArticles.map((article) => article.slug));
+const placeIds = new Set(places.map((place) => place.id));
+const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const idPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -109,6 +112,21 @@ for (const place of places) {
   if (place.sourceStatus === "verified" && !place.googleMapsUrl && !place.programmeUrl) {
     fail(`${owner} is verified but has no source URL`);
   }
+  if (place.requiresMapReview) {
+    const point = mapPointByPlaceId.get(place.id);
+    if (!point) {
+      fail(`${owner} requires map review but has no placeMapPoints entry`);
+    } else if (!point.review) {
+      fail(`${owner} requires map review but placeMapPoints entry has no review`);
+    } else {
+      if (!point.review.sourceUrl) fail(`${owner} map review missing sourceUrl`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(point.review.checkedOn)) fail(`${owner} map review checkedOn should be YYYY-MM-DD`);
+    }
+  }
+}
+
+for (const point of placeMapPoints) {
+  if (!placeIds.has(point.placeId)) fail(`placeMapPoint:${point.placeId} does not match a place id`);
 }
 
 for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {

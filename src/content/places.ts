@@ -60,6 +60,7 @@ export type Place = {
   googlePhotosStatus?: "not_connected" | "future_api_possible" | "not_allowed_without_api";
   ratingStatus?: "not_connected" | "future_api_possible";
   hoursStatus?: "not_connected" | "needs_manual_verification" | "future_api_possible";
+  requiresMapReview?: boolean;
   openingHoursLabel?: LocalizedText;
   priceLabel?: LocalizedText;
   sourceStatus: PlaceSourceStatus;
@@ -93,6 +94,22 @@ const checkPrices = text(
   "Controlla i prezzi aggiornati.",
   "Перевірте актуальні ціни.",
 );
+
+const mapReviewRequiredPlaceIds = new Set([
+  "chez-mimi-menton",
+  "musee-prehistoire-regionale-menton",
+  "nabucco-wine-bar-cellar",
+  "o-divin-menton",
+  "comptoir-des-vignes-menton",
+  "nicolas-menton",
+  "mirazur-menton",
+  "orangerie-menton",
+  "casa-fuego-menton",
+  "biera-daqui",
+  "inky-bar",
+  "les-incompris",
+  "bar-lescalier",
+]);
 
 const rawPlaces: Place[] = [
   {
@@ -5447,6 +5464,7 @@ export const places: Place[] = rawPlaces.map((place) => {
   return {
     ...place,
     ...visual,
+    requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
     visualTheme: place.visualTheme ?? visual.visualTheme ?? visualThemeForPlace(place.type),
     googleMapsSearchUrl:
       place.googleMapsSearchUrl ??

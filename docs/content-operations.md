@@ -33,6 +33,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Confirm that useful public places still fit the filters on `src/app/[locale]/map/page.tsx`; add a new map category only when several places need it.
 - Keep map filters in `src/content/planning/map-taxonomy.ts`; do not create broad labels such as culture or family when a concrete place type exists.
 - For waterfront, old-town and apartment markers, record a reviewed coordinate source, URL and date. Do not apply a blanket latitude/longitude offset to make markers look land-side: verify each affected landmark at map zoom instead.
+- For restaurants, evening venues, museums or other places where the map helps guests choose a plan, set `requiresMapReview: true` on the place or add it to the map-review required set, then add `src/content/planning/place-map-points.ts` coordinates with `review.sourceUrl`, `precision` and `checkedOn`. `npm run content:lint` fails if the reviewed map point is missing.
 - Apartment markers may use the public building address at `building` precision when the host confirms it. Never publish an apartment or unit number; retain `host_verified` provenance in `src/content/planning/apartment-map-points.ts`.
 
 ## Stay Plans and Transport
