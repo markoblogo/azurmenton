@@ -28,6 +28,7 @@ const copy = {
     places: "Useful places",
     guides: "Guides",
     apartments: "Apartments",
+    transport: "Transport note",
     openPlan: "Open stay plan",
     read: "Read stay guide",
   },
@@ -41,6 +42,7 @@ const copy = {
     places: "Lieux utiles",
     guides: "Guides",
     apartments: "Appartements",
+    transport: "Note transport",
     openPlan: "Ouvrir le plan",
     read: "Lire le guide",
   },
@@ -54,6 +56,7 @@ const copy = {
     places: "Luoghi utili",
     guides: "Guide",
     apartments: "Appartamenti",
+    transport: "Nota trasporti",
     openPlan: "Apri piano",
     read: "Leggi guida",
   },
@@ -67,6 +70,7 @@ const copy = {
     places: "Корисні місця",
     guides: "Гіди",
     apartments: "Апартаменти",
+    transport: "Нотатка про транспорт",
     openPlan: "Відкрити сценарій",
     read: "Читати сторінку",
   },
@@ -134,7 +138,7 @@ export default async function StayIndexPage({ params }: PageProps) {
               const planPlaces = getPlaces(plan.relatedPlaceIds).slice(0, 3);
               const planApartments = apartments.filter((apartment) => plan.relatedApartmentSlugs.includes(apartment.slug)).slice(0, 2);
               const planGuides = plan.relatedGuideSlugs.map((slug) => getGuideArticle(slug)).filter((article): article is NonNullable<typeof article> => Boolean(article)).slice(0, 2);
-              const href = plan.relatedStaySlug ? `/${locale}/stay/${plan.relatedStaySlug}` : `/${locale}/check-availability`;
+              const href = plan.relatedStaySlug ? `/${locale}/stay/${plan.relatedStaySlug}` : `/${locale}/guide/${plan.primaryGuideSlug}`;
 
               return (
                 <Card key={plan.id} className="h-full p-5">
@@ -145,6 +149,7 @@ export default async function StayIndexPage({ params }: PageProps) {
                     {planPlaces.length ? <MiniList label={labels.places} items={planPlaces.map((place) => place.name)} /> : null}
                     {planGuides.length ? <MiniList label={labels.guides} items={planGuides.map((guide) => guide.title[locale])} /> : null}
                     {planApartments.length ? <MiniList label={labels.apartments} items={planApartments.map((apartment) => apartment.shortName[locale])} /> : null}
+                    <MiniList label={labels.transport} items={[plan.transportNote[locale]]} />
                   </div>
                   <Link className="mt-5 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={href as Route}>{labels.openPlan}</Link>
                 </Card>

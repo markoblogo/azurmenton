@@ -7,8 +7,10 @@ import { guestPerks } from "../../src/content/guest-perks";
 import { guideArticles } from "../../src/content/guide";
 import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
 import { localPartners, partnerLinkRel } from "../../src/content/partners";
+import { stayPlans } from "../../src/content/planning/stay-plans";
 import { places } from "../../src/content/places";
 import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
+import { stayPages } from "../../src/content/stay-pages";
 import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
 import { getEventDateStatus } from "../../src/lib/events";
 
@@ -22,6 +24,7 @@ const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const eventSlugs = new Set([...rivieraEvents.map((event) => event.slug), summerOnTheRivieraEvent.slug]);
 const radioStationIds = new Set(radioStations.map((station) => station.id));
+const stayPageSlugs = new Set(stayPages.map((page) => page.slug));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 
 const evergreenPracticalSlugs = [
@@ -166,6 +169,23 @@ describe("content graph audit", () => {
       if (intent.status === "covered" && (!intent.targetGuideSlug || !guideSlugs.has(intent.targetGuideSlug))) {
         failures.push(`${intent.id} covered intent missing valid targetGuideSlug`);
       }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps curated trip plans connected to guides, places, apartments and stay pages", () => {
+    const failures: string[] = [];
+
+    if (!unique(stayPlans.map((plan) => plan.id))) failures.push("duplicate stay plan ids");
+
+    for (const plan of stayPlans) {
+      if (!guideSlugs.has(plan.primaryGuideSlug)) failures.push(`${plan.id} primaryGuideSlug -> ${plan.primaryGuideSlug}`);
+      if (!plan.transportNote.en.trim()) failures.push(`${plan.id} missing transportNote`);
+      for (const slug of unresolved(plan.relatedGuideSlugs, guideSlugs)) failures.push(`${plan.id} relatedGuideSlugs -> ${slug}`);
+      for (const id of unresolved(plan.relatedPlaceIds, placeIds)) failures.push(`${plan.id} relatedPlaceIds -> ${id}`);
+      for (const slug of unresolved(plan.relatedApartmentSlugs, apartmentSlugs)) failures.push(`${plan.id} relatedApartmentSlugs -> ${slug}`);
+      if (plan.relatedStaySlug && !stayPageSlugs.has(plan.relatedStaySlug)) failures.push(`${plan.id} relatedStaySlug -> ${plan.relatedStaySlug}`);
     }
 
     expect(failures).toEqual([]);

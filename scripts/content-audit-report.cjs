@@ -13,6 +13,7 @@ const { guideArticles } = require("../src/content/guide.ts");
 const { guideIntentClusters, guideLinkAuditProfiles } = require("../src/content/guide-intents.ts");
 const { places } = require("../src/content/places.ts");
 const { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
+const { stayPlans } = require("../src/content/planning/stay-plans.ts");
 const { getEventDateStatus } = require("../src/lib/events.ts");
 
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
@@ -197,6 +198,7 @@ console.log(`Apartments: ${apartments.length}`);
 console.log(`Intent clusters: ${guideIntentClusters.length}`);
 console.log(`Guide collections: ${contentCollections.length}`);
 console.log(`Planned content intents: ${contentIntentMap.filter((intent) => intent.status === "planned").length}`);
+console.log(`Curated trip plans: ${stayPlans.length}`);
 
 printGroup("Places without images", placesWithoutImages, (place) => `${place.id} (${place.name})`);
 printGroup(

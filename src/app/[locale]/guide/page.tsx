@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideCollections } from "@/components/guide/GuideCollections";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
+import { GuideTripPlans } from "@/components/guide/GuideTripPlans";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { UsefulPlacesMiniMapPreview } from "@/components/places/UsefulPlacesMiniMapPreview";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
@@ -13,7 +14,7 @@ import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
 import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
-import { guideIntentClusterLabels, guideIntentClusters } from "@/content/guide-intents";
+import { stayPlans } from "@/content/planning/stay-plans";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
@@ -26,6 +27,9 @@ const labels = {
     usefulIntro: "A real map for beaches, markets, gardens, viewpoints, family stops and practical errands.",
     mapTitle: "Open the useful places map",
     mapText: "Filter mapped places from the guide and open live routes in Google Maps.",
+    plansEyebrow: "Ready-made trip plans",
+    plansTitle: "Start with a real Menton day",
+    plansIntro: "Choose a practical scenario, then open the guide, transport notes and apartment options that fit it.",
     collectionsEyebrow: "Browse by interest",
     collectionsTitle: "A compact catalogue for Menton days",
     collectionsIntro: "Choose a subject, then use Guide Finder to explore the matching articles without leaving the page.",
@@ -54,6 +58,9 @@ const labels = {
     usefulIntro: "Une vraie carte pour plages, marches, jardins, points de vue, famille et adresses pratiques.",
     mapTitle: "Ouvrir la carte des lieux utiles",
     mapText: "Filtrez les lieux du guide et ouvrez les itineraire actuels dans Google Maps.",
+    plansEyebrow: "Plans de voyage prepares",
+    plansTitle: "Commencez par une vraie journee a Menton",
+    plansIntro: "Choisissez un scenario pratique, puis ouvrez le guide, les notes transport et les appartements adaptes.",
     collectionsEyebrow: "Explorer par sujet",
     collectionsTitle: "Un catalogue compact pour vos journees a Menton",
     collectionsIntro: "Choisissez un sujet, puis utilisez Guide Finder pour parcourir les articles correspondants sans quitter la page.",
@@ -82,6 +89,9 @@ const labels = {
     usefulIntro: "Una vera mappa per spiagge, mercati, giardini, panorami, famiglia e indirizzi pratici.",
     mapTitle: "Apri la mappa dei luoghi utili",
     mapText: "Filtra i luoghi della guida e apri percorsi aggiornati in Google Maps.",
+    plansEyebrow: "Piani di viaggio pronti",
+    plansTitle: "Inizia da una vera giornata a Mentone",
+    plansIntro: "Scegli uno scenario pratico, poi apri la guida, le note trasporti e gli appartamenti adatti.",
     collectionsEyebrow: "Esplora per interesse",
     collectionsTitle: "Un catalogo compatto per le giornate a Mentone",
     collectionsIntro: "Scegli un argomento, poi usa Guide Finder per esplorare gli articoli corrispondenti senza lasciare la pagina.",
@@ -110,6 +120,9 @@ const labels = {
     usefulIntro: "Справжня карта для пляжів, ринків, садів, краєвидів, сімейних місць і практичних адрес.",
     mapTitle: "Відкрити карту корисних місць",
     mapText: "Фільтруйте місця з гіда й відкривайте актуальні маршрути в Google Maps.",
+    plansEyebrow: "Готові сценарії поїздки",
+    plansTitle: "Почніть зі справжнього дня в Ментоні",
+    plansIntro: "Оберіть практичний сценарій, а потім відкрийте гід, нотатки про транспорт і відповідні апартаменти.",
     collectionsEyebrow: "Перегляд за інтересами",
     collectionsTitle: "Компактний каталог для днів у Ментоні",
     collectionsIntro: "Оберіть тему, а потім скористайтеся Guide Finder, щоб переглянути відповідні статті, не залишаючи сторінку.",
@@ -153,7 +166,6 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
-  const intentCopy = guideIntentClusterLabels[safeLocale];
   const query = await searchParams;
   const collectionQuery = typeof query.collection === "string" ? query.collection : undefined;
   const selectedCollection = isContentCollectionId(collectionQuery) ? contentCollections.find((collection) => collection.id === collectionQuery) : undefined;
@@ -227,6 +239,22 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
       } : undefined,
     };
   });
+  const guideTripPlans = stayPlans
+    .filter((plan) => plan.featuredOnGuide)
+    .map((plan) => {
+      const guide = guideArticles.find((article) => article.slug === plan.primaryGuideSlug);
+      const apartment = apartments.find((candidate) => candidate.slug === plan.relatedApartmentSlugs[0]);
+      return {
+        id: plan.id,
+        title: plan.title[safeLocale],
+        excerpt: plan.excerpt[safeLocale],
+        duration: plan.duration[safeLocale],
+        bestFor: plan.bestFor[safeLocale],
+        transportNote: plan.transportNote[safeLocale],
+        primaryGuide: { slug: plan.primaryGuideSlug, title: guide ? localizeGuideArticle(guide, safeLocale).title : plan.primaryGuideSlug },
+        apartment: apartment ? { slug: apartment.slug, shortName: apartment.shortName[safeLocale] } : undefined,
+      };
+    });
   const numberFormatter = new Intl.NumberFormat(safeLocale);
   const guideStats = [
     { value: guideArticles.length, label: local.statGuides },
@@ -307,30 +335,12 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
         <Container>
           <div className="mb-4 grid gap-4 md:grid-cols-[0.38fr_1fr] md:items-end">
             <div>
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{intentCopy.eyebrow}</p>
-              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{intentCopy.title}</h2>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.plansEyebrow}</p>
+              <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.plansTitle}</h2>
             </div>
-            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{intentCopy.intro}</p>
+            <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.plansIntro}</p>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-7">
-            {guideIntentClusters.map((cluster) => {
-              const article = guideArticles.find((item) => item.slug === cluster.canonicalGuideSlug);
-              const localized = article ? localizeGuideArticle(article, safeLocale) : undefined;
-              return (
-              <Link
-                key={cluster.id}
-                href={`/${safeLocale}/guide/${cluster.canonicalGuideSlug}` as Route}
-                className="group overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:border-[#173f36] hover:bg-[#f3ead7]"
-              >
-                <GuideVisual image={localized?.coverImage} imageAlt={localized?.coverImageAlt} locale={safeLocale} theme={localized?.visualTheme ?? "sea"} label={localized?.categoryLabel} className="aspect-[4/2.05]" showLabel={false} />
-                <div className="p-2.5">
-                  <h3 className="serif-heading text-base leading-[1.05] text-[#173f36] transition-colors group-hover:text-[#0b6f8f]">{cluster.title[safeLocale]}</h3>
-                  <p className="mt-1.5 overflow-hidden text-[0.68rem] leading-4 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{cluster.excerpt[safeLocale]}</p>
-                  <span className="mt-2 inline-flex text-[0.52rem] font-bold uppercase tracking-[0.12em] text-[#173f36]">{intentCopy.cta}</span>
-                </div>
-              </Link>
-            );})}
-          </div>
+          <GuideTripPlans locale={safeLocale} plans={guideTripPlans} />
         </Container>
       </Section>
 
