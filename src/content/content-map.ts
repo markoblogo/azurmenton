@@ -10,7 +10,8 @@ export type ContentCollectionId =
   | "family-days"
   | "culture-and-evenings"
   | "riviera-day-trips"
-  | "practical-stay";
+  | "practical-stay"
+  | "sport-and-outdoors";
 
 export type ContentCollection = {
   id: ContentCollectionId;
@@ -92,6 +93,14 @@ export const contentCollections: ContentCollection[] = [
     includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton"],
     priorityGuideSlugs: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton"],
   },
+  {
+    id: "sport-and-outdoors",
+    title: t("Sport & outdoors", "Sport & plein air", "Sport & attivita all'aperto", "Спорт і активний відпочинок"),
+    description: t("Golf, tennis, padel, cycling, hiking and skateparks for active Riviera days.", "Golf, tennis, padel, velo, randonnee et skateparks pour des journees actives sur la Riviera.", "Golf, tennis, padel, bici, escursioni e skatepark per giornate attive in Riviera.", "Гольф, теніс, падел, велосипед, походи й скейтпарки для активних днів на Рив'єрі."),
+    categories: [],
+    includeGuideSlugs: ["golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton"],
+    priorityGuideSlugs: ["tennis-padel-courts-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "cycling-bike-rental-menton", "skateparks-near-menton"],
+  },
 ];
 
 export const contentIntentMap: ContentIntent[] = [
@@ -114,6 +123,9 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "nice-airport-to-menton", query: t("Nice airport to Menton", "aeroport de Nice vers Menton", "aeroporto di Nizza a Mentone", "аеропорт Ніцци до Ментона"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "how-to-get-to-menton-from-nice-airport", season: "all-year" },
   { id: "menton-public-transport", query: t("public transport in Menton", "transports publics a Menton", "trasporti pubblici a Mentone", "громадський транспорт у Ментоні"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "public-transport-in-menton", season: "all-year" },
   { id: "menton-parking", query: t("parking in Menton", "stationnement a Menton", "parcheggio a Mentone", "паркування в Ментоні"), collectionId: "practical-stay", priority: "next", status: "planned", season: "all-year" },
+  { id: "menton-tennis-padel", query: t("tennis and padel near Menton", "tennis et padel pres de Menton", "tennis e padel vicino a Mentone", "теніс і падел біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "tennis-padel-courts-menton", season: "all-year" },
+  { id: "menton-golf", query: t("golf near Menton", "golf pres de Menton", "golf vicino a Mentone", "гольф біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "golf-near-menton", season: "all-year" },
+  { id: "menton-skateparks", query: t("skateparks near Menton", "skateparks pres de Menton", "skatepark vicino a Mentone", "скейтпарки біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "skateparks-near-menton", season: "all-year" },
 ];
 
 export function isContentCollectionId(value: string | undefined): value is ContentCollectionId {
