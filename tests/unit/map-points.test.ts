@@ -21,6 +21,12 @@ const reviewedWaterfrontAndOldTownPointIds = [
   "le-lavoir-theatre-menton",
 ];
 
+const newlyReviewedPublicPointIds = [
+  "casino-barriere-menton",
+  "plage-fossan",
+  "borrigo-beaches",
+];
+
 describe("map points", () => {
   it("keeps reviewed waterfront and old-town markers traceable", () => {
     for (const placeId of reviewedWaterfrontAndOldTownPointIds) {
@@ -32,7 +38,15 @@ describe("map points", () => {
     }
   });
 
-  it("keeps apartment markers host-reviewed without exposing an address", () => {
+  it("keeps newly reviewed public points linked to their coordinate source", () => {
+    for (const placeId of newlyReviewedPublicPointIds) {
+      const point = placeMapPoints.find((item) => item.placeId === placeId);
+      expect(point?.review, placeId).toMatchObject({ checkedOn: "2026-07-10" });
+      expect(point?.review?.sourceUrl, placeId).toBeTruthy();
+    }
+  });
+
+  it("keeps apartment markers host-reviewed at building precision", () => {
     expect(apartmentMapPoints).toHaveLength(3);
     for (const point of apartmentMapPoints) {
       expect(point.review).toEqual({ source: "host_verified", precision: "building", checkedOn: "2026-07-10" });

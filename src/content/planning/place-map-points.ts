@@ -3,9 +3,10 @@ export type PlaceMapPoint = {
   lat: number;
   lng: number;
   review?: {
-    source: "openstreetmap" | "host_verified";
+    source: "openstreetmap" | "official_address" | "host_verified";
     precision: "entrance" | "landside" | "area";
     checkedOn: string;
+    sourceUrl?: string;
   };
 };
 
@@ -17,8 +18,8 @@ export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "quai-bonaparte-menton", lat: 43.7802, lng: 7.5026 },
   { placeId: "plage-sablettes", lat: 43.77858, lng: 7.50812, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
   { placeId: "plage-casino", lat: 43.77137, lng: 7.4966, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
-  { placeId: "casino-barriere-menton", lat: 43.7773, lng: 7.4948 },
-  { placeId: "plage-fossan", lat: 43.7792, lng: 7.4997 },
+  { placeId: "casino-barriere-menton", lat: 43.77344, lng: 7.49977, review: { source: "official_address", precision: "entrance", checkedOn: "2026-07-10", sourceUrl: "https://www.casinosbarriere.com/menton" } },
+  { placeId: "plage-fossan", lat: 43.77368, lng: 7.50665, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10", sourceUrl: "https://www.openstreetmap.org/way/377997892" } },
   { placeId: "plage-rondelli", lat: 43.78113, lng: 7.5102, review: { source: "openstreetmap", precision: "landside", checkedOn: "2026-07-10" } },
   { placeId: "rondelli-garavan-side", lat: 43.78135, lng: 7.51055, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-10" } },
   { placeId: "promenade-du-soleil", lat: 43.7775, lng: 7.4903 },
@@ -189,7 +190,7 @@ export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "royal-mougins-golf-resort", lat: 43.598, lng: 6.954 },
   { placeId: "mini-golf-du-pian-menton", lat: 43.783, lng: 7.514 },
   { placeId: "monaco-mini-golf-parc-princesse-antoinette", lat: 43.7339, lng: 7.4151 },
-  { placeId: "borrigo-beaches", lat: 43.7769, lng: 7.4876 },
+  { placeId: "borrigo-beaches", lat: 43.76995, lng: 7.4937, review: { source: "official_address", precision: "landside", checkedOn: "2026-07-10", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/plage-du-borrigo-menton-fr-3051964/" } },
   { placeId: "jardins-bioves", lat: 43.7745, lng: 7.4967 },
   { placeId: "koaland-menton", lat: 43.7742, lng: 7.4864 },
   { placeId: "cap3000-saint-laurent-du-var", lat: 43.6582, lng: 7.1965 },
