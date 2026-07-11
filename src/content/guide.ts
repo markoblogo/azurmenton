@@ -5039,7 +5039,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
-    relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "parking-vieille-ville-sablettes", "parking-saint-roch-menton", "parking-gare-sncf-menton", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
+    relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
     relatedArticles: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
@@ -5050,7 +5050,7 @@ export const guideArticles: GuideArticle[] = [
           t("Walking times are approximate and use Promenade du Soleil / Casino Barrière as a central reference point. Hills, heat, luggage and festival access changes can affect real travel time.", "Les temps de marche sont approximatifs et utilisent Promenade du Soleil / Casino Barriere comme repere central. Cotes, chaleur, bagages et changements d'acces pendant les festivals peuvent modifier le temps reel.", "I tempi a piedi sono approssimativi e usano Promenade du Soleil / Casino Barrière come riferimento centrale. Salite, caldo, bagagli e cambi di accesso durante eventi possono cambiare i tempi reali.", "Час прогулянок орієнтовний і рахується від Promenade du Soleil / Casino Barrière як центральної точки. Пагорби, спека, багаж і зміни доступу під час фестивалів можуть впливати на реальний час."),
           t("The promenade is the easiest orientation line. Once you move into the old town, expect stairs and elevation, especially around Saint-Michel and the panoramic viewpoints.", "La promenade est le repere le plus simple. Des que vous entrez dans la vieille ville, prevoyez marches et denivele, surtout autour de Saint-Michel et des points de vue.", "Il lungomare e la linea di orientamento piu semplice. Entrando nel centro storico, aspettati scale e dislivello, soprattutto intorno a Saint-Michel e ai belvedere.", "Набережна - найпростіша лінія орієнтації. У старому місті будуть сходи й підйоми, особливо біля Saint-Michel та панорамних точок."),
         ],
-        relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "parking-saint-roch-menton", "rampes-saint-michel", "halles-du-marche"],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "rampes-saint-michel", "halles-du-marche"],
         relatedApartmentKeys: allApartments,
       },
       {
