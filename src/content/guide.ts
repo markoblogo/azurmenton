@@ -479,7 +479,7 @@ const articles: GuideArticle[] = [
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
-    relatedArticles: ["best-souvenir-shops-menton-monaco-nice", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -1072,7 +1072,7 @@ const articles: GuideArticle[] = [
       t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
     ],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "rue-saint-michel-menton", "maison-herbin-menton", "rampes-saint-michel", "plage-sablettes"],
-    relatedArticles: ["best-souvenir-shops-menton-monaco-nice", "wine-tasting-near-menton", "supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "wine-tasting-near-menton", "supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -4108,7 +4108,7 @@ export const guideArticles: GuideArticle[] = [
       "terre-bianche-dolceacqua",
       "altavia-winery",
     ],
-    relatedArticles: ["local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "golf-near-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "golf-near-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4166,6 +4166,134 @@ export const guideArticles: GuideArticle[] = [
       t("Avoid driving after tastings. Use train plus taxi, a transfer or keep the tasting local in Menton.", "Evitez de conduire apres degustation. Utilisez train plus taxi, transfert ou restez local a Menton.", "Evita di guidare dopo le degustazioni. Usa treno piu taxi, transfer o resta locale a Mentone.", "Не сідайте за кермо після дегустацій. Використовуйте потяг плюс таксі, трансфер або залишайте дегустацію в Ментоні."),
       t("In summer, plan vineyard visits early or late and carry water.", "En ete, prevoyez les visites de domaine tot ou tard et prenez de l'eau.", "In estate programma le visite presto o tardi e porta acqua.", "Влітку плануйте виноробні рано або пізніше й беріть воду."),
       t("Check import limits if you plan to fly home with bottles.", "Verifiez les limites d'importation si vous rentrez en avion avec des bouteilles.", "Controlla i limiti doganali se voli a casa con bottiglie.", "Перевірте митні ліміти, якщо летите додому з пляшками."),
+    ],
+  }),
+  shortArticle({
+    id: "best-seafood-restaurants-menton",
+    slug: "best-seafood-restaurants-menton",
+    title: t("Best seafood in Menton: restaurants, oyster bars and fish shops", "Meilleurs fruits de mer a Menton: restaurants, bars a huitres et poissonneries", "Miglior pesce a Mentone: ristoranti, oyster bar e pescherie", "Найкращі морепродукти в Ментоні: ресторани, oyster bars і рибні лавки"),
+    seoTitle: t("Best Seafood in Menton: Fish Restaurants, Oyster Bars & Local Fish Shops", "Meilleurs fruits de mer a Menton: restaurants de poisson et poissonneries", "Miglior pesce a Mentone: ristoranti di pesce, oyster bar e pescherie", "Найкращі морепродукти в Ментоні: рибні ресторани та лавки"),
+    seoDescription: t("A practical guide to seafood in Menton: fish restaurants, oyster bars, grilled local catch, sushi, seafood platters, fishmongers and nearby coastal places in Roquebrune-Cap-Martin.", "Guide pratique des fruits de mer a Menton: restaurants de poisson, bars a huitres, peche du jour, sushi, plateaux, poissonneries et adresses proches a Roquebrune-Cap-Martin.", "Guida pratica al pesce a Mentone: ristoranti, oyster bar, pesce alla griglia, sushi, plateau, pescherie e indirizzi vicini a Roquebrune-Cap-Martin.", "Практичний гід по seafood у Ментоні: рибні ресторани, oyster bars, грильована риба, суші, seafood platters, рибні лавки й місця поруч у Roquebrune-Cap-Martin."),
+    excerpt: t("Menton seafood comes in several styles: French shellfish platters, Mediterranean grilled fish, Italian seafood pasta, oysters, sushi and fresh fish from the covered market.", "A Menton, les fruits de mer prennent plusieurs formes: plateaux de coquillages, poisson grille mediterraneen, pates italiennes aux fruits de mer, huitres, sushi et poisson frais des Halles.", "A Mentone il pesce arriva in vari stili: plateau francesi, pesce mediterraneo alla griglia, pasta italiana ai frutti di mare, ostriche, sushi e pesce fresco dalle Halles.", "У Ментоні seafood має кілька стилів: французькі shellfish platters, середземноморська риба на грилі, італійська seafood pasta, устриці, суші й свіжа риба з критого ринку."),
+    category: "food-markets",
+    coverImage: "/images/guide/best-seafood-restaurants-menton.jpg",
+    coverImageAlt: t("Illustration of seafood, fish and Riviera dining in Menton", "Illustration de fruits de mer, poisson et table Riviera a Menton", "Illustrazione di frutti di mare, pesce e tavola rivierasca a Mentone", "Ілюстрація seafood, риби та рів'єрської їжі в Ментоні"),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    tags: [
+      t("seafood", "fruits de mer", "frutti di mare", "морепродукти"),
+      t("restaurants", "restaurants", "ristoranti", "ресторани"),
+      t("oysters", "huitres", "ostriche", "устриці"),
+      t("fish market", "poissonnerie", "pescheria", "рибна лавка"),
+      t("apartment meals", "repas a l'appartement", "pasti in appartamento", "їжа в апартаментах"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[6].label, guideBestForOptions[8].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "seafront", "garavan", "italian-riviera"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "lyode-menton",
+      "lambata-menton",
+      "le-galion-menton",
+      "le-petit-port-menton",
+      "trattoria-la-mamma-menton",
+      "le-sasano-menton",
+      "le-martina-menton",
+      "le-carnival-menton",
+      "le-cosy-menton",
+      "cote-sud-menton",
+      "la-pescaria-de-menton",
+      "halles-du-marche",
+      "port-de-garavan",
+      "le-cabanon-plage-du-buse",
+      "casa-buono-ventimiglia",
+    ],
+    relatedArticles: [
+      "local-food-menton",
+      "halles-du-marche-menton",
+      "wine-tasting-near-menton",
+      "best-ice-cream-menton",
+      "vegan-restaurants-cafes-menton",
+      "supermarkets-in-menton",
+      "best-beaches-in-menton",
+      "italian-riviera-day-trip-from-menton",
+      "day-trips-from-menton",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("How to think about seafood in Menton", "Comment penser les fruits de mer a Menton", "Come orientarsi sul pesce a Mentone", "Як орієнтуватися в seafood у Ментоні"),
+        body: [
+          t("Menton is a good town for seafood lovers, but not every seafront restaurant is equally focused on fish. The strongest choices fall into several categories: specialist seafood restaurants, oyster bars, Mediterranean restaurants with daily fish, Italian kitchens, sushi and fishmongers.", "Menton est une bonne ville pour les amateurs de fruits de mer, mais tous les restaurants du front de mer ne sont pas centres sur le poisson. Les meilleurs choix se repartissent entre restaurants specialises, bars a huitres, tables mediterraneennes, cuisines italiennes, sushi et poissonneries.", "Mentone e una buona citta per chi ama il pesce, ma non tutti i ristoranti sul mare sono davvero centrati sul pescato. Le migliori scelte sono ristoranti specializzati, oyster bar, tavole mediterranee, cucine italiane, sushi e pescherie.", "Ментон зручний для любителів seafood, але не кожен ресторан на набережній справді фокусується на рибі. Найкращі варіанти: спеціалізовані seafood ресторани, oyster bars, середземноморські ресторани з рибою дня, італійські кухні, суші й рибні лавки."),
+          t("For the strongest experience, ask what arrived that day rather than ordering only from a permanent printed menu. Whole fish, local catch, oysters and shellfish can change with season, weather and supply.", "Pour la meilleure experience, demandez les arrivages du jour plutot que de commander uniquement sur une carte fixe. Poisson entier, peche locale, huitres et coquillages changent selon saison, meteo et arrivages.", "Per l'esperienza migliore chiedi cosa e arrivato quel giorno, non solo cosa c'e nel menu fisso. Pesce intero, pescato locale, ostriche e molluschi cambiano con stagione, meteo e disponibilita.", "Для найкращого досвіду питайте, що прийшло сьогодні, а не замовляйте лише з постійного меню. Ціла риба, local catch, устриці й shellfish змінюються за сезоном, погодою й постачанням."),
+        ],
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі рекомендації"),
+        body: [
+          t("Start with Lyõde for oysters, shellfish and a specialist seafood meal. Try L'Ambata for a broader waterfront seafood dinner, Le Galion for a polished harbour evening, Le Petit Port for a smaller local fish meal and Trattoria La Mamma for Italian-style fish when local catch is available.", "Commencez par Lyõde pour huitres, coquillages et repas vraiment marin. Essayez L'Ambata pour un diner fruits de mer plus large en bord de mer, Le Galion pour une soiree portuaire soignee, Le Petit Port pour une table locale plus petite et Trattoria La Mamma pour un poisson a l'italienne selon les arrivages.", "Comincia da Lyõde per ostriche, crostacei e un pasto davvero marino. Prova L'Ambata per una cena piu ampia sul mare, Le Galion per una serata curata al porto, Le Petit Port per un ristorante locale piu piccolo e Trattoria La Mamma per pesce all'italiana quando disponibile.", "Почніть з Lyõde для устриць, shellfish і спеціалізованої seafood вечері. L'Ambata підійде для ширшої морської вечері на набережній, Le Galion - для Port Garavan, Le Petit Port - для меншого локального формату, Trattoria La Mamma - для італійської риби, коли є local catch."),
+          t("For sushi and raw fish, use Le Sasano. For seafood at the apartment, go to La Pescaria inside Marché des Halles. For a nearby scenic beach lunch, check Le Cabanon at Plage du Buse when it is open.", "Pour sushi et poisson cru, choisissez Le Sasano. Pour un repas de fruits de mer a l'appartement, allez a La Pescaria dans les Halles. Pour un dejeuner plage proche, verifiez Le Cabanon a la plage du Buse quand il est ouvert.", "Per sushi e pesce crudo scegli Le Sasano. Per mangiare frutti di mare in appartamento vai a La Pescaria nelle Halles. Per un pranzo panoramico in spiaggia, controlla Le Cabanon alla Plage du Buse quando aperto.", "Для суші й сирої риби - Le Sasano. Для seafood в апартаментах - La Pescaria у Marché des Halles. Для красивого пляжного обіду поруч перевіряйте Le Cabanon на Plage du Buse, коли він відкритий."),
+        ],
+        relatedPlaceIds: ["lyode-menton", "lambata-menton", "le-galion-menton", "le-sasano-menton", "la-pescaria-de-menton"],
+      },
+      {
+        heading: t("Seafood restaurants in Menton", "Restaurants de fruits de mer a Menton", "Ristoranti di pesce a Mentone", "Seafood ресторани в Ментоні"),
+        body: [
+          t("Use Lyõde when seafood itself is the point of the meal: oysters, shellfish, seafood platters and daily fish. Use L'Ambata for cooked fish, crustaceans and larger waterfront meals. Use Le Galion for a more polished Port Garavan dinner with harbour atmosphere.", "Choisissez Lyõde quand les fruits de mer sont le sujet principal: huitres, coquillages, plateaux et poissons du jour. Choisissez L'Ambata pour poissons cuisines, crustaces et grands repas en bord de mer. Choisissez Le Galion pour un diner plus soigne au Port Garavan.", "Scegli Lyõde quando il pesce e il vero tema del pasto: ostriche, crostacei, plateau e pesce del giorno. Scegli L'Ambata per pesce cucinato, crostacei e cene sul mare. Scegli Le Galion per una cena piu curata al Port Garavan.", "Обирайте Lyõde, коли seafood - головна мета: устриці, shellfish, platters і риба дня. L'Ambata - для приготовленої риби й ширшої вечері на набережній. Le Galion - для більш відполірованої вечері в Port Garavan."),
+          t("Le Petit Port, Trattoria La Mamma, Le Martina, Le Carnival, Le Cosy and Côté Sud are useful when you want fish within a broader Mediterranean or Italian meal rather than a strict shellfish experience.", "Le Petit Port, Trattoria La Mamma, Le Martina, Le Carnival, Le Cosy et Cote Sud sont utiles quand vous voulez du poisson dans un repas mediterraneen ou italien plus large, sans forcement viser un plateau de coquillages.", "Le Petit Port, Trattoria La Mamma, Le Martina, Le Carnival, Le Cosy e Cote Sud sono utili quando vuoi pesce dentro un pasto mediterraneo o italiano piu ampio, non solo crostacei.", "Le Petit Port, Trattoria La Mamma, Le Martina, Le Carnival, Le Cosy і Côté Sud корисні, коли хочеться риби в ширшій середземноморській або італійській вечері, а не лише shellfish."),
+        ],
+        bullets: [
+          t("Ask whether whole fish is priced per portion or by weight.", "Demandez si le poisson entier est facture a la portion ou au poids.", "Chiedi se il pesce intero e prezzato a porzione o a peso.", "Уточнюйте, чи ціла риба оплачується за порцію чи за вагу."),
+          t("Reserve large seafood platters in advance, especially in summer or at weekends.", "Reservez les grands plateaux en avance, surtout en ete ou le week-end.", "Prenota i plateau grandi in anticipo, soprattutto in estate o nel weekend.", "Великі seafood platters краще бронювати заздалегідь, особливо влітку або на вихідні."),
+        ],
+        relatedPlaceIds: ["le-petit-port-menton", "trattoria-la-mamma-menton", "le-martina-menton", "le-carnival-menton", "le-cosy-menton", "cote-sud-menton"],
+      },
+      {
+        heading: t("Fresh seafood for the apartment", "Fruits de mer pour l'appartement", "Frutti di mare per l'appartamento", "Морепродукти для апартаментів"),
+        body: [
+          t("This is one of the best advantages of staying in an apartment. At La Pescaria inside Marché des Halles, you can buy fish, shellfish, prepared seafood or a platter, then eat on the balcony or terrace without committing to a restaurant dinner.", "C'est l'un des vrais avantages d'un sejour en appartement. A La Pescaria, dans les Halles, vous pouvez acheter poisson, coquillages, plats prepares ou plateau, puis manger au balcon ou en terrasse sans diner au restaurant.", "E uno dei veri vantaggi di stare in appartamento. Da La Pescaria, nelle Halles, puoi comprare pesce, crostacei, piatti pronti o un plateau, poi mangiare sul balcone o in terrazza senza cena al ristorante.", "Це одна з найсильніших переваг апартаментів. У La Pescaria в Marché des Halles можна купити рибу, shellfish, готові seafood страви або platter і поїсти на балконі чи терасі без ресторанної вечері."),
+          t("Go in the morning for the widest choice, bring an insulated bag in summer and ask whether the fish is already cleaned, descaled and ready to cook.", "Allez le matin pour le meilleur choix, prenez un sac isotherme en ete et demandez si le poisson est deja vide, ecaille et pret a cuire.", "Vai al mattino per la scelta migliore, porta una borsa termica in estate e chiedi se il pesce e gia pulito, squamato e pronto da cucinare.", "Ідіть зранку для найкращого вибору, влітку беріть термосумку й уточнюйте, чи риба вже почищена, очищена від луски й готова до приготування."),
+        ],
+        bullets: [
+          t("Simple apartment meal: fish or seafood platter, tomatoes, Menton lemon, herbs, bread and a chilled white or rose.", "Repas simple a l'appartement: poisson ou plateau, tomates, citron de Menton, herbes, pain et blanc ou rose frais.", "Pasto semplice in appartamento: pesce o plateau, pomodori, limone di Mentone, erbe, pane e bianco o rose fresco.", "Проста вечеря в апартаментах: риба або seafood platter, томати, ментонський лимон, трави, хліб і охолоджене біле або rosé."),
+          t("This can be better than choosing a mediocre tourist restaurant only because it faces the sea.", "Cela peut etre meilleur qu'un restaurant touristique moyen choisi seulement parce qu'il regarde la mer.", "Puo essere meglio di un ristorante turistico mediocre scelto solo perche guarda il mare.", "Це може бути краще за посередній туристичний ресторан лише через вид на море."),
+        ],
+        relatedPlaceIds: ["la-pescaria-de-menton", "halles-du-marche"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Nearby seafood trips", "Courtes sorties fruits de mer", "Brevi uscite per pesce", "Короткі seafood виїзди поруч"),
+        body: [
+          t("For a scenic seasonal beach lunch, Le Cabanon at Plage du Buse in Roquebrune-Cap-Martin is the most natural short trip. The setting is the point: small bay, steps down to the beach and a relaxed summer feel.", "Pour un dejeuner plage saisonnier, Le Cabanon a la plage du Buse a Roquebrune-Cap-Martin est la sortie courte la plus naturelle. Le cadre compte autant que l'assiette: petite baie, marches vers la plage et ambiance d'ete detendue.", "Per un pranzo stagionale in spiaggia, Le Cabanon alla Plage du Buse a Roquebrune-Cap-Martin e la gita breve piu naturale. Il contesto conta: piccola baia, scalini verso la spiaggia e atmosfera estiva rilassata.", "Для сезонного пляжного обіду Le Cabanon на Plage du Buse в Roquebrune-Cap-Martin - найприродніший короткий виїзд. Головне тут сетинг: маленька бухта, сходи до пляжу й розслаблене літо."),
+          t("For a special Italian dinner, Casa Buono in Ventimiglia is a more ambitious option. Reserve ahead and treat it as an occasion meal rather than a guaranteed shellfish platter stop.", "Pour une soiree italienne speciale, Casa Buono a Vintimille est une option plus ambitieuse. Reservez en avance et considerez-le comme un diner d'occasion, pas comme une adresse garantie pour plateau de coquillages.", "Per una cena italiana speciale, Casa Buono a Ventimiglia e un'opzione piu ambiziosa. Prenota prima e considerala una cena speciale, non una tappa garantita per plateau di crostacei.", "Для особливої італійської вечері Casa Buono у Ventimiglia - амбітніший варіант. Бронюйте заздалегідь і сприймайте це як occasion meal, а не гарантований shellfish platter."),
+        ],
+        relatedPlaceIds: ["le-cabanon-plage-du-buse", "casa-buono-ventimiglia", "port-de-garavan"],
+      },
+      {
+        heading: t("What to order and what to ask", "Que commander et quoi demander", "Cosa ordinare e cosa chiedere", "Що замовляти й що питати"),
+        body: [
+          t("Depending on the season, look for whole sea bass or sea bream, octopus, squid, clams, oysters, prawns, seafood pasta, fish soup, carpaccio or tartare. The best option is often the simplest fish offered that day.", "Selon la saison, cherchez bar ou dorade entiers, poulpe, calamar, palourdes, huitres, crevettes, pates aux fruits de mer, soupe de poisson, carpaccio ou tartare. Le meilleur choix est souvent le poisson le plus simple du jour.", "Secondo stagione cerca branzino o orata interi, polpo, calamari, vongole, ostriche, gamberi, pasta ai frutti di mare, zuppa di pesce, carpaccio o tartare. Spesso la scelta migliore e il pesce piu semplice del giorno.", "Залежно від сезону шукайте whole sea bass або sea bream, восьминога, кальмара, clams, устриці, prawns, seafood pasta, fish soup, carpaccio або tartare. Найкращий вибір часто найпростіша риба дня."),
+        ],
+        bullets: [
+          t("Quel est le poisson du jour ? - What is the fish of the day?", "Quel est le poisson du jour ? - quel est le poisson du jour ?", "Quel est le poisson du jour ? - qual e il pesce del giorno?", "Quel est le poisson du jour ? - яка риба дня?"),
+          t("Quel est le prix au kilo ? - What is the price per kilogram?", "Quel est le prix au kilo ? - quel est le prix au kilo ?", "Quel est le prix au kilo ? - qual e il prezzo al chilo?", "Quel est le prix au kilo ? - яка ціна за кілограм?"),
+          t("Je suis allergique aux crustaces. - I am allergic to crustaceans.", "Je suis allergique aux crustaces. - je suis allergique aux crustaces.", "Je suis allergique aux crustaces. - sono allergico ai crostacei.", "Je suis allergique aux crustaces. - у мене алергія на ракоподібних."),
+        ],
+      },
+      {
+        heading: t("Staying in Menton as a seafood lover", "Sejourner a Menton quand on aime les fruits de mer", "Soggiornare a Mentone se ami il pesce", "Жити в Ментоні, якщо ви любите seafood"),
+        body: [
+          t("A good rhythm is one specialist restaurant dinner, one harbour or old-town fish meal, one seafood platter from the market at the apartment and one short coastal trip to Roquebrune-Cap-Martin or Ventimiglia.", "Un bon rythme: un diner specialise, un repas poisson au port ou en vieille ville, un plateau des Halles a l'appartement et une courte sortie a Roquebrune-Cap-Martin ou Vintimille.", "Un buon ritmo: una cena specializzata, un pasto di pesce al porto o in centro storico, un plateau dalle Halles in appartamento e una breve uscita a Roquebrune-Cap-Martin o Ventimiglia.", "Хороший ритм: одна спеціалізована seafood вечеря, одна рибна вечеря в порту або старому місті, один platter з ринку в апартаментах і коротка поїздка до Roquebrune-Cap-Martin або Ventimiglia."),
+          t("Sea View Balcony Studio works especially well for oysters and prepared seafood on a balcony. Beachside Apartment with Terrace & Parking suits families, market shopping and Garavan or Italy trips. Panoramic Sea View Studio is useful for a shorter stay built around the sea, market food and one special restaurant.", "Sea View Balcony Studio fonctionne tres bien pour huitres et fruits de mer prepares au balcon. Beachside Apartment with Terrace & Parking convient aux familles, courses au marche et sorties Garavan ou Italie. Panoramic Sea View Studio est pratique pour un court sejour autour de la mer, des Halles et d'un bon restaurant.", "Sea View Balcony Studio funziona bene per ostriche e frutti di mare sul balcone. Beachside Apartment with Terrace & Parking va bene per famiglie, mercato e uscite verso Garavan o Italia. Panoramic Sea View Studio e utile per soggiorni brevi tra mare, mercato e una cena speciale.", "Sea View Balcony Studio добре підходить для устриць і готового seafood на балконі. Beachside Apartment with Terrace & Parking - для сімей, ринку й поїздок у Garavan або Італію. Panoramic Sea View Studio - для короткого stay навколо моря, ринку й однієї особливої вечері."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check current opening days and reserve ahead; seafood venues can change hours seasonally.", "Verifiez jours d'ouverture et reservez en avance; les horaires fruits de mer changent selon saison.", "Controlla giorni di apertura e prenota prima; gli orari dei ristoranti di pesce cambiano con la stagione.", "Перевіряйте актуальні дні роботи й бронюйте наперед; seafood заклади часто змінюють години за сезоном."),
+      t("Ask whether fish is fresh or previously frozen, and confirm the price before ordering whole fish or large platters.", "Demandez si le poisson est frais ou decongele, et confirmez le prix avant poisson entier ou grand plateau.", "Chiedi se il pesce e fresco o decongelato e conferma il prezzo prima di pesce intero o plateau grandi.", "Уточнюйте, чи риба свіжа або розморожена, і підтверджуйте ціну перед цілою рибою або великим platter."),
+      t("For allergies, explain clearly: seafood kitchens handle fish, molluscs and crustaceans together.", "Pour les allergies, expliquez clairement: les cuisines de fruits de mer manipulent poisson, mollusques et crustaces ensemble.", "Per allergie spiega chiaramente: le cucine di pesce gestiscono insieme pesce, molluschi e crostacei.", "Для алергій пояснюйте чітко: seafood кухні працюють з рибою, молюсками й ракоподібними поруч."),
     ],
   }),
   shortArticle({
