@@ -4128,6 +4128,31 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "parking-vieille-ville-sablettes": {
+    image: "/images/guide/parking-vieille-ville-sablettes.webp",
+    imageAlt: text("Illustration of Parking Vieille Ville - Sablettes in Menton", "Illustration du Parking Vieille Ville - Sablettes a Menton", "Illustrazione del Parking Vieille Ville - Sablettes a Mentone", "Ілюстрація Parking Vieille Ville - Sablettes у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-hotel-de-ville-menton": {
+    image: "/images/guide/parking-hotel-de-ville-menton.webp",
+    imageAlt: text("Illustration of Parking de l'Hôtel de Ville in Menton", "Illustration du Parking de l'Hotel de Ville a Menton", "Illustrazione del Parking de l'Hôtel de Ville a Mentone", "Ілюстрація Parking de l'Hôtel de Ville у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-saint-roch-menton": {
+    image: "/images/guide/parking-saint-roch-menton.webp",
+    imageAlt: text("Illustration of Parking Saint-Roch in Menton", "Illustration du Parking Saint-Roch a Menton", "Illustrazione del Parking Saint-Roch a Mentone", "Ілюстрація Parking Saint-Roch у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-gare-sncf-menton": {
+    image: "/images/guide/parking-gare-sncf-menton.webp",
+    imageAlt: text("Illustration of Parking Gare SNCF in Menton", "Illustration du Parking Gare SNCF a Menton", "Illustrazione del Parking Gare SNCF a Mentone", "Ілюстрація Parking Gare SNCF у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-george-v-menton": {
+    image: "/images/guide/parking-george-v-menton.webp",
+    imageAlt: text("Illustration of Parking George V in Menton", "Illustration du Parking George V a Menton", "Illustrazione del Parking George V a Mentone", "Ілюстрація Parking George V у Ментоні"),
+    visualTheme: "transport",
+  },
   "la-note-bleue-monaco": {
     image: "/images/guide/la-note-bleue-monaco.jpg",
     imageAlt: text("Illustration of La Note Bleue in Monaco", "Illustration de La Note Bleue a Monaco", "Illustrazione di La Note Bleue a Monaco", "Ілюстрація La Note Bleue у Монако"),
