@@ -4479,6 +4479,71 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Halles du Marché in Menton", "Illustration des Halles du Marche a Menton", "Illustrazione delle Halles du Marché a Mentone", "Ілюстрація Halles du Marché у Ментоні"),
     visualTheme: "market",
   },
+  "lyode-menton": {
+    image: "/images/guide/lyode-menton.jpg",
+    imageAlt: text("Illustration of Lyõde seafood restaurant in Menton", "Illustration du restaurant de fruits de mer Lyõde a Menton", "Illustrazione del ristorante di pesce Lyõde a Mentone", "Ілюстрація seafood ресторану Lyõde у Ментоні"),
+    visualTheme: "food",
+  },
+  "lambata-menton": {
+    image: "/images/guide/lambata-menton.jpg",
+    imageAlt: text("Illustration of L'Ambata seafood restaurant in Menton", "Illustration du restaurant de fruits de mer L'Ambata a Menton", "Illustrazione del ristorante di pesce L'Ambata a Mentone", "Ілюстрація seafood ресторану L'Ambata у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-galion-menton": {
+    image: "/images/guide/le-galion-menton.jpg",
+    imageAlt: text("Illustration of Le Galion restaurant at Port Garavan in Menton", "Illustration du restaurant Le Galion au Port Garavan a Menton", "Illustrazione del ristorante Le Galion al Port Garavan a Mentone", "Ілюстрація ресторану Le Galion у Port Garavan в Ментоні"),
+    visualTheme: "food",
+  },
+  "le-petit-port-menton": {
+    image: "/images/guide/le-petit-port-menton.jpg",
+    imageAlt: text("Illustration of Le Petit Port restaurant in Menton", "Illustration du restaurant Le Petit Port a Menton", "Illustrazione del ristorante Le Petit Port a Mentone", "Ілюстрація ресторану Le Petit Port у Ментоні"),
+    visualTheme: "food",
+  },
+  "trattoria-la-mamma-menton": {
+    image: "/images/guide/trattoria-la-mamma-menton.jpg",
+    imageAlt: text("Illustration of Trattoria La Mamma in Menton", "Illustration de Trattoria La Mamma a Menton", "Illustrazione di Trattoria La Mamma a Mentone", "Ілюстрація Trattoria La Mamma у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-sasano-menton": {
+    image: "/images/guide/le-sasano-menton.jpg",
+    imageAlt: text("Illustration of Le Sasano sushi and seafront dining in Menton", "Illustration de Le Sasano, sushi et table en bord de mer a Menton", "Illustrazione di Le Sasano, sushi e tavola sul mare a Mentone", "Ілюстрація Le Sasano, sushi та їжі біля моря в Ментоні"),
+    visualTheme: "food",
+  },
+  "le-martina-menton": {
+    image: "/images/guide/le-martina-menton.jpg",
+    imageAlt: text("Illustration of Le Martina restaurant in Menton", "Illustration du restaurant Le Martina a Menton", "Illustrazione del ristorante Le Martina a Mentone", "Ілюстрація ресторану Le Martina у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-carnival-menton": {
+    image: "/images/guide/le-carnival-menton.jpg",
+    imageAlt: text("Illustration of Le Carnival restaurant near the market in Menton", "Illustration du restaurant Le Carnival pres du marche a Menton", "Illustrazione del ristorante Le Carnival vicino al mercato a Mentone", "Ілюстрація ресторану Le Carnival біля ринку в Ментоні"),
+    visualTheme: "food",
+  },
+  "le-cosy-menton": {
+    image: "/images/guide/le-cosy-menton.jpg",
+    imageAlt: text("Illustration of Le Cosy brasserie in Menton", "Illustration de la brasserie Le Cosy a Menton", "Illustrazione della brasserie Le Cosy a Mentone", "Ілюстрація brasserie Le Cosy у Ментоні"),
+    visualTheme: "food",
+  },
+  "cote-sud-menton": {
+    image: "/images/guide/cote-sud-menton.jpg",
+    imageAlt: text("Illustration of Côté Sud restaurant in Menton", "Illustration du restaurant Cote Sud a Menton", "Illustrazione del ristorante Côté Sud a Mentone", "Ілюстрація ресторану Côté Sud у Ментоні"),
+    visualTheme: "food",
+  },
+  "la-pescaria-de-menton": {
+    image: "/images/guide/la-pescaria-de-menton.jpg",
+    imageAlt: text("Illustration of La Pescaria de Menton fishmonger in the covered market", "Illustration de La Pescaria de Menton dans les Halles", "Illustrazione di La Pescaria de Menton nelle Halles", "Ілюстрація La Pescaria de Menton у критому ринку"),
+    visualTheme: "market",
+  },
+  "le-cabanon-plage-du-buse": {
+    image: "/images/guide/le-cabanon-plage-du-buse.jpg",
+    imageAlt: text("Illustration of Le Cabanon at Plage du Buse", "Illustration de Le Cabanon a la plage du Buse", "Illustrazione di Le Cabanon alla Plage du Buse", "Ілюстрація Le Cabanon на Plage du Buse"),
+    visualTheme: "beach",
+  },
+  "casa-buono-ventimiglia": {
+    image: "/images/guide/casa-buono-ventimiglia.jpg",
+    imageAlt: text("Illustration of Casa Buono restaurant in Ventimiglia", "Illustration du restaurant Casa Buono a Vintimille", "Illustrazione del ristorante Casa Buono a Ventimiglia", "Ілюстрація ресторану Casa Buono у Ventimiglia"),
+    visualTheme: "food",
+  },
   "chez-mimi-menton": {
     image: "/images/guide/chez-mimi-menton.jpg",
     imageAlt: text("Illustration of Chez Mimi market bites in Menton", "Illustration des specialites salees de Chez Mimi a Menton", "Illustrazione degli assaggi salati di Chez Mimi a Mentone", "Ілюстрація локальних закусок Chez Mimi у Ментоні"),
