@@ -3554,6 +3554,10 @@ export const guideArticles: GuideArticle[] = [
       "hopitaux-pediatriques-nice-lenval",
       "centre-hospitalier-princesse-grace-monaco",
       "chu-nice-hopital-pasteur",
+      "pharmacie-lafayette-des-jardins",
+      "pharmacie-victoria-menton",
+      "pharmacie-calvin-menton",
+      "grande-pharmacie-mentonnaise",
       "institut-medecine-bucco-dentaire-nice",
       "ordre-chirurgiens-dentistes-alpes-maritimes",
       "commissariat-police-menton",
@@ -3601,7 +3605,7 @@ export const guideArticles: GuideArticle[] = [
           t("For normal pharmacy needs, search for pharmacie Menton, pharmacie ouverte Menton or pharmacie de garde Menton. The on-duty pharmacy service is 3237, and access rules can vary late at night, on Sundays or public holidays.", "Pour une pharmacie, cherchez pharmacie Menton, pharmacie ouverte Menton ou pharmacie de garde Menton. Le service des pharmacies de garde est le 3237, et les regles d'acces peuvent varier la nuit, le dimanche ou les jours feries.", "Per una farmacia cerca pharmacie Menton, pharmacie ouverte Menton o pharmacie de garde Menton. Il servizio per farmacie di turno e 3237, e le regole di accesso possono variare di notte, domenica o festivi.", "Для аптеки шукайте pharmacie Menton, pharmacie ouverte Menton або pharmacie de garde Menton. Сервіс чергових аптек - 3237, а правила доступу можуть відрізнятися вночі, у неділю або свята."),
           t("For dental problems during normal hours, search for dentiste Menton or urgence dentaire Menton. For severe swelling, fever, facial trauma, heavy bleeding, difficulty breathing or difficulty swallowing, call 15 or 112.", "Pour un probleme dentaire en horaires normaux, cherchez dentiste Menton ou urgence dentaire Menton. En cas de gonflement important, fievre, traumatisme facial, saignement abondant, gene respiratoire ou difficulte a avaler, appelez le 15 ou le 112.", "Per problemi dentali in orario normale cerca dentiste Menton o urgence dentaire Menton. Con gonfiore forte, febbre, trauma al viso, sanguinamento importante, difficolta a respirare o deglutire, chiama 15 o 112.", "Для стоматологічної проблеми в робочі години шукайте dentiste Menton або urgence dentaire Menton. За сильного набряку, температури, травми обличчя, значної кровотечі, утрудненого дихання або ковтання телефонуйте 15 або 112."),
         ],
-        relatedPlaceIds: ["institut-medecine-bucco-dentaire-nice", "ordre-chirurgiens-dentistes-alpes-maritimes"],
+        relatedPlaceIds: ["pharmacie-lafayette-des-jardins", "pharmacie-victoria-menton", "pharmacie-calvin-menton", "grande-pharmacie-mentonnaise", "institut-medecine-bucco-dentaire-nice", "ordre-chirurgiens-dentistes-alpes-maritimes"],
       },
       {
         heading: t("Police, lost property and documents", "Police, objets perdus et documents", "Polizia, oggetti smarriti e documenti", "Поліція, загублені речі та документи"),
@@ -4689,6 +4693,8 @@ export const guideArticles: GuideArticle[] = [
       "sanremo",
       "intermarche-hyper-menton",
       "carrefour-city-felix-faure",
+      "pharmacie-lafayette-des-jardins",
+      "grande-pharmacie-mentonnaise",
     ],
     relatedArticles: [
       "fete-du-citron-menton-practical-guide",

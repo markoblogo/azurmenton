@@ -5,6 +5,7 @@ export type MapCategoryId =
   | "beaches"
   | "markets"
   | "supermarkets"
+  | "pharmacies"
   | "restaurants"
   | "bars"
   | "casinos"
@@ -39,6 +40,7 @@ export const mapCategories: MapCategory[] = [
   { id: "beaches", placeTypes: ["beach"], label: label("Beaches", "Plages", "Spiagge", "Пляжі") },
   { id: "markets", placeTypes: ["market"], label: label("Markets", "Marches", "Mercati", "Ринки") },
   { id: "supermarkets", placeTypes: ["supermarket"], label: label("Supermarkets", "Supermarches", "Supermercati", "Супермаркети") },
+  { id: "pharmacies", placeTypes: ["pharmacy"], label: label("Pharmacies", "Pharmacies", "Farmacie", "Аптеки") },
   { id: "restaurants", placeTypes: ["restaurant"], label: label("Restaurants", "Restaurants", "Ristoranti", "Ресторани") },
   { id: "bars", placeTypes: ["bar", "wine-bar", "winery", "rooftop"], label: label("Bars & wine", "Bars et vins", "Bar e vino", "Бари й вино") },
   { id: "casinos", placeTypes: ["casino"], label: label("Casinos", "Casinos", "Casino", "Казино") },

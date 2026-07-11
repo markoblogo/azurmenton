@@ -62,6 +62,10 @@ const reviewedPracticalMentonPointIds = [
   "carrefour-city-felix-faure",
   "carrefour-express-menton",
   "petit-casino-saint-michel",
+  "pharmacie-lafayette-des-jardins",
+  "pharmacie-victoria-menton",
+  "pharmacie-calvin-menton",
+  "grande-pharmacie-mentonnaise",
 ];
 
 const reviewedTransportAccessPointIds = [
