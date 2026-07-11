@@ -911,7 +911,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "verified",
     shortNote: text("Underground car park near Sablettes beach, the old town and the old port. Check current rates and access before driving.", "Parking souterrain pres des Sablettes, de la vieille ville et du vieux port. Verifiez tarifs et acces actuels avant de venir.", "Parcheggio sotterraneo vicino alla spiaggia Sablettes, al centro storico e al vecchio porto. Controlla tariffe e accessi aggiornati.", "Підземний паркінг біля пляжу Sablettes, старого міста й старого порту. Перед поїздкою перевіряйте актуальні тарифи й під'їзд."),
     bestFor: [text("old town", "vieille ville", "centro storico", "старе місто"), text("Sablettes beach", "plage des Sablettes", "spiaggia Sablettes", "пляж Sablettes")],
-    relatedArticleIds: ["menton-old-town", "best-beaches-in-menton", "public-transport-in-menton", "menton-without-a-car"],
+    relatedArticleIds: ["menton-old-town", "best-beaches-in-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "parking-hotel-de-ville-menton",
@@ -925,7 +925,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "verified",
     shortNote: text("Central underground parking option near Menton's town hall and old-town lanes. Check current entry conditions before arrival.", "Parking souterrain central pres de l'hotel de ville et des ruelles de la vieille ville. Verifiez les conditions d'acces avant l'arrivee.", "Parcheggio sotterraneo centrale vicino al municipio e alle vie del centro storico. Controlla le condizioni di accesso prima dell'arrivo.", "Центральний підземний паркінг біля мерії та вулиць старого міста. Перед прибуттям перевіряйте умови в'їзду."),
     bestFor: [text("town centre", "centre-ville", "centro", "центр"), text("old town walks", "balades vieille ville", "passeggiate centro storico", "прогулянки старим містом")],
-    relatedArticleIds: ["menton-old-town", "menton-without-a-car", "official-tourism-websites-menton-riviera"],
+    relatedArticleIds: ["menton-old-town", "menton-without-a-car", "where-to-stay-in-menton", "public-transport-in-menton", "official-tourism-websites-menton-riviera"],
   },
   {
     id: "parking-saint-roch-menton",
@@ -939,7 +939,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "verified",
     shortNote: text("Central parking on Avenue Félix Faure for seafront, shops and casino-side plans. Check current rates before parking.", "Parking central avenue Felix Faure pour le front de mer, les commerces et le secteur casino. Verifiez les tarifs actuels avant de stationner.", "Parcheggio centrale in Avenue Félix Faure per lungomare, negozi e zona casino. Controlla le tariffe aggiornate.", "Центральний паркінг на Avenue Félix Faure для набережної, магазинів і району казино. Перед паркуванням перевіряйте актуальні тарифи."),
     bestFor: [text("seafront centre", "front de mer central", "lungomare centrale", "центральна набережна"), text("shops", "commerces", "negozi", "магазини")],
-    relatedArticleIds: ["casinos-near-menton", "best-beaches-in-menton", "where-to-stay-in-menton"],
+    relatedArticleIds: ["casinos-near-menton", "best-beaches-in-menton", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
   },
   {
     id: "parking-gare-sncf-menton",
@@ -953,7 +953,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "verified",
     shortNote: text("Station-area parking for train-linked arrivals, car rental errands or a practical central stop. Confirm current access before relying on it.", "Parking secteur gare pour arrivees en train, location de voiture ou arret pratique au centre. Confirmez l'acces actuel avant d'en dependre.", "Parcheggio zona stazione per arrivi in treno, noleggio auto o sosta pratica in centro. Verifica l'accesso aggiornato.", "Паркінг у районі вокзалу для прибуття потягом, оренди авто або практичної центральної зупинки. Перевіряйте актуальний доступ."),
     bestFor: [text("station area", "secteur gare", "zona stazione", "район вокзалу"), text("arrival logistics", "logistique d'arrivee", "logistica arrivo", "логістика прибуття")],
-    relatedArticleIds: ["public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "car-rental-menton-nice-airport-convertibles"],
+    relatedArticleIds: ["public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "where-to-stay-in-menton", "car-rental-menton-nice-airport-convertibles"],
   },
   {
     id: "parking-george-v-menton",
