@@ -5475,6 +5475,41 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of the Oceanographic Museum of Monaco", "Illustration du Musee oceanographique de Monaco", "Illustrazione del Museo Oceanografico di Monaco", "Ілюстрація Океанографічного музею Монако"),
     visualTheme: "museum",
   },
+  "rainier-iii-zoological-garden-monaco": {
+    image: "/images/guide/rainier-iii-zoological-garden-monaco.jpg",
+    imageAlt: text("Illustration of Rainier III Zoological Garden in Monaco", "Illustration du Jardin Animalier Rainier III a Monaco", "Illustrazione del Giardino Zoologico Rainier III a Monaco", "Ілюстрація Rainier III Zoological Garden у Монако"),
+    visualTheme: "family",
+  },
+  "parc-phoenix-nice": {
+    image: "/images/guide/parc-phoenix-nice.jpg",
+    imageAlt: text("Illustration of Parc Phoenix in Nice", "Illustration de Parc Phoenix a Nice", "Illustrazione di Parc Phoenix a Nizza", "Ілюстрація Parc Phoenix у Ніцці"),
+    visualTheme: "family",
+  },
+  "pelagos-sanctuary": {
+    image: "/images/guide/pelagos-sanctuary.jpg",
+    imageAlt: text("Illustration of the Pelagos Sanctuary for dolphins and whales", "Illustration du sanctuaire Pelagos pour dauphins et baleines", "Illustrazione del Santuario Pelagos per delfini e balene", "Ілюстрація Pelagos Sanctuary для дельфінів і китів"),
+    visualTheme: "sea",
+  },
+  "parc-alpha-saint-martin-vesubie": {
+    image: "/images/guide/parc-alpha-saint-martin-vesubie.jpg",
+    imageAlt: text("Illustration of Parc Alpha in Saint-Martin-Vésubie", "Illustration de Parc Alpha a Saint-Martin-Vesubie", "Illustrazione di Parc Alpha a Saint-Martin-Vésubie", "Ілюстрація Parc Alpha у Saint-Martin-Vésubie"),
+    visualTheme: "family",
+  },
+  "ferme-du-mercantour-valdeblore": {
+    image: "/images/guide/ferme-du-mercantour-valdeblore.jpg",
+    imageAlt: text("Illustration of Ferme du Mercantour in Valdeblore", "Illustration de la Ferme du Mercantour a Valdeblore", "Illustrazione della Ferme du Mercantour a Valdeblore", "Ілюстрація Ferme du Mercantour у Valdeblore"),
+    visualTheme: "family",
+  },
+  "saint-martin-vesubie": {
+    image: "/images/guide/saint-martin-vesubie.jpg",
+    imageAlt: text("Illustration of Saint-Martin-Vésubie in the Mercantour mountains", "Illustration de Saint-Martin-Vesubie dans les montagnes du Mercantour", "Illustrazione di Saint-Martin-Vésubie nelle montagne del Mercantour", "Ілюстрація Saint-Martin-Vésubie у горах Mercantour"),
+    visualTheme: "walk",
+  },
+  "valdeblore": {
+    image: "/images/guide/valdeblore.jpg",
+    imageAlt: text("Illustration of Valdeblore in the Mercantour mountains", "Illustration de Valdeblore dans les montagnes du Mercantour", "Illustrazione di Valdeblore nelle montagne del Mercantour", "Ілюстрація Valdeblore у горах Mercantour"),
+    visualTheme: "walk",
+  },
   "monaco-ville-souvenir-shops": {
     image: "/images/guide/monaco-ville-souvenir-shops.jpg",
     imageAlt: text("Illustration of souvenir shops in Monaco-Ville", "Illustration des boutiques de souvenirs a Monaco-Ville", "Illustrazione dei negozi di souvenir a Monaco-Ville", "Ілюстрація сувенірних крамниць у Monaco-Ville"),
