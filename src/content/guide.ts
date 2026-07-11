@@ -3240,6 +3240,7 @@ export const guideArticles: GuideArticle[] = [
       "useful-apps-websites-menton-monaco-italian-riviera",
       "mountains-snow-skiing-near-menton",
       "best-ice-cream-menton",
+      "zoos-aquariums-animal-parks-near-menton",
       "menton-with-kids-family-guide",
       "menton-without-a-car",
       "useful-numbers-emergency-contacts-menton",
