@@ -4185,6 +4185,26 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "pharmacie-lafayette-des-jardins": {
+    image: "/images/guide/pharmacie-lafayette-des-jardins.jpg",
+    imageAlt: text("Illustration of Pharmacie Lafayette des Jardins in Menton", "Illustration de la Pharmacie Lafayette des Jardins a Menton", "Illustrazione della Pharmacie Lafayette des Jardins a Mentone", "Ілюстрація Pharmacie Lafayette des Jardins у Ментоні"),
+    visualTheme: "family",
+  },
+  "pharmacie-victoria-menton": {
+    image: "/images/guide/pharmacie-victoria-menton.jpg",
+    imageAlt: text("Illustration of Pharmacie Victoria in Menton", "Illustration de la Pharmacie Victoria a Menton", "Illustrazione della Pharmacie Victoria a Mentone", "Ілюстрація Pharmacie Victoria у Ментоні"),
+    visualTheme: "family",
+  },
+  "pharmacie-calvin-menton": {
+    image: "/images/guide/pharmacie-calvin-menton.jpg",
+    imageAlt: text("Illustration of Pharmacie Calvin in Menton", "Illustration de la Pharmacie Calvin a Menton", "Illustrazione della Pharmacie Calvin a Mentone", "Ілюстрація Pharmacie Calvin у Ментоні"),
+    visualTheme: "family",
+  },
+  "grande-pharmacie-mentonnaise": {
+    image: "/images/guide/grande-pharmacie-mentonnaise.jpg",
+    imageAlt: text("Illustration of Grande Pharmacie Mentonnaise in Menton", "Illustration de la Grande Pharmacie Mentonnaise a Menton", "Illustrazione della Grande Pharmacie Mentonnaise a Mentone", "Ілюстрація Grande Pharmacie Mentonnaise у Ментоні"),
+    visualTheme: "family",
+  },
   "parking-vieille-ville-sablettes": {
     image: "/images/guide/parking-vieille-ville-sablettes.webp",
     imageAlt: text("Illustration of Parking Vieille Ville - Sablettes in Menton", "Illustration du Parking Vieille Ville - Sablettes a Menton", "Illustrazione del Parking Vieille Ville - Sablettes a Mentone", "Ілюстрація Parking Vieille Ville - Sablettes у Ментоні"),
