@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
@@ -91,6 +92,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const guideBookingHref = bookingAttributionHref(locale, sourceAttribution);
   const utilityBlocks = page?.utilityBlocks ?? [];
   const utilityBlocksAfterSectionIndex = article.utilityBlocksAfterSectionIndex;
+  const showArrivalParking = new Set(["how-to-get-to-menton-from-nice-airport", "where-to-stay-in-menton"]).has(article.slug);
 
   const utilityBlockSection = utilityBlocks.length ? (
     <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
@@ -129,6 +131,13 @@ export default async function GuideArticlePage({ params }: PageProps) {
               {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {isTransportGuide ? <PublicTransportGuide locale={locale} /> : null}
               {transportDestinationIds.length && !isTransportGuide ? <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} compact /> : null}
+              {showArrivalParking ? (
+                <ArrivalParkingBlock
+                  locale={locale}
+                  sourceAttribution={sourceAttribution}
+                  trackingEventName={bookingFunnelEvents.guideCtaClick}
+                />
+              ) : null}
               {localized.appTools?.length ? (
                 <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.appToolkit}</h2>

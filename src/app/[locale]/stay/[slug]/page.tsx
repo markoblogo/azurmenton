@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { notFound } from "next/navigation";
+import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { BookingCTA } from "@/components/content/BookingCTA";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -116,6 +117,7 @@ export default async function StayPage({ params }: PageProps) {
   const recommendedApartments = page.relatedApartmentSlugs
     .map((apartmentSlug) => apartments.find((apartment) => apartment.slug === apartmentSlug))
     .filter((apartment): apartment is (typeof apartments)[number] => Boolean(apartment));
+  const showArrivalParking = new Set(["lemon-festival-menton", "monaco-events-from-menton", "menton-without-a-car"]).has(page.slug);
 
   return (
     <>
@@ -197,6 +199,14 @@ export default async function StayPage({ params }: PageProps) {
                   ) : null}
                 </section>
               ))}
+              {showArrivalParking ? (
+                <ArrivalParkingBlock
+                  locale={locale}
+                  sourceAttribution={sourceAttribution}
+                  trackingEventName={bookingFunnelEvents.apartmentCtaClick}
+                  context={page.slug === "menton-without-a-car" ? "carFree" : "default"}
+                />
+              ) : null}
             </article>
 
             <aside className="h-fit space-y-4 lg:sticky lg:top-24">

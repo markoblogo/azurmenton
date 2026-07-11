@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
+import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { ShareActions } from "@/components/content/ShareActions";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button, buttonVariants } from "@/components/ui/Button";
@@ -1024,6 +1025,16 @@ export default async function ApartmentPage({ params }: PageProps) {
               </ul>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fffaf0] py-10 sm:py-14">
+        <Container>
+          <ArrivalParkingBlock
+            locale={safeLocale}
+            sourceAttribution={sourceAttribution}
+            trackingEventName={bookingFunnelEvents.apartmentCtaClick}
+          />
         </Container>
       </Section>
 

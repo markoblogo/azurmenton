@@ -5,6 +5,7 @@ import type { Route } from "next";
 import { BookingFunnelViewTracker } from "@/components/analytics/BookingFunnelViewTracker";
 import { BookingRequestForm } from "@/components/booking/BookingRequestForm";
 import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
+import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -239,10 +240,13 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   ))}
                 </div>
               </Card>
+
+              <ArrivalParkingBlock locale={safeLocale} context="booking" />
             </aside>
 
             <div>
               <Card className="overflow-hidden bg-[#fffdf8]">
+                <div id="direct-request-form" />
                 <div className="grid grid-cols-3 gap-0 border-b border-[#dfd4c1]">
                   {[
                     "/images/home/SeaViewBalconyStudio.jpg",
