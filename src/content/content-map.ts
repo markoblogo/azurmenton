@@ -44,8 +44,8 @@ export const contentCollections: ContentCollection[] = [
     title: t("Food & markets", "Cuisine & marches", "Cibo e mercati", "Їжа та ринки"),
     description: t("Markets, local food, restaurants and practical shopping.", "Marches, cuisine locale, restaurants et courses pratiques.", "Mercati, cucina locale, ristoranti e spesa pratica.", "Ринки, місцева кухня, ресторани та практичні покупки."),
     categories: ["food-markets", "nightlife-drinks"],
-    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton"],
-    priorityGuideSlugs: ["local-food-menton", "halles-du-marche-menton", "best-seafood-restaurants-menton", "supermarkets-in-menton"],
+    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton"],
+    priorityGuideSlugs: ["local-food-menton", "halles-du-marche-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "supermarkets-in-menton"],
   },
   {
     id: "beaches-and-seafront",
@@ -137,6 +137,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-markets", query: t("Menton market and food hall", "marche et halles de Menton", "mercato e halles di Mentone", "ринок і криті ряди Ментона"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "halles-du-marche-menton", season: "all-year" },
   { id: "menton-supermarkets", query: t("supermarkets in Menton", "supermarches a Menton", "supermercati a Mentone", "супермаркети в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "supermarkets-in-menton", season: "all-year" },
   { id: "menton-seafood", query: t("best seafood in Menton", "meilleurs fruits de mer a Menton", "miglior pesce a Mentone", "найкращі морепродукти в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "best-seafood-restaurants-menton", season: "all-year" },
+  { id: "menton-pastries-desserts", query: t("best pastries in Menton", "meilleures patisseries a Menton", "migliori pasticcerie a Mentone", "найкраща випічка в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "best-pastries-desserts-cakes-menton", season: "all-year" },
   { id: "menton-best-beaches", query: t("best beaches in Menton", "meilleures plages de Menton", "migliori spiagge di Mentone", "найкращі пляжі Ментона"), collectionId: "beaches-and-seafront", priority: "now", status: "covered", targetGuideSlug: "best-beaches-in-menton", season: "summer" },
   { id: "menton-summer-heat", query: t("how to stay cool in Menton", "rester au frais a Menton", "come rinfrescarsi a Mentone", "як сховатися від спеки в Ментоні"), collectionId: "beaches-and-seafront", priority: "now", status: "covered", targetGuideSlug: "stay-cool-in-menton-summer", season: "summer" },
   { id: "menton-sea-view-stay", query: t("sea-view apartment in Menton", "appartement vue mer a Menton", "appartamento vista mare a Mentone", "апартаменти з видом на море в Ментоні"), collectionId: "beaches-and-seafront", priority: "now", status: "covered", targetGuideSlug: "where-to-stay-in-menton", season: "all-year" },

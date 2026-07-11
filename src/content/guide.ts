@@ -479,7 +479,7 @@ const articles: GuideArticle[] = [
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton"],
-    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "best-ice-cream-menton", "best-pastries-desserts-cakes-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -894,7 +894,7 @@ const articles: GuideArticle[] = [
       t("If you want to compare shops, do it over several days rather than all in one evening.", "Si vous voulez comparer plusieurs glaciers, faites-le sur plusieurs jours plutot que le meme soir.", "Se vuoi confrontare piu gelaterie, fallo in piu giorni invece che in una sola sera.", "Якщо хочете порівняти кілька місць, робіть це за кілька днів, а не за один вечір."),
     ],
     relatedPlaces: ["rue-saint-michel-menton", "quai-bonaparte-menton", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "gelateria-sofia-menton", "la-fabrique-givree-menton", "le-tropic-menton", "ami-glace-menton", "la-yogurteria-menton", "halles-du-marche", "promenade-du-soleil"],
-    relatedArticles: ["local-food-menton", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-old-town", "stay-cool-in-menton-summer", "where-to-stay-in-menton", "halles-du-marche-menton", "fete-du-citron-menton-practical-guide", "quiet-evening-in-menton"],
+    relatedArticles: ["local-food-menton", "best-pastries-desserts-cakes-menton", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-old-town", "stay-cool-in-menton-summer", "where-to-stay-in-menton", "halles-du-marche-menton", "fete-du-citron-menton-practical-guide", "quiet-evening-in-menton"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
   },
@@ -1072,7 +1072,7 @@ const articles: GuideArticle[] = [
       t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
     ],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "rue-saint-michel-menton", "maison-herbin-menton", "rampes-saint-michel", "plage-sablettes"],
-    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "wine-tasting-near-menton", "supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "best-pastries-desserts-cakes-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "local-food-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
     relatedApartments: allApartments,
   },
   {
@@ -1245,6 +1245,121 @@ function shortArticle(input: {
 
 export const guideArticles: GuideArticle[] = [
   ...articles,
+  shortArticle({
+    id: "best-pastries-desserts-cakes-menton",
+    slug: "best-pastries-desserts-cakes-menton",
+    title: t("Best pastries and desserts in Menton", "Meilleures patisseries et desserts a Menton", "Migliori pasticcerie e dolci a Mentone", "Найкраща випічка і десерти в Ментоні"),
+    seoTitle: t("Best Pastries in Menton: Lemon Tarts, Cakes, Bakeries & Tea Rooms", "Meilleures patisseries a Menton: tartes citron, gateaux et salons de the", "Migliori pasticcerie a Mentone: torte al limone, dolci e sale da te", "Найкраща випічка в Ментоні: лимонні тарти, торти і чайні"),
+    seoDescription: t("A practical guide to Menton's best pastries and desserts: lemon tart, bakeries, cakes, tea rooms and special pastry stops in Monaco, La Turbie and Nice.", "Guide pratique des meilleures patisseries et desserts de Menton: tarte citron, boulangeries, gateaux, salons de the et adresses proches a Monaco, La Turbie et Nice.", "Guida pratica ai migliori dolci di Mentone: tarte al limone, panetterie, torte, sale da te e tappe speciali a Monaco, La Turbie e Nizza.", "Практичний гід по найкращій випічці й десертах Ментона: лимонний тарт, пекарні, торти, чайні та близькі адреси в Монако, La Turbie і Ніцці."),
+    excerpt: t("Menton's pastry identity begins with its famous lemon, but the town also has artisan croissants, fruit tarts, cakes, tea rooms and citrus travel cakes.", "L'identite patissiere de Menton commence avec son citron, mais la ville offre aussi croissants artisanaux, tartes aux fruits, gateaux, salons de the et cakes aux agrumes.", "L'identita dolce di Mentone parte dal suo limone, ma include anche croissant artigianali, crostate di frutta, torte, sale da te e cake agli agrumi.", "Десертна ідентичність Ментона починається з лимона, але місто також має artisan croissants, фруктові тарти, торти, чайні й цитрусові travel cakes."),
+    category: "food-markets",
+    coverImage: "/images/guide/best-pastries-desserts-cakes-menton.jpg",
+    coverImageAlt: t("Illustration of pastries, lemon tart and desserts in Menton", "Illustration de patisseries, tarte au citron et desserts a Menton", "Illustrazione di pasticceria, tarte al limone e dolci a Mentone", "Ілюстрація випічки, лимонного тарта і десертів у Ментоні"),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    tags: [t("pastries", "patisseries", "pasticceria", "випічка"), t("desserts", "desserts", "dolci", "десерти"), t("Menton lemon", "citron de Menton", "limone di Mentone", "лимон Ментона"), t("tea rooms", "salons de the", "sale da te", "чайні")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[8].label],
+    duration: "1-2 hours",
+    locationTags: ["menton-centre", "old-town", "monaco", "nice"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "la-tarte-mentonnaise",
+      "mitron-bakery-menton",
+      "vanilla-bakery-menton",
+      "atelier-boulanger-menton",
+      "cafe-noailles-menton",
+      "boulangerie-la-madone-des-jardins",
+      "ma-premiere-boulangerie-la-turbie",
+      "cedric-grolet-monte-carlo",
+      "pasticceria-cova-monaco",
+      "maison-auer-nice",
+      "halles-du-marche",
+      "rue-saint-michel-menton",
+    ],
+    relatedArticles: [
+      "best-ice-cream-menton",
+      "local-food-menton",
+      "halles-du-marche-menton",
+      "best-souvenir-shops-menton-monaco-nice",
+      "vegan-restaurants-cafes-menton",
+      "supermarkets-in-menton",
+      "day-trips-from-menton",
+      "monaco-events-from-menton",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Pastries in Menton", "Patisseries a Menton", "Pasticceria a Mentone", "Випічка в Ментоні"),
+        body: [
+          t("Menton sits between French pastry culture and nearby Italian coffee-and-citrus habits. Croissants, fruit tarts, mille-feuilles and individual cakes meet panettone, brioche and lemon flavours.", "Menton se trouve entre la culture patissiere francaise et les habitudes italiennes proches autour du cafe et des agrumes. Croissants, tartes aux fruits, mille-feuilles et petits gateaux croisent panettone, brioche et parfums citronnes.", "Mentone sta tra la pasticceria francese e le abitudini italiane di caffe e agrumi. Croissant, crostate di frutta, mille-feuille e monoporzioni incontrano panettone, brioche e sapori al limone.", "Ментон стоїть між французькою pastry culture і близькою італійською кавово-цитрусовою традицією. Croissants, fruit tarts, mille-feuilles і тістечка зустрічаються з panettone, brioche і лимонними смаками."),
+          t("This guide focuses on pastries, cakes, biscuits, confectionery and tea rooms. Ice cream and gelato stay in the separate Menton ice-cream guide.", "Ce guide couvre patisseries, gateaux, biscuits, confiseries et salons de the. Les glaces et gelato restent dans le guide dedie aux glaces de Menton.", "Questa guida copre dolci, torte, biscotti, confetteria e sale da te. Gelato e sorbetti restano nella guida dedicata al gelato a Mentone.", "Цей гід про випічку, торти, печиво, confectionery і tea rooms. Морозиво та gelato залишені в окремому гіді по морозиву Ментона."),
+        ],
+        relatedPlaceIds: ["rue-saint-michel-menton", "halles-du-marche"],
+        guideLinkSlug: "best-ice-cream-menton",
+        guideLinkLabel: t("Open the separate ice-cream guide", "Ouvrir le guide glaces separe", "Apri la guida gelato separata", "Відкрити окремий гід по морозиву"),
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі рекомендації"),
+        body: [
+          t("For the most local dessert, start with La Tarte Mentonnaise on Rue Saint-Michel. For artisan bakery work and citrus pastries, use Mitron Bakery. For coffee, breakfast and a broader cake display, choose Vanilla Bakery or Café Noailles.", "Pour le dessert le plus local, commencez par La Tarte Mentonnaise rue Saint-Michel. Pour boulangerie artisanale et patisseries aux agrumes, choisissez Mitron Bakery. Pour cafe, petit-dejeuner et choix plus large de gateaux, utilisez Vanilla Bakery ou Cafe Noailles.", "Per il dolce piu locale, inizia da La Tarte Mentonnaise in Rue Saint-Michel. Per lavoro artigianale e dolci agli agrumi, scegli Mitron Bakery. Per caffe, colazione e una vetrina piu ampia, usa Vanilla Bakery o Cafe Noailles.", "За найлокальнішим десертом починайте з La Tarte Mentonnaise на Rue Saint-Michel. Для artisan bakery і цитрусової випічки — Mitron Bakery. Для кави, сніданку й ширшої вітрини тортів — Vanilla Bakery або Café Noailles."),
+          t("For nearby special-occasion pastry, use Ma Première Boulangerie in La Turbie, Cédric Grolet or Cova in Monaco, and Maison Auer if you are already spending time in Nice.", "Pour une patisserie d'occasion proche, utilisez Ma Premiere Boulangerie a La Turbie, Cedric Grolet ou Cova a Monaco, et Maison Auer si vous passez deja du temps a Nice.", "Per una pasticceria speciale nei dintorni, scegli Ma Première Boulangerie a La Turbie, Cedric Grolet o Cova a Monaco, e Maison Auer se passi gia da Nizza.", "Для особливих десертних зупинок поруч: Ma Première Boulangerie в La Turbie, Cédric Grolet або Cova в Монако, Maison Auer, якщо ви вже їдете до Ніцци."),
+        ],
+        relatedPlaceIds: ["la-tarte-mentonnaise", "mitron-bakery-menton", "vanilla-bakery-menton", "cafe-noailles-menton", "ma-premiere-boulangerie-la-turbie", "cedric-grolet-monte-carlo", "pasticceria-cova-monaco", "maison-auer-nice"],
+      },
+      {
+        heading: t("Essential Menton lemon stops", "Adresses citron essentielles a Menton", "Tappe essenziali al limone a Mentone", "Головні лимонні зупинки Ментона"),
+        body: [
+          t("La Tarte Mentonnaise is the clearest answer when someone asks which dessert feels specific to Menton. The shop is small, central and built around a signature Menton lemon tart rather than a general pastry counter.", "La Tarte Mentonnaise est la reponse la plus claire si l'on demande quel dessert semble propre a Menton. La boutique est petite, centrale et construite autour d'une tarte au citron de Menton plutot que d'un comptoir generaliste.", "La Tarte Mentonnaise e la risposta piu chiara a chi cerca un dolce tipico di Mentone. La boutique e piccola, centrale e costruita intorno alla tarte al limone di Mentone, non a una vetrina generica.", "La Tarte Mentonnaise — найпряміша відповідь, якщо потрібен десерт саме про Ментон. Крамниця мала, центральна й побудована навколо фірмового лимонного тарта, а не загальної вітрини."),
+          t("Mitron Bakery gives the lemon story a more artisan-bakery angle: heritage flour, viennoiserie, citrus cakes and the kind of pastry that works for breakfast as well as an afternoon stop.", "Mitron Bakery donne au citron une lecture plus boulangerie artisanale: farines anciennes, viennoiseries, cakes aux agrumes et patisseries utiles du matin a l'apres-midi.", "Mitron Bakery interpreta il limone in chiave panetteria artigianale: farine antiche, viennoiserie, cake agli agrumi e dolci adatti dalla colazione al pomeriggio.", "Mitron Bakery дає лимонній темі artisan-bakery кут: heritage flour, viennoiserie, citrus cakes і випічку, яка працює і на сніданок, і вдень."),
+        ],
+        relatedPlaceIds: ["la-tarte-mentonnaise", "mitron-bakery-menton", "halles-du-marche"],
+      },
+      {
+        heading: t("Bakeries and tea-room stops in Menton", "Boulangeries et salons de the a Menton", "Panetterie e sale da te a Mentone", "Пекарні й чайні зупинки в Ментоні"),
+        body: [
+          t("Vanilla Bakery is useful when a group wants different things: coffee, breakfast, cake, seating and a flexible pause. Atelier Boulanger and La Madone des Jardins are more neighbourhood-style choices for classic pastries and practical bakery stops.", "Vanilla Bakery est utile quand un groupe veut plusieurs choses: cafe, petit-dejeuner, gateau, places assises et pause flexible. Atelier Boulanger et La Madone des Jardins sont plus des adresses de quartier pour patisseries classiques et haltes pratiques.", "Vanilla Bakery e utile quando il gruppo vuole cose diverse: caffe, colazione, dolci, posti a sedere e pausa flessibile. Atelier Boulanger e La Madone des Jardins sono scelte piu di quartiere per dolci classici e soste pratiche.", "Vanilla Bakery корисна, коли групі потрібне різне: кава, сніданок, торт, місця за столом і гнучка пауза. Atelier Boulanger і La Madone des Jardins — районніші варіанти для класики й практичних зупинок."),
+          t("Café Noailles is less about the single most ambitious pastry and more about a calm tea or coffee break in the centre.", "Cafe Noailles cherche moins la patisserie la plus ambitieuse qu'une pause the ou cafe calme au centre.", "Cafe Noailles e meno dedicato al dolce piu ambizioso e piu a una pausa tranquilla con te o caffe in centro.", "Café Noailles не стільки про найамбітнішу випічку, скільки про спокійну чайно-кавову паузу в центрі."),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton", "atelier-boulanger-menton", "cafe-noailles-menton", "boulangerie-la-madone-des-jardins"],
+      },
+      {
+        heading: t("Nearby pastry stops worth the short trip", "Adresses proches qui valent le detour sucre", "Tappe dolci vicine che valgono il breve viaggio", "Солодкі зупинки поруч, заради яких варто від'їхати"),
+        body: [
+          t("La Turbie, Monaco and Nice add styles Menton does not fully cover: village artisan pastry, contemporary luxury patisserie, Italian tea-room atmosphere and historic confectionery.", "La Turbie, Monaco et Nice ajoutent des styles que Menton ne couvre pas completement: patisserie artisanale de village, haute patisserie contemporaine, salon de the italien et confiserie historique.", "La Turbie, Monaco e Nizza aggiungono stili che Mentone non copre del tutto: pasticceria artigianale di borgo, alta pasticceria contemporanea, sala da te italiana e confetteria storica.", "La Turbie, Монако й Ніцца додають стилі, яких у Ментоні не так багато: village artisan pastry, сучасна люксова кондитерська, італійська tea-room атмосфера та історична confectionery."),
+          t("Treat these as add-ons to a day trip, not errands that require leaving Menton only for dessert.", "Voyez-les comme des complements a une excursion, pas comme des courses qui imposent de quitter Menton seulement pour un dessert.", "Considerale aggiunte a una gita, non commissioni che obbligano a lasciare Mentone solo per un dolce.", "Сприймайте їх як доповнення до поїздки, а не як привід виїжджати з Ментона тільки за десертом."),
+        ],
+        relatedPlaceIds: ["ma-premiere-boulangerie-la-turbie", "cedric-grolet-monte-carlo", "pasticceria-cova-monaco", "maison-auer-nice"],
+      },
+      {
+        heading: t("What desserts to try", "Quels desserts essayer", "Quali dolci provare", "Що спробувати"),
+        body: [
+          t("Start with Menton lemon tart, then compare it with citrus travel cakes, lemon panettone, flan patissier, mille-feuille and seasonal fruit tarts. In summer, choose sturdier cakes if you need to carry dessert back to the apartment.", "Commencez par la tarte au citron de Menton, puis comparez avec cakes aux agrumes, panettone citron, flan patissier, mille-feuille et tartes aux fruits de saison. En ete, choisissez des gateaux plus solides si vous devez les rapporter a l'appartement.", "Inizia con la tarte al limone di Mentone, poi confronta cake agli agrumi, panettone al limone, flan, mille-feuille e crostate stagionali. In estate scegli dolci piu resistenti se devi portarli in appartamento.", "Почніть із лимонного тарта Ментона, потім порівняйте citrus travel cakes, lemon panettone, flan pâtissier, mille-feuille і сезонні фруктові тарти. Влітку обирайте міцніші десерти, якщо несете їх в апартамент."),
+        ],
+      },
+      {
+        heading: t("A simple Menton pastry walk", "Une balade patisserie simple a Menton", "Una passeggiata dolce semplice a Mentone", "Проста pastry-прогулянка Ментоном"),
+        body: [
+          t("Begin on Rue Saint-Michel with La Tarte Mentonnaise, continue toward Mitron for artisan viennoiserie or citrus cake, then pause at Café Noailles or Vanilla Bakery if you want to sit down.", "Commencez rue Saint-Michel avec La Tarte Mentonnaise, continuez vers Mitron pour viennoiserie artisanale ou cake aux agrumes, puis faites une pause chez Cafe Noailles ou Vanilla Bakery si vous voulez vous asseoir.", "Inizia da Rue Saint-Michel con La Tarte Mentonnaise, continua verso Mitron per viennoiserie artigianale o cake agli agrumi, poi fermati da Cafe Noailles o Vanilla Bakery se vuoi sederti.", "Почніть на Rue Saint-Michel з La Tarte Mentonnaise, продовжіть до Mitron за artisan viennoiserie або citrus cake, потім зробіть паузу в Café Noailles чи Vanilla Bakery, якщо хочете сісти."),
+          t("In the morning, add Halles du Marché for fruit, coffee, market shopping and a useful sense of local food life.", "Le matin, ajoutez les Halles du Marche pour fruits, cafe, achats de marche et ambiance alimentaire locale.", "Al mattino aggiungi Halles du Marche per frutta, caffe, spesa e atmosfera locale.", "Зранку додайте Halles du Marché для фруктів, кави, ринкових покупок і локального food rhythm."),
+        ],
+        relatedPlaceIds: ["rue-saint-michel-menton", "la-tarte-mentonnaise", "mitron-bakery-menton", "cafe-noailles-menton", "vanilla-bakery-menton", "halles-du-marche"],
+      },
+      {
+        heading: t("Staying in Menton for a pastry-focused break", "Sejourner a Menton pour une pause patisserie", "Soggiornare a Mentone per una pausa dolce", "Жити в Ментоні для десертної паузи"),
+        body: [
+          t("An apartment makes pastry exploring easier: you can buy a tart, a box of cakes or breakfast viennoiseries, keep them cool and enjoy them later with coffee or tea.", "Un appartement rend les patisseries plus faciles a vivre: vous pouvez acheter une tarte, une boite de gateaux ou des viennoiseries, les garder au frais et les deguster plus tard avec cafe ou the.", "Un appartamento rende piu semplice esplorare i dolci: puoi comprare una torta, una scatola di pasticcini o viennoiserie, tenerli al fresco e gustarli piu tardi con caffe o te.", "Апартамент робить десертні прогулянки простішими: можна купити тарт, коробку тістечок або breakfast viennoiseries, охолодити їх і насолодитися пізніше з кавою чи чаєм."),
+          t("Sea View Balcony Studio suits couples who want pastries on the balcony. Beachside Apartment with Terrace & Parking suits families and larger bakery orders. Panoramic Sea View Studio works well for short central walks and one signature Menton dessert.", "Sea View Balcony Studio convient aux couples qui veulent des patisseries au balcon. L'appartement avec terrasse et parking convient aux familles et commandes de gateaux plus grandes. Panoramic Sea View Studio va bien aux courts sejours et a un dessert signature de Menton.", "Sea View Balcony Studio e adatto a coppie con dolci sul balcone. L'appartamento con terrazza e parking va bene per famiglie e ordini piu grandi. Panoramic Sea View Studio funziona per brevi passeggiate centrali e un dolce simbolo di Mentone.", "Sea View Balcony Studio пасує парам для випічки на балконі. Beachside Apartment with Terrace & Parking зручний для сімей і більших замовлень. Panoramic Sea View Studio добре працює для коротких центральних прогулянок і одного signature Menton dessert."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Buy delicate cream pastries near the end of a walk in summer and refrigerate them promptly.", "En ete, achetez les patisseries fragiles a la creme en fin de balade et mettez-les rapidement au frais.", "In estate compra i dolci delicati alla crema verso la fine della passeggiata e mettili subito al fresco.", "Влітку купуйте ніжні кремові десерти наприкінці прогулянки й швидко охолоджуйте."),
+      t("For birthday cakes or larger orders, contact the bakery in advance and confirm Sunday collection.", "Pour gateaux d'anniversaire ou grosses commandes, contactez la boulangerie en avance et confirmez le retrait du dimanche.", "Per torte di compleanno o ordini grandi, contatta la pasticceria in anticipo e conferma il ritiro domenicale.", "Для birthday cakes або більших замовлень зв'яжіться з пекарнею заздалегідь і уточніть недільне отримання."),
+      t("Use the separate ice-cream guide for gelato and sorbet plans.", "Utilisez le guide glaces separe pour gelato et sorbets.", "Usa la guida gelato separata per gelato e sorbetti.", "Для gelato і sorbet користуйтеся окремим гідом по морозиву."),
+    ],
+  }),
   shortArticle({
     id: "menton-in-autumn",
     slug: "menton-in-autumn",
@@ -6270,7 +6385,7 @@ export const guideArticles: GuideArticle[] = [
       "maison-auer-nice",
       "cours-saleya-nice",
     ],
-    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "fete-du-citron-menton-practical-guide", "menton-old-town", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "best-pastries-desserts-cakes-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "fete-du-citron-menton-practical-guide", "menton-old-town", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
