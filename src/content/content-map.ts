@@ -67,8 +67,8 @@ export const contentCollections: ContentCollection[] = [
     title: t("Family days", "Jours en famille", "Giornate in famiglia", "Сімейні дні"),
     description: t("Simple ideas for children, beach time and low-stress outings.", "Idees simples pour enfants, plage et sorties sans stress.", "Idee semplici per bambini, spiaggia e uscite senza stress.", "Прості ідеї для дітей, пляжу та неквапливих прогулянок."),
     categories: ["with-children"],
-    includeGuideSlugs: ["best-ice-cream-menton", "cinemas-in-menton-nice-monaco"],
-    priorityGuideSlugs: ["menton-with-kids-family-guide", "best-ice-cream-menton", "cinemas-in-menton-nice-monaco"],
+    includeGuideSlugs: ["best-ice-cream-menton", "cinemas-in-menton-nice-monaco", "zoos-aquariums-animal-parks-near-menton"],
+    priorityGuideSlugs: ["menton-with-kids-family-guide", "zoos-aquariums-animal-parks-near-menton", "best-ice-cream-menton", "cinemas-in-menton-nice-monaco"],
   },
   {
     id: "culture-and-evenings",
@@ -144,6 +144,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-walks", query: t("walks around Menton", "balades autour de Menton", "passeggiate intorno a Mentone", "прогулянки навколо Ментона"), collectionId: "walks-and-views", priority: "now", status: "covered", targetGuideSlug: "best-walks-and-hikes-around-menton", season: "all-year" },
   { id: "menton-photo-spots", query: t("Menton photo spots", "spots photo a Menton", "luoghi fotografici a Mentone", "фотолокації Ментона"), collectionId: "walks-and-views", priority: "now", status: "covered", targetGuideSlug: "best-photo-spots-menton", season: "all-year" },
   { id: "menton-with-kids", query: t("Menton with kids", "Menton avec des enfants", "Mentone con bambini", "Ментон з дітьми"), collectionId: "family-days", priority: "now", status: "covered", targetGuideSlug: "menton-with-kids-family-guide", season: "all-year" },
+  { id: "menton-animal-experiences", query: t("zoos and aquariums near Menton", "zoos et aquariums pres de Menton", "zoo e acquari vicino a Mentone", "зоопарки й акваріуми біля Ментона"), collectionId: "family-days", priority: "now", status: "covered", targetGuideSlug: "zoos-aquariums-animal-parks-near-menton", season: "all-year" },
   { id: "menton-rainy-day", query: t("rainy day in Menton", "jour de pluie a Menton", "giornata di pioggia a Mentone", "дощовий день у Ментоні"), collectionId: "family-days", priority: "next", status: "planned", season: "all-year" },
   { id: "menton-museums", query: t("museums near Menton", "musees pres de Menton", "musei vicino a Mentone", "музеї поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "museums-in-menton-nice-monaco", season: "all-year" },
   { id: "menton-theatre", query: t("theatre and opera near Menton", "theatre et opera pres de Menton", "teatro e opera vicino a Mentone", "театр і опера поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "theatre-opera-performing-arts-near-menton", season: "all-year" },

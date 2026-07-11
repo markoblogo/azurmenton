@@ -3416,6 +3416,7 @@ export const guideArticles: GuideArticle[] = [
       "parc-princesse-antoinette-monaco",
     ],
     relatedArticles: [
+      "zoos-aquariums-animal-parks-near-menton",
       "fete-du-citron-menton-practical-guide",
       "tennis-padel-courts-menton",
       "skateparks-near-menton",
@@ -3523,6 +3524,132 @@ export const guideArticles: GuideArticle[] = [
       t("Avoid old-town climbs and cemetery viewpoints at midday in July and August with small children.", "Evitez les montees de la vieille ville et les points de vue du cimetiere a midi en juillet-aout avec jeunes enfants.", "Evita salite del centro storico e punti panoramici del cimitero a mezzogiorno in luglio-agosto con bambini piccoli.", "У липні-серпні з малими дітьми уникайте підйомів старого міста й кладовища опівдні."),
       t("Check current opening hours before promising Koaland, pools or indoor play to children.", "Verifiez les horaires actuels avant de promettre Koaland, piscine ou jeux indoor aux enfants.", "Controlla gli orari prima di promettere Koaland, piscine o indoor play ai bambini.", "Перевіряйте актуальні години, перш ніж обіцяти дітям Koaland, басейн або indoor play."),
       t("For heat symptoms, move to shade or a cool indoor place; call 15 or 112 if a child seems seriously unwell.", "En cas de signes lies a la chaleur, allez a l'ombre ou au frais; appelez le 15 ou 112 si l'enfant semble vraiment mal.", "Per sintomi da caldo, spostati all'ombra o al fresco; chiama 15 o 112 se il bambino sembra stare davvero male.", "За ознак перегріву перейдіть у тінь або прохолодне приміщення; телефонуйте 15 або 112, якщо дитині серйозно зле."),
+    ],
+  }),
+  shortArticle({
+    id: "zoos-aquariums-animal-parks-near-menton",
+    slug: "zoos-aquariums-animal-parks-near-menton",
+    title: t("Zoos, aquariums and animal experiences near Menton", "Zoos, aquariums et experiences animales pres de Menton", "Zoo, acquari e esperienze con animali vicino a Mentone", "Зоопарки, акваріуми та досвід з тваринами біля Ментона"),
+    seoTitle: t("Zoos and Aquariums Near Menton: Monaco Oceanographic Museum, Parc Phoenix & Wildlife Trips", "Zoos et aquariums pres de Menton: Musee oceanographique, Parc Phoenix et sorties nature", "Zoo e acquari vicino a Mentone: Museo Oceanografico, Parc Phoenix e uscite natura", "Зоопарки й акваріуми біля Ментона: Океанографічний музей, Parc Phoenix і wildlife trips"),
+    seoDescription: t("A family guide to zoos, aquariums and animal experiences near Menton: Monaco's Oceanographic Museum, Parc Phoenix in Nice, whale watching in the Pelagos Sanctuary, wolf parks and family farms.", "Guide famille des zoos, aquariums et experiences animales pres de Menton: Musee oceanographique de Monaco, Parc Phoenix a Nice, observation des cetaces dans Pelagos, loups et fermes pedagogiques.", "Guida famiglia a zoo, acquari ed esperienze con animali vicino a Mentone: Museo Oceanografico di Monaco, Parc Phoenix a Nizza, whale watching nel Santuario Pelagos, lupi e fattorie didattiche.", "Сімейний гід по зоопарках, акваріумах і тваринах біля Ментона: Океанографічний музей Монако, Parc Phoenix у Ніцці, whale watching у Pelagos Sanctuary, вовчі парки й ферми."),
+    excerpt: t("Menton has no large zoo, but families can still find excellent animal experiences nearby: Monaco's famous aquarium, Parc Phoenix in Nice, responsible whale watching and mountain wildlife days.", "Menton n'a pas de grand zoo, mais les familles trouvent de vraies experiences animales autour: l'aquarium celebre de Monaco, Parc Phoenix a Nice, observation responsable des cetaces et journees nature en montagne.", "Mentone non ha un grande zoo, ma le famiglie trovano ottime esperienze con animali nei dintorni: l'acquario di Monaco, Parc Phoenix a Nizza, whale watching responsabile e giornate natura in montagna.", "У Ментоні немає великого зоопарку, але поруч є сильні family animal experiences: відомий акваріум Монако, Parc Phoenix у Ніцці, відповідальний whale watching і гірські wildlife-дні."),
+    category: "with-children",
+    coverImage: "/images/guide/zoos-aquariums-animal-parks-near-menton.jpg",
+    coverImageAlt: t("Illustration of family animal experiences near Menton", "Illustration d'experiences animales en famille pres de Menton", "Illustrazione di esperienze con animali in famiglia vicino a Mentone", "Ілюстрація сімейного досвіду з тваринами біля Ментона"),
+    visualTheme: "family",
+    visualStatus: "project_illustration",
+    tags: [
+      t("families", "familles", "famiglie", "сім'ї"),
+      t("aquarium", "aquarium", "acquario", "акваріум"),
+      t("zoo", "zoo", "zoo", "зоопарк"),
+      t("animals", "animaux", "animali", "тварини"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца"),
+      t("day trips", "excursions", "gite", "поїздки на день"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[5].label, guideBestForOptions[8].label, guideBestForOptions[11].label],
+    duration: "reference",
+    locationTags: ["monaco", "nice", "seafront"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: [
+      "oceanographic-museum-monaco",
+      "rainier-iii-zoological-garden-monaco",
+      "parc-phoenix-nice",
+      "pelagos-sanctuary",
+      "parc-alpha-saint-martin-vesubie",
+      "ferme-du-mercantour-valdeblore",
+      "mercantour-national-park",
+      "saint-martin-vesubie",
+      "valdeblore",
+    ],
+    relatedArticles: [
+      "menton-with-kids-family-guide",
+      "museums-in-menton-nice-monaco",
+      "day-trips-from-menton",
+      "mountains-snow-skiing-near-menton",
+      "stay-cool-in-menton-summer",
+      "public-transport-in-menton",
+      "how-to-get-to-menton-from-nice-airport",
+      "best-beaches-in-menton",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: ["beachside-family-apartment", "sea-view-balcony-studio", "panoramic-sea-view-studio"],
+    sections: [
+      {
+        heading: t("Are there zoos or aquariums in Menton?", "Y a-t-il des zoos ou aquariums a Menton ?", "Ci sono zoo o acquari a Mentone?", "Чи є в Ментоні зоопарки або акваріуми?"),
+        body: [
+          t("There is no major zoo or public aquarium in Menton itself. The closest strong options are the Oceanographic Museum of Monaco, Parc Phoenix in Nice, responsible Pelagos Sanctuary boat trips and mountain animal experiences farther inland.", "Il n'y a pas de grand zoo ni d'aquarium public a Menton meme. Les options les plus solides sont le Musee oceanographique de Monaco, Parc Phoenix a Nice, les sorties responsables dans le sanctuaire Pelagos et les experiences animales en montagne plus loin dans l'arriere-pays.", "A Mentone non c'e un grande zoo ne un acquario pubblico. Le opzioni piu forti sono il Museo Oceanografico di Monaco, Parc Phoenix a Nizza, le uscite responsabili nel Santuario Pelagos e le esperienze animali in montagna piu all'interno.", "У самому Ментоні немає великого зоопарку або публічного акваріума. Найсильніші варіанти поруч: Океанографічний музей Монако, Parc Phoenix у Ніцці, відповідальні boat trips у Pelagos Sanctuary і гірські animal experiences далі вглиб."),
+          t("For most families staying in Menton, Monaco is the easiest first choice. Nice is better for a longer half-day, while Parc Alpha and Ferme du Mercantour are dedicated mountain days.", "Pour la plupart des familles a Menton, Monaco est le premier choix le plus simple. Nice convient mieux a une demi-journee plus longue, tandis que Parc Alpha et la Ferme du Mercantour sont de vraies journees montagne.", "Per la maggior parte delle famiglie a Mentone, Monaco e la prima scelta piu facile. Nizza funziona per una mezza giornata lunga, mentre Parc Alpha e Ferme du Mercantour sono giornate dedicate in montagna.", "Для більшості сімей у Ментоні Монако - найпростіший перший вибір. Ніцца краще для довшого half-day, а Parc Alpha і Ferme du Mercantour - окремі гірські дні."),
+        ],
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі рекомендації"),
+        body: [
+          t("Choose the Oceanographic Museum of Monaco for the best all-weather family animal attraction. Choose Parc Phoenix for a zoo-like animal-and-garden day in Nice. Choose a Pelagos Sanctuary boat trip for dolphins and whales in the wild, with the important caveat that sightings are never guaranteed.", "Choisissez le Musee oceanographique de Monaco pour la meilleure attraction famille par tous les temps. Choisissez Parc Phoenix pour une journee animaux et jardins a Nice. Choisissez une sortie Pelagos pour dauphins et baleines en milieu naturel, avec la reserve importante que les observations ne sont jamais garanties.", "Scegli il Museo Oceanografico di Monaco per la migliore attrazione famiglia con ogni meteo. Scegli Parc Phoenix per una giornata animali e giardini a Nizza. Scegli una gita nel Santuario Pelagos per delfini e balene in natura, ricordando che gli avvistamenti non sono mai garantiti.", "Обирайте Океанографічний музей Монако як найкращий all-weather сімейний animal attraction. Parc Phoenix - для zoo-like дня з тваринами й садами в Ніцці. Pelagos Sanctuary boat trip - для дельфінів і китів у природі, але sightings ніколи не гарантуються."),
+          t("Do not plan around the Rainier III Zoological Garden in 2026: official Monaco information lists it as closed for works. Keep it on the radar for future trips, not for this year's family plan.", "Ne planifiez pas autour du Jardin Animalier Rainier III en 2026: l'information officielle de Monaco l'indique ferme pour travaux. Gardez-le en tete pour de futurs sejours, pas pour le programme familial de cette annee.", "Non programmare la giornata intorno al Giardino Zoologico Rainier III nel 2026: le informazioni ufficiali di Monaco lo indicano chiuso per lavori. Tienilo per viaggi futuri, non per il piano famiglia di quest'anno.", "Не плануйте день навколо Rainier III Zoological Garden у 2026 році: офіційна інформація Монако вказує, що він закритий на роботи. Залиште його для майбутніх поїздок, не для цього року."),
+        ],
+        relatedPlaceIds: ["oceanographic-museum-monaco", "parc-phoenix-nice", "pelagos-sanctuary", "rainier-iii-zoological-garden-monaco"],
+      },
+      {
+        heading: t("Oceanographic Museum of Monaco", "Musee oceanographique de Monaco", "Museo Oceanografico di Monaco", "Океанографічний музей Монако"),
+        body: [
+          t("The Oceanographic Museum is the strongest animal attraction near Menton: aquariums, marine-life exhibitions, sea turtles, corals, sharks and ocean-science displays in Monaco-Ville. It is useful on rainy days, very hot afternoons and first family trips to Monaco.", "Le Musee oceanographique est l'attraction animale la plus forte pres de Menton: aquariums, expositions marines, tortues, coraux, requins et sciences de l'ocean a Monaco-Ville. Il est utile les jours de pluie, les apres-midi tres chauds et les premieres sorties famille a Monaco.", "Il Museo Oceanografico e l'attrazione animale piu forte vicino a Mentone: acquari, mostre marine, tartarughe, coralli, squali e scienza dell'oceano a Monaco-Ville. E utile con pioggia, caldo forte e prime gite famiglia a Monaco.", "Океанографічний музей - найсильніша animal attraction біля Ментона: акваріуми, marine exhibitions, черепахи, корали, акули й ocean science у Monaco-Ville. Він корисний у дощ, сильну спеку й для першої сімейної поїздки до Монако."),
+          t("Allow about two hours, and book online during holidays or peak summer. The museum is close enough to combine with a simple Monaco lunch and a short walk around the Rock.", "Prevoyez environ deux heures et reservez en ligne pendant les vacances ou l'ete. Le musee est assez proche pour etre combine avec un dejeuner simple a Monaco et une courte promenade sur le Rocher.", "Prevedi circa due ore e prenota online durante vacanze o alta estate. Il museo e abbastanza vicino per abbinarlo a un pranzo semplice a Monaco e a una breve passeggiata sul Rocher.", "Плануйте близько двох годин і бронюйте онлайн у канікули або пік літа. Музей легко поєднати з простим обідом у Монако й короткою прогулянкою Rocher."),
+        ],
+        relatedPlaceIds: ["oceanographic-museum-monaco"],
+      },
+      {
+        heading: t("Parc Phoenix in Nice", "Parc Phoenix a Nice", "Parc Phoenix a Nizza", "Parc Phoenix у Ніцці"),
+        body: [
+          t("Parc Phoenix is the best nearby zoo-like choice when children want animals plus space. It combines gardens, a large tropical greenhouse, birds, reptiles, small mammals, a lake and family facilities near the western side of Nice.", "Parc Phoenix est le meilleur choix proche de type zoo quand les enfants veulent des animaux et de l'espace. Il combine jardins, grande serre tropicale, oiseaux, reptiles, petits mammiferes, lac et equipements famille vers l'ouest de Nice.", "Parc Phoenix e la migliore scelta vicina in stile zoo quando i bambini vogliono animali e spazio. Unisce giardini, grande serra tropicale, uccelli, rettili, piccoli mammiferi, lago e servizi famiglia nella zona ovest di Nizza.", "Parc Phoenix - найкращий близький zoo-like варіант, коли дітям потрібні тварини й простір. Там є сади, велика тропічна оранжерея, птахи, рептилії, дрібні ссавці, озеро й family facilities на заході Ніцци."),
+          t("It is farther than Monaco, so treat it as a longer half-day or full family day rather than a quick stop. On hot days, alternate outdoor areas with breaks and water; the greenhouse can feel warm and humid.", "C'est plus loin que Monaco: voyez-le comme une longue demi-journee ou une journee famille, pas comme un arret rapide. Par forte chaleur, alternez espaces exterieurs, pauses et eau; la serre peut etre chaude et humide.", "E piu lontano di Monaco: consideralo una mezza giornata lunga o una giornata famiglia, non una sosta rapida. Con caldo forte alterna esterni, pause e acqua; la serra puo essere calda e umida.", "Це далі за Монако, тож плануйте довший half-day або повний family day, не швидку зупинку. У спеку чергуйте зовнішні зони, паузи й воду; оранжерея може бути теплою й вологою."),
+        ],
+        relatedPlaceIds: ["parc-phoenix-nice"],
+      },
+      {
+        heading: t("Whale and dolphin watching", "Observation des dauphins et baleines", "Whale watching e delfini", "Спостереження за китами й дельфінами"),
+        body: [
+          t("The sea between the French Riviera, Monaco and Liguria forms part of the Pelagos Sanctuary, a protected area for marine mammals. A responsible boat trip can be memorable for older children, teenagers and nature-focused families.", "La mer entre Riviera francaise, Monaco et Ligurie fait partie du sanctuaire Pelagos, zone protegee pour mammiferes marins. Une sortie responsable peut etre memorable pour grands enfants, ados et familles nature.", "Il mare tra Costa Azzurra, Monaco e Liguria fa parte del Santuario Pelagos, area protetta per mammiferi marini. Una gita responsabile puo essere memorabile per bambini grandi, ragazzi e famiglie amanti della natura.", "Море між Французькою Рив'єрою, Монако й Лігурією є частиною Pelagos Sanctuary, охоронюваної зони морських ссавців. Відповідальна boat trip може бути дуже запам'ятовуваною для старших дітей, підлітків і nature-focused families."),
+          t("Choose operators that explain conservation rules and do not promise guaranteed close contact. Bring sun protection, water, a light jacket, secure footwear and seasickness medication if appropriate.", "Choisissez des operateurs qui expliquent les regles de conservation et ne promettent pas de contact proche garanti. Prenez protection solaire, eau, veste legere, chaussures stables et anti-mal de mer si besoin.", "Scegli operatori che spiegano le regole di conservazione e non promettono contatto ravvicinato garantito. Porta protezione solare, acqua, giacca leggera, scarpe stabili e medicinali per mal di mare se servono.", "Обирайте операторів, які пояснюють conservation rules і не обіцяють гарантований близький контакт. Візьміть захист від сонця, воду, легку куртку, надійне взуття й засоби від seasickness за потреби."),
+        ],
+        relatedPlaceIds: ["pelagos-sanctuary"],
+      },
+      {
+        heading: t("Mountain animal experiences", "Experiences animales en montagne", "Esperienze con animali in montagna", "Гірський досвід із тваринами"),
+        body: [
+          t("Parc Alpha in Saint-Martin-Vésubie is a wolf-focused mountain park and should be treated as a dedicated day, especially from Menton. Ferme du Mercantour in Valdeblore is better for younger children who want farm animals, feeding activities and a hands-on mountain outing.", "Parc Alpha a Saint-Martin-Vesubie est un parc de loups en montagne et doit etre traite comme une vraie journee, surtout depuis Menton. La Ferme du Mercantour a Valdeblore convient mieux aux jeunes enfants qui veulent animaux de ferme, nourrissage et sortie pratique en montagne.", "Parc Alpha a Saint-Martin-Vésubie e un parco dei lupi in montagna e va trattato come giornata intera, soprattutto da Mentone. Ferme du Mercantour a Valdeblore e piu adatta ai piccoli che vogliono animali da fattoria, nutrimento e attivita pratica in montagna.", "Parc Alpha у Saint-Martin-Vésubie - гірський парк вовків, його варто планувати як окремий день, особливо з Ментона. Ferme du Mercantour у Valdeblore краще для молодших дітей, які хочуть farm animals, годування й hands-on гірський outing."),
+          t("For wildlife in nature rather than an animal park, Mercantour National Park can offer marmots, ibex, chamois and birdwatching, but sightings are never guaranteed and marked trails matter.", "Pour la faune en nature plutot qu'un parc animalier, le Parc national du Mercantour peut offrir marmottes, bouquetins, chamois et oiseaux, mais rien n'est garanti et les sentiers balises comptent.", "Per fauna in natura invece di un parco, il Mercantour puo offrire marmotte, stambecchi, camosci e birdwatching, ma nulla e garantito e i sentieri segnati contano.", "Для wildlife у природі, а не animal park, Mercantour National Park може дати бабаків, ibex, сарн і birdwatching, але sightings не гарантуються, і важливо триматися маркованих стежок."),
+        ],
+        relatedPlaceIds: ["parc-alpha-saint-martin-vesubie", "ferme-du-mercantour-valdeblore", "mercantour-national-park", "saint-martin-vesubie", "valdeblore"],
+      },
+      {
+        heading: t("Best options by age and weather", "Meilleurs choix selon age et meteo", "Scelte migliori per eta e meteo", "Найкращі варіанти за віком і погодою"),
+        body: [
+          t("For ages 2-5, keep the day short: Parc Phoenix, Ferme du Mercantour or a shorter Oceanographic Museum visit. For ages 6-10, Monaco aquarium, Parc Phoenix and calm sea trips work better. For teenagers, whale watching, Parc Alpha and Mercantour wildlife walks are more memorable.", "Pour 2-5 ans, gardez une journee courte: Parc Phoenix, Ferme du Mercantour ou visite plus breve du Musee oceanographique. Pour 6-10 ans, aquarium de Monaco, Parc Phoenix et sorties mer calmes fonctionnent mieux. Pour ados, whale watching, Parc Alpha et marches nature Mercantour marquent davantage.", "Per 2-5 anni tieni la giornata breve: Parc Phoenix, Ferme du Mercantour o visita piu corta al Museo Oceanografico. Per 6-10 anni funzionano meglio acquario di Monaco, Parc Phoenix e uscite mare calme. Per ragazzi, whale watching, Parc Alpha e cammini nel Mercantour sono piu memorabili.", "Для 2-5 років тримайте день коротким: Parc Phoenix, Ferme du Mercantour або коротший візит до Океанографічного музею. Для 6-10 років краще працюють акваріум Монако, Parc Phoenix і спокійні sea trips. Для підлітків запам'ятовуються whale watching, Parc Alpha і Mercantour walks."),
+          t("Rainy day: Oceanographic Museum. Very hot day: Monaco early, or Parc Phoenix with careful shade and hydration. Mild sunny day: Parc Phoenix. Calm sea day: Pelagos boat trip. Cooler mountain day: Parc Alpha or Ferme du Mercantour.", "Jour de pluie: Musee oceanographique. Tres chaud: Monaco tot, ou Parc Phoenix avec ombre et hydratation. Jour doux: Parc Phoenix. Mer calme: sortie Pelagos. Journee montagne plus fraiche: Parc Alpha ou Ferme du Mercantour.", "Pioggia: Museo Oceanografico. Molto caldo: Monaco presto, o Parc Phoenix con ombra e acqua. Giorno mite: Parc Phoenix. Mare calmo: uscita Pelagos. Giornata montagna fresca: Parc Alpha o Ferme du Mercantour.", "Дощ: Океанографічний музей. Дуже спекотно: Монако рано або Parc Phoenix з тінню й водою. М'який сонячний день: Parc Phoenix. Спокійне море: Pelagos boat trip. Прохолодніший гірський день: Parc Alpha або Ferme du Mercantour."),
+        ],
+      },
+      {
+        heading: t("Getting there from Menton", "Comment y aller depuis Menton", "Come arrivare da Mentone", "Як дістатися з Ментона"),
+        body: [
+          t("For Monaco, the train is usually easiest; continue from Monaco-Monte-Carlo station by foot, bus or public lifts toward Monaco-Ville. For Parc Phoenix, take the train to Nice and continue by tram or bus toward the airport side. For mountain parks and farms, a car is usually much more practical.", "Pour Monaco, le train est generalement le plus simple; continuez depuis la gare Monaco-Monte-Carlo a pied, en bus ou par ascenseurs publics vers Monaco-Ville. Pour Parc Phoenix, train jusqu'a Nice puis tram ou bus cote aeroport. Pour les parcs et fermes de montagne, la voiture est beaucoup plus pratique.", "Per Monaco il treno e di solito piu semplice; dalla stazione Monaco-Monte-Carlo prosegui a piedi, bus o ascensori pubblici verso Monaco-Ville. Per Parc Phoenix, treno a Nizza poi tram o bus verso l'aeroporto. Per parchi e fattorie in montagna, l'auto e molto piu pratica.", "До Монако найчастіше найпростіше потягом; від Monaco-Monte-Carlo station далі пішки, автобусом або public lifts до Monaco-Ville. До Parc Phoenix - потяг до Ніцци, далі tram або bus у бік аеропорту. Для гірських парків і ферм авто зазвичай значно практичніше."),
+          t("For whale watching, follow the operator's departure instructions exactly and arrive early. Boats will not wait for late passengers, and sea conditions can change the plan.", "Pour l'observation des cetaces, suivez exactement les instructions de depart et arrivez en avance. Les bateaux n'attendent pas les retardataires et l'etat de la mer peut changer le programme.", "Per whale watching segui esattamente le istruzioni dell'operatore e arriva presto. Le barche non aspettano i ritardatari e il mare puo cambiare il programma.", "Для whale watching точно дотримуйтеся інструкцій оператора й приходьте рано. Човни не чекатимуть тих, хто запізнився, а стан моря може змінити план."),
+        ],
+        relatedPlaceIds: ["oceanographic-museum-monaco", "parc-phoenix-nice", "pelagos-sanctuary"],
+      },
+      {
+        heading: t("Staying in Menton with children", "Sejourner a Menton avec enfants", "Soggiornare a Mentone con bambini", "Жити в Ментоні з дітьми"),
+        body: [
+          t("Menton works as a family base because the strongest animal experiences spread in different directions: Monaco for the aquarium, Nice for Parc Phoenix, the sea for dolphins and whales, and the mountains for wolves or farm animals.", "Menton fonctionne comme base famille parce que les meilleures experiences animales partent dans plusieurs directions: Monaco pour l'aquarium, Nice pour Parc Phoenix, la mer pour dauphins et baleines, la montagne pour loups ou animaux de ferme.", "Mentone funziona come base famiglia perche le migliori esperienze con animali sono in direzioni diverse: Monaco per l'acquario, Nizza per Parc Phoenix, il mare per delfini e balene, la montagna per lupi o animali da fattoria.", "Ментон працює як family base, бо найсильніші animal experiences розходяться в різні боки: Монако для акваріума, Ніцца для Parc Phoenix, море для дельфінів і китів, гори для вовків або фермерських тварин."),
+          t("Beachside Apartment with Terrace & Parking is the strongest family option for car-based mountain outings or travelling with equipment. Sea View Balcony Studio and Panoramic Sea View Studio suit smaller families or shorter stays focused on Monaco, the sea and train-friendly outings.", "Beachside Apartment with Terrace & Parking est l'option famille la plus forte pour sorties montagne en voiture ou voyages avec materiel. Sea View Balcony Studio et Panoramic Sea View Studio conviennent aux petites familles ou courts sejours autour de Monaco, mer et sorties en train.", "Beachside Apartment with Terrace & Parking e l'opzione famiglia piu forte per uscite in montagna in auto o viaggi con attrezzatura. Sea View Balcony Studio e Panoramic Sea View Studio vanno bene per famiglie piccole o soggiorni brevi su Monaco, mare e gite in treno.", "Beachside Apartment with Terrace & Parking - найсильніший сімейний варіант для гірських виїздів авто або подорожей з обладнанням. Sea View Balcony Studio і Panoramic Sea View Studio підходять меншим сім'ям або коротшим stays навколо Монако, моря й поїздок потягом."),
+        ],
+        relatedApartmentKeys: ["beachside-family-apartment", "sea-view-balcony-studio", "panoramic-sea-view-studio"],
+      },
+    ],
+    practicalTips: [
+      t("Check current opening days, prices and reservation rules before travelling; animal attractions change programmes seasonally.", "Verifiez jours d'ouverture, tarifs et reservations avant de partir; les attractions animales changent selon saison.", "Controlla giorni di apertura, prezzi e prenotazioni prima di partire; le attrazioni con animali cambiano stagionalmente.", "Перевіряйте актуальні дні роботи, ціни й правила бронювання перед поїздкою; animal attractions сезонно змінюють програми."),
+      t("For boat trips, sightings are not guaranteed; choose responsible operators and check sea conditions.", "Pour les sorties en mer, les observations ne sont pas garanties; choisissez des operateurs responsables et verifiez la mer.", "Per gite in barca, gli avvistamenti non sono garantiti; scegli operatori responsabili e controlla il mare.", "Для boat trips sightings не гарантуються; обирайте відповідальних операторів і перевіряйте море."),
+      t("Do not feed wildlife or leave marked trails in the Mercantour.", "Ne nourrissez pas la faune et ne quittez pas les sentiers balises dans le Mercantour.", "Non dare cibo alla fauna e non lasciare i sentieri segnati nel Mercantour.", "Не годуйте диких тварин і не сходьте з маркованих стежок у Mercantour."),
     ],
   }),
   shortArticle({
