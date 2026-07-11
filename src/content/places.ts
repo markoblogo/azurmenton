@@ -4606,6 +4606,51 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "la-tarte-mentonnaise": {
+    image: "/images/guide/la-tarte-mentonnaise.jpg",
+    imageAlt: text("Illustration of La Tarte Mentonnaise in Menton", "Illustration de La Tarte Mentonnaise a Menton", "Illustrazione di La Tarte Mentonnaise a Mentone", "Ілюстрація La Tarte Mentonnaise у Ментоні"),
+    visualTheme: "food",
+  },
+  "mitron-bakery-menton": {
+    image: "/images/guide/mitron-bakery-menton.jpg",
+    imageAlt: text("Illustration of Mitron Bakery in Menton", "Illustration de Mitron Bakery a Menton", "Illustrazione di Mitron Bakery a Mentone", "Ілюстрація Mitron Bakery у Ментоні"),
+    visualTheme: "food",
+  },
+  "vanilla-bakery-menton": {
+    image: "/images/guide/vanilla-bakery-menton.jpg",
+    imageAlt: text("Illustration of Vanilla Bakery in Menton", "Illustration de Vanilla Bakery a Menton", "Illustrazione di Vanilla Bakery a Mentone", "Ілюстрація Vanilla Bakery у Ментоні"),
+    visualTheme: "food",
+  },
+  "atelier-boulanger-menton": {
+    image: "/images/guide/atelier-boulanger-menton.jpg",
+    imageAlt: text("Illustration of Atelier Boulanger in Menton", "Illustration d'Atelier Boulanger a Menton", "Illustrazione di Atelier Boulanger a Mentone", "Ілюстрація Atelier Boulanger у Ментоні"),
+    visualTheme: "food",
+  },
+  "cafe-noailles-menton": {
+    image: "/images/guide/cafe-noailles-menton.jpg",
+    imageAlt: text("Illustration of Café Noailles in Menton", "Illustration de Cafe Noailles a Menton", "Illustrazione di Cafe Noailles a Mentone", "Ілюстрація Café Noailles у Ментоні"),
+    visualTheme: "food",
+  },
+  "boulangerie-la-madone-des-jardins": {
+    image: "/images/guide/boulangerie-la-madone-des-jardins.jpg",
+    imageAlt: text("Illustration of Boulangerie La Madone des Jardins in Menton", "Illustration de la Boulangerie La Madone des Jardins a Menton", "Illustrazione della Boulangerie La Madone des Jardins a Mentone", "Ілюстрація Boulangerie La Madone des Jardins у Ментоні"),
+    visualTheme: "food",
+  },
+  "ma-premiere-boulangerie-la-turbie": {
+    image: "/images/guide/ma-premiere-boulangerie-la-turbie.jpg",
+    imageAlt: text("Illustration of Ma Première Boulangerie in La Turbie", "Illustration de Ma Premiere Boulangerie a La Turbie", "Illustrazione di Ma Première Boulangerie a La Turbie", "Ілюстрація Ma Première Boulangerie у La Turbie"),
+    visualTheme: "food",
+  },
+  "cedric-grolet-monte-carlo": {
+    image: "/images/guide/cedric-grolet-monte-carlo.jpg",
+    imageAlt: text("Illustration of Cédric Grolet Monte-Carlo", "Illustration de Cedric Grolet Monte-Carlo", "Illustrazione di Cédric Grolet Monte-Carlo", "Ілюстрація Cédric Grolet Monte-Carlo"),
+    visualTheme: "food",
+  },
+  "pasticceria-cova-monaco": {
+    image: "/images/guide/pasticceria-cova-monaco.jpg",
+    imageAlt: text("Illustration of Pasticceria Cova in Monaco", "Illustration de Pasticceria Cova a Monaco", "Illustrazione di Pasticceria Cova a Monaco", "Ілюстрація Pasticceria Cova у Монако"),
+    visualTheme: "food",
+  },
   "pharmacie-lafayette-des-jardins": {
     image: "/images/guide/pharmacie-lafayette-des-jardins.jpg",
     imageAlt: text("Illustration of Pharmacie Lafayette des Jardins in Menton", "Illustration de la Pharmacie Lafayette des Jardins a Menton", "Illustrazione della Pharmacie Lafayette des Jardins a Mentone", "Ілюстрація Pharmacie Lafayette des Jardins у Ментоні"),
