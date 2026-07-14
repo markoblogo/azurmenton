@@ -4902,6 +4902,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Padmaspace in Menton", "Illustration de Padmaspace a Menton", "Illustrazione di Padmaspace a Mentone", "Ілюстрація Padmaspace у Ментоні"),
     visualTheme: "walk",
   },
+  "menton-petanque": {
+    image: "/images/guide/menton-petanque.jpg",
+    imageAlt: text("Illustration of Menton Pétanque at Clos du Palais Carnolès", "Illustration de Menton Pétanque au Clos du Palais Carnolès", "Illustrazione di Menton Pétanque al Clos du Palais Carnolès", "Ілюстрація Menton Pétanque у Clos du Palais Carnolès"),
+    visualTheme: "walk",
+  },
+  "garavan-petanque": {
+    image: "/images/guide/garavan-petanque.jpg",
+    imageAlt: text("Illustration of Garavan Pétanque in Menton", "Illustration de Garavan Pétanque a Menton", "Illustrazione di Garavan Pétanque a Mentone", "Ілюстрація Garavan Pétanque у Ментоні"),
+    visualTheme: "walk",
+  },
+  "club-bouliste-de-menton": {
+    image: "/images/guide/club-bouliste-de-menton.jpg",
+    imageAlt: text("Illustration of Club Bouliste de Menton", "Illustration du Club Bouliste de Menton", "Illustrazione del Club Bouliste de Menton", "Ілюстрація Club Bouliste de Menton"),
+    visualTheme: "walk",
+  },
+  "boulodrome-borashi-menton": {
+    image: "/images/guide/boulodrome-borashi-menton.jpg",
+    imageAlt: text("Illustration of Boulodrome Borashi in Menton", "Illustration du Boulodrome Borashi a Menton", "Illustrazione del Boulodrome Borashi a Mentone", "Ілюстрація Boulodrome Borashi у Ментоні"),
+    visualTheme: "walk",
+  },
+  "sport-2000-menton": {
+    image: "/images/guide/sport-2000-menton.jpg",
+    imageAlt: text("Illustration of Sport 2000 Menton", "Illustration de Sport 2000 Menton", "Illustrazione di Sport 2000 Menton", "Ілюстрація Sport 2000 Menton"),
+    visualTheme: "walk",
+  },
   "la-tarte-mentonnaise": {
     image: "/images/guide/la-tarte-mentonnaise.jpg",
     imageAlt: text("Illustration of La Tarte Mentonnaise in Menton", "Illustration de La Tarte Mentonnaise a Menton", "Illustrazione di La Tarte Mentonnaise a Mentone", "Ілюстрація La Tarte Mentonnaise у Ментоні"),
