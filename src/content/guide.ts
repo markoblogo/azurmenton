@@ -7226,7 +7226,8 @@ export const guideArticles: GuideArticle[] = [
     coverImageAlt: t("Fitness training in Menton", "Entrainement fitness a Menton", "Allenamento fitness a Mentone", "Фітнес-тренування в Ментоні"),
     visualTheme: "walk",
     sourceStatus: "needs_verification",
-    relatedPlaces: ["la-salle-menton", "menton-crossfit", "sport-plaisir-menton", "street-workout-francis-palmero", "promenade-du-soleil", "menton-station"],
+    canonicalPlaceTypes: ["fitness-centre"],
+    relatedPlaces: ["la-salle-menton", "menton-crossfit", "sport-plaisir-menton", "street-workout-francis-palmero", "yoga4motion-menton", "centre-yoga-precision-menton", "promenade-du-soleil", "menton-station"],
     relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "petanque-in-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
@@ -7283,6 +7284,13 @@ export const guideArticles: GuideArticle[] = [
           t("Confirm reception hours, showers, lockers and footwear rules.", "Confirmez reception, douches, casiers et regles de chaussures.", "Conferma reception, docce, armadietti e regole per le scarpe.", "Підтвердьте години рецепції, душові, шафки та вимоги до взуття."),
           t("For CrossFit, mention your experience level before reserving.", "Pour CrossFit, indiquez votre niveau avant de reserver.", "Per CrossFit, indica il tuo livello prima di prenotare.", "Для CrossFit повідомте свій рівень до бронювання."),
         ],
+      },
+      {
+        heading: t("Yoga and lower-impact studio classes", "Yoga et cours en studio a faible impact", "Yoga e lezioni in studio a basso impatto", "Йога та студійні заняття з меншим навантаженням"),
+        body: [
+          t("Yoga4Motion and Centre Yoga Precision are useful when a quieter class-based session suits the stay better than conventional gym training. Check the current language, booking terms and drop-in availability directly before going.", "Yoga4Motion et Centre Yoga Precision sont utiles lorsqu'une seance plus calme en cours convient mieux qu'une salle classique. Verifiez directement la langue, les conditions de reservation et l'acces ponctuel avant de venir.", "Yoga4Motion e Centre Yoga Precision sono utili quando una lezione piu tranquilla e strutturata si adatta meglio del fitness tradizionale. Verifica direttamente lingua, condizioni di prenotazione e accesso drop-in prima di andare.", "Yoga4Motion і Centre Yoga Precision корисні, коли спокійніше заняття в студії підходить краще за класичний спортзал. Перед візитом напряму перевіряйте мову, умови бронювання та можливість разового заняття."),
+        ],
+        relatedPlaceIds: ["yoga4motion-menton", "centre-yoga-precision-menton"],
       },
       {
         heading: t("Staying active beyond the gym", "Rester actif sans salle de sport", "Restare attivi oltre la palestra", "Залишатися активними поза залом"),

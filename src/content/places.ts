@@ -4759,6 +4759,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A full-service local gym in the Careï area with strength, free-weight, cardio and group-training options. Confirm visitor access before going.", "Salle de sport complete dans le Careï, avec musculation, poids libres, cardio et cours collectifs. Confirmez l'acces visiteur avant de vous deplacer.", "Palestra completa nella zona del Careï, con pesi, area libera, cardio e corsi di gruppo. Conferma l'accesso per visitatori prima di andare.", "Повноцінний спортзал у районі Careï: силові тренування, вільні ваги, кардіо й групові заняття. Перед візитом підтвердьте доступ для гостей."),
     bestFor: [text("weights and cardio", "musculation et cardio", "pesi e cardio", "ваги й кардіо"), text("longer stays", "sejours plus longs", "soggiorni piu lunghi", "довші перебування")],
     relatedArticleIds: ["gyms-fitness-centres-menton", "cycling-bike-rental-menton", "tennis-padel-courts-menton"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "menton-crossfit",
@@ -4771,6 +4772,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A coached CrossFit box on Route du Mont Gros. Contact the team first about drop-ins, experience level and class reservations.", "Box CrossFit encadree route du Mont Gros. Contactez l'equipe avant de venir pour les drop-ins, le niveau requis et les reservations.", "Box CrossFit con coaching sulla Route du Mont Gros. Contatta prima il team per drop-in, livello richiesto e prenotazioni.", "CrossFit-бокс із тренерами на Route du Mont Gros. Перед візитом зв'яжіться з командою щодо drop-in, рівня та бронювання."),
     bestFor: [text("coached functional training", "entrainement fonctionnel encadre", "allenamento funzionale con coach", "функціональні тренування з тренером"), text("CrossFit travellers", "voyageurs CrossFit", "viaggiatori CrossFit", "мандрівники CrossFit")],
     relatedArticleIds: ["gyms-fitness-centres-menton", "tennis-padel-courts-menton", "cycling-bike-rental-menton"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "sport-plaisir-menton",
@@ -4783,6 +4785,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Careï fitness centre with broad published opening hours. Ask directly about day entry, equipment and staffed reception times.", "Centre de fitness du Careï avec de larges horaires publies. Demandez directement l'entree a la seance, les equipements et les horaires de reception.", "Centro fitness del Careï con ampi orari pubblicati. Chiedi direttamente ingresso giornaliero, attrezzatura e orari della reception.", "Фітнес-центр у Careï з широкими заявленими годинами роботи. Уточнюйте напряму разовий вхід, обладнання й години рецепції."),
     bestFor: [text("flexible training hours", "horaires souples", "orari flessibili", "гнучкий час тренувань"), text("general fitness", "fitness general", "fitness generale", "загальна фізична форма")],
     relatedArticleIds: ["gyms-fitness-centres-menton"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "street-workout-francis-palmero",
@@ -4795,6 +4798,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Free municipal street-workout equipment by the Bastion and seafront, suited to calisthenics and bodyweight training rather than a conventional gym session.", "Agres municipaux gratuits pres du Bastion et du front de mer, adaptes au street workout et au poids du corps plutot qu'a une salle de sport classique.", "Attrezzatura municipale gratuita vicino al Bastione e al mare, adatta a calisthenics e allenamento a corpo libero piu che a una palestra tradizionale.", "Безкоштовне міське street-workout обладнання біля Bastion і моря, для калістеніки та вправ із власною вагою, а не класичного залу."),
     bestFor: [text("free outdoor training", "entrainement exterieur gratuit", "allenamento outdoor gratuito", "безкоштовні тренування надворі"), text("calisthenics", "calisthenics", "calisthenics", "калістеніка")],
     relatedArticleIds: ["gyms-fitness-centres-menton", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "yoga4motion-menton",
@@ -4808,6 +4812,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central yoga studio offering several movement and breath-led formats, including infrared sessions. Check the current timetable, room temperature and visitor booking terms directly.", "Studio de yoga central proposant plusieurs formats de mouvement et de respiration, dont des seances infrarouges. Verifiez directement planning, temperature de salle et conditions visiteur.", "Studio yoga centrale con diversi formati di movimento e respiro, incluse sessioni a infrarossi. Verifica direttamente orari, temperatura della sala e condizioni per visitatori.", "Центральна yoga-студія з різними форматами руху й дихальних практик, зокрема інфрачервоними сесіями. Напряму перевіряйте розклад, температуру залу й умови для гостей."),
     bestFor: [text("central studio practice", "pratique en studio central", "pratica in studio centrale", "заняття в центральній студії"), text("indoor summer option", "option interieure en ete", "opzione indoor d'estate", "літній варіант у приміщенні")],
     relatedArticleIds: ["yoga-in-menton", "gyms-fitness-centres-menton", "stay-cool-in-menton-summer", "menton-without-a-car"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "centre-yoga-precision-menton",
@@ -4821,6 +4826,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central Iyengar yoga school with group classes, private sessions and workshops. Contact the school before visiting for the current schedule and suitable format.", "Ecole de yoga Iyengar au centre, avec cours collectifs, seances privees et stages. Contactez l'ecole avant de venir pour le planning et le format adaptes.", "Scuola di yoga Iyengar in centro con corsi di gruppo, sessioni private e workshop. Contatta la scuola prima di andare per orari e formato adatto.", "Центральна школа Iyengar yoga з груповими заняттями, приватними сесіями та воркшопами. Перед візитом уточнюйте розклад і відповідний формат."),
     bestFor: [text("alignment-focused yoga", "yoga axe sur l'alignement", "yoga focalizzato sull'allineamento", "yoga з фокусом на вирівнюванні"), text("central short stays", "courts sejours centraux", "brevi soggiorni in centro", "короткі перебування в центрі")],
     relatedArticleIds: ["yoga-in-menton", "gyms-fitness-centres-menton", "menton-without-a-car"],
+    guideCoverageSlugs: ["gyms-fitness-centres-menton"],
   },
   {
     id: "studio-jeune-lune-menton",
