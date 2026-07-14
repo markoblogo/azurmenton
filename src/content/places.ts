@@ -39,6 +39,7 @@ export type PlaceType =
   | "family-activity"
   | "shopping-centre"
   | "pool"
+  | "fitness-centre"
   | "theme-park"
   | "playground"
   | "skatepark";
@@ -3665,6 +3666,7 @@ const rawPlaces: Place[] = [
       "where-to-stay-in-menton",
       "public-transport-in-menton",
       "casinos-near-menton",
+      "gyms-fitness-centres-menton",
     ],
   },
   {
@@ -4675,6 +4677,54 @@ const rawPlaces: Place[] = [
     shortNote: text("A practical municipal contact to confirm local environmental and fire-related rules before planning any flame-producing activity.", "Un contact municipal pratique pour confirmer les regles locales d'environnement et de feu avant toute activite produisant une flamme.", "Un contatto comunale pratico per confermare le regole locali ambientali e sul fuoco prima di qualsiasi attivita con fiamma.", "Практичний міський контакт для уточнення місцевих екологічних і протипожежних правил перед будь-якою активністю з відкритим вогнем."),
     bestFor: [text("local rules", "regles locales", "regole locali", "місцеві правила"), text("fire-safety checks", "verification securite incendie", "verifica sicurezza antincendio", "перевірка пожежної безпеки")],
     relatedArticleIds: ["barbecue-picnic-areas-near-menton"],
+  },
+  {
+    id: "la-salle-menton",
+    name: "LA Salle Menton",
+    type: "fitness-centre",
+    address: "3613 Route du Mont Gros, ZI du Careï, 06500 Menton",
+    googleMapsUrl: mapsQuery("LA Salle Menton", "3613 Route du Mont Gros", "Menton"),
+    programmeUrl: "https://www.lasallementon.com/",
+    sourceStatus: "verified",
+    shortNote: text("A full-service local gym in the Careï area with strength, free-weight, cardio and group-training options. Confirm visitor access before going.", "Salle de sport complete dans le Careï, avec musculation, poids libres, cardio et cours collectifs. Confirmez l'acces visiteur avant de vous deplacer.", "Palestra completa nella zona del Careï, con pesi, area libera, cardio e corsi di gruppo. Conferma l'accesso per visitatori prima di andare.", "Повноцінний спортзал у районі Careï: силові тренування, вільні ваги, кардіо й групові заняття. Перед візитом підтвердьте доступ для гостей."),
+    bestFor: [text("weights and cardio", "musculation et cardio", "pesi e cardio", "ваги й кардіо"), text("longer stays", "sejours plus longs", "soggiorni piu lunghi", "довші перебування")],
+    relatedArticleIds: ["gyms-fitness-centres-menton", "cycling-bike-rental-menton", "tennis-padel-courts-menton"],
+  },
+  {
+    id: "menton-crossfit",
+    name: "Menton CrossFit",
+    type: "fitness-centre",
+    address: "3513 Route du Mont Gros, 06500 Menton",
+    googleMapsUrl: mapsQuery("Menton CrossFit", "3513 Route du Mont Gros", "Menton"),
+    programmeUrl: "https://www.mentoncrossfit.com/",
+    sourceStatus: "verified",
+    shortNote: text("A coached CrossFit box on Route du Mont Gros. Contact the team first about drop-ins, experience level and class reservations.", "Box CrossFit encadree route du Mont Gros. Contactez l'equipe avant de venir pour les drop-ins, le niveau requis et les reservations.", "Box CrossFit con coaching sulla Route du Mont Gros. Contatta prima il team per drop-in, livello richiesto e prenotazioni.", "CrossFit-бокс із тренерами на Route du Mont Gros. Перед візитом зв'яжіться з командою щодо drop-in, рівня та бронювання."),
+    bestFor: [text("coached functional training", "entrainement fonctionnel encadre", "allenamento funzionale con coach", "функціональні тренування з тренером"), text("CrossFit travellers", "voyageurs CrossFit", "viaggiatori CrossFit", "мандрівники CrossFit")],
+    relatedArticleIds: ["gyms-fitness-centres-menton", "tennis-padel-courts-menton", "cycling-bike-rental-menton"],
+  },
+  {
+    id: "sport-plaisir-menton",
+    name: "Sport Plaisir",
+    type: "fitness-centre",
+    address: "60 bis Promenade Val du Careï, 06500 Menton",
+    googleMapsUrl: mapsQuery("Sport Plaisir", "60 bis Promenade Val du Carei", "Menton"),
+    programmeUrl: "https://www.sport-plaisir-menton.com/",
+    sourceStatus: "verified",
+    shortNote: text("A Careï fitness centre with broad published opening hours. Ask directly about day entry, equipment and staffed reception times.", "Centre de fitness du Careï avec de larges horaires publies. Demandez directement l'entree a la seance, les equipements et les horaires de reception.", "Centro fitness del Careï con ampi orari pubblicati. Chiedi direttamente ingresso giornaliero, attrezzatura e orari della reception.", "Фітнес-центр у Careï з широкими заявленими годинами роботи. Уточнюйте напряму разовий вхід, обладнання й години рецепції."),
+    bestFor: [text("flexible training hours", "horaires souples", "orari flessibili", "гнучкий час тренувань"), text("general fitness", "fitness general", "fitness generale", "загальна фізична форма")],
+    relatedArticleIds: ["gyms-fitness-centres-menton"],
+  },
+  {
+    id: "street-workout-francis-palmero",
+    name: "Street Workout at Esplanade Francis Palmero",
+    type: "fitness-centre",
+    address: "Esplanade Francis Palmero, 06500 Menton",
+    googleMapsUrl: mapsQuery("Street Workout", "Esplanade Francis Palmero", "Menton"),
+    programmeUrl: "https://www.menton.fr/street-workout.html",
+    sourceStatus: "verified",
+    shortNote: text("Free municipal street-workout equipment by the Bastion and seafront, suited to calisthenics and bodyweight training rather than a conventional gym session.", "Agres municipaux gratuits pres du Bastion et du front de mer, adaptes au street workout et au poids du corps plutot qu'a une salle de sport classique.", "Attrezzatura municipale gratuita vicino al Bastione e al mare, adatta a calisthenics e allenamento a corpo libero piu che a una palestra tradizionale.", "Безкоштовне міське street-workout обладнання біля Bastion і моря, для калістеніки та вправ із власною вагою, а не класичного залу."),
+    bestFor: [text("free outdoor training", "entrainement exterieur gratuit", "allenamento outdoor gratuito", "безкоштовні тренування надворі"), text("calisthenics", "calisthenics", "calisthenics", "калістеніка")],
+    relatedArticleIds: ["gyms-fitness-centres-menton", "best-beaches-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car"],
   },
 ];
 
@@ -6392,6 +6442,7 @@ function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
     "family-activity": "family",
     "shopping-centre": "market",
     pool: "sea",
+    "fitness-centre": "walk",
     "theme-park": "family",
     playground: "family",
     skatepark: "family",
