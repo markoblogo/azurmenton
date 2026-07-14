@@ -304,6 +304,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
       <Section className="!py-2 bg-[#f8f3ea] sm:!py-3">
         <Container>
           <GuideExplorer
+            key={selectedCollection?.id ?? "all-guides"}
             locale={safeLocale}
             articles={articles}
             initialCollection={selectedCollection ? {

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { Route } from "next";
 import { GuideVisual, type GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { ContentCollectionId } from "@/content/content-map";
 import type { Locale } from "@/i18n/locales";
@@ -31,7 +30,11 @@ export function GuideCollections({ locale, collections }: { locale: Locale; coll
       {collections.map((collection) => (
         <Link
           key={collection.id}
-          href={`/${locale}/guide?collection=${collection.id}#guide-finder` as Route}
+          href={{
+            pathname: `/${locale}/guide`,
+            query: { collection: collection.id },
+            hash: "guide-finder",
+          }}
           className="group grid min-h-32 grid-cols-[7.5rem_1fr] overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] transition hover:-translate-y-0.5 hover:border-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a]"
         >
           <GuideVisual
