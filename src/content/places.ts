@@ -5039,6 +5039,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Quai Bonaparte in Menton", "Illustration du quai Bonaparte a Menton", "Illustrazione di Quai Bonaparte a Mentone", "Ілюстрація Quai Bonaparte у Ментоні"),
     visualTheme: "port",
   },
+  "rue-longue-menton": {
+    image: "/images/guide/rue-longue-menton.jpg",
+    imageAlt: text("Rue Longue in Menton's old town", "Rue Longue dans la vieille ville de Menton", "Rue Longue nel centro storico di Mentone", "Rue Longue у старому місті Ментона"),
+    visualTheme: "old-town",
+  },
+  "rue-de-brea-menton": {
+    image: "/images/guide/rue-de-brea-menton.jpg",
+    imageAlt: text("Rue de Brea near Saint-Michel in Menton", "Rue de Brea pres de Saint-Michel a Menton", "Rue de Brea vicino a Saint-Michel a Mentone", "Rue de Brea біля Saint-Michel у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "place-du-cap-menton": {
+    image: "/images/guide/place-du-cap-menton.jpg",
+    imageAlt: text("Place du Cap between Menton's old town and old port", "Place du Cap entre la vieille ville et le vieux port de Menton", "Place du Cap tra il centro storico e il porto antico di Mentone", "Place du Cap між старим містом і старим портом Ментона"),
+    visualTheme: "port",
+  },
+  "tunnel-pascal-molinari": {
+    image: "/images/guide/tunnel-pascal-molinari.jpg",
+    imageAlt: text("Tunnel Pascal-Molinari in Menton", "Tunnel Pascal-Molinari a Menton", "Tunnel Pascal-Molinari a Mentone", "Тунель Pascal-Molinari у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "villa-maria-serena": {
+    image: "/images/guide/villa-maria-serena.jpg",
+    imageAlt: text("Villa Maria Serena in Menton's Garavan district", "Villa Maria Serena dans le quartier de Garavan a Menton", "Villa Maria Serena nel quartiere Garavan di Mentone", "Villa Maria Serena в районі Garavan у Ментоні"),
+    visualTheme: "garden",
+  },
+  "palais-carnoles-menton": {
+    image: "/images/guide/palais-carnoles-menton.jpg",
+    imageAlt: text("Palais Carnoles in Menton", "Palais Carnoles a Menton", "Palais Carnoles a Mentone", "Palais Carnoles у Ментоні"),
+    visualTheme: "old-town",
+  },
   "puro-piacere-menton": {
     image: "/images/guide/puro-piacere-menton.jpg",
     imageAlt: text("Illustration of Puro Piacere in Menton", "Illustration de Puro Piacere a Menton", "Illustrazione di Puro Piacere a Mentone", "Ілюстрація Puro Piacere у Ментоні"),
