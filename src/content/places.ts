@@ -905,6 +905,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Mountain village gateway for Boréon, Parc Alpha and Mercantour family nature days from the Riviera.", "Village de montagne porte d'acces au Boreon, Parc Alpha et journees nature Mercantour depuis la Riviera.", "Borgo di montagna per Boréon, Parc Alpha e giornate natura Mercantour dalla Riviera.", "Гірське село-ворота до Boréon, Parc Alpha і сімейних природних днів у Mercantour з Рив'єри."),
     bestFor: [text("Mercantour gateway", "porte du Mercantour", "porta del Mercantour", "ворота Mercantour"), text("mountain day trips", "excursions montagne", "gite in montagna", "гірські поїздки")],
     relatedArticleIds: ["zoos-aquariums-animal-parks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["mountains-snow-skiing-near-menton"],
   },
   {
     id: "valdeblore",
@@ -916,6 +917,7 @@ const rawPlaces: Place[] = [
     shortNote: text("High-country village area for Ferme du Mercantour, family farm visits and quieter Mercantour outings.", "Secteur de village de montagne pour la Ferme du Mercantour, visites a la ferme et sorties Mercantour plus calmes.", "Area di borgo montano per Ferme du Mercantour, visite in fattoria e uscite Mercantour piu tranquille.", "Гірський район для Ferme du Mercantour, сімейних візитів на ферму й спокійніших виїздів у Mercantour."),
     bestFor: [text("farm visits", "visites a la ferme", "visite in fattoria", "візити на ферму"), text("mountain families", "familles montagne", "famiglie in montagna", "сім'ї в горах")],
     relatedArticleIds: ["zoos-aquariums-animal-parks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["mountains-snow-skiing-near-menton"],
   },
   {
     id: "monaco-ville-souvenir-shops",
@@ -4735,6 +4737,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A hill village above Menton, useful for views, walks and occasional organised local celebrations. Check programmes and access before going.", "Un village perche au-dessus de Menton, utile pour les vues, les promenades et certaines fetes locales organisees. Verifiez programme et acces avant de partir.", "Un borgo in collina sopra Mentone, utile per viste, passeggiate e alcune feste locali organizzate. Controlla programma e accesso prima di partire.", "Гірське село над Ментоном для видів, прогулянок і деяких організованих місцевих свят. Перед поїздкою перевіряйте програму й доступ."),
     bestFor: [text("village views", "vues de village", "viste dal borgo", "види із села"), text("organised local events", "fetes locales organisees", "eventi locali organizzati", "організовані місцеві події")],
     relatedArticleIds: ["day-trips-from-menton", "best-walks-and-hikes-around-menton", "barbecue-picnic-areas-near-menton"],
+    guideCoverageSlugs: ["best-walks-and-hikes-around-menton"],
   },
   {
     id: "menton-environmental-brigade",

@@ -1466,7 +1466,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
-    relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "promenade-du-soleil", "port-de-garavan"],
+    relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "sainte-agnes", "promenade-du-soleil", "port-de-garavan"],
     relatedArticles: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
     relatedApartments: allApartments,
     sections: [
@@ -1506,6 +1506,13 @@ export const guideArticles: GuideArticle[] = [
           t("Difficulty: moderate. Duration: 2-4 hours. This walk climbs from the coast towards the medieval village of Roquebrune, passing olive trees, stone paths and viewpoints before reaching narrow streets, cafes and the historic castle area.", "Difficulte: moderee. Duree: 2-4 heures. Cette balade monte depuis la cote vers le village medieval de Roquebrune, entre oliviers, chemins de pierre et points de vue avant les ruelles, cafes et le secteur du chateau.", "Difficolta: moderata. Durata: 2-4 ore. Questa passeggiata sale dalla costa al borgo medievale di Roquebrune, tra ulivi, sentieri in pietra e punti panoramici prima di arrivare a vicoli, cafe e zona del castello.", "Складність: помірно. Тривалість: 2-4 години. Ця прогулянка піднімається від узбережжя до середньовічного Roquebrune через оливи, кам'яні стежки й оглядові точки до вузьких вулиць, кафе й району замку."),
         ],
         relatedPlaceIds: ["roquebrune-medieval-village", "roquebrune-cap-martin-coastal-walk"],
+      },
+      {
+        heading: t("Sainte-Agnès: a hill-village walking day", "Sainte-Agnes : une journee marche dans un village perche", "Sainte-Agnès: una giornata a piedi in un borgo in collina", "Sainte-Agnès: день прогулянок у гірському селі"),
+        body: [
+          t("Sainte-Agnès is a distinct hill-village day rather than a short loop from the seafront. It suits visitors who want medieval lanes, higher views and a more elevated walking rhythm above Menton. Check current route and access information before setting out.", "Sainte-Agnes est une vraie journee de village perche, pas une petite boucle depuis le front de mer. Elle convient aux visiteurs qui cherchent ruelles medievales, vues en hauteur et un rythme de marche plus eleve au-dessus de Menton. Verifiez l'itineraire et l'acces avant de partir.", "Sainte-Agnès e una vera giornata in un borgo in collina, non un breve anello dal lungomare. E adatta a chi cerca vicoli medievali, viste dall'alto e un ritmo di cammino piu elevato sopra Mentone. Controlla itinerario e accesso prima di partire.", "Sainte-Agnès - це окремий день у гірському селі, а не коротке коло від набережної. Воно підходить тим, хто шукає середньовічні вулички, вищі краєвиди й прогулянки над Ментоном. Перед виходом перевіряйте актуальний маршрут і доступ."),
+        ],
+        relatedPlaceIds: ["sainte-agnes"],
       },
       {
         heading: t("Walking without a car", "Marcher sans voiture", "Camminare senza auto", "Пішки без авто"),
@@ -1671,6 +1678,8 @@ export const guideArticles: GuideArticle[] = [
       "la-brigue",
       "tende",
       "mercantour-national-park",
+      "saint-martin-vesubie",
+      "valdeblore",
     ],
     relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
@@ -1724,6 +1733,13 @@ export const guideArticles: GuideArticle[] = [
         ],
         relatedPlaceIds: ["col-de-turini", "authion-massif", "sospel-bevera-valley", "la-brigue", "tende", "mercantour-national-park"],
         relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Mountain village gateways: Saint-Martin-Vésubie and Valdeblore", "Villages portes d'entree: Saint-Martin-Vesubie et Valdeblore", "Borghi di accesso: Saint-Martin-Vesubie e Valdeblore", "Гірські села-ворота: Saint-Martin-Vésubie і Valdeblore"),
+        body: [
+          t("These are not interchangeable ski resorts. Saint-Martin-Vésubie is a useful gateway for Boréon, Parc Alpha and Mercantour nature days, while Valdeblore is the village area around La Colmiane and quieter family mountain stops. Treat either as a planned car day and check weather, road and seasonal access before leaving Menton.", "Ce ne sont pas des stations de ski interchangeables. Saint-Martin-Vesubie est une porte d'entree utile vers Boreon, Parc Alpha et les journees nature du Mercantour, tandis que Valdeblore est le secteur de village autour de La Colmiane et de haltes familiales plus calmes. Considerez-les comme une journee voiture planifiee et verifiez meteo, routes et acces saisonnier avant de quitter Menton.", "Non sono stazioni sciistiche intercambiabili. Saint-Martin-Vesubie e una porta utile per Boréon, Parc Alpha e giornate natura nel Mercantour, mentre Valdeblore e l'area di paese intorno a La Colmiane e a soste familiari piu tranquille. Considera entrambe come una giornata in auto pianificata e controlla meteo, strade e accesso stagionale prima di lasciare Mentone.", "Це не взаємозамінні лижні курорти. Saint-Martin-Vésubie - зручні ворота до Boréon, Parc Alpha та природних днів у Mercantour, а Valdeblore - сільська зона навколо La Colmiane і спокійніших сімейних гірських зупинок. Обидва варіанти плануйте як день на авто й перевіряйте погоду, дороги та сезонний доступ перед виїздом із Ментона."),
+        ],
+        relatedPlaceIds: ["saint-martin-vesubie", "valdeblore"],
       },
       {
         heading: t("Best option by trip type", "Quelle option selon le voyage", "Opzione migliore per tipo di viaggio", "Найкращий варіант за типом поїздки"),
