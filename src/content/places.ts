@@ -4729,6 +4729,26 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "la-salle-menton": {
+    image: "/images/guide/la-salle-menton.jpg",
+    imageAlt: text("Illustration of LA Salle Menton", "Illustration de LA Salle Menton", "Illustrazione di LA Salle Menton", "Ілюстрація LA Salle Menton"),
+    visualTheme: "walk",
+  },
+  "menton-crossfit": {
+    image: "/images/guide/menton-crossfit.jpg",
+    imageAlt: text("Illustration of Menton CrossFit", "Illustration de Menton CrossFit", "Illustrazione di Menton CrossFit", "Ілюстрація Menton CrossFit"),
+    visualTheme: "walk",
+  },
+  "sport-plaisir-menton": {
+    image: "/images/guide/sport-plaisir-menton.jpg",
+    imageAlt: text("Illustration of Sport Plaisir in Menton", "Illustration de Sport Plaisir a Menton", "Illustrazione di Sport Plaisir a Mentone", "Ілюстрація Sport Plaisir у Ментоні"),
+    visualTheme: "walk",
+  },
+  "street-workout-francis-palmero": {
+    image: "/images/guide/street-workout-francis-palmero.jpg",
+    imageAlt: text("Illustration of the street-workout area at Esplanade Francis Palmero", "Illustration de l'espace street workout de l'Esplanade Francis Palmero", "Illustrazione dell'area street workout dell'Esplanade Francis Palmero", "Ілюстрація street-workout зони на Esplanade Francis Palmero"),
+    visualTheme: "walk",
+  },
   "la-tarte-mentonnaise": {
     image: "/images/guide/la-tarte-mentonnaise.jpg",
     imageAlt: text("Illustration of La Tarte Mentonnaise in Menton", "Illustration de La Tarte Mentonnaise a Menton", "Illustrazione di La Tarte Mentonnaise a Mentone", "Ілюстрація La Tarte Mentonnaise у Ментоні"),
