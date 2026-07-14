@@ -210,7 +210,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     ) : null}
                     {sectionPlaces.length ? (
                       <div className="mt-5 grid gap-3 md:grid-cols-2">
-                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} compact />)}
+                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} compact />)}
                       </div>
                     ) : null}
                     </section>
@@ -291,7 +291,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           <Container>
             <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} />)}
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} />)}
             </div>
           </Container>
         </Section>

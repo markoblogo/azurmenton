@@ -6,17 +6,19 @@ import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
 
 const labels = {
-  en: { map: "Open in Google Maps", programme: "View current programme", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
-  fr: { map: "Ouvrir dans Google Maps", programme: "Voir le programme actuel", hours: "Horaires", price: "Tarifs", note: "Vérifiez les horaires actuels avant la visite", related: "Guide lié" },
-  it: { map: "Apri in Google Maps", programme: "Vedi il programma attuale", hours: "Orari", price: "Prezzo", note: "Controlla gli orari aggiornati prima della visita", related: "Guida correlata" },
-  uk: { map: "Відкрити в Google Maps", programme: "Переглянути актуальну програму", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
+  en: { map: "Open in Google Maps", programme: "View current programme", website: "Website", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
+  fr: { map: "Ouvrir dans Google Maps", programme: "Voir le programme actuel", website: "Site web", hours: "Horaires", price: "Tarifs", note: "Vérifiez les horaires actuels avant la visite", related: "Guide lié" },
+  it: { map: "Apri in Google Maps", programme: "Vedi il programma attuale", website: "Sito web", hours: "Orari", price: "Prezzo", note: "Controlla gli orari aggiornati prima della visita", related: "Guida correlata" },
+  uk: { map: "Відкрити в Google Maps", programme: "Переглянути актуальну програму", website: "Вебсайт", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
 };
 
-export function PlaceCard({ place, locale, compact = false }: { place: Place; locale: Locale; compact?: boolean }) {
+export function PlaceCard({ place, locale, compact = false, currentGuideId }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string }) {
   const copy = labels[locale];
   const location = place.address ?? place.area?.[locale];
   const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
-  const relatedHref = place.relatedArticleIds[0] ? (`/${locale}/guide/${place.relatedArticleIds[0]}` as Route) : undefined;
+  const relatedArticleId = place.relatedArticleIds.find((articleId) => articleId !== currentGuideId);
+  const relatedHref = relatedArticleId ? (`/${locale}/guide/${relatedArticleId}` as Route) : undefined;
+  const externalLinkLabel = place.type === "cinema" || place.type === "theatre" ? copy.programme : copy.website;
   const visualLabel = place.type.replaceAll("-", " ");
   const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
 
@@ -59,7 +61,7 @@ export function PlaceCard({ place, locale, compact = false }: { place: Place; lo
           ) : null}
           {place.programmeUrl ? (
             <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl as Route} target="_blank" rel="noopener noreferrer">
-              {copy.programme}
+              {externalLinkLabel}
             </Link>
           ) : null}
           {mapsHref ? (
