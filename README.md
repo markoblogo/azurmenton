@@ -152,7 +152,9 @@ Guide intent clusters in `src/content/guide-intents.ts` group existing articles 
 
 Reusable guide utility blocks live under `src/components/guide/utility/` with typed data under `src/content/utility/`. They belong in the main reading column when they are central to the guide. Radio playback accepts only direct HTTPS audio streams; HLS support is loaded on demand instead of being included in every guide page.
 
-`/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources.
+`/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources. Reviewed public pins keep a source URL, precision and check date in `src/content/planning/place-map-points.ts`; apartment pins use host-confirmed public building positions without publishing unit numbers.
+
+Guide media is modeled through `GuideVideoEmbed` in `src/content/guide.ts`. Use only privacy-enhanced YouTube or Vimeo embeds with an approved source. Each media card must retain a descriptive external fallback; do not embed unofficial uploads or make fixed streaming-availability claims.
 
 Use `docs/content-operations.md` before adding guide articles, places, events, images or apartment-facing recommendations.
 
@@ -185,9 +187,11 @@ Confirmed current/upcoming events appear in the calendar; exact-date events are 
 
 Events use a pragmatic annual-series model inside the typed content: `seriesSlug`, `occurrenceYear`, `recurrence`, `dateStatus`, `typicalDateWindow`, source URLs and freshness profiles. Use confirmed dates only when an official source has published them; otherwise use pending or estimated annual windows and keep stale annual events archived for the next refresh. Run `npm run events:review` when changing events or guide-event links.
 
+Selected high-intent editions have short occurrence pages defined in `src/content/event-occurrences.ts`. They link back to the evergreen series, relevant guides, stay pages and apartment recommendations, but never invent dates or output Event schema for pending editions.
+
 ### Media
 
-Use `next/image` for site imagery. Large source images live in `public/images/`; selected generated derivatives are tracked under `generated/` folders and verified by `npm run images:check`.
+Use `next/image` for site imagery. Large source images live in `public/images/`; selected generated derivatives are tracked under `generated/` folders and verified by `npm run images:check`. Next serves AVIF and WebP variants where supported; preserve source dimensions and avoid replacing optimized assets with large PNG exports.
 
 Prefer WebP or AVIF for new editorial and utility imagery, keep stable dimensions, and replace multi-megabyte PNG exports before publishing. The content audit enforces a 500 KiB limit for radio utility images so this media set cannot silently regress.
 
