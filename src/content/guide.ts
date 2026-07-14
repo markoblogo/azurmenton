@@ -4252,6 +4252,7 @@ export const guideArticles: GuideArticle[] = [
       "theatre-de-la-cite-nice",
       "teatro-ariston-sanremo",
       "teatro-comunale-luigi-maccario-ventimiglia",
+      "espace-leo-ferre-monaco",
     ],
     relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "nightlife-in-menton", "menton-with-kids-family-guide", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedEvents: ["menton-music-festival", "sanremo-music-festival", "monaco-red-cross-gala", "monte-carlo-circus-festival"],
@@ -4280,7 +4281,7 @@ export const guideArticles: GuideArticle[] = [
           t("Monaco is the strongest performing-arts option from Menton. Opéra de Monte-Carlo is the must-check address for opera and recitals. Théâtre Princesse Grace is better for contemporary drama and polished French-language theatre.", "Monaco est l'option la plus forte depuis Menton. L'Opera de Monte-Carlo est l'adresse indispensable pour opera et recitals. Le Theatre Princesse Grace convient mieux au theatre contemporain et aux soirees francophones soignees.", "Monaco e l'opzione piu forte da Mentone. L'Opéra de Monte-Carlo e l'indirizzo da controllare per opera e recital. Théâtre Princesse Grace e piu adatto a teatro contemporaneo e serate in francese curate.", "Монако - найсильніший напрям для сценічного мистецтва з Ментона. Opéra de Monte-Carlo обов'язково варто перевіряти для опери й концертів. Théâtre Princesse Grace краще підходить для сучасної драми й вишуканого театру французькою."),
           t("Grimaldi Forum is a category of its own: it regularly hosts international musicals, concerts, ballet and large touring productions. Les Ballets de Monte-Carlo should be checked separately because performances may appear across different Monaco venues.", "Le Grimaldi Forum forme une categorie a part: comedies musicales internationales, concerts, ballet et grandes productions en tournee. Les Ballets de Monte-Carlo se verifient separement car les spectacles peuvent changer de salle.", "Il Grimaldi Forum e una categoria a parte: musical internazionali, concerti, balletto e grandi produzioni in tournee. Les Ballets de Monte-Carlo vanno controllati separatamente perche le sedi possono variare.", "Grimaldi Forum - окрема категорія: міжнародні мюзикли, концерти, балет і великі гастрольні постановки. Les Ballets de Monte-Carlo варто перевіряти окремо, бо виступи можуть проходити на різних майданчиках."),
         ],
-        relatedPlaceIds: ["opera-de-monte-carlo", "theatre-princesse-grace-monaco", "theatre-du-fort-antoine-monaco", "grimaldi-forum-monaco", "ballets-de-monte-carlo"],
+        relatedPlaceIds: ["opera-de-monte-carlo", "theatre-princesse-grace-monaco", "theatre-du-fort-antoine-monaco", "grimaldi-forum-monaco", "ballets-de-monte-carlo", "espace-leo-ferre-monaco"],
       },
       {
         heading: t("Nice: the widest cultural choice", "Nice: le plus grand choix culturel", "Nizza: la scelta culturale piu ampia", "Ніцца: найширший культурний вибір"),
@@ -4371,6 +4372,7 @@ export const guideArticles: GuideArticle[] = [
       "musee-jean-cocteau-bastion",
       "musee-prehistoire-regionale-menton",
       "salle-des-mariages-jean-cocteau",
+      "palais-carnoles-menton",
       "oceanographic-museum-monaco",
       "prince-monaco-car-collection",
       "museum-stamps-coins-monaco",
@@ -4403,7 +4405,7 @@ export const guideArticles: GuideArticle[] = [
           t("Menton's museum scene is compact but distinctive. Le Bastion is the most symbolic stop: a small fortress by the old port redesigned by Jean Cocteau to house his work. It combines easily with Sablettes, the old port, the market and the old town.", "Les musees de Menton sont compacts mais identitaires. Le Bastion est l'arret le plus symbolique: un petit fort pres du vieux port, repense par Jean Cocteau pour accueillir son oeuvre. Il se combine facilement avec Sablettes, le vieux port, le marche et la vieille ville.", "I musei di Mentone sono compatti ma riconoscibili. Le Bastion e la tappa piu simbolica: una piccola fortezza vicino al vecchio porto, ripensata da Jean Cocteau per la sua opera. Si combina facilmente con Sablettes, porto vecchio, mercato e centro storico.", "Музейна сцена Ментона компактна, але впізнавана. Le Bastion - найсимволічніша зупинка: невелика фортеця біля старого порту, переосмислена Жаном Кокто для його робіт. Її легко поєднати з Sablettes, старим портом, ринком і старим містом."),
           t("The Regional Prehistory Museum is useful for families and curious visitors. La Salle des Mariages is a short Cocteau-related interior inside the town hall, while Palais de Carnolès should be treated as a future stop until renovation status is clear.", "Le Musee de Prehistoire Regionale convient aux familles et curieux. La Salle des Mariages est une courte visite Cocteau dans la mairie, tandis que le Palais de Carnoles reste plutot une adresse future tant que la renovation n'est pas clarifiee.", "Il Museo di Preistoria Regionale e utile per famiglie e curiosi. La Salle des Mariages e una breve visita legata a Cocteau nel municipio, mentre Palais de Carnolès va considerato una tappa futura finche i lavori non sono chiariti.", "Музей регіональної праісторії корисний для сімей і допитливих гостей. La Salle des Mariages - короткий інтер'єр Кокто в мерії, а Palais de Carnolès краще вважати майбутньою зупинкою, доки статус ремонту не стане ясним."),
         ],
-        relatedPlaceIds: ["musee-jean-cocteau-bastion", "musee-prehistoire-regionale-menton", "salle-des-mariages-jean-cocteau", "halles-du-marche", "plage-sablettes", "cimetiere-vieux-chateau"],
+        relatedPlaceIds: ["musee-jean-cocteau-bastion", "musee-prehistoire-regionale-menton", "salle-des-mariages-jean-cocteau", "palais-carnoles-menton", "halles-du-marche", "plage-sablettes", "cimetiere-vieux-chateau"],
       },
       {
         heading: t("Monaco: families, ocean science and Fontvieille", "Monaco: familles, ocean et Fontvieille", "Monaco: famiglie, oceano e Fontvieille", "Монако: сім'ї, океан і Fontvieille"),

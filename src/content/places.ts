@@ -648,6 +648,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A historic Menton palace and garden complex, used as a screen stand-in for a railway station in Poirot: The Mystery of the Blue Train.", "Un palais et jardin historiques de Menton, utilises comme doublure de gare dans Poirot : Le Mystere du Train bleu.", "Uno storico palazzo e giardino di Mentone, usato come controfigura di una stazione in Poirot: Il mistero del treno azzurro.", "Історичний палацово-садовий комплекс Ментона, використаний як екранна заміна вокзалу в Poirot: The Mystery of the Blue Train."),
     bestFor: [text("screen locations", "lieux de tournage", "location cinematografiche", "кінолокації"), text("historic gardens", "jardins historiques", "giardini storici", "історичні сади")],
     relatedArticleIds: ["films-shot-in-menton", "museums-in-menton-nice-monaco", "menton-three-day-itinerary"],
+    guideCoverageSlugs: ["museums-in-menton-nice-monaco"],
   },
   {
     id: "puro-piacere-menton",
@@ -1941,6 +1942,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Monaco event venue associated with Monaco Salsa Congress editions; verify current dates before planning around it.", "Lieu evenementiel a Monaco associe a des editions du Monaco Salsa Congress; verifiez les dates actuelles.", "Sede eventi a Monaco associata a edizioni del Monaco Salsa Congress; controlla le date aggiornate.", "Подієва локація в Монако, пов'язана з Monaco Salsa Congress; перевіряйте актуальні дати."),
     bestFor: [text("Monaco dance events", "evenements danse Monaco", "eventi danza Monaco", "танцювальні події Монако"), text("congress weekends", "week-ends congress", "weekend congress", "congress-вікенди")],
     relatedArticleIds: ["latin-dancing-salsa-bachata-menton", "monaco-events-from-menton", "theatre-opera-performing-arts-near-menton", "nightlife-in-menton"],
+    guideCoverageSlugs: ["theatre-opera-performing-arts-near-menton"],
   },
   {
     id: "nice-palais-de-justice",
