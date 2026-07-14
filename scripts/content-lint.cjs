@@ -74,6 +74,7 @@ for (const article of guideArticles) {
   if (article.coverImage && !article.coverImageAlt) fail(`${owner}.coverImageAlt missing`);
   if (article.coverImageAlt) checkLocalizedText(owner, "coverImageAlt", article.coverImageAlt, 8);
   if (!article.sections.length) fail(`${owner}.sections should not be empty`);
+  if (article.canonicalPlaceTypes && !article.canonicalPlaceTypes.length) fail(`${owner}.canonicalPlaceTypes should not be empty when set`);
 
   for (const [index, section] of article.sections.entries()) {
     const sectionOwner = `${owner}.sections[${index}]`;
@@ -133,6 +134,16 @@ for (const place of places) {
       if (!point.review.sourceUrl) fail(`${owner} map review missing sourceUrl`);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(point.review.checkedOn)) fail(`${owner} map review checkedOn should be YYYY-MM-DD`);
     }
+  }
+}
+
+for (const article of guideArticles) {
+  if (!article.canonicalPlaceTypes?.length) continue;
+  const guidePlaceIds = new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]);
+
+  for (const place of places.filter((candidate) => candidate.relatedArticleIds.includes(article.slug) && article.canonicalPlaceTypes.includes(candidate.type))) {
+    if (!guidePlaceIds.has(place.id)) fail(`guide:${article.slug}.canonicalPlaceTypes -> ${place.id} does not render this place`);
+    if (!place.guideCoverageSlugs?.includes(article.slug)) fail(`guide:${article.slug}.canonicalPlaceTypes -> ${place.id} missing guideCoverageSlugs`);
   }
 }
 

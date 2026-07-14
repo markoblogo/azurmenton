@@ -101,6 +101,22 @@ describe("content graph audit", () => {
     expect(failures).toEqual([]);
   });
 
+  it("keeps type-based specialist guide coverage complete", () => {
+    const failures: string[] = [];
+
+    for (const guide of guideArticles) {
+      if (!guide.canonicalPlaceTypes?.length) continue;
+      const guidePlaceIds = new Set([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])]);
+
+      for (const place of places.filter((candidate) => candidate.relatedArticleIds.includes(guide.slug) && guide.canonicalPlaceTypes?.includes(candidate.type))) {
+        if (!guidePlaceIds.has(place.id)) failures.push(`${guide.slug} must render ${place.id}`);
+        if (!place.guideCoverageSlugs?.includes(guide.slug)) failures.push(`${place.id} must declare ${guide.slug} coverage`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   it("keeps guide and place image paths valid when present", () => {
     const failures: string[] = [];
 

@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/locales";
 import { locales } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
+import type { PlaceType } from "@/content/places";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -153,6 +154,7 @@ export type GuideArticle = {
   appTools?: GuideAppTool[];
   practicalTips?: LocalizedText[];
   relatedPlaces?: string[];
+  canonicalPlaceTypes?: PlaceType[];
   relatedArticles?: string[];
   relatedEvents?: string[];
   relatedApartments?: string[];
@@ -898,6 +900,7 @@ const articles: GuideArticle[] = [
       t("If you want to compare shops, do it over several days rather than all in one evening.", "Si vous voulez comparer plusieurs glaciers, faites-le sur plusieurs jours plutot que le meme soir.", "Se vuoi confrontare piu gelaterie, fallo in piu giorni invece che in una sola sera.", "Якщо хочете порівняти кілька місць, робіть це за кілька днів, а не за один вечір."),
     ],
     relatedPlaces: ["rue-saint-michel-menton", "quai-bonaparte-menton", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "gelateria-sofia-menton", "la-fabrique-givree-menton", "le-tropic-menton", "ami-glace-menton", "la-yogurteria-menton", "halles-du-marche", "promenade-du-soleil"],
+    canonicalPlaceTypes: ["ice-cream"],
     relatedArticles: ["local-food-menton", "best-pastries-desserts-cakes-menton", "best-beaches-in-menton", "menton-with-kids-family-guide", "menton-old-town", "stay-cool-in-menton-summer", "where-to-stay-in-menton", "halles-du-marche-menton", "fete-du-citron-menton-practical-guide", "quiet-evening-in-menton"],
     relatedEvents: ["menton-lemon-festival"],
     relatedApartments: allApartments,
@@ -1211,6 +1214,7 @@ const articles: GuideArticle[] = [
       t("For a quieter evening, choose an aperitif walk rather than a late-night plan.", "Pour une soiree calme, choisissez un aperitif et une promenade plutot qu'une nuit tardive.", "Per una serata tranquilla, scegli aperitivo e passeggiata invece di una notte lunga.", "Для спокійного вечора оберіть аперитив і прогулянку, а не пізню ніч."),
     ],
     relatedPlaces: ["biera-daqui", "inky-bar", "med-rooftop", "les-incompris", "bar-lescalier", "le-vip-menton", "gold-cafe-menton"],
+    canonicalPlaceTypes: ["bar", "rooftop"],
     relatedArticles: ["pastis-in-menton", "nightlife-in-menton", "quiet-evening-in-menton"],
     relatedApartments: seaViewApartments,
   },
@@ -1230,6 +1234,7 @@ function shortArticle(input: {
   locationTags: string[];
   featured?: boolean;
   relatedPlaces?: string[];
+  canonicalPlaceTypes?: PlaceType[];
   relatedArticles?: string[];
   relatedEvents?: string[];
   relatedApartments?: string[];
@@ -4581,6 +4586,7 @@ export const guideArticles: GuideArticle[] = [
       "terre-bianche-dolceacqua",
       "altavia-winery",
     ],
+    canonicalPlaceTypes: ["wine-bar", "winery"],
     relatedArticles: ["best-seafood-restaurants-menton", "pastis-in-menton", "local-food-menton", "michelin-restaurants-menton-nice-monaco", "italian-riviera-day-trip-from-menton", "golf-near-menton", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "supermarkets-in-menton", "nightlife-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [

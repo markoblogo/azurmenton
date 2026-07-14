@@ -643,6 +643,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Menton glacier to consider for homemade-style ice cream, natural ingredients, pistachio, hazelnut and floral or citrus flavours.", "Un glacier mentonnais a envisager pour glaces maison, ingredients naturels, pistache, noisette et parfums floraux ou agrumes.", "Una gelateria di Mentone da considerare per gelato artigianale, ingredienti naturali, pistacchio, nocciola e gusti floreali o agrumati.", "Ментонський glacier для домашнього стилю, натуральних інгредієнтів, фісташки, фундука, квіткових і цитрусових смаків."),
     bestFor: [text("homemade-style ice cream", "glace maison", "gelato artigianale", "домашній стиль"), text("lemon sorbet", "sorbet citron", "sorbetto al limone", "лимонний сорбет")],
     relatedArticleIds: ["best-ice-cream-menton", "local-food-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "demontis-gelateria-menton",
@@ -657,6 +658,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Italian-style gelato on Rue Saint-Michel, useful for classic flavours, citrus sorbets and an old-town evening walk.", "Gelato italien rue Saint-Michel, utile pour classiques, sorbets aux agrumes et promenade du soir dans la vieille ville.", "Gelato all'italiana in Rue Saint-Michel, utile per classici, sorbetti agli agrumi e passeggiata serale nel centro storico.", "Італійський gelato на Rue Saint-Michel для класичних смаків, цитрусових сорбетів і вечірньої прогулянки старим містом."),
     bestFor: [text("Italian gelato", "gelato italien", "gelato italiano", "італійське gelato"), text("old-town walk", "balade vieille ville", "passeggiata centro storico", "старе місто")],
     relatedArticleIds: ["best-ice-cream-menton", "local-food-menton", "menton-old-town", "quiet-evening-in-menton", "menton-with-kids-family-guide"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "tutti-frutti-menton",
@@ -671,6 +673,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A classic Rue Saint-Michel glacier for central ice-cream walks, fruit sorbets and Menton lemon flavours when available.", "Un glacier classique de la rue Saint-Michel pour promenades glacees, sorbets fruites et parfums citron de Menton selon disponibilite.", "Una gelateria classica di Rue Saint-Michel per passeggiate con gelato, sorbetti alla frutta e gusti al limone quando disponibili.", "Класичний glacier на Rue Saint-Michel для центральної прогулянки, фруктових сорбетів і лимонних смаків, коли вони є."),
     bestFor: [text("lemon flavour", "parfum citron", "gusto limone", "лимонний смак"), text("families", "familles", "famiglie", "сім'ї")],
     relatedArticleIds: ["best-ice-cream-menton", "local-food-menton", "menton-old-town", "menton-with-kids-family-guide", "stay-cool-in-menton-summer"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "gelateria-sofia-menton",
@@ -685,6 +688,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A port-side gelato stop near Quai Bonaparte, useful before or after the old town, the Bastion area and sea-view walks.", "Une halte gelato pres du quai Bonaparte, pratique avant ou apres vieille ville, Bastion et promenades avec vue mer.", "Una sosta gelato vicino a Quai Bonaparte, comoda prima o dopo centro storico, Bastion e passeggiate vista mare.", "Gelato-зупинка біля Quai Bonaparte, зручна до або після старого міста, Bastion і прогулянок із видом на море."),
     bestFor: [text("port walk", "promenade port", "passeggiata al porto", "портова прогулянка"), text("Italian gelato", "gelato italien", "gelato italiano", "італійське gelato")],
     relatedArticleIds: ["best-ice-cream-menton", "local-food-menton", "best-beaches-in-menton", "menton-old-town", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "la-fabrique-givree-menton",
@@ -699,6 +703,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A modern artisanal ice-cream concept for gourmet flavours and polished seasonal creations.", "Un concept de glace artisanale moderne pour parfums gourmands et creations saisonnieres soignees.", "Un concetto moderno di gelato artigianale per gusti gourmet e creazioni stagionali curate.", "Сучасна artisan ice-cream адреса для gourmet-смаків і сезонних авторських поєднань."),
     bestFor: [text("gourmet flavours", "parfums gourmands", "gusti gourmet", "gourmet-смаки"), text("adult dessert stop", "pause dessert adulte", "pausa dessert adulta", "десерт для дорослих")],
     relatedArticleIds: ["best-ice-cream-menton", "local-food-menton", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "le-tropic-menton",
@@ -713,6 +718,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A simple central Rue Saint-Michel glacier for classic scoops and quick family-friendly stops.", "Un glacier central simple rue Saint-Michel pour boules classiques et pauses faciles en famille.", "Una gelateria centrale semplice in Rue Saint-Michel per gusti classici e pause facili in famiglia.", "Проста центральна адреса на Rue Saint-Michel для класичних смаків і швидкої сімейної зупинки."),
     bestFor: [text("quick stop", "pause rapide", "sosta veloce", "швидка зупинка"), text("classic flavours", "parfums classiques", "gusti classici", "класичні смаки")],
     relatedArticleIds: ["best-ice-cream-menton", "menton-old-town", "menton-with-kids-family-guide"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "ami-glace-menton",
@@ -727,6 +733,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A takeaway-friendly Rue Saint-Michel glacier and another easy option for multilingual visitors in the old town.", "Un glacier rue Saint-Michel pratique a emporter et une autre option facile pour visiteurs multilingues dans la vieille ville.", "Una gelateria da asporto in Rue Saint-Michel e un'altra opzione semplice per visitatori multilingue nel centro storico.", "Зручний takeaway glacier на Rue Saint-Michel і ще один варіант для багатомовних гостей у старому місті."),
     bestFor: [text("takeaway", "a emporter", "da asporto", "з собою"), text("old-town walk", "balade vieille ville", "passeggiata centro storico", "старе місто")],
     relatedArticleIds: ["best-ice-cream-menton", "menton-old-town", "menton-with-kids-family-guide"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "la-yogurteria-menton",
@@ -741,6 +748,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A flexible dessert and snack stop for frozen yogurt, crêpes, wraps, sandwiches and family breaks.", "Une pause flexible pour yaourt glace, crepes, wraps, sandwiches et halte en famille.", "Una sosta flessibile per frozen yogurt, crêpe, wrap, panini e pause in famiglia.", "Гнучка десертна й snack-зупинка для frozen yogurt, млинців, wraps, сендвічів і сімейної паузи."),
     bestFor: [text("frozen yogurt", "yaourt glace", "frozen yogurt", "заморожений йогурт"), text("mixed appetites", "envies variees", "gusti diversi", "різні смаки")],
     relatedArticleIds: ["best-ice-cream-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer"],
+    guideCoverageSlugs: ["best-ice-cream-menton"],
   },
   {
     id: "musee-jean-cocteau-bastion",
@@ -2048,6 +2056,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Menton wine bar and cellar for tasting on site, sharing plates and buying bottles for the apartment.", "Un bar a vin et cave de Menton pour deguster sur place, partager des assiettes et acheter des bouteilles pour l'appartement.", "Un wine bar e cantina a Mentone per degustare sul posto, piatti da condividere e bottiglie per l'appartamento.", "Винний бар і крамниця в Ментоні для дегустації, спільних закусок і пляшок для апартаментів."),
     bestFor: [text("wine evening", "soiree vin", "serata vino", "винний вечір"), text("central Menton", "Menton centre", "centro Mentone", "центр Ментона")],
     relatedArticleIds: ["wine-tasting-near-menton", "local-food-menton", "nightlife-in-menton", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "o-divin-menton",
@@ -2061,6 +2070,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Menton caviste and delicatessen stop for local wine advice and simple apartment bottles.", "Une cave et epicerie fine de Menton pour conseils vin et bouteilles simples pour l'appartement.", "Una cantina e gastronomia a Mentone per consigli e bottiglie semplici per l'appartamento.", "Винна крамниця й делікатеси в Ментоні для порад і пляшок для апартаментів."),
     bestFor: [text("caviste advice", "conseil caviste", "consigli del cavista", "поради кавіста"), text("apartment dinners", "diners a l'appartement", "cene in appartamento", "вечері в апартаментах")],
     relatedArticleIds: ["wine-tasting-near-menton", "local-food-menton", "supermarkets-in-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "comptoir-des-vignes-menton",
@@ -2074,6 +2084,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central wine retailer for regional bottles, spirits, gifts and practical last-minute shopping.", "Un caviste central pour vins regionaux, spiritueux, cadeaux et achats pratiques de derniere minute.", "Un negozio centrale per vini regionali, distillati, regali e acquisti pratici dell'ultimo momento.", "Центральна винна крамниця для регіональних пляшок, подарунків і практичних покупок."),
     bestFor: [text("wine shopping", "achat de vin", "acquisto vino", "купівля вина"), text("gifts", "cadeaux", "regali", "подарунки")],
     relatedArticleIds: ["wine-tasting-near-menton", "pastis-in-menton", "supermarkets-in-menton", "local-food-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "nicolas-menton",
@@ -2087,6 +2098,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A familiar French wine merchant format for chilled bottles, champagne and last-minute wine shopping.", "Une enseigne de caviste francaise pratique pour bouteilles fraiches, champagne et achats de derniere minute.", "Una catena francese di vini utile per bottiglie fresche, champagne e acquisti all'ultimo momento.", "Знайомий французький формат винної крамниці для охолоджених пляшок, шампанського й швидких покупок."),
     bestFor: [text("last-minute bottles", "bouteilles de derniere minute", "bottiglie all'ultimo momento", "пляшки в останню хвилину"), text("champagne", "champagne", "champagne", "шампанське")],
     relatedArticleIds: ["wine-tasting-near-menton", "supermarkets-in-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "chateau-de-bellet",
@@ -2100,6 +2112,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A strong first Bellet vineyard visit from Menton, with tours, tastings and a chapel tasting room.", "Une excellente premiere visite de vignoble Bellet depuis Menton, avec visites, degustations et caveau dans une chapelle.", "Una prima visita Bellet molto solida da Mentone, con tour, degustazioni e sala in cappella.", "Сильний перший візит до виноградників Bellet з Ментона: тури, дегустації й каплиця-дегустаційна."),
     bestFor: [text("first vineyard visit", "premiere visite de vignoble", "prima visita in vigna", "перший виноградник"), text("Bellet wines", "vins de Bellet", "vini Bellet", "вина Bellet")],
     relatedArticleIds: ["wine-tasting-near-menton", "day-trips-from-menton", "public-transport-in-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "domaine-de-toasc",
@@ -2113,6 +2126,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Bellet producer associated with organic wines; confirm the current tasting location before going.", "Un producteur de Bellet associe aux vins bio; confirmez le lieu de degustation actuel avant d'y aller.", "Un produttore Bellet legato ai vini biologici; conferma il luogo di degustazione prima di andare.", "Виробник Bellet, пов'язаний з органічними винами; перед поїздкою уточнюйте місце дегустації."),
     bestFor: [text("organic wine", "vin bio", "vino biologico", "органічне вино"), text("Bellet comparison", "comparaison Bellet", "confronto Bellet", "порівняння Bellet")],
     relatedArticleIds: ["wine-tasting-near-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "clos-saint-vincent-bellet",
@@ -2126,6 +2140,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A distinctive Bellet producer for guests already interested in terroir-focused local wine.", "Un producteur Bellet distinctif pour voyageurs deja interesses par le terroir.", "Un produttore Bellet distintivo per chi ama vini locali e terroir.", "Виразний виробник Bellet для гостей, яким цікавий локальний теруар."),
     bestFor: [text("wine lovers", "amateurs de vin", "appassionati di vino", "любителі вина"), text("terroir", "terroir", "terroir", "теруар")],
     relatedArticleIds: ["wine-tasting-near-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "domaine-fogolar-collet-de-bovis",
@@ -2139,6 +2154,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A smaller Bellet estate option for guided tasting when larger estates are not available.", "Une option de petit domaine Bellet pour degustation guidee si les grands domaines sont complets.", "Una piccola tenuta Bellet per degustazioni guidate se le piu note sono piene.", "Менший варіант маєтку Bellet для дегустації, якщо більші місця зайняті."),
     bestFor: [text("small estate", "petit domaine", "piccola tenuta", "малий маєток"), text("guided tasting", "degustation guidee", "degustazione guidata", "дегустація з гідом")],
     relatedArticleIds: ["wine-tasting-near-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "grands-chais-monegasques",
@@ -2152,6 +2168,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Monaco fine-wine cellar for special bottles, private tastings and collector-style experiences.", "Une cave de grands vins a Monaco pour bouteilles rares, degustations privees et experience collectionneur.", "Una cantina di grandi vini a Monaco per bottiglie speciali, degustazioni private ed esperienze da collezione.", "Винний льох у Монако для особливих пляшок, приватних дегустацій і колекційного формату."),
     bestFor: [text("special occasion", "grande occasion", "occasione speciale", "особлива нагода"), text("Monaco evening", "soiree a Monaco", "serata a Monaco", "вечір у Монако")],
     relatedArticleIds: ["wine-tasting-near-menton", "monaco-events-from-menton", "nightlife-in-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "dolceacqua",
@@ -2177,6 +2194,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Ligurian wine-tasting option near Ventimiglia for Rossese di Dolceacqua and local products.", "Une option de degustation ligure pres de Vintimille pour Rossese di Dolceacqua et produits locaux.", "Un'opzione di degustazione ligure vicino a Ventimiglia per Rossese di Dolceacqua e prodotti locali.", "Лігурійська дегустація біля Вентімільї для Rossese di Dolceacqua і локальних продуктів."),
     bestFor: [text("Rossese", "Rossese", "Rossese", "Rossese"), text("Italian day trip", "excursion en Italie", "gita in Italia", "поїздка в Італію")],
     relatedArticleIds: ["wine-tasting-near-menton", "italian-riviera-day-trip-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "terre-bianche-dolceacqua",
@@ -2190,6 +2208,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Val Nervia winery and guesthouse known for Rossese and Ligurian white wines.", "Un domaine et maison d'hotes du Val Nervia connu pour Rossese et vins blancs ligures.", "Una cantina e guesthouse in Val Nervia nota per Rossese e bianchi liguri.", "Виноробня й guesthouse у Val Nervia, відома Rossese та лігурійськими білими винами."),
     bestFor: [text("Rossese", "Rossese", "Rossese", "Rossese"), text("Dolceacqua", "Dolceacqua", "Dolceacqua", "Dolceacqua")],
     relatedArticleIds: ["wine-tasting-near-menton", "italian-riviera-day-trip-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "altavia-winery",
@@ -2203,6 +2222,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A Ligurian winery option for guided tastings of Rossese, Vermentino and local products.", "Une option de domaine ligure pour degustations guidees de Rossese, Vermentino et produits locaux.", "Una cantina ligure per degustazioni guidate di Rossese, Vermentino e prodotti locali.", "Лігурійська виноробня для дегустацій Rossese, Vermentino й локальних продуктів."),
     bestFor: [text("guided tasting", "degustation guidee", "degustazione guidata", "дегустація з гідом"), text("Liguria", "Ligurie", "Liguria", "Лігурія")],
     relatedArticleIds: ["wine-tasting-near-menton", "italian-riviera-day-trip-from-menton"],
+    guideCoverageSlugs: ["wine-tasting-near-menton"],
   },
   {
     id: "mirazur-menton",
@@ -3575,6 +3595,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A local option to consider for craft beer and an easy aperitif.", "Une adresse a envisager pour une biere artisanale et un aperitif simple.", "Un indirizzo da considerare per birra artigianale e aperitivo informale.", "Варіант для крафтового пива та невимушеного аперитиву."),
     bestFor: [text("craft beer", "biere artisanale", "birra artigianale", "крафтове пиво"), text("aperitif", "aperitif", "aperitivo", "аперитив")],
     relatedArticleIds: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "nightlife-in-menton", "menton-one-day-itinerary"],
+    guideCoverageSlugs: ["bars-and-beer-in-menton"],
   },
   {
     id: "inky-bar",
@@ -3587,6 +3608,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A beachside evening option around Sablettes when the seasonal programme is active.", "Une option en bord de plage aux Sablettes lorsque la saison est active.", "Un'opzione serale vicino alle Sablettes quando la stagione e attiva.", "Вечірній варіант біля Sablettes, якщо працює сезонна програма."),
     bestFor: [text("evening plans", "soiree", "serata", "вечірні плани"), text("seafront drinks", "verre en bord de mer", "drink sul mare", "напої біля моря")],
     relatedArticleIds: ["bars-and-beer-in-menton", "nightlife-in-menton"],
+    guideCoverageSlugs: ["bars-and-beer-in-menton"],
   },
   {
     id: "med-rooftop",
@@ -3599,6 +3621,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A rooftop-style option for a more elevated aperitif when open.", "Une option rooftop pour un aperitif plus panoramique lorsqu'elle est ouverte.", "Un'opzione rooftop per un aperitivo piu scenografico quando aperta.", "Rooftop-варіант для аперитиву з вищої точки, якщо він працює."),
     bestFor: [text("couples", "couples", "coppie", "пари"), text("evening view", "vue du soir", "vista serale", "вечірній краєвид")],
     relatedArticleIds: ["bars-and-beer-in-menton", "nightlife-in-menton", "quiet-evening-in-menton", "menton-one-day-itinerary", "menton-three-day-itinerary"],
+    guideCoverageSlugs: ["bars-and-beer-in-menton"],
   },
   {
     id: "les-incompris",
@@ -3611,6 +3634,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central address to consider for cocktails or a relaxed evening drink.", "Une adresse centrale a envisager pour un cocktail ou un verre tranquille.", "Un indirizzo centrale da considerare per cocktail o drink tranquilli.", "Центральна адреса для коктейлю або спокійного вечірнього напою."),
     bestFor: [text("cocktails", "cocktails", "cocktail", "коктейлі"), text("evening plans", "soiree", "serata", "вечірні плани")],
     relatedArticleIds: ["nightlife-in-menton", "bars-and-beer-in-menton"],
+    guideCoverageSlugs: ["bars-and-beer-in-menton"],
   },
   {
     id: "bar-lescalier",
@@ -3623,6 +3647,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A possible quieter aperitif stop; confirm current details before going.", "Une possible halte aperitif plus calme; confirmez les informations avant de venir.", "Una possibile sosta tranquilla per l'aperitivo; verifica i dettagli prima.", "Можлива тиха зупинка для аперитиву; перед візитом перевірте деталі."),
     bestFor: [text("quiet drink", "verre tranquille", "drink tranquillo", "спокійний напій")],
     relatedArticleIds: ["nightlife-in-menton", "quiet-evening-in-menton", "bars-and-beer-in-menton"],
+    guideCoverageSlugs: ["bars-and-beer-in-menton"],
   },
   {
     id: "rampes-saint-michel",
