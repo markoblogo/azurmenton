@@ -26,13 +26,17 @@ export type GuideVideoEmbed = {
   provider: "youtube" | "vimeo" | "external";
   embedUrl?: string;
   watchUrl: string;
+  watchLabel?: LocalizedText;
+  secondaryLinks?: LocalizedGuideSectionOfficialLink[];
   embed?: boolean;
   caption?: LocalizedText;
 };
 
-export type LocalizedGuideVideoEmbed = Omit<GuideVideoEmbed, "title" | "caption"> & {
+export type LocalizedGuideVideoEmbed = Omit<GuideVideoEmbed, "title" | "caption" | "watchLabel" | "secondaryLinks"> & {
   title: string;
   caption?: string;
+  watchLabel?: string;
+  secondaryLinks?: GuideSectionOfficialLink[];
 };
 
 export type GuideArtworkCard = {
@@ -2969,6 +2973,27 @@ export const guideArticles: GuideArticle[] = [
           { label: t("Bond location reference", "Reference des lieux Bond", "Riferimento alle location Bond", "Довідка про локації Bond"), url: "https://rivieraonfilm.wixsite.com/riviera-on-film/never-say-never-again-1983" },
           { label: t("City note on Tunnel Pascal-Molinari", "Note de la ville sur le tunnel Pascal-Molinari", "Nota della citta sul tunnel Pascal-Molinari", "Повідомлення міста про тунель Pascal-Molinari"), url: "https://www.menton.fr/modification-de-circulation-quai-bonaparte.html" },
         ],
+        videoEmbeds: [
+          {
+            id: "never-say-never-again-trailer",
+            title: t("Never Say Never Again (1983): official trailer", "Jamais plus jamais (1983) : bande-annonce officielle", "Mai dire mai (1983): trailer ufficiale", "Never Say Never Again (1983): офіційний трейлер"),
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/sJqwbXFZRRI",
+            watchUrl: "https://www.imdb.com/title/tt0086006/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            secondaryLinks: [{ label: t("Rotten Tomatoes", "Rotten Tomatoes", "Rotten Tomatoes", "Rotten Tomatoes"), url: "https://www.rottentomatoes.com/m/never_say_never_again" }],
+            caption: t("Official trailer", "Bande-annonce officielle", "Trailer ufficiale", "Офіційний трейлер"),
+          },
+          {
+            id: "grace-of-monaco-trailer",
+            title: t("Grace of Monaco (2014): official trailer", "Grace of Monaco (2014) : bande-annonce officielle", "Grace of Monaco (2014): trailer ufficiale", "Grace of Monaco (2014): офіційний трейлер"),
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/bFYmYWa348c",
+            watchUrl: "https://www.imdb.com/title/tt2095649/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            caption: t("Official trailer", "Bande-annonce officielle", "Trailer ufficiale", "Офіційний трейлер"),
+          },
+        ],
         relatedPlaceIds: ["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "place-du-cap-menton", "quai-bonaparte-menton", "tunnel-pascal-molinari"],
       },
       {
@@ -2980,6 +3005,36 @@ export const guideArticles: GuideArticle[] = [
         officialLinks: [
           { label: t("Transporter filming record", "Fiche de tournage Transporter", "Scheda delle location di Transporter", "Довідка про локації Transporter"), url: "https://www.imdb.com/title/tt2938956/locations/" },
         ],
+        videoEmbeds: [
+          {
+            id: "day-of-the-jackal-trailer",
+            title: t("The Day of the Jackal (1973): trailer", "Chacal (1973) : bande-annonce", "Il giorno dello sciacallo (1973): trailer", "The Day of the Jackal (1973): трейлер"),
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/QyMgwQul5QQ",
+            watchUrl: "https://www.imdb.com/title/tt0069947/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            caption: t("Trailer", "Bande-annonce", "Trailer", "Трейлер"),
+          },
+          {
+            id: "in-the-name-of-my-daughter-details",
+            title: t("In the Name of My Daughter / L'Homme qu'on aimait trop (2014)", "L'Homme qu'on aimait trop (2014)", "L'uomo che amava troppo (2014)", "In the Name of My Daughter / L'Homme qu'on aimait trop (2014)"),
+            provider: "external",
+            watchUrl: "https://www.allocine.fr/video/player_gen_cmedia%3D19545657%26cfilm%3D218308.html",
+            watchLabel: t("Official trailer on AlloCine", "Bande-annonce officielle sur AlloCine", "Trailer ufficiale su AlloCine", "Офіційний трейлер на AlloCine"),
+            secondaryLinks: [{ label: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"), url: "https://www.imdb.com/title/tt2929890/" }],
+            embed: false,
+            caption: t("No verified embeddable official trailer is currently available.", "Aucune bande-annonce officielle integrable n'est actuellement verifiee.", "Al momento non e disponibile un trailer ufficiale incorporabile verificato.", "Наразі немає перевіреного офіційного трейлера, який можна вбудувати."),
+          },
+          {
+            id: "transporter-refueled-details",
+            title: t("The Transporter Refueled (2015)", "Le Transporteur : Heritages (2015)", "The Transporter Refueled (2015)", "The Transporter Refueled (2015)"),
+            provider: "external",
+            watchUrl: "https://www.imdb.com/title/tt2938956/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+        ],
         relatedPlaceIds: ["pont-saint-ludovic", "villa-maria-serena", "casino-barriere-menton", "promenade-du-soleil"],
       },
       {
@@ -2988,11 +3043,94 @@ export const guideArticles: GuideArticle[] = [
           t("Cloclo / My Way (2012), The Son's Room (2001), Amer (2009), Mondo (1995) and The Barefoot Contessa (1954) are all connected with filming in Menton or the wider Riviera. They belong here for film-minded visitors, but publicly available sources do not consistently identify a visitor-ready Menton building for every title.", "Cloclo / My Way (2012), La Chambre du fils (2001), Amer (2009), Mondo (1995) et La Comtesse aux pieds nus (1954) sont lies a des tournages a Menton ou sur la Riviera. Ils ont leur place ici pour les cinephiles, mais les sources accessibles n'identifient pas toujours un batiment mentonnais visitable pour chaque titre.", "Cloclo / My Way (2012), La stanza del figlio (2001), Amer (2009), Mondo (1995) e La contessa scalza (1954) sono legati a riprese a Mentone o nella Riviera. Hanno posto qui per i cinefili, ma le fonti pubbliche non identificano con coerenza un edificio visitabile a Mentone per ogni titolo.", "Cloclo / My Way (2012), The Son's Room (2001), Amer (2009), Mondo (1995) і The Barefoot Contessa (1954) пов'язані зі зйомками в Ментоні або ширшій Рив'єрі. Вони доречні для кіноманів, але публічні джерела не завжди послідовно називають конкретну придатну для відвідування будівлю в Ментоні для кожного фільму."),
           t("For these titles, watch first and let the town work as atmosphere: Mediterranean light, gardens, facades, sea roads and the old town. Do not treat a general filming credit as confirmation that a particular street appears in the final cut.", "Pour ces titres, regardez d'abord le film et laissez la ville travailler comme ambiance : lumiere mediterraneenne, jardins, facades, routes maritimes et vieille ville. Un credit de tournage general ne confirme pas qu'une rue precise apparaisse au montage final.", "Per questi titoli, guarda prima il film e lascia che la citta funzioni come atmosfera: luce mediterranea, giardini, facciate, strade sul mare e centro storico. Un credito di riprese generico non conferma che una strada specifica compaia nel montaggio finale.", "Для цих назв спочатку подивіться фільм і сприйміть місто як атмосферу: середземноморське світло, сади, фасади, морські дороги й старе місто. Загальна згадка про зйомки не підтверджує появу конкретної вулиці у фінальному монтажі."),
         ],
+        videoEmbeds: [
+          {
+            id: "cloclo-details",
+            title: t("Cloclo / My Way (2012)", "Cloclo (2012)", "Cloclo (2012)", "Cloclo / My Way (2012)"),
+            provider: "external",
+            watchUrl: "https://www.allocine.fr/film/fichefilm_gen_cfilm%3D179102.html",
+            watchLabel: t("Film details on AlloCine", "Details du film sur AlloCine", "Dettagli del film su AlloCine", "Деталі фільму на AlloCine"),
+            secondaryLinks: [{ label: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"), url: "https://www.imdb.com/title/tt2076176/" }],
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+          {
+            id: "sons-room-details",
+            title: t("The Son's Room (2001)", "La Chambre du fils (2001)", "La stanza del figlio (2001)", "The Son's Room (2001)"),
+            provider: "external",
+            watchUrl: "https://www.imdb.com/title/tt0208990/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+          {
+            id: "amer-details",
+            title: t("Amer (2009)", "Amer (2009)", "Amer (2009)", "Amer (2009)"),
+            provider: "external",
+            watchUrl: "https://www.imdb.com/title/tt1426352/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+          {
+            id: "mondo-details",
+            title: t("Mondo (1995)", "Mondo (1995)", "Mondo (1995)", "Mondo (1995)"),
+            provider: "external",
+            watchUrl: "https://www.imdb.com/title/tt0117076/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+          {
+            id: "barefoot-contessa-details",
+            title: t("The Barefoot Contessa (1954)", "La Comtesse aux pieds nus (1954)", "La contessa scalza (1954)", "The Barefoot Contessa (1954)"),
+            provider: "external",
+            watchUrl: "https://www.imdb.com/title/tt0046754/",
+            watchLabel: t("Film details and watch options", "Details du film et options de visionnage", "Dettagli del film e opzioni di visione", "Деталі фільму та варіанти перегляду"),
+            embed: false,
+            caption: t("Find the film and current watch options.", "Retrouvez le film et les options de visionnage actuelles.", "Trova il film e le opzioni di visione attuali.", "Знайдіть фільм і актуальні варіанти перегляду."),
+          },
+        ],
       },
       {
         heading: t("Television appearances", "Apparitions televisuelles", "Apparizioni televisive", "Телевізійні появи"),
         body: [
           t("In Agatha Christie's Poirot: The Mystery of the Blue Train (2005), Rue de Bréa is used for a street conversation and Palais Carnolès stands in for a railway station. Méditerranée (2001) uses Menton as the fictional village of Saint-Circe, while Rosemary & Thyme also credits Menton as a filming location.", "Dans Agatha Christie's Poirot : Le Mystere du Train bleu (2005), la rue de Brea sert a une conversation de rue et le Palais Carnoles remplace une gare. Mediterranee (2001) utilise Menton comme village fictif de Saint-Circe, tandis que Rosemary & Thyme credite aussi Menton comme lieu de tournage.", "In Agatha Christie's Poirot: Il mistero del treno azzurro (2005), Rue de Brea serve per una conversazione in strada e Palais Carnoles sostituisce una stazione. Mediterranee (2001) usa Mentone come il villaggio immaginario di Saint-Circe, mentre anche Rosemary & Thyme accredita Mentone come location.", "В Agatha Christie's Poirot: The Mystery of the Blue Train (2005) Rue de Bréa використана для вуличної розмови, а Palais Carnolès замінює вокзал. Méditerranée (2001) використовує Ментон як вигадане село Saint-Circe, а Rosemary & Thyme також має Ментон серед локацій."),
+        ],
+        videoEmbeds: [
+          {
+            id: "poirot-blue-train-preview",
+            title: t("Poirot: The Mystery of the Blue Train (2005): episode preview", "Poirot : Le Mystere du Train bleu (2005) : extrait", "Poirot: Il mistero del treno azzurro (2005): anteprima episodio", "Poirot: The Mystery of the Blue Train (2005): прев'ю епізоду"),
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/gbbQXtfHpaE",
+            watchUrl: "https://www.imdb.com/title/tt0465569/",
+            watchLabel: t("Episode details and watch options", "Details de l'episode et options de visionnage", "Dettagli dell'episodio e opzioni di visione", "Деталі епізоду та варіанти перегляду"),
+            secondaryLinks: [{ label: t("Watch trailer on MUBI", "Voir la bande-annonce sur MUBI", "Guarda il trailer su MUBI", "Дивитися трейлер на MUBI"), url: "https://mubi.com/en/films/poirot-the-mystery-of-the-blue-train/trailer" }],
+            caption: t("Episode preview", "Extrait d'episode", "Anteprima episodio", "Прев'ю епізоду"),
+          },
+          {
+            id: "mediterranee-details",
+            title: t("Mediterranee (2001)", "Mediterranee (2001)", "Mediterranee (2001)", "Mediterranee (2001)"),
+            provider: "external",
+            watchUrl: "https://www.tf1.fr/tf1/mediterranee/videos/mediterranee-1-5-02795636.html",
+            watchLabel: t("Watch on TF1+", "Regarder sur TF1+", "Guarda su TF1+", "Дивитися на TF1+"),
+            secondaryLinks: [
+              { label: t("Series details on IMDb", "Details de la serie sur IMDb", "Dettagli della serie su IMDb", "Деталі серіалу на IMDb"), url: "https://www.imdb.com/title/tt0273000/" },
+              { label: t("View on Apple TV", "Voir sur Apple TV", "Vedi su Apple TV", "Переглянути на Apple TV"), url: "https://tv.apple.com/fr/show/mediterranee/umc.cmc.1czwxv3eqw4d1kjeaxk6wh4r9" },
+              { label: t("Season information on AlloCine", "Informations sur la saison sur AlloCine", "Informazioni sulla stagione su AlloCine", "Інформація про сезон на AlloCine"), url: "https://www.allocine.fr/series/ficheserie-860/saison-2695/" },
+            ],
+            embed: false,
+            caption: t("Availability may depend on your country.", "La disponibilite peut dependre de votre pays.", "La disponibilita puo dipendere dal tuo paese.", "Доступність може залежати від вашої країни."),
+          },
+          {
+            id: "rosemary-thyme-trailer",
+            title: t("Rosemary & Thyme: series trailer", "Rosemary & Thyme : bande-annonce de la serie", "Rosemary & Thyme: trailer della serie", "Rosemary & Thyme: трейлер серіалу"),
+            provider: "youtube",
+            embedUrl: "https://www.youtube-nocookie.com/embed/MhvV2lhGVgg",
+            watchUrl: "https://www.imdb.com/title/tt0377253/",
+            watchLabel: t("Series details", "Details de la serie", "Dettagli della serie", "Деталі серіалу"),
+            caption: t("Series trailer", "Bande-annonce de la serie", "Trailer della serie", "Трейлер серіалу"),
+          },
         ],
         relatedPlaceIds: ["rue-de-brea-menton", "palais-carnoles-menton"],
       },
@@ -3014,6 +3152,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     practicalTips: [
       t("Search a film title on a current watch service rather than relying on a fixed streaming-platform claim.", "Recherchez le titre sur un service actuel plutot que de vous fier a une plateforme de streaming fixe.", "Cerca il titolo su un servizio aggiornato invece di affidarti a una piattaforma fissa.", "Шукайте назву фільму в актуальному сервісі, а не покладайтеся на фіксовану стримінгову платформу."),
+      t("Streaming availability varies by country and changes over time. Trailer embeds are provided by their respective platforms and rights holders.", "La disponibilite en streaming varie selon les pays et evolue avec le temps. Les bandes-annonces integrees sont fournies par leurs plateformes et ayants droit respectifs.", "La disponibilita in streaming varia in base al paese e cambia nel tempo. I trailer incorporati sono forniti dalle rispettive piattaforme e titolari dei diritti.", "Доступність стримінгу залежить від країни й змінюється з часом. Вбудовані трейлери надаються відповідними платформами та правовласниками."),
       t("Use public streets and viewpoints for the walk; never enter road infrastructure or private property for a film photo.", "Utilisez rues et points de vue publics; n'entrez jamais dans une infrastructure routiere ou propriete privee pour une photo de film.", "Usa strade e punti panoramici pubblici; non entrare mai in infrastrutture stradali o proprieta private per una foto cinematografica.", "Користуйтеся публічними вулицями й оглядовими точками; не заходьте на дорожню інфраструктуру чи приватну власність заради фото з фільму."),
       t("Villa access, traffic arrangements and programmes can change, so check current conditions on the day.", "L'acces aux villas, circulation et programmes peuvent changer : verifiez les conditions le jour meme.", "Accesso alle ville, traffico e programmi possono cambiare: controlla le condizioni il giorno stesso.", "Доступ до вілл, рух і програми можуть змінюватися: перевіряйте умови в день візиту."),
     ],
@@ -7091,6 +7230,8 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
         ...video,
         title: video.title[locale],
         caption: video.caption?.[locale],
+        watchLabel: video.watchLabel?.[locale],
+        secondaryLinks: video.secondaryLinks?.map((link) => ({ ...link, label: link.label[locale] })),
       })),
       officialLinks: section.officialLinks?.map((link) => ({
         ...link,

@@ -44,6 +44,8 @@ type SectionVideoEmbed = {
   provider: "youtube" | "vimeo" | "external";
   embedUrl?: string;
   watchUrl: string;
+  watchLabel?: string;
+  secondaryLinks?: Array<{ label: string; url: string }>;
   embed?: boolean;
   caption?: string;
 };
@@ -356,18 +358,17 @@ function transportDestinationsForGuide(slug: string, locationTags: string[] = []
 }
 
 function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionVideoEmbed; watchLabel: string; opensOnSourceLabel: string }) {
-  const canEmbed = video.embed !== false && Boolean(video.embedUrl);
+  const canEmbed = video.embed !== false && isSafeVideoEmbed(video);
+  const primaryLabel = video.watchLabel ?? watchLabel;
 
   if (!canEmbed) {
     return (
       <div className="border border-[#dfd2b8] bg-[#f8f3ea] p-4 sm:flex sm:items-center sm:justify-between sm:gap-5">
         <div>
-          <p className="text-sm font-semibold text-[#173f36]">{video.title}</p>
+          <h3 className="text-sm font-semibold text-[#173f36]">{video.title}</h3>
           <p className="mt-1 text-sm leading-6 text-[#5c5044]">{video.caption ?? opensOnSourceLabel}</p>
         </div>
-        <Link className="mt-3 inline-flex shrink-0 items-center border border-[#173f36] px-4 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#173f36] hover:text-white sm:mt-0" href={video.watchUrl as Route} target="_blank" rel="noopener noreferrer">
-          {watchLabel}
-        </Link>
+        <VideoLinks video={video} primaryLabel={primaryLabel} compact />
       </div>
     );
   }
@@ -386,12 +387,42 @@ function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionV
         />
       </div>
       <div className="p-4">
-        <p className="text-sm font-semibold text-[#173f36]">{video.title}</p>
+        <h3 className="text-sm font-semibold text-[#173f36]">{video.title}</h3>
         {video.caption ? <p className="mt-1 text-sm leading-6 text-[#5c5044]">{video.caption}</p> : null}
-        <Link className="mt-3 inline-flex text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] underline-offset-4 hover:underline" href={video.watchUrl as Route} target="_blank" rel="noopener noreferrer">
-          {watchLabel}
-        </Link>
+        <VideoLinks video={video} primaryLabel={primaryLabel} />
       </div>
     </div>
   );
+}
+
+function VideoLinks({ video, primaryLabel, compact = false }: { video: SectionVideoEmbed; primaryLabel: string; compact?: boolean }) {
+  return (
+    <div className={compact ? "mt-3 flex shrink-0 flex-wrap gap-x-4 gap-y-2 sm:mt-0" : "mt-3 flex flex-wrap gap-x-4 gap-y-2"}>
+      <a className="inline-flex text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] underline-offset-4 hover:underline" href={video.watchUrl} target="_blank" rel="noopener noreferrer">
+        {primaryLabel}
+      </a>
+      {video.secondaryLinks?.map((link) => (
+        <a key={link.url} className="inline-flex text-xs font-bold uppercase tracking-[0.14em] text-[#5c5044] underline-offset-4 hover:text-[#173f36] hover:underline" href={link.url} target="_blank" rel="noopener noreferrer">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function isSafeVideoEmbed(video: SectionVideoEmbed) {
+  if (!video.embedUrl) return false;
+
+  try {
+    const url = new URL(video.embedUrl);
+    if (url.protocol !== "https:") return false;
+
+    if (video.provider === "youtube") {
+      return url.hostname === "www.youtube-nocookie.com" && /^\/embed\/[A-Za-z0-9_-]{11}$/.test(url.pathname);
+    }
+
+    return video.provider === "vimeo" && url.hostname === "player.vimeo.com" && /^\/video\/\d+$/.test(url.pathname);
+  } catch {
+    return false;
+  }
 }
