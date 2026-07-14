@@ -4815,6 +4815,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of the street-workout area at Esplanade Francis Palmero", "Illustration de l'espace street workout de l'Esplanade Francis Palmero", "Illustrazione dell'area street workout dell'Esplanade Francis Palmero", "Ілюстрація street-workout зони на Esplanade Francis Palmero"),
     visualTheme: "walk",
   },
+  "yoga4motion-menton": {
+    image: "/images/guide/yoga4motion-menton.jpg",
+    imageAlt: text("Illustration of Yoga4Motion in Menton", "Illustration de Yoga4Motion a Menton", "Illustrazione di Yoga4Motion a Mentone", "Ілюстрація Yoga4Motion у Ментоні"),
+    visualTheme: "walk",
+  },
+  "centre-yoga-precision-menton": {
+    image: "/images/guide/centre-yoga-precision-menton.jpg",
+    imageAlt: text("Illustration of Centre Yoga Precision Menton", "Illustration du Centre Yoga Precision Menton", "Illustrazione del Centre Yoga Precision Menton", "Ілюстрація Centre Yoga Precision Menton"),
+    visualTheme: "walk",
+  },
+  "studio-jeune-lune-menton": {
+    image: "/images/guide/studio-jeune-lune-menton.jpg",
+    imageAlt: text("Illustration of Studio Jeune Lune in Menton", "Illustration du Studio Jeune Lune a Menton", "Illustrazione dello Studio Jeune Lune a Mentone", "Ілюстрація Studio Jeune Lune у Ментоні"),
+    visualTheme: "walk",
+  },
+  "espace-neona-menton": {
+    image: "/images/guide/espace-neona-menton.jpg",
+    imageAlt: text("Illustration of Espace Neona in Menton", "Illustration d'Espace Neona a Menton", "Illustrazione di Espace Neona a Mentone", "Ілюстрація Espace Neona у Ментоні"),
+    visualTheme: "walk",
+  },
+  "padmaspace-menton": {
+    image: "/images/guide/padmaspace-menton.jpg",
+    imageAlt: text("Illustration of Padmaspace in Menton", "Illustration de Padmaspace a Menton", "Illustrazione di Padmaspace a Mentone", "Ілюстрація Padmaspace у Ментоні"),
+    visualTheme: "walk",
+  },
   "la-tarte-mentonnaise": {
     image: "/images/guide/la-tarte-mentonnaise.jpg",
     imageAlt: text("Illustration of La Tarte Mentonnaise in Menton", "Illustration de La Tarte Mentonnaise a Menton", "Illustrazione di La Tarte Mentonnaise a Mentone", "Ілюстрація La Tarte Mentonnaise у Ментоні"),
