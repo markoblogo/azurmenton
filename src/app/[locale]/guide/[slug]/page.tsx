@@ -363,12 +363,12 @@ function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionV
 
   if (!canEmbed) {
     return (
-      <div className="border border-[#dfd2b8] bg-[#f8f3ea] p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
-        <div>
+      <div className="border border-[#dfd2b8] bg-[#f8f3ea] p-5">
+        <div className="max-w-3xl">
           <h3 className="serif-heading text-xl leading-tight text-[#173f36] sm:text-2xl">{video.title}</h3>
           <p className="mt-2 text-base leading-7 text-[#5c5044] sm:text-lg">{video.caption ?? opensOnSourceLabel}</p>
         </div>
-        <VideoLinks video={video} primaryLabel={primaryLabel} compact />
+        <VideoLinks video={video} primaryLabel={primaryLabel} />
       </div>
     );
   }
@@ -395,14 +395,14 @@ function VideoEmbed({ video, watchLabel, opensOnSourceLabel }: { video: SectionV
   );
 }
 
-function VideoLinks({ video, primaryLabel, compact = false }: { video: SectionVideoEmbed; primaryLabel: string; compact?: boolean }) {
+function VideoLinks({ video, primaryLabel }: { video: SectionVideoEmbed; primaryLabel: string }) {
   return (
-    <div className={compact ? "mt-3 flex shrink-0 flex-wrap gap-x-4 gap-y-2 sm:mt-0" : "mt-3 flex flex-wrap gap-x-4 gap-y-2"}>
-      <a className="inline-flex text-sm font-bold uppercase tracking-[0.12em] text-[#173f36] underline-offset-4 hover:underline sm:text-base" href={video.watchUrl} target="_blank" rel="noopener noreferrer">
+    <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
+      <a className="inline-flex max-w-full whitespace-normal text-balance text-sm font-bold uppercase leading-6 tracking-[0.12em] text-[#173f36] underline-offset-4 hover:underline sm:text-base" href={video.watchUrl} target="_blank" rel="noopener noreferrer">
         {primaryLabel}
       </a>
       {video.secondaryLinks?.map((link) => (
-        <a key={link.url} className="inline-flex text-sm font-bold uppercase tracking-[0.12em] text-[#5c5044] underline-offset-4 hover:text-[#173f36] hover:underline sm:text-base" href={link.url} target="_blank" rel="noopener noreferrer">
+        <a key={link.url} className="inline-flex max-w-full whitespace-normal text-balance text-sm font-bold uppercase leading-6 tracking-[0.12em] text-[#5c5044] underline-offset-4 hover:text-[#173f36] hover:underline sm:text-base" href={link.url} target="_blank" rel="noopener noreferrer">
           {link.label}
         </a>
       ))}
