@@ -4566,6 +4566,8 @@ export const guideArticles: GuideArticle[] = [
     sourceStatus: "needs_verification",
     relatedPlaces: [
       "nabucco-wine-bar-cellar",
+      "vinum-veritas-menton",
+      "cercle-des-marins-disparus",
       "o-divin-menton",
       "comptoir-des-vignes-menton",
       "nicolas-menton",
@@ -4593,10 +4595,10 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: t("Start in Menton: wine bars and cavistes", "Commencer a Menton: bars a vin et cavistes", "Inizia a Mentone: wine bar ed enoteche", "Почати в Ментоні: винні бари та крамниці"),
         body: [
-          t("For a low-effort evening, stay local. Nabucco works as a wine bar and cellar for tasting on site, while O Di'Vin, Comptoir des Vignes and Nicolas are practical stops for advice, gifts or bottles to drink on the balcony after the beach.", "Pour une soiree simple, restez local. Nabucco fonctionne comme bar a vin et cave, tandis qu'O Di'Vin, Comptoir des Vignes et Nicolas sont pratiques pour conseils, cadeaux ou bouteilles a boire au balcon apres la plage.", "Per una serata semplice resta locale. Nabucco funziona come wine bar e cantina, mentre O Di'Vin, Comptoir des Vignes e Nicolas sono pratici per consigli, regali o bottiglie da bere sul balcone dopo la spiaggia.", "Для легкого вечора залишайтеся локально. Nabucco працює як винний бар і крамниця, а O Di'Vin, Comptoir des Vignes і Nicolas зручні для порад, подарунків або пляшок на балкон після пляжу."),
+          t("For a low-effort evening, stay local. Nabucco and Vinum Veritas work as wine bars and cellars for tasting on site; Le Cercle des Marins Disparus is the Port Garavan variation. O Di'Vin, Comptoir des Vignes and Nicolas are practical stops for advice, gifts or bottles to drink on the balcony after the beach.", "Pour une soiree simple, restez local. Nabucco et Vinum Veritas fonctionnent comme bars a vin et caves pour deguster sur place ; Le Cercle des Marins Disparus est l'option Port Garavan. O Di'Vin, Comptoir des Vignes et Nicolas sont pratiques pour conseils, cadeaux ou bouteilles a boire au balcon apres la plage.", "Per una serata semplice resta locale. Nabucco e Vinum Veritas funzionano come wine bar ed enoteche per degustare sul posto; Le Cercle des Marins Disparus e l'opzione al Port Garavan. O Di'Vin, Comptoir des Vignes e Nicolas sono pratici per consigli, regali o bottiglie da bere sul balcone dopo la spiaggia.", "Для легкого вечора залишайтеся локально. Nabucco і Vinum Veritas працюють як винні бари й крамниці для дегустації на місці; Le Cercle des Marins Disparus дає варіант у Port Garavan. O Di'Vin, Comptoir des Vignes і Nicolas зручні для порад, подарунків або пляшок на балкон після пляжу."),
           t("This is the best option when you arrive late, have fixed restaurant plans or want wine to match market food and simple apartment dinners.", "C'est la meilleure option si vous arrivez tard, avez deja un restaurant prevu ou voulez accompagner produits du marche et diners simples a l'appartement.", "E l'opzione migliore se arrivi tardi, hai gia ristoranti prenotati o vuoi abbinare vini a mercato e cene semplici in appartamento.", "Це найкращий варіант, якщо ви приїхали пізно, вже маєте ресторани або хочете вино до ринку й простих вечерь в апартаментах."),
         ],
-        relatedPlaceIds: ["nabucco-wine-bar-cellar", "o-divin-menton", "comptoir-des-vignes-menton", "nicolas-menton"],
+        relatedPlaceIds: ["nabucco-wine-bar-cellar", "vinum-veritas-menton", "cercle-des-marins-disparus", "o-divin-menton", "comptoir-des-vignes-menton", "nicolas-menton"],
         relatedApartmentKeys: seaViewApartments,
       },
       {

@@ -71,6 +71,7 @@ export type Place = {
   shortNote: LocalizedText;
   bestFor: LocalizedText[];
   relatedArticleIds: string[];
+  guideCoverageSlugs?: string[];
 };
 
 const text = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
@@ -4906,6 +4907,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A wine bar and cellar on Rue Saint-Michel with French-Italian sharing plates. Ask whether an artisan pastis is currently available.", "Bar a vin et cave rue Saint-Michel, avec assiettes a partager franco-italiennes. Demandez si un pastis artisanal est disponible.", "Wine bar ed enoteca in Rue Saint-Michel con piatti da condividere franco-italiani. Chiedi se e disponibile un pastis artigianale.", "Винний бар і крамниця на Rue Saint-Michel із франко-італійськими стравами для спільного столу. Запитайте про наявність artisan pastis."),
     bestFor: [text("wine and spirits advice", "conseils vins et spiritueux", "consigli su vini e distillati", "поради щодо вина та міцних напоїв"), text("old-town aperitif", "aperitif dans la vieille ville", "aperitivo nel centro storico", "аперитив у старому місті")],
     relatedArticleIds: ["pastis-in-menton", "wine-tasting-near-menton", "bars-and-beer-in-menton", "local-food-menton"],
+    guideCoverageSlugs: ["pastis-in-menton", "wine-tasting-near-menton"],
   },
   {
     id: "cercle-des-marins-disparus",
@@ -4918,6 +4920,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A wine cellar and bar at Port Garavan. Ask which spirits are currently available and whether a bottle can be bought to take away.", "Cave a vin et bar au Port Garavan. Demandez quels spiritueux sont disponibles et si une bouteille peut etre emportee.", "Enoteca e bar a Port Garavan. Chiedi quali distillati sono disponibili e se una bottiglia puo essere acquistata da asporto.", "Винна крамниця та бар у Port Garavan. Запитайте про доступні міцні напої та можливість купити пляшку із собою."),
     bestFor: [text("marina aperitif", "aperitif a la marina", "aperitivo in marina", "аперитив у марині"), text("wine-shop stop", "halte caviste", "sosta in enoteca", "зупинка у винній крамниці")],
     relatedArticleIds: ["pastis-in-menton", "wine-tasting-near-menton", "quiet-evening-in-menton", "morning-walk-france-to-italy"],
+    guideCoverageSlugs: ["pastis-in-menton", "wine-tasting-near-menton"],
   },
   {
     id: "gold-cafe-menton",

@@ -50,6 +50,11 @@ type SectionVideoEmbed = {
   caption?: string;
 };
 
+function guideReferencesPlace(slug: string, placeId: string) {
+  const guide = getGuideArticle(slug);
+  return Boolean(guide && [...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])].includes(placeId));
+}
+
 export function generateStaticParams() {
   return locales.flatMap((locale) => guidePages[locale].map((page) => ({ locale, slug: page.slug })));
 }
@@ -78,6 +83,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const isTransportGuide = article.slug === "public-transport-in-menton";
   const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
   const relatedPlaces = getPlaces(relatedPlaceIds);
+  const relatedGuideSlugForPlace = (placeId: string, candidateSlugs: string[]) => (
+    candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId)) ?? null
+  );
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const apartmentScenario = guideApartmentScenarios[article.slug];
   const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
@@ -210,7 +218,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     ) : null}
                     {sectionPlaces.length ? (
                       <div className="mt-5 grid gap-3 md:grid-cols-2">
-                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} compact />)}
+                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} compact />)}
                       </div>
                     ) : null}
                     </section>
@@ -291,7 +299,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           <Container>
             <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} />)}
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
             </div>
           </Container>
         </Section>

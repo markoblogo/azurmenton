@@ -17,6 +17,7 @@ const { locales } = require("../src/i18n/locales.ts");
 
 const failures = [];
 const guideSlugs = new Set(guideArticles.map((article) => article.slug));
+const guideBySlug = new Map(guideArticles.map((article) => [article.slug, article]));
 const placeIds = new Set(places.map((place) => place.id));
 const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
@@ -109,6 +110,16 @@ for (const place of places) {
   checkUrl(owner, "googleMapsUrl", place.googleMapsUrl);
   checkUrl(owner, "googleMapsSearchUrl", place.googleMapsSearchUrl);
   checkUrl(owner, "programmeUrl", place.programmeUrl);
+  for (const guideSlug of place.guideCoverageSlugs ?? []) {
+    const guide = guideBySlug.get(guideSlug);
+    if (!guide) {
+      fail(`${owner}.guideCoverageSlugs -> ${guideSlug}`);
+      continue;
+    }
+    if (!place.relatedArticleIds.includes(guideSlug)) fail(`${owner}.guideCoverageSlugs -> ${guideSlug} is missing from relatedArticleIds`);
+    const guidePlaceIds = new Set([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])]);
+    if (!guidePlaceIds.has(place.id)) fail(`${owner}.guideCoverageSlugs -> ${guideSlug} does not render this place`);
+  }
   if (place.sourceStatus === "verified" && !place.googleMapsUrl && !place.programmeUrl) {
     fail(`${owner} is verified but has no source URL`);
   }

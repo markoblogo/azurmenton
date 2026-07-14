@@ -12,11 +12,13 @@ const labels = {
   uk: { map: "Відкрити в Google Maps", programme: "Переглянути актуальну програму", website: "Вебсайт", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
 };
 
-export function PlaceCard({ place, locale, compact = false, currentGuideId }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string }) {
+export function PlaceCard({ place, locale, compact = false, currentGuideId, relatedGuideSlug }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null }) {
   const copy = labels[locale];
   const location = place.address ?? place.area?.[locale];
   const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
-  const relatedArticleId = place.relatedArticleIds.find((articleId) => articleId !== currentGuideId);
+  const relatedArticleId = relatedGuideSlug === undefined
+    ? place.relatedArticleIds.find((articleId) => articleId !== currentGuideId)
+    : relatedGuideSlug;
   const relatedHref = relatedArticleId ? (`/${locale}/guide/${relatedArticleId}` as Route) : undefined;
   const externalLinkLabel = place.type === "cinema" || place.type === "theatre" ? copy.programme : copy.website;
   const visualLabel = place.type.replaceAll("-", " ");

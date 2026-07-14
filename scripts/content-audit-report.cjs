@@ -128,6 +128,15 @@ for (const article of guideArticles) {
   }
 }
 
+const canonicalGuideCoverageGaps = [];
+for (const place of places) {
+  for (const articleSlug of place.guideCoverageSlugs ?? []) {
+    const article = guideArticles.find((candidate) => candidate.slug === articleSlug);
+    if (!article || uniq([...(article.relatedPlaces ?? []), ...sectionPlaceIds(article)]).includes(place.id)) continue;
+    canonicalGuideCoverageGaps.push({ placeId: place.id, articleSlug });
+  }
+}
+
 const orphanPlaces = places
   .filter((place) => !place.relatedArticleIds.length)
   .sort((left, right) => left.id.localeCompare(right.id));
@@ -210,6 +219,7 @@ printGroup("Guide link audit exclusions", guideLinkAuditExclusions, (article) =>
 printGroup("Guides without apartment CTA", guidesWithoutApartmentCta, (article) => article.slug);
 printGroup("Place backlink gaps", placeBacklinkGaps, (gap) => `${gap.placeId} missing ${gap.articleSlug}`);
 printGroup("Intentional supporting-card backlink exclusions", placeBacklinkExclusions, (gap) => `${gap.placeId} / ${gap.articleSlug}: ${gap.reason}`, 10);
+printGroup("Canonical guide coverage gaps", canonicalGuideCoverageGaps, (gap) => `${gap.placeId} must appear in ${gap.articleSlug}`);
 printGroup("Orphan places", orphanPlaces, (place) => `${place.id} (${place.name})`);
 printGroup("Orphan guide articles", orphanArticles, (article) => article.slug);
 printGroup("Pending or unverified events needing review", pendingEventsNeedingReview, (event) => `${event.slug} (${getEventDateStatus(event, today)}, ${event.sourceStatus})`);

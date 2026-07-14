@@ -81,6 +81,26 @@ describe("content graph audit", () => {
     expect(failures).toEqual([]);
   });
 
+  it("keeps canonical place coverage guides linked and rendered", () => {
+    const failures: string[] = [];
+    const guideBySlug = new Map(guideArticles.map((article) => [article.slug, article]));
+
+    for (const place of places) {
+      for (const guideSlug of place.guideCoverageSlugs ?? []) {
+        const guide = guideBySlug.get(guideSlug);
+        if (!guide) {
+          failures.push(`${place.id} guideCoverageSlugs -> ${guideSlug}`);
+          continue;
+        }
+        if (!place.relatedArticleIds.includes(guideSlug)) failures.push(`${place.id} coverage guide ${guideSlug} missing from relatedArticleIds`);
+        const guidePlaceIds = new Set([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])]);
+        if (!guidePlaceIds.has(place.id)) failures.push(`${place.id} coverage guide ${guideSlug} does not render the place`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   it("keeps guide and place image paths valid when present", () => {
     const failures: string[] = [];
 
