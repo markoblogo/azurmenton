@@ -413,7 +413,7 @@ const articles: GuideArticle[] = [
             "Цитрусова ідентичність Ментона також помітна в лимонних тартах, кексах, джемах, цукатах, печиві й лікерах. Спеціалізовані крамниці з лимонними продуктами добре підходять для сувенірів, які легше везти додому, ніж свіжу випічку.",
           ),
         ],
-        relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton", "petit-casino-saint-michel"],
+        relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton", "petit-casino-saint-michel", "au-pays-du-citron-menton", "maison-gannac-menton", "zeste-de-menton"],
       },
       {
         heading: t("Ice cream, gelato and lemon sorbet", "Glace, gelato et sorbet citron", "Gelato, gelaterie e sorbetto al limone", "Морозиво, gelato й лимонний сорбет"),
@@ -484,7 +484,7 @@ const articles: GuideArticle[] = [
       t("Ask what is homemade, local or just out of the oven.", "Demandez ce qui est fait maison, local ou tout juste sorti du four.", "Chiedi cosa e fatto in casa, locale o appena uscito dal forno.", "Запитуйте, що домашнє, місцеве або щойно з печі."),
       t("Try one market breakfast and one simple picnic-style apartment meal.", "Essayez un petit-dejeuner de marche et un repas simple a l'appartement.", "Prova una colazione al mercato e un pasto semplice in appartamento.", "Спробуйте один ринковий сніданок і одну просту вечерю-пікнік в апартаментах."),
     ],
-    relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton", "restaurant-le-5-menton"],
+    relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "promenade-du-soleil", "intermarche-hyper-menton", "u-express-menton-centre", "carrefour-city-felix-faure", "petit-casino-saint-michel", "puro-piacere-menton", "demontis-gelateria-menton", "tutti-frutti-menton", "nabucco-wine-bar-cellar", "comptoir-des-vignes-menton", "restaurant-le-5-menton", "au-pays-du-citron-menton", "maison-gannac-menton", "zeste-de-menton"],
     relatedArticles: ["best-seafood-restaurants-menton", "best-souvenir-shops-menton-monaco-nice", "best-ice-cream-menton", "best-pastries-desserts-cakes-menton", "pastis-in-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "halles-du-marche-menton", "menton-one-day-itinerary", "bars-and-beer-in-menton"],
     relatedApartments: allApartments,
   },

@@ -208,6 +208,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("Menton lemon tart", "tarte au citron de Menton", "tarte al limone di Mentone", "лимонний тарт Ментона"), text("old-town sweets", "douceurs vieille ville", "dolci nel centro storico", "солодощі старого міста")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "best-ice-cream-menton", "local-food-menton", "menton-old-town", "fete-du-citron-menton-practical-guide"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "mitron-bakery-menton",
@@ -226,6 +227,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("artisan bakery", "boulangerie artisanale", "panetteria artigianale", "артизанальна пекарня"), text("lemon panettone", "panettone citron", "panettone al limone", "лимонний panettone")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "halles-du-marche-menton", "local-food-menton", "best-souvenir-shops-menton-monaco-nice"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "vanilla-bakery-menton",
@@ -244,6 +246,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("coffee and cake", "cafe et gateau", "caffe e dolce", "кава і торт"), text("families", "familles", "famiglie", "сім'ї")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "local-food-menton", "menton-with-kids-family-guide", "best-ice-cream-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "atelier-boulanger-menton",
@@ -262,6 +265,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("classic bakery", "boulangerie classique", "panetteria classica", "класична пекарня"), text("quick breakfast", "petit-dejeuner rapide", "colazione veloce", "швидкий сніданок")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "local-food-menton", "where-to-stay-in-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "cafe-noailles-menton",
@@ -280,6 +284,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("tea room", "salon de the", "sala da te", "чайна кімната"), text("quiet coffee", "cafe calme", "caffe tranquillo", "спокійна кава")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "quiet-evening-in-menton", "local-food-menton", "menton-old-town"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "boulangerie-la-madone-des-jardins",
@@ -298,6 +303,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("local bakery", "boulangerie locale", "panetteria locale", "локальна пекарня"), text("nearby breakfast", "petit-dejeuner proche", "colazione vicina", "сніданок поруч")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "where-to-stay-in-menton", "local-food-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "ma-premiere-boulangerie-la-turbie",
@@ -316,6 +322,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("La Turbie stop", "halte a La Turbie", "sosta a La Turbie", "зупинка в La Turbie"), text("artisan pastry", "patisserie artisanale", "pasticceria artigianale", "артизанальна випічка")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "day-trips-from-menton", "golf-near-menton", "car-rental-menton-nice-airport-convertibles"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "cedric-grolet-monte-carlo",
@@ -334,6 +341,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("luxury pastry", "patisserie luxe", "pasticceria di lusso", "люксова випічка"), text("Monaco tea time", "tea time Monaco", "tea time a Monaco", "tea time у Монако")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "monaco-events-from-menton", "day-trips-from-menton", "casinos-near-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "pasticceria-cova-monaco",
@@ -352,6 +360,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("Italian pastry", "patisserie italienne", "pasticceria italiana", "італійська випічка"), text("Monaco coffee", "cafe a Monaco", "caffe a Monaco", "кава в Монако")],
     relatedArticleIds: ["best-pastries-desserts-cakes-menton", "monaco-events-from-menton", "day-trips-from-menton", "theatre-opera-performing-arts-near-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "chez-mimi-menton",
@@ -385,6 +394,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("vegan", "végétalien", "vegano", "веган"), text("dinner", "dîner", "cena", "вечеря"), text("special diets", "régimes spéciaux", "diete speciali", "спеціальні дієти")],
     relatedArticleIds: ["local-food-menton", "vegan-restaurants-cafes-menton", "menton-without-a-car", "where-to-stay-in-menton", "best-souvenir-shops-menton-monaco-nice"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "a-braijade-meridiounale-palais-des-princes",
@@ -401,6 +411,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("local dinner", "diner local", "cena locale", "локальна вечеря"), text("vegan-friendly", "végétarien", "vegetariano-friendly", "веган-дружній"), text("group visits", "groupes", "gruppi", "групи")],
     relatedArticleIds: ["local-food-menton", "vegan-restaurants-cafes-menton", "menton-old-town", "menton-without-a-car"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "o-petit-corner",
@@ -417,6 +428,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("breakfast", "petit-dejeuner", "colazione", "сніданок"), text("coffee", "café", "caffè", "кава"), text("easy lunch", "dejeuner simple", "pranzo rapido", "швидкий обід")],
     relatedArticleIds: ["vegan-restaurants-cafes-menton", "local-food-menton", "best-souvenir-shops-menton-monaco-nice", "day-trips-from-menton"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "le-taj-menton",
@@ -433,6 +445,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("dinner", "dîner", "cena", "вечеря"), text("vegetarian", "végétarien", "vegetariano", "вегетаріанська"), text("family", "famille", "famiglia", "сім'я")],
     relatedArticleIds: ["vegan-restaurants-cafes-menton", "local-food-menton", "menton-with-kids-family-guide", "menton-without-a-car"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "little-bao-menton",
@@ -449,6 +462,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("quick meal", "repas rapide", "pasto veloce", "швидкий обід"), text("street-food style", "street-food", "street food", "стріт-фуд"), text("young groups", "jeunes groupes", "gruppi giovani", "молоді компанії")],
     relatedArticleIds: ["vegan-restaurants-cafes-menton", "local-food-menton", "menton-without-a-car", "best-souvenir-shops-menton-monaco-nice"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "paper-plane-nice",
@@ -466,6 +480,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("day trip", "excursion", "gita", "поїздка"), text("brunch", "déjeuner", "pranzo", "обід"), text("lunch", "déjeuner", "pranzo", "обід")],
     relatedArticleIds: ["vegan-restaurants-cafes-menton", "day-trips-from-menton", "best-souvenir-shops-menton-monaco-nice", "menton-without-a-car"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "la-musa-ventimiglia",
@@ -482,6 +497,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("Italian food", "cuisine italienne", "cucina italiana", "італійська кухня"), text("day trip", "excursion", "gita", "поїздка"), text("dinner", "dîner", "cena", "вечеря")],
     relatedArticleIds: ["vegan-restaurants-cafes-menton", "day-trips-from-menton", "menton-without-a-car", "italian-riviera-day-trip-from-menton"],
+    guideCoverageSlugs: ["vegan-restaurants-cafes-menton"],
   },
   {
     id: "maison-herbin-menton",
@@ -517,6 +533,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("Menton lemon gifts", "cadeaux citron de Menton", "regali al limone di Mentone", "подарунки з лимоном Ментона"), text("old-town shopping", "shopping vieille ville", "shopping nel centro storico", "покупки в старому місті")],
     relatedArticleIds: ["best-souvenir-shops-menton-monaco-nice", "local-food-menton", "fete-du-citron-menton-practical-guide", "menton-old-town"],
+    guideCoverageSlugs: ["local-food-menton"],
   },
   {
     id: "maison-gannac-menton",
@@ -535,6 +552,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("producer gifts", "cadeaux de producteur", "regali da produttore", "подарунки від виробника"), text("citrus culture", "culture des agrumes", "cultura degli agrumi", "цитрусова культура")],
     relatedArticleIds: ["best-souvenir-shops-menton-monaco-nice", "local-food-menton", "fete-du-citron-menton-practical-guide", "day-trips-from-menton"],
+    guideCoverageSlugs: ["local-food-menton"],
   },
   {
     id: "zeste-de-menton",
@@ -552,6 +570,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("meaningful gifts", "cadeaux porteurs de sens", "regali con significato", "подарунки зі змістом"), text("small food gifts", "petits cadeaux gourmands", "piccoli regali gastronomici", "невеликі їстівні подарунки")],
     relatedArticleIds: ["best-souvenir-shops-menton-monaco-nice", "local-food-menton", "fete-du-citron-menton-practical-guide"],
+    guideCoverageSlugs: ["local-food-menton"],
   },
   {
     id: "quai-bonaparte-menton",
@@ -2574,6 +2593,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Specialist fish and seafood restaurant with oyster-bar positioning near Les Sablettes and the old town.", "Restaurant specialise poisson et fruits de mer, avec esprit bar a huitres pres des Sablettes et de la vieille ville.", "Ristorante specializzato in pesce e frutti di mare, con taglio oyster bar vicino alle Sablettes e al centro storico.", "Спеціалізований рибний і seafood ресторан з oyster-bar форматом біля Sablettes і старого міста."),
     bestFor: [text("oysters", "huitres", "ostriche", "устриці"), text("seafood platters", "plateaux de fruits de mer", "plateau di frutti di mare", "seafood platter")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "halles-du-marche-menton", "local-food-menton", "best-beaches-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "lambata-menton",
@@ -2587,6 +2607,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Waterfront seafood address for cooked fish, crustaceans and larger seafood meals.", "Adresse fruits de mer en bord de mer pour poissons cuisines, crustaces et repas marins plus complets.", "Indirizzo sul mare per pesce cucinato, crostacei e pasti di mare piu completi.", "Морська адреса для приготовленої риби, ракоподібних і повніших seafood вечерь."),
     bestFor: [text("waterfront dinner", "diner en bord de mer", "cena sul mare", "вечеря біля моря"), text("cooked seafood", "fruits de mer cuisines", "frutti di mare cucinati", "приготовані морепродукти")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "local-food-menton", "best-beaches-in-menton", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-galion-menton",
@@ -2600,6 +2621,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Established Port Garavan restaurant for a polished harbour dinner with fish, seafood and Mediterranean dishes.", "Restaurant etabli du Port Garavan pour un diner plus soigne autour du poisson, des fruits de mer et de la cuisine mediterraneenne.", "Ristorante affermato al Port Garavan per una cena curata con pesce, frutti di mare e cucina mediterranea.", "Відомий ресторан Port Garavan для більш вишуканої вечері з рибою, seafood і середземноморською кухнею."),
     bestFor: [text("harbour dinner", "diner au port", "cena al porto", "вечеря в порту"), text("occasion meal", "repas d'occasion", "cena speciale", "особлива вечеря")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-petit-port-menton",
@@ -2613,6 +2635,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Smaller Mediterranean restaurant for simple fish, daily specials and a local bistro feel.", "Petit restaurant mediterraneen pour poisson simple, suggestions du jour et atmosphere bistrot locale.", "Piccolo ristorante mediterraneo per pesce semplice, piatti del giorno e atmosfera bistrot locale.", "Невеликий середземноморський ресторан для простої риби, денних пропозицій і локальної bistro атмосфери."),
     bestFor: [text("grilled fish", "poisson grille", "pesce alla griglia", "грильована риба"), text("local bistro", "bistrot local", "bistrot locale", "локальне бістро")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "local-food-menton", "menton-old-town"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "trattoria-la-mamma-menton",
@@ -2626,6 +2649,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Informal Italian restaurant for fish of the day, seafood pasta and Riviera-Ligurian flavours when local catch is available.", "Restaurant italien informel pour poisson du jour, pates aux fruits de mer et accents ligures selon les arrivages.", "Ristorante italiano informale per pesce del giorno, pasta ai frutti di mare e sapori liguri secondo disponibilita.", "Неформальний італійський ресторан для риби дня, seafood pasta й лігурійських мотивів, коли є локальний вилов."),
     bestFor: [text("Italian seafood", "poisson a l'italienne", "pesce all'italiana", "італійський seafood"), text("casual dinner", "diner simple", "cena informale", "невимушена вечеря")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "local-food-menton", "italian-riviera-day-trip-from-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-sasano-menton",
@@ -2639,6 +2663,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Seafront sushi and Asian-fusion option for raw fish, platters and lighter seafood meals.", "Adresse sushi et fusion asiatique en bord de mer pour poisson cru, plateaux et repas marins plus legers.", "Opzione sushi e fusion asiatica sul mare per pesce crudo, plateau e pasti di mare piu leggeri.", "Sushi та Asian-fusion точка на набережній для сирої риби, сетів і легших seafood вечерь."),
     bestFor: [text("sushi", "sushi", "sushi", "суші"), text("raw fish", "poisson cru", "pesce crudo", "сира риба")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-martina-menton",
@@ -2652,6 +2677,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Old-town Italian restaurant for family-style fish dishes near the beach and port walks.", "Restaurant italien de vieille ville pour poissons en style familial pres des plages et du port.", "Ristorante italiano nel centro storico per piatti di pesce familiari vicino a spiagge e porto.", "Італійський ресторан у старому місті для сімейних рибних страв біля пляжів і порту."),
     bestFor: [text("old-town dinner", "diner vieille ville", "cena in centro storico", "вечеря в старому місті"), text("Italian fish", "poisson italien", "pesce italiano", "італійська риба")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "menton-old-town", "local-food-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-carnival-menton",
@@ -2665,6 +2691,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Quai de Monleon restaurant for Mediterranean and Italian fish close to the market and old port.", "Restaurant du quai de Monleon pour poissons mediterraneens et italiens pres du marche et du vieux port.", "Ristorante sul Quai de Monleon per pesce mediterraneo e italiano vicino al mercato e al vecchio porto.", "Ресторан на Quai de Monleon для середземноморської та італійської риби біля ринку й старого порту."),
     bestFor: [text("market-area lunch", "dejeuner pres du marche", "pranzo vicino al mercato", "обід біля ринку"), text("Mediterranean fish", "poisson mediterraneen", "pesce mediterraneo", "середземноморська риба")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "halles-du-marche-menton", "menton-old-town"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-cosy-menton",
@@ -2678,6 +2705,7 @@ const rawPlaces: Place[] = [
     shortNote: text("French-Provençal brasserie option for mixed groups where some guests want fish or seafood and others prefer classics.", "Brasserie franco-provencale pratique pour les groupes mixtes entre poissons, fruits de mer et classiques.", "Brasserie franco-provenzale pratica per gruppi misti tra pesce, frutti di mare e classici.", "Франко-провансальська brasserie для змішаних груп: частина хоче рибу/seafood, інші - класику."),
     bestFor: [text("mixed groups", "groupes mixtes", "gruppi misti", "змішані групи"), text("brasserie", "brasserie", "brasserie", "brasserie")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "local-food-menton", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "cote-sud-menton",
@@ -2691,6 +2719,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Mediterranean restaurant to consider when fish options matter but the whole meal should not revolve around shellfish.", "Restaurant mediterraneen utile quand le poisson compte sans centrer tout le repas sur les coquillages.", "Ristorante mediterraneo utile quando il pesce conta ma il pasto non deve ruotare tutto sui crostacei.", "Середземноморський ресторан, коли важлива риба, але вся вечеря не має крутитися навколо shellfish."),
     bestFor: [text("broader menu", "carte plus large", "menu piu ampio", "ширше меню"), text("Mediterranean food", "cuisine mediterraneenne", "cucina mediterranea", "середземноморська кухня")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "local-food-menton", "michelin-restaurants-menton-nice-monaco"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "la-pescaria-de-menton",
@@ -2704,6 +2733,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Fishmonger and seafood traiteur inside the covered market for fish, shellfish, platters and apartment seafood meals.", "Poissonnerie et traiteur marin dans les Halles pour poissons, coquillages, plateaux et repas de fruits de mer a l'appartement.", "Pescheria e gastronomia di mare nelle Halles per pesce, crostacei, plateau e pasti di mare in appartamento.", "Рибна лавка й seafood traiteur у критому ринку для риби, shellfish, platter і seafood вечері в апартаментах."),
     bestFor: [text("seafood for the apartment", "fruits de mer pour l'appartement", "frutti di mare per l'appartamento", "морепродукти для апартаментів"), text("market shopping", "courses au marche", "spesa al mercato", "покупки на ринку")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "halles-du-marche-menton", "local-food-menton", "supermarkets-in-menton", "where-to-stay-in-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "le-cabanon-plage-du-buse",
@@ -2717,6 +2747,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Seasonal beach lunch option at Plage du Buse; check opening and remember the access involves steps.", "Option de dejeuner saisonnier a la plage du Buse; verifiez l'ouverture et notez les marches d'acces.", "Opzione stagionale per pranzo alla Plage du Buse; controlla apertura e ricorda gli scalini.", "Сезонний пляжний обід на Plage du Buse; перевіряйте відкриття й пам'ятайте про сходи."),
     bestFor: [text("scenic beach lunch", "dejeuner plage scenic", "pranzo panoramico in spiaggia", "пляжний обід із видом"), text("Roquebrune-Cap-Martin", "Roquebrune-Cap-Martin", "Roquebrune-Cap-Martin", "Roquebrune-Cap-Martin")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "best-beaches-in-menton", "day-trips-from-menton", "best-walks-and-hikes-around-menton"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "casa-buono-ventimiglia",
@@ -2730,6 +2761,7 @@ const rawPlaces: Place[] = [
     shortNote: text("Refined Ventimiglia restaurant for a more ambitious Italian seafood-focused evening from Menton.", "Restaurant raffine a Vintimille pour une soiree italienne plus ambitieuse autour de la mer.", "Ristorante raffinato a Ventimiglia per una serata italiana piu ambiziosa legata al mare.", "Вишуканий ресторан у Ventimiglia для амбітнішої італійської seafood вечері з Ментона."),
     bestFor: [text("special dinner", "diner special", "cena speciale", "особлива вечеря"), text("Italian Riviera", "Riviera italienne", "Riviera italiana", "Італійська Рив'єра")],
     relatedArticleIds: ["best-seafood-restaurants-menton", "italian-riviera-day-trip-from-menton", "day-trips-from-menton", "michelin-restaurants-menton-nice-monaco"],
+    guideCoverageSlugs: ["best-seafood-restaurants-menton"],
   },
   {
     id: "intermarche-hyper-menton",
@@ -2879,6 +2911,7 @@ const rawPlaces: Place[] = [
     bestFor: [text("Kosher groceries", "epicerie kasher", "alimentari kasher", "кошерні продукти"), text("Shabbat planning", "planification shabbat", "pianificazione shabbat", "планування Шабату")],
     programmeUrl: "https://www.totallyjewishtravel.com/Kosher_Restaurant-TE54410-shop_la_makolet_epicerie_cacher-Reviews-nice_france.html",
     relatedArticleIds: ["kosher-food-restaurants-menton-monaco-nice", "local-food-menton", "supermarkets-in-menton"],
+    guideCoverageSlugs: ["kosher-food-restaurants-menton-monaco-nice"],
   },
   {
     id: "le-kineret-nice",
@@ -2897,6 +2930,7 @@ const rawPlaces: Place[] = [
     bestFor: [text("Kosher take-away", "repas emporte", "asporto kasher", "виноский"), text("Shabbat backup", "planification shabbat", "supporto shabbat", "планування Шабату")],
     programmeUrl: "https://www.gokosher.com/en/f97773",
     relatedArticleIds: ["kosher-food-restaurants-menton-monaco-nice", "local-food-menton", "supermarkets-in-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["kosher-food-restaurants-menton-monaco-nice"],
   },
   {
     id: "bistro-k-nice",
@@ -2915,6 +2949,7 @@ const rawPlaces: Place[] = [
     bestFor: [text("Kosher meat meal", "repas kasher viande", "pasto kasher a carne", "кошерний м'ясний обід"), text("family visits", "famille", "famiglie", "сімейні поїздки")],
     programmeUrl: "https://bistro-k.eatbu.com/?lang=en",
     relatedArticleIds: ["kosher-food-restaurants-menton-monaco-nice", "local-food-menton", "day-trips-from-menton", "menton-one-day-itinerary"],
+    guideCoverageSlugs: ["kosher-food-restaurants-menton-monaco-nice"],
   },
   {
     id: "le-leviathan-nice",
@@ -2933,6 +2968,7 @@ const rawPlaces: Place[] = [
     bestFor: [text("Kosher dairy meal", "repas kasher laitier", "pasto latticino", "кошерний молочний обід"), text("quick trip from Menton", "escapade courte", "uscita veloce", "коротка поїздка")],
     programmeUrl: "https://www.gokosher.com/en/f97777",
     relatedArticleIds: ["kosher-food-restaurants-menton-monaco-nice", "local-food-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["kosher-food-restaurants-menton-monaco-nice"],
   },
   {
     id: "falafel-sahara-nice",
@@ -2950,6 +2986,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("fallback vegetarian meal", "repas vegetarien de secours", "pasto vegetariano d'emergenza", "резервний вегетаріанський варіант"), text("quick trip", "course breve", "uscita veloce", "швидка поїздка")],
     relatedArticleIds: ["kosher-food-restaurants-menton-monaco-nice", "local-food-menton", "day-trips-from-menton"],
+    guideCoverageSlugs: ["kosher-food-restaurants-menton-monaco-nice"],
   },
   {
     id: "chabad-nice",
@@ -4516,6 +4553,7 @@ const rawPlaces: Place[] = [
     ),
     bestFor: [text("candied fruit", "fruits confits", "frutta candita", "цукати"), text("historic shops", "boutiques historiques", "negozi storici", "історичні крамниці")],
     relatedArticleIds: ["best-souvenir-shops-menton-monaco-nice", "day-trips-from-menton", "local-food-menton", "best-pastries-desserts-cakes-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton"],
   },
   {
     id: "cours-saleya-nice",
