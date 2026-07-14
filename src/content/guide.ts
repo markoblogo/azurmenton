@@ -6487,7 +6487,7 @@ export const guideArticles: GuideArticle[] = [
       "la-turbie",
       "monaco-monte-carlo",
     ],
-    relatedArticles: ["golf-near-menton", "cycling-bike-rental-menton", "gyms-fitness-centres-menton", "skateparks-near-menton", "menton-with-kids-family-guide", "monaco-events-from-menton", "menton-without-a-car", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["golf-near-menton", "cycling-bike-rental-menton", "gyms-fitness-centres-menton", "petanque-in-menton", "skateparks-near-menton", "menton-with-kids-family-guide", "monaco-events-from-menton", "menton-without-a-car", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedEvents: ["rolex-monte-carlo-masters"],
     relatedApartments: allApartments,
     sections: [
@@ -6614,7 +6614,7 @@ export const guideArticles: GuideArticle[] = [
       "maison-auer-nice",
       "cours-saleya-nice",
     ],
-    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "best-pastries-desserts-cakes-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "fete-du-citron-menton-practical-guide", "menton-old-town", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "best-pastries-desserts-cakes-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "petanque-in-menton", "fete-du-citron-menton-practical-guide", "menton-old-town", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "monaco-events-from-menton", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7217,7 +7217,7 @@ export const guideArticles: GuideArticle[] = [
     visualTheme: "walk",
     sourceStatus: "needs_verification",
     relatedPlaces: ["la-salle-menton", "menton-crossfit", "sport-plaisir-menton", "street-workout-francis-palmero", "promenade-du-soleil", "menton-station"],
-    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "petanque-in-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7387,6 +7387,86 @@ export const guideArticles: GuideArticle[] = [
     practicalTips: [
       t("For summer outdoor practice, bring water, sunscreen and a light layer for the early morning breeze.", "Pour une pratique exterieure l'ete, prenez eau, creme solaire et une couche legere pour la brise matinale.", "Per pratica outdoor estiva, porta acqua, crema solare e uno strato leggero per la brezza del mattino.", "Для літньої outdoor-практики візьміть воду, сонцезахист і легкий шар одягу на ранковий бриз."),
       t("Treat every studio timetable, beach meeting point and visitor policy as live information to confirm directly.", "Considerez chaque planning de studio, point de rendez-vous plage et politique visiteur comme une information a confirmer directement.", "Considera ogni orario di studio, punto di incontro in spiaggia e politica per visitatori come informazioni da confermare direttamente.", "Сприймайте кожен студійний розклад, місце зустрічі на пляжі та правила для гостей як актуальну інформацію, яку треба підтвердити напряму."),
+    ],
+  }),
+  shortArticle({
+    id: "petanque-in-menton",
+    slug: "petanque-in-menton",
+    title: t("Pétanque in Menton: where to watch, play and buy boules", "Petanque a Menton : ou regarder, jouer et acheter des boules", "Petanque a Mentone: dove guardare, giocare e comprare le boules", "Петанк у Ментоні: де дивитися, грати й купити boules"),
+    seoTitle: t("Pétanque in Menton: Where to Watch, Play and Buy Boules", "Petanque a Menton : ou regarder, jouer et acheter des boules", "Petanque a Mentone: dove guardare, giocare e comprare le boules", "Петанк у Ментоні: де дивитися, грати й купити boules"),
+    seoDescription: t("A practical guide to pétanque in Menton: local boulodromes, club access, basic rules, visitor etiquette and where to ask for a leisure pétanque set.", "Guide pratique de la petanque a Menton : boulodromes, acces aux clubs, regles simples, etiquette visiteur et ou demander un jeu loisir.", "Guida pratica alla petanque a Mentone: boulodrome locali, accesso ai club, regole essenziali, galateo per visitatori e dove chiedere un set da svago.", "Практичний гід з петанку в Ментоні: локальні boulodromes, доступ до клубів, базові правила, етикет для гостей і де запитати аматорський набір."),
+    excerpt: t("Pétanque is part sport, part social ritual and part Riviera atmosphere. Menton has active club grounds where you can watch a game, ask whether visitors may join and find a leisure set for a respectful holiday match.", "La petanque est a la fois sport, rituel social et atmosphere de Riviera. Menton compte des terrains de clubs actifs ou observer une partie, demander si les visiteurs peuvent rejoindre le jeu et trouver un set loisir pour une partie respectueuse.", "La petanque e in parte sport, in parte rito sociale e in parte atmosfera della Riviera. Mentone ha campi di club attivi dove osservare una partita, chiedere se i visitatori possono unirsi e trovare un set da svago per giocare con rispetto.", "Петанк - це і спорт, і соціальний ритуал, і атмосфера Рив'єри. У Ментоні є активні клубні майданчики, де можна подивитися гру, запитати про участь гостей і знайти аматорський набір для коректної відпускної партії."),
+    category: "practical",
+    coverImage: "/images/guide/petanque-in-menton.jpg",
+    coverImageAlt: t("Pétanque in Menton", "Petanque a Menton", "Petanque a Mentone", "Петанк у Ментоні"),
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    tags: [t("pétanque", "petanque", "petanque", "петанк"), t("local sport", "sport local", "sport locale", "локальний спорт"), t("Menton", "Menton", "Mentone", "Ментон"), t("slow travel", "voyage lent", "viaggio lento", "повільна подорож")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "flexible",
+    locationTags: ["menton-centre", "garavan", "outdoor"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["menton-petanque", "garavan-petanque", "club-bouliste-de-menton", "boulodrome-borashi-menton", "sport-2000-menton", "palais-carnoles-menton", "port-de-garavan", "promenade-reine-astrid"],
+    relatedArticles: ["gyms-fitness-centres-menton", "tennis-padel-courts-menton", "menton-with-kids-family-guide", "menton-without-a-car", "best-souvenir-shops-menton-monaco-nice", "barbecue-picnic-areas-near-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("One of the most Riviera things you can do", "Une des activites les plus Riviera", "Una delle cose piu Riviera da fare", "Одна з найрів'єрніших речей, які можна зробити"),
+        body: [
+          t("The idea is simple: throw metal boules and finish closer to the small wooden target, the cochonnet, than the other team. Games work one against one, in pairs or in teams of three. In Menton it is a real local sport, not a staged tourist activity.", "L'idee est simple : lancer des boules en metal et finir plus pres du petit but en bois, le cochonnet, que l'autre equipe. On joue en tete-a-tete, doublette ou triplette. A Menton, c'est un vrai sport local, pas une animation touristique mise en scene.", "L'idea e semplice: lanciare boules di metallo e finire piu vicini al piccolo bersaglio di legno, il cochonnet, dell'altra squadra. Si gioca uno contro uno, a coppie o in triplette. A Mentone e un vero sport locale, non un'attrazione turistica costruita.", "Ідея проста: кидати металеві boules так, щоб вони опинилися ближче до маленької дерев'яної цілі, cochonnet, ніж у суперників. Грають один на один, парами або трійками. У Ментоні це справжній локальний спорт, а не туристична постановка."),
+          t("For visitors there are three realistic ways to experience it: watch local players, contact a club about joining a friendly game, or buy a leisure set and ask where independent play is currently accepted.", "Pour les visiteurs, trois approches sont realistes : observer les joueurs locaux, contacter un club pour une partie amicale, ou acheter un set loisir et demander ou le jeu libre est actuellement accepte.", "Per i visitatori, tre modi sono realistici: osservare giocatori locali, contattare un club per una partita amichevole o comprare un set da svago e chiedere dove il gioco autonomo sia attualmente accettato.", "Для гостей є три реалістичні формати: спостерігати за місцевими гравцями, зв'язатися з клубом щодо дружньої гри або купити аматорський набір і запитати, де зараз дозволена самостійна гра."),
+        ],
+      },
+      {
+        heading: t("Club grounds: ask first", "Terrains de clubs : demandez d'abord", "Campi dei club: chiedi prima", "Клубні майданчики: спершу запитайте"),
+        body: [
+          t("Menton Pétanque at Clos du Palais Carnolès is the clearest first contact because it publishes club contact details. Garavan Pétanque at Square Baden-Baden offers a sociable Garavan-side setting near the port. Club Bouliste de Menton at Clos Paradis and Boulodrome Borashi on Avenue de Sospel show another side of local boules life.", "Menton Petanque au Clos du Palais Carnoles est le premier contact le plus clair car le club publie ses coordonnees. Garavan Petanque, square Baden-Baden, offre une ambiance sociable cote Garavan pres du port. Club Bouliste de Menton au Clos Paradis et le Boulodrome Borashi avenue de Sospel montrent un autre visage des boules locales.", "Menton Petanque al Clos du Palais Carnolès e il contatto iniziale piu chiaro perche pubblica le coordinate del club. Garavan Petanque in Square Baden-Baden offre un'atmosfera socievole lato Garavan vicino al porto. Club Bouliste de Menton al Clos Paradis e Boulodrome Borashi in Avenue de Sospel mostrano un altro lato delle boules locali.", "Menton Pétanque у Clos du Palais Carnolès - найзрозуміліший перший контакт, бо клуб публікує свої контакти. Garavan Pétanque на Square Baden-Baden має товариську атмосферу біля порту Garavan. Club Bouliste de Menton у Clos Paradis і Boulodrome Borashi на Avenue de Sospel показують інший бік локального життя boules."),
+          t("These are club settings, not clearly unrestricted public courts. Do not enter an active lane, touch the boules or assume a free lane is available. Watch respectfully, then ask during a pause.", "Ce sont des cadres de clubs, pas des terrains clairement libres d'acces. N'entrez pas sur une piste active, ne touchez pas les boules et ne supposez pas qu'une piste libre est disponible. Observez avec respect puis demandez pendant une pause.", "Sono spazi di club, non campi chiaramente liberi. Non entrare su una corsia attiva, non toccare le boules e non presumere che una corsia libera sia disponibile. Osserva con rispetto, poi chiedi durante una pausa.", "Це клубні простори, а не явно вільні громадські корти. Не виходьте на активну доріжку, не торкайтеся boules і не припускайте, що вільна доріжка доступна. Спершу подивіться, а потім запитайте під час паузи."),
+        ],
+        relatedPlaceIds: ["menton-petanque", "garavan-petanque", "club-bouliste-de-menton", "boulodrome-borashi-menton"],
+      },
+      {
+        heading: t("A polite way to ask", "Une maniere polie de demander", "Un modo educato per chiedere", "Ввічливий спосіб запитати"),
+        body: [
+          t("Useful French: Bonjour, est-ce qu'on peut regarder ? (May we watch?) and Est-ce que vous acceptez parfois des visiteurs pour une partie amicale ? (Do you sometimes accept visitors for a friendly game?). A beginner can add: Je suis debutant. Est-ce que je peux essayer ?", "Phrases utiles : Bonjour, est-ce qu'on peut regarder ? et Est-ce que vous acceptez parfois des visiteurs pour une partie amicale ? Un debutant peut ajouter : Je suis debutant. Est-ce que je peux essayer ?", "Frasi utili: Bonjour, est-ce qu'on peut regarder? e Est-ce que vous acceptez parfois des visiteurs pour une partie amicale? Un principiante puo aggiungere: Je suis debutant. Est-ce que je peux essayer?", "Корисні французькі фрази: Bonjour, est-ce qu'on peut regarder ? (Чи можна подивитися?) та Est-ce que vous acceptez parfois des visiteurs pour une partie amicale ? (Чи приймаєте ви іноді гостей на дружню партію?). Початківець може додати: Je suis debutant. Est-ce que je peux essayer ?"),
+          t("The best chance of joining is informal practice, not a tournament. Players may have no spare boules or already arranged teams, so accept a no gracefully.", "La meilleure chance de participer est pendant un entrainement informel, pas un tournoi. Les joueurs peuvent ne pas avoir de boules en plus ou avoir deja forme les equipes : acceptez un refus avec naturel.", "La migliore possibilita di unirsi e durante una pratica informale, non un torneo. I giocatori potrebbero non avere boules di riserva o avere gia formato le squadre: accetta un no con naturalezza.", "Найкращий шанс долучитися - неформальне тренування, а не турнір. У гравців може не бути запасних boules або команди вже сформовані, тож спокійно прийміть відмову."),
+        ],
+      },
+      {
+        heading: t("Playing independently and the basic rules", "Jouer librement et les regles simples", "Giocare in autonomia e regole essenziali", "Самостійна гра та базові правила"),
+        body: [
+          t("A team scores after all boules have been played: one point for each boule closer to the cochonnet than the opponent's nearest boule. The usual game ends at 13 points. A leisure set is enough for a holiday match; professional boules are not required.", "Une equipe marque apres le jeu de toutes les boules : un point pour chaque boule plus proche du cochonnet que la plus proche boule adverse. La partie se termine generalement a 13 points. Un set loisir suffit pour les vacances ; les boules de competition ne sont pas necessaires.", "Una squadra segna dopo aver giocato tutte le boules: un punto per ogni boule piu vicina al cochonnet della boule avversaria piu vicina. La partita di solito finisce a 13 punti. Un set da svago basta per le vacanze; non servono boules professionali.", "Команда отримує очки після того, як зіграно всі boules: по одному за кожну boule, ближчу до cochonnet, ніж найближча boule суперника. Зазвичай грають до 13 очок. Для відпускної партії достатньо аматорського набору; професійні boules не потрібні."),
+          t("Do not improvise on beaches, crowded promenades, ornamental gardens or near cars and windows. Metal boules are heavy. The safest option is to ask a club or sports shop where casual independent play is currently accepted.", "N'improvisez pas sur les plages, promenades frequentees, jardins d'ornement ou pres des voitures et fenetres. Les boules en metal sont lourdes. Le plus sur reste de demander a un club ou magasin de sport ou le jeu libre est actuellement accepte.", "Non improvvisare su spiagge, lungomari affollati, giardini ornamentali o vicino ad auto e finestre. Le boules in metallo sono pesanti. L'opzione piu sicura e chiedere a un club o negozio sportivo dove il gioco libero e attualmente accettato.", "Не імпровізуйте на пляжах, людних набережних, декоративних садах або біля машин і вікон. Металеві boules важкі. Найбезпечніше - запитати клуб або спортивний магазин, де зараз дозволена самостійна гра."),
+        ],
+        relatedPlaceIds: ["sport-2000-menton"],
+      },
+      {
+        heading: t("Where to buy a set", "Ou acheter un jeu", "Dove comprare un set", "Де купити набір"),
+        body: [
+          t("Sport 2000 Menton on Rue Partouneaux is the clearest first stop for a leisure set, bag and cochonnet. Its online listing does not guarantee local pétanque stock, so call before walking there specifically for boules.", "Sport 2000 Menton, rue Partouneaux, est le premier arret le plus clair pour un set loisir, un sac et un cochonnet. Sa fiche en ligne ne garantit pas le stock local de petanque : appelez avant de vous deplacer pour des boules.", "Sport 2000 Menton in Rue Partouneaux e la prima scelta piu chiara per un set da svago, borsa e cochonnet. La scheda online non garantisce stock locale di petanque: chiama prima di andarci per le boules.", "Sport 2000 Menton на Rue Partouneaux - найзрозуміліша перша зупинка за аматорським набором, сумкою та cochonnet. Онлайн-сторінка не гарантує локальний запас для pétanque, тож зателефонуйте перед спеціальною поїздкою за boules."),
+          t("For children, choose lighter junior, wooden or plastic training boules. For air travel, pack steel boules securely in checked luggage and verify your airline's rules rather than assuming cabin access.", "Pour les enfants, choisissez des boules junior plus legeres, en bois ou en plastique. En avion, rangez les boules en acier dans un bagage en soute et verifiez les regles de votre compagnie plutot que de supposer un acces en cabine.", "Per bambini, scegli boules junior piu leggere, in legno o plastica. In aereo, metti le boules d'acciaio in bagaglio da stiva e verifica le regole della compagnia invece di presumere l'accesso in cabina.", "Для дітей обирайте легші junior-boules, дерев'яні або пластикові тренувальні варіанти. Для авіаперельоту надійно пакуйте сталеві boules у зареєстрований багаж і перевіряйте правила авіакомпанії, а не припускайте ручну поклажу."),
+        ],
+        relatedPlaceIds: ["sport-2000-menton"],
+        officialLinks: [{ label: t("Sport 2000 Menton", "Sport 2000 Menton", "Sport 2000 Menton", "Sport 2000 Menton"), url: "https://www.sport2000.fr/magasins/fiche/061621-sport-2000-menton" }],
+      },
+      {
+        heading: t("A simple Menton pétanque afternoon", "Un apres-midi petanque simple a Menton", "Un semplice pomeriggio petanque a Mentone", "Простий день петанку в Ментоні"),
+        body: [
+          t("For a Garavan-side plan, walk around Port Garavan, pass Square Baden-Baden and watch only if a friendly game is underway. For a more purposeful introduction, contact Menton Pétanque before your stay. Current tournaments and municipal events should always be checked in the live event calendar.", "Pour un plan cote Garavan, promenez-vous autour du Port Garavan, passez par le square Baden-Baden et observez seulement si une partie amicale est en cours. Pour une vraie initiation, contactez Menton Petanque avant le sejour. Les tournois et evenements municipaux doivent toujours etre verifies dans l'agenda actuel.", "Per un piano lato Garavan, cammina intorno al Port Garavan, passa da Square Baden-Baden e osserva solo se e in corso una partita amichevole. Per un'introduzione piu mirata, contatta Menton Petanque prima del soggiorno. Tornei ed eventi comunali vanno sempre verificati nel calendario aggiornato.", "Для плану на боці Garavan прогуляйтеся Port Garavan, пройдіть Square Baden-Baden і спостерігайте лише за дружньою грою, якщо вона відбувається. Для змістовнішого знайомства зв'яжіться з Menton Pétanque до поїздки. Турніри й міські події завжди перевіряйте в актуальному календарі."),
+        ],
+        relatedPlaceIds: ["garavan-petanque", "port-de-garavan", "promenade-reine-astrid", "menton-petanque"],
+      },
+      {
+        heading: t("A calm base after the game", "Une base calme apres la partie", "Una base tranquilla dopo la partita", "Спокійна база після гри"),
+        body: [
+          t("Pétanque fits a slower Menton holiday: a port walk, a market picnic, an aperitif or a quiet evening outdoors. Beachside Apartment with Terrace & Parking is practical for families carrying a set; the sea-view studios suit couples making a local game part of a relaxed short stay.", "La petanque s'integre a des vacances plus lentes a Menton : promenade au port, pique-nique du marche, aperitif ou soiree calme dehors. Beachside Apartment with Terrace & Parking est pratique pour les familles qui transportent un jeu ; les studios vue mer conviennent aux couples qui integrent une partie locale a un court sejour detendu.", "La petanque si adatta a una vacanza lenta a Mentone: passeggiata al porto, picnic dal mercato, aperitivo o serata tranquilla all'aperto. Beachside Apartment with Terrace & Parking e pratico per famiglie che portano un set; gli studi vista mare si adattano a coppie che includono una partita locale in un breve soggiorno rilassato.", "Петанк пасує до повільнішого відпочинку в Ментоні: прогулянка портом, ринковий пікнік, аперитив або тихий вечір надворі. Beachside Apartment with Terrace & Parking зручні для сімей із набором; студії з видом на море добре підходять парам, які додають локальну гру до спокійного короткого перебування."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Late afternoon is usually the most comfortable time to watch in warmer months, but club activity and tournament schedules vary.", "La fin d'apres-midi est souvent le moment le plus confortable pour observer pendant les mois chauds, mais l'activite des clubs et les tournois varient.", "Il tardo pomeriggio e spesso il momento piu confortevole per osservare nei mesi caldi, ma attivita dei club e tornei variano.", "У теплі місяці пізній день зазвичай найкомфортніший для спостереження, але активність клубів і турніри відрізняються."),
+      t("Treat every club ground as ask-first unless the club itself confirms public access.", "Considerez chaque terrain de club comme acces sur demande, sauf confirmation directe d'acces public.", "Considera ogni campo di club come accesso da chiedere, salvo conferma diretta di accesso pubblico.", "Сприймайте кожен клубний майданчик як `ask-first`, якщо сам клуб прямо не підтвердив публічний доступ."),
     ],
   }),
 ];

@@ -67,6 +67,7 @@ export type Place = {
   openingHoursLabel?: LocalizedText;
   priceLabel?: LocalizedText;
   sourceStatus: PlaceSourceStatus;
+  visitorAccess?: "ask-first" | "public" | "members-only";
   shortNote: LocalizedText;
   bestFor: LocalizedText[];
   relatedArticleIds: string[];
@@ -1542,7 +1543,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Scenic Garavan-side promenade used by the official local cycling route toward the border.", "Promenade cote Garavan utilisee par l'itineraire velo local vers la frontiere.", "Passeggiata lato Garavan usata dal percorso ciclabile locale verso il confine.", "Панорамна набережна Garavan, якою проходить локальний веломаршрут до кордону."),
     bestFor: [text("seafront cycling", "velo en bord de mer", "bici sul lungomare", "велопрогулянка біля моря"), text("border direction", "direction frontiere", "direzione confine", "напрямок кордону")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "petanque-in-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton"],
   },
   {
     id: "pont-saint-ludovic",
@@ -3724,7 +3725,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter marina walk for late afternoon or an easy evening detour.", "Une promenade de port plus calme pour la fin d'apres-midi ou le soir.", "Una passeggiata piu tranquilla al porto per il tardo pomeriggio o la sera.", "Спокійніша прогулянка біля марини наприкінці дня або ввечері."),
     bestFor: [text("quiet evening", "soiree calme", "serata tranquilla", "тихий вечір"), text("marina walk", "promenade au port", "passeggiata al porto", "прогулянка біля марини")],
-    relatedArticleIds: ["best-seafood-restaurants-menton", "cycling-bike-rental-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticleIds: ["best-seafood-restaurants-menton", "cycling-bike-rental-menton", "petanque-in-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton"],
   },
   {
     id: "cimetiere-vieux-chateau",
@@ -4791,6 +4792,67 @@ const rawPlaces: Place[] = [
     shortNote: text("A Menton-based yoga and sound-practice provider with private and outdoor formats. Confirm the exact meeting point, booking method and current session details before planning around it.", "Prestataire de yoga et de pratiques sonores base a Menton, avec formats prives et exterieurs. Confirmez le lieu exact, la reservation et les details de seance avant de planifier.", "Operatore yoga e pratiche sonore basato a Mentone, con formati privati e outdoor. Conferma luogo esatto, prenotazione e dettagli aggiornati prima di organizzarti.", "Практика yoga та звукових сесій у Ментоні з приватними й outdoor-форматами. До планування підтверджуйте точне місце зустрічі, бронювання та деталі сесії."),
     bestFor: [text("private practice", "pratique privee", "pratica privata", "приватні заняття"), text("outdoor sessions", "seances exterieures", "sessioni outdoor", "заняття просто неба")],
     relatedArticleIds: ["yoga-in-menton", "stay-cool-in-menton-summer"],
+  },
+  {
+    id: "menton-petanque",
+    name: "Menton Pétanque",
+    type: "family-activity",
+    address: "2 Avenue de Florette, Clos du Palais Carnolès, 06500 Menton",
+    googleMapsUrl: mapsQuery("Menton Petanque", "2 Avenue de Florette", "Menton"),
+    visitorAccess: "ask-first",
+    sourceStatus: "needs_verification",
+    shortNote: text("An established local pétanque club at Clos du Palais Carnolès. Contact the club before expecting to play, borrow boules or join a friendly session.", "Club de petanque local etabli au Clos du Palais Carnoles. Contactez le club avant de compter jouer, emprunter des boules ou rejoindre une partie amicale.", "Club di petanque locale al Clos du Palais Carnolès. Contatta il club prima di contare di giocare, prendere boules in prestito o unirti a una partita amichevole.", "Усталений місцевий pétanque-клуб у Clos du Palais Carnolès. Перед грою, позичанням boules чи приєднанням до дружньої партії зв'яжіться з клубом."),
+    bestFor: [text("watching club play", "observer le jeu du club", "osservare il gioco del club", "спостереження за грою клубу"), text("asking about visitor sessions", "demander les seances visiteur", "chiedere sessioni per visitatori", "запит про заняття для гостей")],
+    relatedArticleIds: ["petanque-in-menton", "gyms-fitness-centres-menton", "menton-without-a-car"],
+  },
+  {
+    id: "garavan-petanque",
+    name: "Garavan Pétanque",
+    type: "family-activity",
+    address: "Square Baden-Baden, Terre-Plein de Garavan, 06500 Menton",
+    googleMapsUrl: mapsQuery("Garavan Petanque", "Square Baden-Baden", "Menton"),
+    visitorAccess: "ask-first",
+    sourceStatus: "needs_verification",
+    shortNote: text("A Garavan-side pétanque club and boulodrome near the port. It is a good place to watch a local game, but ask before using a lane or joining play.", "Club et boulodrome de petanque cote Garavan, pres du port. Bon endroit pour observer une partie locale, mais demandez avant d'utiliser une piste ou de jouer.", "Club e boulodrome di petanque sul lato Garavan, vicino al porto. Un buon posto per osservare una partita locale, ma chiedi prima di usare una corsia o unirti al gioco.", "Pétanque-клуб і boulodrome на боці Garavan біля порту. Гарне місце для спостереження за локальною грою, але перед використанням доріжки чи участю треба запитати."),
+    bestFor: [text("Garavan afternoon", "apres-midi a Garavan", "pomeriggio a Garavan", "день у Garavan"), text("watching local play", "observer le jeu local", "osservare il gioco locale", "спостереження за локальною грою")],
+    relatedArticleIds: ["petanque-in-menton", "menton-without-a-car", "best-beaches-in-menton", "where-to-stay-in-menton"],
+  },
+  {
+    id: "club-bouliste-de-menton",
+    name: "Club Bouliste de Menton",
+    type: "family-activity",
+    address: "41 Avenue Porte de France, Clos Paradis, 06500 Menton",
+    googleMapsUrl: mapsQuery("Club Bouliste de Menton", "41 Avenue Porte de France", "Menton"),
+    visitorAccess: "ask-first",
+    sourceStatus: "needs_verification",
+    shortNote: text("A traditional boules club at Clos Paradis near Porte de France. Treat the ground as a club setting and ask before planning to play.", "Club de boules traditionnel au Clos Paradis pres de la Porte de France. Considerez le terrain comme un lieu de club et demandez avant de prevoir jouer.", "Club tradizionale di boules al Clos Paradis vicino a Porte de France. Considera il terreno come spazio di club e chiedi prima di programmare una partita.", "Традиційний boules-клуб у Clos Paradis біля Porte de France. Сприймайте майданчик як клубний простір і запитуйте перед плануванням гри."),
+    bestFor: [text("traditional club setting", "cadre de club traditionnel", "ambiente di club tradizionale", "традиційний клубний формат"), text("east Menton walk", "promenade est de Menton", "passeggiata nella Mentone est", "прогулянка східним Ментоном")],
+    relatedArticleIds: ["petanque-in-menton", "menton-without-a-car", "morning-walk-france-to-italy"],
+  },
+  {
+    id: "boulodrome-borashi-menton",
+    name: "Boulodrome Borashi / Boule Sportive Mentonnaise",
+    type: "family-activity",
+    address: "119 Avenue de Sospel, 06500 Menton",
+    googleMapsUrl: mapsQuery("Boulodrome Borashi", "119 Avenue de Sospel", "Menton"),
+    visitorAccess: "ask-first",
+    sourceStatus: "needs_verification",
+    shortNote: text("A traditional outdoor boules venue on Avenue de Sospel, associated with Boule Sportive Mentonnaise. Watch first and ask what discipline is being played before approaching.", "Lieu traditionnel de boules en plein air avenue de Sospel, associe a la Boule Sportive Mentonnaise. Observez d'abord et demandez quelle discipline est pratiquee avant d'approcher.", "Tradizionale sede outdoor di boules in Avenue de Sospel, associata a Boule Sportive Mentonnaise. Osserva prima e chiedi quale disciplina si pratica prima di avvicinarti.", "Традиційний outdoor-майданчик для boules на Avenue de Sospel, пов'язаний з Boule Sportive Mentonnaise. Спершу подивіться та запитайте, у яку дисципліну грають, перш ніж підходити."),
+    bestFor: [text("local sporting life", "vie sportive locale", "vita sportiva locale", "локальне спортивне життя"), text("watching boules disciplines", "observer les disciplines de boules", "osservare le discipline delle boules", "спостереження за дисциплінами boules")],
+    relatedArticleIds: ["petanque-in-menton", "gyms-fitness-centres-menton"],
+  },
+  {
+    id: "sport-2000-menton",
+    name: "Sport 2000 Menton",
+    type: "shopping-centre",
+    address: "19 Rue Partouneaux, 06500 Menton",
+    googleMapsUrl: mapsQuery("Sport 2000 Menton", "19 Rue Partouneaux", "Menton"),
+    programmeUrl: "https://www.sport2000.fr/magasins/fiche/061621-sport-2000-menton",
+    openingHoursLabel: checkHours,
+    sourceStatus: "needs_verification",
+    shortNote: text("A central sports and outdoor-goods shop. Call before going specifically for pétanque sets, because local stock is not guaranteed online.", "Magasin central d'articles de sport et plein air. Appelez avant de venir pour un jeu de petanque precis, car le stock local n'est pas garanti en ligne.", "Negozio centrale di articoli sportivi e outdoor. Chiama prima di andare per un set di petanque specifico, poiche lo stock locale non e garantito online.", "Центральний магазин спортивних і outdoor-товарів. Якщо шукаєте конкретний pétanque-набір, зателефонуйте заздалегідь: локальний залишок не гарантований онлайн."),
+    bestFor: [text("leisure pétanque set", "jeu de petanque loisir", "set di petanque da svago", "набір для аматорської pétanque"), text("sports essentials", "essentiels de sport", "essenziali sportivi", "спортивні речі першої потреби")],
+    relatedArticleIds: ["petanque-in-menton", "best-souvenir-shops-menton-monaco-nice", "gyms-fitness-centres-menton", "tennis-padel-courts-menton"],
   },
 ];
 
