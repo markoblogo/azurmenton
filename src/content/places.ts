@@ -6656,6 +6656,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Menton's environmental brigade", "Illustration de la brigade de l'environnement de Menton", "Illustrazione della brigata ambientale di Mentone", "Ілюстрація екологічної бригади Ментона"),
     visualTheme: "itinerary",
   },
+  "restaurant-le-5-menton": {
+    image: "/images/guide/restaurant-le-5-menton.jpg",
+    imageAlt: text("Illustration of Restaurant Le 5 in Menton", "Illustration du Restaurant Le 5 a Menton", "Illustrazione del Restaurant Le 5 a Mentone", "Ілюстрація Restaurant Le 5 у Ментоні"),
+    visualTheme: "food",
+  },
+  "bouddha-beach-menton": {
+    image: "/images/guide/bouddha-beach-menton.jpg",
+    imageAlt: text("Illustration of Bouddha Beach in Menton", "Illustration de Bouddha Beach a Menton", "Illustrazione di Bouddha Beach a Mentone", "Ілюстрація Bouddha Beach у Ментоні"),
+    visualTheme: "sea",
+  },
+  "le-vip-menton": {
+    image: "/images/guide/le-vip-menton.jpg",
+    imageAlt: text("Illustration of Le V.I.P in Menton", "Illustration de Le V.I.P a Menton", "Illustrazione di Le V.I.P a Mentone", "Ілюстрація Le V.I.P у Ментоні"),
+    visualTheme: "nightlife",
+  },
+  "vinum-veritas-menton": {
+    image: "/images/guide/vinum-veritas-menton.jpg",
+    imageAlt: text("Illustration of Vinum Veritas in Menton", "Illustration de Vinum Veritas a Menton", "Illustrazione di Vinum Veritas a Mentone", "Ілюстрація Vinum Veritas у Ментоні"),
+    visualTheme: "food",
+  },
+  "cercle-des-marins-disparus": {
+    image: "/images/guide/cercle-des-marins-disparus.jpg",
+    imageAlt: text("Illustration of Le Cercle des Marins Disparus in Menton", "Illustration du Cercle des Marins Disparus a Menton", "Illustrazione di Le Cercle des Marins Disparus a Mentone", "Ілюстрація Le Cercle des Marins Disparus у Ментоні"),
+    visualTheme: "port",
+  },
+  "gold-cafe-menton": {
+    image: "/images/guide/gold-cafe-menton.jpg",
+    imageAlt: text("Illustration of Gold Cafe in Menton", "Illustration du Gold Cafe a Menton", "Illustrazione del Gold Cafe a Mentone", "Ілюстрація Gold Cafe у Ментоні"),
+    visualTheme: "nightlife",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {
