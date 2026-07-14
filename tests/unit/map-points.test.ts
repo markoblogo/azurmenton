@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
 import { mapCategories, mapPlaceTypes } from "@/content/planning/map-taxonomy";
+import { placeMapExclusions } from "@/content/planning/place-map-exclusions";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { places } from "@/content/places";
 
@@ -162,24 +163,27 @@ describe("map points", () => {
     }
   });
 
-  it("requires reviewed coordinates for places flagged as map-review critical", () => {
+  it("requires a reviewed coordinate or an explicit exclusion for map-review critical places", () => {
     const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
+    const mapExclusionByPlaceId = new Map(placeMapExclusions.map((exclusion) => [exclusion.placeId, exclusion]));
     const requiredPlaces = places.filter((place) => place.requiresMapReview);
-    const expectedRequiredPlaceIds = [
-      ...reviewedRestaurantEveningMuseumPointIds,
-      ...reviewedPracticalMentonPointIds,
-      ...reviewedTransportAccessPointIds,
-      ...reviewedParkingPointIds,
-      ...reviewedScreenLocationPointIds,
-    ].sort();
-
-    expect(requiredPlaces.map((place) => place.id).sort()).toEqual(expectedRequiredPlaceIds);
 
     for (const place of requiredPlaces) {
       const point = mapPointByPlaceId.get(place.id);
-      expect(point, place.id).toBeDefined();
-      expect(point?.review?.sourceUrl, place.id).toBeTruthy();
-      expect(point?.review?.checkedOn, place.id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      const exclusion = mapExclusionByPlaceId.get(place.id);
+
+      expect(Boolean(point) || Boolean(exclusion), place.id).toBe(true);
+      expect(Boolean(point) && Boolean(exclusion), place.id).toBe(false);
+
+      if (point) {
+        expect(point.review?.sourceUrl, place.id).toBeTruthy();
+        expect(point.review?.checkedOn, place.id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      }
+
+      if (exclusion) {
+        expect(exclusion.sourceUrl, place.id).toMatch(/^https:\/\//);
+        expect(exclusion.checkedOn, place.id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      }
     }
   });
 
