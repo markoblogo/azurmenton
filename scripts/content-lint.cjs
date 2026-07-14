@@ -11,6 +11,8 @@ const { guideArticles } = require("../src/content/guide.ts");
 const { guestPerks } = require("../src/content/guest-perks.ts");
 const { localPartners, partnerLinkRel } = require("../src/content/partners.ts");
 const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
+const { placeMapExclusions } = require("../src/content/planning/place-map-exclusions.ts");
+const { mapPlaceTypes } = require("../src/content/planning/map-taxonomy.ts");
 const { places } = require("../src/content/places.ts");
 const { rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { locales } = require("../src/i18n/locales.ts");
@@ -20,6 +22,7 @@ const guideSlugs = new Set(guideArticles.map((article) => article.slug));
 const guideBySlug = new Map(guideArticles.map((article) => [article.slug, article]));
 const placeIds = new Set(places.map((place) => place.id));
 const mapPointByPlaceId = new Map(placeMapPoints.map((point) => [point.placeId, point]));
+const mapExclusionByPlaceId = new Map(placeMapExclusions.map((exclusion) => [exclusion.placeId, exclusion]));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const idPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -126,11 +129,14 @@ for (const place of places) {
   }
   if (place.requiresMapReview) {
     const point = mapPointByPlaceId.get(place.id);
-    if (!point) {
-      fail(`${owner} requires map review but has no placeMapPoints entry`);
-    } else if (!point.review) {
+    const exclusion = mapExclusionByPlaceId.get(place.id);
+    if (!point && !exclusion) {
+      fail(`${owner} requires a reviewed map point or an explicit map exclusion`);
+    } else if (point && exclusion) {
+      fail(`${owner} has both a map point and a map exclusion`);
+    } else if (point && !point.review) {
       fail(`${owner} requires map review but placeMapPoints entry has no review`);
-    } else {
+    } else if (point) {
       if (!point.review.sourceUrl) fail(`${owner} map review missing sourceUrl`);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(point.review.checkedOn)) fail(`${owner} map review checkedOn should be YYYY-MM-DD`);
     }
@@ -149,6 +155,17 @@ for (const article of guideArticles) {
 
 for (const point of placeMapPoints) {
   if (!placeIds.has(point.placeId)) fail(`placeMapPoint:${point.placeId} does not match a place id`);
+  if (!Number.isFinite(point.lat) || !Number.isFinite(point.lng)) fail(`placeMapPoint:${point.placeId} has invalid coordinates`);
+}
+
+for (const exclusion of placeMapExclusions) {
+  const owner = `placeMapExclusion:${exclusion.placeId}`;
+  if (!placeIds.has(exclusion.placeId)) fail(`${owner} does not match a place id`);
+  if (!mapPlaceTypes.has(places.find((place) => place.id === exclusion.placeId)?.type)) fail(`${owner} is not map eligible`);
+  if (!/^(coordinate_unverified|not_a_fixed_venue|outside_map_scope)$/.test(exclusion.reason)) fail(`${owner} has invalid reason`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(exclusion.checkedOn)) fail(`${owner}.checkedOn should be YYYY-MM-DD`);
+  checkUrl(owner, "sourceUrl", exclusion.sourceUrl);
+  if (mapPointByPlaceId.has(exclusion.placeId)) fail(`${owner} duplicates a placeMapPoint`);
 }
 
 for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {

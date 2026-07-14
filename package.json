@@ -14,6 +14,7 @@
     "content:audit": "vitest run tests/unit/content-audit.test.ts",
     "content:lint": "node scripts/content-lint.cjs",
     "content:report": "node scripts/content-audit-report.cjs",
+    "map:report": "node scripts/map-coverage-report.cjs",
     "events:review": "node scripts/events-review.cjs",
     "weekly:validate": "node scripts/weekly-validate.cjs",
     "weekly:draft": "node scripts/weekly-draft.cjs",

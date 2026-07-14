@@ -11,6 +11,17 @@ export type PlaceMapPoint = {
 };
 
 export const placeMapPoints: PlaceMapPoint[] = [
+  { placeId: "la-tarte-mentonnaise", lat: 43.7756055, lng: 7.5064314, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/137783141" } },
+  { placeId: "mitron-bakery-menton", lat: 43.7757725, lng: 7.5051415, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11684505069" } },
+  { placeId: "cafe-noailles-menton", lat: 43.7739778, lng: 7.5003778, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11162509741" } },
+  { placeId: "lyode-menton", lat: 43.7809537, lng: 7.5097388, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/12057945970" } },
+  { placeId: "le-carnival-menton", lat: 43.7760778, lng: 7.508465, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/171832152" } },
+  { placeId: "restaurant-le-5-menton", lat: 43.7753449, lng: 7.5012906, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/10284276933" } },
+  { placeId: "vinum-veritas-menton", lat: 43.775879, lng: 7.5071597, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/137796417" } },
+  { placeId: "gold-cafe-menton", lat: 43.7738499, lng: 7.5006292, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11162509728" } },
+  { placeId: "garavan-petanque", lat: 43.7819313, lng: 7.5131544, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/159491229" } },
+  { placeId: "street-workout-francis-palmero", lat: 43.77417, lng: 7.5071881, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/171832165" } },
+  { placeId: "yoga4motion-menton", lat: 43.7762394, lng: 7.5046657, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11162936932" } },
   { placeId: "halles-du-marche", lat: 43.77608, lng: 7.50847, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10", sourceUrl: "https://www.openstreetmap.org/search?query=Halles%20du%20Marche%20Menton" } },
   { placeId: "chez-mimi-menton", lat: 43.7754, lng: 7.5062, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10", sourceUrl: "https://www.openstreetmap.org/search?query=Chez%20Mimi%20Menton" } },
   { placeId: "maison-herbin-menton", lat: 43.7753, lng: 7.50379, review: { source: "openstreetmap", precision: "entrance", checkedOn: "2026-07-10", sourceUrl: "https://www.openstreetmap.org/search?query=Maison%20Herbin%20Menton" } },

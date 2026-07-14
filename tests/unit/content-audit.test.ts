@@ -9,6 +9,9 @@ import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/g
 import { localPartners, partnerLinkRel } from "../../src/content/partners";
 import { stayPlans } from "../../src/content/planning/stay-plans";
 import { places } from "../../src/content/places";
+import { placeMapExclusions } from "../../src/content/planning/place-map-exclusions";
+import { placeMapPoints } from "../../src/content/planning/place-map-points";
+import { mapPlaceTypes } from "../../src/content/planning/map-taxonomy";
 import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { stayPages } from "../../src/content/stay-pages";
 import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
@@ -60,6 +63,29 @@ describe("content graph audit", () => {
     expect(unique(guestPerks.map((perk) => perk.id))).toBe(true);
     expect(unique(rivieraEvents.map((event) => event.slug))).toBe(true);
     expect(unique(rivieraEvents.flatMap((event) => (event.occurrenceSlug ? [event.slug, event.occurrenceSlug] : [event.slug])))).toBe(true);
+  });
+
+  it("keeps required map coverage explicit and resolvable", () => {
+    const pointIds = new Set(placeMapPoints.map((point) => point.placeId));
+    const exclusionIds = new Set(placeMapExclusions.map((exclusion) => exclusion.placeId));
+    const failures: string[] = [];
+
+    if (!unique(placeMapPoints.map((point) => point.placeId))) failures.push("duplicate map point ids");
+    if (!unique(placeMapExclusions.map((exclusion) => exclusion.placeId))) failures.push("duplicate map exclusion ids");
+
+    for (const place of places.filter((candidate) => candidate.requiresMapReview)) {
+      if (!pointIds.has(place.id) && !exclusionIds.has(place.id)) failures.push(`${place.id} missing map coverage`);
+      if (pointIds.has(place.id) && exclusionIds.has(place.id)) failures.push(`${place.id} has both map point and exclusion`);
+    }
+
+    for (const exclusion of placeMapExclusions) {
+      const place = places.find((candidate) => candidate.id === exclusion.placeId);
+      if (!place || !mapPlaceTypes.has(place.type)) failures.push(`${exclusion.placeId} exclusion is not map eligible`);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(exclusion.checkedOn)) failures.push(`${exclusion.placeId} exclusion has invalid checkedOn`);
+      if (!exclusion.sourceUrl.startsWith("https://")) failures.push(`${exclusion.placeId} exclusion missing source URL`);
+    }
+
+    expect(failures).toEqual([]);
   });
 
   it("keeps guide references resolvable", () => {
