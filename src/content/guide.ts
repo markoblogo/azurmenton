@@ -3306,7 +3306,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["seafront", "menton-centre", "garavan"],
     featured: true,
     relatedPlaces: ["plage-sablettes", "plage-casino", "plage-rondelli", "rondelli-garavan-side", "plage-fossan", "borrigo-beaches", "promenade-du-soleil", "gelateria-sofia-menton", "quai-bonaparte-menton", "musee-jean-cocteau-bastion"],
-    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-ice-cream-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "stay-cool-in-menton-summer", "yoga-in-menton", "menton-one-day-itinerary", "where-to-stay-in-menton", "menton-without-a-car", "public-transport-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -3465,6 +3465,7 @@ export const guideArticles: GuideArticle[] = [
     relatedPlaces: ["promenade-du-soleil", "plage-sablettes", "plage-casino", "rondelli-garavan-side", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "puro-piacere-menton", "tutti-frutti-menton", "halles-du-marche", "plage-fossan", "jardin-val-rahmeh", "jardin-serre-de-la-madone"],
     relatedArticles: [
       "useful-apps-websites-menton-monaco-italian-riviera",
+      "yoga-in-menton",
       "mountains-snow-skiing-near-menton",
       "best-ice-cream-menton",
       "zoos-aquariums-animal-parks-near-menton",
@@ -5644,7 +5645,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "old-town", "monaco", "nice", "italian-riviera"],
     featured: true,
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "plage-sablettes", "plage-fossan", "rampes-saint-michel", "jardin-val-rahmeh", "port-de-garavan"],
-    relatedArticles: ["cycling-bike-rental-menton", "gyms-fitness-centres-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "gyms-fitness-centres-menton", "yoga-in-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "best-beaches-in-menton", "day-trips-from-menton", "menton-three-day-itinerary", "where-to-stay-in-menton"],
     relatedEvents: ["menton-lemon-festival", "fete-nationale-riviera", "assumption-day-riviera", "monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "nice-jazz-fest", "monaco-yacht-show", "nice-carnival"],
     relatedApartments: allApartments,
     sections: [
@@ -6706,7 +6707,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "flexible",
     locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
     relatedPlaces: ["promenade-du-soleil", "plage-casino", "casino-barriere-menton", "plage-fossan", "plage-sablettes", "parking-saint-roch-menton", "parking-vieille-ville-sablettes", "parking-hotel-de-ville-menton", "parking-gare-sncf-menton", "parking-george-v-menton", "halles-du-marche", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "port-de-garavan", "rondelli-garavan-side"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "local-food-menton", "halles-du-marche-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "best-beaches-in-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "menton-old-town", "quiet-evening-in-menton", "monaco-events-from-menton", "italian-riviera-day-trip-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7216,7 +7217,7 @@ export const guideArticles: GuideArticle[] = [
     visualTheme: "walk",
     sourceStatus: "needs_verification",
     relatedPlaces: ["la-salle-menton", "menton-crossfit", "sport-plaisir-menton", "street-workout-francis-palmero", "promenade-du-soleil", "menton-station"],
-    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7297,6 +7298,95 @@ export const guideArticles: GuideArticle[] = [
     practicalTips: [
       t("Use a short French message when contacting a club: ask for a single session or week pass, whether advance booking is needed and whether showers are available.", "Utilisez un court message en francais : demandez une seance ou un pass semaine, la necessite de reserver et la disponibilite des douches.", "Usa un breve messaggio in francese: chiedi sessione singola o pass settimanale, prenotazione e docce.", "Використайте коротке повідомлення французькою: запитайте про разову сесію чи тижневий абонемент, потребу в бронюванні та душові."),
       t("For outdoor training in July, August and early September, favour early morning or late evening and keep water, sunscreen and a towel with you.", "Pour l'entrainement exterieur en juillet, aout et debut septembre, privilegiez matin tot ou fin de journee et prenez eau, creme solaire et serviette.", "Per allenamenti outdoor in luglio, agosto e inizio settembre, preferisci mattina presto o tardo pomeriggio e porta acqua, crema solare e asciugamano.", "Для тренувань надворі в липні, серпні та на початку вересня обирайте ранній ранок або пізній вечір і беріть воду, сонцезахист та рушник."),
+    ],
+  }),
+  shortArticle({
+    id: "yoga-in-menton",
+    slug: "yoga-in-menton",
+    title: t("Yoga in Menton: studios, seafront classes and independent practice", "Yoga a Menton : studios, cours en bord de mer et pratique libre", "Yoga a Mentone: studi, lezioni sul mare e pratica autonoma", "Йога в Ментоні: студії, заняття біля моря й самостійна практика"),
+    seoTitle: t("Yoga in Menton: Studios, Beach Classes and Outdoor Practice", "Yoga a Menton : studios, cours plage et pratique en plein air", "Yoga a Mentone: studi, lezioni in spiaggia e pratica outdoor", "Йога в Ментоні: студії, заняття на пляжі й outdoor-практика"),
+    seoDescription: t("A practical guide to yoga in Menton: central studios, beach and outdoor formats, independent seafront practice, booking advice and nearby places to include in a calm Riviera stay.", "Guide pratique du yoga a Menton : studios centraux, formats plage et plein air, pratique libre en bord de mer, conseils de reservation et lieux utiles pour un sejour calme.", "Guida pratica allo yoga a Mentone: studi centrali, formati in spiaggia e outdoor, pratica autonoma sul mare, consigli per prenotare e luoghi utili per un soggiorno tranquillo.", "Практичний гід по йозі в Ментоні: центральні студії, пляжні й outdoor-формати, самостійна практика біля моря, поради щодо бронювання та корисні місця для спокійного відпочинку."),
+    excerpt: t("Menton suits a gentler yoga rhythm: an early seafront practice, a central studio session or a quiet stretch on an apartment balcony before the Mediterranean day warms up. Schedules and meeting points change, so this guide focuses on the useful options and what to check before you go.", "Menton se prete a un rythme de yoga plus doux : pratique matinale au bord de mer, seance dans un studio central ou etirements calmes sur le balcon avant que la journee mediterraneenne ne chauffe. Les horaires et lieux de rendez-vous changent : ce guide rassemble les options utiles et les points a verifier.", "Mentone si presta a un ritmo yoga piu dolce: pratica mattutina sul mare, lezione in uno studio centrale o stretching tranquillo sul balcone prima che la giornata mediterranea si scaldi. Orari e punti di incontro cambiano: questa guida riunisce opzioni utili e controlli da fare.", "Ментон пасує до спокійнішого ритму йоги: рання практика біля моря, заняття в центральній студії або тихий стретчинг на балконі, поки середземноморський день ще не нагрівся. Розклад і місця зустрічі змінюються, тому гід зосереджений на корисних варіантах і перевірках перед візитом."),
+    category: "practical",
+    coverImage: "/images/guide/yoga-in-menton.jpg",
+    coverImageAlt: t("Yoga practice by the Menton seafront", "Pratique du yoga au bord de mer a Menton", "Pratica yoga sul lungomare di Mentone", "Практика йоги на набережній Ментона"),
+    visualTheme: "sea",
+    visualStatus: "project_illustration",
+    tags: [t("yoga", "yoga", "yoga", "йога"), t("wellbeing", "bien-etre", "benessere", "добробут"), t("Menton", "Menton", "Mentone", "Ментон"), t("outdoor practice", "pratique en plein air", "pratica outdoor", "outdoor-практика")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[3].label],
+    duration: "flexible",
+    locationTags: ["menton-centre", "seafront", "beaches"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["yoga4motion-menton", "centre-yoga-precision-menton", "studio-jeune-lune-menton", "espace-neona-menton", "padmaspace-menton", "plage-casino", "plage-sablettes", "promenade-du-soleil", "menton-station"],
+    relatedArticles: ["gyms-fitness-centres-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-without-a-car", "best-walks-and-hikes-around-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why yoga fits naturally into a Menton stay", "Pourquoi le yoga s'integre naturellement a un sejour a Menton", "Perche lo yoga si adatta naturalmente a un soggiorno a Mentone", "Чому йога природно пасує до відпочинку в Ментоні"),
+        body: [
+          t("The promenade, calmer mornings and compact centre make it easy to fit a session around a beach day, market stop or train trip. In July, August and early September, early morning or late evening is more comfortable than practising in direct midday sun.", "La promenade, les matins plus calmes et le centre compact facilitent une seance autour d'une journee plage, du marche ou d'un train. En juillet, aout et debut septembre, le matin tot ou la fin de journee sont plus confortables que le soleil de midi.", "Il lungomare, le mattine piu tranquille e il centro compatto rendono facile inserire una lezione tra spiaggia, mercato o treno. In luglio, agosto e inizio settembre, mattina presto o tardo pomeriggio sono piu confortevoli del sole di mezzogiorno.", "Набережна, спокійніші ранки й компактний центр дозволяють легко додати заняття до пляжного дня, ринку чи поїздки потягом. У липні, серпні та на початку вересня ранок або вечір комфортніші за пряме полуденне сонце."),
+          t("A balcony or terrace can also work for a short personal routine. Keep it quiet, avoid blocking shared space and use a towel or mat that will not disturb neighbours below.", "Un balcon ou une terrasse peuvent aussi convenir a une courte routine personnelle. Restez discret, n'encombrez pas les espaces partages et utilisez une serviette ou un tapis qui ne gene pas les voisins.", "Un balcone o una terrazza possono funzionare per una breve pratica personale. Mantieni un tono discreto, non occupare spazi condivisi e usa un asciugamano o tappetino che non disturbi i vicini.", "Балкон або тераса також підходять для короткої особистої практики. Дотримуйтеся тиші, не займайте спільний простір і використовуйте рушник чи килимок, що не турбуватиме сусідів."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "plage-sablettes"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Beach and independent seafront practice", "Pratique plage et bord de mer en autonomie", "Pratica in spiaggia e sul mare in autonomia", "Пляжна й самостійна практика біля моря"),
+        body: [
+          t("Plage du Casino is a useful central reference for occasional organised beach formats. Studio Jeune Lune publishes beach sessions at times, but the meeting point, weather plan and equipment can change, so use its current booking page rather than an old social post.", "La Plage du Casino est un repere central utile pour certains formats organises sur la plage. Studio Jeune Lune publie parfois des seances plage, mais lieu, meteo et materiel peuvent changer : utilisez la page de reservation actuelle plutot qu'un ancien post.", "Plage du Casino e un riferimento centrale utile per alcuni formati organizzati in spiaggia. Studio Jeune Lune pubblica talvolta lezioni in spiaggia, ma luogo, piano meteo e attrezzatura possono cambiare: usa la pagina di prenotazione aggiornata.", "Plage du Casino - зручна центральна точка для деяких організованих занять на пляжі. Studio Jeune Lune інколи публікує такі сесії, але місце, план на випадок погоди й спорядження можуть змінюватися, тому користуйтеся актуальною сторінкою бронювання."),
+          t("For an independent quiet stretch, choose a stable, uncrowded edge of Plage des Sablettes or a seafront bench area rather than a busy access route. Do not treat public beach space as a booked class area, and move on if the setting becomes busy.", "Pour des etirements calmes en autonomie, choisissez un bord stable et peu frequente de la Plage des Sablettes ou une zone de bancs, plutot qu'un passage anime. Ne traitez pas la plage publique comme un espace de cours reserve et deplacez-vous si l'endroit devient charge.", "Per stretching tranquillo in autonomia, scegli un bordo stabile e poco affollato di Plage des Sablettes o un'area con panchine, non un passaggio trafficato. Non trattare la spiaggia pubblica come una sala prenotata e spostati se il luogo diventa affollato.", "Для тихого самостійного стретчингу обирайте стійку, малолюдну частину Plage des Sablettes або зону лавок, а не жвавий прохід. Не сприймайте публічний пляж як заброньовану залу й переходьте в інше місце, якщо стає людно."),
+        ],
+        relatedPlaceIds: ["plage-casino", "plage-sablettes", "studio-jeune-lune-menton"],
+        officialLinks: [{ label: t("Studio Jeune Lune current schedule", "Planning actuel Studio Jeune Lune", "Programma aggiornato Studio Jeune Lune", "Актуальний розклад Studio Jeune Lune"), url: "https://www.momoyoga.com/studio-jeune-lune/schedule" }],
+      },
+      {
+        heading: t("Central yoga studios", "Studios de yoga au centre", "Studi yoga in centro", "Центральні yoga-студії"),
+        body: [
+          t("Yoga4Motion at Rue Guyau is the most clearly central option for a studio-based practice, with published movement and breath-led classes. Its infrared format is more specialised than a standard outdoor class, so ask about heat, suitability and booking before going.", "Yoga4Motion, rue Guyau, est l'option la plus clairement centrale pour une pratique en studio, avec cours de mouvement et respiration publies. Son format infrarouge est plus specialise qu'un cours exterieur classique : renseignez-vous sur chaleur, adaptation et reservation.", "Yoga4Motion in Rue Guyau e l'opzione piu centrale per una pratica in studio, con lezioni pubblicate di movimento e respiro. Il formato a infrarossi e piu specializzato di una lezione outdoor: chiedi informazioni su calore, idoneita e prenotazione.", "Yoga4Motion на Rue Guyau - найцентральніший варіант для студійної практики з заявленими заняттями руху й дихання. Інфрачервоний формат спеціалізованіший за звичайний outdoor-клас, тож уточнюйте температуру, доречність і бронювання."),
+          t("Centre Yoga Precision Menton is an Iyengar-focused school at Rue Victor Hugo. This can suit travellers looking for a more alignment-led practice, but confirm the current class level and whether a short-stay visitor can join.", "Centre Yoga Precision Menton est une ecole axee Iyengar rue Victor Hugo. Elle peut convenir aux voyageurs cherchant une pratique plus precise, mais confirmez le niveau du cours et l'accueil d'un visiteur de court sejour.", "Centre Yoga Precision Menton e una scuola focalizzata su Iyengar in Rue Victor Hugo. Puo essere adatta a chi cerca una pratica piu orientata all'allineamento, ma conferma livello e accesso per visitatori di breve soggiorno.", "Centre Yoga Precision Menton - школа з фокусом на Iyengar на Rue Victor Hugo. Вона підійде тим, хто шукає практику з увагою до вирівнювання, але підтверджуйте рівень класу й доступ для гостей на короткий термін."),
+        ],
+        relatedPlaceIds: ["yoga4motion-menton", "centre-yoga-precision-menton"],
+        officialLinks: [
+          { label: t("Yoga4Motion", "Yoga4Motion", "Yoga4Motion", "Yoga4Motion"), url: "https://yoga4motion.com/" },
+          { label: t("Centre Yoga Precision Menton", "Centre Yoga Precision Menton", "Centre Yoga Precision Menton", "Centre Yoga Precision Menton"), url: "https://yogaprecision.net/" },
+        ],
+      },
+      {
+        heading: t("Small studios and private formats", "Petits studios et formats prives", "Piccoli studi e formati privati", "Невеликі студії та приватні формати"),
+        body: [
+          t("Studio Jeune Lune on Avenue de Sospel combines yoga, Pilates and movement in a small-studio setting. Espace Neona, on Rue de la Republique, is another central wellbeing option. For both, check the live schedule, language of instruction and whether mats are supplied.", "Studio Jeune Lune, avenue de Sospel, associe yoga, Pilates et mouvement dans un petit studio. Espace Neona, rue de la Republique, est une autre option bien-etre centrale. Pour les deux, verifiez planning en direct, langue d'enseignement et pret de tapis.", "Studio Jeune Lune in Avenue de Sospel unisce yoga, Pilates e movimento in un piccolo studio. Espace Neona in Rue de la Republique e un'altra opzione benessere centrale. Per entrambi, controlla programma, lingua e disponibilita dei tappetini.", "Studio Jeune Lune на Avenue de Sospel поєднує yoga, Pilates і рух у форматі невеликої студії. Espace Neona на Rue de la Republique - ще один центральний wellness-вибір. Для обох перевіряйте актуальний розклад, мову викладання та наявність килимків."),
+          t("Padmaspace publishes private and outdoor yoga or sound-practice formats in Menton. It is useful for a tailored session, but the exact meeting point and current availability should be agreed directly rather than assumed from an older listing.", "Padmaspace publie des formats prives et exterieurs de yoga ou de pratique sonore a Menton. C'est utile pour une seance sur mesure, mais le lieu exact et la disponibilite doivent etre convenus directement plutot que supposes depuis une ancienne fiche.", "Padmaspace pubblica formati privati e outdoor di yoga o pratiche sonore a Mentone. E utile per una sessione su misura, ma luogo e disponibilita vanno concordati direttamente e non dedotti da un vecchio elenco.", "Padmaspace публікує приватні й outdoor-формати yoga або звукових практик у Ментоні. Це корисно для індивідуальної сесії, але точне місце й доступність слід узгоджувати напряму, а не припускати за старим переліком."),
+        ],
+        relatedPlaceIds: ["studio-jeune-lune-menton", "espace-neona-menton", "padmaspace-menton"],
+        officialLinks: [
+          { label: t("Studio Jeune Lune", "Studio Jeune Lune", "Studio Jeune Lune", "Studio Jeune Lune"), url: "https://studiojeunelune.com/" },
+          { label: t("Padmaspace", "Padmaspace", "Padmaspace", "Padmaspace"), url: "https://padmaspace.com/" },
+        ],
+      },
+      {
+        heading: t("Which option is right for you?", "Quelle option choisir ?", "Quale opzione scegliere?", "Який варіант обрати?"),
+        body: [
+          t("Choose a central studio when you want a predictable indoor session; choose a published beach class when you want an organised outdoor practice; and choose independent seafront stretching only for a quiet, short personal routine. For long stays or a private session, contact the provider with your dates and experience level.", "Choisissez un studio central pour une seance interieure previsible, un cours plage publie pour une pratique exterieure organisee, et les etirements autonomes au bord de mer seulement pour une courte routine personnelle calme. Pour un long sejour ou une seance privee, contactez le prestataire avec vos dates et votre niveau.", "Scegli uno studio centrale per una sessione indoor prevedibile, una lezione in spiaggia pubblicata per una pratica outdoor organizzata e stretching autonomo sul mare solo per una breve routine personale. Per soggiorni lunghi o sessioni private, contatta il fornitore con date e livello.", "Обирайте центральну студію для передбачуваного indoor-заняття, опублікований пляжний клас для організованої outdoor-практики, а самостійний стретчинг біля моря - лише для короткої особистої рутини. Для тривалого перебування або приватної сесії зв'яжіться з викладачем, вказавши дати й рівень."),
+        ],
+        relatedPlaceIds: ["yoga4motion-menton", "centre-yoga-precision-menton", "studio-jeune-lune-menton", "padmaspace-menton"],
+      },
+      {
+        heading: t("A calm base after practice", "Une base calme apres la pratique", "Una base tranquilla dopo la pratica", "Спокійна база після практики"),
+        body: [
+          t("Menton works well when a class is only one part of the day: return to a quieter seaside apartment, take a shower, rest in air-conditioned comfort during the hottest hours and head out again later. For the balcony and sea-view rhythm, Sea View Balcony Studio and Panoramic Sea View Studio are natural fits; the beachside apartment adds more space for a family stay.", "Menton fonctionne bien quand le cours n'est qu'une partie de la journee : retour dans un appartement calme pres de la mer, douche, pause climatisee pendant les heures chaudes puis sortie plus tard. Pour le rythme balcon et vue mer, Sea View Balcony Studio et Panoramic Sea View Studio conviennent naturellement ; l'appartement proche plage offre davantage d'espace pour une famille.", "Mentone funziona bene quando la lezione e solo una parte della giornata: ritorno in un appartamento tranquillo vicino al mare, doccia, pausa con aria condizionata nelle ore piu calde e uscita piu tardi. Per ritmo balcone e vista mare, Sea View Balcony Studio e Panoramic Sea View Studio sono adatti; l'appartamento vicino alla spiaggia offre piu spazio alle famiglie.", "Ментон добре працює, коли заняття - лише частина дня: повернення до тихих апартаментів біля моря, душ, пауза з кондиціонером у найспекотніші години й вихід пізніше. Для ритму балкон і вид на море природно підходять Sea View Balcony Studio та Panoramic Sea View Studio; апартаменти біля пляжу дають більше простору для сім'ї."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Before you book", "Avant de reserver", "Prima di prenotare", "Перед бронюванням"),
+        body: [
+          t("Ask four simple questions: is the class running on your date, which language is used, is a mat supplied, and what happens if wind or rain affects an outdoor session? Avoid relying on old timetables or fixed prices in travel articles.", "Posez quatre questions simples : le cours a-t-il lieu a votre date, quelle langue est utilisee, un tapis est-il fourni et que se passe-t-il si vent ou pluie affectent une seance exterieure ? Ne vous fiez pas aux anciens plannings ni aux prix fixes dans les articles de voyage.", "Fai quattro semplici domande: la lezione si tiene nella tua data, quale lingua si usa, il tappetino e fornito e cosa succede se vento o pioggia incidono su una sessione outdoor? Non fare affidamento su vecchi orari o prezzi fissi negli articoli di viaggio.", "Поставте чотири прості запитання: чи відбудеться заняття у вашу дату, якою мовою воно проводиться, чи надають килимок і що буде, якщо вітер або дощ вплинуть на outdoor-сесію? Не покладайтеся на старі розклади чи фіксовані ціни з туристичних статей."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("For summer outdoor practice, bring water, sunscreen and a light layer for the early morning breeze.", "Pour une pratique exterieure l'ete, prenez eau, creme solaire et une couche legere pour la brise matinale.", "Per pratica outdoor estiva, porta acqua, crema solare e uno strato leggero per la brezza del mattino.", "Для літньої outdoor-практики візьміть воду, сонцезахист і легкий шар одягу на ранковий бриз."),
+      t("Treat every studio timetable, beach meeting point and visitor policy as live information to confirm directly.", "Considerez chaque planning de studio, point de rendez-vous plage et politique visiteur comme une information a confirmer directement.", "Considera ogni orario di studio, punto di incontro in spiaggia e politica per visitatori come informazioni da confermare direttamente.", "Сприймайте кожен студійний розклад, місце зустрічі на пляжі та правила для гостей як актуальну інформацію, яку треба підтвердити напряму."),
     ],
   }),
 ];
