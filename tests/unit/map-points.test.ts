@@ -33,6 +33,15 @@ const newlyReviewedPublicPointIds = [
   "borrigo-beaches",
 ];
 
+const reviewedScreenLocationPointIds = [
+  "rue-longue-menton",
+  "rue-de-brea-menton",
+  "place-du-cap-menton",
+  "tunnel-pascal-molinari",
+  "villa-maria-serena",
+  "palais-carnoles-menton",
+];
+
 const reviewedRestaurantEveningMuseumPointIds = [
   "chez-mimi-menton",
   "musee-prehistoire-regionale-menton",
@@ -113,6 +122,16 @@ describe("map points", () => {
     }
   });
 
+  it("keeps new screen-location points reviewed for map accuracy", () => {
+    for (const placeId of reviewedScreenLocationPointIds) {
+      const point = placeMapPoints.find((item) => item.placeId === placeId);
+      expect(point?.review, placeId).toMatchObject({ checkedOn: "2026-07-14" });
+      expect(point?.review?.sourceUrl, placeId).toBeTruthy();
+      expect(point?.lat, placeId).toBeGreaterThan(43.7);
+      expect(point?.lng, placeId).toBeGreaterThan(7.45);
+    }
+  });
+
   it("keeps high-value practical Menton points reviewed for map accuracy", () => {
     for (const placeId of reviewedPracticalMentonPointIds) {
       const point = placeMapPoints.find((item) => item.placeId === placeId);
@@ -151,6 +170,7 @@ describe("map points", () => {
       ...reviewedPracticalMentonPointIds,
       ...reviewedTransportAccessPointIds,
       ...reviewedParkingPointIds,
+      ...reviewedScreenLocationPointIds,
     ].sort();
 
     expect(requiredPlaces.map((place) => place.id).sort()).toEqual(expectedRequiredPlaceIds);

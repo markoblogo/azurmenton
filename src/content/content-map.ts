@@ -75,7 +75,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Culture & evenings", "Culture & soirees", "Cultura & serate", "Культура та вечори"),
     description: t("Museums, cinema, live music and evening plans nearby.", "Musees, cinema, musique live et idees de soiree autour de Menton.", "Musei, cinema, musica dal vivo e serate nei dintorni di Mentone.", "Музеї, кіно, жива музика та вечірні плани поблизу Ментона."),
     categories: ["nightlife-drinks", "events"],
-    includeGuideSlugs: ["museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton"],
+    includeGuideSlugs: ["museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "films-shot-in-menton"],
     priorityGuideSlugs: ["museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "jazz-live-music-near-menton"],
   },
   {
@@ -149,6 +149,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-rainy-day", query: t("rainy day in Menton", "jour de pluie a Menton", "giornata di pioggia a Mentone", "дощовий день у Ментоні"), collectionId: "family-days", priority: "next", status: "planned", season: "all-year" },
   { id: "menton-museums", query: t("museums near Menton", "musees pres de Menton", "musei vicino a Mentone", "музеї поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "museums-in-menton-nice-monaco", season: "all-year" },
   { id: "menton-theatre", query: t("theatre and opera near Menton", "theatre et opera pres de Menton", "teatro e opera vicino a Mentone", "театр і опера поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "theatre-opera-performing-arts-near-menton", season: "all-year" },
+  { id: "menton-on-screen", query: t("films shot in Menton", "films tournes a Menton", "film girati a Mentone", "фільми, зняті в Ментоні"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "films-shot-in-menton", season: "all-year" },
   { id: "menton-monaco-day-trip", query: t("Monaco from Menton", "Monaco depuis Menton", "Monaco da Mentone", "Монако з Ментона"), collectionId: "riviera-day-trips", priority: "now", status: "covered", targetGuideSlug: "monaco-events-from-menton", season: "all-year" },
   { id: "menton-italy-day-trip", query: t("Italian Riviera day trip from Menton", "excursion Riviera italienne depuis Menton", "gita in Riviera italiana da Mentone", "поїздка на Італійську Рив'єру з Ментона"), collectionId: "riviera-day-trips", priority: "now", status: "covered", targetGuideSlug: "italian-riviera-day-trip-from-menton", season: "all-year" },
   { id: "menton-without-car", query: t("Menton without a car", "Menton sans voiture", "Mentone senza auto", "Ментон без автомобіля"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "menton-without-a-car", season: "all-year" },
