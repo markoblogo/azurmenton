@@ -18,6 +18,8 @@ Production domain: `https://azurmenton.com`
 
 The site combines direct booking, apartment presentation and evergreen local content. Guide, events and stay pages support search intent around Menton stays: beaches, walks, museums, practical errands, Monaco/Nice day trips, seasonal heat, winter travel and Riviera events.
 
+Agent-facing positioning, conversion, proof and claim boundaries are maintained in [`docs/product-context.md`](docs/product-context.md). Use it before SEO, analytics, public-copy, or recurring content work; it does not authorize automated publishing or booking changes.
+
 ## Stack
 
 - Next.js `16.2.6` App Router, React `19`, TypeScript, Tailwind CSS `4`

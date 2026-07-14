@@ -14,3 +14,7 @@ When adding or changing a guide article, place/location object, event, or apartm
 - avoid adding location cards only for volume or SEO if the place is not mentioned or useful in that section.
 
 Use `docs/content-operations.md` as the detailed checklist for guide, place, event, image, internal linking and preflight work.
+
+## Product context and recurring reviews
+
+Read `docs/product-context.md` before changing public positioning, conversion copy, SEO/schema, booking analytics, or recurring content reviews. It is a claim-boundary reference, not permission to publish, change bookings, or send marketing automatically. Keep recurring work report-only or proposal-first until an explicit human approval gate exists.
