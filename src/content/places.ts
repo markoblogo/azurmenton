@@ -4868,6 +4868,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central French and Mediterranean brasserie at Hotel Menton Mediterranee. Ask whether pastis is currently available with the aperitif list.", "Brasserie francaise et mediterraneenne centrale de l'Hotel Menton Mediterranee. Demandez si le pastis est disponible sur la carte aperitif du moment.", "Brasserie francese e mediterranea centrale presso l'Hotel Menton Mediterranee. Chiedi se il pastis e disponibile nella carta aperitivo del momento.", "Центральна французько-середземноморська brasserie в Hotel Menton Mediterranee. Уточніть, чи є pastis у поточній аперитивній карті."),
     bestFor: [text("central aperitif", "aperitif central", "aperitivo centrale", "центральний аперитив"), text("traditional brasserie", "brasserie traditionnelle", "brasserie tradizionale", "традиційна brasserie")],
     relatedArticleIds: ["pastis-in-menton", "local-food-menton", "quiet-evening-in-menton"],
+    guideCoverageSlugs: ["pastis-in-menton", "local-food-menton"],
   },
   {
     id: "bouddha-beach-menton",
@@ -4894,6 +4895,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A waterfront bar on Promenade du Soleil. Its drinks list changes, so ask whether pastis is currently stocked.", "Bar au bord de l'eau sur la Promenade du Soleil. La carte des boissons change : demandez si le pastis est actuellement disponible.", "Bar sul lungomare della Promenade du Soleil. La lista delle bevande cambia: chiedi se il pastis e disponibile al momento.", "Бар на набережній Promenade du Soleil. Асортимент напоїв змінюється, тож уточніть наявність pastis."),
     bestFor: [text("waterfront drink", "verre au bord de l'eau", "drink sul lungomare", "напій біля води"), text("simple aperitif", "aperitif simple", "aperitivo semplice", "простий аперитив")],
     relatedArticleIds: ["pastis-in-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "best-seafood-restaurants-menton"],
+    guideCoverageSlugs: ["pastis-in-menton", "bars-and-beer-in-menton"],
   },
   {
     id: "vinum-veritas-menton",
@@ -4934,6 +4936,7 @@ const rawPlaces: Place[] = [
     shortNote: text("An Italian-style cafe and aperitif bar near Casino Barriere. It is useful for comparing an Italian aperitivo with a French pastis ritual.", "Cafe et bar aperitif a l'italienne pres du Casino Barriere. Utile pour comparer un aperitivo italien au rituel francais du pastis.", "Cafe e bar aperitivo in stile italiano vicino al Casino Barriere. Utile per confrontare un aperitivo italiano con il rito francese del pastis.", "Кафе й аперитив-бар в італійському стилі біля Casino Barriere. Тут доречно порівняти італійський aperitivo з французьким ритуалом pastis."),
     bestFor: [text("Italian aperitivo", "aperitivo italien", "aperitivo italiano", "італійський aperitivo"), text("central evening stop", "halte centrale du soir", "sosta serale centrale", "центральна вечірня зупинка")],
     relatedArticleIds: ["pastis-in-menton", "bars-and-beer-in-menton", "quiet-evening-in-menton", "local-food-menton"],
+    guideCoverageSlugs: ["pastis-in-menton", "bars-and-beer-in-menton"],
   },
 ];
 

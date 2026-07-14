@@ -79,7 +79,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Add existing relevant places to new articles.
 - Add new places to older articles only where naturally useful.
 - Update `relatedPlaces`, section-level `relatedPlaceIds` and place `relatedArticleIds` together.
-- Use `guideCoverageSlugs` for the specialised guide that should absorb a newly added place, such as a new wine bar in the wine guide. Every coverage guide must render the place as a top-level or section-level card; `npm run content:report` flags `Canonical guide coverage gaps` before publication.
+- Use `guideCoverageSlugs` for the specialised guide that should absorb a newly added place, such as a new wine bar in the wine guide. Every coverage guide must render the place as a top-level or section-level card; `npm run content:report` flags `Canonical guide coverage gaps` before publication. `relatedArticleIds` remain broad editorial backlinks, not an instruction to add a card to every linked article.
 - Check whether the article belongs in an intent cluster.
 - Check whether it belongs in a living guide collection in `src/content/content-map.ts`. Add an item to the compact intent map only when it answers a meaningful guest or search question; do not inflate the count with near-duplicate queries.
 - Check whether the article needs apartment-aware linking.
