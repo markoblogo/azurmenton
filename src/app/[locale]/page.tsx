@@ -30,16 +30,6 @@ const sectionCopy = {
       "Each apartment offers a different way to experience Menton — from panoramic sea-view studios to a larger terrace apartment near the beach, all within walking distance of the seafront, cafés and the old town.",
     apartmentComfort:
       "All apartments are equipped with air conditioning for comfortable stays throughout the Mediterranean summer.",
-    directTitle: "Why book direct",
-    directIntro:
-      "Direct requests keep the conversation personal. Tell us your dates and we will confirm availability and the best direct offer ourselves.",
-    directPoints: [
-      "Direct communication with a family-run host",
-      "Best available direct offer",
-      "Local recommendations before and during your stay",
-      "Simple request-to-book process",
-      "No platform service fee on direct requests",
-    ],
     mentonTitle: "Why Menton",
     mentonIntro:
       "A Riviera town for slow mornings by the water, colourful streets, easy train days and evenings along the promenade.",
@@ -64,16 +54,6 @@ const sectionCopy = {
       "Chaque appartement propose une façon différente de vivre Menton — des studios avec vue panoramique sur la mer à un appartement plus spacieux avec terrasse près de la plage, tous à distance de marche du front de mer, des cafés et de la vieille ville.",
     apartmentComfort:
       "Tous les appartements sont équipés de la climatisation pour des séjours confortables tout au long de l’été méditerranéen.",
-    directTitle: "Pourquoi reserver en direct",
-    directIntro:
-      "La demande directe garde l'echange simple et personnel. Envoyez vos dates, nous verifierons la disponibilite et la meilleure offre directe.",
-    directPoints: [
-      "Echange direct avec un hote familial",
-      "Meilleure offre directe disponible",
-      "Recommandations locales avant et pendant le sejour",
-      "Processus simple de demande de reservation",
-      "Pas de frais de service de plateforme sur les demandes directes",
-    ],
     mentonTitle: "Pourquoi Menton",
     mentonIntro:
       "Une ville de Riviera pour les matins au bord de l'eau, les rues colorees, les escapades faciles et les soirees sur la promenade.",
@@ -98,16 +78,6 @@ const sectionCopy = {
       "Ogni appartamento offre un modo diverso di vivere Mentone — dai monolocali con vista panoramica sul mare a un appartamento più ampio con terrazza vicino alla spiaggia, tutti a pochi passi dal lungomare, dai caffè e dal centro storico.",
     apartmentComfort:
       "Tutti gli appartamenti sono dotati di aria condizionata per soggiorni confortevoli durante l’estate mediterranea.",
-    directTitle: "Perche prenotare in diretto",
-    directIntro:
-      "La richiesta diretta mantiene il contatto personale. Inviaci le date e confermeremo disponibilita e migliore offerta diretta.",
-    directPoints: [
-      "Comunicazione diretta con un host familiare",
-      "Migliore offerta diretta disponibile",
-      "Consigli locali prima e durante il soggiorno",
-      "Processo semplice di richiesta prenotazione",
-      "Nessun costo di servizio piattaforma sulle richieste dirette",
-    ],
     mentonTitle: "Perche Mentone",
     mentonIntro:
       "Una cittadina di Riviera per mattine sul mare, strade colorate, gite facili e passeggiate serali sul lungomare.",
@@ -132,16 +102,6 @@ const sectionCopy = {
       "Кожні апартаменти відкривають Ментон по-своєму — від студій із панорамним видом на море до просторішої квартири з терасою поруч із пляжем; усі розташовані на пішій відстані від набережної, кав’ярень і старого міста.",
     apartmentComfort:
       "Усі апартаменти обладнані кондиціонером для комфортного перебування протягом середземноморського літа.",
-    directTitle: "Чому варто звернутися напряму",
-    directIntro:
-      "Прямий запит зберігає спілкування особистим. Надішліть дати, і ми вручну підтвердимо доступність та найкращу пряму пропозицію.",
-    directPoints: [
-      "Пряме спілкування з сімейним господарем",
-      "Найкраща доступна пряма пропозиція",
-      "Локальні рекомендації до та під час перебування",
-      "Простий процес запиту на бронювання",
-      "Без сервісного збору платформи для прямих запитів",
-    ],
     mentonTitle: "Чому Ментон",
     mentonIntro:
       "Місто Рив'єри для ранків біля води, кольорових вулиць, легких поїздок і вечорів на набережній.",
@@ -340,27 +300,6 @@ export default async function LocaleHome({ params }: PageProps) {
                 eagerImage={apartment.slug === "sea-view-balcony-studio"}
               />
             ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-[#173f36] py-14 text-white sm:py-20">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <p className="editorial-label">{sections.directTitle}</p>
-              <h2 className="serif-heading mt-3 text-4xl leading-tight sm:text-5xl">
-                {sections.finalTitle}
-              </h2>
-              <p className="mt-5 max-w-md text-sm leading-7 text-white/70">{sections.directIntro}</p>
-            </div>
-            <div className="grid border border-white/15 md:grid-cols-2">
-              {(sections.directPoints as string[]).map((item) => (
-                <div key={item} className="border-b border-r border-white/15 p-6 last:border-b-0 md:[&:nth-child(even)]:border-r-0">
-                  <p className="text-sm font-semibold leading-6 text-white/86">{item}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </Container>
       </Section>
