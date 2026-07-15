@@ -89,6 +89,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const apartmentScenario = guideApartmentScenarios[article.slug];
   const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
+  const transportHelperAfterSectionIndex = article.transportHelperAfterSectionIndex;
   const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
   const sourceAttribution = {
     sourcePageType: "guide" as const,
@@ -108,6 +109,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
     <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
       <UtilityBlockRenderer locale={locale} blocks={utilityBlocks} />
     </section>
+  ) : null;
+  const transportHelperSection = transportDestinationIds.length && !isTransportGuide ? (
+    <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} compact />
   ) : null;
 
   return (
@@ -140,7 +144,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
             <article className="space-y-5">
               {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {isTransportGuide ? <PublicTransportGuide locale={locale} /> : null}
-              {transportDestinationIds.length && !isTransportGuide ? <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} compact /> : null}
+              {transportHelperAfterSectionIndex === undefined ? transportHelperSection : null}
               {showArrivalParking ? (
                 <ArrivalParkingBlock
                   locale={locale}
@@ -223,6 +227,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     ) : null}
                     </section>
                     {utilityBlocksAfterSectionIndex === sectionIndex ? utilityBlockSection : null}
+                    {transportHelperAfterSectionIndex === sectionIndex ? transportHelperSection : null}
                   </Fragment>
                 );
               })}

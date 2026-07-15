@@ -169,6 +169,7 @@ export type GuideArticle = {
   relatedApartments?: string[];
   utilityBlocks?: GuideUtilityBlock[];
   utilityBlocksAfterSectionIndex?: number;
+  transportHelperAfterSectionIndex?: number;
 };
 
 export type GuidePageContent = {
@@ -1253,6 +1254,7 @@ function shortArticle(input: {
   coverImageAlt?: LocalizedText;
   utilityBlocks?: GuideUtilityBlock[];
   utilityBlocksAfterSectionIndex?: number;
+  transportHelperAfterSectionIndex?: number;
   visualTheme?: GuideVisualTheme;
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sections: LocalizedGuideSection[];
@@ -5577,7 +5579,7 @@ export const guideArticles: GuideArticle[] = [
     relatedArticles: ["how-to-get-to-menton-from-nice-airport", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "useful-numbers-emergency-contacts-menton"],
     relatedApartments: allApartments,
     utilityBlocks: [{ type: "airportLiveBoard" }],
-    utilityBlocksAfterSectionIndex: 1,
+    transportHelperAfterSectionIndex: 3,
     sections: [
       {
         heading: t("Which airport should you use for Menton?", "Quel aeroport choisir pour Menton ?", "Quale aeroporto scegliere per Mentone?", "Який аеропорт обрати для Ментона?"),
@@ -5586,13 +5588,6 @@ export const guideArticles: GuideArticle[] = [
           t("Compare the complete journey, not only the airfare. A cheap flight can become inconvenient after a long transfer, tolls, a late arrival or an overnight stop.", "Comparez le voyage complet, pas seulement le prix du billet. Un vol moins cher peut devenir peu pratique avec un long transfert, les peages, une arrivee tardive ou une nuit supplementaire.", "Confronta l'intero viaggio, non solo il biglietto. Un volo economico puo diventare scomodo dopo un trasferimento lungo, pedaggi, arrivo tardi o una notte extra.", "Порівнюйте весь маршрут, а не лише ціну квитка. Дешевий рейс може стати незручним через довгий трансфер, платні дороги, пізнє прибуття чи додаткову ніч."),
         ],
         relatedPlaceIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "cuneo-levaldigi-airport", "torino-airport", "marseille-provence-airport"],
-      },
-      {
-        heading: t("Official live flight information", "Informations de vol officielles", "Informazioni ufficiali sui voli", "Офіційна інформація про рейси"),
-        body: [
-          t("Use the official boards below for current arrivals and departures. Flight status can change at short notice, so important updates should always be verified with the airline. If a board cannot be shown here, the official external link remains available.", "Utilisez les tableaux officiels ci-dessous pour les arrivees et departs du moment. Le statut d'un vol peut changer rapidement : verifiez toujours les informations importantes avec la compagnie. Si un tableau ne peut pas etre affiche ici, le lien officiel externe reste disponible.", "Usa i tabelloni ufficiali qui sotto per arrivi e partenze aggiornati. Lo stato del volo puo cambiare rapidamente: verifica sempre gli aggiornamenti importanti con la compagnia. Se un tabellone non puo essere mostrato qui, resta disponibile il link ufficiale esterno.", "Використовуйте офіційні табло нижче для актуальних прильотів і вильотів. Статус рейсу може швидко змінитися, тому важливі оновлення завжди перевіряйте в авіакомпанії. Якщо табло не можна показати тут, залишається офіційне зовнішнє посилання."),
-        ],
-        relatedPlaceIds: ["nice-cote-dazur-airport"],
       },
       {
         heading: t("Nice Cote d'Azur Airport: the normal choice", "Nice Cote d'Azur : le choix habituel", "Nice Cote d'Azur: la scelta abituale", "Nice Cote d'Azur: звичний вибір"),

@@ -28,7 +28,6 @@ export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUti
   const airports = getAirportLiveBoards(block.airportIds);
   const [airportId, setAirportId] = useState(airports[0]?.id ?? "");
   const [boardType, setBoardType] = useState<BoardType>("arrivals");
-  const [loaded, setLoaded] = useState(false);
   const tabId = useId();
   const copy = labels[locale];
   const airport = airports.find((candidate) => candidate.id === airportId) ?? airports[0];
@@ -40,11 +39,9 @@ export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUti
   const props = { locale, airportCode: airport.code, boardType, embedMode: airport.embedMode, sourceGuideSlug: "airports-near-menton-live-flights" };
   const selectAirport = (nextId: string) => {
     setAirportId(nextId);
-    setLoaded(false);
   };
   const selectBoardType = (nextType: BoardType) => {
     setBoardType(nextType);
-    setLoaded(false);
   };
   const openTransportGuide = () => {
     trackBookingFunnelEvent(bookingFunnelEvents.airportTransportGuideClick, props);
@@ -81,18 +78,11 @@ export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUti
           ))}
         </div>
 
-        {canEmbed && !loaded ? (
-          <div className="mt-4 flex min-h-48 flex-col justify-center border border-dashed border-[#c6a66a] bg-[#f8f3ea] p-5">
-            <p className="text-sm leading-6 text-[#5c5044]">{copy.privacy}</p>
-            <button type="button" onClick={() => { trackBookingFunnelEvent(bookingFunnelEvents.airportBoardLoadClick, props); setLoaded(true); }} className="mt-4 inline-flex w-fit min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white hover:bg-[#245548] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]">
-              {copy.load}
-            </button>
-          </div>
-        ) : null}
+        {canEmbed ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{copy.privacy}</p> : null}
 
-        {canEmbed && loaded ? (
-          <div className="mt-4 aspect-[4/3] min-h-[28rem] overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] sm:min-h-[34rem]">
-            <iframe title={`${airport.name[locale]} ${copy[boardType].toLowerCase()}`} src={url} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" className="h-full w-full border-0" onLoad={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardLoaded, props)} onError={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardFailed, props)} />
+        {canEmbed ? (
+          <div className="relative mt-4 h-[30rem] overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] sm:h-[38rem] lg:h-[44rem]">
+            <iframe title={`${airport.name[locale]} ${copy[boardType].toLowerCase()}`} src={url} loading="eager" referrerPolicy="strict-origin-when-cross-origin" className="absolute left-0 top-0 h-[125%] w-[125%] origin-top-left scale-[0.8] border-0" onLoad={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardLoaded, props)} onError={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardFailed, props)} />
           </div>
         ) : null}
 
