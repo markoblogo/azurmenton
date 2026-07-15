@@ -6486,6 +6486,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Nice Côte d'Azur Airport", "Illustration de l'aeroport Nice Cote d'Azur", "Illustrazione dell'aeroporto Nice Côte d'Azur", "Ілюстрація аеропорту Nice Côte d'Azur"),
     visualTheme: "transport",
   },
+  "grand-arenas-nice": {
+    image: "/images/guide/grand-arenas-nice.jpg",
+    imageAlt: text("Illustration of Grand Arenas in Nice", "Illustration de Grand Arenas a Nice", "Illustrazione di Grand Arenas a Nizza", "Ілюстрація Grand Arenas у Ніцці"),
+    visualTheme: "transport",
+  },
+  "genoa-cristoforo-colombo-airport": {
+    image: "/images/guide/genoa-cristoforo-colombo-airport.jpg",
+    imageAlt: text("Illustration of Genoa Cristoforo Colombo Airport", "Illustration de l'aeroport de Genes Cristoforo Colombo", "Illustrazione dell'aeroporto di Genova Cristoforo Colombo", "Ілюстрація аеропорту Генуя Крістофоро Коломбо"),
+    visualTheme: "transport",
+  },
+  "cuneo-levaldigi-airport": {
+    image: "/images/guide/cuneo-levaldigi-airport.jpg",
+    imageAlt: text("Illustration of Cuneo Levaldigi Airport", "Illustration de l'aeroport de Cuneo Levaldigi", "Illustrazione dell'aeroporto di Cuneo Levaldigi", "Ілюстрація аеропорту Кунео-Левальдіджі"),
+    visualTheme: "transport",
+  },
+  "torino-airport": {
+    image: "/images/guide/torino-airport.jpg",
+    imageAlt: text("Illustration of Torino Airport", "Illustration de l'aeroport de Turin", "Illustrazione dell'aeroporto di Torino", "Ілюстрація аеропорту Турина"),
+    visualTheme: "transport",
+  },
+  "marseille-provence-airport": {
+    image: "/images/guide/marseille-provence-airport.jpg",
+    imageAlt: text("Illustration of Marseille Provence Airport", "Illustration de l'aeroport Marseille Provence", "Illustrazione dell'aeroporto di Marsiglia Provenza", "Ілюстрація аеропорту Марсель Прованс"),
+    visualTheme: "transport",
+  },
   "nice-airport-car-rental-center": {
     image: "/images/guide/nice-airport-car-rental-center.jpg",
     imageAlt: text("Illustration of the Nice Airport car rental centre", "Illustration du centre de location de voitures de l'aeroport de Nice", "Illustrazione del centro autonoleggio dell'aeroporto di Nizza", "Ілюстрація центру оренди авто в аеропорту Ніцци"),
