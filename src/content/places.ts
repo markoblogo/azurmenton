@@ -5165,6 +5165,36 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "hotel-lorangeraie-mileade-spa": {
+    image: "/images/guide/hotel-lorangeraie-mileade-spa.jpg",
+    imageAlt: text("Illustration of Hotel L'Orangeraie - Mileade Spa in Menton", "Illustration du spa Hotel L'Orangeraie - Mileade a Menton", "Illustrazione della spa Hotel L'Orangeraie - Mileade a Mentone", "Ілюстрація спа Hotel L'Orangeraie - Mileade у Ментоні"),
+    visualTheme: "sea",
+  },
+  "hotel-riva-art-spa": {
+    image: "/images/guide/hotel-riva-art-spa.jpg",
+    imageAlt: text("Illustration of Hotel Riva Art & Spa in Menton", "Illustration de Hotel Riva Art & Spa a Menton", "Illustrazione di Hotel Riva Art & Spa a Mentone", "Ілюстрація Hotel Riva Art & Spa у Ментоні"),
+    visualTheme: "sea",
+  },
+  "centre-bien-etre-calysta": {
+    image: "/images/guide/centre-bien-etre-calysta.jpg",
+    imageAlt: text("Illustration of Centre de Bien-etre Calysta in Menton", "Illustration du Centre de Bien-etre Calysta a Menton", "Illustrazione del Centre de Bien-etre Calysta a Mentone", "Ілюстрація Centre de Bien-etre Calysta у Ментоні"),
+    visualTheme: "sea",
+  },
+  "spa-menton-rue-partouneaux": {
+    image: "/images/guide/spa-menton-rue-partouneaux.jpg",
+    imageAlt: text("Illustration of Spa Menton near Rue Partouneaux", "Illustration de Spa Menton pres de la rue Partouneaux", "Illustrazione di Spa Menton vicino a Rue Partouneaux", "Ілюстрація Spa Menton біля Rue Partouneaux"),
+    visualTheme: "sea",
+  },
+  "bomboniere-spa-du-chateau": {
+    image: "/images/guide/bomboniere-spa-du-chateau.jpg",
+    imageAlt: text("Illustration of Bomboniere Spa du Chateau in Roquebrune-Cap-Martin", "Illustration de Bomboniere Spa du Chateau a Roquebrune-Cap-Martin", "Illustrazione di Bomboniere Spa du Chateau a Roquebrune-Cap-Martin", "Ілюстрація Bomboniere Spa du Chateau у Roquebrune-Cap-Martin"),
+    visualTheme: "sea",
+  },
+  "sauna-nordique-tende": {
+    image: "/images/guide/sauna-nordique-tende.jpg",
+    imageAlt: text("Illustration of Sauna Nordique Tende", "Illustration de Sauna Nordique Tende", "Illustrazione di Sauna Nordique Tende", "Ілюстрація Sauna Nordique Tende"),
+    visualTheme: "walk",
+  },
   "la-salle-menton": {
     image: "/images/guide/la-salle-menton.jpg",
     imageAlt: text("Illustration of LA Salle Menton", "Illustration de LA Salle Menton", "Illustrazione di LA Salle Menton", "Ілюстрація LA Salle Menton"),
