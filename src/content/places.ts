@@ -5207,6 +5207,21 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "academie-municipale-billard-menton": {
+    image: "/images/guide/academie-municipale-billard-menton.jpg",
+    imageAlt: text("Illustration of the Academie municipale de billard in Menton", "Illustration de l'Academie municipale de billard a Menton", "Illustrazione dell'Accademia municipale di biliardo a Mentone", "Ілюстрація муніципальної академії більярду в Ментоні"),
+    visualTheme: "old-town",
+  },
+  "le-new-pub-menton": {
+    image: "/images/guide/le-new-pub-menton.jpg",
+    imageAlt: text("Illustration of Le New Pub in Menton", "Illustration du New Pub a Menton", "Illustrazione del New Pub a Mentone", "Ілюстрація Le New Pub у Ментоні"),
+    visualTheme: "bar",
+  },
+  "pilouface-casino-menton": {
+    image: "/images/guide/pilouface-casino-menton.jpg",
+    imageAlt: text("Illustration of Pilouface at Casino Barriere Menton", "Illustration de Pilouface au Casino Barriere Menton", "Illustrazione di Pilouface al Casino Barriere Menton", "Ілюстрація Pilouface у Casino Barriere Menton"),
+    visualTheme: "family",
+  },
   "hotel-lorangeraie-mileade-spa": {
     image: "/images/guide/hotel-lorangeraie-mileade-spa.jpg",
     imageAlt: text("Illustration of Hotel L'Orangeraie - Mileade Spa in Menton", "Illustration du spa Hotel L'Orangeraie - Mileade a Menton", "Illustrazione della spa Hotel L'Orangeraie - Mileade a Mentone", "Ілюстрація спа Hotel L'Orangeraie - Mileade у Ментоні"),
