@@ -7244,7 +7244,7 @@ export const guideArticles: GuideArticle[] = [
     sourceStatus: "needs_verification",
     canonicalPlaceTypes: ["fitness-centre"],
     relatedPlaces: ["la-salle-menton", "menton-crossfit", "sport-plaisir-menton", "street-workout-francis-palmero", "yoga4motion-menton", "centre-yoga-precision-menton", "promenade-du-soleil", "menton-station"],
-    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "petanque-in-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["cycling-bike-rental-menton", "tennis-padel-courts-menton", "petanque-in-menton", "skateparks-near-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "yoga-in-menton", "saunas-spas-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "vegan-restaurants-cafes-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7352,7 +7352,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "beaches"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["yoga4motion-menton", "centre-yoga-precision-menton", "studio-jeune-lune-menton", "espace-neona-menton", "padmaspace-menton", "plage-casino", "plage-sablettes", "promenade-du-soleil", "menton-station"],
-    relatedArticles: ["gyms-fitness-centres-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-without-a-car", "best-walks-and-hikes-around-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["gyms-fitness-centres-menton", "saunas-spas-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-without-a-car", "best-walks-and-hikes-around-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7579,6 +7579,92 @@ export const guideArticles: GuideArticle[] = [
       t("Ask about current availability rather than assuming a venue stocks a particular pastis brand or variation.", "Demandez la disponibilite actuelle plutot que de supposer qu'une adresse propose une marque ou variante precise.", "Chiedi la disponibilita attuale invece di presumere che un locale abbia una marca o variante specifica.", "Уточнюйте актуальну наявність, а не припускайте, що заклад має конкретний бренд чи варіацію pastis."),
       t("Five parts water to one part pastis is a useful first reference, but a lighter dilution is completely normal.", "Cinq volumes d'eau pour un de pastis est une bonne base, mais une dilution plus legere est tout a fait normale.", "Cinque parti d'acqua per una di pastis e una buona base, ma una diluizione piu leggera e del tutto normale.", "П'ять частин води до однієї частини pastis - добра перша орієнтирна пропорція, але легше розведення цілком нормальне."),
       t("Check airline liquid rules and destination-country customs guidance before travelling with a full-size bottle.", "Verifiez les regles de liquides de la compagnie aerienne et les douanes du pays de destination avant de voyager avec une bouteille grand format.", "Verifica le regole sui liquidi della compagnia aerea e la dogana del paese di destinazione prima di viaggiare con una bottiglia grande.", "Перевіряйте правила авіакомпанії щодо рідин і митні правила країни призначення перед подорожжю з повнорозмірною пляшкою."),
+    ],
+  }),
+  shortArticle({
+    id: "saunas-spas-menton",
+    slug: "saunas-spas-menton",
+    title: t("Saunas, hammams and wellness spas in Menton", "Saunas, hammams et spas bien-etre a Menton", "Saune, hammam e spa benessere a Mentone", "Сауни, хаммами та wellness-спа в Ментоні"),
+    seoTitle: t("Saunas in Menton: Wellness Spas, Hammams and Relaxation", "Saunas a Menton : spas, hammams et relaxation", "Saune a Mentone: spa, hammam e relax", "Сауни в Ментоні: wellness-спа, хаммами та відпочинок"),
+    seoDescription: t("A practical guide to saunas and wellness in Menton: hotel spas, hammams, private spa experiences and what to check before booking on the French Riviera.", "Guide pratique des saunas et du bien-etre a Menton : spas d'hotel, hammams, experiences privees et points a verifier avant reservation.", "Guida pratica a saune e benessere a Mentone: spa d'hotel, hammam, esperienze private e controlli prima di prenotare.", "Практичний гід по саунах і wellness у Ментоні: готельні спа, хаммами, приватні формати та перевірки перед бронюванням."),
+    excerpt: t("After hiking, cycling or a cool winter day, a sauna or hammam can be a calm addition to a Menton stay. The town is not a sauna destination, but it has several useful wellness options.", "Apres une randonnee, du velo ou une journee fraiche d'hiver, sauna ou hammam peuvent completer calmement un sejour a Menton. La ville n'est pas une destination sauna, mais elle offre plusieurs options utiles.", "Dopo trekking, bici o una fresca giornata d'inverno, sauna o hammam possono completare con calma un soggiorno a Mentone. Non e una destinazione di saune, ma offre alcune opzioni utili.", "Після походу, велосипеда чи прохолодного зимового дня сауна або хаммам можуть спокійно доповнити відпочинок у Ментоні. Місто не є напрямком для саун, але має кілька корисних wellness-варіантів."),
+    category: "practical",
+    coverImage: "/images/guide/saunas-spas-menton.jpg",
+    coverImageAlt: t("Wellness spa relaxation in Menton", "Relaxation dans un spa bien-etre a Menton", "Relax in una spa benessere a Mentone", "Відпочинок у wellness-спа в Ментоні"),
+    visualTheme: "sea",
+    visualStatus: "project_illustration",
+    tags: [t("sauna", "sauna", "sauna", "сауна"), t("hammam", "hammam", "hammam", "хаммам"), t("wellness", "bien-etre", "benessere", "wellness"), t("Menton", "Menton", "Mentone", "Ментон")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[3].label],
+    duration: "half-day",
+    locationTags: ["menton-centre", "seafront", "roquebrune-cap-martin", "mountains"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["hotel-lorangeraie-mileade-spa", "hotel-riva-art-spa", "centre-bien-etre-calysta", "spa-menton-rue-partouneaux", "bomboniere-spa-du-chateau", "sauna-nordique-tende", "promenade-du-soleil", "menton-station"],
+    relatedArticles: ["gyms-fitness-centres-menton", "yoga-in-menton", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "stay-cool-in-menton-summer", "menton-without-a-car", "where-to-stay-in-menton", "day-trips-from-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("What wellness in Menton really means", "Ce que le bien-etre a Menton signifie vraiment", "Cosa significa davvero il benessere a Mentone", "Що насправді означає wellness у Ментоні"),
+        body: [
+          t("Menton is built around sea, sun and outdoor life rather than a public sauna culture. The useful local formats are hotel wellness areas, treatment-led centres and small private spas. They can be a good rainy-day or recovery plan, but book rather than expecting walk-in access.", "Menton vit autour de la mer, du soleil et du plein air, pas d'une culture de sauna public. Les formats utiles sont les espaces bien-etre d'hotel, les centres de soins et les petits spas prives. Ils conviennent aux jours de pluie ou a la recuperation, mais reservez plutot que de compter sur un acces spontané.", "Mentone ruota attorno a mare, sole e vita all'aperto, non a una cultura di saune pubbliche. I formati utili sono aree benessere d'hotel, centri trattamenti e piccole spa private. Possono essere adatti alla pioggia o al recupero, ma prenota invece di aspettarti accesso libero.", "Ментон побудований навколо моря, сонця й життя надворі, а не культури громадських саун. Корисні локальні формати - готельні wellness-зони, центри процедур і невеликі приватні спа. Вони доречні в дощовий день або для відновлення, але бронюйте, а не розраховуйте на вільний вхід."),
+          t("We did not identify a well-established Russian-style banya in Menton with a wood-fired steam room, venik rituals and contrast bathing. This guide uses sauna and hammam precisely rather than treating those formats as synonyms.", "Nous n'avons pas identifie de banya russe bien etablie a Menton, avec vapeur au feu de bois, veniks et bains de contraste. Ce guide distingue donc precisement sauna et hammam au lieu de les traiter comme des synonymes.", "Non abbiamo identificato a Mentone una banya russa ben nota, con vapore a legna, venik e bagni di contrasto. Questa guida distingue quindi sauna e hammam invece di trattarli come sinonimi.", "Ми не знайшли в Ментоні усталеної російської бані з дров'яною парною, віниками й контрастними купаннями. Тому цей гід чітко розділяє сауну та хаммам, а не вважає їх синонімами."),
+        ],
+      },
+      {
+        heading: t("The most complete option in central Menton", "L'option la plus complete au centre de Menton", "L'opzione piu completa nel centro di Mentone", "Найповніший варіант у центрі Ментона"),
+        body: [
+          t("Hotel L'Orangeraie - Mileade Spa is the clearest all-round choice. The official tourism listing describes a 2026 wellness area with a relaxation pool, sauna, hammam, ice fountain and treatment rooms. It is the best fit when you want several facilities rather than a single massage appointment.", "Hotel L'Orangeraie - Mileade Spa est le choix global le plus clair. La fiche officielle de tourisme decrit un espace bien-etre 2026 avec bassin de relaxation, sauna, hammam, fontaine de glace et cabines de soins. C'est le bon choix si vous voulez plusieurs installations plutot qu'un seul massage.", "Hotel L'Orangeraie - Mileade Spa e la scelta piu completa. La scheda turistica ufficiale descrive un'area benessere 2026 con piscina relax, sauna, hammam, fontana di ghiaccio e cabine trattamenti. E adatta se vuoi piu strutture invece di un solo massaggio.", "Hotel L'Orangeraie - Mileade Spa - найзрозуміліший комплексний вибір. Офіційна туристична сторінка описує wellness-зону 2026 року з басейном для відпочинку, сауною, хаммамом, крижаним фонтаном і кабінетами процедур. Це доречно, якщо хочеться кількох зручностей, а не одного масажу."),
+          t("Other central listings, including Hotel Riva Art & Spa, Centre de Bien-etre Calysta and Spa Menton near Rue Partouneaux, may suit a smaller treatment or relaxation plan. Their current facilities and access conditions should be confirmed directly before you build a day around them.", "D'autres adresses centrales, dont Hotel Riva Art & Spa, Centre de Bien-etre Calysta et Spa Menton pres de la rue Partouneaux, peuvent convenir a un programme plus court de soin ou relaxation. Confirmez directement leurs installations et conditions d'acces avant d'organiser votre journee autour d'elles.", "Altri indirizzi centrali, tra cui Hotel Riva Art & Spa, Centre de Bien-etre Calysta e Spa Menton vicino a Rue Partouneaux, possono essere adatti a un programma piu breve di trattamenti o relax. Conferma direttamente strutture e condizioni d'accesso prima di pianificare la giornata.", "Інші центральні адреси, зокрема Hotel Riva Art & Spa, Centre de Bien-etre Calysta і Spa Menton біля Rue Partouneaux, можуть підійти для коротшого плану процедур або відпочинку. Перед плануванням дня напряму підтверджуйте їхні актуальні зручності та умови доступу."),
+        ],
+        relatedPlaceIds: ["hotel-lorangeraie-mileade-spa", "hotel-riva-art-spa", "centre-bien-etre-calysta", "spa-menton-rue-partouneaux"],
+        officialLinks: [{ label: t("L'Orangeraie wellness details", "Details bien-etre de L'Orangeraie", "Dettagli benessere L'Orangeraie", "Деталі wellness L'Orangeraie"), url: "https://www.menton-riviera-merveilles.fr/offres/hotel-lorangeraie-mileade-menton-fr-3051858/" }],
+      },
+      {
+        heading: t("A private spa near Menton", "Un spa prive pres de Menton", "Una spa privata vicino a Mentone", "Приватне спа біля Ментона"),
+        body: [
+          t("Bomboniere Spa du Chateau in Roquebrune-Cap-Martin is a distinct private experience rather than a conventional hotel spa. The venue describes a rock-carved setting, sauna and bookable treatments for small private sessions. It works well for a planned couple's afternoon or a special occasion.", "Bomboniere Spa du Chateau a Roquebrune-Cap-Martin est une experience privee distincte plutot qu'un spa d'hotel classique. Le lieu decrit un cadre creuse dans la roche, sauna et soins reservables pour de petites seances privees. Il convient a un apres-midi de couple prevu ou une occasion speciale.", "Bomboniere Spa du Chateau a Roquebrune-Cap-Martin e un'esperienza privata distinta, non una classica spa d'hotel. La struttura descrive un ambiente scavato nella roccia, sauna e trattamenti prenotabili per piccole sessioni private. E adatta a un pomeriggio di coppia o a un'occasione speciale.", "Bomboniere Spa du Chateau у Roquebrune-Cap-Martin - окремий приватний досвід, а не звичайне готельне спа. Заклад описує простір, вирізаний у скелі, сауну та процедури за бронюванням для невеликих приватних сесій. Він пасує для запланованого дня пари чи особливої нагоди."),
+        ],
+        relatedPlaceIds: ["bomboniere-spa-du-chateau"],
+        officialLinks: [{ label: t("Bomboniere Spa du Chateau", "Bomboniere Spa du Chateau", "Bomboniere Spa du Chateau", "Bomboniere Spa du Chateau"), url: "https://spaduchateau.fr/" }],
+      },
+      {
+        heading: t("A mountain sauna day", "Une journee sauna en montagne", "Una giornata sauna in montagna", "День сауни в горах"),
+        body: [
+          t("Sauna Nordique Tende is not a quick Menton activity. It is a reservation-only sauna at Gite les Carlines in the Roya Valley and makes sense as a separate mountain outing. Plan transport, return timing and the reservation before leaving Menton.", "Sauna Nordique Tende n'est pas une activite rapide a Menton. C'est un sauna sur reservation au Gite les Carlines dans la vallee de la Roya, a traiter comme une excursion montagne distincte. Prevoyez transport, retour et reservation avant de quitter Menton.", "Sauna Nordique Tende non e un'attivita veloce da Mentone. E una sauna su prenotazione al Gite les Carlines nella valle della Roya, da considerare come gita di montagna separata. Pianifica trasporto, rientro e prenotazione prima di partire da Mentone.", "Sauna Nordique Tende - не швидка активність у Ментоні. Це сауна за бронюванням у Gite les Carlines в долині Roya, яку варто розглядати як окрему гірську поїздку. Перед виїздом із Ментона сплануйте транспорт, повернення й бронювання."),
+        ],
+        relatedPlaceIds: ["sauna-nordique-tende", "menton-station"],
+        officialLinks: [{ label: t("Sauna Nordique Tende details", "Details Sauna Nordique Tende", "Dettagli Sauna Nordique Tende", "Деталі Sauna Nordique Tende"), url: "https://www.menton-riviera-merveilles.fr/offres/sauna-nordique-tende-fr-6230550/" }],
+      },
+      {
+        heading: t("Sauna, hammam and simple etiquette", "Sauna, hammam et etiquette simple", "Sauna, hammam ed etichetta essenziale", "Сауна, хаммам і проста етика"),
+        body: [
+          t("A sauna uses dry heat; a hammam is a humid steam room. Both can be pleasant after walking or sport, but do not assume a venue offers both. In France, swimwear, a quiet atmosphere and advance booking are common expectations, while towels and robes vary by venue.", "Un sauna utilise une chaleur seche; un hammam est une cabine de vapeur humide. Les deux peuvent etre agreables apres la marche ou le sport, mais ne supposez pas qu'une adresse propose les deux. En France, maillot, ambiance calme et reservation sont souvent attendus; serviettes et peignoirs varient selon le lieu.", "La sauna usa calore secco; l'hammam e un ambiente a vapore umido. Entrambi possono essere piacevoli dopo camminate o sport, ma non presumere che una struttura offra entrambi. In Francia sono comuni costume, atmosfera tranquilla e prenotazione; asciugamani e accappatoi variano.", "Сауна використовує сухе тепло, а хаммам - вологу пару. Обидва формати можуть бути приємними після прогулянки чи спорту, але не припускайте, що заклад пропонує обидва. У Франції звичними є купальний одяг, тиха атмосфера й попереднє бронювання; рушники та халати відрізняються залежно від місця."),
+        ],
+        bullets: [
+          t("Confirm whether access is private, shared or reserved with a treatment.", "Confirmez si l'acces est prive, partage ou lie a un soin.", "Conferma se l'accesso e privato, condiviso o legato a un trattamento.", "Підтвердіть, чи доступ приватний, спільний або пов'язаний із процедурою."),
+          t("Ask whether towels, robes and water are included.", "Demandez si serviettes, peignoirs et eau sont inclus.", "Chiedi se asciugamani, accappatoi e acqua sono inclusi.", "Уточніть, чи входять рушники, халати та вода."),
+          t("Avoid planning a sauna session immediately before a long hot walk or drive.", "Evitez de prevoir un sauna juste avant une longue marche chaude ou un trajet en voiture.", "Evita di programmare una sauna subito prima di una lunga camminata al caldo o di guidare.", "Не плануйте сауну безпосередньо перед довгою прогулянкою в спеку чи керуванням автомобілем."),
+        ],
+      },
+      {
+        heading: t("A calm wellness break from an apartment base", "Une pause bien-etre calme depuis votre appartement", "Una pausa benessere tranquilla dalla base in appartamento", "Спокійна wellness-пауза з апартаментів"),
+        body: [
+          t("Use Menton as a relaxed base: a morning walk along Promenade du Soleil, a simple lunch, a booked spa session and an unhurried evening by the sea. All Azur Menton apartments are air-conditioned, which makes a return between outings more comfortable in summer.", "Utilisez Menton comme base calme : promenade matinale sur la Promenade du Soleil, dejeuner simple, seance spa reservee puis soiree tranquille pres de la mer. Tous les appartements Azur Menton sont climatises, ce qui rend le retour entre les sorties plus confortable en ete.", "Usa Mentone come base rilassata: passeggiata mattutina sulla Promenade du Soleil, pranzo semplice, sessione spa prenotata e serata lenta sul mare. Tutti gli appartamenti Azur Menton sono climatizzati, rendendo piu confortevole il rientro tra le uscite in estate.", "Використовуйте Ментон як спокійну базу: ранкова прогулянка Promenade du Soleil, простий обід, заброньований спа-сеанс і неквапливий вечір біля моря. Усі апартаменти Azur Menton мають кондиціонування, тому повертатися між виходами влітку комфортніше."),
+        ],
+        relatedPlaceIds: ["promenade-du-soleil"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Frequently asked questions", "Questions frequentes", "Domande frequenti", "Часті запитання"),
+        body: [
+          t("Is there a sauna in Menton? Yes: the clearest confirmed central option is the wellness area at Hotel L'Orangeraie. Several smaller or hotel-based options should be checked directly for current facilities and visitor access.", "Y a-t-il un sauna a Menton ? Oui : l'option centrale confirmee la plus claire est l'espace bien-etre de l'Hotel L'Orangeraie. Plusieurs options plus petites ou hotelieres doivent etre verifiees directement pour leurs installations et acces visiteurs.", "C'e una sauna a Mentone? Si: l'opzione centrale confermata piu chiara e l'area benessere dell'Hotel L'Orangeraie. Diverse opzioni minori o alberghiere vanno verificate direttamente per strutture e accesso visitatori.", "Чи є сауна в Ментоні? Так: найчіткіший підтверджений центральний варіант - wellness-зона Hotel L'Orangeraie. Кілька менших або готельних варіантів слід напряму перевіряти щодо актуальних зручностей і доступу для відвідувачів."),
+          t("Can non-hotel guests use a hotel spa? Sometimes, but this varies by day, treatment booking and capacity. Contact reception before treating it as part of your plan.", "Les non-residents peuvent-ils utiliser un spa d'hotel ? Parfois, mais cela depend du jour, d'un soin reserve et de la capacite. Contactez la reception avant d'en faire un element de votre programme.", "Gli ospiti esterni possono usare una spa d'hotel? A volte, ma dipende dal giorno, dal trattamento prenotato e dalla capienza. Contatta la reception prima di inserirla nel programma.", "Чи можуть сторонні гості користуватися готельним спа? Іноді, але це залежить від дня, заброньованої процедури й місткості. Зв'яжіться з рецепцією, перш ніж включати це у свій план."),
+        ],
+      },
+    ],
+    practicalTips: [
+      t("Book ahead for private spas and ask about non-resident access at hotel facilities.", "Reservez a l'avance les spas prives et demandez l'acces non-resident aux hotels.", "Prenota in anticipo le spa private e chiedi l'accesso per ospiti esterni negli hotel.", "Бронюйте приватні спа завчасно та запитуйте готелі про доступ для сторонніх гостей."),
+      t("Bring swimwear and confirm what is included instead of assuming towels, robes or sauna access.", "Apportez un maillot et confirmez ce qui est inclus plutot que de supposer serviettes, peignoirs ou sauna.", "Porta il costume e conferma cosa e incluso invece di presumere asciugamani, accappatoi o sauna.", "Візьміть купальний одяг і підтвердіть, що входить у послугу, замість того щоб припускати рушники, халати чи доступ до сауни."),
+      t("For Tende, treat the sauna as a full separate outing and check the return journey before booking.", "Pour Tende, traitez le sauna comme une excursion complete et verifiez le retour avant reservation.", "Per Tende, considera la sauna una vera escursione e controlla il rientro prima di prenotare.", "Для Tende розглядайте сауну як окрему повноцінну поїздку й перевіряйте повернення до бронювання."),
     ],
   }),
 ];

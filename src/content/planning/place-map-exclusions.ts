@@ -48,4 +48,8 @@ export const placeMapExclusions: PlaceMapExclusion[] = [
   { placeId: "menton-crossfit", reason: "coordinate_unverified", checkedOn: "2026-07-14", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Menton%20CrossFit%203513%20Route%20du%20Mont%20Gros%20Menton" },
   { placeId: "sport-plaisir-menton", reason: "coordinate_unverified", checkedOn: "2026-07-14", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Sport%20Plaisir%2060%20bis%20Promenade%20Val%20du%20Carei%20Menton" },
   { placeId: "centre-yoga-precision-menton", reason: "coordinate_unverified", checkedOn: "2026-07-14", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Centre%20Yoga%20Precision%20Menton%205%20Rue%20Victor%20Hugo%20Menton" },
+  { placeId: "hotel-riva-art-spa", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Hotel%20Riva%20Art%20%26%20Spa%20600%20Promenade%20du%20Soleil%20Menton" },
+  { placeId: "centre-bien-etre-calysta", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Centre%20de%20Bien-etre%20Calysta%206%20Rue%20Magenta%20Menton" },
+  { placeId: "spa-menton-rue-partouneaux", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Spa%20Menton%20Rue%20Partouneaux%20Menton" },
+  { placeId: "sauna-nordique-tende", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/sauna-nordique-tende-fr-6230550/" },
 ];

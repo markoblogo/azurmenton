@@ -271,4 +271,6 @@ export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "mercantour-national-park", lat: 44.154, lng: 7.273 },
   { placeId: "sentier-douaniers-menton", lat: 43.7862, lng: 7.5215 },
   { placeId: "roquebrune-cap-martin-coastal-walk", lat: 43.7565, lng: 7.4778 },
+  { placeId: "hotel-lorangeraie-mileade-spa", lat: 43.7760885, lng: 7.4988147, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-15", sourceUrl: "https://www.openstreetmap.org/way/137797736" } },
+  { placeId: "bomboniere-spa-du-chateau", lat: 43.7654122, lng: 7.4598569, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-15", sourceUrl: "https://www.openstreetmap.org/way/139746529" } },
 ];
