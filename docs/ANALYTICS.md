@@ -13,6 +13,11 @@ Azur Menton uses Plausible for lightweight booking funnel events and Vercel Anal
 - `booking_request_submit_error`
 - `whatsapp_click`
 - `email_click`
+- `airport_board_loaded`
+- `airport_board_failed`
+- `airport_arrivals_external_click`
+- `airport_departures_external_click`
+- `airport_transport_guide_click`
 
 ## Safe Props
 
@@ -26,11 +31,12 @@ Azur Menton uses Plausible for lightweight booking funnel events and Vercel Anal
 - `apartmentPreference`
 - `visitingForEvent`
 - `dateFlexibility`
+- airport board context: `airportCode`, `boardType`, `embedMode`
 - aggregate form context: `parking`, `preferred_language`, `has_dates`, `has_email`, `has_phone`, `has_message`, `guests`, `stay_nights`, `lead_time_days`
 
 ## Privacy Notes
 
-Never send names, email addresses, phone numbers or free-text message content to analytics. Contact fields may only be represented as booleans such as `has_email` or `has_phone`.
+Never send names, email addresses, phone numbers or free-text message content to analytics. Contact fields may only be represented as booleans such as `has_email` or `has_phone`. Airport-board events describe only the airport, arrivals/departures view and embed mode; they do not collect travel identity or itinerary details.
 
 ## Funnel Interpretation
 

@@ -28,7 +28,7 @@ Agent-facing positioning, conversion, proof and claim boundaries are maintained 
 - Cloudflare Turnstile, nonce-based CSP, rate limiting and honeypot protection
 - Plausible and Vercel Analytics
 - Open-Meteo weather and marine data
-- Vitest, Playwright smoke tests and GitHub Actions CI/preflight checks
+- Vitest unit tests, optional Playwright E2E checks and GitHub Actions CI/preflight checks
 - Sharp-based WebP/AVIF image derivative pipeline
 
 Next.js 16 conventions differ from older releases. Before changing framework behavior, check the relevant local docs in `node_modules/next/dist/docs/`.
@@ -152,6 +152,8 @@ Guide intent clusters in `src/content/guide-intents.ts` group existing articles 
 
 Reusable guide utility blocks live under `src/components/guide/utility/` with typed data under `src/content/utility/`. They belong in the main reading column when they are central to the guide. Radio playback accepts only direct HTTPS audio streams; HLS support is loaded on demand instead of being included in every guide page.
 
+The airport utility uses `src/content/utility/airports.ts`. Nice Cote d'Azur is the only currently approved embedded flight board and is visible immediately on the airport guide with a privacy notice; Genoa, Cuneo, Turin and Marseille use official external links until their embeds are independently verified. Do not add a new iframe origin without browser testing, an external fallback and the corresponding CSP update.
+
 `/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources. Reviewed public pins keep a source URL, precision and check date in `src/content/planning/place-map-points.ts`; apartment pins use host-confirmed public building positions without publishing unit numbers.
 
 Guide media is modeled through `GuideVideoEmbed` in `src/content/guide.ts`. Use only privacy-enhanced YouTube or Vimeo embeds with an approved source. Each media card must retain a descriptive external fallback; do not embed unofficial uploads or make fixed streaming-availability claims.
@@ -214,7 +216,7 @@ Apartment `VacationRental` schema must keep stable `identifier`, `geo` and `cont
 - `src/lib/security-headers.ts`
 - `src/app/api/booking-request/route.ts`
 
-The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Scripts remain nonce-protected without `script-src 'unsafe-inline'`; `style-src-attr` permits the inline style attributes required by React and `next/image`.
+The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Scripts remain nonce-protected without `script-src 'unsafe-inline'`; `style-src-attr` permits the inline style attributes required by React and `next/image`. `frame-src` remains allowlisted: it currently includes the reviewed Nice Airport board alongside approved media providers.
 
 Run `npm run preflight:postbuild` after `npm run build` for the current CSP/cache audit. Notes and follow-up options live in `docs/csp-cache-audit.md`.
 
@@ -238,8 +240,13 @@ Canonical funnel event names:
 - `booking_request_submit_error`
 - `whatsapp_click`
 - `email_click`
+- `airport_board_loaded`
+- `airport_board_failed`
+- `airport_arrivals_external_click`
+- `airport_departures_external_click`
+- `airport_transport_guide_click`
 
-Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: locale/page context, source attribution (`sourcePageType`, `sourceSlug`, guide/event/apartment slugs), trip intent (`apartmentPreference`, `visitingForEvent`, `dateFlexibility`) and coarse form context such as `has_dates`, `has_email`, `has_phone`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
+Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: locale/page context, source attribution (`sourcePageType`, `sourceSlug`, guide/event/apartment slugs), trip intent (`apartmentPreference`, `visitingForEvent`, `dateFlexibility`), airport-board context (`airportCode`, `boardType`, `embedMode`) and coarse form context such as `has_dates`, `has_email`, `has_phone`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
 
 Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, source page, guide/event/apartment slug and apartment preference. See `docs/ANALYTICS.md` for the internal analytics contract. Actual dashboards are configured in Plausible/Vercel outside the repository.
 

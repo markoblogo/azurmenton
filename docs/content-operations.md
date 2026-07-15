@@ -70,9 +70,11 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Define reusable block configuration in guide metadata and typed data under `src/content/utility/`; do not duplicate the same utility dataset in article copy.
 - Keep a utility block in the main reading column when it is central to the guide and leave related articles or booking CTAs secondary.
+- Use `utilityBlocksAfterSectionIndex` or `transportHelperAfterSectionIndex` only when a guide needs a deliberate reading order. A central tool belongs before explanatory sections; transport helpers should follow the decision context instead of displacing it.
 - Use `audioStreamUrl` only for a direct HTTPS audio stream. General station or web-player pages belong in `websiteUrl`, not in the native audio player.
 - When adding a new stream origin, update the CSP media/connect allowlist and its tests together.
 - Keep HLS support dynamically imported so guides without an HLS player do not pay its JavaScript cost.
+- Airport boards require official arrivals/departures URLs and an external fallback for each airport. Embed an airport only after browser testing confirms it is permitted; retain the visible privacy notice, source attribution and the matching `frame-src` allowlist entry.
 
 ## Internal Linking
 
