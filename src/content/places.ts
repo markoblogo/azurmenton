@@ -5488,6 +5488,41 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "parking-pinede-du-bastion-menton": {
+    image: "/images/guide/parking-pinede-du-bastion-menton.webp",
+    imageAlt: text("Illustration of EV charging at Parking de la Pinede du Bastion in Menton", "Illustration de la recharge EV au parking de la Pinede du Bastion a Menton", "Illustrazione della ricarica EV al Parking de la Pinede du Bastion a Mentone", "Ілюстрація заряджання EV на Parking de la Pinede du Bastion у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-baden-baden-menton": {
+    image: "/images/guide/parking-baden-baden-menton.webp",
+    imageAlt: text("Illustration of EV charging at Parking Baden-Baden in Menton", "Illustration de la recharge EV au parking Baden-Baden a Menton", "Illustrazione della ricarica EV al Parking Baden-Baden a Mentone", "Ілюстрація заряджання EV на Parking Baden-Baden у Ментоні"),
+    visualTheme: "transport",
+  },
+  "rue-prato-ev-charger-menton": {
+    image: "/images/guide/rue-prato-ev-charger-menton.webp",
+    imageAlt: text("Illustration of the Rue Prato EV charging point in Menton", "Illustration de la borne EV rue Prato a Menton", "Illustrazione della colonnina EV in Rue Prato a Mentone", "Ілюстрація точки заряджання EV на Rue Prato в Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-place-darmes-menton": {
+    image: "/images/guide/parking-place-darmes-menton.webp",
+    imageAlt: text("Illustration of EV charging at Parking Place d'Armes in Menton", "Illustration de la recharge EV au parking Place d'Armes a Menton", "Illustrazione della ricarica EV al Parking Place d'Armes a Mentone", "Ілюстрація заряджання EV на Parking Place d'Armes у Ментоні"),
+    visualTheme: "transport",
+  },
+  "avenue-cernuschi-ev-charger-menton": {
+    image: "/images/guide/avenue-cernuschi-ev-charger-menton.webp",
+    imageAlt: text("Illustration of the Avenue Cernuschi EV charging point in Menton", "Illustration de la borne EV avenue Cernuschi a Menton", "Illustrazione della colonnina EV in Avenue Cernuschi a Mentone", "Ілюстрація точки заряджання EV на Avenue Cernuschi в Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-araucaria-menton": {
+    image: "/images/guide/parking-araucaria-menton.webp",
+    imageAlt: text("Illustration of EV charging at Parking de l'Araucaria in Menton", "Illustration de la recharge EV au parking de l'Araucaria a Menton", "Illustrazione della ricarica EV al Parking de l'Araucaria a Mentone", "Ілюстрація заряджання EV на Parking de l'Araucaria у Ментоні"),
+    visualTheme: "transport",
+  },
+  "parking-lavandieres-menton": {
+    image: "/images/guide/parking-lavandieres-menton.webp",
+    imageAlt: text("Illustration of EV charging at Parking des Lavandieres in Menton", "Illustration de la recharge EV au parking des Lavandieres a Menton", "Illustrazione della ricarica EV al Parking des Lavandieres a Mentone", "Ілюстрація заряджання EV на Parking des Lavandieres у Ментоні"),
+    visualTheme: "transport",
+  },
   "academie-municipale-billard-menton": {
     image: "/images/guide/academie-municipale-billard-menton.jpg",
     imageAlt: text("Illustration of the Academie municipale de billard in Menton", "Illustration de l'Academie municipale de billard a Menton", "Illustrazione dell'Accademia municipale di biliardo a Mentone", "Ілюстрація муніципальної академії більярду в Ментоні"),
