@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "le-new-pub-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/le-new-pub-menton-fr-3791266/" },
   { placeId: "pasticceria-cova-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-14", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Pasticceria%20Cova%20Monaco" },
   { placeId: "rainier-iii-zoological-garden-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-14", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Rainier%20III%20Zoological%20Garden%20Monaco" },
   { placeId: "pelagos-sanctuary", reason: "not_a_fixed_venue", checkedOn: "2026-07-14", sourceUrl: "https://www.sanctuaire-pelagos.org/" },

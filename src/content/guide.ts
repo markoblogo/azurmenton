@@ -1116,7 +1116,7 @@ const articles: GuideArticle[] = [
             "Спочатку вирішіть, чого хочеться: простого аперитиву, пляжної атмосфери, rooftop-панорами або центрального коктейль-бару. А далі залишайте вечір гнучким.",
           ),
         ],
-        relatedPlaceIds: ["biera-daqui", "inky-bar", "med-rooftop", "les-incompris", "bar-lescalier"],
+        relatedPlaceIds: ["biera-daqui", "inky-bar", "med-rooftop", "les-incompris", "bar-lescalier", "le-new-pub-menton"],
       },
       {
         heading: t("Craft beer and Biera d’Aquì", "Biere artisanale et Biera d’Aquì", "Birra artigianale e Biera d’Aquì", "Крафтове пиво й Biera d’Aquì"),
@@ -1213,9 +1213,9 @@ const articles: GuideArticle[] = [
       t("Arrive earlier in July and August if you care about a table with a view.", "Arrivez plus tot en juillet et aout si une table avec vue compte pour vous.", "Arriva prima a luglio e agosto se vuoi un tavolo con vista.", "У липні та серпні приходьте раніше, якщо вам важливий столик із видом."),
       t("For a quieter evening, choose an aperitif walk rather than a late-night plan.", "Pour une soiree calme, choisissez un aperitif et une promenade plutot qu'une nuit tardive.", "Per una serata tranquilla, scegli aperitivo e passeggiata invece di una notte lunga.", "Для спокійного вечора оберіть аперитив і прогулянку, а не пізню ніч."),
     ],
-    relatedPlaces: ["biera-daqui", "inky-bar", "med-rooftop", "les-incompris", "bar-lescalier", "le-vip-menton", "gold-cafe-menton"],
+    relatedPlaces: ["biera-daqui", "inky-bar", "med-rooftop", "les-incompris", "bar-lescalier", "le-new-pub-menton", "le-vip-menton", "gold-cafe-menton"],
     canonicalPlaceTypes: ["bar", "rooftop"],
-    relatedArticles: ["pastis-in-menton", "nightlife-in-menton", "quiet-evening-in-menton"],
+    relatedArticles: ["pastis-in-menton", "nightlife-in-menton", "quiet-evening-in-menton", "billiards-pool-menton"],
     relatedApartments: seaViewApartments,
   },
 ];
@@ -1861,7 +1861,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "1-2 hours",
     locationTags: ["old-town", "seafront", "garavan"],
     relatedPlaces: ["rampes-saint-michel", "plage-sablettes", "port-de-garavan", "cimetiere-vieux-chateau", "promenade-du-soleil", "med-rooftop"],
-    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton"],
+    relatedArticles: ["best-photo-spots-menton", "bars-and-beer-in-menton", "nightlife-in-menton", "latin-dancing-salsa-bachata-menton", "jazz-live-music-near-menton", "billiards-pool-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -2454,7 +2454,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "monaco"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["casino-barriere-menton", "casino-de-monte-carlo", "casino-cafe-de-paris", "casino-square-monaco", "menton-station", "monaco-monte-carlo-station", "monaco-monte-carlo", "promenade-du-soleil"],
-    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "nightlife-in-menton", "monaco-events-from-menton", "day-trips-from-menton", "menton-without-a-car", "public-transport-in-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "michelin-restaurants-menton-nice-monaco", "quiet-evening-in-menton", "billiards-pool-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-yacht-show", "monaco-e-prix", "rolex-monte-carlo-masters"],
     relatedApartments: allApartments,
     sections: [
@@ -7665,6 +7665,73 @@ export const guideArticles: GuideArticle[] = [
       t("Book ahead for private spas and ask about non-resident access at hotel facilities.", "Reservez a l'avance les spas prives et demandez l'acces non-resident aux hotels.", "Prenota in anticipo le spa private e chiedi l'accesso per ospiti esterni negli hotel.", "Бронюйте приватні спа завчасно та запитуйте готелі про доступ для сторонніх гостей."),
       t("Bring swimwear and confirm what is included instead of assuming towels, robes or sauna access.", "Apportez un maillot et confirmez ce qui est inclus plutot que de supposer serviettes, peignoirs ou sauna.", "Porta il costume e conferma cosa e incluso invece di presumere asciugamani, accappatoi o sauna.", "Візьміть купальний одяг і підтвердіть, що входить у послугу, замість того щоб припускати рушники, халати чи доступ до сауни."),
       t("For Tende, treat the sauna as a full separate outing and check the return journey before booking.", "Pour Tende, traitez le sauna comme une excursion complete et verifiez le retour avant reservation.", "Per Tende, considera la sauna una vera escursione e controlla il rientro prima di prenotare.", "Для Tende розглядайте сауну як окрему повноцінну поїздку й перевіряйте повернення до бронювання."),
+    ],
+  }),
+  shortArticle({
+    id: "billiards-pool-menton",
+    slug: "billiards-pool-menton",
+    title: t("Billiards in Menton: French billiards and American pool", "Billard a Menton : billard francais et pool americain", "Biliardo a Mentone: biliardo francese e pool americano", "Більярд у Ментоні: французький карамболь і американський пул"),
+    seoTitle: t("Billiards in Menton | French Carom and American Pool", "Billard a Menton | Billard francais et pool americain", "Biliardo a Mentone | Biliardo francese e pool americano", "Більярд у Ментоні | Французький карамболь і американський пул"),
+    seoDescription: t("A practical guide to billiards in Menton: the municipal academy, a casual old-town pool option and a games-room lead at Casino Barriere.", "Guide pratique du billard a Menton : academie municipale, option pool detendue en vieille ville et piste salle de jeux au Casino Barriere.", "Guida pratica al biliardo a Mentone: accademia municipale, opzione pool informale nel centro storico e sala giochi al Casino Barriere.", "Практичний гід по більярду в Ментоні: муніципальна академія, невимушений пул у старому місті та ігрова кімната в Casino Barriere."),
+    excerpt: t("Menton has a small but useful billiards scene: a municipal association for French carom and American pool, plus a couple of casual evening leads. Confirm access and tables before you go.", "Menton offre une petite scene billard mais utile : une association municipale pour le billard francais et americain, ainsi que quelques pistes pour une soiree detendue. Confirmez acces et tables avant de venir.", "Mentone ha una scena del biliardo piccola ma utile: un'associazione municipale per biliardo francese e americano, oltre ad alcune idee per una serata informale. Conferma accesso e tavoli prima di andare.", "У Ментоні невелика, але корисна більярдна сцена: муніципальна асоціація для французького карамболю та американського пулу, а також кілька невимушених вечірніх варіантів. Перед візитом підтвердьте доступ і столи."),
+    category: "nightlife-drinks",
+    coverImage: "/images/guide/billiards-pool-menton.jpg",
+    coverImageAlt: t("Billiards table for an evening in Menton", "Table de billard pour une soiree a Menton", "Tavolo da biliardo per una serata a Mentone", "Більярдний стіл для вечора в Ментоні"),
+    visualTheme: "nightlife",
+    visualStatus: "project_illustration",
+    tags: [t("billiards", "billard", "biliardo", "більярд"), t("pool", "pool", "pool", "пул"), t("rainy day", "jour de pluie", "giorno di pioggia", "дощовий день"), t("evening", "soiree", "serata", "вечір")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[2].label, guideBestForOptions[3].label],
+    duration: "evening",
+    locationTags: ["menton-centre", "old-town", "seafront"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["academie-municipale-billard-menton", "le-new-pub-menton", "pilouface-casino-menton", "palais-de-leurope-menton", "casino-barriere-menton", "quai-bonaparte-menton"],
+    relatedArticles: ["bars-and-beer-in-menton", "quiet-evening-in-menton", "nightlife-in-menton", "casinos-near-menton", "petanque-in-menton", "menton-old-town", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("A small, practical billiards scene", "Une petite scene billard pratique", "Una piccola scena pratica del biliardo", "Невелика, практична більярдна сцена"),
+        body: [
+          t("Menton is not a dedicated billiards destination, but it has enough for a relaxed indoor evening. The clearest formal option is the municipal academy; other addresses work better as casual possibilities than guaranteed billiards clubs.", "Menton n'est pas une destination dediee au billard, mais offre assez pour une soiree calme en interieur. L'option formelle la plus claire est l'academie municipale ; les autres adresses sont plutot des possibilites detendues que des clubs garantis.", "Mentone non e una destinazione dedicata al biliardo, ma offre abbastanza per una serata rilassata al coperto. L'opzione formale piu chiara e l'accademia municipale; gli altri indirizzi sono possibilita informali, non club di biliardo garantiti.", "Ментон не є спеціальним більярдним напрямком, але тут достатньо варіантів для спокійного вечора в приміщенні. Найчіткіший формальний варіант - муніципальна академія; інші адреси радше невимушені можливості, а не гарантовані більярдні клуби."),
+          t("The useful distinction is simple: French billiards means carom, played without pockets; American pool uses pockets and numbered balls. Check the table type, visitor access, prices and opening times directly before building an evening around any venue.", "La distinction utile est simple : le billard francais est un carambole sans poches ; le pool americain utilise des poches et des billes numerotees. Verifiez directement le type de table, l'acces visiteurs, les tarifs et horaires avant de construire votre soiree autour d'une adresse.", "La distinzione utile e semplice: il biliardo francese e carambola senza buche; il pool americano usa buche e palle numerate. Verifica direttamente tipo di tavolo, accesso visitatori, prezzi e orari prima di basare la serata su un locale.", "Корисна різниця проста: французький більярд - це карамболь без луз, а американський пул має лузи й пронумеровані кулі. Перед плануванням вечора напряму уточніть тип столу, доступ для відвідувачів, ціни та години роботи."),
+        ],
+        relatedPlaceIds: ["academie-municipale-billard-menton", "le-new-pub-menton", "pilouface-casino-menton"],
+      },
+      {
+        heading: t("Academie municipale de billard", "Academie municipale de billard", "Accademia municipale di biliardo", "Муніципальна академія більярду"),
+        body: [
+          t("The City of Menton lists the Academie municipale de billard at the Salon du Louvre on Avenue Boyer, in the Palais de l'Europe area. Its stated activities are French billiards and American pool, making it the strongest local lead for people who want the game rather than only a bar atmosphere.", "La Ville de Menton repertorie l'Academie municipale de billard au Salon du Louvre, avenue Boyer, dans le secteur du Palais de l'Europe. Les activites indiquees sont le billard francais et americain : c'est la piste locale la plus solide si vous cherchez le jeu plutot qu'une simple ambiance de bar.", "La Citta di Mentone indica l'Accademia municipale di biliardo al Salon du Louvre, Avenue Boyer, nella zona del Palais de l'Europe. Le attivita dichiarate sono biliardo francese e americano: e l'indirizzo locale piu solido per chi cerca il gioco, non solo l'atmosfera di un bar.", "Місто Ментон вказує Academie municipale de billard у Salon du Louvre на Avenue Boyer, у районі Palais de l'Europe. Заявлені дисципліни - французький більярд і американський пул, тому це найнадійніша локальна точка для тих, кому важлива саме гра, а не лише атмосфера бару."),
+          t("It is an association setting, not a walk-in tourist attraction. Contact the academy first to ask about guest sessions, membership, table availability and current arrangements; do not assume a drop-in game.", "C'est un cadre associatif, pas une attraction touristique sans reservation. Contactez d'abord l'academie pour demander seances visiteurs, adhesion, disponibilite des tables et conditions actuelles ; ne supposez pas une partie sans rendez-vous.", "E un contesto associativo, non un'attrazione turistica ad accesso libero. Contatta prima l'accademia per chiedere sessioni ospiti, iscrizione, disponibilita dei tavoli e condizioni attuali; non dare per scontata una partita senza accordo.", "Це формат асоціації, а не туристична атракція з вільним входом. Спочатку зв'яжіться з академією та запитайте про гостьові сесії, членство, наявність столів і актуальні умови; не розраховуйте на гру без домовленості."),
+        ],
+        relatedPlaceIds: ["academie-municipale-billard-menton", "palais-de-leurope-menton"],
+        officialLinks: [{ label: t("City of Menton: billiards academy", "Ville de Menton : academie de billard", "Citta di Mentone: accademia di biliardo", "Місто Ментон: академія більярду"), url: "https://www.menton.fr/academie-municipale-de-billard.html" }],
+      },
+      {
+        heading: t("Casual pool and games leads", "Pistes pool et jeux plus informelles", "Idee informali per pool e giochi", "Невимушені варіанти пулу та ігор"),
+        body: [
+          t("Le New Pub on Quai Bonaparte is a useful old-town evening stop. A pool table has been reported there, but it is not a promise of a dedicated billiards room: check directly that the table is present and available on the night you want to play.", "Le New Pub, quai Bonaparte, est une halte utile pour une soiree dans la vieille ville. Une table de pool y est signalee, mais ce n'est pas la promesse d'une salle de billard dediee : verifiez directement que la table est presente et disponible le soir souhaite.", "Le New Pub sul Quai Bonaparte e una sosta utile per una serata nel centro storico. E stata segnalata una tavola da pool, ma non e la promessa di una sala biliardo dedicata: verifica direttamente che il tavolo sia presente e disponibile la sera scelta.", "Le New Pub на Quai Bonaparte - корисна зупинка для вечора в старому місті. Там згадувалася більярдна стійка, але це не обіцянка окремої більярдної зали: напряму уточніть, що стіл є і доступний у потрібний вам вечір."),
+          t("Pilouface at Casino Barriere was announced by the City of Menton in 2024 as a free games room with board games and billiards. Treat it as a current-status check rather than a fixed amenity: ask the casino about opening, access and whether billiards are still part of the room.", "Pilouface au Casino Barriere a ete annoncee par la Ville de Menton en 2024 comme salle de jeux gratuite avec jeux de societe et billard. Traitez-la comme une verification de statut actuel plutot qu'un equipement garanti : demandez au casino horaires, acces et si le billard fait toujours partie de la salle.", "Pilouface al Casino Barriere e stata annunciata dalla Citta di Mentone nel 2024 come sala giochi gratuita con giochi da tavolo e biliardo. Trattala come una verifica dello stato attuale, non come un servizio garantito: chiedi al casino aperture, accesso e se il biliardo e ancora presente.", "Pilouface у Casino Barriere була анонсована містом Ментон у 2024 році як безкоштовна ігрова кімната з настільними іграми та більярдом. Сприймайте її як варіант, який треба актуально перевірити, а не як гарантовану зручність: запитайте казино про години, доступ і чи є більярд у кімнаті зараз."),
+        ],
+        relatedPlaceIds: ["le-new-pub-menton", "pilouface-casino-menton", "casino-barriere-menton", "quai-bonaparte-menton"],
+        officialLinks: [{ label: t("City of Menton: Pilouface announcement", "Ville de Menton : annonce Pilouface", "Citta di Mentone: annuncio Pilouface", "Місто Ментон: анонс Pilouface"), url: "https://www.menton.fr/pilouface-nouvelle-salle-au-casino-barriere.html" }],
+      },
+      {
+        heading: t("What we could not verify", "Ce que nous n'avons pas pu verifier", "Cio che non abbiamo potuto verificare", "Що ми не змогли підтвердити"),
+        body: [
+          t("We did not identify a confirmed regular venue in Menton for Russian pyramid or snooker. We also could not verify current table counts, exact sizes, hourly prices or a stable public booking system for the local options above.", "Nous n'avons pas identifie de lieu regulier confirme a Menton pour la pyramide russe ou le snooker. Nous n'avons pas non plus pu verifier le nombre actuel de tables, leurs tailles, les tarifs horaires ou un systeme public de reservation stable pour les options ci-dessus.", "Non abbiamo identificato un locale regolare confermato a Mentone per piramide russa o snooker. Non abbiamo inoltre potuto verificare numero attuale di tavoli, misure, prezzi orari o un sistema pubblico di prenotazione stabile per le opzioni sopra.", "Ми не знайшли підтвердженого регулярного місця в Ментоні для російської піраміди чи снукеру. Також не вдалося підтвердити актуальну кількість і розміри столів, погодинні ціни або стабільну публічну систему бронювання для зазначених варіантів."),
+        ],
+      },
+      {
+        heading: t("A simple indoor evening from an apartment base", "Une soiree interieur simple depuis votre appartement", "Una semplice serata al coperto dalla base in appartamento", "Простий вечір у приміщенні з бази в апартаментах"),
+        body: [
+          t("For a low-key plan, start with an early old-town drink, check whether a table is free, then continue along the seafront or return to a quieter apartment base. All Azur Menton apartments are air-conditioned, which is useful after a humid summer evening out.", "Pour un plan simple, commencez par un verre tot en vieille ville, verifiez si une table est libre, puis poursuivez sur le front de mer ou rentrez dans un appartement plus calme. Tous les appartements Azur Menton sont climatises, pratique apres une soiree d'ete humide.", "Per un piano semplice, inizia con un drink presto nel centro storico, verifica se un tavolo e libero, poi continua sul lungomare o torna a una base in appartamento piu tranquilla. Tutti gli appartamenti Azur Menton sono climatizzati, utile dopo una serata estiva umida.", "Для невимушеного плану почніть із раннього напою в старому місті, перевірте, чи вільний стіл, а далі продовжуйте набережною або повертайтеся у спокійніші апартаменти. Усі апартаменти Azur Menton мають кондиціонування, що корисно після вологої літньої прогулянки."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Contact the municipal academy before expecting visitor play.", "Contactez l'academie municipale avant de compter sur une partie visiteur.", "Contatta l'accademia municipale prima di contare su una partita da visitatore.", "Зв'яжіться з муніципальною академією, перш ніж розраховувати на гостьову гру."),
+      t("For casual bars and games rooms, confirm that the table is available that evening.", "Pour les bars et salles de jeux, confirmez que la table est disponible ce soir-la.", "Per bar e sale giochi, conferma che il tavolo sia disponibile quella sera.", "Для барів та ігрових кімнат підтверджуйте, що стіл доступний саме того вечора."),
+      t("Bring comfortable footwear for the old town and keep the evening flexible around current opening times.", "Portez des chaussures confortables pour la vieille ville et gardez la soiree flexible selon les horaires actuels.", "Indossa scarpe comode per il centro storico e mantieni la serata flessibile secondo gli orari attuali.", "Взувайте зручне взуття для старого міста й залишайте план гнучким залежно від актуальних годин роботи."),
     ],
   }),
 ];

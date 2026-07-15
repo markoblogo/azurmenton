@@ -117,6 +117,7 @@ export const contentCollections: ContentCollection[] = [
       "casinos-near-menton",
       "cinemas-in-menton-nice-monaco",
       "theatre-opera-performing-arts-near-menton",
+      "billiards-pool-menton",
     ],
     priorityGuideSlugs: [
       "quiet-evening-in-menton",
@@ -127,6 +128,7 @@ export const contentCollections: ContentCollection[] = [
       "cinemas-in-menton-nice-monaco",
       "theatre-opera-performing-arts-near-menton",
       "casinos-near-menton",
+      "billiards-pool-menton",
       "shisha-hookah-near-menton",
     ],
   },

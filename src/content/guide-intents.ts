@@ -177,6 +177,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "best-seafood-restaurants-menton", ignore: ["cluster"], reason: "focused food guide surfaced through the food-and-markets collection and linked to market, wine, beach and apartment content" },
   { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
   { slug: "casinos-near-menton", ignore: ["cluster"], reason: "standalone evening and Monaco planning guide linked through nightlife, transport and Monaco content" },
+  { slug: "billiards-pool-menton", ignore: ["cluster"], reason: "focused indoor evening guide surfaced through the Evening plans collection and linked to local casino, bar and civic venue context" },
   { slug: "cycling-bike-rental-menton", ignore: ["cluster"], reason: "standalone cycling and practical mobility guide supporting car-free, rental and outdoor content" },
   { slug: "gyms-fitness-centres-menton", ignore: ["cluster"], reason: "focused sport guide surfaced through the Sport & outdoors collection and linked to tennis, cycling, summer and car-free planning" },
   { slug: "yoga-in-menton", ignore: ["cluster"], reason: "focused wellbeing guide surfaced through the Sport & outdoors collection and linked to beaches, summer, studios and car-free planning" },
