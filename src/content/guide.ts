@@ -123,13 +123,22 @@ export type LocalizedGuideAppTool = Omit<GuideAppTool, "useFor" | "bestFor" | "i
 
 export type GuideUtilityBlockRegion = "menton" | "loire";
 
-export type GuideUtilityBlock = {
+export type LocalRadioUtilityBlock = {
   type: "localRadio";
   region: GuideUtilityBlockRegion;
   title?: string | LocalizedText;
   description?: string | LocalizedText;
   stationIds?: string[];
 };
+
+export type AirportLiveBoardUtilityBlock = {
+  type: "airportLiveBoard";
+  airportIds?: string[];
+  title?: string | LocalizedText;
+  description?: string | LocalizedText;
+};
+
+export type GuideUtilityBlock = LocalRadioUtilityBlock | AirportLiveBoardUtilityBlock;
 
 export type GuideArticle = {
   id: string;
@@ -5325,6 +5334,7 @@ export const guideArticles: GuideArticle[] = [
       "fete-du-citron-menton-practical-guide",
       "public-transport-in-menton",
       "how-to-get-to-menton-from-nice-airport",
+      "airports-near-menton-live-flights",
       "menton-without-a-car",
       "italian-riviera-day-trip-from-menton",
       "day-trips-from-menton",
@@ -5544,6 +5554,81 @@ export const guideArticles: GuideArticle[] = [
       t("Check official transport pages close to travel dates; airport bus and regional details can change.", "Verifiez les pages officielles de transport pres des dates; bus aeroport et informations regionales peuvent changer.", "Controlla le pagine ufficiali vicino alle date; bus aeroporto e dettagli regionali possono cambiare.", "Перевіряйте офіційні транспортні сторінки ближче до дати; airport bus і регіональні деталі можуть змінюватися."),
       t("Save emergency numbers and apartment details offline, not only in messaging apps.", "Sauvegardez numeros d'urgence et details de l'appartement hors ligne, pas seulement dans les messageries.", "Salva numeri d'emergenza e dettagli appartamento offline, non solo nelle chat.", "Збережіть екстрені номери й дані апартаментів офлайн, не лише в месенджерах."),
       t("For restaurants, compare app availability with the restaurant's own website.", "Pour les restaurants, comparez les disponibilites des apps avec le site du restaurant.", "Per ristoranti confronta la disponibilita app con il sito del ristorante.", "Для ресторанів порівнюйте доступність у застосунках із сайтом самого ресторану."),
+    ],
+  }),
+  shortArticle({
+    id: "airports-near-menton-live-flights",
+    slug: "airports-near-menton-live-flights",
+    title: t("Airports near Menton: live arrivals, departures and transfer basics", "Aeroports proches de Menton : arrivees, departs et transferts", "Aeroporti vicini a Mentone: arrivi, partenze e trasferimenti", "Аеропорти біля Ментона: прильоти, вильоти й основи трансферу"),
+    seoTitle: t("Airports Near Menton: Live Arrivals, Departures and Transfer Options", "Aeroports proches de Menton : arrivees, departs et transferts", "Aeroporti vicini a Mentone: arrivi, partenze e trasferimenti", "Аеропорти біля Ментона: прильоти, вильоти й варіанти трансферу"),
+    seoDescription: t("Compare practical airports for Menton, open official live flight boards and plan the onward journey from Nice, Genoa, Cuneo, Turin or Marseille.", "Comparez les aeroports pratiques pour Menton, ouvrez les tableaux officiels et preparez le trajet depuis Nice, Genes, Cuneo, Turin ou Marseille.", "Confronta gli aeroporti pratici per Mentone, apri i tabelloni ufficiali e pianifica il proseguimento da Nizza, Genova, Cuneo, Torino o Marsiglia.", "Порівняйте практичні аеропорти для Ментона, відкрийте офіційні табло й сплануйте подальшу дорогу з Ніцци, Генуї, Кунео, Турина чи Марселя."),
+    excerpt: t("Nice is the normal airport for Menton, but Genoa, Cuneo, Turin and Marseille can occasionally suit a particular flight. Compare the full onward journey, then check the official board before travelling.", "Nice est l'aeroport habituel pour Menton, mais Genes, Cuneo, Turin ou Marseille peuvent parfois convenir a un vol precis. Comparez tout le trajet puis verifiez le tableau officiel avant le voyage.", "Nizza e l'aeroporto abituale per Mentone, ma Genova, Cuneo, Torino e Marsiglia possono talvolta convenire per un volo specifico. Confronta l'intero viaggio e poi controlla il tabellone ufficiale.", "Ніцца - звичний аеропорт для Ментона, але Генуя, Кунео, Турин і Марсель іноді можуть підійти для конкретного рейсу. Порівняйте весь маршрут і перед поїздкою перевірте офіційне табло."),
+    category: "practical",
+    coverImage: "/images/guide/airports-near-menton-live-flights.jpg",
+    coverImageAlt: t("Illustration of an airport arrival for a Menton stay", "Illustration d'une arrivee aeroport pour un sejour a Menton", "Illustrazione di un arrivo in aeroporto per un soggiorno a Mentone", "Ілюстрація прибуття в аеропорт для перебування в Ментоні"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    tags: [t("airports", "aeroports", "aeroporti", "аеропорти"), t("live flights", "vols en direct", "voli in tempo reale", "рейси в реальному часі"), t("transfers", "transferts", "transfer", "трансфери"), t("practical stay", "sejour pratique", "soggiorno pratico", "практичне перебування")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[2].label, guideBestForOptions[3].label],
+    duration: "flexible",
+    locationTags: ["nice", "italian-riviera", "menton-centre"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["nice-cote-dazur-airport", "grand-arenas-nice", "nice-saint-augustin-station", "menton-station", "genoa-cristoforo-colombo-airport", "cuneo-levaldigi-airport", "torino-airport", "marseille-provence-airport"],
+    relatedArticles: ["how-to-get-to-menton-from-nice-airport", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "useful-numbers-emergency-contacts-menton"],
+    relatedApartments: allApartments,
+    utilityBlocks: [{ type: "airportLiveBoard" }],
+    utilityBlocksAfterSectionIndex: 1,
+    sections: [
+      {
+        heading: t("Which airport should you use for Menton?", "Quel aeroport choisir pour Menton ?", "Quale aeroporto scegliere per Mentone?", "Який аеропорт обрати для Ментона?"),
+        body: [
+          t("For most guests, Nice Cote d'Azur is the clearest choice: it combines the most useful flight network with rail, coach, taxi, transfer and rental-car options for the eastern Riviera. Menton is close to Italy, however, so an Italian airport can occasionally be a better fit for a particular direct route.", "Pour la plupart des voyageurs, Nice Cote d'Azur reste le choix le plus clair : reseau de vols utile, train, car, taxi, transfert et location vers la Riviera est. Menton est proche de l'Italie et un aeroport italien peut parfois mieux convenir a un vol direct precis.", "Per la maggior parte degli ospiti, Nice Cote d'Azur resta la scelta piu chiara: rete di voli utile, treno, coach, taxi, transfer e noleggio auto verso la Riviera orientale. Mentone e vicina all'Italia e un aeroporto italiano puo talvolta essere piu adatto a un volo diretto specifico.", "Для більшості гостей Nice Cote d'Azur - найочевидніший вибір: корисна мережа рейсів, потяг, автобус, таксі, трансфер і оренда авто до східної Рив'єри. Але Ментон близько до Італії, тож італійський аеропорт іноді краще підходить для конкретного прямого рейсу."),
+          t("Compare the complete journey, not only the airfare. A cheap flight can become inconvenient after a long transfer, tolls, a late arrival or an overnight stop.", "Comparez le voyage complet, pas seulement le prix du billet. Un vol moins cher peut devenir peu pratique avec un long transfert, les peages, une arrivee tardive ou une nuit supplementaire.", "Confronta l'intero viaggio, non solo il biglietto. Un volo economico puo diventare scomodo dopo un trasferimento lungo, pedaggi, arrivo tardi o una notte extra.", "Порівнюйте весь маршрут, а не лише ціну квитка. Дешевий рейс може стати незручним через довгий трансфер, платні дороги, пізнє прибуття чи додаткову ніч."),
+        ],
+        relatedPlaceIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "cuneo-levaldigi-airport", "torino-airport", "marseille-provence-airport"],
+      },
+      {
+        heading: t("Official live flight information", "Informations de vol officielles", "Informazioni ufficiali sui voli", "Офіційна інформація про рейси"),
+        body: [
+          t("Use the official boards below for current arrivals and departures. Flight status can change at short notice, so important updates should always be verified with the airline. If a board cannot be shown here, the official external link remains available.", "Utilisez les tableaux officiels ci-dessous pour les arrivees et departs du moment. Le statut d'un vol peut changer rapidement : verifiez toujours les informations importantes avec la compagnie. Si un tableau ne peut pas etre affiche ici, le lien officiel externe reste disponible.", "Usa i tabelloni ufficiali qui sotto per arrivi e partenze aggiornati. Lo stato del volo puo cambiare rapidamente: verifica sempre gli aggiornamenti importanti con la compagnia. Se un tabellone non puo essere mostrato qui, resta disponibile il link ufficiale esterno.", "Використовуйте офіційні табло нижче для актуальних прильотів і вильотів. Статус рейсу може швидко змінитися, тому важливі оновлення завжди перевіряйте в авіакомпанії. Якщо табло не можна показати тут, залишається офіційне зовнішнє посилання."),
+        ],
+        relatedPlaceIds: ["nice-cote-dazur-airport"],
+      },
+      {
+        heading: t("Nice Cote d'Azur Airport: the normal choice", "Nice Cote d'Azur : le choix habituel", "Nice Cote d'Azur: la scelta abituale", "Nice Cote d'Azur: звичний вибір"),
+        body: [
+          t("Choose Nice when you want the least complicated arrival, are travelling without a car, have children or substantial luggage, or arrive late. The usual public-transport pattern uses the airport-side Grand Arenas and Nice Saint-Augustin area, then a regional train toward Menton; taxi, private transfer and rental car remain useful alternatives.", "Choisissez Nice pour l'arrivee la moins compliquee, un sejour sans voiture, des enfants ou beaucoup de bagages, ou une arrivee tardive. Le parcours public habituel passe par Grand Arenas et Nice Saint-Augustin, puis un train regional vers Menton ; taxi, transfert prive et voiture de location restent des alternatives utiles.", "Scegli Nizza per l'arrivo meno complicato, un soggiorno senza auto, bambini o molti bagagli, oppure un arrivo tardi. Il percorso pubblico abituale passa da Grand Arenas e Nice Saint-Augustin, poi con treno regionale verso Mentone; taxi, transfer privato e auto a noleggio restano alternative utili.", "Обирайте Ніццу для найпростішого прибуття, перебування без авто, подорожі з дітьми чи великим багажем або пізнього прильоту. Звичний громадський маршрут проходить через Grand Arenas і Nice Saint-Augustin, а далі регіональним потягом до Ментона; таксі, приватний трансфер і оренда авто залишаються корисними альтернативами."),
+        ],
+        relatedPlaceIds: ["nice-cote-dazur-airport", "grand-arenas-nice", "nice-saint-augustin-station", "menton-station"],
+        guideLinkSlug: "how-to-get-to-menton-from-nice-airport",
+        guideLinkLabel: t("Read the Nice Airport to Menton guide", "Lire le guide Nice Airport-Menton", "Leggi la guida da Nice Airport a Mentone", "Читайте гід з Nice Airport до Ментона"),
+      },
+      {
+        heading: t("Italian alternatives: Genoa, Cuneo and Turin", "Alternatives italiennes : Genes, Cuneo et Turin", "Alternative italiane: Genova, Cuneo e Torino", "Італійські альтернативи: Генуя, Кунео та Турин"),
+        body: [
+          t("Genoa is the strongest Italian alternative when a direct flight or Ligurian itinerary clearly improves the trip. Cuneo is a small special case with limited or seasonal routes and needs a confirmed onward plan. Turin has a wider network but normally makes the final journey much longer; it suits a Piedmont combination or a materially better flight, not a standard short Menton break.", "Genes est la meilleure alternative italienne lorsqu'un vol direct ou un itineraire ligure ameliore clairement le voyage. Cuneo est un petit cas particulier aux lignes limitees ou saisonnieres et demande un trajet final confirme. Turin offre un reseau plus large mais allonge normalement beaucoup le voyage final ; il convient a une combinaison avec le Piemont ou a un vol nettement meilleur, pas a un court sejour classique a Menton.", "Genova e la migliore alternativa italiana quando un volo diretto o un itinerario ligure migliorano chiaramente il viaggio. Cuneo e un piccolo caso particolare con rotte limitate o stagionali e richiede un proseguimento confermato. Torino ha una rete piu ampia ma di norma allunga molto il viaggio finale; e adatta a una combinazione con il Piemonte o a un volo nettamente migliore, non a una classica breve vacanza a Mentone.", "Генуя - найкраща італійська альтернатива, коли прямий рейс або маршрут Лігурією суттєво покращують поїздку. Кунео - малий особливий варіант з обмеженими чи сезонними рейсами, який потребує підтвердженого подальшого маршруту. Турин має ширшу мережу, але зазвичай дуже подовжує фінальну дорогу; він підходить для поєднання з П'ємонтом або значно кращого рейсу, а не для стандартної короткої відпустки в Ментоні."),
+        ],
+        relatedPlaceIds: ["genoa-cristoforo-colombo-airport", "cuneo-levaldigi-airport", "torino-airport"],
+      },
+      {
+        heading: t("Marseille: a distant backup", "Marseille : une solution lointaine", "Marsiglia: un'alternativa distante", "Марсель: далекий запасний варіант"),
+        body: [
+          t("Marseille Provence can be relevant for an unusually useful direct, long-haul or seasonal flight, but it is not comparable to Nice for convenience. Consider it only when the flight advantage covers the additional transfer time and cost, or when Menton is part of a wider Provence itinerary.", "Marseille Provence peut convenir a un vol direct, long-courrier ou saisonnier particulierement utile, mais n'est pas comparable a Nice pour la simplicite. Ne le choisissez que si l'avantage du vol couvre le temps et le cout de transfert supplementaires, ou si Menton fait partie d'un itineraire Provence plus large.", "Marsiglia Provenza puo essere rilevante per un volo diretto, lungo raggio o stagionale particolarmente utile, ma non e paragonabile a Nizza per comodita. Sceglila solo se il vantaggio del volo copre tempo e costo extra del trasferimento, o se Mentone fa parte di un itinerario piu ampio in Provenza.", "Marseille Provence може бути доречним для особливо зручного прямого, далекомагістрального чи сезонного рейсу, але за зручністю він не порівнюється з Ніццою. Обирайте його лише тоді, коли перевага рейсу покриває додатковий час і вартість трансферу, або коли Ментон є частиною ширшого маршруту Провансом."),
+        ],
+        relatedPlaceIds: ["marseille-provence-airport"],
+      },
+      {
+        heading: t("Before booking", "Avant de reserver", "Prima di prenotare", "Перед бронюванням"),
+        body: [
+          t("Compare the total ticket price, changes, arrival time, final train or coach, transfer cost, motorway tolls, luggage and the chance that a late arrival needs an overnight stay. A lower airfare is not always a lower-cost journey.", "Comparez le prix total, les changements, l'heure d'arrivee, le dernier train ou car, le cout du transfert, les peages, les bagages et le risque d'une nuit necessaire apres une arrivee tardive. Un tarif aerien plus bas n'est pas toujours un voyage moins cher.", "Confronta prezzo totale, cambi, orario di arrivo, ultimo treno o coach, costo del transfer, pedaggi, bagagli e il rischio di una notte necessaria dopo un arrivo tardi. Una tariffa aerea piu bassa non significa sempre un viaggio meno costoso.", "Порівнюйте загальну ціну квитка, пересадки, час прильоту, останній потяг чи автобус, вартість трансферу, платні дороги, багаж і ризик необхідності ночівлі після пізнього прибуття. Нижчий тариф не завжди означає дешевшу поїздку."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Use Nice unless another airport provides a clear practical advantage, not only a lower airfare.", "Utilisez Nice sauf si un autre aeroport offre un avantage pratique clair, pas seulement un tarif plus bas.", "Usa Nizza salvo che un altro aeroporto offra un chiaro vantaggio pratico, non solo una tariffa piu bassa.", "Обирайте Ніццу, якщо інший аеропорт не дає чіткої практичної переваги, а не лише нижчої ціни."),
+      t("Check the final connection and airline flight status again on the day of travel.", "Verifiez a nouveau la derniere correspondance et le statut du vol le jour du voyage.", "Controlla di nuovo l'ultima coincidenza e lo stato del volo il giorno del viaggio.", "У день поїздки ще раз перевірте останнє сполучення та статус рейсу."),
+      t("For late arrivals, luggage or children, compare a transfer or taxi with the public-transport route before booking.", "Pour les arrivees tardives, les bagages ou les enfants, comparez transfert ou taxi avec le transport public avant de reserver.", "Per arrivi tardi, bagagli o bambini, confronta transfer o taxi con il trasporto pubblico prima di prenotare.", "Для пізніх прильотів, багажу чи дітей перед бронюванням порівняйте трансфер або таксі з громадським транспортом."),
     ],
   }),
   shortArticle({

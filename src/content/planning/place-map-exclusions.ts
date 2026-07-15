@@ -10,6 +10,10 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "genoa-cristoforo-colombo-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.airport.genova.it/en/to-fly-2-2/" },
+  { placeId: "cuneo-levaldigi-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.aeroporto.cuneo.it/en/" },
+  { placeId: "torino-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.aeroportoditorino.it/en/tofly/flights/departs-arrivals" },
+  { placeId: "marseille-provence-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.marseille-airport.com/flights-and-destinations/flights/todays-arrivals" },
   { placeId: "maison-de-la-presse-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Maison%20de%20la%20Presse%2035%20Avenue%20de%20Verdun%20Menton" },
   { placeId: "boite-a-livres-trois-jarres", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Boite-a-livres.html" },
   { placeId: "boite-a-livres-elisee-reclus", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Boite-a-livres.html" },

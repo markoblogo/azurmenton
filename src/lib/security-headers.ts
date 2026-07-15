@@ -65,7 +65,7 @@ export function createCspHeader(nonce: string) {
       "https://*.vercel-insights.com",
     ].join(" "),
     ["media-src", "'self'", "blob:", ...radioStreamOrigins].join(" "),
-    "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://player.vimeo.com",
+    "frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com https://player.vimeo.com https://www.nice.aeroport.fr",
     "upgrade-insecure-requests",
   ];
 

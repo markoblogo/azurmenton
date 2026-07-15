@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 import type { Locale } from "@/i18n/locales";
-import type { GuideUtilityBlock } from "@/content/guide";
+import type { LocalRadioUtilityBlock } from "@/content/guide";
 import { getRadioStationsForTenant, getRadioStationLabel } from "@/content/utility/radio";
 
 type LocalizedCopy = {
@@ -80,7 +80,7 @@ type PlayerState = "idle" | "loading" | "error";
 
 type RadioStreamCopy = Pick<LocalizedCopy, "loading" | "streamUnavailable">;
 
-function localizeBlockText(value: GuideUtilityBlock["title"], locale: Locale) {
+function localizeBlockText(value: LocalRadioUtilityBlock["title"], locale: Locale) {
   if (!value) return undefined;
   return typeof value === "string" ? value : value[locale] ?? value.en;
 }
@@ -171,7 +171,7 @@ function RadioStream({
   );
 }
 
-export function LocalRadioBlock({ block, locale }: { block: GuideUtilityBlock; locale: Locale }) {
+export function LocalRadioBlock({ block, locale }: { block: LocalRadioUtilityBlock; locale: Locale }) {
   const copy = labels[locale] as LocalizedCopy;
   const stations = getRadioStationsForTenant(block.region, block.stationIds);
   const title = localizeBlockText(block.title, locale) ?? copy.title;

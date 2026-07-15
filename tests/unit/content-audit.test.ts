@@ -15,6 +15,7 @@ import { mapPlaceTypes } from "../../src/content/planning/map-taxonomy";
 import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { stayPages } from "../../src/content/stay-pages";
 import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
+import { airportLiveBoards, getAirportLiveBoards } from "../../src/content/utility/airports";
 import { getEventDateStatus } from "../../src/lib/events";
 
 const publicPathExists = (sitePath: string) => existsSync(join(process.cwd(), "public", sitePath.replace(/^\//, "")));
@@ -27,6 +28,7 @@ const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const partnerIds = new Set(localPartners.map((partner) => partner.id));
 const eventSlugs = new Set([...rivieraEvents.map((event) => event.slug), summerOnTheRivieraEvent.slug]);
 const radioStationIds = new Set(radioStations.map((station) => station.id));
+const airportBoardIds = new Set(airportLiveBoards.map((airport) => airport.id));
 const stayPageSlugs = new Set(stayPages.map((page) => page.slug));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
 
@@ -187,6 +189,29 @@ describe("content graph audit", () => {
             }
             if (station.audioStreamUrl && !station.audioStreamUrl.startsWith("https://")) {
               failures.push(`${article.slug} radio station ${station.id} uses a non-HTTPS stream`);
+            }
+          }
+        }
+
+        if (block.type === "airportLiveBoard") {
+          const airports = getAirportLiveBoards(block.airportIds);
+          if (block.airportIds?.length) {
+            if (new Set(block.airportIds).size !== block.airportIds.length) {
+              failures.push(`${article.slug} airport block contains duplicate airport ids`);
+            }
+            for (const airportId of block.airportIds) {
+              if (!airportBoardIds.has(airportId)) failures.push(`${article.slug} utility block references missing airport ${airportId}`);
+            }
+          } else if (!airports.length) {
+            failures.push(`${article.slug} airport block has no airports`);
+          }
+
+          for (const airport of airports) {
+            if (!airport.arrivalsUrl.startsWith("https://") || !airport.departuresUrl.startsWith("https://")) {
+              failures.push(`${article.slug} airport ${airport.id} has a non-HTTPS official board URL`);
+            }
+            if (!["supported", "blocked", "unreliable", "external_only"].includes(airport.embedMode)) {
+              failures.push(`${article.slug} airport ${airport.id} has an invalid embed mode`);
             }
           }
         }

@@ -8,6 +8,12 @@ export const bookingFunnelEvents = {
   bookingRequestSubmitError: "booking_request_submit_error",
   whatsappClick: "whatsapp_click",
   emailClick: "email_click",
+  airportBoardLoadClick: "airport_board_load_click",
+  airportBoardLoaded: "airport_board_loaded",
+  airportBoardFailed: "airport_board_failed",
+  airportArrivalsExternalClick: "airport_arrivals_external_click",
+  airportDeparturesExternalClick: "airport_departures_external_click",
+  airportTransportGuideClick: "airport_transport_guide_click",
 } as const;
 
 export type BookingFunnelEvent = (typeof bookingFunnelEvents)[keyof typeof bookingFunnelEvents];

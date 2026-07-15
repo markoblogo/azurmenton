@@ -11,6 +11,7 @@ export type PlaceMapPoint = {
 };
 
 export const placeMapPoints: PlaceMapPoint[] = [
+  { placeId: "grand-arenas-nice", lat: 43.6692, lng: 7.2155, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-15", sourceUrl: "https://www.openstreetmap.org/search?query=Grand%20Arenas%20Nice" } },
   { placeId: "cedric-grolet-monte-carlo", lat: 43.7390094, lng: 7.4274682, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11339077004" } },
   { placeId: "chocolaterie-de-monaco", lat: 43.7314676, lng: 7.4251491, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/4227212" } },
   { placeId: "automobile-club-monaco-boutique", lat: 43.7358084, lng: 7.4208182, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/relation/11546878" } },
