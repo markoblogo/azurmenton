@@ -7107,6 +7107,46 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Gold Cafe in Menton", "Illustration du Gold Cafe a Menton", "Illustrazione del Gold Cafe a Mentone", "Ілюстрація Gold Cafe у Ментоні"),
     visualTheme: "nightlife",
   },
+  "librairie-de-la-presse-menton": {
+    image: "/images/guide/librairie-de-la-presse-menton.jpg",
+    imageAlt: text("Illustration of Librairie de la Presse in Menton", "Illustration de la Librairie de la Presse a Menton", "Illustrazione della Librairie de la Presse a Mentone", "Ілюстрація Librairie de la Presse у Ментоні"),
+    visualTheme: "market",
+  },
+  "maison-de-la-presse-menton": {
+    image: "/images/guide/maison-de-la-presse-menton.jpg",
+    imageAlt: text("Illustration of Maison de la Presse in Menton", "Illustration de Maison de la Presse a Menton", "Illustrazione di Maison de la Presse a Mentone", "Ілюстрація Maison de la Presse у Ментоні"),
+    visualTheme: "market",
+  },
+  "odyssee-bibliotheque-menton": {
+    image: "/images/guide/odyssee-bibliotheque-menton.jpg",
+    imageAlt: text("Illustration of the L'Odyssee municipal library in Menton", "Illustration de la bibliotheque municipale L'Odyssee a Menton", "Illustrazione della biblioteca comunale L'Odyssee a Mentone", "Ілюстрація муніципальної бібліотеки L'Odyssee у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "bibliotheque-a-la-plage-menton": {
+    image: "/images/guide/bibliotheque-a-la-plage-menton.jpg",
+    imageAlt: text("Illustration of the seasonal beach library in Menton", "Illustration de la bibliotheque de plage saisonniere a Menton", "Illustrazione della biblioteca stagionale in spiaggia a Mentone", "Ілюстрація сезонної пляжної бібліотеки в Ментоні"),
+    visualTheme: "beach",
+  },
+  "boite-a-livres-baden-baden": {
+    image: "/images/guide/boite-a-livres-baden-baden.jpg",
+    imageAlt: text("Illustration of the Square Baden-Baden book-exchange box in Menton", "Illustration de la boite a livres du square Baden-Baden a Menton", "Illustrazione della scatola per lo scambio di libri a Square Baden-Baden a Mentone", "Ілюстрація книжкової коробки Square Baden-Baden у Ментоні"),
+    visualTheme: "garden",
+  },
+  "boite-a-livres-trois-jarres": {
+    image: "/images/guide/boite-a-livres-trois-jarres.jpg",
+    imageAlt: text("Illustration of the Jardin des Trois Jarres book-exchange box in Menton", "Illustration de la boite a livres du jardin des Trois Jarres a Menton", "Illustrazione della scatola per lo scambio di libri al Jardin des Trois Jarres a Mentone", "Ілюстрація книжкової коробки Jardin des Trois Jarres у Ментоні"),
+    visualTheme: "garden",
+  },
+  "boite-a-livres-elisee-reclus": {
+    image: "/images/guide/boite-a-livres-elisee-reclus.jpg",
+    imageAlt: text("Illustration of the Jardin Elisee Reclus book-exchange box in Menton", "Illustration de la boite a livres du jardin Elisee Reclus a Menton", "Illustrazione della scatola per lo scambio di libri al Jardin Elisee Reclus a Mentone", "Ілюстрація книжкової коробки Jardin Elisee Reclus у Ментоні"),
+    visualTheme: "garden",
+  },
+  "boite-a-livres-cernuschi": {
+    image: "/images/guide/boite-a-livres-cernuschi.jpg",
+    imageAlt: text("Illustration of the Cernuschi community book box in Menton", "Illustration de la boite a livres solidaire Cernuschi a Menton", "Illustrazione della scatola solidale per libri Cernuschi a Mentone", "Ілюстрація солідарної книжкової коробки Cernuschi у Ментоні"),
+    visualTheme: "old-town",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {
