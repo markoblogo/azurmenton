@@ -75,7 +75,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Culture & evenings", "Culture & soirees", "Cultura & serate", "Культура та вечори"),
     description: t("Museums, cinema, live music and evening plans nearby.", "Musees, cinema, musique live et idees de soiree autour de Menton.", "Musei, cinema, musica dal vivo e serate nei dintorni di Mentone.", "Музеї, кіно, жива музика та вечірні плани поблизу Ментона."),
     categories: ["nightlife-drinks", "events"],
-    includeGuideSlugs: ["museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "films-shot-in-menton"],
+    includeGuideSlugs: ["museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "films-shot-in-menton", "bookshops-libraries-menton"],
     priorityGuideSlugs: ["museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "jazz-live-music-near-menton"],
   },
   {

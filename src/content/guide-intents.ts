@@ -172,6 +172,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "barbecue-picnic-areas-near-menton", ignore: ["cluster"], reason: "safety-first practical reference guide with direct links to verified picnic and controlled private options" },
   { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
+  { slug: "bookshops-libraries-menton", ignore: ["cluster"], reason: "focused reading guide surfaced through the culture-and-evenings collection and linked to local library, bookshop and slow-stay content" },
   { slug: "best-pastries-desserts-cakes-menton", ignore: ["cluster"], reason: "focused dessert guide surfaced through the food-and-markets collection and linked to ice cream, local food, market, day-trip and apartment content" },
   { slug: "pastis-in-menton", ignore: ["cluster"], reason: "focused aperitif guide linked to food, wine, souvenir, evening and local-sport planning" },
   { slug: "best-seafood-restaurants-menton", ignore: ["cluster"], reason: "focused food guide surfaced through the food-and-markets collection and linked to market, wine, beach and apartment content" },

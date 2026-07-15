@@ -62,7 +62,7 @@ export const mapCategories: MapCategory[] = [
   { id: "playgrounds", placeTypes: ["playground"], label: label("Playgrounds", "Aires de jeux", "Parchi giochi", "Майданчики") },
   { id: "activities", placeTypes: ["family-activity", "skatepark"], label: label("Activities", "Activites", "Attivita", "Активності") },
   { id: "fitness", placeTypes: ["fitness-centre"], label: label("Fitness", "Fitness", "Fitness", "Фітнес") },
-  { id: "shopping", placeTypes: ["shopping-centre"], label: label("Shopping", "Shopping", "Shopping", "Шопінг") },
+  { id: "shopping", placeTypes: ["shopping-centre", "bookshop"], label: label("Shopping", "Shopping", "Shopping", "Шопінг") },
   { id: "services", placeTypes: ["tourist-office", "station", "car-rental", "healthcare", "hospital", "police", "civic"], label: label("Services", "Services", "Servizi", "Сервіси") },
 ];
 
