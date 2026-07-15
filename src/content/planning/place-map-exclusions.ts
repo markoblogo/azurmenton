@@ -10,6 +10,12 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "parking-pinede-du-bastion-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
+  { placeId: "parking-baden-baden-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
+  { placeId: "rue-prato-ev-charger-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
+  { placeId: "parking-place-darmes-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
+  { placeId: "avenue-cernuschi-ev-charger-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
+  { placeId: "parking-lavandieres-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
   { placeId: "genoa-cristoforo-colombo-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.airport.genova.it/en/to-fly-2-2/" },
   { placeId: "cuneo-levaldigi-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.aeroporto.cuneo.it/en/" },
   { placeId: "torino-airport", reason: "outside_map_scope", checkedOn: "2026-07-15", sourceUrl: "https://www.aeroportoditorino.it/en/tofly/flights/departs-arrivals" },

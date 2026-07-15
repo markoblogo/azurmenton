@@ -5337,6 +5337,7 @@ export const guideArticles: GuideArticle[] = [
       "public-transport-in-menton",
       "how-to-get-to-menton-from-nice-airport",
       "airports-near-menton-live-flights",
+      "electric-car-charging-menton",
       "menton-without-a-car",
       "italian-riviera-day-trip-from-menton",
       "day-trips-from-menton",
@@ -5576,7 +5577,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["nice", "italian-riviera", "menton-centre"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["nice-cote-dazur-airport", "grand-arenas-nice", "nice-saint-augustin-station", "menton-station", "genoa-cristoforo-colombo-airport", "cuneo-levaldigi-airport", "torino-airport", "marseille-provence-airport"],
-    relatedArticles: ["how-to-get-to-menton-from-nice-airport", "car-rental-menton-nice-airport-convertibles", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "useful-numbers-emergency-contacts-menton"],
+    relatedArticles: ["how-to-get-to-menton-from-nice-airport", "car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "useful-numbers-emergency-contacts-menton"],
     relatedApartments: allApartments,
     utilityBlocks: [{ type: "airportLiveBoard" }],
     transportHelperAfterSectionIndex: 3,
@@ -5648,7 +5649,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedPlaces: ["nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "menton-station", "menton-garavan-station", "parking-gare-sncf-menton", "parking-saint-roch-menton", "monaco-monte-carlo-station"],
     relatedApartments: allApartments,
     sections: [
@@ -5993,7 +5994,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "nice", "monaco", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton", "nice-airport-car-rental-center", "sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "nice-cote-dazur-airport", "menton-station", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "eze-village", "monaco-monte-carlo", "monte-carlo-golf-club"],
-    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "electric-car-charging-menton", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -6108,7 +6109,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "reference",
     locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
     sourceStatus: "needs_verification",
-    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
+    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "casinos-near-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "supermarkets-in-menton", "stay-cool-in-menton-summer", "useful-numbers-emergency-contacts-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-without-a-car", "monaco-events-from-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "day-trips-from-menton", "best-beaches-in-menton", "how-to-get-to-menton-from-nice-airport"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "parking-gare-sncf-menton", "parking-vieille-ville-sablettes", "parking-saint-roch-menton", "nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "monaco-monte-carlo-station", "ventimiglia-station", "promenade-du-soleil", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo", "nice-old-town", "ventimiglia"],
     relatedEvents: ["monaco-grand-prix", "monaco-national-day", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "monaco-yacht-show", "monte-carlo-television-festival", "nice-half-marathon", "nice-jazz-fest", "nice-carnival", "menton-lemon-festival", "fete-nationale-riviera", "assumption-day-riviera"],
     relatedApartments: allApartments,
@@ -7842,6 +7843,76 @@ export const guideArticles: GuideArticle[] = [
       t("Contact the municipal academy before expecting visitor play.", "Contactez l'academie municipale avant de compter sur une partie visiteur.", "Contatta l'accademia municipale prima di contare su una partita da visitatore.", "Зв'яжіться з муніципальною академією, перш ніж розраховувати на гостьову гру."),
       t("For casual bars and games rooms, confirm that the table is available that evening.", "Pour les bars et salles de jeux, confirmez que la table est disponible ce soir-la.", "Per bar e sale giochi, conferma che il tavolo sia disponibile quella sera.", "Для барів та ігрових кімнат підтверджуйте, що стіл доступний саме того вечора."),
       t("Bring comfortable footwear for the old town and keep the evening flexible around current opening times.", "Portez des chaussures confortables pour la vieille ville et gardez la soiree flexible selon les horaires actuels.", "Indossa scarpe comode per il centro storico e mantieni la serata flessibile secondo gli orari attuali.", "Взувайте зручне взуття для старого міста й залишайте план гнучким залежно від актуальних годин роботи."),
+    ],
+  }),
+  shortArticle({
+    id: "electric-car-charging-menton",
+    slug: "electric-car-charging-menton",
+    title: t("Electric car charging in Menton: public stations, parking chargers and practical tips", "Recharger une voiture electrique a Menton : bornes publiques, parkings et conseils pratiques", "Ricaricare un'auto elettrica a Mentone: colonnine pubbliche, parcheggi e consigli pratici", "Заряджання електромобіля в Ментоні: публічні станції, паркінги й практичні поради"),
+    seoTitle: t("Electric Car Charging in Menton: Public Stations and Parking Chargers", "Recharger une voiture electrique a Menton : bornes et parkings", "Ricarica auto elettrica a Mentone: colonnine e parcheggi", "Заряджання електромобіля в Ментоні: станції та паркінги"),
+    seoDescription: t("A practical guide to municipal EV charging in Menton: central and Garavan-area locations, underground parking chargers, live-status checks and arrival tips.", "Guide pratique de la recharge EV a Menton : bornes municipales, parkings souterrains, statut en direct et conseils d'arrivee.", "Guida pratica alla ricarica EV a Mentone: colonnine comunali, parcheggi sotterranei, stato live e consigli di arrivo.", "Практичний гід із заряджання EV у Ментоні: муніципальні точки, підземні паркінги, live-статус і поради щодо прибуття."),
+    excerpt: t("Menton has a small municipal EVzen network and several underground-car-park chargers. Treat it as destination charging: check the live app before routing your arrival around a particular connector.", "Menton dispose d'un petit reseau municipal EVzen et de bornes dans plusieurs parkings souterrains. Considerez-le comme une recharge de destination : verifiez l'application en direct avant de baser votre arrivee sur une borne precise.", "Mentone ha una piccola rete municipale EVzen e colonnine in alcuni parcheggi sotterranei. Considerala ricarica di destinazione: controlla l'app live prima di pianificare l'arrivo su una presa precisa.", "У Ментоні є невелика муніципальна мережа EVzen і зарядки в кількох підземних паркінгах. Сприймайте їх як заряджання в пункті призначення: перевіряйте live-застосунок, перш ніж будувати маршрут навколо конкретного роз'єму."),
+    category: "practical",
+    coverImage: "/images/guide/electric-car-charging-menton.jpg",
+    coverImageAlt: t("Electric car charging in Menton", "Recharge de voiture electrique a Menton", "Ricarica auto elettrica a Mentone", "Заряджання електромобіля в Ментоні"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    tags: [t("electric car", "voiture electrique", "auto elettrica", "електромобіль"), t("EV charging", "recharge EV", "ricarica EV", "заряджання EV"), t("parking", "parking", "parcheggio", "паркінг"), t("driving", "conduite", "guida", "водіння")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "garavan"],
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["parking-gare-sncf-menton", "parking-vieille-ville-sablettes", "parking-pinede-du-bastion-menton", "parking-baden-baden-menton", "rue-prato-ev-charger-menton", "parking-place-darmes-menton", "avenue-cernuschi-ev-charger-menton", "parking-araucaria-menton", "parking-lavandieres-menton", "port-de-garavan"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Can you charge an electric car in Menton?", "Peut-on recharger une voiture electrique a Menton ?", "Si puo ricaricare un'auto elettrica a Mentone?", "Чи можна зарядити електромобіль у Ментоні?"),
+        body: [
+          t("Yes. The City of Menton lists municipal EVzen charging locations across town, while several underground car parks add charging points. Availability, connector status and access can change, so use a live charging map or the operator's current information before you drive to a specific bay.", "Oui. La Ville de Menton indique des bornes municipales EVzen dans la ville, et plusieurs parkings souterrains ajoutent des points de recharge. Disponibilite, statut des prises et acces peuvent changer : utilisez une carte de recharge en direct ou l'information actuelle de l'operateur avant de viser une borne precise.", "Si. Il Comune di Mentone indica colonnine municipali EVzen in citta e vari parcheggi sotterranei aggiungono punti di ricarica. Disponibilita, stato delle prese e accesso possono cambiare: usa una mappa live o le informazioni aggiornate dell'operatore prima di dirigerti a uno stallo preciso.", "Так. Місто Ментон зазначає муніципальні точки EVzen у місті, а кілька підземних паркінгів мають зарядки. Доступність, статус роз'ємів і під'їзд можуть змінюватися, тому перед поїздкою до конкретного місця перевіряйте live-карту або актуальну інформацію оператора."),
+          t("For a holiday stay, Menton works best as destination charging rather than a place to promise a rapid top-up. Arrive with a comfortable reserve, charge while you are parked for another plan, and keep a second option in mind.", "Pour un sejour, Menton fonctionne mieux comme recharge a destination que comme promesse de recharge rapide. Arrivez avec une marge confortable, rechargez pendant que vous etes gare pour une autre activite et gardez une seconde option en tete.", "Per un soggiorno, Mentone funziona meglio come ricarica a destinazione che come promessa di ricarica rapida. Arriva con un margine confortevole, ricarica mentre sei parcheggiato per un'altra attivita e tieni una seconda opzione.", "Для відпустки Ментон краще сприймати як місце заряджання в пункті призначення, а не як гарантовану швидку підзарядку. Приїжджайте з достатнім запасом, заряджайтеся під час іншого плану й майте запасний варіант."),
+        ],
+        officialLinks: [{ label: t("City of Menton EV charging information", "Information recharge EV de la Ville de Menton", "Informazioni comunali sulla ricarica EV", "Інформація міста Ментона про заряджання EV"), url: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" }],
+        relatedPlaceIds: ["parking-gare-sncf-menton", "parking-vieille-ville-sablettes"],
+      },
+      {
+        heading: t("What charging speed should you expect?", "Quelle puissance de recharge attendre ?", "Quale potenza di ricarica aspettarsi?", "Яку потужність заряджання очікувати?"),
+        body: [
+          t("The municipal network is listed with 7 and 22 kVA charging points. Actual power depends on your car, connector, battery condition and the equipment in use. This guide does not list a verified public high-power DC hub in Menton, so do not build a tight long-distance plan around one.", "Le reseau municipal est indique avec des bornes de 7 et 22 kVA. La puissance reelle depend de votre voiture, du connecteur, de la batterie et de l'equipement utilise. Ce guide ne repertorie pas de hub public DC haute puissance verifie a Menton : ne construisez donc pas un long trajet serre autour de cette hypothese.", "La rete comunale e indicata con punti da 7 e 22 kVA. La potenza reale dipende dall'auto, dal connettore, dalla batteria e dall'attrezzatura. Questa guida non elenca un hub DC pubblico ad alta potenza verificato a Mentone: non pianificare un lungo viaggio con margini stretti su questa ipotesi.", "Муніципальна мережа вказана з точками на 7 і 22 кВА. Реальна потужність залежить від авто, роз'єму, стану батареї та обладнання. У цьому гіді немає підтвердженого публічного DC-хаба високої потужності в Ментоні, тому не будуйте щільний далекій маршрут навколо такого припущення."),
+        ],
+      },
+      {
+        heading: t("Central Menton: station, Sablettes and Bastion", "Menton centre : gare, Sablettes et Bastion", "Centro di Mentone: stazione, Sablettes e Bastion", "Центр Ментона: вокзал, Sablettes і Bastion"),
+        body: [
+          t("Parking Gare SNCF is practical for arrival logistics and the station area. The Vieille Ville - Sablettes underground car park is useful for the old town and beach side. The city also lists a municipal EVzen location at Parking de la Pinede du Bastion. Check the live network before choosing between them.", "Le parking Gare SNCF est pratique pour l'arrivee et le secteur gare. Le parking souterrain Vieille Ville - Sablettes convient a la vieille ville et au bord de mer. La ville indique aussi une borne EVzen au parking de la Pinede du Bastion. Verifiez le reseau en direct avant de choisir.", "Il Parking Gare SNCF e pratico per l'arrivo e la zona stazione. Il parcheggio sotterraneo Vieille Ville - Sablettes e utile per centro storico e mare. Il Comune indica anche una colonnina EVzen al Parking de la Pinede du Bastion. Controlla la rete live prima di scegliere.", "Parking Gare SNCF зручний для логістики прибуття й району вокзалу. Підземний Vieille Ville - Sablettes підходить для старого міста й моря. Місто також вказує точку EVzen у Parking de la Pinede du Bastion. Перш ніж обрати, перевірте мережу наживо."),
+        ],
+        relatedPlaceIds: ["parking-gare-sncf-menton", "parking-vieille-ville-sablettes", "parking-pinede-du-bastion-menton"],
+      },
+      {
+        heading: t("Garavan and other municipal charging stops", "Garavan et autres points de recharge municipaux", "Garavan e altri punti di ricarica comunali", "Garavan та інші муніципальні точки заряджання"),
+        body: [
+          t("The City of Menton lists EVzen locations at Parking Baden-Baden, the start of Rue Prato, Parking Place d'Armes, Avenue Cernuschi opposite Residence Val d'Anaud, Parking de l'Araucaria and Parking des Lavandieres. They are useful options to know, not a promise that a connector will be free when you arrive.", "La Ville de Menton indique des bornes EVzen au parking Baden-Baden, au debut de la rue Prato, au parking Place d'Armes, avenue Cernuschi face a la Residence Val d'Anaud, au parking de l'Araucaria et au parking des Lavandieres. Ce sont des options utiles a connaitre, pas la promesse d'une borne libre a votre arrivee.", "Il Comune di Mentone indica punti EVzen al Parking Baden-Baden, all'inizio di Rue Prato, al Parking Place d'Armes, in Avenue Cernuschi di fronte alla Residence Val d'Anaud, al Parking de l'Araucaria e al Parking des Lavandieres. Sono opzioni utili da conoscere, non la promessa di una presa libera all'arrivo.", "Місто Ментон вказує точки EVzen у Parking Baden-Baden, на початку Rue Prato, у Parking Place d'Armes, на Avenue Cernuschi навпроти Residence Val d'Anaud, у Parking de l'Araucaria та Parking des Lavandieres. Це корисні варіанти, але не обіцянка вільного роз'єму по прибуттю."),
+        ],
+        relatedPlaceIds: ["parking-baden-baden-menton", "rue-prato-ev-charger-menton", "parking-place-darmes-menton", "avenue-cernuschi-ev-charger-menton", "parking-araucaria-menton", "parking-lavandieres-menton", "port-de-garavan"],
+      },
+      {
+        heading: t("How to plan a charging stop", "Comment planifier une recharge", "Come pianificare una ricarica", "Як спланувати зупинку для заряджання"),
+        body: [
+          t("Before setting off, check live status, connector type, access rules and payment method in the operator app or a reliable live charging map. Bring the cable your car requires and avoid arriving close to empty. During festival weeks, summer weekends or late arrivals, keep a second Menton option and a wider-Riviera fallback.", "Avant de partir, verifiez le statut en direct, le type de prise, les regles d'acces et le paiement dans l'application de l'operateur ou une carte fiable. Prenez le cable requis par votre voiture et evitez d'arriver presque vide. Pendant les festivals, week-ends d'ete ou arrivees tardives, gardez une seconde option a Menton et une solution de repli sur la Riviera.", "Prima di partire, controlla stato live, tipo di presa, regole di accesso e pagamento nell'app dell'operatore o in una mappa affidabile. Porta il cavo richiesto dall'auto ed evita di arrivare quasi scarico. Durante festival, weekend estivi o arrivi tardi, tieni una seconda opzione a Mentone e un'alternativa sulla Riviera.", "Перед виїздом перевірте live-статус, тип роз'єму, правила доступу й оплату в застосунку оператора або на надійній карті. Візьміть потрібний кабель і не приїжджайте майже з порожньою батареєю. Під час фестивалів, літніх вихідних або пізніх прибуттів майте другий варіант у Ментоні та резерв на Рив'єрі."),
+        ],
+      },
+      {
+        heading: t("Staying in Menton with an electric car", "Sejourner a Menton avec une voiture electrique", "Soggiornare a Mentone con un'auto elettrica", "Перебування в Ментоні з електромобілем"),
+        body: [
+          t("All Azur Menton apartments have private underground parking for guests by reservation where applicable, but do not assume that this includes a charging point. Ask about parking and your arrival plan when checking availability; use public charging as a separate, live-checked part of the trip.", "Les appartements Azur Menton disposent d'un parking souterrain prive pour les voyageurs sur reservation lorsque cela s'applique, mais ne supposez pas qu'il comprend une borne. Demandez le parking et votre plan d'arrivee lors de la demande de disponibilite ; utilisez la recharge publique comme une partie separee du voyage, verifiee en direct.", "Gli appartamenti Azur Menton dispongono di parcheggio sotterraneo privato per gli ospiti su prenotazione dove applicabile, ma non presumere che includa una colonnina. Chiedi del parcheggio e del piano di arrivo quando verifichi la disponibilita; usa la ricarica pubblica come parte separata del viaggio, controllata live.", "Апартаменти Azur Menton мають приватні підземні паркінги для гостей за бронюванням, де це застосовно, але не припускайте, що там є зарядна точка. Уточнюйте паркування й план прибуття під час запиту доступності; публічне заряджання є окремою частиною поїздки, яку треба перевіряти наживо."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check live charging status just before the final approach.", "Verifiez le statut en direct juste avant l'approche finale.", "Controlla lo stato live subito prima dell'arrivo.", "Перевіряйте live-статус безпосередньо перед прибуттям."),
+      t("Do not treat a listed station as a reservation or a guarantee of a free connector.", "Une borne listee n'est ni une reservation ni la garantie d'une prise libre.", "Una stazione elencata non e una prenotazione ne una garanzia di presa libera.", "Зазначена станція не є бронюванням чи гарантією вільного роз'єму."),
+      t("Ask about apartment parking separately from charging.", "Demandez le parking d'appartement separement de la recharge.", "Chiedi del parcheggio dell'appartamento separatamente dalla ricarica.", "Уточнюйте паркування в апартаментах окремо від заряджання."),
     ],
   }),
 ];
