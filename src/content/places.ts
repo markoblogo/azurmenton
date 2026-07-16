@@ -5566,6 +5566,31 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "totalenergies-menton-garavan": {
+    image: "/images/guide/totalenergies-menton-garavan.webp",
+    imageAlt: text("Illustration of TotalEnergies Menton Garavan", "Illustration de TotalEnergies Menton Garavan", "Illustrazione di TotalEnergies Menton Garavan", "Ілюстрація TotalEnergies Menton Garavan"),
+    visualTheme: "transport",
+  },
+  "bp-menton-union": {
+    image: "/images/guide/bp-menton-union.webp",
+    imageAlt: text("Illustration of BP Menton Union", "Illustration de BP Menton Union", "Illustrazione di BP Menton Union", "Ілюстрація BP Menton Union"),
+    visualTheme: "transport",
+  },
+  "intermarche-carei-fuel-station": {
+    image: "/images/guide/intermarche-carei-fuel-station.webp",
+    imageAlt: text("Illustration of the Intermarche Carei fuel station", "Illustration de la station-service Intermarche Carei", "Illustrazione della stazione di servizio Intermarche Carei", "Ілюстрація заправки Intermarche Carei"),
+    visualTheme: "transport",
+  },
+  "intermarche-val-castagnins-fuel-station": {
+    image: "/images/guide/intermarche-val-castagnins-fuel-station.webp",
+    imageAlt: text("Illustration of the Intermarche Val des Castagnins fuel station", "Illustration de la station-service Intermarche Val des Castagnins", "Illustrazione della stazione di servizio Intermarche Val des Castagnins", "Ілюстрація заправки Intermarche Val des Castagnins"),
+    visualTheme: "transport",
+  },
+  "hyris-port-garavan-marine-fuel": {
+    image: "/images/guide/hyris-port-garavan-marine-fuel.webp",
+    imageAlt: text("Illustration of Hyris marine fuel at Port de Menton Garavan", "Illustration du carburant marin Hyris au Port de Menton Garavan", "Illustrazione del carburante nautico Hyris al Porto di Mentone Garavan", "Ілюстрація морського палива Hyris у порту Ментона Garavan"),
+    visualTheme: "transport",
+  },
   "parking-pinede-du-bastion-menton": {
     image: "/images/guide/parking-pinede-du-bastion-menton.webp",
     imageAlt: text("Illustration of EV charging at Parking de la Pinede du Bastion in Menton", "Illustration de la recharge EV au parking de la Pinede du Bastion a Menton", "Illustrazione della ricarica EV al Parking de la Pinede du Bastion a Mentone", "Ілюстрація заряджання EV на Parking de la Pinede du Bastion у Ментоні"),

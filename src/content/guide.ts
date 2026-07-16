@@ -170,6 +170,7 @@ export type GuideArticle = {
   utilityBlocks?: GuideUtilityBlock[];
   utilityBlocksAfterSectionIndex?: number;
   transportHelperAfterSectionIndex?: number;
+  showTransportHelper?: boolean;
 };
 
 export type GuidePageContent = {
@@ -1255,6 +1256,7 @@ function shortArticle(input: {
   utilityBlocks?: GuideUtilityBlock[];
   utilityBlocksAfterSectionIndex?: number;
   transportHelperAfterSectionIndex?: number;
+  showTransportHelper?: boolean;
   visualTheme?: GuideVisualTheme;
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sections: LocalizedGuideSection[];
@@ -7935,6 +7937,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "reference",
     locationTags: ["menton-centre", "garavan", "italian-riviera"],
+    showTransportHelper: false,
     relatedPlaces: ["totalenergies-menton-garavan", "bp-menton-union", "intermarche-carei-fuel-station", "intermarche-val-castagnins-fuel-station", "hyris-port-garavan-marine-fuel", "intermarche-hyper-menton", "intermarche-super-borrigo", "port-de-garavan"],
     relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "supermarkets-in-menton", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
     relatedApartments: allApartments,

@@ -110,7 +110,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
       <UtilityBlockRenderer locale={locale} blocks={utilityBlocks} />
     </section>
   ) : null;
-  const transportHelperSection = transportDestinationIds.length && !isTransportGuide ? (
+  const transportHelperSection = article.showTransportHelper !== false && transportDestinationIds.length && !isTransportGuide ? (
     <TransportHelperBlock locale={locale} destinationIds={transportDestinationIds} compact />
   ) : null;
 
