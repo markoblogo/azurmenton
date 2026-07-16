@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "coiffeur-max-artisan-barbier-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.coiffeurmax.fr/le-barbier/" },
+  { placeId: "lemon-barber-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://lemonbarber.com/" },
+  { placeId: "expert-coiffure-barber-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Expert%20Coiffure%20%26%20Barber%207%20Rue%20Magenta%20Menton" },
+  { placeId: "barber-city-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Barber%20City%202%20Avenue%20Carnot%20Menton" },
+  { placeId: "julien-maldinez-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://maldinez.wixsite.com/julienmaldinez/untitled" },
+  { placeId: "benedetti-studio-for-men-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.planity.com/benedetti-studio-for-men-06500-menton-9tn" },
+  { placeId: "claudio-dany-coiffure-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Claudio%20et%20Dany%20Coiffure%2018%20Avenue%20Boyer%20Menton" },
   { placeId: "totalenergies-menton-garavan", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=TotalEnergies%20Menton%20Garavan" },
   { placeId: "hyris-port-garavan-marine-fuel", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Hyris%20Port%20de%20Menton%20Garavan" },
   { placeId: "parking-pinede-du-bastion-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },

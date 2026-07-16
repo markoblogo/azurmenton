@@ -5342,6 +5342,7 @@ export const guideArticles: GuideArticle[] = [
       "airports-near-menton-live-flights",
       "electric-car-charging-menton",
       "petrol-stations-menton",
+      "best-barbershops-menton",
       "car-rental-menton-nice-airport-convertibles",
       "menton-without-a-car",
       "italian-riviera-day-trip-from-menton",
@@ -7918,6 +7919,92 @@ export const guideArticles: GuideArticle[] = [
       t("Check live charging status just before the final approach.", "Verifiez le statut en direct juste avant l'approche finale.", "Controlla lo stato live subito prima dell'arrivo.", "Перевіряйте live-статус безпосередньо перед прибуттям."),
       t("Do not treat a listed station as a reservation or a guarantee of a free connector.", "Une borne listee n'est ni une reservation ni la garantie d'une prise libre.", "Una stazione elencata non e una prenotazione ne una garanzia di presa libera.", "Зазначена станція не є бронюванням чи гарантією вільного роз'єму."),
       t("Ask about apartment parking separately from charging.", "Demandez le parking d'appartement separement de la recharge.", "Chiedi del parcheggio dell'appartamento separatamente dalla ricarica.", "Уточнюйте паркування в апартаментах окремо від заряджання."),
+    ],
+  }),
+  shortArticle({
+    id: "best-barbershops-menton",
+    slug: "best-barbershops-menton",
+    title: t("Best barbershops in Menton: haircuts and beard trims", "Meilleurs barbiers a Menton : coupes et tailles de barbe", "Migliori barbieri a Mentone: tagli e cura della barba", "Найкращі барбершопи в Ментоні: стрижки й догляд за бородою"),
+    seoTitle: t("Barbershops in Menton: Haircuts, Beard Trims and Men's Grooming", "Barbiers a Menton : coupes, barbe et coiffure homme", "Barbieri a Mentone: tagli, barba e cura uomo", "Барбершопи в Ментоні: стрижки, борода й чоловічий догляд"),
+    seoDescription: t("A practical Menton guide to central barbers and men's hair salons, with current-service checks, booking links where available and simple French phrases.", "Guide pratique des barbiers et salons homme du centre de Menton, avec verifications utiles, liens de reservation quand disponibles et phrases simples en francais.", "Guida pratica a barbieri e saloni uomo nel centro di Mentone, con controlli utili, link di prenotazione quando disponibili e frasi semplici in francese.", "Практичний гід по центральних барбершопах і чоловічих салонах Ментона: перевірки актуальних послуг, посилання на запис, де вони доступні, і прості французькі фрази."),
+    excerpt: t("A straightforward guide for a haircut or beard trim during a Menton stay. The listed shops are concentrated around the centre; confirm services, prices and appointments directly before going.", "Un guide simple pour une coupe ou une taille de barbe pendant un sejour a Menton. Les adresses sont concentrees autour du centre ; confirmez directement services, tarifs et rendez-vous avant de vous deplacer.", "Una guida semplice per taglio o barba durante un soggiorno a Mentone. Gli indirizzi sono concentrati intorno al centro; conferma direttamente servizi, prezzi e appuntamenti prima di andare.", "Простий гід для стрижки або догляду за бородою під час перебування в Ментоні. Адреси зосереджені біля центру; перед візитом напряму підтвердіть послуги, ціни та запис."),
+    category: "practical",
+    coverImage: "/images/guide/best-barbershops-menton.jpg",
+    coverImageAlt: t("Barber tools in a Menton setting", "Outils de barbier dans un decor de Menton", "Strumenti da barbiere in un contesto di Mentone", "Інструменти барбера в атмосфері Ментона"),
+    visualTheme: "market",
+    visualStatus: "real_image",
+    sourceStatus: "needs_verification",
+    tags: [t("barbers", "barbiers", "barbieri", "барбери"), t("men's grooming", "coiffure homme", "cura uomo", "чоловічий догляд"), t("haircut", "coupe", "taglio", "стрижка"), t("beard trim", "taille de barbe", "cura della barba", "догляд за бородою")],
+    bestFor: [t("short stays", "courts sejours", "soggiorni brevi", "короткі поїздки"), t("central errands", "courses au centre", "commissioni in centro", "справи в центрі"), t("men and families", "hommes et familles", "uomini e famiglie", "чоловіки й сім'ї")],
+    duration: "reference",
+    locationTags: ["menton-centre"],
+    showTransportHelper: false,
+    relatedPlaces: ["coiffeur-max-artisan-barbier-menton", "lemon-barber-menton", "expert-coiffure-barber-menton", "barber-city-menton", "julien-maldinez-menton", "benedetti-studio-for-men-menton", "claudio-dany-coiffure-menton"],
+    canonicalPlaceTypes: ["barbershop"],
+    relatedArticles: ["useful-apps-websites-menton-monaco-italian-riviera", "best-souvenir-shops-menton-monaco-nice", "menton-one-day-itinerary", "menton-old-town", "where-to-stay-in-menton", "best-beaches-in-menton", "quiet-evening-in-menton", "nightlife-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("A practical stop during a Menton stay", "Une pause pratique pendant un sejour a Menton", "Una sosta pratica durante un soggiorno a Mentone", "Практична зупинка під час перебування в Ментоні"),
+        body: [
+          t("A haircut is an ordinary errand, but it can be useful before a dinner, a family photo, an event weekend or a longer stay. Menton's central barber and men's hair-salon addresses are close enough to combine with shopping, the market, the beach or an old-town walk.", "Une coupe est une commission ordinaire, mais elle peut etre utile avant un diner, une photo de famille, un week-end d'evenement ou un sejour plus long. Les barbiers et salons homme du centre de Menton se combinent facilement avec les boutiques, le marche, la plage ou la vieille ville.", "Un taglio e una commissione normale, ma puo essere utile prima di una cena, una foto di famiglia, un weekend di eventi o un soggiorno piu lungo. I barbieri e saloni uomo centrali di Mentone si combinano facilmente con shopping, mercato, spiaggia o centro storico.", "Стрижка - звичайна справа, але вона може бути доречною перед вечерею, сімейною фотосесією, подієвим вікендом чи довшою поїздкою. Центральні барбершопи й чоловічі салони Ментона легко поєднати з магазинами, ринком, пляжем або старим містом."),
+          t("This is a practical shortlist, not a ranking. Menus, prices, opening hours, languages and walk-in rules can change, so use the linked official or booking page where available and confirm directly.", "Cette selection est pratique, pas un classement. Menus de services, tarifs, horaires, langues et accueil sans rendez-vous peuvent changer ; utilisez la page officielle ou de reservation liee quand elle existe et confirmez directement.", "Questa e una selezione pratica, non una classifica. Menu servizi, prezzi, orari, lingue e accesso senza appuntamento possono cambiare; usa la pagina ufficiale o di prenotazione collegata quando disponibile e conferma direttamente.", "Це практична добірка, а не рейтинг. Перелік послуг, ціни, години, мови й прийом без запису можуть змінюватися; використовуйте офіційну сторінку або сторінку запису, де вона є, і підтверджуйте напряму."),
+        ],
+      },
+      {
+        heading: t("Central barber studios", "Studios de barbier au centre", "Studi barber in centro", "Центральні барбер-студії"),
+        body: [
+          t("Coiffeur Max Artisan Barbier and Lemon Barber both have their own web presence. Their central locations make them practical to pair with a morning errand or a late-afternoon walk along the seafront.", "Coiffeur Max Artisan Barbier et Lemon Barber disposent tous deux de leur propre presence en ligne. Leurs adresses centrales se combinent facilement avec une commission le matin ou une promenade en fin d'apres-midi sur le front de mer.", "Coiffeur Max Artisan Barbier e Lemon Barber hanno entrambi una presenza web propria. Le loro posizioni centrali si abbinano facilmente a una commissione mattutina o a una passeggiata sul mare nel tardo pomeriggio.", "Coiffeur Max Artisan Barbier і Lemon Barber мають власну присутність онлайн. Їхні центральні адреси зручно поєднати з ранковими справами або прогулянкою набережною наприкінці дня."),
+        ],
+        relatedPlaceIds: ["coiffeur-max-artisan-barbier-menton", "lemon-barber-menton"],
+      },
+      {
+        heading: t("Other central options", "Autres options centrales", "Altre opzioni centrali", "Інші варіанти в центрі"),
+        body: [
+          t("Expert Coiffure & Barber and Barber City are included as useful central options. For either, check the current service list, opening time and whether a same-day visit is possible before walking over.", "Expert Coiffure & Barber et Barber City sont inclus comme options utiles au centre. Pour les deux, verifiez la liste de services, les horaires et la possibilite d'une visite le jour meme avant de vous y rendre.", "Expert Coiffure & Barber e Barber City sono inclusi come opzioni utili in centro. Per entrambi, controlla menu servizi, orari e possibilita di visita in giornata prima di andarci.", "Expert Coiffure & Barber і Barber City додані як корисні центральні варіанти. Для обох перевіряйте перелік послуг, години та можливість візиту того ж дня перед тим, як вирушати."),
+        ],
+        relatedPlaceIds: ["expert-coiffure-barber-menton", "barber-city-menton"],
+      },
+      {
+        heading: t("Classic and appointment-led choices", "Choix classiques et sur rendez-vous", "Scelte classiche e su appuntamento", "Класичні варіанти й візити за записом"),
+        body: [
+          t("Julien Maldinez lists men's and children's hairdressing on its own site, while Benedetti Studio for Men has an online booking page. Claudio et Dany Coiffure is another central listing to confirm directly when it fits your schedule.", "Julien Maldinez indique la coiffure hommes et enfants sur son propre site, tandis que Benedetti Studio for Men dispose d'une page de reservation en ligne. Claudio et Dany Coiffure est une autre adresse centrale a confirmer directement selon votre planning.", "Julien Maldinez indica sul proprio sito parrucchiere per uomo e bambini, mentre Benedetti Studio for Men ha una pagina di prenotazione online. Claudio et Dany Coiffure e un altro indirizzo centrale da confermare direttamente secondo il tuo programma.", "Julien Maldinez на власному сайті вказує стрижки для чоловіків і дітей, а Benedetti Studio for Men має сторінку онлайн-запису. Claudio et Dany Coiffure - ще одна центральна адреса, яку варто підтвердити напряму під ваш розклад."),
+        ],
+        relatedPlaceIds: ["julien-maldinez-menton", "benedetti-studio-for-men-menton", "claudio-dany-coiffure-menton"],
+      },
+      {
+        heading: t("Walk-in or appointment?", "Sans rendez-vous ou sur rendez-vous ?", "Senza appuntamento o su appuntamento?", "Без запису чи за записом?"),
+        body: [
+          t("If you need a quick haircut, contact the shop before setting out rather than relying on an old listing. A short call or online booking check is especially sensible on Saturdays, before public holidays and during busy Riviera event weeks.", "Si vous avez besoin d'une coupe rapide, contactez le salon avant de partir plutot que de vous fier a une ancienne fiche. Un appel court ou une verification de reservation en ligne est particulierement utile le samedi, avant les jours feries et pendant les semaines d'evenements sur la Riviera.", "Se hai bisogno di un taglio rapido, contatta il salone prima di uscire invece di affidarti a una vecchia scheda. Una breve chiamata o un controllo della prenotazione online e particolarmente utile il sabato, prima delle feste e durante settimane di eventi in Riviera.", "Якщо потрібна швидка стрижка, зв'яжіться з салоном перед виходом, а не покладайтеся на стару картку. Короткий дзвінок або перевірка онлайн-запису особливо доречні в суботу, перед святами та під час насичених подієвих тижнів на Рив'єрі."),
+        ],
+        bullets: [
+          t("Ask whether the barber has time today.", "Demandez si le barbier a un creneau aujourd'hui.", "Chiedi se il barbiere ha disponibilita oggi.", "Запитайте, чи є в барбера вільний час сьогодні."),
+          t("Confirm the service before it begins: haircut, beard trim or both.", "Confirmez le service avant de commencer : coupe, barbe ou les deux.", "Conferma il servizio prima di iniziare: taglio, barba o entrambi.", "Підтвердіть послугу до початку: стрижка, борода чи обидва."),
+          t("Confirm the current price directly.", "Confirmez directement le tarif actuel.", "Conferma direttamente il prezzo aggiornato.", "Напряму підтвердіть актуальну ціну."),
+        ],
+      },
+      {
+        heading: t("Useful French phrases", "Phrases utiles en francais", "Frasi utili in francese", "Корисні фрази французькою"),
+        body: [
+          t("You do not need specialised vocabulary to book a simple service. These short phrases are enough for most practical conversations.", "Vous n'avez pas besoin d'un vocabulaire specialise pour reserver un service simple. Ces phrases courtes suffisent pour la plupart des echanges pratiques.", "Non serve vocabolario specializzato per prenotare un servizio semplice. Queste brevi frasi bastano per la maggior parte delle conversazioni pratiche.", "Для простого запису не потрібна спеціальна лексика. Цих коротких фраз достатньо для більшості практичних розмов."),
+        ],
+        bullets: [
+          t("Bonjour, je voudrais une coupe homme, s'il vous plait.", "Bonjour, je voudrais une coupe homme, s'il vous plait.", "Bonjour, je voudrais une coupe homme, s'il vous plait.", "Bonjour, je voudrais une coupe homme, s'il vous plait."),
+          t("Est-ce que vous avez une disponibilite aujourd'hui ?", "Est-ce que vous avez une disponibilite aujourd'hui ?", "Est-ce que vous avez une disponibilite aujourd'hui ?", "Est-ce que vous avez une disponibilite aujourd'hui ?"),
+          t("Je voudrais aussi tailler la barbe.", "Je voudrais aussi tailler la barbe.", "Je voudrais aussi tailler la barbe.", "Je voudrais aussi tailler la barbe."),
+        ],
+      },
+      {
+        heading: t("Fit it into a Menton day", "L'integrer a une journee a Menton", "Inserirlo in una giornata a Mentone", "Як додати це до дня в Ментоні"),
+        body: [
+          t("The addresses in this guide are in or near the centre, so a haircut can stay a small part of the day rather than a separate excursion. From an Azur Menton apartment, plan it around the beach, old town, market or an evening reservation, then return to the apartment at your own pace.", "Les adresses de ce guide sont dans ou pres du centre ; une coupe peut donc rester une petite partie de la journee plutot qu'une excursion a part. Depuis un appartement Azur Menton, combinez-la avec la plage, la vieille ville, le marche ou une reservation le soir, puis rentrez a votre rythme.", "Gli indirizzi di questa guida sono in centro o nelle vicinanze, quindi un taglio puo restare una piccola parte della giornata invece di una gita separata. Da un appartamento Azur Menton, abbinalo a spiaggia, centro storico, mercato o una prenotazione serale, poi rientra con calma.", "Адреси з цього гіда розташовані в центрі або поруч, тому стрижка може лишитися невеликою частиною дня, а не окремою поїздкою. З апартаментів Azur Menton поєднайте її з пляжем, старим містом, ринком або вечірнім бронюванням, а потім повертайтеся у власному темпі."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Use the official or booking link where available, then confirm the service and time directly.", "Utilisez le lien officiel ou de reservation lorsqu'il existe, puis confirmez directement le service et l'horaire.", "Usa il link ufficiale o di prenotazione quando disponibile, poi conferma direttamente servizio e orario.", "Використовуйте офіційне посилання або посилання на запис, де воно є, а потім напряму підтвердіть послугу й час."),
+      t("Do not assume a walk-in slot, language, price or opening hour from an old listing.", "Ne supposez pas un creneau sans rendez-vous, une langue, un tarif ou un horaire a partir d'une ancienne fiche.", "Non presumere accesso senza appuntamento, lingua, prezzo o orario da una vecchia scheda.", "Не припускайте прийом без запису, мову, ціну чи години роботи за старою карткою."),
     ],
   }),
   shortArticle({

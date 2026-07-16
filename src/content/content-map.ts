@@ -91,7 +91,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Practical stay", "Sejour pratique", "Soggiorno pratico", "Практичне проживання"),
     description: t("Car-free travel, airport arrivals, everyday essentials and the right base.", "Sans voiture, arrivee depuis l'aeroport, essentiels et bonne base de sejour.", "Senza auto, arrivo dall'aeroporto, essenziali e base giusta.", "Без авто, прибуття з аеропорту, щоденні потреби та правильна база."),
     categories: ["practical"],
-    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton"],
+    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "best-barbershops-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton"],
     priorityGuideSlugs: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton"],
   },
   {
@@ -159,6 +159,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-public-transport", query: t("public transport in Menton", "transports publics a Menton", "trasporti pubblici a Mentone", "громадський транспорт у Ментоні"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "public-transport-in-menton", season: "all-year" },
   { id: "menton-parking", query: t("parking in Menton", "stationnement a Menton", "parcheggio a Mentone", "паркування в Ментоні"), collectionId: "practical-stay", priority: "next", status: "planned", season: "all-year" },
   { id: "menton-petrol-stations", query: t("petrol stations in Menton", "stations-service a Menton", "stazioni di servizio a Mentone", "заправки в Ментоні"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "petrol-stations-menton", season: "all-year" },
+  { id: "menton-barbershops", query: t("barbershops in Menton", "barbiers a Menton", "barbieri a Mentone", "барбершопи в Ментоні"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "best-barbershops-menton", season: "all-year" },
   { id: "menton-tennis-padel", query: t("tennis and padel near Menton", "tennis et padel pres de Menton", "tennis e padel vicino a Mentone", "теніс і падел біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "tennis-padel-courts-menton", season: "all-year" },
   { id: "menton-golf", query: t("golf near Menton", "golf pres de Menton", "golf vicino a Mentone", "гольф біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "golf-near-menton", season: "all-year" },
   { id: "menton-skateparks", query: t("skateparks near Menton", "skateparks pres de Menton", "skatepark vicino a Mentone", "скейтпарки біля Ментона"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "skateparks-near-menton", season: "all-year" },

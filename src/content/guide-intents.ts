@@ -162,7 +162,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "Супермаркети, корисні застосунки, екстрені контакти й локальна логістика.",
     ),
     canonicalGuideSlug: "useful-apps-websites-menton-monaco-italian-riviera",
-    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "best-souvenir-shops-menton-monaco-nice", "tennis-padel-courts-menton", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton", "official-tourism-websites-menton-riviera", "radio-stations-menton-riviera"],
+    supportingGuideSlugs: ["fete-du-citron-menton-practical-guide", "supermarkets-in-menton", "best-souvenir-shops-menton-monaco-nice", "best-barbershops-menton", "tennis-padel-courts-menton", "useful-numbers-emergency-contacts-menton", "public-transport-in-menton", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton", "official-tourism-websites-menton-riviera", "radio-stations-menton-riviera"],
     relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "au-pays-du-citron-menton", "u-express-menton-centre", "pharmacie-lafayette-des-jardins", "pharmacie-victoria-menton", "parking-vieille-ville-sablettes", "parking-saint-roch-menton", "parking-gare-sncf-menton", "office-tourisme-menton-riviera-merveilles", "tennis-club-de-menton", "centre-hospitalier-la-palmosa-menton", "commissariat-police-menton"],
     relatedApartmentKeys: allApartments,
   },
