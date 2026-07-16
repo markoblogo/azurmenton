@@ -16,6 +16,7 @@ export type MapCategoryId =
   | "gardens"
   | "viewpoints"
   | "cycling"
+  | "fuel"
   | "parking"
   | "ports"
   | "golf"
@@ -52,6 +53,7 @@ export const mapCategories: MapCategory[] = [
   { id: "gardens", placeTypes: ["garden"], label: label("Gardens", "Jardins", "Giardini", "Сади") },
   { id: "viewpoints", placeTypes: ["viewpoint"], label: label("Viewpoints", "Points de vue", "Panorami", "Оглядові місця") },
   { id: "cycling", placeTypes: ["bike-shop", "cycle-route"], label: label("Cycling", "Velo", "Bici", "Велосипеди") },
+  { id: "fuel", placeTypes: ["fuel-station"], label: label("Fuel", "Carburant", "Carburante", "Пальне") },
   { id: "parking", placeTypes: ["parking"], label: label("Parking", "Parkings", "Parcheggi", "Паркінги") },
   { id: "ports", placeTypes: ["port"], label: label("Ports", "Ports", "Porti", "Порти") },
   { id: "golf", placeTypes: ["golf-course"], label: label("Golf", "Golf", "Golf", "Гольф") },

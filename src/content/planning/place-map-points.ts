@@ -11,6 +11,9 @@ export type PlaceMapPoint = {
 };
 
 export const placeMapPoints: PlaceMapPoint[] = [
+  { placeId: "bp-menton-union", lat: 43.7659602, lng: 7.487676, review: { source: "official_address", precision: "entrance", checkedOn: "2026-07-16", sourceUrl: "https://map.bp.com/pl-PL/FR/stacja-paliw/menton/bp-menton-union/576026768" } },
+  { placeId: "intermarche-carei-fuel-station", lat: 43.7854, lng: 7.4866, review: { source: "official_address", precision: "entrance", checkedOn: "2026-07-16", sourceUrl: "https://www.intermarche.com/magasins/01296/menton-06500/infos-pratiques" } },
+  { placeId: "intermarche-val-castagnins-fuel-station", lat: 43.785, lng: 7.4934, review: { source: "official_address", precision: "entrance", checkedOn: "2026-07-16", sourceUrl: "https://www.intermarche.com/magasins/01298/menton-06500/infos-pratiques" } },
   { placeId: "grand-arenas-nice", lat: 43.6692, lng: 7.2155, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-15", sourceUrl: "https://www.openstreetmap.org/search?query=Grand%20Arenas%20Nice" } },
   { placeId: "cedric-grolet-monte-carlo", lat: 43.7390094, lng: 7.4274682, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/node/11339077004" } },
   { placeId: "chocolaterie-de-monaco", lat: 43.7314676, lng: 7.4251491, review: { source: "openstreetmap", precision: "area", checkedOn: "2026-07-14", sourceUrl: "https://www.openstreetmap.org/way/4227212" } },

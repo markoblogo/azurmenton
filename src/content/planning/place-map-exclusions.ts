@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "totalenergies-menton-garavan", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=TotalEnergies%20Menton%20Garavan" },
+  { placeId: "hyris-port-garavan-marine-fuel", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Hyris%20Port%20de%20Menton%20Garavan" },
   { placeId: "parking-pinede-du-bastion-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
   { placeId: "parking-baden-baden-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },
   { placeId: "rue-prato-ev-charger-menton", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton.fr/Bornes-de-recharge-vehicules-electriques-menton.html" },

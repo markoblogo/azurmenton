@@ -4857,6 +4857,7 @@ export const guideArticles: GuideArticle[] = [
       "italian-riviera-day-trip-from-menton",
       "morning-walk-france-to-italy",
       "day-trips-from-menton",
+      "petrol-stations-menton",
     ],
     relatedApartments: allApartments,
     sections: [
@@ -5338,6 +5339,8 @@ export const guideArticles: GuideArticle[] = [
       "how-to-get-to-menton-from-nice-airport",
       "airports-near-menton-live-flights",
       "electric-car-charging-menton",
+      "petrol-stations-menton",
+      "car-rental-menton-nice-airport-convertibles",
       "menton-without-a-car",
       "italian-riviera-day-trip-from-menton",
       "day-trips-from-menton",
@@ -5649,7 +5652,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "petrol-stations-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedPlaces: ["nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "menton-station", "menton-garavan-station", "parking-gare-sncf-menton", "parking-saint-roch-menton", "monaco-monte-carlo-station"],
     relatedApartments: allApartments,
     sections: [
@@ -5994,7 +5997,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "nice", "monaco", "italian-riviera"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["europcar-menton", "ada-menton-gare", "rent-a-car-menton", "free2move-rent-menton", "nice-airport-car-rental-center", "sixt-nice-airport", "rent-a-classic-car-nice", "sunset-ride-nice", "nice-cote-dazur-airport", "menton-station", "dolceacqua", "sospel-bevera-valley", "col-de-turini", "eze-village", "monaco-monte-carlo", "monte-carlo-golf-club"],
-    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "electric-car-charging-menton", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["tennis-padel-courts-menton", "cycling-bike-rental-menton", "menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "electric-car-charging-menton", "petrol-stations-menton", "public-transport-in-menton", "day-trips-from-menton", "mountains-snow-skiing-near-menton", "golf-near-menton", "wine-tasting-near-menton", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7863,7 +7866,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "garavan"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["parking-gare-sncf-menton", "parking-vieille-ville-sablettes", "parking-pinede-du-bastion-menton", "parking-baden-baden-menton", "rue-prato-ev-charger-menton", "parking-place-darmes-menton", "avenue-cernuschi-ev-charger-menton", "parking-araucaria-menton", "parking-lavandieres-menton", "port-de-garavan"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton", "petrol-stations-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -7913,6 +7916,81 @@ export const guideArticles: GuideArticle[] = [
       t("Check live charging status just before the final approach.", "Verifiez le statut en direct juste avant l'approche finale.", "Controlla lo stato live subito prima dell'arrivo.", "Перевіряйте live-статус безпосередньо перед прибуттям."),
       t("Do not treat a listed station as a reservation or a guarantee of a free connector.", "Une borne listee n'est ni une reservation ni la garantie d'une prise libre.", "Una stazione elencata non e una prenotazione ne una garanzia di presa libera.", "Зазначена станція не є бронюванням чи гарантією вільного роз'єму."),
       t("Ask about apartment parking separately from charging.", "Demandez le parking d'appartement separement de la recharge.", "Chiedi del parcheggio dell'appartamento separatamente dalla ricarica.", "Уточнюйте паркування в апартаментах окремо від заряджання."),
+    ],
+  }),
+  shortArticle({
+    id: "petrol-stations-menton",
+    slug: "petrol-stations-menton",
+    title: t("Petrol stations in Menton: where to refuel near the town centre and Garavan", "Stations-service a Menton : ou faire le plein pres du centre et de Garavan", "Stazioni di servizio a Mentone: dove fare rifornimento vicino al centro e a Garavan", "Заправки в Ментоні: де заправитися біля центру та Garavan"),
+    seoTitle: t("Petrol Stations in Menton: Central, Garavan and Supermarket Fuel Stops", "Stations-service a Menton : centre, Garavan et supermarches", "Stazioni di servizio a Mentone: centro, Garavan e supermercati", "Заправки в Ментоні: центр, Garavan і супермаркети"),
+    seoDescription: t("A practical guide to refuelling in Menton: central and Garavan stops, supermarket fuel stations, marine fuel at the port and careful rental-car tips.", "Guide pratique pour faire le plein a Menton : centre, Garavan, stations de supermarche, carburant marin et conseils location.", "Guida pratica al rifornimento a Mentone: centro, Garavan, stazioni dei supermercati, carburante nautico e consigli per il noleggio.", "Практичний гід із заправок у Ментоні: центр, Garavan, супермаркетні заправки, морське паливо й поради для оренди авто."),
+    excerpt: t("For a rental car, Italian day trip or late arrival, it helps to know which Menton fuel stops are central, Garavan-side or paired with a supermarket. Always check live operator details before relying on a particular station.", "Pour une voiture de location, une excursion en Italie ou une arrivee tardive, il est utile de connaitre les stations du centre, de Garavan et celles associees a un supermarche. Verifiez toujours les informations actuelles de l'operateur.", "Per un'auto a noleggio, una gita in Italia o un arrivo tardivo, e utile conoscere le stazioni in centro, lato Garavan e quelle abbinate a un supermercato. Controlla sempre le informazioni aggiornate dell'operatore.", "Для орендованого авто, поїздки в Італію чи пізнього прибуття корисно знати заправки в центрі, з боку Garavan і біля супермаркетів. Завжди перевіряйте актуальну інформацію оператора."),
+    category: "practical",
+    coverImage: "/images/guide/petrol-stations-menton.jpg",
+    coverImageAlt: t("Petrol station on the Menton Riviera", "Station-service sur la Riviera de Menton", "Stazione di servizio sulla Riviera di Mentone", "Заправка на Рив'єрі в Ментоні"),
+    visualTheme: "transport",
+    visualStatus: "project_illustration",
+    sourceStatus: "needs_verification",
+    tags: [t("petrol stations", "stations-service", "stazioni di servizio", "заправки"), t("driving", "conduite", "guida", "водіння"), t("rental car", "voiture de location", "auto a noleggio", "орендоване авто"), t("Garavan", "Garavan", "Garavan", "Garavan")],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "garavan", "italian-riviera"],
+    relatedPlaces: ["totalenergies-menton-garavan", "bp-menton-union", "intermarche-carei-fuel-station", "intermarche-val-castagnins-fuel-station", "hyris-port-garavan-marine-fuel", "intermarche-hyper-menton", "intermarche-super-borrigo", "port-de-garavan"],
+    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "supermarkets-in-menton", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "useful-apps-websites-menton-monaco-italian-riviera", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Refuelling in Menton without overplanning", "Faire le plein a Menton sans surplanifier", "Fare rifornimento a Mentone senza pianificare troppo", "Заправка в Ментоні без надмірного планування"),
+        body: [
+          t("Menton has a small set of useful fuel stops rather than a large motorway-style choice. The practical distinction is simple: a central-side option, a Garavan-side option, two supermarket stations, and marine fuel at the port. Prices, opening details and payment arrangements are live information, not promises in this guide.", "Menton propose quelques stations utiles plutot qu'un grand choix de type autoroutier. La distinction pratique est simple : une option cote centre, une cote Garavan, deux stations de supermarche et du carburant marin au port. Prix, horaires et paiement sont des informations en direct, pas des promesses de ce guide.", "Mentone ha poche soste utili invece di una grande scelta da autostrada. La distinzione pratica e semplice: un'opzione lato centro, una lato Garavan, due stazioni dei supermercati e carburante nautico al porto. Prezzi, orari e pagamenti sono informazioni live, non promesse di questa guida.", "У Ментоні є кілька корисних заправок, а не великий вибір як на автостраді. Практична різниця проста: варіант біля центру, варіант з боку Garavan, дві супермаркетні заправки та морське паливо в порту. Ціни, години й оплата є поточною інформацією, а не обіцянкою цього гіда."),
+        ],
+      },
+      {
+        heading: t("Central Menton and the Garavan side", "Menton centre et cote Garavan", "Centro di Mentone e lato Garavan", "Центр Ментона та бік Garavan"),
+        body: [
+          t("BP Menton Union is a central-side stop listed by the operator for petrol and diesel. TotalEnergies Menton Garavan is a useful Garavan-side point to check before a coastal drive, an Italian run or a return journey. Open the operator page or map listing shortly before you go, especially early or late in the day.", "BP Menton Union est une station cote centre indiquee par l'operateur pour essence et diesel. TotalEnergies Menton Garavan est un point utile cote Garavan a verifier avant une route cotiere, un trajet en Italie ou un retour. Ouvrez la page de l'operateur ou la fiche carte peu avant de partir, surtout tot ou tard.", "BP Menton Union e una sosta lato centro indicata dall'operatore per benzina e diesel. TotalEnergies Menton Garavan e un punto utile lato Garavan da verificare prima di una strada costiera, di un giro in Italia o del rientro. Apri la pagina dell'operatore o la scheda della mappa poco prima di andare, soprattutto presto o tardi.", "BP Menton Union є заправкою ближче до центру, яку оператор вказує для бензину та дизеля. TotalEnergies Menton Garavan є корисною точкою з боку Garavan перед прибережною дорогою, поїздкою до Італії чи поверненням. Відкрийте сторінку оператора або картку на карті незадовго до виїзду, особливо рано чи пізно."),
+        ],
+        officialLinks: [{ label: t("BP Menton Union official station page", "Page officielle BP Menton Union", "Pagina ufficiale BP Menton Union", "Офіційна сторінка BP Menton Union"), url: "https://map.bp.com/pl-PL/FR/stacja-paliw/menton/bp-menton-union/576026768" }],
+        relatedPlaceIds: ["bp-menton-union", "totalenergies-menton-garavan"],
+      },
+      {
+        heading: t("Supermarket fuel stations", "Stations de supermarche", "Stazioni dei supermercati", "Супермаркетні заправки"),
+        body: [
+          t("The Intermarche stations work well when refuelling belongs with a proper apartment stock-up. Intermarche Hyper at Carei is at 45 Avenue Saint-Roman; Intermarche Super at Val des Castagnins is at 91 Route Val des Castagnins. Its official page currently lists the fuel station as open 24 hours, but recheck before making an early or late journey around it.", "Les stations Intermarche sont pratiques lorsque le plein accompagne de vraies courses pour l'appartement. Intermarche Hyper de Carei est au 45 avenue Saint-Roman ; Intermarche Super du Val des Castagnins est au 91 route Val des Castagnins. Sa page officielle indique actuellement la station ouverte 24 h/24, mais reverifiez avant de baser un trajet tot ou tard sur cette information.", "Le stazioni Intermarche sono utili quando il rifornimento coincide con una spesa vera per l'appartamento. Intermarche Hyper Carei e al 45 Avenue Saint-Roman; Intermarche Super Val des Castagnins e al 91 Route Val des Castagnins. La sua pagina ufficiale indica attualmente la stazione aperta 24 ore su 24, ma ricontrolla prima di basare un viaggio presto o tardi su questa informazione.", "Заправки Intermarche зручні, коли дозаправка поєднується з повноцінними закупами для апартаментів. Intermarche Hyper у Carei розташований на 45 Avenue Saint-Roman; Intermarche Super у Val des Castagnins - на 91 Route Val des Castagnins. Його офіційна сторінка наразі вказує заправку як відкриту 24 години, але перепровірте перед ранньою чи пізньою поїздкою."),
+        ],
+        officialLinks: [
+          { label: t("Intermarche Hyper Menton information", "Informations Intermarche Hyper Menton", "Informazioni Intermarche Hyper Menton", "Інформація Intermarche Hyper Menton"), url: "https://www.intermarche.com/magasins/01296/menton-06500/infos-pratiques" },
+          { label: t("Intermarche Super Menton information", "Informations Intermarche Super Menton", "Informazioni Intermarche Super Menton", "Інформація Intermarche Super Menton"), url: "https://www.intermarche.com/magasins/01298/menton-06500/infos-pratiques" },
+        ],
+        relatedPlaceIds: ["intermarche-carei-fuel-station", "intermarche-val-castagnins-fuel-station", "intermarche-hyper-menton", "intermarche-super-borrigo"],
+      },
+      {
+        heading: t("Port Garavan: marine fuel is not car fuel", "Port Garavan : carburant marin, pas voiture", "Porto Garavan: carburante nautico, non per auto", "Порт Garavan: морське паливо, не для авто"),
+        body: [
+          t("Hyris at Port de Menton Garavan is included so the distinction is clear: it is a marine-fuel service for boats, not a normal place to refuel a rental car. Boaters should confirm access and current service details directly with the port-side operator.", "Hyris au Port de Menton Garavan est inclus pour clarifier la distinction : c'est un service de carburant marin pour bateaux, pas un lieu normal pour faire le plein d'une voiture de location. Les plaisanciers doivent confirmer directement l'acces et les details actuels.", "Hyris al Porto di Mentone Garavan e incluso per chiarire la distinzione: e un servizio di carburante nautico per barche, non un posto normale per rifornire un'auto a noleggio. I diportisti devono confermare direttamente accesso e dettagli aggiornati.", "Hyris у Port de Menton Garavan додано, щоб чітко розрізнити: це морська паливна служба для човнів, а не звичайне місце для заправки орендованого авто. Власникам човнів слід напряму підтвердити доступ і поточні деталі."),
+        ],
+        relatedPlaceIds: ["hyris-port-garavan-marine-fuel", "port-de-garavan"],
+      },
+      {
+        heading: t("Rental-car and Italian-trip checklist", "Liste pratique : location et Italie", "Lista pratica: noleggio e Italia", "Чекліст для оренди авто й Італії"),
+        body: [
+          t("Check the fuel type marked on the rental-car paperwork and filler flap, keep the receipt if your rental terms require it, and do not leave the final refill to an unfamiliar late-night stop. For a drive into Italy, refuel when it fits your route rather than assuming a particular border-side station will be convenient.", "Verifiez le carburant indique sur les documents et la trappe de la voiture de location, gardez le ticket si les conditions le demandent et ne laissez pas le dernier plein a une station inconnue tard le soir. Pour l'Italie, faites le plein quand cela convient a votre itineraire plutot que de supposer une station pratique pres de la frontiere.", "Controlla il carburante indicato nei documenti e sullo sportellino dell'auto a noleggio, conserva lo scontrino se i termini lo richiedono e non lasciare l'ultimo pieno a una stazione sconosciuta tardi la sera. Per l'Italia, fai rifornimento quando si adatta al percorso invece di supporre che una stazione al confine sia comoda.", "Перевірте тип пального в документах і на лючку орендованого авто, збережіть чек, якщо цього вимагають умови оренди, і не залишайте фінальну заправку на незнайому пізню зупинку. Для Італії заправляйтеся тоді, коли це пасує маршруту, а не припускайте, що заправка біля кордону буде зручною."),
+        ],
+        guideLinkSlug: "car-rental-menton-nice-airport-convertibles",
+        guideLinkLabel: t("Read the Menton car-rental guide", "Lire le guide location de voiture", "Leggi la guida al noleggio auto", "Читайте гід з оренди авто"),
+      },
+      {
+        heading: t("Staying in Menton with a car", "Sejourner a Menton avec une voiture", "Soggiornare a Mentone con un'auto", "Перебування в Ментоні з авто"),
+        body: [
+          t("All Azur Menton apartments have private underground parking for guests by reservation where applicable. Ask about your arrival, parking and vehicle needs when you check availability; public fuel stops are useful trip logistics, not a replacement for confirming your apartment arrangements.", "Les appartements Azur Menton disposent d'un parking souterrain prive pour les voyageurs sur reservation lorsque cela s'applique. Demandez l'arrivee, le parking et les besoins lies au vehicule lors de votre demande ; les stations publiques aident pour la logistique, sans remplacer la confirmation des dispositions de l'appartement.", "Gli appartamenti Azur Menton dispongono di parcheggio sotterraneo privato per gli ospiti su prenotazione dove applicabile. Chiedi di arrivo, parcheggio e necessita del veicolo quando verifichi la disponibilita; le stazioni pubbliche aiutano nella logistica, ma non sostituiscono la conferma degli accordi dell'appartamento.", "Апартаменти Azur Menton мають приватне підземне паркування для гостей за бронюванням, де це застосовно. Уточнюйте прибуття, паркування та потреби автомобіля під час перевірки доступності; публічні заправки корисні для логістики, але не замінюють підтвердження умов апартаментів."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check the operator's current page before a late or early refuelling stop.", "Verifiez la page actuelle de l'operateur avant un plein tardif ou matinal.", "Controlla la pagina aggiornata dell'operatore prima di un rifornimento tardi o presto.", "Перевіряйте актуальну сторінку оператора перед пізньою чи ранньою заправкою."),
+      t("Do not confuse the Garavan marine-fuel service with a car station.", "Ne confondez pas le service carburant marin de Garavan avec une station automobile.", "Non confondere il servizio nautico di Garavan con una stazione per auto.", "Не плутайте морську паливну службу Garavan із заправкою для авто."),
+      t("For rentals, follow the vehicle's stated fuel type and keep any required receipt.", "Pour une location, suivez le carburant indique par le vehicule et gardez tout ticket requis.", "Per un noleggio, segui il carburante indicato dal veicolo e conserva gli scontrini richiesti.", "Для оренди дотримуйтесь указаного для авто типу пального й зберігайте потрібні чеки."),
     ],
   }),
 ];
