@@ -22,6 +22,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - Booking requests are not confirmations; availability and final terms require human handling.
 - Events, hours, prices, routes, and official programmes need current source support. Annual-series pages may use cautious windows when exact dates are not confirmed.
 - Analytics uses aggregate booking-funnel context only. Never put names, email addresses, phone numbers, or message text into analytics.
+- Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.
 
 ## Language And Claim Boundaries
 
@@ -31,7 +32,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 
 ## Source Surfaces
 
-- `README.md`, `AGENTS.md`, `docs/content-operations.md`, and `docs/ANALYTICS.md`.
+- `README.md`, `AGENTS.md`, `docs/content-operations.md`, `docs/ANALYTICS.md`, and `docs/cortex-abv-guest-ai-boundary.md`.
 - `src/content/`, `src/lib/structured-data.ts`, and booking request routes.
 
 ## Maintenance

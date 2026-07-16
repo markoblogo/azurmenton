@@ -20,6 +20,8 @@ The site combines direct booking, apartment presentation and evergreen local con
 
 Agent-facing positioning, conversion, proof and claim boundaries are maintained in [`docs/product-context.md`](docs/product-context.md). Use it before SEO, analytics, public-copy, or recurring content work; it does not authorize automated publishing or booking changes.
 
+The future CortexABV guest-AI path is documented in [`docs/cortex-abv-guest-ai-boundary.md`](docs/cortex-abv-guest-ai-boundary.md). It is not a deployed site feature: any future chat remains read-only, guide-grounded, isolated from personal/project context, and unable to modify booking or publish content.
+
 ## Stack
 
 - Next.js `16.2.6` App Router, React `19`, TypeScript, Tailwind CSS `4`
@@ -177,6 +179,8 @@ Stay pages are commercial intent pages, while stay plans are compact editorial s
 - `src/content/guest-perks.ts`
 
 `/llms.txt` gives AI assistants a concise public summary of the site, apartment pages and booking model. Weekly digest content is a human-reviewed foundation only; it must not auto-publish unverified AI drafts. Partner and guest-perk models are conservative foundations for future guest-only samples, vouchers or disclosed sponsored visibility, not public advertising blocks on booking pages.
+
+The planned CortexABV guest surface is separately governed as a private, read-only project tenant. It may later answer only from a reviewed versioned guide/FAQ/place source pack, cite its sources for factual claims, abstain on unsupported current details, and hand off availability, booking, price, payment, safety, or emergency requests. It must not read personal or sibling-project context, retain guest data, operate booking routes, or be inferred from `/llms.txt` alone. See [`docs/cortex-abv-guest-ai-boundary.md`](docs/cortex-abv-guest-ai-boundary.md).
 
 ### Events
 
