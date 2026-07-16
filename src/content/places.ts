@@ -5669,6 +5669,41 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "coiffeur-max-artisan-barbier-menton": {
+    image: "/images/guide/coiffeur-max-artisan-barbier-menton.jpg",
+    imageAlt: text("Illustration of Coiffeur Max Artisan Barbier in Menton", "Illustration de Coiffeur Max Artisan Barbier a Menton", "Illustrazione di Coiffeur Max Artisan Barbier a Mentone", "Ілюстрація Coiffeur Max Artisan Barbier у Ментоні"),
+    visualTheme: "market",
+  },
+  "lemon-barber-menton": {
+    image: "/images/guide/lemon-barber-menton.jpg",
+    imageAlt: text("Illustration of Lemon Barber in Menton", "Illustration de Lemon Barber a Menton", "Illustrazione di Lemon Barber a Mentone", "Ілюстрація Lemon Barber у Ментоні"),
+    visualTheme: "market",
+  },
+  "expert-coiffure-barber-menton": {
+    image: "/images/guide/expert-coiffure-barber-menton.jpg",
+    imageAlt: text("Illustration of Expert Coiffure & Barber in Menton", "Illustration d'Expert Coiffure & Barber a Menton", "Illustrazione di Expert Coiffure & Barber a Mentone", "Ілюстрація Expert Coiffure & Barber у Ментоні"),
+    visualTheme: "market",
+  },
+  "barber-city-menton": {
+    image: "/images/guide/barber-city-menton.jpg",
+    imageAlt: text("Illustration of Barber City in Menton", "Illustration de Barber City a Menton", "Illustrazione di Barber City a Mentone", "Ілюстрація Barber City у Ментоні"),
+    visualTheme: "market",
+  },
+  "julien-maldinez-menton": {
+    image: "/images/guide/julien-maldinez-menton.jpg",
+    imageAlt: text("Illustration of Julien Maldinez Coiffeur Hommes et Enfants in Menton", "Illustration de Julien Maldinez Coiffeur Hommes et Enfants a Menton", "Illustrazione di Julien Maldinez Coiffeur Hommes et Enfants a Mentone", "Ілюстрація Julien Maldinez Coiffeur Hommes et Enfants у Ментоні"),
+    visualTheme: "market",
+  },
+  "benedetti-studio-for-men-menton": {
+    image: "/images/guide/benedetti-studio-for-men-menton.jpg",
+    imageAlt: text("Illustration of Benedetti Studio for Men in Menton", "Illustration de Benedetti Studio for Men a Menton", "Illustrazione di Benedetti Studio for Men a Mentone", "Ілюстрація Benedetti Studio for Men у Ментоні"),
+    visualTheme: "market",
+  },
+  "claudio-dany-coiffure-menton": {
+    image: "/images/guide/claudio-dany-coiffure-menton.jpg",
+    imageAlt: text("Illustration of Claudio et Dany Coiffure in Menton", "Illustration de Claudio et Dany Coiffure a Menton", "Illustrazione di Claudio et Dany Coiffure a Mentone", "Ілюстрація Claudio et Dany Coiffure у Ментоні"),
+    visualTheme: "market",
+  },
   "totalenergies-menton-garavan": {
     image: "/images/guide/totalenergies-menton-garavan.webp",
     imageAlt: text("Illustration of TotalEnergies Menton Garavan", "Illustration de TotalEnergies Menton Garavan", "Illustrazione di TotalEnergies Menton Garavan", "Ілюстрація TotalEnergies Menton Garavan"),
