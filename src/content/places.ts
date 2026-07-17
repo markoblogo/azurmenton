@@ -5782,6 +5782,41 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "orecife-coffee-coworking-menton": {
+    image: "/images/guide/orecife-coffee-coworking-menton.jpg",
+    imageAlt: text("O'Recife Coffee Shop & Coworking in Menton", "O'Recife Coffee Shop & Coworking a Menton", "O'Recife Coffee Shop & Coworking a Mentone", "O'Recife Coffee Shop & Coworking у Ментоні"),
+    visualTheme: "transport",
+  },
+  "mywo-menton-centre": {
+    image: "/images/guide/mywo-menton-centre.jpg",
+    imageAlt: text("myWO Menton Centre workspace", "Espace myWO Menton Centre", "Spazio myWO Menton Centre", "Робочий простір myWO Menton Centre"),
+    visualTheme: "transport",
+  },
+  "mywo-menton-bord-de-mer": {
+    image: "/images/guide/mywo-menton-bord-de-mer.jpg",
+    imageAlt: text("myWO Menton Bord de Mer workspace", "Espace myWO Menton Bord de Mer", "Spazio myWO Menton Bord de Mer", "Робочий простір myWO Menton Bord de Mer"),
+    visualTheme: "transport",
+  },
+  "cafe-coworking-menton": {
+    image: "/images/guide/cafe-coworking-menton.jpg",
+    imageAlt: text("Cafe Coworking in Menton", "Cafe Coworking a Menton", "Cafe Coworking a Mentone", "Cafe Coworking у Ментоні"),
+    visualTheme: "transport",
+  },
+  "la-pepite-business-center-menton": {
+    image: "/images/guide/la-pepite-business-center-menton.jpg",
+    imageAlt: text("La Pepite Business Center in Menton", "La Pepite Business Center a Menton", "La Pepite Business Center a Mentone", "La Pepite Business Center у Ментоні"),
+    visualTheme: "transport",
+  },
+  "coworking-menton-single-desk": {
+    image: "/images/guide/coworking-menton-single-desk.jpg",
+    imageAlt: text("Coworking Menton workspace", "Espace Coworking Menton", "Spazio Coworking Menton", "Робочий простір Coworking Menton"),
+    visualTheme: "transport",
+  },
+  "eunoia-coffee-menton": {
+    image: "/images/guide/eunoia-coffee-menton.jpg",
+    imageAlt: text("Eunoia Coffee at Port de Garavan", "Eunoia Coffee au Port de Garavan", "Eunoia Coffee al Port de Garavan", "Eunoia Coffee у Port de Garavan"),
+    visualTheme: "transport",
+  },
   "coiffeur-max-artisan-barbier-menton": {
     image: "/images/guide/coiffeur-max-artisan-barbier-menton.jpg",
     imageAlt: text("Illustration of Coiffeur Max Artisan Barbier in Menton", "Illustration de Coiffeur Max Artisan Barbier a Menton", "Illustrazione di Coiffeur Max Artisan Barbier a Mentone", "Ілюстрація Coiffeur Max Artisan Barbier у Ментоні"),
