@@ -23,7 +23,7 @@ export type GuideArtworkCardViewModel = {
 
 export function ArtworkCard({ artwork, sourceLabel, locale }: { artwork: GuideArtworkCardViewModel; sourceLabel: string; locale: Locale }) {
   const alt = artwork.imageAlt ?? artwork.workTitle;
-  const preservesOriginalSheet = Boolean(artwork.presentation);
+  const preservesOriginalSheet = artwork.presentation === "folio";
   const cardLayout = artwork.presentation === "folio" ? "md:col-span-2 md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)]" : "md:grid-cols-[0.42fr_1fr]";
 
   return (
