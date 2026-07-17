@@ -40,6 +40,8 @@ export type LocalizedGuideVideoEmbed = Omit<GuideVideoEmbed, "title" | "caption"
   secondaryLinks?: GuideSectionOfficialLink[];
 };
 
+export type GuideArtworkPresentation = "folio" | "pair";
+
 export type GuideArtworkCard = {
   id: string;
   artist: string;
@@ -48,13 +50,18 @@ export type GuideArtworkCard = {
   image?: string;
   imageAlt?: LocalizedText;
   sourceUrl?: string;
+  medium?: LocalizedText;
+  artistNote?: LocalizedText;
+  presentation?: GuideArtworkPresentation;
   rightsNote: LocalizedText;
   locationNote: LocalizedText;
 };
 
-export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "imageAlt" | "rightsNote" | "locationNote"> & {
+export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "imageAlt" | "medium" | "artistNote" | "rightsNote" | "locationNote"> & {
   workTitle: string;
   imageAlt?: string;
+  medium?: string;
+  artistNote?: string;
   rightsNote: string;
   locationNote: string;
 };
@@ -71,6 +78,8 @@ export type GuideSection = {
   videoEmbeds?: LocalizedGuideVideoEmbed[];
   artworkCards?: LocalizedGuideArtworkCard[];
   officialLinks?: GuideSectionOfficialLink[];
+  ctaHref?: string;
+  ctaLabel?: string;
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -98,6 +107,8 @@ export type LocalizedGuideSection = {
   videoEmbeds?: GuideVideoEmbed[];
   artworkCards?: GuideArtworkCard[];
   officialLinks?: LocalizedGuideSectionOfficialLink[];
+  ctaHref?: string;
+  ctaLabel?: LocalizedText;
   relatedApartmentKeys?: string[];
   relatedPlaceIds?: string[];
   relatedEventIds?: string[];
@@ -1263,6 +1274,30 @@ function shortArticle(input: {
   practicalTips?: LocalizedText[];
 }): GuideArticle {
   return { ...input, sourceStatus: input.sourceStatus ?? "editorial" };
+}
+
+function drawnPostcardWork(
+  id: string,
+  image: string,
+  title: string,
+  locationNote: LocalizedText,
+  artistNote: LocalizedText,
+  presentation: GuideArtworkPresentation,
+  medium = "Black ink and fineliner on watercolour paper",
+): GuideArtworkCard {
+  return {
+    id,
+    artist: "Anton Biletskyi-Volokh",
+    workTitle: t(title, title, title, title),
+    year: "2024",
+    image,
+    imageAlt: t(`Original hand-drawn Menton postcard: ${title}`, `Carte postale originale dessinee a la main : ${title}`, `Cartolina originale disegnata a mano: ${title}`, `Оригінальна намальована вручну листівка: ${title}`),
+    medium: t(medium, "Encre noire et feutre fin sur papier aquarelle", "Inchiostro nero e fineliner su carta per acquerello", "Чорне чорнило й лайнер на акварельному папері"),
+    artistNote,
+    presentation,
+    locationNote,
+    rightsNote: t("Original work by Anton Biletskyi-Volokh. Not for reproduction.", "Oeuvre originale d'Anton Biletskyi-Volokh. Reproduction interdite.", "Opera originale di Anton Biletskyi-Volokh. Non riproducibile.", "Оригінальна робота Anton Biletskyi-Volokh. Не для відтворення."),
+  };
 }
 
 export const guideArticles: GuideArticle[] = [
@@ -2667,7 +2702,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["old-town", "seafront", "garavan", "monaco"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "rue-saint-michel-menton", "port-de-garavan", "roquebrune-cap-martin-coastal-walk", "jardins-bioves", "cimetiere-vieux-chateau", "promenade-du-soleil"],
-    relatedArticles: ["music-videos-filmed-in-menton", "films-shot-in-menton", "best-photo-spots-menton", "menton-old-town", "museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-hand-drawn-postcards", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-photo-spots-menton", "menton-old-town", "museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2856,7 +2891,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["old-town", "menton-centre", "seafront"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["palais-de-leurope-menton", "gorbio", "rue-saint-michel-menton", "basilica-saint-michel-archange", "quai-bonaparte-menton", "promenade-du-soleil"],
-    relatedArticles: ["famous-paintings-of-menton", "films-shot-in-menton", "best-photo-spots-menton", "menton-old-town", "theatre-opera-performing-arts-near-menton", "cinemas-in-menton-nice-monaco", "fete-du-citron-menton-practical-guide", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "films-shot-in-menton", "best-photo-spots-menton", "menton-old-town", "theatre-opera-performing-arts-near-menton", "cinemas-in-menton-nice-monaco", "fete-du-citron-menton-practical-guide", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2986,7 +3021,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["old-town", "menton-centre", "seafront", "garavan"],
     sourceStatus: "needs_verification",
     relatedPlaces: ["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "rue-de-brea-menton", "place-du-cap-menton", "quai-bonaparte-menton", "tunnel-pascal-molinari", "casino-barriere-menton", "promenade-du-soleil", "palais-carnoles-menton", "villa-maria-serena", "pont-saint-ludovic"],
-    relatedArticles: ["music-videos-filmed-in-menton", "famous-paintings-of-menton", "menton-old-town", "best-photo-spots-menton", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "morning-walk-france-to-italy", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-hand-drawn-postcards", "music-videos-filmed-in-menton", "famous-paintings-of-menton", "menton-old-town", "best-photo-spots-menton", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "morning-walk-france-to-italy", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -8008,6 +8043,117 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "menton-hand-drawn-postcards",
+    slug: "menton-hand-drawn-postcards",
+    title: t("Menton drawn by hand: an artist's postcard collection", "Menton dessine a la main : collection de cartes postales d'artiste", "Mentone disegnata a mano: una collezione di cartoline d'artista", "Ментон намальований від руки: колекція листівок художника"),
+    seoTitle: t("Menton Drawn by Hand: Original Artist Postcards and Riviera Sketches", "Menton dessine a la main : cartes postales originales et croquis Riviera", "Mentone disegnata a mano: cartoline originali e schizzi della Riviera", "Ментон намальований від руки: оригінальні листівки та замальовки Рив'єри"),
+    seoDescription: t("A personal collection of original Menton drawings, visual notes and handmade postcard information for eligible completed direct-booking guests.", "Une collection personnelle de dessins originaux de Menton, notes visuelles et informations sur les cartes postales faites main pour les clients eligibles apres un sejour en reservation directe.", "Una collezione personale di disegni originali di Mentone, appunti visivi e informazioni sulle cartoline fatte a mano per ospiti idonei dopo un soggiorno con prenotazione diretta.", "Особиста колекція оригінальних малюнків Ментона, візуальних нотаток та інформація про листівки ручної роботи для гостей, які завершили пряме бронювання."),
+    excerpt: t("A slow visual record of Menton in ink, colour and postcard-sized observations.", "Un carnet visuel lent de Menton, entre encre, couleur et observations au format carte postale.", "Un archivio visivo lento di Mentone, fra inchiostro, colore e osservazioni in formato cartolina.", "Повільний візуальний щоденник Ментона: чорнило, колір і спостереження у форматі листівок."),
+    category: "photo-spots",
+    tags: [t("art", "art", "arte", "мистецтво"), t("postcards", "cartes postales", "cartoline", "листівки"), t("visual culture", "culture visuelle", "cultura visiva", "візуальна культура")],
+    bestFor: [t("art lovers", "amateurs d'art", "amanti dell'arte", "поціновувачі мистецтва"), t("slow stays", "sejours lents", "soggiorni lenti", "неквапливі подорожі"), t("Menton return visitors", "visiteurs fideles de Menton", "chi torna a Mentone", "ті, хто повертається до Ментона")],
+    duration: "reference",
+    locationTags: ["old-town", "seafront", "garavan"],
+    sourceStatus: "editorial",
+    coverImage: "/images/guide/menton-hand-drawn-postcards.jpg",
+    coverImageAlt: t("Drawing desk with a Menton postcard collection", "Table de dessin avec une collection de cartes postales de Menton", "Tavolo da disegno con una collezione di cartoline di Mentone", "Стіл для малювання з колекцією листівок Ментона"),
+    visualTheme: "old-town",
+    visualStatus: "project_illustration",
+    showTransportHelper: false,
+    relatedPlaces: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "plage-sablettes", "port-de-garavan", "promenade-du-soleil", "halles-du-marche", "jardins-bioves"],
+    relatedArticles: ["famous-paintings-of-menton", "films-shot-in-menton", "music-videos-filmed-in-menton", "menton-old-town", "best-photo-spots-menton", "best-souvenir-shops-menton-monaco-nice", "museums-in-menton-nice-monaco", "quiet-evening-in-menton", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Menton seen slowly", "Menton vu lentement", "Mentone vista lentamente", "Ментон, побачений повільно"),
+        body: [
+          t("Menton has a way of becoming more legible when you stop trying to collect it. A stair, a lemon tree, an old facade or the colour of the water can be enough for a drawing. This is a personal visual record rather than a definitive map of the town.", "Menton devient plus lisible lorsqu'on cesse de vouloir tout cocher. Un escalier, un citronnier, une facade ancienne ou la couleur de l'eau peuvent suffire a un dessin. Voici un carnet visuel personnel, pas une carte definitive de la ville.", "Mentone diventa piu leggibile quando si smette di volerla collezionare tutta. Una scala, un limone, una facciata antica o il colore dell'acqua possono bastare per un disegno. Questo e un archivio visivo personale, non una mappa definitiva della citta.", "Ментон стає зрозумілішим, коли перестаєш намагатися зібрати його весь. Сходи, лимонне дерево, стара фасадна стіна чи колір води можуть бути достатніми для малюнка. Це особистий візуальний щоденник, а не остаточна мапа міста."),
+          t("Some drawings come from an identifiable Menton view. Others are reconstructed from memory or combine details seen on different walks. Each note below is deliberately modest about what it identifies.", "Certains dessins viennent d'une vue mentonnaise identifiable. D'autres sont reconstruits de memoire ou combinent des details vus lors de plusieurs promenades. Chaque note reste volontairement prudente sur ce qu'elle identifie.", "Alcuni disegni partono da una vista di Mentone riconoscibile. Altri sono ricostruiti dalla memoria o combinano dettagli visti in passeggiate diverse. Ogni nota resta volutamente prudente su cio che identifica.", "Деякі малюнки походять від упізнаваного виду Ментона. Інші відтворені з пам'яті або поєднують деталі з різних прогулянок. Кожна примітка навмисно обережна у визначенні місця."),
+        ],
+      },
+      {
+        heading: t("Drawn Destinations", "Drawn Destinations", "Drawn Destinations", "Drawn Destinations"),
+        body: [
+          t("The wider Drawn Destinations collection is an ongoing black-and-white postcard project about the textures, small scenes and ordinary details that make a place memorable.", "La collection Drawn Destinations est un projet continu de cartes postales en noir et blanc autour des textures, petites scenes et details ordinaires qui rendent un lieu memorable.", "La collezione Drawn Destinations e un progetto continuo di cartoline in bianco e nero sulle texture, le piccole scene e i dettagli ordinari che rendono memorabile un luogo.", "Колекція Drawn Destinations - це тривалий проєкт чорно-білих листівок про фактури, маленькі сцени та звичайні деталі, що роблять місце пам'ятним."),
+        ],
+        officialLinks: [{ label: t("View the Drawn Destinations collection on Behance", "Voir la collection Drawn Destinations sur Behance", "Vedi la collezione Drawn Destinations su Behance", "Переглянути колекцію Drawn Destinations на Behance"), url: "https://www.behance.net/gallery/211717019/Drawn-Destinations-A-Black-White-Postcard-Collection" }],
+      },
+      {
+        heading: t("Menton: first observations", "Menton : premieres observations", "Mentone: prime osservazioni", "Ментон: перші спостереження"),
+        body: [t("These works are shown as original sheets rather than polished destination images. The paper, line and small irregularities are part of the work.", "Ces oeuvres sont montrees comme des feuilles originales plutot que comme des images de destination lissees. Le papier, le trait et les petites irregularites font partie du travail.", "Queste opere sono mostrate come fogli originali, non come immagini di destinazione levigate. Carta, tratto e piccole irregolarita fanno parte del lavoro.", "Ці роботи показані як оригінальні аркуші, а не як згладжені туристичні зображення. Папір, лінія та невеликі нерівності є частиною роботи.")],
+        artworkCards: [
+          drawnPostcardWork("old-town-over-sea", "/images/guide/menton-drawn-old-town-over-sea.jpg", "Old town above the sea", t("Probable location: Menton Old Town, viewed toward the sea.", "Lieu probable : vieille ville de Menton, vers la mer.", "Luogo probabile: centro storico di Mentone, verso il mare.", "Ймовірне місце: Старе місто Ментона, у напрямку моря."), t("A compressed memory of roofs, a church silhouette and the edge of the water.", "Une memoire condensee de toits, d'une silhouette d'eglise et du bord de l'eau.", "Una memoria compressa di tetti, una sagoma di chiesa e il margine dell'acqua.", "Стисла пам'ять про дахи, силует церкви та край води."), "folio"),
+          drawnPostcardWork("old-town-facade", "/images/guide/menton-drawn-old-town-facade.jpg", "Facade after rain", t("Menton-inspired: an old-town facade, without an exact address asserted.", "Inspire de Menton : une facade de vieille ville, sans adresse precise affirmee.", "Ispirato a Mentone: una facciata del centro storico, senza affermare un indirizzo preciso.", "Натхнено Ментоном: фасад старого міста, без твердження про точну адресу."), t("The drawing keeps the rhythm of shutters and balconies rather than documenting a building.", "Le dessin garde le rythme des volets et balcons plutot que de documenter un batiment.", "Il disegno conserva il ritmo di persiane e balconi invece di documentare un edificio.", "Малюнок зберігає ритм віконниць і балконів, а не документує конкретну будівлю."), "pair"),
+          drawnPostcardWork("palms-and-facade", "/images/guide/menton-drawn-palms-and-facade.jpg", "Palms and facade", t("Menton-inspired: a palm-lined town detail.", "Inspire de Menton : un detail urbain borde de palmiers.", "Ispirato a Mentone: un dettaglio urbano con palme.", "Натхнено Ментоном: міська деталь із пальмами."), t("A small study of shade, repeated windows and vertical lines.", "Une petite etude d'ombre, de fenetres repetees et de lignes verticales.", "Un piccolo studio di ombra, finestre ripetute e linee verticali.", "Невелике дослідження тіні, повторюваних вікон і вертикальних ліній."), "pair"),
+        ],
+      },
+      {
+        heading: t("Stairs, arches and the edge of the town", "Escaliers, arcades et lisiere de la ville", "Scale, archi e margini della citta", "Сходи, арки й край міста"),
+        body: [t("The oldest parts of Menton reward slow looking. These are not route instructions; use the old town, market and seafront guides for practical walking notes.", "Les parties les plus anciennes de Menton se regardent lentement. Ce ne sont pas des indications de parcours ; utilisez les guides vieille ville, marche et front de mer pour les notes pratiques.", "Le parti piu antiche di Mentone meritano uno sguardo lento. Non sono istruzioni di percorso; usa le guide su centro storico, mercato e lungomare per note pratiche.", "Найстаріші частини Ментона винагороджують повільний погляд. Це не вказівки для маршруту; для практичних нотаток використовуйте гіди про старе місто, ринок і набережну.")],
+        artworkCards: [
+          drawnPostcardWork("old-town-steps", "/images/guide/menton-drawn-old-town-steps.jpg", "Steps toward a bell", t("Probable location: old-town steps; the exact stair is not asserted.", "Lieu probable : escaliers de la vieille ville ; l'escalier exact n'est pas affirme.", "Luogo probabile: scale del centro storico; non si afferma la scala esatta.", "Ймовірне місце: сходи старого міста; точні сходи не стверджуються."), t("A note about climbing, not a map pin.", "Une note sur la montee, pas une epingle de carte.", "Un appunto sulla salita, non un punto sulla mappa.", "Нотатка про підйом, а не точка на мапі."), "folio"),
+          drawnPostcardWork("church-and-garden", "/images/guide/menton-drawn-church-and-garden.jpg", "Church and garden", t("Menton-inspired: a garden and church detail.", "Inspire de Menton : un detail de jardin et d'eglise.", "Ispirato a Mentone: un dettaglio di giardino e chiesa.", "Натхнено Ментоном: деталь саду й церкви."), t("Architecture becomes a frame for leaves and afternoon shadow.", "L'architecture devient un cadre pour les feuilles et l'ombre de l'apres-midi.", "L'architettura diventa una cornice per foglie e ombra del pomeriggio.", "Архітектура стає рамкою для листя й післяобідньої тіні."), "pair"),
+          drawnPostcardWork("arches", "/images/guide/menton-drawn-arches.jpg", "Under the arches", t("Menton-inspired: arcade details observed on a town walk.", "Inspire de Menton : details d'arcades observes lors d'une promenade.", "Ispirato a Mentone: dettagli di arcate osservati in una passeggiata.", "Натхнено Ментоном: деталі аркад, помічені під час прогулянки."), t("A study in depth, repetition and cool shade.", "Une etude de profondeur, repetition et fraicheur de l'ombre.", "Uno studio di profondita, ripetizione e ombra fresca.", "Дослідження глибини, повтору та прохолодної тіні."), "pair"),
+        ],
+        relatedPlaceIds: ["basilica-saint-michel-archange", "halles-du-marche", "rue-saint-michel-menton"],
+      },
+      {
+        heading: t("Sea, lemons and colour notes", "Mer, citrons et notes de couleur", "Mare, limoni e appunti di colore", "Море, лимони й кольорові нотатки"),
+        body: [t("Not every image names a place. A hand-drawn collection can preserve a mood, a colour relationship or a fragment seen from a bench as honestly as it can preserve a landmark.", "Toutes les images ne nomment pas un lieu. Une collection dessinee peut garder une atmosphere, un rapport de couleurs ou un fragment vu depuis un banc aussi honnetement qu'un repere.", "Non tutte le immagini nominano un luogo. Una collezione disegnata puo conservare un'atmosfera, un rapporto di colori o un frammento visto da una panchina con la stessa onesta di un punto di riferimento.", "Не кожне зображення називає місце. Намальована колекція може так само чесно зберігати настрій, поєднання кольорів або фрагмент, побачений з лавки, як і пам'ятку.")],
+        artworkCards: [
+          drawnPostcardWork("lemon-branch", "/images/guide/menton-drawn-lemon-branch.jpg", "Lemon branch", t("Menton-inspired: citrus observed around the town.", "Inspire de Menton : agrumes observes dans la ville.", "Ispirato a Mentone: agrumi osservati in citta.", "Натхнено Ментоном: цитруси, помічені в місті."), t("A small colour interruption inside an ink-led collection.", "Une petite interruption de couleur dans une collection dominee par l'encre.", "Una piccola interruzione di colore in una collezione guidata dall'inchiostro.", "Невеликий кольоровий акцент у колекції, побудованій на чорнилі."), "pair"),
+          drawnPostcardWork("balcony-gesture", "/images/guide/menton-drawn-balcony-gesture.jpg", "Balcony gesture", t("Menton-inspired: an interior and balcony memory.", "Inspire de Menton : un souvenir d'interieur et de balcon.", "Ispirato a Mentone: una memoria di interno e balcone.", "Натхнено Ментоном: спогад про інтер'єр і балкон."), t("Drawn inside an Azur Menton apartment; it is not a claim about a public viewpoint.", "Dessine dans un appartement Azur Menton ; ce n'est pas une affirmation sur un point de vue public.", "Disegnato in un appartamento Azur Menton; non e un'affermazione su un punto panoramico pubblico.", "Намальовано всередині апартаментів Azur Menton; це не твердження про публічний оглядовий майданчик."), "pair"),
+          drawnPostcardWork("palm-and-coast", "/images/guide/menton-drawn-palm-and-coast.jpg", "Palm and coast", t("Menton-inspired: a coastal palm and horizon.", "Inspire de Menton : un palmier du littoral et l'horizon.", "Ispirato a Mentone: una palma costiera e l'orizzonte.", "Натхнено Ментоном: прибережна пальма й горизонт."), t("A horizon remembered as a few deliberate marks.", "Un horizon retenu en quelques marques volontaires.", "Un orizzonte ricordato con pochi segni intenzionali.", "Горизонт, запам'ятований кількома свідомими штрихами."), "pair"),
+          drawnPostcardWork("seafront-van", "/images/guide/menton-drawn-seafront-van.jpg", "Seafront van", t("Menton-inspired: a small vehicle and seafront fragment.", "Inspire de Menton : un petit vehicule et un fragment de front de mer.", "Ispirato a Mentone: un piccolo veicolo e un frammento di lungomare.", "Натхнено Ментоном: невелике авто й фрагмент набережної."), t("An ordinary passing scene, retained for its rhythm rather than its identity.", "Une scene ordinaire conservee pour son rythme plutot que pour son identite.", "Una scena quotidiana conservata per il suo ritmo, non per la sua identita.", "Звичайна мить, збережена заради ритму, а не ідентичності."), "pair"),
+          drawnPostcardWork("seafront-square", "/images/guide/menton-drawn-seafront-square.jpg", "Seafront square", t("Menton-inspired: a square near the water, without an exact location asserted.", "Inspire de Menton : une place pres de l'eau, sans lieu exact affirme.", "Ispirato a Mentone: una piazza vicino all'acqua, senza indicare un luogo esatto.", "Натхнено Ментоном: площа біля води без твердження про точне місце."), t("A note about scale between people, buildings and the open coast.", "Une note sur l'echelle entre les personnes, les batiments et la cote ouverte.", "Un appunto sulla scala fra persone, edifici e costa aperta.", "Нотатка про масштаб між людьми, будівлями й відкритим узбережжям."), "pair"),
+          drawnPostcardWork("lemon-tree", "/images/guide/menton-drawn-lemon-tree.jpg", "Lemon tree", t("Menton-inspired: a lemon tree in a garden setting.", "Inspire de Menton : un citronnier dans un decor de jardin.", "Ispirato a Mentone: un limone in un contesto di giardino.", "Натхнено Ментоном: лимонне дерево в садовому оточенні."), t("The collection returns often to everyday plants rather than spectacle.", "La collection revient souvent aux plantes ordinaires plutot qu'au spectaculaire.", "La collezione torna spesso alle piante quotidiane invece che allo spettacolare.", "Колекція часто повертається до звичайних рослин, а не до видовищного."), "folio"),
+          drawnPostcardWork("potted-plant", "/images/guide/menton-drawn-potted-plant.jpg", "Potted plant", t("Menton-inspired: a plant detail observed in the town.", "Inspire de Menton : un detail vegetal observe en ville.", "Ispirato a Mentone: un dettaglio vegetale osservato in citta.", "Натхнено Ментоном: рослинна деталь, помічена в місті."), t("A simple pot becomes a record of light and wall texture.", "Un simple pot devient un releve de lumiere et de texture de mur.", "Un semplice vaso diventa un appunto di luce e texture del muro.", "Простий горщик стає записом світла й фактури стіни."), "pair"),
+          drawnPostcardWork("lemons-in-pots", "/images/guide/menton-drawn-lemons-in-pots.jpg", "Lemons in pots", t("Menton-inspired: potted citrus, without an exact garden claimed.", "Inspire de Menton : agrumes en pots, sans jardin precis revendique.", "Ispirato a Mentone: agrumi in vaso, senza rivendicare un giardino preciso.", "Натхнено Ментоном: цитруси в горщиках без твердження про конкретний сад."), t("A postcard-sized reminder that the town's citrus character lives in small corners too.", "Un rappel au format carte postale que le caractere citrus de la ville vit aussi dans les petits coins.", "Un promemoria in formato cartolina che il carattere agrumato della citta vive anche nei piccoli angoli.", "Нагадування у форматі листівки, що цитрусова вдача міста живе й у маленьких куточках."), "pair"),
+        ],
+        relatedPlaceIds: ["jardins-bioves", "plage-sablettes", "promenade-du-soleil"],
+      },
+      {
+        heading: t("Further sheets", "Autres feuilles", "Altri fogli", "Інші аркуші"),
+        body: [t("The final group moves between civic silhouettes, palms and the water. They are displayed as separate works, even where they may have grown from the same walk or afternoon.", "Le dernier groupe circule entre silhouettes urbaines, palmiers et eau. Les oeuvres sont presentees separement, meme lorsqu'elles ont pu naitre de la meme promenade ou du meme apres-midi.", "L'ultimo gruppo si muove tra sagome urbane, palme e acqua. Le opere sono presentate separatamente, anche quando possono essere nate dalla stessa passeggiata o dallo stesso pomeriggio.", "Фінальна група рухається між міськими силуетами, пальмами та водою. Роботи показані окремо, навіть якщо вони могли народитися з однієї прогулянки чи дня.")],
+        artworkCards: [
+          drawnPostcardWork("basilica-from-steps", "/images/guide/menton-drawn-basilica-from-steps.jpg", "Basilica from the steps", t("Probable location: the Basilica Saint-Michel area, without a precise vantage point claimed.", "Lieu probable : autour de la basilique Saint-Michel, sans point de vue precis affirme.", "Luogo probabile: area della Basilica Saint-Michel, senza affermare un punto di vista preciso.", "Ймовірне місце: район Basilica Saint-Michel без твердження про точну точку огляду."), t("A familiar silhouette simplified into an ink postcard.", "Une silhouette familiere simplifiee en carte postale a l'encre.", "Una sagoma familiare semplificata in una cartolina a inchiostro.", "Знайомий силует, спрощений до листівки чорнилом."), "folio"),
+          drawnPostcardWork("two-palms", "/images/guide/menton-drawn-two-palms.jpg", "Two palms", t("Menton-inspired: palms near the coast.", "Inspire de Menton : palmiers pres du littoral.", "Ispirato a Mentone: palme vicino alla costa.", "Натхнено Ментоном: пальми біля узбережжя."), t("A paired vertical rhythm against a pale sky.", "Un rythme vertical double contre un ciel clair.", "Un doppio ritmo verticale contro un cielo chiaro.", "Подвійний вертикальний ритм на тлі світлого неба."), "pair"),
+          drawnPostcardWork("coastal-sailboat", "/images/guide/menton-drawn-coastal-sailboat.jpg", "Coastal sailboat", t("Menton-inspired: a colourful coast-and-water memory.", "Inspire de Menton : un souvenir colore de cote et d'eau.", "Ispirato a Mentone: un ricordo colorato di costa e acqua.", "Натхнено Ментоном: кольоровий спогад про узбережжя й воду."), t("Colour is used sparingly here to hold a moment of movement.", "La couleur est employee avec parcimonie pour retenir un moment de mouvement.", "Il colore e usato con parsimonia per trattenere un momento di movimento.", "Колір тут використано стримано, щоб утримати мить руху."), "pair", "Ink, fineliner and colour marker on watercolour paper"),
+          drawnPostcardWork("swimmers", "/images/guide/menton-drawn-swimmers.jpg", "Swimmers", t("Menton-inspired: a summer-water observation.", "Inspire de Menton : une observation d'eau estivale.", "Ispirato a Mentone: un'osservazione d'acqua estiva.", "Натхнено Ментоном: літнє спостереження за водою."), t("A compact note about scale, colour and people at the edge of the sea.", "Une note compacte sur l'echelle, la couleur et les personnes au bord de la mer.", "Un appunto compatto su scala, colore e persone al margine del mare.", "Коротка нотатка про масштаб, колір і людей на краю моря."), "pair", "Ink, fineliner and colour marker on watercolour paper"),
+        ],
+        relatedPlaceIds: ["basilica-saint-michel-archange", "quai-bonaparte-menton", "port-de-garavan"],
+      },
+      {
+        heading: t("A handmade postcard after a direct stay", "Une carte postale faite main apres un sejour direct", "Una cartolina fatta a mano dopo un soggiorno diretto", "Листівка ручної роботи після прямого проживання"),
+        body: [
+          t("As a small personal thank-you, one completed direct-booking reservation may be eligible for one handmade Menton postcard. It is a guest gesture, not a booking incentive, commercial product or guaranteed service.", "Comme petit remerciement personnel, une reservation directe terminee peut etre eligible a une carte postale Menton faite main. C'est un geste pour les clients, pas un avantage de reservation, produit commercial ou service garanti.", "Come piccolo ringraziamento personale, una prenotazione diretta completata puo essere idonea per una cartolina di Mentone fatta a mano. E un gesto per gli ospiti, non un incentivo alla prenotazione, prodotto commerciale o servizio garantito.", "Як невелика особиста подяка, одне завершене пряме бронювання може мати право на одну листівку Ментона ручної роботи. Це жест для гостей, а не стимул до бронювання, комерційний продукт чи гарантована послуга."),
+          t("The offer is limited to verified completed direct reservations with Azur Menton. Reservations made through external platforms are not included unless they have been converted to a direct reservation before the stay. One postcard is available per reservation and is not transferable.", "L'offre est reservee aux reservations directes Azur Menton verifiees et terminees. Les reservations faites via des plateformes externes ne sont pas incluses, sauf conversion en reservation directe avant le sejour. Une carte par reservation, non transferable.", "L'offerta e riservata alle prenotazioni dirette Azur Menton verificate e completate. Le prenotazioni tramite piattaforme esterne non sono incluse, salvo conversione in prenotazione diretta prima del soggiorno. Una cartolina per prenotazione, non trasferibile.", "Пропозиція доступна лише для підтверджених завершених прямих бронювань Azur Menton. Бронювання через зовнішні платформи не входять, якщо до проживання їх не переведено в пряме бронювання. Одна листівка на бронювання, без права передачі."),
+        ],
+        bullets: [
+          t("Cards are sent by ordinary post; no delivery date or delivery outcome is guaranteed.", "Les cartes sont envoyees par courrier ordinaire ; aucune date ni resultat de livraison n'est garanti.", "Le cartoline sono inviate con posta ordinaria; nessuna data o esito di consegna e garantito.", "Листівки надсилаються звичайною поштою; дата та результат доставки не гарантуються."),
+          t("A suggested view is welcome, but the artist keeps creative control over the final drawing.", "Une vue suggeree est bienvenue, mais l'artiste garde le controle creatif du dessin final.", "Un panorama suggerito e benvenuto, ma l'artista mantiene il controllo creativo del disegno finale.", "Запропонований вид вітається, але художник зберігає творче рішення щодо фінального малюнка."),
+          t("The artist may scan or photograph the work for an archive or portfolio before sending it.", "L'artiste peut scanner ou photographier l'oeuvre pour ses archives ou son portfolio avant l'envoi.", "L'artista puo scansionare o fotografare l'opera per archivio o portfolio prima della spedizione.", "Художник може відсканувати або сфотографувати роботу для архіву чи портфоліо перед відправленням."),
+        ],
+        ctaHref: "/contact",
+        ctaLabel: t("Contact us after your stay", "Nous contacter apres votre sejour", "Contattaci dopo il soggiorno", "Зв'яжіться з нами після проживання"),
+      },
+      {
+        heading: t("Walk from the drawings", "Marcher depuis les dessins", "Camminare dai disegni", "Прогулянка від малюнків"),
+        body: [t("Use these places as a real-world companion to the collection, not as proof that each drawing was made from a particular point. Menton changes with weather, season and the time of day; that is part of the reason to look twice.", "Utilisez ces lieux comme compagnon reel de la collection, pas comme preuve que chaque dessin vient d'un point precis. Menton change selon la meteo, la saison et l'heure ; c'est une raison de regarder deux fois.", "Usa questi luoghi come compagno reale della collezione, non come prova che ogni disegno provenga da un punto preciso. Mentone cambia con meteo, stagione e ora del giorno; e parte del motivo per guardare due volte.", "Використовуйте ці місця як реального супутника колекції, а не як доказ, що кожен малюнок зроблено з конкретної точки. Ментон змінюється з погодою, сезоном і часом доби; це одна з причин дивитися двічі.")],
+        relatedPlaceIds: ["quai-bonaparte-menton", "basilica-saint-michel-archange", "plage-sablettes", "port-de-garavan", "promenade-du-soleil", "halles-du-marche", "jardins-bioves"],
+      },
+      {
+        heading: t("Stay in the town, return to the drawings", "Sejourner dans la ville, revenir aux dessins", "Soggiornare in citta, tornare ai disegni", "Жити в місті й повертатися до малюнків"),
+        body: [t("A central Menton base makes room for unplanned visual notes: an early walk, a market stop, a quiet balcony or an evening return from the seafront. Browse the apartments when planning a direct stay.", "Une base centrale a Menton laisse de la place aux notes visuelles improvisees : promenade matinale, marche, balcon calme ou retour du front de mer le soir. Consultez les appartements pour preparer un sejour direct.", "Una base centrale a Mentone lascia spazio a note visive non pianificate: una passeggiata presto, una sosta al mercato, un balcone tranquillo o il ritorno serale dal lungomare. Guarda gli appartamenti per organizzare un soggiorno diretto.", "Центральна база в Ментоні залишає місце для незапланованих візуальних нотаток: ранкової прогулянки, зупинки на ринку, тихого балкона чи вечірнього повернення з набережної. Перегляньте апартаменти, плануючи пряме проживання.")],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Treat place notes in this collection as artistic context, not navigation instructions.", "Considerez les notes de lieu comme un contexte artistique, pas des indications de navigation.", "Considera le note sui luoghi come contesto artistico, non istruzioni di navigazione.", "Сприймайте нотатки про місця в колекції як художній контекст, а не навігаційні вказівки."),
+      t("For a postcard request, contact Azur Menton only after a completed eligible direct stay.", "Pour demander une carte, contactez Azur Menton seulement apres un sejour direct eligible termine.", "Per richiedere una cartolina, contatta Azur Menton solo dopo un soggiorno diretto idoneo e completato.", "Для запиту листівки зв'яжіться з Azur Menton лише після завершеного відповідного прямого проживання."),
+    ],
+  }),
+  shortArticle({
     id: "petrol-stations-menton",
     slug: "petrol-stations-menton",
     title: t("Petrol stations in Menton: where to refuel near the town centre and Garavan", "Stations-service a Menton : ou faire le plein pres du centre et de Garavan", "Stazioni di servizio a Mentone: dove fare rifornimento vicino al centro e a Garavan", "Заправки в Ментоні: де заправитися біля центру та Garavan"),
@@ -8110,6 +8256,7 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       bullets: section.bullets?.map((bullet) => bullet[locale]),
       imageAlt: section.imageAlt?.[locale],
       guideLinkLabel: section.guideLinkLabel?.[locale],
+      ctaLabel: section.ctaLabel?.[locale],
       videoEmbeds: section.videoEmbeds?.map((video) => ({
         ...video,
         title: video.title[locale],
@@ -8125,6 +8272,8 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
         ...artwork,
         workTitle: artwork.workTitle[locale],
         imageAlt: artwork.imageAlt?.[locale],
+        medium: artwork.medium?.[locale],
+        artistNote: artwork.artistNote?.[locale],
         rightsNote: artwork.rightsNote[locale],
         locationNote: artwork.locationNote[locale],
       })),

@@ -290,7 +290,7 @@ const rawPlaces: Place[] = [
       "Природна перша зупинка для продуктів на пікнік, цитрусових смаколиків і ранкової атмосфери міста.",
     ),
     bestFor: [text("food lovers", "amateurs de cuisine", "amanti del cibo", "любителі їжі"), text("morning walk", "promenade du matin", "passeggiata mattutina", "ранкова прогулянка")],
-    relatedArticleIds: ["best-seafood-restaurants-menton", "fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "best-souvenir-shops-menton-monaco-nice", "local-food-menton", "best-ice-cream-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-old-town", "menton-without-a-car", "where-to-stay-in-menton", "barbecue-picnic-areas-near-menton", "best-pastries-desserts-cakes-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "best-seafood-restaurants-menton", "fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "best-souvenir-shops-menton-monaco-nice", "local-food-menton", "best-ice-cream-menton", "halles-du-marche-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-old-town", "menton-without-a-car", "where-to-stay-in-menton", "barbecue-picnic-areas-near-menton", "best-pastries-desserts-cakes-menton"],
   },
   {
     id: "rue-saint-michel-menton",
@@ -301,7 +301,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Menton's central pedestrian old-town street, useful for ice cream, small shops, evening walks and family-friendly wandering.", "La rue pietonne centrale de la vieille ville de Menton, utile pour les glaces, petites boutiques, promenades du soir et balades en famille.", "La via pedonale centrale del centro storico di Mentone, utile per gelati, negozietti, passeggiate serali e giri in famiglia.", "Центральна пішохідна вулиця старого Ментона для морозива, маленьких крамниць, вечірніх прогулянок і сімейного маршруту."),
     bestFor: [text("old-town walk", "balade vieille ville", "passeggiata centro storico", "прогулянка старим містом"), text("ice cream", "glaces", "gelato", "морозиво")],
-    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "best-souvenir-shops-menton-monaco-nice", "local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "menton-one-day-itinerary", "menton-old-town", "menton-with-kids-family-guide", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary", "best-pastries-desserts-cakes-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "best-souvenir-shops-menton-monaco-nice", "local-food-menton", "halles-du-marche-menton", "best-ice-cream-menton", "menton-one-day-itinerary", "menton-old-town", "menton-with-kids-family-guide", "quiet-evening-in-menton", "where-to-stay-in-menton", "menton-three-day-itinerary", "best-pastries-desserts-cakes-menton"],
   },
   {
     id: "la-tarte-mentonnaise",
@@ -693,7 +693,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A compact old-port route for sea views, the Bastion area and an easy gelato stop before or after the old town.", "Un parcours compact pres du vieux port pour vues mer, secteur du Bastion et halte glace avant ou apres la vieille ville.", "Un percorso compatto vicino al porto vecchio per vista mare, zona Bastion e una sosta gelato prima o dopo il centro storico.", "Короткий маршрут біля старого порту з видом на море, районом Bastion і зручною зупинкою на морозиво до або після старого міста."),
     bestFor: [text("port walk", "promenade port", "passeggiata al porto", "прогулянка портом"), text("sea views", "vues mer", "vista mare", "вид на море")],
-    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-photo-spots-menton", "best-ice-cream-menton", "menton-old-town", "best-beaches-in-menton", "stay-cool-in-menton-summer", "billiards-pool-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-photo-spots-menton", "best-ice-cream-menton", "menton-old-town", "best-beaches-in-menton", "stay-cool-in-menton-summer", "billiards-pool-menton"],
   },
   {
     id: "rue-longue-menton",
@@ -4316,6 +4316,7 @@ const rawPlaces: Place[] = [
       "gyms-fitness-centres-menton",
       "saunas-spas-menton",
       "pastis-in-menton",
+      "menton-hand-drawn-postcards",
     ],
   },
   {
@@ -4327,7 +4328,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Central gardens used for the Lemon Festival citrus sculpture displays and an easy town-centre walk.", "Jardins centraux utilises pour les sculptures d'agrumes de la Fete du Citron et une promenade simple en centre-ville.", "Giardini centrali usati per le sculture di agrumi della Festa del Limone e per una passeggiata facile in centro.", "Центральні сади для цитрусових скульптур Фестивалю лимонів і простої прогулянки центром."),
     bestFor: [text("Lemon Festival displays", "decors Fete du Citron", "installazioni Festa del Limone", "інсталяції Фестивалю лимонів"), text("central walks", "balades centrales", "passeggiate centrali", "прогулянки центром")],
-    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton"],
   },
   {
     id: "palais-de-leurope-menton",
@@ -4350,7 +4351,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Menton's old-town landmark above the sea, useful for classic views, music-video mood and visual walks.", "Le repere de la vieille ville au-dessus de la mer, utile pour les vues classiques, l'ambiance de clip et les balades visuelles.", "Il simbolo del centro storico sopra il mare, utile per viste classiche, atmosfera da videoclip e passeggiate visive.", "Символ старого міста над морем, корисний для класичних видів, настрою музичного відео й візуальних прогулянок."),
     bestFor: [text("old-town views", "vues vieille ville", "viste centro storico", "види старого міста"), text("visual walks", "balades visuelles", "passeggiate visive", "візуальні прогулянки")],
-    relatedArticleIds: ["famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary", "where-to-stay-in-menton"],
   },
   {
     id: "gorbio",
@@ -4372,7 +4373,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter marina walk for late afternoon or an easy evening detour.", "Une promenade de port plus calme pour la fin d'apres-midi ou le soir.", "Una passeggiata piu tranquilla al porto per il tardo pomeriggio o la sera.", "Спокійніша прогулянка біля марини наприкінці дня або ввечері."),
     bestFor: [text("quiet evening", "soiree calme", "serata tranquilla", "тихий вечір"), text("marina walk", "promenade au port", "passeggiata al porto", "прогулянка біля марини")],
-    relatedArticleIds: ["best-seafood-restaurants-menton", "cycling-bike-rental-menton", "petanque-in-menton", "pastis-in-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton", "electric-car-charging-menton", "petrol-stations-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "best-seafood-restaurants-menton", "cycling-bike-rental-menton", "petanque-in-menton", "pastis-in-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton", "electric-car-charging-menton", "petrol-stations-menton"],
   },
   {
     id: "cimetiere-vieux-chateau",
@@ -4421,6 +4422,7 @@ const rawPlaces: Place[] = [
     shortNote: text("A central beach area that works well with old-town walks and family beach time.", "Une plage centrale facile a combiner avec la vieille ville et une sortie en famille.", "Una zona balneare centrale, comoda con il centro storico e le famiglie.", "Центральна пляжна зона, яку зручно поєднати зі старим містом і відпочинком з дітьми."),
     bestFor: [text("families", "familles", "famiglie", "сім'ї"), text("central beach", "plage centrale", "spiaggia centrale", "центральний пляж")],
     relatedArticleIds: [
+      "menton-hand-drawn-postcards",
       "menton-with-kids-family-guide",
       "stay-cool-in-menton-summer",
       "best-beaches-in-menton",

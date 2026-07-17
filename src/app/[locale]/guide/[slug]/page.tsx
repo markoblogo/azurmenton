@@ -210,8 +210,13 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         ))}
                       </ul>
                     ) : null}
+                    {section.ctaHref && section.ctaLabel ? (
+                      <Link href={`/${locale}${section.ctaHref}` as Route} className="mt-5 inline-flex border border-[#173f36] bg-[#173f36] px-4 py-3 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#235246]">
+                        {section.ctaLabel}
+                      </Link>
+                    ) : null}
                     {section.videoEmbeds?.length ? (
-                      <div className="mt-5 grid gap-4">
+                      <div className={`mt-5 grid gap-4${section.artworkCards?.some((artwork) => artwork.presentation) ? " md:grid-cols-2" : ""}`}>
                         {section.videoEmbeds.map((video) => <VideoEmbed key={video.id} video={video} watchLabel={copy.watchSource} opensOnSourceLabel={copy.opensOnSource} />)}
                       </div>
                     ) : null}
