@@ -7,6 +7,7 @@ type ResendResult = {
 };
 
 const resendApiUrl = "https://api.resend.com/emails";
+const defaultBookingRequestBcc = "a.biletskiy@gmail.com";
 
 function apartmentLabel(value: string) {
   const labels: Record<string, string> = {
@@ -144,6 +145,7 @@ export async function sendBookingRequestEmail(
 ): Promise<ResendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.BOOKING_REQUEST_TO_EMAIL;
+  const bcc = process.env.BOOKING_REQUEST_BCC_EMAIL?.trim() || defaultBookingRequestBcc;
   const from = process.env.BOOKING_REQUEST_FROM_EMAIL ?? "Azur Menton <onboarding@resend.dev>";
 
   if (!apiKey || !to) {
@@ -163,7 +165,8 @@ export async function sendBookingRequestEmail(
     body: JSON.stringify({
       from,
       to,
-      subject: `Azur Menton request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
+      bcc,
+      subject: `[Azur Menton] Booking request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
       html: buildEmailHtml(payload),
       text: buildEmailText(payload),
       reply_to: payload.email || undefined,

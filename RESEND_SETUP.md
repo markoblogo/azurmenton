@@ -24,6 +24,7 @@ Required production variables:
 RESEND_API_KEY=...
 BOOKING_REQUEST_TO_EMAIL=...
 BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@your-verified-domain.example>"
+BOOKING_REQUEST_BCC_EMAIL=...
 ```
 
 ## 3. Set variables in Vercel
@@ -42,6 +43,7 @@ Expected result:
 
 - The website shows the normal success message.
 - The host inbox receives the email.
+- The hidden operational BCC inbox receives the same request with an `[Azur Menton]` subject prefix.
 - The Resend dashboard shows a delivered email event.
 - Replying to the email should target the guest email because the request uses `reply_to`.
 

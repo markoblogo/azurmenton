@@ -89,9 +89,10 @@ WEATHER_LONGITUDE=7.4975
 RESEND_API_KEY=
 BOOKING_REQUEST_TO_EMAIL=
 BOOKING_REQUEST_FROM_EMAIL=
+BOOKING_REQUEST_BCC_EMAIL=
 ```
 
-Turnstile is enabled only when both Turnstile keys are configured. Plausible is enabled through `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or the managed script URL in `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC`; do not paste raw analytics snippets into layout files. Booking email delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` in production.
+Turnstile is enabled only when both Turnstile keys are configured. Plausible is enabled through `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or the managed script URL in `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC`; do not paste raw analytics snippets into layout files. Booking email delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` in production. Each request also sends a hidden operational copy to the configured BCC recipient; `BOOKING_REQUEST_BCC_EMAIL` can override the project default.
 
 ## Public Routes
 
