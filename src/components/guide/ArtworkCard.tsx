@@ -23,14 +23,13 @@ export type GuideArtworkCardViewModel = {
 
 export function ArtworkCard({ artwork, sourceLabel, locale }: { artwork: GuideArtworkCardViewModel; sourceLabel: string; locale: Locale }) {
   const alt = artwork.imageAlt ?? artwork.workTitle;
-  const preservesOriginalSheet = artwork.presentation === "folio";
   const cardLayout = artwork.presentation === "folio" ? "md:col-span-2 md:grid-cols-[minmax(0,1.2fr)_minmax(17rem,0.8fr)]" : "md:grid-cols-[0.42fr_1fr]";
 
   return (
     <div className={`overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] md:grid ${cardLayout}`}>
       {artwork.image ? (
         <div className={`relative aspect-[4/3] bg-[#173f36]/10 ${artwork.presentation === "folio" ? "md:aspect-[4/3]" : "md:aspect-auto"}`}>
-          <Image src={artwork.image} alt={alt} fill sizes={artwork.presentation === "folio" ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 320px, 100vw"} className={preservesOriginalSheet ? "object-contain" : "object-cover"} />
+          <Image src={artwork.image} alt={alt} fill sizes={artwork.presentation === "folio" ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 320px, 100vw"} className="object-cover" />
           <ImageLightboxButton src={artwork.image} alt={alt} locale={locale} />
         </div>
       ) : null}
