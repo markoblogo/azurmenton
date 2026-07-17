@@ -67,7 +67,7 @@ export const mapCategories: MapCategory[] = [
   { id: "fitness", placeTypes: ["fitness-centre"], label: label("Fitness", "Fitness", "Fitness", "Фітнес") },
   { id: "shopping", placeTypes: ["shopping-centre", "bookshop"], label: label("Shopping", "Shopping", "Shopping", "Шопінг") },
   { id: "barbers", placeTypes: ["barbershop"], label: label("Barbers", "Barbiers", "Barbieri", "Барбери") },
-  { id: "services", placeTypes: ["tourist-office", "station", "car-rental", "healthcare", "hospital", "police", "civic"], label: label("Services", "Services", "Servizi", "Сервіси") },
+  { id: "services", placeTypes: ["tourist-office", "station", "car-rental", "healthcare", "hospital", "police", "civic", "coworking"], label: label("Services", "Services", "Servizi", "Сервіси") },
 ];
 
 export type MiniMapCategory = Pick<MapCategory, "label" | "placeTypes"> & { id: "beaches" | "markets" | "food" };

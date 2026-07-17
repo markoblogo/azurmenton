@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "orecife-coffee-coworking-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/coworking-orecife-coffee-and-internet-menton-en-5150009/" },
+  { placeId: "mywo-menton-centre", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Hotel%20Mediterranee%205%20Rue%20de%20la%20Republique%20Menton" },
+  { placeId: "mywo-menton-bord-de-mer", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Premier%20Hotel%20Prince%20de%20Galles%204%20Avenue%20du%20General%20de%20Gaulle%20Menton" },
+  { placeId: "cafe-coworking-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Cafe%20Coworking%202%20Rue%20Guyau%20Menton" },
+  { placeId: "la-pepite-business-center-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.lapepitebusinesscenter.com/" },
+  { placeId: "coworking-menton-single-desk", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://coworking-menton.fr/" },
+  { placeId: "eunoia-coffee-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://acceslibre.beta.gouv.fr/app/06-menton/a/restaurant/erp/eunoia-coffee/" },
   { placeId: "coiffeur-max-artisan-barbier-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.coiffeurmax.fr/le-barbier/" },
   { placeId: "lemon-barber-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://lemonbarber.com/" },
   { placeId: "expert-coiffure-barber-menton", reason: "coordinate_unverified", checkedOn: "2026-07-16", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Expert%20Coiffure%20%26%20Barber%207%20Rue%20Magenta%20Menton" },

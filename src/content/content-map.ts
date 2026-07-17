@@ -91,7 +91,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Practical stay", "Sejour pratique", "Soggiorno pratico", "Практичне проживання"),
     description: t("Car-free travel, airport arrivals, everyday essentials and the right base.", "Sans voiture, arrivee depuis l'aeroport, essentiels et bonne base de sejour.", "Senza auto, arrivo dall'aeroporto, essenziali e base giusta.", "Без авто, прибуття з аеропорту, щоденні потреби та правильна база."),
     categories: ["practical"],
-    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "best-barbershops-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton"],
+    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "best-barbershops-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton", "coworking-remote-work-menton"],
     priorityGuideSlugs: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton"],
   },
   {
@@ -149,6 +149,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-with-kids", query: t("Menton with kids", "Menton avec des enfants", "Mentone con bambini", "Ментон з дітьми"), collectionId: "family-days", priority: "now", status: "covered", targetGuideSlug: "menton-with-kids-family-guide", season: "all-year" },
   { id: "menton-animal-experiences", query: t("zoos and aquariums near Menton", "zoos et aquariums pres de Menton", "zoo e acquari vicino a Mentone", "зоопарки й акваріуми біля Ментона"), collectionId: "family-days", priority: "now", status: "covered", targetGuideSlug: "zoos-aquariums-animal-parks-near-menton", season: "all-year" },
   { id: "menton-rainy-day", query: t("rainy day in Menton", "jour de pluie a Menton", "giornata di pioggia a Mentone", "дощовий день у Ментоні"), collectionId: "family-days", priority: "next", status: "planned", season: "all-year" },
+  { id: "menton-coworking", query: t("coworking and remote work in Menton", "coworking et teletravail a Menton", "coworking e lavoro da remoto a Mentone", "coworking і віддалена робота в Ментоні"), collectionId: "practical-stay", priority: "now", status: "covered", targetGuideSlug: "coworking-remote-work-menton", season: "all-year" },
   { id: "menton-museums", query: t("museums near Menton", "musees pres de Menton", "musei vicino a Mentone", "музеї поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "museums-in-menton-nice-monaco", season: "all-year" },
   { id: "menton-theatre", query: t("theatre and opera near Menton", "theatre et opera pres de Menton", "teatro e opera vicino a Mentone", "театр і опера поблизу Ментона"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "theatre-opera-performing-arts-near-menton", season: "all-year" },
   { id: "menton-on-screen", query: t("films shot in Menton", "films tournes a Menton", "film girati a Mentone", "фільми, зняті в Ментоні"), collectionId: "culture-and-evenings", priority: "now", status: "covered", targetGuideSlug: "films-shot-in-menton", season: "all-year" },
