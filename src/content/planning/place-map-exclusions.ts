@@ -89,4 +89,10 @@ export const placeMapExclusions: PlaceMapExclusion[] = [
   { placeId: "leventail-plage-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=L%20Eventail%20Plage%2016%20Promenade%20de%20la%20Mer%20Menton" },
   { placeId: "citron-dor-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Citron%20d%27Or%2039%20Avenue%20de%20Verdun%20Menton" },
   { placeId: "revolution-sushi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Revolution%20Sushi%202%20Rue%20General%20Gallieni%20Menton" },
+  { placeId: "la-pecoranegra-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Pecoranegra%20Quai%20Gordon%20Bennett%20Menton" },
+  { placeId: "le-vulcano-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Le%20Vulcano%2030%20Rue%20de%20la%20Republique%20Menton" },
+  { placeId: "pizzalex-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Pizz%20Alex%203%20Avenue%20Cernuschi%20Menton" },
+  { placeId: "sini-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Sini%207%20Rue%20des%20Marins%20Menton" },
+  { placeId: "bocca-fina-pizza-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Bocca%20Fina%20Pizza%202%20Promenade%20Val%20du%20Carei%20Menton" },
+  { placeId: "pizza-express-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Pizza%20Express%2013%20Rue%20Guyau%20Menton" },
 ];
