@@ -6862,6 +6862,41 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Le Taj in Menton", "Illustration du Le Taj a Menton", "Illustrazione del Le Taj a Mentone", "Ілюстрація Le Taj у Ментоні"),
     visualTheme: "food",
   },
+  "indian-delices-menton": {
+    image: "/images/guide/indian-delices-menton.jpg",
+    imageAlt: text("Illustration of Indian Délices in Menton", "Illustration d'Indian Delices a Menton", "Illustrazione di Indian Delices a Mentone", "Ілюстрація Indian Délices у Ментоні"),
+    visualTheme: "food",
+  },
+  "indian-star-beausoleil": {
+    image: "/images/guide/indian-star-beausoleil.jpg",
+    imageAlt: text("Illustration of Indian Star in Beausoleil", "Illustration d'Indian Star a Beausoleil", "Illustrazione di Indian Star a Beausoleil", "Ілюстрація Indian Star у Beausoleil"),
+    visualTheme: "food",
+  },
+  "new-indien-beausoleil": {
+    image: "/images/guide/new-indien-beausoleil.jpg",
+    imageAlt: text("Illustration of New Indien in Beausoleil", "Illustration de New Indien a Beausoleil", "Illustrazione di New Indien a Beausoleil", "Ілюстрація New Indien у Beausoleil"),
+    visualTheme: "food",
+  },
+  "headquarters-indian-ventimiglia": {
+    image: "/images/guide/headquarters-indian-ventimiglia.jpg",
+    imageAlt: text("Illustration of Headquarters Ristorante Indiano in Ventimiglia", "Illustration de Headquarters Ristorante Indiano a Vintimille", "Illustrazione di Headquarters Ristorante Indiano a Ventimiglia", "Ілюстрація Headquarters Ristorante Indiano у Вентімільї"),
+    visualTheme: "food",
+  },
+  "modina-indian-restaurant-sanremo": {
+    image: "/images/guide/modina-indian-restaurant-sanremo.jpg",
+    imageAlt: text("Illustration of Modina Indian Restaurant in Sanremo", "Illustration de Modina Indian Restaurant a Sanremo", "Illustrazione di Modina Indian Restaurant a Sanremo", "Ілюстрація Modina Indian Restaurant у Санремо"),
+    visualTheme: "food",
+  },
+  "route-des-indes-nice": {
+    image: "/images/guide/route-des-indes-nice.jpg",
+    imageAlt: text("Illustration of Route des Indes in Nice", "Illustration de Route des Indes a Nice", "Illustrazione di Route des Indes a Nizza", "Ілюстрація Route des Indes у Ніцці"),
+    visualTheme: "food",
+  },
+  "le-shalimar-nice": {
+    image: "/images/guide/le-shalimar-nice.jpg",
+    imageAlt: text("Illustration of Le Shalimar in Nice", "Illustration de Le Shalimar a Nice", "Illustrazione di Le Shalimar a Nizza", "Ілюстрація Le Shalimar у Ніцці"),
+    visualTheme: "food",
+  },
   "little-bao-menton": {
     image: "/images/guide/little-bao-menton.jpg",
     imageAlt: text("Illustration of Little Bao in Menton", "Illustration de Little Bao a Menton", "Illustrazione di Little Bao a Mentone", "Ілюстрація Little Bao в Ментоні"),
