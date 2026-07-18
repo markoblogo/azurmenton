@@ -87,6 +87,15 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Check whether it belongs in a living guide collection in `src/content/content-map.ts`. Add an item to the compact intent map only when it answers a meaningful guest or search question; do not inflate the count with near-duplicate queries.
 - Check whether the article needs apartment-aware linking.
 
+## SEO Priority And Monitoring
+
+- Every published guide, stay page and event needs a localized SEO title and description; content lint enforces these baseline fields.
+- Keep canonical URLs stable. For annual events, use the current occurrence route and let the series URL redirect; never create two self-canonical pages for the same occurrence.
+- Do not add every new page to the Search Console monitoring cohort. Add one only when it has direct booking relevance or established search demand, and remove one only during a deliberate review.
+- Maintain the bounded cohort in `src/content/seo-monitoring.ts`. It must contain 5-10 canonical URLs and pass `npm run seo:priorities`.
+- After production, inspect or request indexing only for the relevant canonical URL. Do not bulk-submit archives, utility pages or every new article.
+- At the next 3-4 week review, compare indexed status, canonical conflicts, impressions, CTR and average position before making another SEO change.
+
 ## Preflight
 
 Run the relevant checks before committing:

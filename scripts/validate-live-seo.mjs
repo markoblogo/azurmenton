@@ -42,16 +42,27 @@ const localizedPages = locales.flatMap((locale) => [
 const pages = [
   ...localizedPages,
   {
-    path: "/en/events/nice-carnival",
-    localizedPath: "events/nice-carnival",
+    path: "/en/events/nice-carnival-2027",
+    localizedPath: "events/nice-carnival-2027",
     requiredJsonLdTypes: ["Article", "BreadcrumbList", "Event"],
     validateJsonLd: validateConfirmedEvent,
   },
   {
-    path: "/en/events/menton-lemon-festival",
-    localizedPath: "events/menton-lemon-festival",
+    path: "/en/events/fete-du-citron-2027",
+    localizedPath: "events/fete-du-citron-2027",
     requiredJsonLdTypes: ["Article", "BreadcrumbList"],
     validateJsonLd: validatePendingEvent,
+  },
+];
+
+const redirects = [
+  {
+    path: "/en/events/nice-carnival",
+    destination: "/en/events/nice-carnival-2027",
+  },
+  {
+    path: "/en/events/menton-lemon-festival",
+    destination: "/en/events/fete-du-citron-2027",
   },
 ];
 
@@ -171,4 +182,22 @@ function validatePendingEvent(jsonLd, path) {
 
 for (const page of pages) {
   await validatePage(page);
+}
+
+for (const redirect of redirects) {
+  await validateRedirect(redirect);
+}
+
+async function validateRedirect(redirect) {
+  const url = new URL(redirect.path, baseUrl).toString();
+  const response = await fetch(url, { redirect: "manual" });
+  const expectedLocation = absoluteUrl(redirect.destination);
+  const actualLocation = response.headers.get("location");
+  const resolvedLocation = actualLocation ? new URL(actualLocation, url).toString() : null;
+
+  if (response.status !== 308 || resolvedLocation !== expectedLocation) {
+    throw new Error(`${url} expected 308 redirect to ${expectedLocation}, found ${response.status} ${actualLocation || "none"}`);
+  }
+
+  console.log(`ok ${redirect.path}: 308 -> ${redirect.destination}`);
 }

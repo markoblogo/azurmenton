@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "preflight": "npm run content:lint && npm run weekly:validate && npm run booking:funnel",
+    "preflight": "npm run content:lint && npm run seo:priorities && npm run weekly:validate && npm run booking:funnel",
     "preflight:postbuild": "npm run perf:csp",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -23,7 +23,8 @@
     "test:e2e": "playwright test",
     "images:generate": "node scripts/generate-image-derivatives.mjs",
     "images:check": "node scripts/check-image-derivatives.mjs",
-    "seo:validate": "node scripts/validate-live-seo.mjs"
+    "seo:validate": "node scripts/validate-live-seo.mjs",
+    "seo:priorities": "node scripts/seo-priority-report.cjs"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

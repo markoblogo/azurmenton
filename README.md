@@ -54,6 +54,7 @@ npm run preflight
 npm run content:report
 npm run events:review
 npm run images:check
+npm run seo:priorities
 npm run build
 npm run preflight:postbuild
 ```
@@ -282,6 +283,7 @@ docs/               Operational docs and archived working notes
 - Keep partner/perk content separate from guest booking paths. Free sampling must not imply public placement; sponsored visibility must be explicit and disclosed.
 - Use `docs/content-operations.md` as the checklist for guide, place, event, image, linking and preflight work.
 - TypeScript content modules remain the source of truth for now. `npm run content:lint`, `npm run content:audit` and `npm run content:report` provide lightweight schema and content-graph checks before any future JSON/YAML or CMS migration.
+- `src/content/seo-monitoring.ts` maintains a bounded, human-reviewed cohort of 5-10 canonical high-priority URLs. `npm run seo:priorities` validates the cohort during preflight; see `docs/SEO_MONITORING.md`. It does not submit URLs or change Search Console automatically.
 - Weekly digest content is human-reviewed. `npm run weekly:validate` prevents draft or unreviewed weekly items from becoming public; `npm run weekly:draft` is only a non-publishing stub.
 - `npm run events:review` is an operational maintenance report, not a hard failure gate. A clean high-risk count means no stale annual event is silently promoted; pending seasonal placeholders can still appear as review items until official programmes are published.
 
