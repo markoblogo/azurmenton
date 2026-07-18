@@ -6438,6 +6438,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Revolution Sushi takeaway in Menton", "Illustration de Revolution Sushi a emporter a Menton", "Illustrazione di Revolution Sushi da asporto a Mentone", "Ілюстрація Revolution Sushi на виніс у Ментоні"),
     visualTheme: "food",
   },
+  "la-pecoranegra-menton": {
+    image: "/images/guide/la-pecoranegra-menton.jpg",
+    imageAlt: text("Illustration of La Pecoranegra pizzeria at Les Sablettes in Menton", "Illustration de la pizzeria La Pecoranegra aux Sablettes a Menton", "Illustrazione della pizzeria La Pecoranegra alle Sablettes a Mentone", "Ілюстрація піцерії La Pecoranegra в Sablettes у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-vulcano-menton": {
+    image: "/images/guide/le-vulcano-menton.jpg",
+    imageAlt: text("Illustration of Le Vulcano pizzeria in central Menton", "Illustration de la pizzeria Le Vulcano au centre de Menton", "Illustrazione della pizzeria Le Vulcano nel centro di Mentone", "Ілюстрація піцерії Le Vulcano в центрі Ментона"),
+    visualTheme: "food",
+  },
+  "pizzalex-menton": {
+    image: "/images/guide/pizzalex-menton.jpg",
+    imageAlt: text("Illustration of Pizz'Alex pizzeria in Menton", "Illustration de la pizzeria Pizz'Alex a Menton", "Illustrazione della pizzeria Pizz'Alex a Mentone", "Ілюстрація піцерії Pizz'Alex у Ментоні"),
+    visualTheme: "food",
+  },
+  "sini-menton": {
+    image: "/images/guide/sini-menton.jpg",
+    imageAlt: text("Illustration of Sini pizza al taglio near Menton market", "Illustration de Sini, pizza al taglio pres du marche de Menton", "Illustrazione di Sini, pizza al taglio vicino al mercato di Mentone", "Ілюстрація Sini, pizza al taglio біля ринку Ментона"),
+    visualTheme: "food",
+  },
+  "bocca-fina-pizza-menton": {
+    image: "/images/guide/bocca-fina-pizza-menton.jpg",
+    imageAlt: text("Illustration of Bocca Fina Pizza in Menton", "Illustration de Bocca Fina Pizza a Menton", "Illustrazione di Bocca Fina Pizza a Mentone", "Ілюстрація Bocca Fina Pizza у Ментоні"),
+    visualTheme: "food",
+  },
+  "pizza-express-menton": {
+    image: "/images/guide/pizza-express-menton.jpg",
+    imageAlt: text("Illustration of Pizza Express Menton", "Illustration de Pizza Express Menton", "Illustrazione di Pizza Express Menton", "Ілюстрація Pizza Express Menton"),
+    visualTheme: "food",
+  },
   "le-martina-menton": {
     image: "/images/guide/le-martina-menton.jpg",
     imageAlt: text("Illustration of Le Martina restaurant in Menton", "Illustration du restaurant Le Martina a Menton", "Illustrazione del ristorante Le Martina a Mentone", "Ілюстрація ресторану Le Martina у Ментоні"),
