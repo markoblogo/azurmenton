@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "indian-delices-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/restaurant-indian-delices-menton-fr-5919834/" },
+  { placeId: "indian-star-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.indianstar.fr/fr/blank" },
+  { placeId: "new-indien-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.newindien.com/" },
+  { placeId: "headquarters-indian-ventimiglia", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Headquarters%20Ristorante%20Indiano%20Via%20Dante%20Alighieri%2034%20Ventimiglia" },
+  { placeId: "modina-indian-restaurant-sanremo", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Modina%20Indian%20Restaurant%20Via%20Roma%2065%20Sanremo" },
+  { placeId: "route-des-indes-nice", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.route-des-inde-restaurant-nice.com/accueil" },
+  { placeId: "le-shalimar-nice", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.restaurant-shalimar.fr/" },
   { placeId: "am-fishing-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/am-fishing-menton-fr-3132662/" },
   { placeId: "fish-ships-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/fish-ships-articles-de-peche-et-accastillage-menton-fr-5043122/" },
   { placeId: "orecife-coffee-coworking-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/coworking-orecife-coffee-and-internet-menton-en-5150009/" },

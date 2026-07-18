@@ -178,6 +178,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "best-seafood-restaurants-menton", ignore: ["cluster"], reason: "focused food guide surfaced through the food-and-markets collection and linked to market, wine, beach and apartment content" },
   { slug: "best-pizzerias-menton", ignore: ["cluster"], reason: "focused pizza guide surfaced through the food-and-markets collection and linked to market, beach, family and apartment content" },
   { slug: "fishing-in-menton", ignore: ["cluster"], reason: "living outdoor reference surfaced through the Sport & outdoors collection and linked to official rule sources, coast, mountain alternatives and apartments" },
+  { slug: "indian-restaurants-menton", ignore: ["cluster"], reason: "focused dining reference surfaced through the Food & markets collection and linked to central Menton, nearby Riviera alternatives, transport and apartments" },
   { slug: "sushi-sashimi-menton", ignore: ["cluster"], reason: "focused sushi guide surfaced through the food-and-markets collection and linked to seafood, beach, family and apartment content" },
   { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
   { slug: "casinos-near-menton", ignore: ["cluster"], reason: "standalone evening and Monaco planning guide linked through nightlife, transport and Monaco content" },
