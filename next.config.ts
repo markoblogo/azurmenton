@@ -44,6 +44,21 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www\\.azurmenton\\.com",
+          },
+        ],
+        destination: "https://azurmenton.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getRivieraEvent } from "../../src/content/riviera-events";
+import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, isIndexableEventDetail } from "../../src/content/riviera-events";
 import { canRenderEventJsonLd, getEventDateStatus } from "../../src/lib/events";
 
 const datedEvent = {
@@ -31,5 +31,22 @@ describe("event date status", () => {
 
   it("resolves occurrence route aliases to the current event object", () => {
     expect(getRivieraEvent("monaco-grand-prix-2027")?.slug).toBe("monaco-grand-prix");
+  });
+
+  it("keeps yearly occurrence pages canonical and excludes their duplicate series routes", () => {
+    expect(getCanonicalEventDetailSlug("monaco-e-prix")).toBe("monaco-e-prix-2027");
+    expect(eventDetailSlugs).toContain("monaco-e-prix-2027");
+    expect(eventDetailSlugs).not.toContain("monaco-e-prix");
+    expect(getCanonicalEventDetailSlug("summer-on-the-riviera")).toBe("summer-on-the-riviera");
+  });
+
+  it("keeps high-intent annual events indexable while excluding thin seasonal placeholders", () => {
+    const lemonFestival = getEventDetail("menton-lemon-festival");
+    const summer = getEventDetail("summer-on-the-riviera");
+
+    expect(lemonFestival && getEventSearchIndexing(lemonFestival)).toBe("priority");
+    expect(lemonFestival && isIndexableEventDetail(lemonFestival)).toBe(true);
+    expect(summer && getEventSearchIndexing(summer)).toBe("noindex");
+    expect(summer && isIndexableEventDetail(summer)).toBe(false);
   });
 });

@@ -23,6 +23,7 @@ export type FamilySuitability =
 export type SourceStatus = "verified" | "needs_verification" | "official_source_needed";
 export type EventRecurrence = "annual" | "one_off" | "seasonal_placeholder";
 export type EventDateStatus = "confirmed" | "dates_pending" | "estimated_annual_window";
+export type EventSearchIndexing = "priority" | "standard" | "noindex";
 
 export type EventLocation = "Menton" | "Monaco" | "Nice" | "French Riviera" | "Italian Riviera";
 
@@ -69,6 +70,7 @@ export type RivieraEvent = {
   bookingTip: LocalizedText;
   sourceStatus: SourceStatus;
   sourceUrl?: string;
+  searchIndexing?: EventSearchIndexing;
   featured?: boolean;
   detailPage?: boolean;
   relatedApartmentKeys?: string[];
@@ -2942,12 +2944,40 @@ export const rivieraEvents: RivieraEvent[] = rivieraEventsBase.map((event) => ({
 export const eventDetailSlugs = [
   ...rivieraEvents
     .filter((event) => event.detailPage)
-    .flatMap((event) => (event.occurrenceSlug ? [event.slug, event.occurrenceSlug] : [event.slug])),
+    .map((event) => event.occurrenceSlug ?? event.slug),
   "summer-on-the-riviera",
 ];
 
 export function getRivieraEvent(slug: string) {
   return rivieraEvents.find((event) => event.slug === slug || event.occurrenceSlug === slug);
+}
+
+export function getCanonicalEventDetailSlug(slug: string) {
+  if (slug === summerOnTheRivieraEvent.slug) return slug;
+
+  const event = getRivieraEvent(slug);
+  if (!event?.detailPage) return undefined;
+  return event.occurrenceSlug ?? event.slug;
+}
+
+const priorityEventSlugs = new Set([
+  "menton-lemon-festival",
+  "monaco-grand-prix",
+  "nice-carnival",
+  "rolex-monte-carlo-masters",
+  "monaco-e-prix",
+]);
+
+export function getEventSearchIndexing(event: RivieraEvent): EventSearchIndexing {
+  if (event.searchIndexing) return event.searchIndexing;
+  if (priorityEventSlugs.has(event.slug)) return "priority";
+  if (event.recurrence === "seasonal_placeholder") return "noindex";
+  if (event.dateStatus !== "confirmed" && event.sourceStatus !== "verified") return "noindex";
+  return "standard";
+}
+
+export function isIndexableEventDetail(event: RivieraEvent) {
+  return getEventSearchIndexing(event) !== "noindex";
 }
 
 export function getDetailEvents() {

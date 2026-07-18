@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import type { Route } from "next";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
@@ -18,7 +18,9 @@ import {
   eventDateStatusLabels,
   eventDetailSlugs,
   familySuitabilityLabels,
+  getCanonicalEventDetailSlug,
   getEventDateLabel,
+  isIndexableEventDetail,
   getEventTitle,
   getEventDetail,
   rivieraEvents,
@@ -244,6 +246,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     image: event.media?.image,
     imageAlt: event.media?.imageAlt?.[safeLocale],
     type: "article",
+    index: isIndexableEventDetail(event),
   });
 }
 
@@ -256,8 +259,14 @@ export default async function EventArticlePage({ params }: PageProps) {
 
   const event = getEventDetail(slug);
 
-  if (!event || !eventDetailSlugs.includes(event.slug as (typeof eventDetailSlugs)[number])) {
+  const canonicalSlug = getCanonicalEventDetailSlug(slug);
+
+  if (!event || !canonicalSlug || !eventDetailSlugs.includes(canonicalSlug as (typeof eventDetailSlugs)[number])) {
     notFound();
+  }
+
+  if (slug !== canonicalSlug) {
+    permanentRedirect(`/${locale}/events/${canonicalSlug}`);
   }
 
   const labels = copy[locale];

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { apartments } from "@/content/apartments";
 import { guideArticles, guidePages } from "@/content/guide";
-import { eventDetailSlugs, getRivieraEvent } from "@/content/riviera-events";
+import { eventDetailSlugs, getEventDetail, isIndexableEventDetail } from "@/content/riviera-events";
 import { stayPages } from "@/content/stay-pages";
 import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
@@ -38,10 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `guide/${page.slug}`,
       image: guideArticles.find((article) => article.slug === page.slug)?.coverImage,
     })),
-    ...eventDetailSlugs.map((slug) => ({
+    ...eventDetailSlugs.filter((slug) => {
+      const event = getEventDetail(slug);
+      return event ? isIndexableEventDetail(event) : false;
+    }).map((slug) => ({
       route: localizedPath(locale, `events/${slug}`),
       path: `events/${slug}`,
-      image: getRivieraEvent(slug)?.media?.image,
+      image: getEventDetail(slug)?.media?.image,
     })),
     ...stayPages.map((page) => ({
       route: localizedPath(locale, `stay/${page.slug}`),
@@ -52,7 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return entries.map(({ route, path, image }) => ({
     url: absoluteUrl(route),
-    lastModified: new Date("2026-05-27"),
     changeFrequency: changeFrequencyForRoute(route),
     priority: priorityForRoute(route),
     alternates: {

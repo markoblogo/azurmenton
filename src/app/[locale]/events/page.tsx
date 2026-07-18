@@ -11,6 +11,7 @@ import {
   eventCategoryLabels,
   familySuitabilityLabels,
   getEventDateLabel,
+  getEventSearchIndexing,
   getEventTitle,
   rivieraEvents,
   type RivieraEvent,
@@ -222,24 +223,14 @@ export default async function EventsLandingPage({ params }: PageProps) {
   const nowOrNext30 = visibleEvents.upcoming
     .filter((event) => event.startDate && event.startDate <= dateKey(thirtyDaysFromNow))
     .slice(0, 6);
-  const bookAheadSlugs = [
-    "menton-lemon-festival",
-    "nice-carnival",
-    "monaco-grand-prix",
-    "rolex-monte-carlo-masters",
-    "monaco-yacht-show",
-    "sanremo-music-festival",
-    "rallye-automobile-monte-carlo",
-    "monaco-e-prix",
-  ];
-  const bookAhead = bookAheadSlugs
-    .map((slug) => [...visibleEvents.upcoming, ...visibleEvents.datesPending].find((event) => event.slug === slug))
+  const bookAhead = [...visibleEvents.upcoming, ...visibleEvents.datesPending]
+    .filter((event) => getEventSearchIndexing(event) === "priority")
     .filter(Boolean)
     .slice(0, 8) as RivieraEvent[];
   const easyCities = ["Menton", "Monaco", "Nice", "Sanremo", "Roquebrune-Cap-Martin", "Villefranche-sur-Mer", "Saint-Jean-Cap-Ferrat"];
   const easyFromMenton = [...visibleEvents.upcoming, ...visibleEvents.datesPending]
     .filter((event) => (event.distanceFromMentonKm ?? 99) <= 32 || easyCities.some((city) => (event.city ?? event.location).includes(city)))
-    .filter((event) => !bookAheadSlugs.includes(event.slug))
+    .filter((event) => getEventSearchIndexing(event) === "standard" && event.dateStatus === "confirmed")
     .slice(0, 6);
   const featured = [...nowOrNext30, ...bookAhead, ...easyFromMenton].filter((event, index, events) => events.findIndex((item) => item.slug === event.slug) === index).slice(0, 6);
   const apartmentsForEvents = apartments.filter((apartment) =>

@@ -11,6 +11,7 @@ type MetadataInput = {
   imageAlt?: string;
   type?: "website" | "article";
   keywords?: string[];
+  index?: boolean;
 };
 
 const defaultKeywords: Record<Locale, string[]> = {
@@ -76,6 +77,7 @@ export function createMetadata({
   imageAlt = siteConfig.name,
   type = "website",
   keywords,
+  index = true,
 }: MetadataInput): Metadata {
   const currentPath = localizedPath(locale, path);
   const metadataTitle = title ?? siteConfig.defaultTitle;
@@ -94,10 +96,10 @@ export function createMetadata({
     creator: siteConfig.name,
     publisher: siteConfig.name,
     robots: {
-      index: true,
+      index,
       follow: true,
       googleBot: {
-        index: true,
+        index,
         follow: true,
         "max-image-preview": "large",
         "max-snippet": -1,
