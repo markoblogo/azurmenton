@@ -4809,6 +4809,8 @@ export const guideArticles: GuideArticle[] = [
       name: "RecFishing",
       useFor: t("Registering recreational sea fishing and declaring managed catches when required.", "S'inscrire pour la peche maritime de loisir et declarer les captures gerees si necessaire.", "Registrarsi per la pesca ricreativa in mare e dichiarare le catture gestite quando richiesto.", "Реєстрація для любительської морської риболовлі та декларування регульованого улову, коли це потрібно."),
       bestFor: t("anglers aged 16 and over in the French Mediterranean", "pecheurs de 16 ans et plus en Mediterranee francaise", "pescatori dai 16 anni in su nel Mediterraneo francese", "рибалки від 16 років у французькому Середземномор'ї"),
+      image: "/images/guide/app-recfishing.jpg",
+      imageAlt: t("RecFishing application for French Mediterranean recreational fishing registration", "Application RecFishing pour l'inscription a la peche de loisir en Mediterranee francaise", "Applicazione RecFishing per la registrazione alla pesca ricreativa nel Mediterraneo francese", "Застосунок RecFishing для реєстрації любительської риболовлі у французькому Середземномор'ї"),
       visualTheme: "sea",
       iosUrl: "https://apps.apple.com/fr/app/recfishing/id6746253374",
       androidUrl: "https://play.google.com/store/apps/details?id=eu.europa.publications.recfishing",

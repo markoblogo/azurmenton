@@ -7605,6 +7605,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Gorbio above Menton", "Illustration de Gorbio au-dessus de Menton", "Illustrazione di Gorbio sopra Mentone", "Ілюстрація Gorbio над Ментоном"),
     visualTheme: "old-town",
   },
+  "am-fishing-menton": {
+    image: "/images/guide/am-fishing-menton.jpg",
+    imageAlt: text("Illustration of AM Fishing in Menton", "Illustration d'AM Fishing a Menton", "Illustrazione di AM Fishing a Mentone", "Ілюстрація AM Fishing у Ментоні"),
+    visualTheme: "sea",
+  },
+  "fish-ships-menton": {
+    image: "/images/guide/fish-ships-menton.jpg",
+    imageAlt: text("Illustration of Fish & Ships in Menton", "Illustration de Fish & Ships a Menton", "Illustrazione di Fish & Ships a Mentone", "Ілюстрація Fish & Ships у Ментоні"),
+    visualTheme: "transport",
+  },
   "port-de-garavan": {
     image: "/images/guide/port-de-garavan.jpg",
     imageAlt: text("Illustration of Port de Garavan in Menton", "Illustration du Port de Garavan a Menton", "Illustrazione del Port de Garavan a Mentone", "Ілюстрація Port de Garavan у Ментоні"),
