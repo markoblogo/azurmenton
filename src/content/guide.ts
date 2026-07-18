@@ -4714,6 +4714,81 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "sushi-sashimi-menton",
+    slug: "sushi-sashimi-menton",
+    title: t("Sushi and sashimi in Menton: restaurants, takeaway and delivery", "Sushi et sashimi a Menton : restaurants, a emporter et livraison", "Sushi e sashimi a Mentone: ristoranti, asporto e consegna", "Суші та сашимі в Ментоні: ресторани, на виніс і доставка"),
+    seoTitle: t("Sushi and Sashimi in Menton: Restaurants, Takeaway & Delivery", "Sushi et sashimi a Menton : restaurants, a emporter et livraison", "Sushi e sashimi a Mentone: ristoranti, asporto e consegna", "Суші та сашимі в Ментоні: ресторани, на виніс і доставка"),
+    seoDescription: t("A practical guide to sushi and sashimi in Menton: dedicated sushi, Sablettes takeaway and delivery, Garavan dinner options, and careful raw-fish advice.", "Guide pratique des sushi et sashimi a Menton : adresses specialisees, a emporter et livraison aux Sablettes, options a Garavan et conseils pour le poisson cru.", "Guida pratica a sushi e sashimi a Mentone: ristoranti specializzati, asporto e consegna alle Sablettes, opzioni a Garavan e consigli per il pesce crudo.", "Практичний гід по суші та сашимі в Ментоні: спеціалізовані заклади, на виніс і доставка в Sablettes, варіанти в Garavan і поради щодо сирої риби."),
+    excerpt: t("Menton has a small but useful sushi scene: a Garavan specialist, Sablettes takeaway and delivery, and a few broader Asian restaurants. Check current opening and raw-fish availability before making a special trip.", "Menton offre une petite scene sushi utile : un specialiste a Garavan, a emporter et livraison aux Sablettes, et quelques restaurants asiatiques plus larges. Verifiez horaires et poisson cru avant un trajet special.", "Mentone ha una scena sushi piccola ma utile: uno specialista a Garavan, asporto e consegna alle Sablettes e alcuni ristoranti asiatici piu ampi. Controlla orari e disponibilita del pesce crudo prima di andarci apposta.", "У Ментоні невелика, але корисна sushi-сцена: спеціаліст у Garavan, на виніс і доставка в Sablettes та кілька ширших азійських ресторанів. Перед спеціальною поїздкою перевіряйте години й наявність сирої риби."),
+    category: "food-markets",
+    coverImage: "/images/guide/sushi-sashimi-menton.jpg",
+    coverImageAlt: t("Illustration of sushi and sashimi in Menton", "Illustration de sushi et sashimi a Menton", "Illustrazione di sushi e sashimi a Mentone", "Ілюстрація суші та сашимі в Ментоні"),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    sourceStatus: "needs_verification",
+    tags: [
+      t("sushi", "sushi", "sushi", "суші"),
+      t("sashimi", "sashimi", "sashimi", "сашимі"),
+      t("takeaway", "a emporter", "asporto", "на виніс"),
+      t("delivery", "livraison", "consegna", "доставка"),
+      t("raw fish", "poisson cru", "pesce crudo", "сира риба"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[6].label],
+    duration: "evening",
+    locationTags: ["menton-centre", "seafront", "garavan"],
+    relatedPlaces: ["sushi-ko-menton", "planet-sushi-menton", "le-sasano-menton", "leventail-menton", "leventail-plage-menton", "citron-dor-menton", "revolution-sushi-menton", "plage-sablettes", "port-de-garavan"],
+    canonicalPlaceTypes: ["restaurant"],
+    relatedArticles: ["best-seafood-restaurants-menton", "local-food-menton", "halles-du-marche-menton", "best-beaches-in-menton", "menton-with-kids-family-guide", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("The short answer", "La reponse courte", "La risposta breve", "Коротка відповідь"),
+        body: [
+          t("For a dedicated sushi dinner near Garavan, Sushi Ko is the natural first place to check, but its online operating information is inconsistent: contact it before making a special trip. Around Sablettes, Planet Sushi is the more practical choice for a wide menu, takeaway or a possible delivery order.", "Pour un diner sushi specialise pres de Garavan, Sushi Ko est l'adresse a verifier d'abord, mais les informations en ligne sont contradictoires : contactez-le avant un trajet special. Aux Sablettes, Planet Sushi est plus pratique pour une carte large, a emporter ou une possible livraison.", "Per una cena sushi dedicata vicino a Garavan, Sushi Ko e il primo posto da controllare, ma le informazioni online sono discordanti: contattalo prima di andarci apposta. Alle Sablettes, Planet Sushi e piu pratico per un menu ampio, asporto o un possibile ordine a domicilio.", "Для спеціалізованої sushi-вечері біля Garavan спершу перевірте Sushi Ko, але онлайн-інформація про роботу суперечлива: зв'яжіться із закладом перед спеціальною поїздкою. У Sablettes Planet Sushi практичніший для широкого меню, на виніс або можливої доставки."),
+          t("Do not expect a large omakase scene in Menton. The useful choice is between a dedicated sushi order, a seafront Asian meal, a broader restaurant where sushi is part of the menu, or a simple apartment order after a beach day.", "N'attendez pas une grande scene omakase a Menton. Le choix utile se fait entre une commande sushi specialisee, un repas asiatique en bord de mer, un restaurant plus large ou le sushi fait partie de la carte, et une commande simple a l'appartement apres la plage.", "Non aspettarti una grande scena omakase a Mentone. La scelta utile e tra un ordine sushi specializzato, un pasto asiatico sul mare, un ristorante piu ampio dove il sushi e parte del menu, o un ordine semplice in appartamento dopo la spiaggia.", "Не очікуйте великої omakase-сцени в Ментоні. Практичний вибір: спеціалізоване замовлення sushi, азійська вечеря на набережній, ширший ресторан, де суші лише частина меню, або просте замовлення в апартаменти після пляжу."),
+        ],
+        relatedPlaceIds: ["sushi-ko-menton", "planet-sushi-menton", "le-sasano-menton"],
+      },
+      {
+        heading: t("Sushi restaurants and seafront options", "Restaurants sushi et options en bord de mer", "Ristoranti sushi e opzioni sul mare", "Sushi-ресторани та варіанти біля моря"),
+        body: [
+          t("Sushi Ko is the specialist choice by Port Garavan when it is trading. Planet Sushi near the Sablettes is useful for a broad sushi menu, takeaway and delivery planning. Le Sasano is a seafront sushi and Asian-fusion option for raw fish and lighter seafood meals.", "Sushi Ko est le choix specialise au Port Garavan lorsqu'il est ouvert. Planet Sushi pres des Sablettes est utile pour une carte large, a emporter et l'organisation d'une livraison. Le Sasano est une option sushi et fusion asiatique en bord de mer pour poisson cru et repas marins plus legers.", "Sushi Ko e la scelta specializzata al Port Garavan quando e aperto. Planet Sushi vicino alle Sablettes e utile per un menu ampio, asporto e consegna. Le Sasano e un'opzione sushi e fusion asiatica sul mare per pesce crudo e pasti di mare piu leggeri.", "Sushi Ko - спеціалізований вибір у Port Garavan, коли він працює. Planet Sushi біля Sablettes корисний для широкого меню, на виніс і планування доставки. Le Sasano - sushi та Asian-fusion варіант на набережній для сирої риби й легших seafood-страв."),
+          t("L'Eventail in the centre and L'Eventail Plage by the seafront are broader Asian restaurants rather than specialist sushi counters. They are useful when a group wants cooked Asian dishes as well as sushi; confirm the current raw-fish selection before going specifically for sashimi.", "L'Eventail au centre et L'Eventail Plage au bord de mer sont des restaurants asiatiques plus larges, pas des comptoirs sushi specialises. Ils sont utiles quand un groupe veut aussi des plats asiatiques cuits ; confirmez le choix de poisson cru avant d'y aller pour le sashimi.", "L'Eventail in centro e L'Eventail Plage sul mare sono ristoranti asiatici piu ampi, non banchi sushi specializzati. Sono utili quando un gruppo vuole anche piatti asiatici cotti; conferma la scelta di pesce crudo prima di andarci per il sashimi.", "L'Eventail у центрі та L'Eventail Plage на набережній - ширші азійські ресторани, а не спеціалізовані sushi-заклади. Вони корисні, коли групі потрібні також гарячі азійські страви; перед поїздкою саме за сашимі підтверджуйте вибір сирої риби."),
+        ],
+        relatedPlaceIds: ["sushi-ko-menton", "planet-sushi-menton", "le-sasano-menton", "leventail-menton", "leventail-plage-menton"],
+      },
+      {
+        heading: t("Takeaway, delivery and mixed menus", "A emporter, livraison et cartes mixtes", "Asporto, consegna e menu misti", "На виніс, доставка та змішані меню"),
+        body: [
+          t("For a beach-day or apartment order, begin with Planet Sushi and confirm the current delivery area, minimum order and timing directly. Revolution Sushi is a smaller central takeaway option, but its opening pattern should be checked before you go.", "Pour une commande apres la plage ou a l'appartement, commencez par Planet Sushi et confirmez directement zone de livraison, minimum et delai. Revolution Sushi est une petite option a emporter au centre, mais son rythme d'ouverture doit etre verifie avant de vous deplacer.", "Per un ordine dopo la spiaggia o in appartamento, inizia da Planet Sushi e conferma direttamente zona di consegna, minimo e tempi. Revolution Sushi e una piccola opzione da asporto in centro, ma controlla gli orari prima di andarci.", "Для замовлення після пляжу або в апартаменти почніть з Planet Sushi і напряму підтвердіть зону доставки, мінімальне замовлення та час. Revolution Sushi - невеликий варіант на виніс у центрі, але перед поїздкою перевіряйте графік."),
+          t("Citron d'Or is an all-you-can-eat Asian buffet for range and value. It can include Japanese-style dishes, but it is not a specialist sashimi recommendation; choose it when the group wants variety rather than a focused raw-fish meal.", "Citron d'Or est un buffet asiatique a volonte pour le choix et le rapport qualite-prix. Il peut proposer des plats de style japonais, mais ce n'est pas une recommandation sashimi specialisee ; choisissez-le si le groupe veut de la variete plutot qu'un repas centre sur le poisson cru.", "Citron d'Or e un buffet asiatico a volonta per scelta e convenienza. Puo includere piatti in stile giapponese, ma non e una raccomandazione specializzata per sashimi; sceglilo se il gruppo vuole varieta invece di un pasto centrato sul pesce crudo.", "Citron d'Or - азійський buffet a volonte для вибору та цінності. Там можуть бути страви японського стилю, але це не спеціалізована рекомендація для сашимі; обирайте його, якщо групі потрібна різноманітність, а не фокус на сирій рибі."),
+        ],
+        relatedPlaceIds: ["planet-sushi-menton", "revolution-sushi-menton", "citron-dor-menton"],
+        relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("What to order and what to check", "Que commander et quoi verifier", "Cosa ordinare e cosa controllare", "Що замовляти й що перевіряти"),
+        body: [
+          t("Sushi is the broad term. Nigiri is fish over rice; maki is rice and filling rolled in seaweed; sashimi is sliced raw fish without rice; chirashi is fish over a bowl of rice. Menus can use these words loosely, so ask what is currently available rather than assuming a fixed selection.", "Sushi est le terme general. Nigiri : poisson sur riz ; maki : riz et garniture roules dans une feuille d'algue ; sashimi : poisson cru tranche sans riz ; chirashi : poisson sur un bol de riz. Les cartes peuvent employer ces mots librement, alors demandez ce qui est disponible ce jour-la.", "Sushi e il termine generale. Nigiri e pesce sul riso; maki e riso e ripieno arrotolati nell'alga; sashimi e pesce crudo affettato senza riso; chirashi e pesce su una ciotola di riso. I menu possono usare questi termini liberamente, quindi chiedi cosa e disponibile quel giorno.", "Sushi - загальний термін. Nigiri - риба на рисі; maki - рис і начинка в норі; sashimi - нарізана сира риба без рису; chirashi - риба на мисці рису. Меню може використовувати ці слова вільно, тому питайте, що доступно саме сьогодні."),
+          t("If you have a fish, shellfish, sesame, soy or gluten allergy, explain it clearly before ordering. Pregnant guests, young children, older guests and anyone with a weakened immune system should ask a medical professional about raw-fish choices and choose cooked options when appropriate.", "En cas d'allergie au poisson, aux crustaces, au sesame, au soja ou au gluten, expliquez-la clairement avant de commander. Grossesse, jeunes enfants, personnes agees ou immunodeprimees : demandez conseil a un professionnel de sante pour le poisson cru et choisissez du cuit si besoin.", "Se hai allergie a pesce, crostacei, sesamo, soia o glutine, spiegalo chiaramente prima di ordinare. In gravidanza, per bambini piccoli, persone anziane o immunodepresse, chiedi consiglio a un professionista sanitario sul pesce crudo e scegli opzioni cotte quando opportuno.", "Якщо є алергія на рибу, shellfish, кунжут, сою або глютен, чітко поясніть це перед замовленням. Вагітним, малим дітям, літнім людям або людям з ослабленим імунітетом варто порадитися з медичним фахівцем щодо сирої риби й за потреби обирати приготовлені страви."),
+        ],
+      },
+      {
+        heading: t("A sushi evening from a Menton apartment", "Une soiree sushi depuis un appartement a Menton", "Una serata sushi da un appartamento a Mentone", "Sushi-вечір з апартаментів у Ментоні"),
+        body: [
+          t("For a Garavan dinner, check Sushi Ko first and keep a nearby alternative in mind. For Sablettes, takeaway or delivery can be easier after a beach day. All Azur Menton apartments have air conditioning, so a simple takeaway dinner can be a comfortable summer plan rather than a rushed restaurant booking.", "Pour un diner a Garavan, verifiez d'abord Sushi Ko et gardez une alternative proche. Aux Sablettes, a emporter ou livraison peut etre plus simple apres la plage. Tous les appartements Azur Menton ont la climatisation : un diner simple a emporter peut etre un bon plan d'ete, sans reservation precipitee.", "Per una cena a Garavan, controlla prima Sushi Ko e tieni presente un'alternativa vicina. Alle Sablettes, asporto o consegna possono essere piu semplici dopo la spiaggia. Tutti gli appartamenti Azur Menton hanno aria condizionata: una semplice cena da asporto puo essere un comodo piano estivo senza una prenotazione affrettata.", "Для вечері в Garavan спершу перевірте Sushi Ko і тримайте в запасі близьку альтернативу. У Sablettes після пляжу простіше взяти на виніс або замовити доставку. Усі апартаменти Azur Menton мають кондиціонер, тому проста вечеря на виніс може бути комфортним літнім планом без поспішного бронювання."),
+        ],
+        relatedPlaceIds: ["port-de-garavan", "plage-sablettes"],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Check current opening days and raw-fish availability before making a special trip; restaurant information changes quickly.", "Verifiez les jours d'ouverture et la disponibilite du poisson cru avant un trajet special ; les informations changent vite.", "Controlla giorni di apertura e disponibilita del pesce crudo prima di andarci apposta; le informazioni cambiano rapidamente.", "Перед спеціальною поїздкою перевіряйте дні роботи й наявність сирої риби: інформація швидко змінюється."),
+      t("For delivery, confirm the address, delivery zone, timing and payment method directly with the restaurant or delivery platform.", "Pour la livraison, confirmez directement l'adresse, la zone, le delai et le moyen de paiement avec le restaurant ou la plateforme.", "Per la consegna, conferma direttamente indirizzo, zona, tempi e pagamento con il ristorante o la piattaforma.", "Для доставки напряму підтвердіть адресу, зону, час і спосіб оплати з рестораном або платформою."),
+      t("Raw fish should stay chilled and be eaten promptly; do not leave takeaway in the summer heat.", "Le poisson cru doit rester au frais et etre mange rapidement ; ne laissez pas un repas a emporter dans la chaleur d'ete.", "Il pesce crudo deve restare freddo ed essere mangiato presto; non lasciare l'asporto nel caldo estivo.", "Сиру рибу потрібно зберігати охолодженою та їсти швидко; не залишайте замовлення на літній спеці."),
+    ],
+  }),
+  shortArticle({
     id: "best-seafood-restaurants-menton",
     slug: "best-seafood-restaurants-menton",
     title: t("Best seafood in Menton: restaurants, oyster bars and fish shops", "Meilleurs fruits de mer a Menton: restaurants, bars a huitres et poissonneries", "Miglior pesce a Mentone: ristoranti, oyster bar e pescherie", "Найкращі морепродукти в Ментоні: ресторани, oyster bars і рибні лавки"),
@@ -4743,6 +4818,8 @@ export const guideArticles: GuideArticle[] = [
       "le-petit-port-menton",
       "trattoria-la-mamma-menton",
       "le-sasano-menton",
+      "sushi-ko-menton",
+      "planet-sushi-menton",
       "le-martina-menton",
       "le-carnival-menton",
       "le-cosy-menton",
@@ -4764,6 +4841,7 @@ export const guideArticles: GuideArticle[] = [
       "italian-riviera-day-trip-from-menton",
       "day-trips-from-menton",
       "where-to-stay-in-menton",
+      "sushi-sashimi-menton",
     ],
     relatedApartments: allApartments,
     sections: [
@@ -4778,9 +4856,9 @@ export const guideArticles: GuideArticle[] = [
         heading: t("Quick recommendations", "Recommandations rapides", "Consigli rapidi", "Швидкі рекомендації"),
         body: [
           t("Start with Lyõde for oysters, shellfish and a specialist seafood meal. Try L'Ambata for a broader waterfront seafood dinner, Le Galion for a polished harbour evening, Le Petit Port for a smaller local fish meal and Trattoria La Mamma for Italian-style fish when local catch is available.", "Commencez par Lyõde pour huitres, coquillages et repas vraiment marin. Essayez L'Ambata pour un diner fruits de mer plus large en bord de mer, Le Galion pour une soiree portuaire soignee, Le Petit Port pour une table locale plus petite et Trattoria La Mamma pour un poisson a l'italienne selon les arrivages.", "Comincia da Lyõde per ostriche, crostacei e un pasto davvero marino. Prova L'Ambata per una cena piu ampia sul mare, Le Galion per una serata curata al porto, Le Petit Port per un ristorante locale piu piccolo e Trattoria La Mamma per pesce all'italiana quando disponibile.", "Почніть з Lyõde для устриць, shellfish і спеціалізованої seafood вечері. L'Ambata підійде для ширшої морської вечері на набережній, Le Galion - для Port Garavan, Le Petit Port - для меншого локального формату, Trattoria La Mamma - для італійської риби, коли є local catch."),
-          t("For sushi and raw fish, use Le Sasano. For seafood at the apartment, go to La Pescaria inside Marché des Halles. For a nearby scenic beach lunch, check Le Cabanon at Plage du Buse when it is open.", "Pour sushi et poisson cru, choisissez Le Sasano. Pour un repas de fruits de mer a l'appartement, allez a La Pescaria dans les Halles. Pour un dejeuner plage proche, verifiez Le Cabanon a la plage du Buse quand il est ouvert.", "Per sushi e pesce crudo scegli Le Sasano. Per mangiare frutti di mare in appartamento vai a La Pescaria nelle Halles. Per un pranzo panoramico in spiaggia, controlla Le Cabanon alla Plage du Buse quando aperto.", "Для суші й сирої риби - Le Sasano. Для seafood в апартаментах - La Pescaria у Marché des Halles. Для красивого пляжного обіду поруч перевіряйте Le Cabanon на Plage du Buse, коли він відкритий."),
+          t("For sushi and raw fish, check Le Sasano, Sushi Ko or Planet Sushi; the dedicated sushi guide separates specialist, takeaway and delivery options. For seafood at the apartment, go to La Pescaria inside Marché des Halles. For a nearby scenic beach lunch, check Le Cabanon at Plage du Buse when it is open.", "Pour sushi et poisson cru, verifiez Le Sasano, Sushi Ko ou Planet Sushi ; le guide sushi separe les options specialisees, a emporter et livraison. Pour un repas de fruits de mer a l'appartement, allez a La Pescaria dans les Halles. Pour un dejeuner plage proche, verifiez Le Cabanon a la plage du Buse quand il est ouvert.", "Per sushi e pesce crudo controlla Le Sasano, Sushi Ko o Planet Sushi; la guida sushi distingue opzioni specializzate, da asporto e consegna. Per mangiare frutti di mare in appartamento vai a La Pescaria nelle Halles. Per un pranzo panoramico in spiaggia, controlla Le Cabanon alla Plage du Buse quando aperto.", "Для суші й сирої риби перевіряйте Le Sasano, Sushi Ko або Planet Sushi; окремий sushi-гід розділяє спеціалізовані, takeaway і delivery варіанти. Для seafood в апартаментах - La Pescaria у Marché des Halles. Для красивого пляжного обіду поруч перевіряйте Le Cabanon на Plage du Buse, коли він відкритий."),
         ],
-        relatedPlaceIds: ["lyode-menton", "lambata-menton", "le-galion-menton", "le-sasano-menton", "la-pescaria-de-menton"],
+        relatedPlaceIds: ["lyode-menton", "lambata-menton", "le-galion-menton", "le-sasano-menton", "sushi-ko-menton", "planet-sushi-menton", "la-pescaria-de-menton"],
       },
       {
         heading: t("Seafood restaurants in Menton", "Restaurants de fruits de mer a Menton", "Ristoranti di pesce a Mentone", "Seafood ресторани в Ментоні"),

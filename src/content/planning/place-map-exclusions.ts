@@ -83,4 +83,10 @@ export const placeMapExclusions: PlaceMapExclusion[] = [
   { placeId: "centre-bien-etre-calysta", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Centre%20de%20Bien-etre%20Calysta%206%20Rue%20Magenta%20Menton" },
   { placeId: "spa-menton-rue-partouneaux", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Spa%20Menton%20Rue%20Partouneaux%20Menton" },
   { placeId: "sauna-nordique-tende", reason: "coordinate_unverified", checkedOn: "2026-07-15", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/sauna-nordique-tende-fr-6230550/" },
+  { placeId: "sushi-ko-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Sushi%20Ko%20Nouveau%20Port%20Menton" },
+  { placeId: "planet-sushi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Planet%20Sushi%20Quai%20Gordon%20Bennett%20Menton" },
+  { placeId: "leventail-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=L%20Eventail%202%20Rue%20du%20Vieux%20College%20Menton" },
+  { placeId: "leventail-plage-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=L%20Eventail%20Plage%2016%20Promenade%20de%20la%20Mer%20Menton" },
+  { placeId: "citron-dor-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Citron%20d%27Or%2039%20Avenue%20de%20Verdun%20Menton" },
+  { placeId: "revolution-sushi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Revolution%20Sushi%202%20Rue%20General%20Gallieni%20Menton" },
 ];

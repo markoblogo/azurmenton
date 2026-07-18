@@ -176,6 +176,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "best-pastries-desserts-cakes-menton", ignore: ["cluster"], reason: "focused dessert guide surfaced through the food-and-markets collection and linked to ice cream, local food, market, day-trip and apartment content" },
   { slug: "pastis-in-menton", ignore: ["cluster"], reason: "focused aperitif guide linked to food, wine, souvenir, evening and local-sport planning" },
   { slug: "best-seafood-restaurants-menton", ignore: ["cluster"], reason: "focused food guide surfaced through the food-and-markets collection and linked to market, wine, beach and apartment content" },
+  { slug: "sushi-sashimi-menton", ignore: ["cluster"], reason: "focused sushi guide surfaced through the food-and-markets collection and linked to seafood, beach, family and apartment content" },
   { slug: "car-rental-menton-nice-airport-convertibles", ignore: ["cluster"], reason: "standalone transport and practical-stay guide supporting airport, day-trip and car-free content" },
   { slug: "casinos-near-menton", ignore: ["cluster"], reason: "standalone evening and Monaco planning guide linked through nightlife, transport and Monaco content" },
   { slug: "billiards-pool-menton", ignore: ["cluster"], reason: "focused indoor evening guide surfaced through the Evening plans collection and linked to local casino, bar and civic venue context" },
