@@ -6318,6 +6318,36 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Le Sasano sushi and seafront dining in Menton", "Illustration de Le Sasano, sushi et table en bord de mer a Menton", "Illustrazione di Le Sasano, sushi e tavola sul mare a Mentone", "Ілюстрація Le Sasano, sushi та їжі біля моря в Ментоні"),
     visualTheme: "food",
   },
+  "sushi-ko-menton": {
+    image: "/images/guide/sushi-ko-menton.jpg",
+    imageAlt: text("Illustration of Sushi Ko at Port Garavan in Menton", "Illustration de Sushi Ko au Port Garavan a Menton", "Illustrazione di Sushi Ko al Port Garavan a Mentone", "Ілюстрація Sushi Ko в Port Garavan у Ментоні"),
+    visualTheme: "food",
+  },
+  "planet-sushi-menton": {
+    image: "/images/guide/planet-sushi-menton.jpg",
+    imageAlt: text("Illustration of Planet Sushi near Sablettes in Menton", "Illustration de Planet Sushi pres des Sablettes a Menton", "Illustrazione di Planet Sushi vicino alle Sablettes a Mentone", "Ілюстрація Planet Sushi біля Sablettes у Ментоні"),
+    visualTheme: "food",
+  },
+  "leventail-menton": {
+    image: "/images/guide/leventail-menton.jpg",
+    imageAlt: text("Illustration of L'Eventail restaurant in central Menton", "Illustration du restaurant L'Eventail au centre de Menton", "Illustrazione del ristorante L'Eventail nel centro di Mentone", "Ілюстрація ресторану L'Eventail у центрі Ментона"),
+    visualTheme: "food",
+  },
+  "leventail-plage-menton": {
+    image: "/images/guide/leventail-plage-menton.jpg",
+    imageAlt: text("Illustration of L'Eventail Plage on the Menton seafront", "Illustration de L'Eventail Plage sur le front de mer de Menton", "Illustrazione di L'Eventail Plage sul lungomare di Mentone", "Ілюстрація L'Eventail Plage на набережній Ментона"),
+    visualTheme: "food",
+  },
+  "citron-dor-menton": {
+    image: "/images/guide/citron-dor-menton.jpg",
+    imageAlt: text("Illustration of Citron d'Or Asian buffet in Menton", "Illustration du buffet asiatique Citron d'Or a Menton", "Illustrazione del buffet asiatico Citron d'Or a Mentone", "Ілюстрація азійського buffet Citron d'Or у Ментоні"),
+    visualTheme: "food",
+  },
+  "revolution-sushi-menton": {
+    image: "/images/guide/revolution-sushi-menton.jpg",
+    imageAlt: text("Illustration of Revolution Sushi takeaway in Menton", "Illustration de Revolution Sushi a emporter a Menton", "Illustrazione di Revolution Sushi da asporto a Mentone", "Ілюстрація Revolution Sushi на виніс у Ментоні"),
+    visualTheme: "food",
+  },
   "le-martina-menton": {
     image: "/images/guide/le-martina-menton.jpg",
     imageAlt: text("Illustration of Le Martina restaurant in Menton", "Illustration du restaurant Le Martina a Menton", "Illustrazione del ristorante Le Martina a Mentone", "Ілюстрація ресторану Le Martina у Ментоні"),
