@@ -46,7 +46,9 @@ export type PlaceType =
   | "playground"
   | "skatepark"
   | "barbershop"
-  | "coworking";
+  | "coworking"
+  | "fishing-guide"
+  | "fishing-shop";
 
 export type PlaceSourceStatus = "needs_verification" | "verified" | "editorial";
 
@@ -1852,7 +1854,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Scenic Garavan-side promenade used by the official local cycling route toward the border.", "Promenade cote Garavan utilisee par l'itineraire velo local vers la frontiere.", "Passeggiata lato Garavan usata dal percorso ciclabile locale verso il confine.", "Панорамна набережна Garavan, якою проходить локальний веломаршрут до кордону."),
     bestFor: [text("seafront cycling", "velo en bord de mer", "bici sul lungomare", "велопрогулянка біля моря"), text("border direction", "direction frontiere", "direzione confine", "напрямок кордону")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "petanque-in-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "petanque-in-menton", "stay-cool-in-menton-summer", "best-beaches-in-menton", "fishing-in-menton"],
   },
   {
     id: "pont-saint-ludovic",
@@ -2259,7 +2261,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("Mountain-valley village with occasional tourism-office listings for salsa classes; best checked before making a special trip.", "Village de vallee avec parfois des annonces de cours de salsa; a verifier avant de faire le deplacement.", "Borgo di valle con talvolta annunci turistici per corsi di salsa; da controllare prima di andarci apposta.", "Село в гірській долині з окремими туристичними анонсами salsa-занять; перевіряйте перед спеціальною поїздкою."),
     bestFor: [text("Roya valley", "vallee de la Roya", "valle Roya", "долина Roya"), text("occasional classes", "cours ponctuels", "lezioni occasionali", "епізодичні заняття")],
-    relatedArticleIds: ["latin-dancing-salsa-bachata-menton", "day-trips-from-menton", "public-transport-in-menton"],
+    relatedArticleIds: ["latin-dancing-salsa-bachata-menton", "day-trips-from-menton", "public-transport-in-menton", "fishing-in-menton"],
   },
   {
     id: "la-note-bleue-monaco",
@@ -4213,7 +4215,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A lower mountain escape from Menton for cooler air, village streets, valley scenery and a non-ski day inland.", "Une echappee de moyenne montagne depuis Menton pour air plus frais, village, vallee et journee sans ski.", "Una fuga in bassa montagna da Mentone per aria piu fresca, borgo, valle e giornata senza sci.", "Нижча гірська втеча з Ментона для прохолоднішого повітря, села, долини й дня без лиж."),
     bestFor: [text("summer heat escape", "echappee canicule", "fuga dal caldo", "втеча від спеки"), text("non-ski mountain day", "journee montagne sans ski", "giornata montagna senza sci", "гори без лиж")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "mountains-snow-skiing-near-menton", "stay-cool-in-menton-summer", "day-trips-from-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "car-rental-menton-nice-airport-convertibles", "mountains-snow-skiing-near-menton", "stay-cool-in-menton-summer", "day-trips-from-menton", "fishing-in-menton"],
   },
   {
     id: "la-brigue",
@@ -4235,7 +4237,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A higher Roya Valley town and gateway idea for Mercantour culture, mountain roads and summer cool air.", "Une commune plus haute de la Roya, utile pour culture Mercantour, routes de montagne et fraicheur d'ete.", "Un paese piu alto della Roya, utile per cultura Mercantour, strade di montagna e fresco estivo.", "Вище містечко долини Roya для культури Mercantour, гірських доріг і літньої прохолоди."),
     bestFor: [text("Mercantour gateway", "porte du Mercantour", "porta del Mercantour", "ворота Mercantour"), text("mountain culture", "culture montagne", "cultura montana", "гірська культура")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "skateparks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "skateparks-near-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton", "fishing-in-menton"],
   },
   {
     id: "mercantour-national-park",
@@ -4546,6 +4548,39 @@ const rawPlaces: Place[] = [
     relatedArticleIds: ["music-videos-filmed-in-menton", "day-trips-from-menton", "best-photo-spots-menton"],
   },
   {
+    id: "am-fishing-menton",
+    name: "AM Fishing",
+    type: "fishing-guide",
+    address: "Vieux Port, 06500 Menton",
+    googleMapsUrl: mapsQuery("AM Fishing", "Vieux Port", "Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/am-fishing-menton-fr-3132662/",
+    openingHoursLabel: checkHours,
+    priceLabel: checkPrices,
+    sourceStatus: "needs_verification",
+    visitorAccess: "ask-first",
+    requiresMapReview: true,
+    shortNote: text("A Menton fishing guide offering sea and freshwater sessions. Confirm technique, weather decision, equipment, age requirements and current rules directly before booking.", "Guide de peche a Menton proposant des sorties en mer et en eau douce. Confirmez directement technique, meteo, materiel, age et regles actuelles avant de reserver.", "Guida di pesca a Mentone con uscite in mare e acqua dolce. Conferma direttamente tecnica, meteo, attrezzatura, eta e regole attuali prima di prenotare.", "Рибальський гід у Ментоні з морськими та прісноводними сесіями. Перед бронюванням напряму уточніть техніку, погоду, спорядження, вік і актуальні правила."),
+    bestFor: [text("guided first session", "premiere sortie guidee", "prima uscita guidata", "перша сесія з гідом"), text("families", "familles", "famiglie", "сім'ї")],
+    relatedArticleIds: ["fishing-in-menton"],
+    guideCoverageSlugs: ["fishing-in-menton"],
+  },
+  {
+    id: "fish-ships-menton",
+    name: "Fish & Ships",
+    type: "fishing-shop",
+    address: "4 Terre-Plein du Nouveau Port, 06500 Menton",
+    googleMapsUrl: mapsQuery("Fish & Ships", "4 Terre-Plein du Nouveau Port", "Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/fish-ships-articles-de-peche-et-accastillage-menton-fr-5043122/",
+    openingHoursLabel: checkHours,
+    priceLabel: checkPrices,
+    sourceStatus: "needs_verification",
+    requiresMapReview: true,
+    shortNote: text("A Port de Garavan fishing-tackle and chandlery stop. Confirm current bait, tackle and opening details before making a special trip.", "Magasin d'articles de peche et accastillage au Port de Garavan. Confirmez appats, materiel et horaires avant un deplacement special.", "Negozio di articoli da pesca e nautica al Port de Garavan. Conferma esche, attrezzatura e orari prima di andarci apposta.", "Магазин рибальських товарів і морського спорядження в Port de Garavan. Перед спеціальною поїздкою уточніть приманки, спорядження й години роботи."),
+    bestFor: [text("tackle and bait enquiries", "demande de materiel et appats", "richieste su attrezzatura ed esche", "запити про спорядження та приманки"), text("Garavan", "Garavan", "Garavan", "Garavan")],
+    relatedArticleIds: ["fishing-in-menton"],
+    guideCoverageSlugs: ["fishing-in-menton"],
+  },
+  {
     id: "port-de-garavan",
     name: "Port de Garavan",
     type: "port",
@@ -4554,7 +4589,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quieter marina walk for late afternoon or an easy evening detour.", "Une promenade de port plus calme pour la fin d'apres-midi ou le soir.", "Una passeggiata piu tranquilla al porto per il tardo pomeriggio o la sera.", "Спокійніша прогулянка біля марини наприкінці дня або ввечері."),
     bestFor: [text("quiet evening", "soiree calme", "serata tranquilla", "тихий вечір"), text("marina walk", "promenade au port", "passeggiata al porto", "прогулянка біля марини")],
-    relatedArticleIds: ["menton-hand-drawn-postcards", "best-seafood-restaurants-menton", "sushi-sashimi-menton", "cycling-bike-rental-menton", "petanque-in-menton", "pastis-in-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton", "electric-car-charging-menton", "petrol-stations-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "best-seafood-restaurants-menton", "sushi-sashimi-menton", "cycling-bike-rental-menton", "petanque-in-menton", "pastis-in-menton", "skateparks-near-menton", "famous-paintings-of-menton", "menton-with-kids-family-guide", "quiet-evening-in-menton", "best-photo-spots-menton", "best-walks-and-hikes-around-menton", "morning-walk-france-to-italy", "michelin-restaurants-menton-nice-monaco", "menton-one-day-itinerary", "menton-three-day-itinerary", "menton-without-a-car", "where-to-stay-in-menton", "electric-car-charging-menton", "petrol-stations-menton", "fishing-in-menton"],
   },
   {
     id: "cimetiere-vieux-chateau",
@@ -4619,6 +4654,7 @@ const rawPlaces: Place[] = [
       "where-to-stay-in-menton",
       "yoga-in-menton",
       "sushi-sashimi-menton",
+      "fishing-in-menton",
     ],
   },
   {
@@ -5415,7 +5451,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A classic Riviera coastal route linking beaches, cliffs, pine trees, villas and train access back to Menton.", "Un classique cotier de la Riviera entre plages, falaises, pins, villas et retour possible en train vers Menton.", "Un classico costiero della Riviera tra spiagge, scogliere, pini, ville e ritorno in treno a Mentone.", "Класичний прибережний маршрут Рив'єри з пляжами, скелями, соснами, віллами й можливим поверненням потягом до Ментона."),
     bestFor: [text("coastal walks", "balades cotieres", "passeggiate costiere", "прибережні прогулянки"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["cycling-bike-rental-menton", "famous-paintings-of-menton", "best-walks-and-hikes-around-menton", "best-photo-spots-menton", "day-trips-from-menton"],
+    relatedArticleIds: ["cycling-bike-rental-menton", "famous-paintings-of-menton", "best-walks-and-hikes-around-menton", "best-photo-spots-menton", "day-trips-from-menton", "fishing-in-menton"],
   },
   {
     id: "mont-gros-viewpoint",
@@ -8084,6 +8120,8 @@ function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
     skatepark: "family",
     barbershop: "market",
     coworking: "transport",
+    "fishing-guide": "sea",
+    "fishing-shop": "transport",
   };
   return themes[type];
 }

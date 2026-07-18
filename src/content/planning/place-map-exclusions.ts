@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "am-fishing-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/am-fishing-menton-fr-3132662/" },
+  { placeId: "fish-ships-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/fish-ships-articles-de-peche-et-accastillage-menton-fr-5043122/" },
   { placeId: "orecife-coffee-coworking-menton", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/coworking-orecife-coffee-and-internet-menton-en-5150009/" },
   { placeId: "mywo-menton-centre", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Hotel%20Mediterranee%205%20Rue%20de%20la%20Republique%20Menton" },
   { placeId: "mywo-menton-bord-de-mer", reason: "coordinate_unverified", checkedOn: "2026-07-17", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Premier%20Hotel%20Prince%20de%20Galles%204%20Avenue%20du%20General%20de%20Gaulle%20Menton" },

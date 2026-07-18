@@ -99,7 +99,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Sport & outdoors", "Sport & plein air", "Sport & attivita all'aperto", "Спорт і активний відпочинок"),
     description: t("Gyms, yoga, pétanque, golf, tennis, padel, cycling, hiking and skateparks for active Riviera days.", "Salles de sport, yoga, petanque, golf, tennis, padel, velo, randonnee et skateparks pour des journees actives sur la Riviera.", "Palestre, yoga, petanque, golf, tennis, padel, bici, escursioni e skatepark per giornate attive in Riviera.", "Спортзали, йога, петанк, гольф, теніс, падел, велосипед, походи й скейтпарки для активних днів на Рив'єрі."),
     categories: [],
-    includeGuideSlugs: ["gyms-fitness-centres-menton", "yoga-in-menton", "saunas-spas-menton", "petanque-in-menton", "golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton"],
+    includeGuideSlugs: ["gyms-fitness-centres-menton", "yoga-in-menton", "saunas-spas-menton", "petanque-in-menton", "golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton", "fishing-in-menton"],
     priorityGuideSlugs: ["petanque-in-menton", "yoga-in-menton", "gyms-fitness-centres-menton", "tennis-padel-courts-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "cycling-bike-rental-menton", "skateparks-near-menton"],
   },
   {
