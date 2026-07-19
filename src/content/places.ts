@@ -6269,6 +6269,26 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "chez-angelovas-nice": {
+    image: "/images/guide/chez-angelovas-nice.jpg",
+    imageAlt: text("Illustration for Chez Angelovas / U Angelovyh in Nice", "Illustration pour Chez Angelovas / U Angelovyh a Nice", "Illustrazione per Chez Angelovas / U Angelovyh a Nizza", "Ілюстрація для Chez Angelovas / U Angelovyh у Ніцці"),
+    visualTheme: "food",
+  },
+  "roi-alexandre-nice": {
+    image: "/images/guide/roi-alexandre-nice.jpg",
+    imageAlt: text("Illustration for Roi Alexandre in Nice", "Illustration pour Roi Alexandre a Nice", "Illustrazione per Roi Alexandre a Nizza", "Ілюстрація для Roi Alexandre у Ніцці"),
+    visualTheme: "food",
+  },
+  "srb-way-nice": {
+    image: "/images/guide/srb-way-nice.jpg",
+    imageAlt: text("Illustration for SRB Way in Nice", "Illustration pour SRB Way a Nice", "Illustrazione per SRB Way a Nizza", "Ілюстрація для SRB Way у Ніцці"),
+    visualTheme: "food",
+  },
+  "resto-chez-tema-menton": {
+    image: "/images/guide/resto-chez-tema-menton.jpg",
+    imageAlt: text("Illustration for Resto Chez Tema in Menton", "Illustration pour Resto Chez Tema a Menton", "Illustrazione per Resto Chez Tema a Mentone", "Ілюстрація для Resto Chez Tema в Ментоні"),
+    visualTheme: "food",
+  },
   "public-toilets-fossan-beach-menton": {
     image: "/images/guide/public-toilets-fossan-beach-menton.jpg",
     imageAlt: text("Illustration of the public toilets at Plage du Fossan in Menton", "Illustration des toilettes publiques de la plage du Fossan a Menton", "Illustrazione dei servizi igienici pubblici della Plage du Fossan a Mentone", "Ілюстрація громадських туалетів на Plage du Fossan у Ментоні"),
