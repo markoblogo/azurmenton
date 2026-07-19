@@ -19,6 +19,7 @@
     "weekly:validate": "node scripts/weekly-validate.cjs",
     "weekly:draft": "node scripts/weekly-draft.cjs",
     "booking:funnel": "node scripts/booking-funnel-report.cjs",
+    "booking:dashboard": "node scripts/booking-funnel-dashboard.cjs",
     "perf:csp": "node scripts/csp-cache-audit.cjs",
     "test:e2e": "playwright test",
     "images:generate": "node scripts/generate-image-derivatives.mjs",

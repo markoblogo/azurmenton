@@ -1,6 +1,6 @@
 # Product Context
 
-Last reviewed: 2026-07-14
+Last reviewed: 2026-07-19
 
 ## Product
 
@@ -32,7 +32,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 
 ## Source Surfaces
 
-- `README.md`, `AGENTS.md`, `docs/content-operations.md`, `docs/ANALYTICS.md`, and `docs/cortex-abv-guest-ai-boundary.md`.
+- `README.md`, `AGENTS.md`, `docs/content-operations.md`, `docs/ANALYTICS.md`, `docs/LEAD_OPERATIONS.md`, and `docs/cortex-abv-guest-ai-boundary.md`.
 - `src/content/`, `src/lib/structured-data.ts`, and booking request routes.
 
 ## Maintenance

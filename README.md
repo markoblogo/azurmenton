@@ -254,7 +254,9 @@ Canonical funnel event names:
 
 Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: locale/page context, source attribution (`sourcePageType`, `sourceSlug`, guide/event/apartment slugs), trip intent (`apartmentPreference`, `visitingForEvent`, `dateFlexibility`), airport-board context (`airportCode`, `boardType`, `embedMode`) and coarse form context such as `has_dates`, `has_email`, `has_phone`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
 
-Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, source page, guide/event/apartment slug and apartment preference. See `docs/ANALYTICS.md` for the internal analytics contract. Actual dashboards are configured in Plausible/Vercel outside the repository.
+Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, source page, guide/event/apartment slug and apartment preference. See `docs/ANALYTICS.md` for the internal analytics contract. Plausible/Vercel collect the live data; the repository provides the event contract and owner-only reporting command.
+
+For an owner-only aggregate report, set a local read-only Plausible Stats API key and run `npm run booking:dashboard -- --period=28d`. The key is never a public runtime variable. `docs/LEAD_OPERATIONS.md` defines the manual response, follow-up and privacy workflow.
 
 ## Project Structure
 

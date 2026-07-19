@@ -43,3 +43,11 @@ Never send names, email addresses, phone numbers or free-text message content to
 Use CTA click events to identify which guide, event or apartment page sent a visitor into `/check-availability`. Use `check_availability_view`, `booking_form_start`, `booking_request_submit_success` and `booking_request_submit_error` to measure drop-off by locale, source page type, source slug and apartment preference.
 
 Run `npm run booking:funnel` to print the current event/property contract.
+
+## Local Funnel Dashboard
+
+`npm run booking:dashboard` queries the Plausible Stats API only when run with a local `PLAUSIBLE_STATS_API_KEY` and `PLAUSIBLE_SITE_ID`. It prints aggregate funnel-event counts and successful-request breakdowns by locale, source page type, source slug and apartment preference.
+
+The script is deliberately local and read-only: do not put the Stats API key in public browser variables or Vercel runtime variables. Use `npm run booking:dashboard -- --period=91d` for a wider review window. It does not create a guest database, retrieve raw events, or query PII.
+
+In Plausible, create goals for the canonical funnel events and use its goal-funnel view for visitor-level step analysis. The CLI report complements that view with the approved source-attribution breakdowns.
