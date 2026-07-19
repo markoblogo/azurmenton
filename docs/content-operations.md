@@ -18,6 +18,8 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Link relevant existing places through `relatedPlaces` and section-level `relatedPlaceIds`.
 - Add genuinely useful `relatedArticles`, `relatedEvents` and `relatedApartments`.
 - Add apartment CTAs for practical stay guides, beach/sea-view guides, family guides, transport guides and seasonal comfort guides.
+- For a high-intent guide in `src/content/guide-authority.ts`, select an honest editorial review date, use only useful official/primary source links, and choose a compact plan template that helps the guest act without duplicating the article.
+- Do not add an authority profile simply for visual weight. It is for maintained pages where the review date and practical source context can be defended.
 - Add the guide to `src/content/guide-intents.ts` when it supports an existing search intent cluster.
 - If the guide is useful for a ready-made trip scenario, update `src/content/planning/stay-plans.ts`.
 - If the guide depends on Monaco, Nice, Ventimiglia/Italy or car-free movement, confirm that a transport helper block appears naturally.

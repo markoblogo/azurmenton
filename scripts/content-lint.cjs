@@ -8,6 +8,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { guideArticles } = require("../src/content/guide.ts");
+const { guideAuthorityProfiles } = require("../src/content/guide-authority.ts");
 const { guestPerks } = require("../src/content/guest-perks.ts");
 const { localPartners, partnerLinkRel } = require("../src/content/partners.ts");
 const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
@@ -98,6 +99,27 @@ for (const article of guideArticles) {
     if (tool.imageAlt) checkLocalizedText(toolOwner, "imageAlt", tool.imageAlt, 8);
     checkUrl(toolOwner, "iosUrl", tool.iosUrl);
     checkUrl(toolOwner, "androidUrl", tool.androidUrl);
+  }
+}
+
+for (const [guideSlug, profile] of Object.entries(guideAuthorityProfiles)) {
+  const owner = `guideAuthority:${guideSlug}`;
+  if (!guideSlugs.has(guideSlug)) fail(`${owner} does not match a guide slug`);
+  checkLocalizedText(owner, "author", profile.author, 3);
+  checkLocalizedText(owner, "reviewNote", profile.reviewNote, 20);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(profile.reviewedAt)) fail(`${owner}.reviewedAt should be YYYY-MM-DD`);
+  if (!profile.sources.length) fail(`${owner}.sources should not be empty`);
+  if (profile.plan.steps.length !== 3) fail(`${owner}.plan should contain exactly three steps`);
+  checkLocalizedText(owner, "plan.title", profile.plan.title, 3);
+  checkLocalizedText(owner, "plan.intro", profile.plan.intro, 20);
+
+  for (const [index, source] of profile.sources.entries()) {
+    checkLocalizedText(owner, `sources[${index}].label`, source.label, 3);
+    checkUrl(owner, `sources[${index}].url`, source.url);
+  }
+  for (const [index, step] of profile.plan.steps.entries()) {
+    checkLocalizedText(owner, `plan.steps[${index}].label`, step.label, 3);
+    checkLocalizedText(owner, `plan.steps[${index}].text`, step.text, 10);
   }
 }
 
@@ -240,6 +262,7 @@ for (const perk of guestPerks) {
 
 console.log("Azur Menton content schema lint");
 console.log(`Guides checked: ${guideArticles.length}`);
+console.log(`Guide authority profiles checked: ${Object.keys(guideAuthorityProfiles).length}`);
 console.log(`Places checked: ${places.length}`);
 console.log(`Events checked: ${rivieraEvents.length + 1}`);
 console.log(`Partners checked: ${localPartners.length}`);
