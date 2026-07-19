@@ -20,6 +20,8 @@ The site combines direct booking, apartment presentation and evergreen local con
 
 Agent-facing positioning, conversion, proof and claim boundaries are maintained in [`docs/product-context.md`](docs/product-context.md). Use it before SEO, analytics, public-copy, or recurring content work; it does not authorize automated publishing or booking changes.
 
+The staged product roadmap and its human approval gates are maintained in [`docs/ROADMAP.md`](docs/ROADMAP.md). Milestones trigger a review recommendation, never automatic content or booking changes.
+
 The future CortexABV guest-AI path is documented in [`docs/cortex-abv-guest-ai-boundary.md`](docs/cortex-abv-guest-ai-boundary.md). It is not a deployed site feature: any future chat remains read-only, guide-grounded, isolated from personal/project context, and unable to modify booking or publish content.
 
 ## Stack
@@ -297,4 +299,4 @@ Production domain: `azurmenton.com`
 
 CI runs on pushes and pull requests to `main`: install, lint, typecheck, unit tests, content/funnel preflight, image derivative manifest validation, production build and post-build CSP/cache preflight.
 
-See `docs/content-operations.md`, `docs/ANALYTICS.md`, `docs/WEEKLY_DIGEST.md`, `docs/csp-cache-audit.md` and `docs/search-console-validation.md` for operational checklists.
+See `docs/content-operations.md`, `docs/ROADMAP.md`, `docs/ANALYTICS.md`, `docs/WEEKLY_DIGEST.md`, `docs/csp-cache-audit.md` and `docs/search-console-validation.md` for operational checklists.
