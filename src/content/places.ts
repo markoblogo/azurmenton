@@ -6209,6 +6209,41 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "public-toilets-fossan-beach-menton": {
+    image: "/images/guide/public-toilets-fossan-beach-menton.jpg",
+    imageAlt: text("Illustration of the public toilets at Plage du Fossan in Menton", "Illustration des toilettes publiques de la plage du Fossan a Menton", "Illustrazione dei servizi igienici pubblici della Plage du Fossan a Mentone", "Ілюстрація громадських туалетів на Plage du Fossan у Ментоні"),
+    visualTheme: "transport",
+  },
+  "public-toilets-vieille-ville-menton": {
+    image: "/images/guide/public-toilets-vieille-ville-menton.jpg",
+    imageAlt: text("Illustration of public toilets in Menton's Old Town", "Illustration des toilettes publiques de la vieille ville de Menton", "Illustrazione dei servizi igienici pubblici nella Citta Vecchia di Mentone", "Ілюстрація громадських туалетів у Старому місті Ментона"),
+    visualTheme: "old-town",
+  },
+  "public-toilets-place-darmes-menton": {
+    image: "/images/guide/public-toilets-place-darmes-menton.jpg",
+    imageAlt: text("Illustration of public toilets at Place d'Armes in Menton", "Illustration des toilettes publiques de la place d'Armes a Menton", "Illustrazione dei servizi igienici pubblici a Place d'Armes a Mentone", "Ілюстрація громадських туалетів на Place d'Armes у Ментоні"),
+    visualTheme: "transport",
+  },
+  "public-toilets-quai-monleon-menton": {
+    image: "/images/guide/public-toilets-quai-monleon-menton.jpg",
+    imageAlt: text("Illustration of public toilets at Quai Monleon in Menton", "Illustration des toilettes publiques du quai Monleon a Menton", "Illustrazione dei servizi igienici pubblici al Quai Monleon a Mentone", "Ілюстрація громадських туалетів на Quai Monleon у Ментоні"),
+    visualTheme: "old-town",
+  },
+  "public-toilets-cernuschi-menton": {
+    image: "/images/guide/public-toilets-cernuschi-menton.jpg",
+    imageAlt: text("Illustration of public toilets on Avenue Cernuschi in Menton", "Illustration des toilettes publiques de l'avenue Cernuschi a Menton", "Illustrazione dei servizi igienici pubblici in Avenue Cernuschi a Mentone", "Ілюстрація громадських туалетів на Avenue Cernuschi у Ментоні"),
+    visualTheme: "transport",
+  },
+  "public-toilets-parc-du-pian-menton": {
+    image: "/images/guide/public-toilets-parc-du-pian-menton.jpg",
+    imageAlt: text("Illustration of public toilets in Parc du Pian, Menton", "Illustration des toilettes publiques du parc du Pian a Menton", "Illustrazione dei servizi igienici pubblici nel Parc du Pian a Mentone", "Ілюстрація громадських туалетів у Parc du Pian у Ментоні"),
+    visualTheme: "garden",
+  },
+  "public-toilets-carrousel-menton": {
+    image: "/images/guide/public-toilets-carrousel-menton.jpg",
+    imageAlt: text("Illustration of public toilets beside the carousel at Place Clemenceau, Menton", "Illustration des toilettes publiques pres du carrousel place Clemenceau a Menton", "Illustrazione dei servizi igienici pubblici accanto al carosello in Place Clemenceau a Mentone", "Ілюстрація громадських туалетів біля каруселі на Place Clemenceau у Ментоні"),
+    visualTheme: "market",
+  },
   "orecife-coffee-coworking-menton": {
     image: "/images/guide/orecife-coffee-coworking-menton.jpg",
     imageAlt: text("O'Recife Coffee Shop & Coworking in Menton", "O'Recife Coffee Shop & Coworking a Menton", "O'Recife Coffee Shop & Coworking a Mentone", "O'Recife Coffee Shop & Coworking у Ментоні"),
