@@ -91,7 +91,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Practical stay", "Sejour pratique", "Soggiorno pratico", "Практичне проживання"),
     description: t("Car-free travel, airport arrivals, everyday essentials and the right base.", "Sans voiture, arrivee depuis l'aeroport, essentiels et bonne base de sejour.", "Senza auto, arrivo dall'aeroporto, essenziali e base giusta.", "Без авто, прибуття з аеропорту, щоденні потреби та правильна база."),
     categories: ["practical"],
-    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "best-barbershops-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton", "coworking-remote-work-menton"],
+    includeGuideSlugs: ["menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "best-barbershops-menton", "airports-near-menton-live-flights", "electric-car-charging-menton", "petrol-stations-menton", "public-toilets-menton", "coworking-remote-work-menton"],
     priorityGuideSlugs: ["menton-without-a-car", "how-to-get-to-menton-from-nice-airport", "airports-near-menton-live-flights", "public-transport-in-menton"],
   },
   {

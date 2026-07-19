@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "public-toilets-fossan-beach-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-plage-du-fossan-menton-fr-3158265/" },
+  { placeId: "public-toilets-vieille-ville-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-vieille-ville-menton-fr-3157215/" },
+  { placeId: "public-toilets-place-darmes-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-place-darmes-menton-fr-3158086/" },
+  { placeId: "public-toilets-quai-monleon-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-quai-monleon-menton-fr-3157699/" },
+  { placeId: "public-toilets-cernuschi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-cernuschi-menton-fr-3158144/" },
+  { placeId: "public-toilets-parc-du-pian-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-pian-menton-fr-3158158/" },
+  { placeId: "public-toilets-carrousel-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-carrousel-menton-fr-3158558/" },
   { placeId: "indian-delices-menton", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/restaurant-indian-delices-menton-fr-5919834/" },
   { placeId: "indian-star-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.indianstar.fr/fr/blank" },
   { placeId: "new-indien-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-18", sourceUrl: "https://www.newindien.com/" },

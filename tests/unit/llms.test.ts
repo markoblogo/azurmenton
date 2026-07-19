@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildLlmsText } from "../../src/app/llms.txt/route";
+import { buildLlmsText } from "../../src/lib/llms";
 
 describe("llms.txt", () => {
   it("is concise, public, and booking-focused", () => {
