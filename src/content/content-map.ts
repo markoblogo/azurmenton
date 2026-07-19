@@ -44,7 +44,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Food & markets", "Cuisine & marches", "Cibo e mercati", "Їжа та ринки"),
     description: t("Markets, local food, restaurants and practical shopping.", "Marches, cuisine locale, restaurants et courses pratiques.", "Mercati, cucina locale, ristoranti e spesa pratica.", "Ринки, місцева кухня, ресторани та практичні покупки."),
     categories: ["food-markets", "nightlife-drinks"],
-    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "indian-restaurants-menton"],
+    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "indian-restaurants-menton", "ukrainian-slavic-restaurants-menton-nice-monaco"],
     priorityGuideSlugs: ["local-food-menton", "halles-du-marche-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "supermarkets-in-menton"],
   },
   {

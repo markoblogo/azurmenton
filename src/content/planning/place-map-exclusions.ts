@@ -10,6 +10,10 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "chez-angelovas-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Chez%20Angelovas%20U%20Angelovyh%20Nice" },
+  { placeId: "roi-alexandre-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://roialexandre-nice.fr/fr/services" },
+  { placeId: "srb-way-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.google.com/maps/search/?api=1&query=SRB%20Way%20Nice" },
+  { placeId: "resto-chez-tema-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://provence-alpes-cotedazur.com/sejourner/restaurants/tous-les-restaurants/restaurant-chez-tema-menton-fr-3962809/" },
   { placeId: "public-toilets-fossan-beach-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-plage-du-fossan-menton-fr-3158265/" },
   { placeId: "public-toilets-vieille-ville-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-vieille-ville-menton-fr-3157215/" },
   { placeId: "public-toilets-place-darmes-menton", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/toilettes-publiques-place-darmes-menton-fr-3158086/" },
