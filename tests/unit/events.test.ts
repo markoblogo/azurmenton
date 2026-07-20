@@ -49,4 +49,15 @@ describe("event date status", () => {
     expect(summer && getEventSearchIndexing(summer)).toBe("noindex");
     expect(summer && isIndexableEventDetail(summer)).toBe(false);
   });
+
+  it("keeps past annual editions archived while routing planning links to a pending next occurrence", () => {
+    const e1Archive = getRivieraEvent("e1-monaco-2026");
+    const e1Planning = getRivieraEvent("e1-monaco");
+
+    expect(e1Archive?.detailPage).toBe(false);
+    expect(e1Archive?.searchIndexing).toBe("noindex");
+    expect(e1Planning?.occurrenceSlug).toBe("e1-monaco-2027");
+    expect(e1Planning?.dateStatus).toBe("dates_pending");
+    expect(e1Planning && canRenderEventJsonLd(e1Planning)).toBe(false);
+  });
 });

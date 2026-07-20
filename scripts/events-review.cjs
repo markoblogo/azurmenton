@@ -98,6 +98,10 @@ function isPast(event) {
   return getEventDateStatus(event, today) === "past";
 }
 
+function isExplicitArchive(event) {
+  return event.searchIndexing === "noindex" && event.detailPage === false;
+}
+
 function isFuturePlanningEvent(event) {
   const status = getEventDateStatus(event, today);
   return status === "upcoming" || status === "current" || status === "dates_pending" || status === "estimated_annual_window";
@@ -175,15 +179,15 @@ for (const event of allEvents) {
   const maxAgeDays = freshnessMaxAgeDays(event);
   const canRenderJsonLd = canRenderEventJsonLd(event);
 
-  if (event.dateStatus === "confirmed" && event.recurrence === "annual" && event.endDate && event.endDate < todayKey) {
+  if (!isExplicitArchive(event) && event.dateStatus === "confirmed" && event.recurrence === "annual" && event.endDate && event.endDate < todayKey) {
     addReview(event, "high", "confirmed_annual_past", "Update this annual event to the next occurrence, or move it to an explicit archive/past-edition state.");
   }
 
-  if (event.recurrence === "annual" && isPast(event) && !hasFutureOccurrenceOrPlanningStatus(event)) {
+  if (!isExplicitArchive(event) && event.recurrence === "annual" && isPast(event) && !hasFutureOccurrenceOrPlanningStatus(event)) {
     addReview(event, "high", "past_annual_without_next_planning", "Create the next occurrence/planning state, or mark the series as intentionally archived.");
   }
 
-  if (isPast(event) && links.length) {
+  if (!isExplicitArchive(event) && isPast(event) && links.length) {
     addReview(event, "medium", "guide_links_to_past_event", "Review guide and intent links; point guests to the next edition or keep the event page clearly archived.");
   }
 
