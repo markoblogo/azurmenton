@@ -25,3 +25,11 @@ Read `docs/product-context.md` before changing public positioning, conversion co
 - Prefer element-level anatomy in descriptions: wrapper, heading, body, controls, actions, and support copy.
 - If ambiguity remains, resolve naming via NameThatUI-style reference before standardizing new local labels.
 - Optional only: apply when naming quality materially affects UX consistency, reuse, or handoff quality.
+
+## Optional fallback-provider pool (execution only)
+
+- Use only as a local reference list for provider selection when workflow stalls on model choice.
+- Prefer providers already declared in local runtime contracts; treat free-provider lists as `potential` until verified.
+- Before using a fallback: check region/signup, rate limits, quotas, retention/privacy terms, and last-tested state.
+- Record in task evidence: `provider_candidate`, `selection_rationale`, `fallback_reason`, `tested_at`, `approval_gate` (if production-bound).
+- No auto-routing from this list to production traffic.
