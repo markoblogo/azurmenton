@@ -18,3 +18,10 @@ Use `docs/content-operations.md` as the detailed checklist for guide, place, eve
 ## Product context and recurring reviews
 
 Read `docs/product-context.md` before changing public positioning, conversion copy, SEO/schema, booking analytics, or recurring content reviews. It is a claim-boundary reference, not permission to publish, change bookings, or send marketing automatically. Keep recurring work report-only or proposal-first until an explicit human approval gate exists.
+
+## Optional design-language contract (NameThatUI)
+
+- For guide UI blocks, component-callout sections, and frontend-facing copy, use canonical component terminology (e.g., card, pill/chip, modal, tooltip, breadcrumb, segmented control) before inventing local shorthand.
+- Prefer element-level anatomy in descriptions: wrapper, heading, body, controls, actions, and support copy.
+- If ambiguity remains, resolve naming via NameThatUI-style reference before standardizing new local labels.
+- Optional only: apply when naming quality materially affects UX consistency, reuse, or handoff quality.
