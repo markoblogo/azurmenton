@@ -1362,7 +1362,7 @@ export const guideArticles: GuideArticle[] = [
           t("For the most local dessert, start with La Tarte Mentonnaise on Rue Saint-Michel. For artisan bakery work and citrus pastries, use Mitron Bakery. For coffee, breakfast and a broader cake display, choose Vanilla Bakery or Café Noailles.", "Pour le dessert le plus local, commencez par La Tarte Mentonnaise rue Saint-Michel. Pour boulangerie artisanale et patisseries aux agrumes, choisissez Mitron Bakery. Pour cafe, petit-dejeuner et choix plus large de gateaux, utilisez Vanilla Bakery ou Cafe Noailles.", "Per il dolce piu locale, inizia da La Tarte Mentonnaise in Rue Saint-Michel. Per lavoro artigianale e dolci agli agrumi, scegli Mitron Bakery. Per caffe, colazione e una vetrina piu ampia, usa Vanilla Bakery o Cafe Noailles.", "За найлокальнішим десертом починайте з La Tarte Mentonnaise на Rue Saint-Michel. Для artisan bakery і цитрусової випічки — Mitron Bakery. Для кави, сніданку й ширшої вітрини тортів — Vanilla Bakery або Café Noailles."),
           t("For nearby special-occasion pastry, use Ma Première Boulangerie in La Turbie, Cédric Grolet or Cova in Monaco, and Maison Auer if you are already spending time in Nice.", "Pour une patisserie d'occasion proche, utilisez Ma Premiere Boulangerie a La Turbie, Cedric Grolet ou Cova a Monaco, et Maison Auer si vous passez deja du temps a Nice.", "Per una pasticceria speciale nei dintorni, scegli Ma Première Boulangerie a La Turbie, Cedric Grolet o Cova a Monaco, e Maison Auer se passi gia da Nizza.", "Для особливих десертних зупинок поруч: Ma Première Boulangerie в La Turbie, Cédric Grolet або Cova в Монако, Maison Auer, якщо ви вже їдете до Ніцци."),
         ],
-        relatedPlaceIds: ["la-tarte-mentonnaise", "mitron-bakery-menton", "vanilla-bakery-menton", "cafe-noailles-menton", "ma-premiere-boulangerie-la-turbie", "cedric-grolet-monte-carlo", "pasticceria-cova-monaco", "maison-auer-nice"],
+        relatedPlaceIds: ["la-tarte-mentonnaise", "mitron-bakery-menton", "vanilla-bakery-menton", "jean-luc-pele-menton", "cafe-noailles-menton", "ma-premiere-boulangerie-la-turbie", "cedric-grolet-monte-carlo", "pasticceria-cova-monaco", "maison-auer-nice"],
       },
       {
         heading: t("Essential Menton lemon stops", "Adresses citron essentielles a Menton", "Tappe essenziali al limone a Mentone", "Головні лимонні зупинки Ментона"),
@@ -1551,6 +1551,7 @@ export const guideArticles: GuideArticle[] = [
       "vanilla-bakery-menton",
       "mitron-bakery-menton",
       "edwige-coffee-menton",
+      "jean-luc-pele-menton",
       "halles-du-marche",
       "rue-saint-michel-menton",
       "quai-bonaparte-menton",

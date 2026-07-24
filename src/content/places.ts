@@ -382,6 +382,33 @@ const rawPlaces: Place[] = [
     guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton"],
   },
   {
+    id: "jean-luc-pele-menton",
+    name: "Jean-Luc Pelé",
+    type: "market",
+    address: "Menton centre",
+    googleMapsUrl: mapsSearch("Jean-Luc Pelé", "Menton"),
+    openingHoursLabel: checkHours,
+    priceLabel: checkPrices,
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "A stylish, high-quality bakery known for rich croissants, artisan breakfast pastries and elegant bakery brunch stops.",
+      "Une boulangerie a la fois qualitative et stylisee, reconnue pour de bons croissants, des viennoiseries artisanales et des pauses matinales soignees.",
+      "Un forno elegante e qualitativo, noto per ottimi croissant, viennoiserie artigianale e soste mattutine curate.",
+      "Стильна якісна пекарня з багатими круасанами, ручною випічкою та вишуканими ранковими зупинками.",
+    ),
+    bestFor: [
+      text("high-quality croissants", "croissants premium", "croissant di alta qualita", "якісні круасани"),
+      text("special breakfasts", "petits dejeuners de qualite", "colazioni speciali", "спеціальні сніданки"),
+    ],
+    relatedArticleIds: [
+      "best-pastries-desserts-cakes-menton",
+      "best-breakfast-menton",
+      "local-food-menton",
+      "where-to-stay-in-menton",
+    ],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton"],
+  },
+  {
     id: "vanilla-bakery-menton",
     name: "Vanilla Bakery",
     type: "restaurant",
@@ -6670,6 +6697,11 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
   "mitron-bakery-menton": {
     image: "/images/guide/mitron-bakery-menton.jpg",
     imageAlt: text("Illustration of Mitron Bakery in Menton", "Illustration de Mitron Bakery a Menton", "Illustrazione di Mitron Bakery a Mentone", "Ілюстрація Mitron Bakery у Ментоні"),
+    visualTheme: "food",
+  },
+  "jean-luc-pele-menton": {
+    image: "/images/guide/jean-luc-pele-menton.jpg",
+    imageAlt: text("Illustration of Jean-Luc Pelé in Menton", "Illustration de Jean-Luc Pelé a Menton", "Illustrazione di Jean-Luc Pelé a Mentone", "Ілюстрація Jean-Luc Pelé у Ментоні"),
     visualTheme: "food",
   },
   "vanilla-bakery-menton": {
