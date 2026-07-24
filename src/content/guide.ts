@@ -1498,6 +1498,196 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "best-breakfast-menton",
+    slug: "best-breakfast-menton",
+    title: t(
+      "Best breakfast in Menton: bakeries, cafés and morning routes",
+      "Petit-dejeuner a Menton: boulangeries, cafes et routes matinales",
+      "Colazione a Mentone: panetterie, caffé e percorsi mattutini",
+      "Найкращий сніданок у Ментоні: булочні, кав'ярні та ранкові маршрути",
+    ),
+    seoTitle: t(
+      "Best Breakfast in Menton: Bakeries, Cafés and Morning Routes",
+      "Meilleur petit-dejeuner a Menton: boulangeries, cafes et routes du matin",
+      "La miglior colazione a Mentone: panetterie, caffé e percorsi mattutini",
+      "Найкращий сніданок у Ментоні: булочні, кав'ярні та ранкові маршрути",
+    ),
+    seoDescription: t(
+      "Discover where to have breakfast in Menton, from early coffee and croissants to market food, family-friendly routes and seafront walks.",
+      "Decouvrez ou prendre le petit-dejeuner a Menton, des boulangeries matinales aux courses au marche et aux balades face a la mer.",
+      "Scopri dove fare colazione a Mentone, dai primi stop in panetteria al mercato fino alle passeggiate sul lungomare.",
+      "Відкрийте, де снідати в Ментоні: від ранкових зупинок у пекарнях до ринку й прогулянок біля моря.",
+    ),
+    excerpt: t(
+      "A practical Menton breakfast guide for early travellers: bakeries, cafés, market essentials, and family-friendly morning routes.",
+      "Un guide pratique du petit-dejeuner a Menton pour voyageurs matinaux: boulangeries, cafes, marche et parcours familiaux.",
+      "Guida pratica per la colazione a Mentone: viaggiatori mattutini, panetterie, caffé, mercato e percorsi per famiglie.",
+      "Практичний гід по сніданку в Ментоні: ранні подорожі, пекарні, ринок і сімейні ранкові маршрути.",
+    ),
+    category: "food-markets",
+    coverImage: "/images/guide/best-breakfast-menton.jpg",
+    coverImageAlt: t(
+      "Illustration of a Menton breakfast stop and seafront walk",
+      "Illustration d'une halte de petit-dejeuner a Menton et d'une promenade en bord de mer",
+      "Illustrazione di una tappa per colazione a Mentone e una passeggiata sul lungomare",
+      "Ілюстрація сніданкової зупинки в Ментоні та прогулянки вздовж моря",
+    ),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    tags: [
+      t("breakfast", "petit-dejeuner", "colazione", "сніданок"),
+      t("bakeries", "boulangeries", "panetterie", "пекарні"),
+      t("cafés", "cafes", "caffe", "кав'ярні"),
+      t("coffee", "cafe", "caffé", "кава"),
+      t("croissants", "croissants", "croissant", "круасани"),
+      t("market", "marche", "mercato", "ринок"),
+      t("family", "famille", "famiglie", "сім'я"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[2].label, guideBestForOptions[11].label],
+    duration: "1-2 hours",
+    locationTags: ["menton-centre", "old-town", "seafront"],
+    sourceStatus: "editorial",
+    relatedPlaces: [
+      "vanilla-bakery-menton",
+      "mitron-bakery-menton",
+      "edwige-coffee-menton",
+      "halles-du-marche",
+      "rue-saint-michel-menton",
+      "quai-bonaparte-menton",
+      "plage-sablettes",
+    ],
+    relatedArticles: [
+      "local-food-menton",
+      "best-pastries-desserts-cakes-menton",
+      "best-ice-cream-menton",
+      "halles-du-marche-menton",
+      "supermarkets-in-menton",
+      "menton-old-town",
+      "menton-without-a-car",
+      "menton-one-day-itinerary",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Quick breakfast guide", "Guide express du petit-dejeuner", "Guida rapida per la colazione", "Короткий гід по сніданку"),
+        body: [
+          t(
+            "Choose the format first and then pick a place. This saves time and avoids overcomplicating a Menton morning.",
+            "Choisissez d'abord le format, puis le lieu. Cela fait gagner du temps et simplifie la matinée a Menton.",
+            "Scegli prima il formato, poi il posto. Questo fa risparmiare tempo e semplifica la mattina a Mentone.",
+            "Спочатку оберіть формат, потім місце. Це економить час і не ускладнює ранковий режим.",
+          ),
+        ],
+        bullets: [
+          t("Coffee and croissant before an early trip — 15–25 min", "Cafe et croissant avant un trajet matinal: 15-25 min", "Caffè e croissant prima di una partenza mattutina: 15-25 min", "Кава і круасан перед раннім виїздом: 15–25 хв."),
+          t("Slow seated café breakfast — 45–75 min", "Petit-dejeuner calme assis: 45-75 min", "Colazione tranquilla seduta: 45-75 min", "Спокійний сніданок у залі: 45–75 хв."),
+          t("Market breakfast: local fruit, cheese, olive and local picks — 45–90 min", "Petit-dejeuner au marche avec produits locaux: 45-90 min", "Colazione al mercato: frutta, formaggio, olive e specialita locali — 45-90 min", "Ринковий сніданок: фрукти, сир, оливки та місцеві смаколики: 45–90 хв."),
+          t("Family morning with children — 60–120 min", "Matin en famille: 60-120 min", "Mattinata in famiglia: 60-120 min", "Сімейний ранок з дітьми: 60–120 хв."),
+          t("Breakfast before swimming — 30–60 min", "Petit-dejeuner avant baignade: 30-60 min", "Colazione prima del bagno: 30-60 min", "Сніданок перед купанням: 30–60 хв."),
+          t("Private apartment breakfast — flexible", "Petit-dejeuner prive: flexible", "Colazione privata: flessibile", "Домашній сніданок в апартаментах: гнучко."),
+        ],
+      },
+      {
+        heading: t("What breakfast looks like in Menton", "Ce qu'est un petit-dejeuner a Menton", "Comu e la colazione a Mentone", "Який сніданок у Ментоні"),
+        body: [
+          t("The simplest version is one coffee and one pastry, then a short walk. In Menton, many places work best very early, before the day becomes dense.", "La version la plus simple reste un cafe et une viennoiserie, puis une courte marche. A Menton, beaucoup d'adresses fonctionnent mieux tres tot, avant l'affluence.", "La versione piu semplice e un caffè e un dolce, poi una breve passeggiata. A Mentone molti posti sono al meglio molto presto, prima che cresca il flusso.", "Найпростіший варіант — кава та булочка, потім коротка прогулянка. У Ментоні багато закладів працюють найкраще дуже рано."),
+          t("Some places offer larger breakfast menus, but openings are not always the same every day or season. Check the current schedule before planning a specific departure.", "Certaines adresses proposent un vrai petit-dejeuner, mais les horaires changent selon la journee et la saison. Verifiez les horaires avant de planifier un depart.", "Alcuni posti offrono menus completi, ma gli orari cambiano per giorno e stagione: controlla sempre prima di pianificare.", "Деякі заклади мають повний сніданок, але графік може мінятися по днях і сезонах. Перевірте розклад перед конкретним планом."),
+        ],
+      },
+      {
+        heading: t("Best places to begin", "Adresses ideales pour commencer", "Luoghi ideali per iniziare", "З чого почати"),
+        body: [
+          t("Use these four anchors for different needs: a fast bakery opening, a more artisan bakery, a slower seated morning, and the market for building a custom breakfast.", "Ces quatre points couvrent les besoins courants: une ouverture precoce, une offre artisanale, un debut assis et un vrai point marche.", "Usa questi quattro punti per esigenze diverse: apertura precoce, panetteria artigianale, pausa seduta e mercato per una colazione su misura.", "Використовуйте ці 4 опори: ранньовідкриту точку, артiзанську пекарню, спокійне кафе і ринок для персоналізованого сніданку."),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton", "mitron-bakery-menton", "edwige-coffee-menton", "halles-du-marche", "rue-saint-michel-menton", "plage-sablettes", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Six easy breakfast plans", "Six plans de matin simples", "Sei piani mattutini facili a Mentone", "Шість простих сніданкових планів"),
+        body: [
+          t("Use the plan that matches your train, family pace and heat conditions.", "Choisissez la formule qui correspond a votre train, votre rythme et la chaleur.", "Scegli la formula giusta in base al treno, ritmo familiare e temperature.", "Обирайте план за розкладом потяга, ритмом сім'ї та спекою."),
+        ],
+        relatedPlaceIds: ["plage-fossan", "plage-sablettes", "halles-du-marche", "vanilla-bakery-menton", "mitron-bakery-menton", "edwige-coffee-menton", "rue-saint-michel-menton", "quai-bonaparte-menton"],
+        bullets: [
+          t("1) Quick coffee and croissant: start at an early bakery, then head to your transport.", "1) Cafe et croissant rapides: debut a une boulangerie puis transport.", "1) Caffe e croissant rapido: inizia in una boulangerie precoce, poi spostati.", "1) Кава і круасан: почати з ранньої пекарні, далі до транспорту."),
+          t("2) Slow breakfast for two: seated start in a café, then walk through old town and toward the waterfront.", "2) Petit-dejeuner lent a deux: cafe a deux puis passage en vieille ville et promenee vers la mer.", "2) Colazione lenta per due: caffè seduto, poi giro nel centro storico e verso la costa.", "2) Повільний сніданок для двох: сидяче кафе, потім старе місто і прогулянка до моря."),
+          t("3) Breakfast with children: bakery or café, shaded pause, toilet, short beach or park walk.", "3) Scolaire en famille: boulangerie/cafe, zone ombragee, toilette, marche courte vers plage.", "3) Colazione in famiglia: panetteria o cafe, area d'ombra, bagno, passeggiata breve verso spiaggia.", "3) Сімейний варіант: пекарня або кафе, зручна тінь, туалет, коротка прогулянка до пляжу."),
+          t("4) Market breakfast: seasonal fruit, cheese, bread, olives and simple local items to keep the morning flexible.", "4) Petit-dejeuner aux Halles: fruits, fromages, pain, olives et produits locaux faciles.", "4) Colazione alle Halles: frutta, formaggio, pane, olive e prodotti locali per un ritmo flessibile.", "4) Ринковий сніданок: свіжі фрукти, сир, хліб, оливки для гнучкого дня."),
+          t("5) Early beach breakfast: buy and move early before heat and crowds build.", "5) Petit-dejeuner avant plage: acheter puis se diriger vers la plage avant le pic.", "5) Colazione pre spiaggia: comprare e spostarsi presto prima della folla.", "5) Ранній пляжний сніданок: купити і швидко піти до моря до роздороження натовпу."),
+          t("6) Apartment breakfast: buy simple food, return to the apartment and build your rhythm around light, shade and balcony view.", "6) Petit-dejeuner en appartement: acheter l'essentiel, revenir puis profiter du rythme maison.", "6) Colazione in appartamento: comprare l'essenziale e gestire la giornata con ritmo domestico.", "6) Сніданок в апартаменті: купити прості продукти, повернутися й побудувати день навколо домашнього ритму."),
+        ],
+      },
+      {
+        heading: t("Breakfast ideas for each Azur Menton apartment", "Idées par appartement Azur Menton", "Idee di colazione per ogni appartamento Azur Menton", "Ідеї сніданку для кожного апартаменту Azur Menton"),
+        body: [
+          t("Different apartment layouts work better for different routines.", "Selon la taille et le type d'appartement, la routine change.", "Il tipo di appartamento cambia il modo migliore per la colazione.", "Тип апартаментів краще працює по-різному залежно від ритму."),
+          t("Beachfront Studio with Balcony & Sea View: bakery takeaway, private balcony breakfast, short promenade walk.", "Studio Vue mer: emporter a la boulangerie, petit-dejeuner sur balcon, marche courte au front de mer.", "Studio vista mare: take away, colazione in balcone, passeggiata corta sul lungomare.", "Beachfront Studio with Balcony & Sea View: беріть випічку, снідайте на балконі з морем, пройдіться набережною."),
+          t("Beachside Apartment with Terrace & Parking: ideal for families, children, and longer, practical breakfasts with more preparation.", "Appartement Victoria Beach avec terrasse: bon pour familles et petit-dejeuner plus long.", "Beachside con terrazza: ideale per famiglie e colazioni piu strutturate.", "Beachside Apartment with Terrace & Parking: оптимально для сімей, дітей, більш тривалого приготування."),
+          t("Beachfront Studio with Balcony & Panoramic Sea View: most useful for relaxed two-person starts and quiet private rhythm near the coast.", "Studio Vue mer panoramique: ideal pour couples et matinees calmes.", "Studio panoramico: perfetto per coppie e avvii tranquilli.", "Panoramic Sea View Studio: найкращий варіант для спокійного старту на двох, тиша і вид."),
+        ],
+      },
+      {
+        heading: t("A 90-minute central Menton morning route", "Itineraire matinal central de 90 minutes", "Percorso mattutino centrale di 90 minuti", "90-хвилинний ранковий маршрут у центрі Ментона"),
+        body: [
+          t("For a first day, this compact route is practical and easy to shorten.", "Pour un premier jour, cet itineraire est tres pratique et facile a raccourcir.", "Per il primo giorno e un percorso pratico e facile da accorciare.", "Для першого дня в Ментоні цей маршрут зручний і легко коротший."),
+          t("1) Vanilla Bakery or another early bakery, 2) Rue Saint-Michel, 3) Halles du Marché, 4) Quai Bonaparte and seawalk.", "1) Vanilla Bakery ou autre boutique ouverte tot, 2) Rue Saint-Michel, 3) Halles du Marche, 4) Quai Bonaparte et marche au bord de la mer.", "1) Vanilla Bakery o altra panetteria precoce, 2) Rue Saint-Michel, 3) Halles du Marche, 4) Quai Bonaparte e passeggiata sulla costa.", "1) Vanilla Bakery чи інша ранкова пекарня, 2) Rue Saint-Michel, 3) Halles du Marché, 4) Quai Bonaparte і прогулянка вздовж моря."),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton", "rue-saint-michel-menton", "halles-du-marche", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("What to order", "Ce qu'il faut commander", "Cosa ordinare", "Що замовляти"),
+        body: [
+          t("Common terms: croissant, pain au chocolat, tartine, café, café allongé, cappuccino, chocolat chaud, jus d’orange pressé, formule petit-déjeuner.", "Termes utiles: croissant, pain au chocolat, tartine, cafe, cafe allonge, cappuccino, chocolat chaud, jus d'orange presse, formule petit-dejeuner.", "Termini utili: croissant, pain au chocolat, tartina, caffè, caffè allungato, cappuccino, cioccolata calda, succo d'arancia pressato, formule petit-dejeuner.", "Типові замовлення: круасан, pain au chocolat, тартин, кофе, café allongé, капучино, гарячий шоколад, свіжий апельсиновий сік, формула сніданку."),
+          t("In France, a 'café' is often short. Ask for allongé if you want more coffee volume.", "En France, un 'cafe' est souvent court. Demandez allonge si vous voulez plus.", "In Francia il 'caffe' e spesso piccolo. Chiedi un caffè allungato se vuoi un volume maggiore.", "У Франції 'café' часто невелика порція; попросіть 'café allongé' якщо треба довший напій."),
+        ],
+      },
+      {
+        heading: t("Breakfast for different dietary needs", "Repas et restrictions", "Colazioni per esigenze alimentari", "Сніданок з урахуванням дієтичних потреб"),
+        body: [
+          t("Dietary options are improving, but verification is still needed: check ingredients at the counter and for cross-contamination.", "Les options diététiques progressent, mais il faut toujours verifier ingredients et trace de contaminants.", "Le opzioni alimentari migliorano, ma verifica sempre ingredienti e contaminazioni crociate.", "Спеціальні дієтичні варіанти поліпшуються, але все одно перевіряйте склад і ризик перехресного забруднення."),
+          t("Useful questions: Est-ce que cela contient des noix? Je suis allergique à... Avez-vous quelque chose sans gluten? Est-ce végétalien?", "Questions utiles: Est-ce que cela contient des noix? Je suis allergique a... Avez-vous quelque chose sans gluten? Est-ce vegetalien?", "Domande utili: Contiene noci? Sono allergico... Avete opzioni senza glutine? E' vegetale?", "Корисні фрази: Чи є горіхи? Я алергічний... Чи є безглютенове? Чи веганське?"),
+        ],
+      },
+      {
+        heading: t("Typical breakfast budget", "Budget type de petit-dejeuner", "Budget tipico per la colazione", "Приблизний бюджет сніданку"),
+        body: [
+          t("Most economical: coffee + pastry. Seated breakfast is usually more. Brunch formats and specialty coffee cost more.", "Le plus economique: cafe et viennoiserie. Le petit-dejeuner assis est plus cher; brunch et specialites peuvent augmenter fortement.", "Più economico: caffè e pasticceria. Colazione seduta + brunch e specialty coffee costa di piu.", "Найдешевше: кава + круасан/вінні. Сидячий сніданок зазвичай дорожчий, а бранч і ексклюзивна кава — ще більше."),
+          t("Apertures and menus can change by season, so check the posted menu before ordering a larger breakfast.", "Les menus et prix changent selon la saison; regardez toujours la carte avant de commander.", "Menu e prezzi possono cambiare con la stagione: controlla sempre la carta prima di ordinare.", "Меню та ціни міняються по сезонах, перевірте картку перед замовленням розширеного сніданку."),
+        ],
+      },
+      {
+        heading: t("Practical morning tips", "Conseils pratiques", "Consigli pratici mattutini", "Практичні поради"),
+        body: [
+          t("Bakeries usually open earlier than stand-alone cafés.", "Les boulangeries ouvrent souvent plus tot que les cafes traditionnels.", "Le panetterie aprono spesso prima dei caffè tradizionali.", "Пекарні зазвичай відкриваються раніше, ніж багато кафе."),
+          t("Some independent venues close one day a week. Sunday and Monday schedules often differ.", "Certaines adresses ferment un jour par semaine, le dimanche et lundi changent souvent.", "Alcuni esercizi chiudono un giorno a settimana; domenica e lunedì cambiano spesso.", "Деякі незалежні заклади закриваються один день на тиждень; неділя та понеділок часто відрізняються."),
+          t("Carry water for any beach or old-town walk in summer heat.", "Prenez de l'eau pour les marches vers plage ou vieille ville en été.", "Porta sempre acqua per passeggiate a spiaggia o centro storico nel caldo.", "Візьміть воду для прогулянки пляжем або старим містом у спеку."),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton", "edwige-coffee-menton", "plage-sablettes", "quai-bonaparte-menton"],
+      },
+      {
+        heading: t("Frequently asked questions", "Questions frequentes", "Domande frequenti", "Часті запитання"),
+        body: [
+          t("Where can I have an early breakfast in Menton?", "Ou prendre le petit-dejeuner le plus tot a Menton?", "Dove fare colazione il piu presto a Mentone?", "Де снідати якомога раніше в Ментоні?"),
+          t("Typically a central bakery is most reliable first. Verify opening time for train or excursion days.", "Generalement une boulangerie centrale est la plus fiable, surtout si vous devez partir vite.", "In genere una panetteria centrale e la soluzione piu affidabile, soprattutto se devi partire presto.", "Зазвичай найнадійніша — центральна пекарня, особливо в день виїзду або потяга."),
+          t("Is Marché des Halles good for breakfast?", "Le marche est-il bon pour le petit-dejeuner?", "Il Marché des Halles e buono per la colazione?", "Чи годиться Marché des Halles для сніданку?"),
+          t("Yes, especially if you like local produce. It is also a strong lunch and picnic source.", "Oui, surtout pour produits locaux; utile aussi pour lunch et pique-nique.", "Sì, soprattutto per prodotti locali; e utile anche per pranzo o pic nic.", "Так, особливо для місцевих продуктів. Корисно також для обіду і пікніка."),
+          t("Can I take breakfast to the beach?", "Puis-je emporter un petit-dejeuner a la plage?", "Si puo portare la colazione in spiaggia?", "Чи можна брати сніданок на пляж?"),
+          t("Yes. Keep valuables with you and avoid leaving bags unattended on hot morning crowds.", "Oui, mais gardez vos affaires et ne laissez jamais de sac seul.", "Sì, ma tieni d'occhio i bagagli e gli oggetti di valore.", "Так. Але тримайте речі при собі й не залишайте сумки без нагляду."),
+        ],
+      },
+      {
+        heading: t("Stay close to the beach in central Menton", "Rester proche de la plage depuis le centre", "Rimanere vicini al mare dal centro", "Залишайтесь поруч з пляжем з центру"),
+        body: [
+          t("Azur Menton’s three central apartments are all close to seafront walks, bakeries and the market. Choose a balcony studio for private routines, or the larger terrace apartment for families.", "Les trois appartements centraux sont proches de promenade, marches et Halles. Choisissez un studio balcon pour un rythme prive, ou l'appartement terrasse pour la famille.", "I tre appartamenti centrali sono vicini a lungomare, panetteria e Halles. Scegli studio su balcone per routine privata o appartamento piu grande per famiglie.", "Три центральні апартаменти Azur Menton поруч із набережною, пекарнями й ринком. Для приватного ритму — студія з балконом, для сім'ї — більша терасна квартира."),
+        ],
+        relatedApartmentKeys: allApartments,
+        bullets: [
+          t("Check availability directly for apartment breakfast needs.", "Demandez directement la disponibilite si vous comptez sur un petit-dejeuner en appartement.", "Verifica direttamente la disponibilita se il piano include colazione in appartamento.", "Перевіряйте наявність безпосередньо, якщо сніданок вдома — частина вашого плану."),
+        ],
+      },
+    ],
+  }),
+  shortArticle({
     id: "best-walks-and-hikes-around-menton",
     slug: "best-walks-and-hikes-around-menton",
     title: t("The best walks and hikes around Menton", "Les meilleures balades et randonnees autour de Menton", "Le migliori passeggiate ed escursioni intorno a Mentone", "Найкращі прогулянки й походи навколо Ментона"),
