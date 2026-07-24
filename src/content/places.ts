@@ -6442,6 +6442,16 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Eunoia Coffee at Port de Garavan", "Eunoia Coffee au Port de Garavan", "Eunoia Coffee al Port de Garavan", "Eunoia Coffee у Port de Garavan"),
     visualTheme: "transport",
   },
+  "edwige-coffee-menton": {
+    image: "/images/guide/edwige-coffee-menton.jpg",
+    imageAlt: text(
+      "Illustration of Edwige Coffee in Menton",
+      "Illustration pour Edwige Coffee a Menton",
+      "Illustrazione per Edwige Coffee a Mentone",
+      "Ілюстрація Edwige Coffee у Ментоні",
+    ),
+    visualTheme: "food",
+  },
   "coiffeur-max-artisan-barbier-menton": {
     image: "/images/guide/coiffeur-max-artisan-barbier-menton.jpg",
     imageAlt: text("Illustration of Coiffeur Max Artisan Barbier in Menton", "Illustration de Coiffeur Max Artisan Barbier a Menton", "Illustrazione di Coiffeur Max Artisan Barbier a Mentone", "Ілюстрація Coiffeur Max Artisan Barbier у Ментоні"),
