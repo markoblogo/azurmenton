@@ -8545,6 +8545,132 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of the Cernuschi community book box in Menton", "Illustration de la boite a livres solidaire Cernuschi a Menton", "Illustrazione della scatola solidale per libri Cernuschi a Mentone", "Ілюстрація солідарної книжкової коробки Cernuschi у Ментоні"),
     visualTheme: "old-town",
   },
+  "flowy-coffee-coworking-menton": {
+    name: "Flowy - Coffeeshop & Coworking à Menton",
+    type: "coworking",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "A coworking space with coffee and workspaces in central Menton.",
+      "Un espace de coworking avec café et espaces de travail dans le centre de Menton.",
+      "Uno spazio di coworking con caffè e aree di lavoro nel centro di Menton.",
+      "Простор coworking з кавою та робочими просторами в центрі Ментона."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Flowy coworking space in Menton",
+      "Espace de coworking Flowy à Menton",
+      "Spazio di coworking Flowy a Menton",
+      "Простор coworking Flowy в Ментоні"
+    ),
+    visualTheme: "transport",
+  },
+  "cafe-napoli-menton": {
+    name: "Café Napoli",
+    type: "restaurant",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "Authentic Italian espresso bar inside the Marché des Halles.",
+      "Bar à expresso italien authentique à l'intérieur du Marché des Halles.",
+      "Bar autentico di espresso italiano all'interno del Marché delle Halles.",
+      "Автентичний італійський бар з еспресо всередині ринку Марше des Halles."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Café Napoli espresso bar in Menton",
+      "Bar à expresso Café Napoli à Menton",
+      "Bar espresso Café Napoli a Menton",
+      "Кафе Неаполі — бар для еспресо в Ментоні"
+    ),
+    visualTheme: "food",
+  },
+  "gusto-italiano-menton": {
+    name: "Gusto Italiano",
+    type: "restaurant",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "Another Italian espresso spot known for classic cappuccino.",
+      "Un autre endroit pour l'espresso italien connu pour son cappuccino classique.",
+      "Un altro posto per l'espresso italiano noto per il cappuccino classico.",
+      "Ще один італійський еспресо-спот, відомий класичним капучіно."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Gusto Italiano coffee shop in Menton",
+      "Caffè Gusto Italiano a Menton",
+      "Caffè Gusto Italiano a Menton",
+      "Кава Gusto Italiano в Ментоні"
+    ),
+    visualTheme: "food",
+  },
+  "flowy-coffee-coworking-menton": {
+    name: "Flowy - Coffeeshop & Coworking à Menton",
+    type: "coworking",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "A coworking space with coffee and workspaces in central Menton.",
+      "Un espace de coworking avec café et espaces de travail dans le centre de Menton.",
+      "Uno spazio di coworking con caffè e aree di lavoro nel centro di Menton.",
+      "Простор coworking з кавою та робочими просторами в центрі Ментона."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Flowy coworking space in Menton",
+      "Espace de coworking Flowy à Menton",
+      "Spazio di coworking Flowy a Menton",
+      "Простор coworking Flowy в Ментоні"
+    ),
+    visualTheme: "transport",
+  },
+  "cafe-napoli-menton": {
+    name: "Café Napoli",
+    type: "restaurant",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "Authentic Italian espresso bar inside the Marché des Halles.",
+      "Bar à expresso italien authentique à l'intérieur du Marché des Halles.",
+      "Bar italiano autentico per espresso all'interno del Marché des Halles.",
+      "Автентичний італійський бар для еспресо всередині ринку Марше des Halles."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Café Napoli espresso bar in Menton",
+      "Bar à expresso Café Napoli à Menton",
+      "Bar espresso Café Napoli a Menton",
+      "Кафе Неаполі — бар для еспресо в Ментоні"
+    ),
+    visualTheme: "food",
+  },
+  "gusto-italiano-menton": {
+    name: "Gusto Italiano",
+    type: "restaurant",
+    sourceStatus: "needs_verification",
+    shortNote: text(
+      "Another Italian espresso spot known for classic cappuccino.",
+      "Un autre endroit pour l'espresso italien connu pour son cappuccino classique.",
+      "Un altro posto per l'espresso italiano noto per il cappuccino classico.",
+      "Ще один італійський еспресо-спот, відомий класичним капучіно."
+    ),
+    bestFor: [],
+    relatedArticleIds: [],
+    image: "/images/guide/placeholder.jpg",
+    imageAlt: text(
+      "Gusto Italiano coffee shop in Menton",
+      "Caffè Gusto Italiano a Menton",
+      "Caffè Gusto Italiano a Menton",
+      "Кава Gusto Italiano в Ментоні"
+    ),
+    visualTheme: "food",
+  },
 };
 
 export const places: Place[] = rawPlaces.map((place) => {

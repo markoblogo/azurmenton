@@ -1418,6 +1418,207 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "best-bakeries-in-menton",
+    slug: "best-bakeries-in-menton",
+    title: t(
+      "Best bakeries in Menton: where to find the best bread, croissants and fresh pastries",
+      "Meilleures boulangeries de Menton: ou trouver le meilleur pain, les croissants et la pate fraiche",
+      "Le migliori panetterie di Mentone: dove trovare il miglior pane, i croissant e le pasticcerie fresche",
+      "Найкращі пекарні в Ментоні: де знайти найкращий хліб, круасани та свіжу випічку",
+    ),
+    seoTitle: t(
+      "Best Bakeries in Menton: Bread, Croissants and Fresh Bakery Breakfasts",
+      "Meilleures boulangeries de Menton: pain, croissants et petits dej frais",
+      "Le migliori panetterie di Mentone: pane, croissant e colazioni fresche",
+      "Найкращі пекарні в Ментоні: хліб, круасани та свіжа випічка для сніданку",
+    ),
+    seoDescription: t(
+      "A practical guide to Menton's strongest bakeries: croissants, artisan breads, fresh sandwiches and morning routes by old town and seafront. Includes practical planning and apartment tie-ins.",
+      "Guide pratique des meilleures boulangeries de Menton: croissants, pains artisanaux, sandwiches frais et parcours matinaux entre vieille ville et front de mer.",
+      "Guida pratica alle migliori panetterie di Mentone: croissant, pani artigianali, sandwich freschi e percorsi mattutini tra centro storico e lungomare.",
+      "Практичний гід по кращих пекарнях Ментона: круасани, хліб, свіжі сендвічі та ранкові маршрути між старим містом і набережною.",
+    ),
+    excerpt: t(
+      "If you are staying in Menton, bakeries are a simple daily anchor: fresh morning breads, croissants and practical sandwiches before the train or a beach walk.",
+      "Si vous restez a Menton, les boulangeries offrent une ancre quotidienne simple: pains matinaux, croissants et sandwiches pratiques avant train ou balade.",
+      "Se soggiorni a Mentone, le panetterie sono un ancoraggio quotidiano semplice: pane fresco al mattino, croissant e sandwich pratici prima del treno o di una passeggiata.",
+      "Якщо ви залишитеся в Ментоні, пекарні — зручна щоденна опора: свіже хлібне сніданкове меню, круасани та практичні сендвічі перед поїздом чи пляжною прогулянкою.",
+    ),
+    category: "food-markets",
+    coverImage: "/images/guide/best-bakeries-in-menton.jpg",
+    coverImageAlt: t(
+      "Illustration of a bakery route in Menton",
+      "Illustration d'un parcours boulangerie a Menton",
+      "Illustrazione di un itinerario in panetteria a Mentone",
+      "Ілюстрація маршруту пекарень у Ментоні",
+    ),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    tags: [
+      t("bakeries", "boulangeries", "panetterie", "пекарні"),
+      t("bread", "pain", "pane", "хліб"),
+      t("croissants", "croissants", "croissant", "круасани"),
+      t("fresh pastries", "patisseries fraiches", "pasticceria fresca", "свіжа випічка"),
+      t("breakfast", "petit-dejeuner", "colazione", "сніданок"),
+    ],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[1].label, guideBestForOptions[11].label],
+    duration: "1-2 hours",
+    locationTags: ["menton-centre", "old-town", "seafront"],
+    sourceStatus: "editorial",
+    relatedPlaces: [
+      "la-tarte-mentonnaise",
+      "mitron-bakery-menton",
+      "vanilla-bakery-menton",
+      "atelier-boulanger-menton",
+      "boulangerie-la-madone-des-jardins",
+      "jean-luc-pele-menton",
+      "ma-premiere-boulangerie-la-turbie",
+      "halles-du-marche",
+      "rue-saint-michel-menton",
+      "edwige-coffee-menton",
+      "quai-bonaparte-menton",
+      "plage-sablettes",
+    ],
+    relatedArticles: [
+      "best-breakfast-menton",
+      "best-pastries-desserts-cakes-menton",
+      "local-food-menton",
+      "halles-du-marche-menton",
+      "supermarkets-in-menton",
+      "menton-without-a-car",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t(
+          "Boulangerie and pâtisserie",
+          "Boulangerie et patisserie",
+          "Panetteria e pasticceria",
+          "Пекарня й кондитерська",
+        ),
+        body: [
+          t(
+            "A boulangerie is mainly about bread, baguettes and everyday baking; a pâtisserie is dessert-focused. In Menton these overlap, but for daily stays this distinction helps when building quick family breakfasts or an easy picnic.",
+            "Une boulangerie se concentre surtout sur le pain, les baguettes et la viennoiserie quotidienne; une patisserie se concentre plus sur desserts. A Menton, ces mondes se chevauchent, mais cela aide pour organiser un petit dejeuner pratique ou un picnic.",
+            "In Mentone la panetteria si concentra soprattutto su pane, baguette e prodotti giornalieri; la pasticceria e piu dessert-oriented. I confini si sovrappongono, ma per un soggiorno pratico aiutano a organizzare colazioni leggere o un picnic.",
+            "Пекарня робить акцент на хлібі й щоденній випічці, а пекарно-кондитерська (pâtisserie) — на десертах. У Ментоні ці межі змішані, але поділ допомагає швидко скласти сніданок чи пікнік.",
+          ),
+        ],
+      },
+      {
+        heading: t("What should you try?", "Que tester ?", "Cosa provare?", "Що варто спробувати?"),
+        body: [
+          t(
+            "For first-time visitors, a practical first basket is: a butter croissant, pain au chocolat, traditional baguette, pain de campagne and seasonal fruit pastries.",
+            "Pour une premiere visite, un panier pratique comprend: croissant beurre, pain au chocolat, baguette classique, pain de campagne et dessert de saison.",
+            "Per chi arriva per la prima volta ecco una prima selezione pratica: croissant, pain au chocolat, baguette classica, pain de campagne e pastry di stagione.",
+            "На першу поїздку варто взяти: вершковий круасан, pain au chocolat, класичну багет, pain de campagne і сезонну випічку.",
+          ),
+        ],
+        bullets: [
+          t("Butter croissant", "Croissant au beurre", "Croissant al burro", "Круасан з вершкового тіста"),
+          t("Pain au chocolat", "Pain au chocolat", "Pain au chocolat", "Круасан з шоколадом"),
+          t("Traditional baguette", "Baguette traditionnelle", "Baguette tradizionale", "Традиційна багет"),
+          t("Fresh sandwiches", "Sandwichs frais", "Panini freschi", "Свіжі сендвічі"),
+          t("Seasonal fruit pastries", "Patisseries de fruits de saison", "Pasticcini e dolci ai frutti di stagione", "Сезонна фруктова випічка"),
+        ],
+      },
+      {
+        heading: t("Mitron Bakery", "Mitron Bakery", "Mitron Bakery", "Mitron Bakery"),
+        body: [
+          t("Mitron is a natural first anchor for artisan breads and citrus pastries, with a practical focus and good value for small families and short stays.", "Mitron est une ancre naturel: pains artisanaux et patisseries aux agrumes, pratique pour les petites familles en court sejour.", "Mitron è un punto pratico di partenza: pani artigianali e dolci agli agrumi, utile per famiglie piccole e soggiorni brevi.", "Mitron — практична перша опора: artisan-хліб, citrus-десерти, зручне рішення для невеликих сімей і коротких поїздок."),
+        ],
+        relatedPlaceIds: ["mitron-bakery-menton"],
+      },
+      {
+        heading: t("Vanilla Bakery", "Vanilla Bakery", "Vanilla Bakery", "Vanilla Bakery"),
+        body: [
+          t("Vanilla is usually good for an early bakery-cafe visit: coffee, croissants and an easy paced start before trains or walking routes.", "Vanilla convient bien aux matins: cafe, croissants et debut souple avant train ou promenade.", "Vanilla e spesso ideale al mattino: caffè, croissant e inizio morbido prima del treno o di una passeggiata.", "Vanilla зручна для ранкового старту: кава, круасани, спокійний початок перед потягом або прогулянкою."),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton"],
+      },
+      {
+        heading: t("Jean-Luc Pelé", "Jean-Luc Pelé", "Jean-Luc Pelé", "Jean-Luc Pelé"),
+        body: [
+          t("Jean-Luc Pelé is a good option when you want richer croissants and refined morning pastry alongside practical take-away service.", "Jean-Luc Pelé offre une option interessante pour croissants plus riches et une pause matinale avec un service pratique.", "Jean-Luc Pelé e una buona opzione se cerchi croissant piu ricchi e un servizio pratico al mattino.", "Jean-Luc Pelé варто брати, якщо потрібні насиченіші круасани та зручний take-away."),
+        ],
+        relatedPlaceIds: ["jean-luc-pele-menton"],
+      },
+      {
+        heading: t(
+          "Where to stay: for your morning route",
+          "Ou aller pour un petit dejeuner",
+          "Dove andare per la colazione",
+          "Де зупинитися на сніданок",
+        ),
+        body: [
+          t(
+            "For a simple practical route, start at Vanilla Bakery, pass through Rue Saint-Michel, add a market pause at Halles du Marché, then finish at the seafront.",
+            "Pour un parcours simple: commencez a Vanilla Bakery, traversez Rue Saint-Michel, faites une pause aux Halles du Marche, puis terminez au front de mer.",
+            "Per un percorso semplice: inizia da Vanilla Bakery, passa su Rue Saint-Michel, fai una pausa alle Halles du Marche, poi finisci sul lungomare.",
+            "Практичний маршрут: старт із Vanilla Bakery, потім Rue Saint-Michel, далі Halles du Marché і завершення на набережній.",
+          ),
+        ],
+        relatedPlaceIds: ["vanilla-bakery-menton", "rue-saint-michel-menton", "halles-du-marche", "quai-bonaparte-menton", "plage-sablettes"],
+      },
+      {
+        heading: t(
+          "Related guides",
+          "Guides associes",
+          "Guide collegati",
+          "Пов'язані гіди",
+        ),
+        body: [
+          t(
+            "This guide is best paired with the breakfast and market pages when planning your first day in Menton.",
+            "Ce guide se combine bien avec le guide du petit-dejeuner et des marches alimentaires pour un premier jour bien structure.",
+            "Questo elenco funziona meglio con le pagine su colazione e percorso di mercato per impostare il primo giorno.",
+            "Поєднуйте з гідом про сніданки та ринок, щоб відразу спланувати перший день у Ментоні.",
+          ),
+        ],
+        guideLinkSlug: "best-breakfast-menton",
+        guideLinkLabel: t("Open the breakfast guide", "Ouvrir le guide du petit-dejeuner", "Apri la guida colazione", "Відкрити гід про сніданок"),
+      },
+      {
+        heading: t("Stay close to Menton bakeries", "Rester proche des boulangeries de Menton", "Restare vicino alle panetterie di Mentone", "Завжди поруч із пекарнями Ментона"),
+        body: [
+          t(
+            "Azur Menton apartments are close to daily routes through old-town and seafront areas, so fresh breakfast items can be practical and convenient during your stay.",
+            "Les appartements Azur Menton sont proches des routes centrales et du front de mer: le pain frais y est souvent bien pratique pendant un sejour.",
+            "Gli appartamenti Azur Menton sono vicini alle aree centrali e al lungomare: pane fresco e colazioni leggere risultano pratici durante il soggiorno.",
+            "Апартаменти Azur Menton знаходяться поруч із центром і набережною, тож свіжа випічка буде реальною і зручною опцією під час перебування.",
+          ),
+        ],
+        relatedApartmentKeys: [
+          "sea-view-balcony-studio",
+          "beachside-family-apartment",
+          "panoramic-sea-view-studio",
+        ],
+      },
+    ],
+    practicalTips: [
+      t(
+        "Buy delicate cream pastries near the end of a walk in warm weather and refrigerate promptly.",
+        "Achetez les patisseries fragiles a la creme vers la fin de balade en ete et mettez-les vite au frais.",
+        "Compra i dolci delicati alla crema verso la fine della passeggiata estiva e refrigerali subito.",
+        "У спекотну погоду ніжні кремові десерти беріть ближче до кінця прогулянки й одразу зберігайте в прохолоді.",
+      ),
+      t(
+        "For larger breakfast order, contact the place in advance and confirm timing before your arrival.",
+        "Pour une commande plus grande, contactez le lieu en avance et confirmez les horaires avant l'arrivee.",
+        "Per ordini piu ampi, contatta il luogo in anticipo e conferma gli orari prima dell'arrivo.",
+        "Перед великими замовленнями на сніданок зв'яжіться заздалегідь і підтвердіть час до приїзду.",
+      ),
+      t(
+        "If you need transport-free planning, pair these routes with the practical and day-trip pages before checking train times.",
+        "Pour une organisation sans voiture, combinez ces parcours avec les pages pratiques et trains avant de confirmer les horaires.",
+        "Se viaggi senza auto, abbina questi percorsi alle pagine pratiche e controlla il treno prima delle conferme.",
+        "Для поїздок без авто поєднуйте ці маршрути з практичними гідами та перевіряйте розклади потягів наперед.",
+      ),
+    ],
+  }),
+  shortArticle({
     id: "menton-in-autumn",
     slug: "menton-in-autumn",
     title: t("Menton in autumn: October and November on the Riviera", "Menton en automne: octobre et novembre sur la Riviera", "Mentone in autunno: ottobre e novembre in Riviera", "Ментон восени: жовтень і листопад на Рив'єрі"),
@@ -8991,6 +9192,129 @@ export const guideArticles: GuideArticle[] = [
       t("Do not confuse the Garavan marine-fuel service with a car station.", "Ne confondez pas le service carburant marin de Garavan avec une station automobile.", "Non confondere il servizio nautico di Garavan con una stazione per auto.", "Не плутайте морську паливну службу Garavan із заправкою для авто."),
       t("For rentals, follow the vehicle's stated fuel type and keep any required receipt.", "Pour une location, suivez le carburant indique par le vehicule et gardez tout ticket requis.", "Per un noleggio, segui il carburante indicato dal veicolo e conserva gli scontrini richiesti.", "Для оренди дотримуйтесь указаного для авто типу пального й зберігайте потрібні чеки."),
     ],
+  }),
+  shortArticle({
+    id: "best-coffee-menton",
+    slug: "best-coffee-menton",
+    title: t(
+      "Best coffee in Menton: from Italian espresso to third‑wave specialty",
+      "Meilleur café à Menton : de l’espresso italien aux spécialités de troisième vague",
+      "Miglior caffè a Mentone : dall’espresso italiano alle specialità di terza ondata",
+      "Найкраща кава в Ментоні: від італійського еспресо до спеціалізованої третьою хвилею"
+    ),
+    seoTitle: t(
+      "Best Coffee in Menton: Espresso, Specialty & Italian Cafés",
+      "Meilleur café à Menton : espresso, spécialité & cafés italiens",
+      "Miglior caffè a Mentone : espresso, specialty & caffè italiani",
+      "Найкраща кава в Ментоні: еспресо, спеціалізована та італійська"
+    ),
+    seoDescription: t(
+      "Discover where to find the best coffee in Menton, from traditional Italian espresso to third‑wave specialty cafés, with tips on coffee‑and‑pastry pairings and quiet seaside spots.",
+      "Découvrez où trouver le meilleur café à Menton, de l’espresso italien traditionnel aux cafés de troisième vague spécialisés, avec des conseils sur les accords café‑pâtisserie et les lieux paisibles en bord de mer.",
+      "Scopri dove trovare il miglior caffè a Mentone, dall’espresso italiano tradizionale ai caffè di terza ondata specializzati, con suggerimenti sugli abbinamenti caffè‑dolci e sui posti tranquilli sul mare.",
+      "Знайдіть, де знайти найкращу каву в Ментоні: від традиційного італійського еспресо до спеціалізованих кав’ярень третьої хвилі, з порадами про комбінацію кави з випічкою та спокійними місцями на морі."
+    ),
+    excerpt: t(
+      "Coffee in Menton is diverse thanks to its proximity to Italy. From Italian espresso to third‑wave specialty cafés, you can find a style that matches your taste.",
+      "Le café à Menton est divers grâce à sa proximité avec l’Italie. Du café italien expresso aux cafés de troisième vague spécialisés, vous trouverez un style qui correspond à votre goût.",
+      "Il caffè a Mentone è vario grazie alla vicinanza all’Italia. Dall’espresso italiano alle caffetterie di terza ondata specializzate, trovi lo stile che fa per te.",
+      "Кава в Ментоні різноманітна завдяки близькості до Італії. Від італійського еспресо до кав’ярень третьєї хвилі spécializovаних, ви знайдете стиль, що відповідає вашому смаку."
+    ),
+    category: "food-markets",
+    tags: [
+      t("coffee", "café", "caffè", "кава"),
+      t("espresso", "espresso", "espresso", "еспресо"),
+      t("specialty", "spécialité", "specialità", "спеціалізована"),
+      t("Italian", "italien", "italiano", "італійська")
+    ],
+    bestFor: [
+      guideBestForOptions[0].label,   // Couples
+      guideBestForOptions[2].label,   // Food lovers
+      guideBestForOptions[3].label,   // First-time visitors
+      guideBestForOptions[4].label    // Without a car
+    ],
+    duration: "1-2 hours",
+    locationTags: [
+      "menton-centre",
+      "old-town",
+      "seafront",
+      "garavan"
+    ],
+    featured: false,
+    sourceStatus: "needs_verification",
+    coverImage: "/images/guide/coffee-menton.png",
+    coverImageAlt: t(
+      "Coffee guide cover image",
+      "Image de couverture du guide café",
+      "Immagine di copertina della guida caffè",
+      "Зображення обкладинки гайду про каву"
+    ),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    sections: [
+      {
+        heading: t(
+          "Introduction",
+          "Introduction",
+          "Introduzione",
+          "Вступ"
+        ),
+        body: [
+          t(
+            "Coffee in Menton is diverse thanks to its proximity to Italy. From Italian espresso to third‑wave specialty cafés, you can find a style that matches your taste.",
+            "Le café à Menton est divers grâce à sa proximité avec l’Italie. Du café italien expresso aux cafés de troisième vague spécialisés, vous trouverez un style qui correspond à votre goût.",
+            "Il caffè a Mentone è vario grazie alla vicinanza all’Italia. Dall’espresso italiano alle caffetterie di terza ondata specializzate, trovi lo stile che fa per te.",
+            "Кава в Ментоні різноманітна завдяки близькості до Італії. Від італійського еспресо до кав’ярень третьєї хвилі spécializovаних, ви знайдете стиль, що відповідає вашому смаку."
+          )
+        ]
+      },
+      {
+        heading: t(
+          "Coffee spots",
+          "Lieux de café",
+          "Punti di caffè",
+          "Місця для кави"
+        ),
+        body: [
+          t(
+            "Flowery – Coffeeshop & Coworking offers specialty coffee and coworking spaces.",
+            "Flowery – Coffeeshop & Coworking propose du café de spécialité et des espaces de coworking.",
+            "Flowery – Coffeeshop & Coworking offre caffè speciale e spazi di coworking.",
+            "Flowery – Coffeeshop & Coworking пропонує спеціалізовану каву та простори для coworking."
+          ),
+          t(
+            "Edwige Coffee provides a relaxed French‑style café experience.",
+            "Edwige Coffee offre une expérience de café française détendue.",
+            "Edwige Coffee offre un’esperienza di caffè francese rilassata.",
+            "Едвідж Кафе пропонує розслаблене французьке кав’ярне досвід."
+          ),
+          t(
+            "Café Napoli and Gusto Italiano serve authentic Italian espresso.",
+            "Café Napoli et Gusto Italiano servent un espresso italien authentique.",
+            "Café Napoli e Gusto Italiano servono un espresso italiano autentico.",
+            "Кафе Неаполі і Густо Італійо подають автентичний італійський еспресо."
+          )
+        ],
+        relatedPlaceIds: [
+          "flowy-coffee-coworking-menton",
+          "edwige-coffee-menton",
+          "cafe-napoli-menton",
+          "gusto-italiano-menton",
+          "eunoia-coffee-menton",
+          "vanilla-bakery-menton",
+          "mitron-bakery-menton",
+          "jean-luc-pele-menton"
+        ]
+      }
+    ],
+    practicalTips: [
+      t(
+        "Try a coffee at each spot to compare styles.",
+        "Essayez un café dans chaque endroit pour comparer les styles.",
+        "Prova un caffè in ogni posto per confrontare gli stili.",
+        "Спробуйте каву в кожному місці, щоб порівняти стили."
+      )
+    ]
   }),
 ];
 

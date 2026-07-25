@@ -14,7 +14,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Add or update the article in `src/content/guide.ts`.
 - Provide all localized fields: title, SEO title, SEO description, excerpt, cover alt text, headings, body copy and bullets.
-- Add a cover image before publishing unless the task explicitly says to leave it empty temporarily.
+- Add a cover image before publishing unless instructed to leave it empty temporarily.
 - Link relevant existing places through `relatedPlaces` and section-level `relatedPlaceIds`.
 - Add genuinely useful `relatedArticles`, `relatedEvents` and `relatedApartments`.
 - Add apartment CTAs for practical stay guides, beach/sea-view guides, family guides, transport guides and seasonal comfort guides.
