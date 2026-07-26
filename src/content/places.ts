@@ -7207,6 +7207,51 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Le Sasano sushi and seafront dining in Menton", "Illustration de Le Sasano, sushi et table en bord de mer a Menton", "Illustrazione di Le Sasano, sushi e tavola sul mare a Mentone", "Ілюстрація Le Sasano, sushi та їжі біля моря в Ментоні"),
     visualTheme: "food",
   },
+  "kinto-sushi-menton": {
+    image: "/images/guide/kinto-sushi-menton.jpg",
+    imageAlt: text("Illustration of Kinto Sushi in Menton", "Illustration de Kinto Sushi a Menton", "Illustrazione di Kinto Sushi a Mentone", "Ілюстрація Kinto Sushi у Ментоні"),
+    visualTheme: "food",
+  },
+  "ramen-toi-sushi-beausoleil": {
+    image: "/images/guide/ramen-toi-sushi-beausoleil.jpg",
+    imageAlt: text("Illustration of Ramen toi sushi in Beausoleil", "Illustration de Ramen toi sushi a Beausoleil", "Illustrazione di Ramen toi sushi a Beausoleil", "Ілюстрація Ramen toi sushi у Босолей"),
+    visualTheme: "food",
+  },
+  "ippon-ya-ramen-nice": {
+    image: "/images/guide/ippon-ya-ramen-nice.jpg",
+    imageAlt: text("Illustration of IPPON YA RAMEN in Nice", "Illustration de IPPON YA RAMEN a Nice", "Illustrazione di IPPON YA RAMEN a Nizza", "Ілюстрація IPPON YA RAMEN у Ніцці"),
+    visualTheme: "food",
+  },
+  "realamen-nice": {
+    image: "/images/guide/realamen-nice.jpg",
+    imageAlt: text("Illustration of Realamen in Nice", "Illustration de Realamen a Nice", "Illustrazione di Realamen a Nizza", "Ілюстрація Realamen у Ніцці"),
+    visualTheme: "food",
+  },
+  "ramen-kumano-nice": {
+    image: "/images/guide/ramen-kumano-nice.jpg",
+    imageAlt: text("Illustration of Ramen Kumano in Nice", "Illustration de Ramen Kumano a Nice", "Illustrazione di Ramen Kumano a Nizza", "Ілюстрація Ramen Kumano у Ніцці"),
+    visualTheme: "food",
+  },
+  "otaku-nice": {
+    image: "/images/guide/otaku-nice.jpg",
+    imageAlt: text("Illustration of OTAKU in Nice", "Illustration de OTAKU a Nice", "Illustrazione di OTAKU a Nizza", "Ілюстрація OTAKU у Ніцці"),
+    visualTheme: "food",
+  },
+  "ikko-ramen-nice": {
+    image: "/images/guide/ikko-ramen-nice.jpg",
+    imageAlt: text("Illustration of IKKO Ramen in Nice", "Illustration de IKKO Ramen a Nice", "Illustrazione di IKKO Ramen a Nizza", "Ілюстрація IKKO Ramen у Ніцці"),
+    visualTheme: "food",
+  },
+  "yoshi-monaco": {
+    image: "/images/guide/yoshi-monaco.jpg",
+    imageAlt: text("Illustration of Yoshi in Monaco", "Illustration de Yoshi a Monaco", "Illustrazione di Yoshi a Monaco", "Ілюстрація Yoshi у Монако"),
+    visualTheme: "food",
+  },
+  "the-niwaki-monaco": {
+    image: "/images/guide/the-niwaki-monaco.jpg",
+    imageAlt: text("Illustration of The Niwaki in Monaco", "Illustration de The Niwaki a Monaco", "Illustrazione di The Niwaki a Monaco", "Ілюстрація The Niwaki у Монако"),
+    visualTheme: "food",
+  },
   "sushi-ko-menton": {
     image: "/images/guide/sushi-ko-menton.jpg",
     imageAlt: text("Illustration of Sushi Ko at Port Garavan in Menton", "Illustration de Sushi Ko au Port Garavan a Menton", "Illustrazione di Sushi Ko al Port Garavan a Mentone", "Ілюстрація Sushi Ko в Port Garavan у Ментоні"),
