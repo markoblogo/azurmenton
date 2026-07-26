@@ -6387,8 +6387,8 @@ const rawPlaces: Place[] = [
       "Uno spazio di coworking con caffè e aree di lavoro nel centro di Menton.",
       "Простор coworking з кавою та робочими просторами в центрі Ментона."
     ),
-    bestFor: [],
-    relatedArticleIds: [],
+    bestFor: [text("specialty coffee and laptop sessions", "cafe de specialite et sessions laptop", "caffe specialty e sessioni laptop", "спешелті кава і сесії з ноутбуком")],
+    relatedArticleIds: ["best-coffee-in-menton", "coworking-remote-work-menton"],
   },
   {
     id: "cafe-napoli-menton",
@@ -6401,8 +6401,8 @@ const rawPlaces: Place[] = [
       "Bar autentico di espresso italiano all'interno del Marché delle Halles.",
       "Автентичний італійський бар з еспресо всередині ринку Марше des Halles."
     ),
-    bestFor: [],
-    relatedArticleIds: [],
+    bestFor: [text("quick Italian espresso in the market area", "espresso italien rapide pres du marche", "espresso italiano veloce nella zona del mercato", "швидкий італійський еспресо біля ринку")],
+    relatedArticleIds: ["best-coffee-in-menton", "halles-du-marche-menton"],
   },
   {
     id: "gusto-italiano-menton",
@@ -6415,8 +6415,8 @@ const rawPlaces: Place[] = [
       "Un altro posto per l'espresso italiano noto per il cappuccino classico.",
       "Ще один італійський еспресо-спот, відомий класичним капучіно."
     ),
-    bestFor: [],
-    relatedArticleIds: [],
+    bestFor: [text("classic cappuccino and Italian coffee habits", "cappuccino classique et habitudes italiennes", "cappuccino classico e abitudini italiane", "класичний капучино та італійські кавові звички")],
+    relatedArticleIds: ["best-coffee-in-menton"],
   },
 ];
 
