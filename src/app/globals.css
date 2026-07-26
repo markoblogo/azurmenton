@@ -203,7 +203,6 @@ label:has(.field:user-invalid) {
 }
 
 .badge-new-sticker {
-  position: relative;
   isolation: isolate;
   box-shadow:
     0 12px 28px rgba(23, 63, 54, 0.2),
