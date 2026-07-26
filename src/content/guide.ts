@@ -170,6 +170,7 @@ export type GuideArticle = {
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sourceStatus: SourceStatus;
   featured?: boolean;
+  isLandingNewest?: boolean;
   sections: LocalizedGuideSection[];
   appTools?: GuideAppTool[];
   practicalTips?: LocalizedText[];
@@ -1255,6 +1256,7 @@ function shortArticle(input: {
   duration: GuideDuration;
   locationTags: string[];
   featured?: boolean;
+  isLandingNewest?: boolean;
   relatedPlaces?: string[];
   canonicalPlaceTypes?: PlaceType[];
   relatedArticles?: string[];
@@ -9206,6 +9208,7 @@ export const guideArticles: GuideArticle[] = [
     visualTheme: "food",
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
+    isLandingNewest: true,
     tags: [t("kebab", "kebab", "kebab", "кебаб"), t("falafel", "falafel", "falafel", "фалафель"), t("takeaway", "a emporter", "asporto", "на виніс"), t("station area", "quartier de la gare", "zona stazione", "район вокзалу")],
     bestFor: [guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[11].label],
     duration: "1 hour",

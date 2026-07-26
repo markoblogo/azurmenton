@@ -152,7 +152,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
-  const latestGuideSlug = guideArticles.at(-1)?.slug;
+  const latestGuideSlug = guideArticles.find((article) => article.isLandingNewest)?.slug ?? guideArticles.at(-1)?.slug;
   const query = await searchParams;
   const collectionQuery = typeof query.collection === "string" ? query.collection : undefined;
   const selectedCollection = isContentCollectionId(collectionQuery) ? contentCollections.find((collection) => collection.id === collectionQuery) : undefined;
