@@ -25,6 +25,7 @@ type GuideCardItem = {
   coverImageAlt?: string;
   visualTheme?: GuideVisualTheme;
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
+  isNewest?: boolean;
 };
 
 type GuideExplorerProps = {
@@ -184,9 +185,14 @@ function Select({ value, onChange, label, options, allLabel }: { value: string; 
 function GuideArticleCard({ article, locale, priority = false }: { article: GuideCardItem; locale: Locale; priority?: boolean }) {
   return (
     <Link
-      className={`group block h-full cursor-pointer border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#c6a66a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a] ${priority ? "md:col-span-1" : ""}`}
+      className={`group relative block h-full cursor-pointer border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#c6a66a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a] ${priority ? "md:col-span-1" : ""}`}
       href={`/${locale}/guide/${article.slug}` as Route}
     >
+      {article.isNewest ? (
+        <span className="pointer-events-none absolute -right-4 top-5 z-10 inline-flex h-[4.6rem] w-[4.6rem] items-center justify-center rounded-full bg-[#56a9d8] text-[0.92rem] font-bold uppercase tracking-[0.08em] text-white shadow-[0_10px_24px_rgba(23,63,54,0.22)] ring-4 ring-white/95 before:absolute before:inset-[5px] before:rounded-full before:border before:border-dashed before:border-white/80 before:content-['']">
+          NEW
+        </span>
+      ) : null}
       <article className="h-full">
         <GuideVisual
           image={article.coverImage}
