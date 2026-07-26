@@ -10,6 +10,9 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "istanbul-restaurant-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Istanbul%20Restaurant%207%20Avenue%20Cernuschi%20Menton" },
+  { placeId: "premium-kebab-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/premium-kebab-menton-menton-fr-5035814/" },
+  { placeId: "le-gourmand-kebab-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/snack-kebab-le-gourmand-menton-fr-4248576/" },
   { placeId: "chez-angelovas-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Chez%20Angelovas%20U%20Angelovyh%20Nice" },
   { placeId: "roi-alexandre-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://roialexandre-nice.fr/fr/services" },
   { placeId: "srb-way-nice", reason: "coordinate_unverified", checkedOn: "2026-07-19", sourceUrl: "https://www.google.com/maps/search/?api=1&query=SRB%20Way%20Nice" },
