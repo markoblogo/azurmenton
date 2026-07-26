@@ -6518,12 +6518,33 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "transport",
   },
   "flowy-coffee-coworking-menton": {
+    image: "/images/guide/flowy-coffee-coworking-menton.png",
+    imageAlt: text(
+      "Flowy coworking and coffee space in Menton",
+      "Espace café et coworking Flowy à Menton",
+      "Spazio caffè e coworking Flowy a Mentone",
+      "Кавовий та коворкінг-простір Flowy у Ментоні",
+    ),
     visualTheme: "transport",
   },
   "cafe-napoli-menton": {
+    image: "/images/guide/cafe-napoli-menton.png",
+    imageAlt: text(
+      "Café Napoli espresso bar in Menton",
+      "Bar à espresso Café Napoli à Menton",
+      "Bar espresso Café Napoli a Mentone",
+      "Еспресо-бар Café Napoli у Ментоні",
+    ),
     visualTheme: "food",
   },
   "gusto-italiano-menton": {
+    image: "/images/guide/gusto-italiano-menton.png",
+    imageAlt: text(
+      "Gusto Italiano coffee spot in Menton",
+      "Coffee spot Gusto Italiano à Menton",
+      "Coffee spot Gusto Italiano a Mentone",
+      "Кавова точка Gusto Italiano у Ментоні",
+    ),
     visualTheme: "food",
   },
   "edwige-coffee-menton": {
