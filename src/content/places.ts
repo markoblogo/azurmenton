@@ -6512,7 +6512,7 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "transport",
   },
   "flowy-coffee-coworking-menton": {
-    image: "/images/guide/placeholder.jpg",
+    image: "/images/guide/coffee-menton.png",
     imageAlt: text(
       "Flowy coworking and coffee space in Menton",
       "Espace café et coworking Flowy à Menton",
@@ -6522,7 +6522,7 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "transport",
   },
   "cafe-napoli-menton": {
-    image: "/images/guide/placeholder.jpg",
+    image: "/images/guide/coffee-menton.png",
     imageAlt: text(
       "Café Napoli espresso bar in Menton",
       "Bar à espresso Café Napoli à Menton",
@@ -6532,7 +6532,7 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "food",
   },
   "gusto-italiano-menton": {
-    image: "/images/guide/placeholder.jpg",
+    image: "/images/guide/coffee-menton.png",
     imageAlt: text(
       "Gusto Italiano coffee spot in Menton",
       "Coffee spot Gusto Italiano à Menton",
