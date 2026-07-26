@@ -6388,7 +6388,7 @@ const rawPlaces: Place[] = [
       "Простор coworking з кавою та робочими просторами в центрі Ментона."
     ),
     bestFor: [text("specialty coffee and laptop sessions", "cafe de specialite et sessions laptop", "caffe specialty e sessioni laptop", "спешелті кава і сесії з ноутбуком")],
-    relatedArticleIds: ["best-coffee-in-menton", "coworking-remote-work-menton"],
+    relatedArticleIds: ["best-coffee-in-menton"],
   },
   {
     id: "cafe-napoli-menton",
