@@ -14,6 +14,30 @@ Production domain: `https://azurmenton.com`
 
 ![Menton seafront and old town](public/images/home/hero1.jpg)
 
+## System Map
+
+```mermaid
+flowchart LR
+    Guests["Guests and search visitors"]
+    Site["Public multilingual site"]
+    Content["Apartments, guide, stay and events content"]
+    Booking["Manual booking request flow"]
+    Protection["Turnstile, rate limits, honeypot, CSP"]
+    Delivery["Resend delivery and operator inbox"]
+    Data["Weather, marine and analytics providers"]
+    Future["Future guest AI boundary<br/>read-only and isolated"]
+
+    Guests --> Site
+    Content --> Site
+    Site --> Booking
+    Protection --> Booking
+    Booking --> Delivery
+    Data --> Site
+    Future -.-> Site
+```
+
+Keep this map updated when public route families, booking flow, external data sources, or guest-AI boundaries change.
+
 ## Purpose
 
 The site combines direct booking, apartment presentation and evergreen local content. Guide, events and stay pages support search intent around Menton stays: beaches, walks, museums, practical errands, Monaco/Nice day trips, seasonal heat, winter travel and Riviera events.
