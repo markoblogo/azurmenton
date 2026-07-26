@@ -189,7 +189,7 @@ function GuideArticleCard({ article, locale, priority = false }: { article: Guid
       href={`/${locale}/guide/${article.slug}` as Route}
     >
       {article.isNewest ? (
-        <span className="pointer-events-none absolute -right-6 -top-7 z-10 inline-flex h-[5.6rem] w-[5.6rem] items-center justify-center rounded-full bg-[#56a9d8] text-[1.02rem] font-bold uppercase tracking-[0.08em] text-white shadow-[0_12px_28px_rgba(23,63,54,0.24)] ring-4 ring-white/95 before:absolute before:inset-[6px] before:rounded-full before:border before:border-dashed before:border-white/80 before:content-['']">
+        <span className="badge-new-sticker pointer-events-none absolute -right-2 -top-10 z-10 inline-flex h-[5.6rem] w-[5.6rem] items-center justify-center rounded-full bg-[#56a9d8] text-[1.02rem] font-bold uppercase tracking-[0.08em] text-white ring-4 ring-white/95 before:absolute before:inset-[6px] before:rounded-full before:border before:border-dashed before:border-white/80 before:content-['']">
           NEW
         </span>
       ) : null}

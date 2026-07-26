@@ -202,6 +202,13 @@ label:has(.field:user-invalid) {
   animation: photo-shine-sweep 8.5s ease-in-out 1.4s infinite;
 }
 
+.badge-new-sticker {
+  box-shadow:
+    0 12px 28px rgba(23, 63, 54, 0.2),
+    0 0 0 rgba(86, 169, 216, 0.24);
+  animation: badge-new-sticker-pulse 4.8s ease-in-out 0.6s infinite;
+}
+
 @keyframes photo-shine-sweep {
   0%,
   58%,
@@ -220,8 +227,33 @@ label:has(.field:user-invalid) {
   }
 }
 
+@keyframes badge-new-sticker-pulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow:
+      0 12px 28px rgba(23, 63, 54, 0.2),
+      0 0 0 0 rgba(86, 169, 216, 0.14);
+  }
+
+  45% {
+    transform: translate3d(0, -1px, 0) scale(1.02);
+    box-shadow:
+      0 14px 32px rgba(23, 63, 54, 0.22),
+      0 0 0 7px rgba(86, 169, 216, 0.08);
+  }
+
+  62% {
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow:
+      0 12px 28px rgba(23, 63, 54, 0.2),
+      0 0 0 0 rgba(86, 169, 216, 0.04);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .photo-shine-visible::after {
+  .photo-shine-visible::after,
+  .badge-new-sticker {
     animation: none;
   }
 }
