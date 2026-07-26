@@ -378,8 +378,8 @@ const rawPlaces: Place[] = [
       "Артизанальна пекарня для хліба з давніх сортів пшениці, viennoiseries і цитрусової випічки, також корисна на ринку Halles.",
     ),
     bestFor: [text("artisan bakery", "boulangerie artisanale", "panetteria artigianale", "артизанальна пекарня"), text("lemon panettone", "panettone citron", "panettone al limone", "лимонний panettone")],
-    relatedArticleIds: ["best-pastries-desserts-cakes-menton", "halles-du-marche-menton", "local-food-menton", "best-souvenir-shops-menton-monaco-nice", "best-breakfast-menton"],
-    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton"],
+    relatedArticleIds: ["best-pastries-desserts-cakes-menton", "halles-du-marche-menton", "local-food-menton", "best-souvenir-shops-menton-monaco-nice", "best-breakfast-menton", "best-coffee-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton", "best-coffee-menton"],
   },
   {
     id: "jean-luc-pele-menton",
@@ -405,8 +405,9 @@ const rawPlaces: Place[] = [
       "best-breakfast-menton",
       "local-food-menton",
       "where-to-stay-in-menton",
+      "best-coffee-menton",
     ],
-    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton", "best-coffee-menton"],
   },
   {
     id: "vanilla-bakery-menton",
@@ -424,8 +425,8 @@ const rawPlaces: Place[] = [
       "Гнучка bakery-cafe і salon de the для кави, сніданкової випічки, тортів і десертної паузи за столиком.",
     ),
     bestFor: [text("coffee and cake", "cafe et gateau", "caffe e dolce", "кава і торт"), text("families", "familles", "famiglie", "сім'ї")],
-    relatedArticleIds: ["best-pastries-desserts-cakes-menton", "local-food-menton", "menton-with-kids-family-guide", "best-ice-cream-menton", "best-breakfast-menton"],
-    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton"],
+    relatedArticleIds: ["best-pastries-desserts-cakes-menton", "local-food-menton", "menton-with-kids-family-guide", "best-ice-cream-menton", "best-breakfast-menton", "best-coffee-menton"],
+    guideCoverageSlugs: ["best-pastries-desserts-cakes-menton", "best-breakfast-menton", "best-coffee-menton"],
   },
   {
     id: "edwige-coffee-menton",
@@ -447,7 +448,8 @@ const rawPlaces: Place[] = [
       text("couples", "couples", "coppie", "пари"),
       text("solo travellers", "solo voyageurs", "viaggiatori singoli", "самотні мандрівники"),
     ],
-    relatedArticleIds: ["best-breakfast-menton", "local-food-menton", "best-pastries-desserts-cakes-menton", "menton-without-a-car"],
+    relatedArticleIds: ["best-breakfast-menton", "local-food-menton", "best-pastries-desserts-cakes-menton", "menton-without-a-car", "best-coffee-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
   },
   {
     id: "atelier-boulanger-menton",
@@ -6219,7 +6221,8 @@ const rawPlaces: Place[] = [
     requiresMapReview: true,
     shortNote: text("A central coffee-shop coworking space with Wi-Fi, sockets and a bookable meeting room. Check current table and meeting-room terms before relying on it for a workday.", "Espace de coworking-cafe central avec Wi-Fi, prises et salle de reunion reservable. Verifiez les conditions actuelles de table et de salle avant d'en faire votre journee de travail.", "Spazio coworking-caffe centrale con Wi-Fi, prese e sala riunioni prenotabile. Controlla le condizioni aggiornate per tavoli e sala prima di contarci per una giornata di lavoro.", "Центральний coffee-shop coworking із Wi-Fi, розетками та переговорною за бронюванням. Перед робочим днем перевірте актуальні умови для столиків і переговорної."),
     bestFor: [text("central coworking", "coworking central", "coworking centrale", "коворкінг у центрі"), text("meeting room", "salle de reunion", "sala riunioni", "переговорна")],
-    relatedArticleIds: ["coworking-remote-work-menton"],
+    relatedArticleIds: ["coworking-remote-work-menton", "best-coffee-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
     guideCoverageSlugs: ["coworking-remote-work-menton"],
   },
   {
@@ -6388,7 +6391,8 @@ const rawPlaces: Place[] = [
       "Простор coworking з кавою та робочими просторами в центрі Ментона."
     ),
     bestFor: [text("specialty coffee and laptop sessions", "cafe de specialite et sessions laptop", "caffe specialty e sessioni laptop", "спешелті кава і сесії з ноутбуком")],
-    relatedArticleIds: ["best-coffee-in-menton"],
+    relatedArticleIds: ["best-coffee-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
   },
   {
     id: "cafe-napoli-menton",
@@ -6402,7 +6406,8 @@ const rawPlaces: Place[] = [
       "Автентичний італійський бар з еспресо всередині ринку Марше des Halles."
     ),
     bestFor: [text("quick Italian espresso in the market area", "espresso italien rapide pres du marche", "espresso italiano veloce nella zona del mercato", "швидкий італійський еспресо біля ринку")],
-    relatedArticleIds: ["best-coffee-in-menton", "halles-du-marche-menton"],
+    relatedArticleIds: ["best-coffee-menton", "halles-du-marche-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
   },
   {
     id: "gusto-italiano-menton",
@@ -6416,7 +6421,8 @@ const rawPlaces: Place[] = [
       "Ще один італійський еспресо-спот, відомий класичним капучіно."
     ),
     bestFor: [text("classic cappuccino and Italian coffee habits", "cappuccino classique et habitudes italiennes", "cappuccino classico e abitudini italiane", "класичний капучино та італійські кавові звички")],
-    relatedArticleIds: ["best-coffee-in-menton"],
+    relatedArticleIds: ["best-coffee-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
   },
 ];
 
