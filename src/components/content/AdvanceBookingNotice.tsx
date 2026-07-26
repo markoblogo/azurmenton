@@ -113,27 +113,31 @@ export function AdvanceBookingNotice({
   }
 
   return (
-    <Card className="max-w-2xl p-5 sm:p-6">
-      <p className="editorial-label">{copy.defaultLabel}</p>
-      <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36] sm:text-[2.15rem]">
-        {copy.defaultHeading}
-      </h2>
-      <p className="mt-4 text-base leading-7 text-[#5f574c]">{copy.defaultBody}</p>
-      {ctaHref ? (
-        <div className="mt-5">
-          <TrackedLink
-            className="inline-flex items-center text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#173f36] underline decoration-[#c6a66a] underline-offset-4 transition hover:text-[#0b6f8f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6a66a]"
-            eventName={bookingFunnelEvents.advanceBookingNoticeCtaClick}
-            href={ctaHref}
-            props={{
-              locale,
-              ...compactBookingAttributionProps(sourceAttribution),
-            }}
-          >
-            {copy.cta}
-          </TrackedLink>
+    <div className="border border-[#dfd4c1] bg-[#f8f2e7] px-5 py-5 sm:px-6 sm:py-5">
+      <div className="grid gap-4 lg:grid-cols-[0.95fr_1.45fr_auto] lg:items-center">
+        <div>
+          <p className="editorial-label">{copy.defaultLabel}</p>
+          <h2 className="serif-heading mt-2 text-[1.9rem] leading-[1.02] text-[#173f36] sm:text-[2.25rem]">
+            {copy.defaultHeading}
+          </h2>
         </div>
-      ) : null}
-    </Card>
+        <p className="text-sm leading-7 text-[#5f574c] sm:text-[0.96rem]">{copy.defaultBody}</p>
+        {ctaHref ? (
+          <div className="lg:justify-self-end">
+            <TrackedLink
+              className="inline-flex items-center text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#173f36] underline decoration-[#c6a66a] underline-offset-4 transition hover:text-[#0b6f8f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6a66a]"
+              eventName={bookingFunnelEvents.advanceBookingNoticeCtaClick}
+              href={ctaHref}
+              props={{
+                locale,
+                ...compactBookingAttributionProps(sourceAttribution),
+              }}
+            >
+              {copy.cta}
+            </TrackedLink>
+          </div>
+        ) : null}
+      </div>
+    </div>
   );
 }

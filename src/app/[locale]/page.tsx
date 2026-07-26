@@ -271,16 +271,15 @@ export default async function LocaleHome({ params }: PageProps) {
                   {copy.secondaryCta}
                 </Button>
               </div>
-              <div className="mt-7">
-                <AdvanceBookingNotice
-                  locale={safeLocale}
-                  variant="default"
-                  ctaHref={`/${safeLocale}/check-availability`}
-                  sourceAttribution={{ sourcePageType: "home" }}
-                />
-              </div>
             </div>
             <HeroImageSlides mainSlides={heroMainSlides} insetSlides={heroInsetSlides} />
+          </div>
+          <div className="border-t border-[#dfd4c1] pb-2 pt-6 lg:pt-7">
+            <AdvanceBookingNotice
+              locale={safeLocale}
+              variant="default"
+              sourceAttribution={{ sourcePageType: "home" }}
+            />
           </div>
         </Container>
       </section>
