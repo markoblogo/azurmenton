@@ -8884,6 +8884,51 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Maison Auer in Nice", "Illustration de Maison Auer a Nice", "Illustrazione di Maison Auer a Nizza", "Ілюстрація Maison Auer у Ніцці"),
     visualTheme: "food",
   },
+  "vanille-et-chocolat-menton": {
+    image: "/images/guide/vanille-et-chocolat-menton.jpg",
+    imageAlt: text("Illustration of Vanille et Chocolat in Menton", "Illustration de Vanille et Chocolat a Menton", "Illustrazione di Vanille et Chocolat a Mentone", "Ілюстрація Vanille et Chocolat у Ментоні"),
+    visualTheme: "food",
+  },
+  "mada-one-monaco": {
+    image: "/images/guide/mada-one-monaco.jpg",
+    imageAlt: text("Illustration of Mada One in Monaco", "Illustration de Mada One a Monaco", "Illustrazione di Mada One a Monaco", "Ілюстрація Mada One у Монако"),
+    visualTheme: "food",
+  },
+  "cafe-de-paris-monte-carlo": {
+    image: "/images/guide/cafe-de-paris-monte-carlo.jpg",
+    imageAlt: text("Illustration of Cafe de Paris Monte-Carlo", "Illustration du Cafe de Paris Monte-Carlo", "Illustrazione del Cafe de Paris Monte-Carlo", "Ілюстрація Cafe de Paris Monte-Carlo"),
+    visualTheme: "food",
+  },
+  "emilies-cookies-coffee-nice": {
+    image: "/images/guide/emilies-cookies-coffee-nice.jpg",
+    imageAlt: text("Illustration of Emilie's Cookies Coffee Shop in Nice", "Illustration d'Emilie's Cookies Coffee Shop a Nice", "Illustrazione di Emilie's Cookies Coffee Shop a Nizza", "Ілюстрація Emilie's Cookies Coffee Shop у Ніцці"),
+    visualTheme: "food",
+  },
+  "marinette-kitchen-nice": {
+    image: "/images/guide/marinette-kitchen-nice.jpg",
+    imageAlt: text("Illustration of Marinette Kitchen in Nice", "Illustration de Marinette Kitchen a Nice", "Illustrazione di Marinette Kitchen a Nizza", "Ілюстрація Marinette Kitchen у Ніцці"),
+    visualTheme: "food",
+  },
+  "palais-des-thes-nice": {
+    image: "/images/guide/palais-des-thes-nice.jpg",
+    imageAlt: text("Illustration of Palais des Thes in Nice", "Illustration de Palais des Thes a Nice", "Illustrazione di Palais des Thes a Nizza", "Ілюстрація Palais des Thes у Ніцці"),
+    visualTheme: "food",
+  },
+  "dammann-freres-nice": {
+    image: "/images/guide/dammann-freres-nice.jpg",
+    imageAlt: text("Illustration of Dammann Freres Boutique in Nice", "Illustration de la boutique Dammann Freres a Nice", "Illustrazione della boutique Dammann Freres a Nizza", "Ілюстрація бутіка Dammann Freres у Ніцці"),
+    visualTheme: "food",
+  },
+  "kusmi-tea-nice": {
+    image: "/images/guide/kusmi-tea-nice.jpg",
+    imageAlt: text("Illustration of Kusmi Tea in Nice", "Illustration de Kusmi Tea a Nice", "Illustrazione di Kusmi Tea a Nizza", "Ілюстрація Kusmi Tea у Ніцці"),
+    visualTheme: "food",
+  },
+  "confucius-tea-nice": {
+    image: "/images/guide/confucius-tea-nice.jpg",
+    imageAlt: text("Illustration of Confucius Tea in Nice", "Illustration de Confucius Tea a Nice", "Illustrazione di Confucius Tea a Nizza", "Ілюстрація Confucius Tea у Ніцці"),
+    visualTheme: "food",
+  },
   "cours-saleya-nice": {
     image: "/images/guide/cours-saleya-nice.jpg",
     imageAlt: text("Illustration of Cours Saleya Market in Nice", "Illustration du marche du Cours Saleya a Nice", "Illustrazione del mercato di Cours Saleya a Nizza", "Ілюстрація ринку Cours Saleya у Ніцці"),
