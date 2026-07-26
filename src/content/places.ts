@@ -6505,6 +6505,21 @@ const rawPlaces: Place[] = [
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
+  "istanbul-restaurant-menton": {
+    image: "/images/guide/istanbul-restaurant-menton.png",
+    imageAlt: text("Istanbul Restaurant in Menton", "Istanbul Restaurant a Menton", "Istanbul Restaurant a Mentone", "Istanbul Restaurant у Ментоні"),
+    visualTheme: "food",
+  },
+  "premium-kebab-menton": {
+    image: "/images/guide/premium-kebab-menton.png",
+    imageAlt: text("Premium Kebab in Menton", "Premium Kebab a Menton", "Premium Kebab a Mentone", "Premium Kebab у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-gourmand-kebab-menton": {
+    image: "/images/guide/le-gourmand-kebab-menton.png",
+    imageAlt: text("Le Gourmand in Menton", "Le Gourmand a Menton", "Le Gourmand a Mentone", "Le Gourmand у Ментоні"),
+    visualTheme: "food",
+  },
   "chez-angelovas-nice": {
     image: "/images/guide/chez-angelovas-nice.jpg",
     imageAlt: text("Illustration for Chez Angelovas / U Angelovyh in Nice", "Illustration pour Chez Angelovas / U Angelovyh a Nice", "Illustrazione per Chez Angelovas / U Angelovyh a Nizza", "Ілюстрація для Chez Angelovas / U Angelovyh у Ніцці"),

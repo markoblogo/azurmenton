@@ -147,6 +147,29 @@ export async function generateMetadata({ params }: Pick<PageProps, "params">): P
   return createMetadata({ locale: safeLocale, path: "guide", title: copy.seoTitle, description: copy.seoDescription });
 }
 
+function buildFeaturedGuideSlots() {
+  const featuredPriority = seasonalGuideSlugs();
+  const latestGuideArticle = guideArticles.at(-1);
+  const seasonalFeatured = guideArticles
+    .filter((article) => featuredPriority.includes(article.slug) || article.featured)
+    .sort((a, b) => {
+      const aIndex = featuredPriority.indexOf(a.slug);
+      const bIndex = featuredPriority.indexOf(b.slug);
+      return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
+    });
+
+  if (!latestGuideArticle) {
+    return [];
+  }
+
+  return [latestGuideArticle, ...seasonalFeatured.filter((article) => article.slug !== latestGuideArticle.slug)]
+    .slice(0, 4)
+    .map((article, index) => ({
+      article,
+      isNewest: index === 0,
+    }));
+}
+
 export default async function GuideLandingPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
@@ -200,15 +223,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
       return mapPoint ? { ...place, mapPoint } : null;
     })
     .filter((place): place is NonNullable<typeof place> => Boolean(place));
-  const featuredPriority = seasonalGuideSlugs();
-  const featuredArticles = guideArticles
-    .filter((article) => featuredPriority.includes(article.slug) || article.featured)
-    .sort((a, b) => {
-      const aIndex = featuredPriority.indexOf(a.slug);
-      const bIndex = featuredPriority.indexOf(b.slug);
-      return (aIndex === -1 ? 99 : aIndex) - (bIndex === -1 ? 99 : bIndex);
-    })
-    .slice(0, 4);
+  const featuredArticles = buildFeaturedGuideSlots();
   const collectionCards = contentCollections.map((collection) => {
     const guideSlugs = resolveContentCollectionGuideSlugs(collection, guideArticles);
     const leadGuide = guideArticles.find((article) => article.slug === guideSlugs[0]);
@@ -276,10 +291,15 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
             </div>
             <div className="border border-[#dfd2b8] bg-[#fffaf0] p-3">
               <div className="grid grid-cols-2 gap-3">
-                {featuredArticles.map((article) => {
+                {featuredArticles.map(({ article, isNewest }) => {
                   const localized = localizeGuideArticle(article, safeLocale);
                   return (
-                    <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="group overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition hover:border-[#173f36]">
+                    <Link key={article.slug} href={`/${safeLocale}/guide/${article.slug}` as Route} className="group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition hover:border-[#173f36]">
+                      {isNewest ? (
+                        <span className="pointer-events-none absolute right-3 top-3 z-10 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#e84b56] text-[0.9rem] font-bold uppercase tracking-[0.08em] text-white shadow-[0_10px_24px_rgba(23,63,54,0.22)] ring-4 ring-white/95 before:absolute before:inset-[5px] before:rounded-full before:border before:border-dashed before:border-white/75 before:content-['']">
+                          NEW
+                        </span>
+                      ) : null}
                       <GuideVisual
                         image={localized.coverImage}
                         imageAlt={localized.coverImageAlt}
