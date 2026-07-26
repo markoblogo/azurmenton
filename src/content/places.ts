@@ -6222,7 +6222,6 @@ const rawPlaces: Place[] = [
     shortNote: text("A central coffee-shop coworking space with Wi-Fi, sockets and a bookable meeting room. Check current table and meeting-room terms before relying on it for a workday.", "Espace de coworking-cafe central avec Wi-Fi, prises et salle de reunion reservable. Verifiez les conditions actuelles de table et de salle avant d'en faire votre journee de travail.", "Spazio coworking-caffe centrale con Wi-Fi, prese e sala riunioni prenotabile. Controlla le condizioni aggiornate per tavoli e sala prima di contarci per una giornata di lavoro.", "Центральний coffee-shop coworking із Wi-Fi, розетками та переговорною за бронюванням. Перед робочим днем перевірте актуальні умови для столиків і переговорної."),
     bestFor: [text("central coworking", "coworking central", "coworking centrale", "коворкінг у центрі"), text("meeting room", "salle de reunion", "sala riunioni", "переговорна")],
     relatedArticleIds: ["coworking-remote-work-menton", "best-coffee-menton"],
-    guideCoverageSlugs: ["best-coffee-menton"],
     guideCoverageSlugs: ["coworking-remote-work-menton"],
   },
   {
