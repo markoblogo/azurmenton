@@ -9421,6 +9421,7 @@ export const guideArticles: GuideArticle[] = [
       "local-food-menton",
       "menton-without-a-car",
       "coworking-remote-work-menton",
+      "where-to-buy-cbd-menton",
       "where-to-stay-in-menton",
     ],
     relatedApartments: allApartments,
@@ -9488,6 +9489,192 @@ export const guideArticles: GuideArticle[] = [
         "Спробуйте каву в кожному місці, щоб порівняти стили."
       )
     ]
+  }),
+  shortArticle({
+    id: "where-to-buy-cbd-menton",
+    slug: "where-to-buy-cbd-menton",
+    title: t(
+      "Where to Buy CBD in Menton: Best CBD Shops & Wellness Stores",
+      "Où acheter du CBD à Menton : meilleures boutiques CBD et magasins bien-être",
+      "Dove comprare CBD a Mentone: i migliori negozi CBD e negozi benessere",
+      "Де купити CBD в Ментоні: найкращі крамниці CBD та магазини добробуту"
+    ),
+    seoTitle: t(
+      "Where to Buy CBD in Menton | Best CBD Shops & Wellness Stores",
+      "Où acheter du CBD à Menton | Meilleures boutiques CBD et magasins bien-être",
+      "Dove comprare CBD a Mentone | I migliori negozi CBD e negozi benessere",
+      "Де купити CBD в Ментоні | Крамниці CBD та магазини добробуту"
+    ),
+    seoDescription: t(
+      "Find dedicated CBD shops, pharmacies, and parapharmacies in Menton with practical details for stock availability, legal limits, and the best places for short Riviera visits.",
+      "Trouvez des boutiques CBD dédiées, des pharmacies et des parapharmacies à Menton avec des détails pratiques sur la disponibilité, les limites légales et les meilleurs points pour un passage de quelques jours.",
+      "Trova negozi CBD dedicati, farmacie e parapharmacy a Mentone con dettagli pratici su disponibilità, limiti legali e i migliori posti per un breve viaggio in Riviera.",
+      "Дізнайтеся про спеціалізовані магазини CBD, аптеки та парафармації в Ментоні: наявність, legal межі та найкращі точки для короткої поїздки Рів’єри."
+    ),
+    excerpt: t(
+      "CBD in Menton works best when you know which specific shops and pharmacies are currently available this season.",
+      "Le CBD à Menton fonctionne mieux si vous savez quelles boutiques et pharmacies sont ouvertes et stockées cette saison.",
+      "Il CBD a Mentone funziona meglio quando sai quali negozi e farmacie sono disponibili e rifornite in questo periodo.",
+      "CBD у Ментоні має сенс, коли ви знаєте, які конкретні крамниці й аптеки цього сезону реально поповнені."
+    ),
+    category: "food-markets",
+    tags: [
+      t("CBD", "CBD", "CBD", "CBD"),
+      t("wellness", "bien-être", "benessere", "добробут"),
+      t("pharmacies", "pharmacies", "farmacie", "аптеки"),
+      t("legal shopping", "achats légaux", "acquisti legali", "легальні покупки"),
+    ],
+    bestFor: [
+      guideBestForOptions[2].label,
+      guideBestForOptions[4].label,
+      guideBestForOptions[5].label,
+      guideBestForOptions[6].label,
+    ],
+    duration: "1-2 hours",
+    locationTags: ["menton-centre", "old-town", "seafront", "garavan"],
+    featured: false,
+    sourceStatus: "needs_verification",
+    coverImage: "/images/guide/where-to-buy-cbd-menton.jpg",
+    coverImageAlt: t(
+      "CBD guide cover image",
+      "Image de couverture du guide CBD",
+      "Immagine di copertina della guida CBD",
+      "Зображення обкладинки гайду про CBD"
+    ),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    relatedPlaces: [
+      "cbd-shop-france-menton",
+      "tatie-cbd-menton",
+      "pharmacie-saint-roman",
+      "pharmacie-hanbury",
+      "parapharmacie-dietetique-menton",
+    ],
+    relatedArticles: [
+      "best-coffee-menton",
+      "best-bakeries-in-menton",
+      "halles-du-marche-menton",
+      "local-food-menton",
+      "supermarkets-in-menton",
+      "useful-apps-websites-menton-monaco-italian-riviera",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t(
+          "Dedicated CBD Shops",
+          "Boutiques CBD dédiées",
+          "Negozi CBD dedicati",
+          "Спеціалізовані крамниці CBD"
+        ),
+        body: [
+          t(
+            "CBD Shop France Menton is the central dedicated CBD store in town and is usually the first practical stop if you are coming from the old town area.",
+            "CBD Shop France Menton est la boutique CBD de référence à Menton et souvent le premier arrêt pratique quand on vient du centre ancien.",
+            "CBD Shop France Mentone e il negozio CBD di riferimento a Mentone e di solito il primo stop pratico se arrivi dal centro storico.",
+            "CBD Shop France Menton є основною спеціалізованою крамницею CBD у Ментоні й зручним першим кроком при підготовці з центру міста."
+          ),
+          t(
+            "Its typical offer includes oils, flowers, resins, herbal teas, and basic wellness and cosmetic products.",
+            "L’offre type inclut souvent huiles, fleurs, résines, thés et produits bien-être/cosmétique de base.",
+            "L’offerta tipica include spesso oli, fiori, resine, tisane e prodotti wellness/cosmetici base.",
+            "Типова пропозиція зазвичай включає олії, квіти, смоли, трав’яний чай та базові wellness/косметичні засоби."
+          ),
+        ],
+        relatedPlaceIds: ["cbd-shop-france-menton", "tatie-cbd-menton"],
+      },
+      {
+        heading: t(
+          "Pharmacies and Parapharmacies",
+          "Pharmacies et parapharmacies",
+          "Farmacie e parapharmacie",
+          "Аптеки та парафармації"
+        ),
+        body: [
+          t(
+            "Some Menton pharmacies can carry CBD oils, topical products, and relaxation formulas, but stock varies by supplier and week.",
+            "Certaines pharmacies de Menton peuvent proposer huiles CBD, produits cutanés et formules relaxation, mais les stocks varient selon le fournisseur.",
+            "Alcune farmacie di Mentone possono avere oli CBD, prodotti topici e formule rilassanti, ma le scorte cambiano spesso.",
+            "Деякі аптеки Ментону можуть мати CBD-олії, засоби для шкіри й релаксації, але наявність залежить від постачальника та тижня."
+          ),
+          t(
+            "Treat pharmacies as useful back-up options if your first-choice dedicated shops are closed or sold out.",
+            "Considérez les pharmacies comme options de secours utiles si les boutiques dédiées sont fermées ou épuisées.",
+            "Usa le farmacie come opzione di riserva se i negozi dedicati sono chiusi o esauriti.",
+            "Розгляньте аптеки як резервний варіант, якщо спеціалізовані крамниці зачинені або розпродані."  
+          ),
+        ],
+        relatedPlaceIds: [
+          "pharmacie-saint-roman",
+          "pharmacie-hanbury",
+          "pharmacie-lafayette-des-jardins",
+          "grande-pharmacie-mentonnaise",
+          "pharmacie-calvin-menton",
+          "parapharmacie-dietetique-menton",
+        ],
+      },
+      {
+        heading: t("What can you buy?", "Qu’est-ce qu’on peut acheter ?", "Cosa puoi comprare?", "Що можна купити?"),
+        bullets: [
+          t("CBD oils", "Huiles CBD", "Oli CBD", "CBD масла"),
+          t("CBG oils", "Huiles CBG", "Oli CBG", "CBG масла"),
+          t("CBD flowers", "Fleurs CBD", "Fiori CBD", "CBD квіти"),
+          t("CBD hashes and resins", "Hachis et résines CBD", "Hash e resine CBD", "CBD гашиш і смола"),
+          t("Capsules", "Capsules", "Capsule", "Капсули"),
+          t("CBD creams and skincare", "Crèmes CBD et soins", "Creme e skincare CBD", "CBD креми та догляд за шкірою"),
+          t("Massage oils", "Huiles de massage", "Oli da massaggio", "Масажні олії"),
+        ],
+        body: [t("Ranges change quickly, so confirm before going.", "Les gammes changent vite, donc validez avant de vous déplacer.", "Le gamme cambiano in fretta, quindi conferma prima di muoverti.", "Асортимент змінюється швидко, тому перевіряйте перед поїздкою.")],
+      },
+      {
+        heading: t("Looking for CBG?", "Vous cherchez du CBG ?", "Cerchi CBG?", "Шукаєте CBG?"),
+        body: [
+          t(
+            "Ask directly for CBG at dedicated CBD stores; they are more likely to keep a dedicated CBG range than pharmacies.",
+            "Demandez directement pour du CBG aux boutiques spécialisées, elles gèrent en général une vraie sélection CBG.",
+            "Chiedi direttamente il CBG nei negozi CBD, che di solito gestiscono meglio una linea CBG dedicata.",
+            "Уточнюйте безпосередньо в спеціалізованих магазинах CBD — там найчастіше є саме CBG-асортимент." 
+          )
+        ],
+      },
+      {
+        heading: t("Beyond Menton", "Autour de Menton", "Fuori da Menton", "Поза Ментоном"),
+        body: [
+          t(
+            "For the widest choice, Beausoleil and Nice are practical short trips and usually offer more options overall.",
+            "Pour le choix le plus large, Beausoleil et Nizza sont des sorties courtes et offrent généralement plus d’options.",
+            "Per la scelta più ampia, Beausoleil e Nizza sono escursioni corte e offrono in genere piu scelta.",
+            "Для найбільшого вибору практично поїхати в Босолей або Ніццу: там зазвичай асортимент ширший."  
+          ),
+          t(
+            "If timing is tight, keep transport and opening windows in one planning step before visiting several stores.",
+            "Si le temps est court, regroupez transport et horaires dans une seule étape de planning.",
+            "Se hai poco tempo, organizza insieme trasporto e orari in un unico passaggio prima della visita.",
+            "Коли часу мало, поєднуйте трансфер і години роботи в єдиний блок планування."  
+          ),
+        ],
+      },
+      {
+        heading: t("Buying CBD in France", "Acheter du CBD en France", "Comprare CBD in Francia", "Купувати CBD у Франції"),
+        body: [
+          t(
+            "CBD products must be legal-to-purchase with THC limits and clear product information. If a store cannot provide lab transparency, treat it as lower priority.",
+            "Les produits CBD doivent être conformes aux seuils de THC et à une information claire sur les contenus; sans transparence, mieux vaut les éviter.",
+            "I prodotti CBD devono rispettare limiti THC e avere informazioni trasparenti; se il negozio non fornisce verifiche, meglio evitarlo.",
+            "CBD-продукти повинні відповідати ліміту THC і містити прозору інформацію; за відсутності такої прозорості краще уникати." 
+          ),
+          t("Ask for batch or lab notes when quality is important for your trip plan.", "Demandez lot et notes de laboratoire quand la qualité compte pour votre voyage.", "Chiedi lotto e schede laboratorio se la qualità è importante per il tuo viaggio.", "Запитуйте партію й дані лабораторії, якщо для вас важлива якість.")
+        ],
+      },
+    ],
+    practicalTips: [
+      t(
+        "Use these as one-stop references for local shopping, but confirm stock on the same day by call or web chat before your trip.",
+        "Utilisez-les comme point de départ, puis confirmez la disponibilité le jour même par appel ou webchat avant de partir.",
+        "Usale come punto di partenza pratico e conferma la disponibilità lo stesso giorno via telefono o chat prima del viaggio.",
+        "Використовуйте ці адреси як орієнтир і обов’язково перевіряйте наявність в день поїздки телефоном або чатами."  
+      ),
+    ],
   }),
   shortArticle({
     id: "tea-rooms-afternoon-tea-near-menton",
