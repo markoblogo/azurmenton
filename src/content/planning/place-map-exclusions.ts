@@ -10,6 +10,15 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "kinto-sushi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Kinto%20Sushi%20Menton" },
+  { placeId: "ramen-toi-sushi-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://ramentoi.fr/" },
+  { placeId: "ippon-ya-ramen-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://ipponyaramen.fr/" },
+  { placeId: "realamen-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Realamen%20Rue%20Halevy%20Nice" },
+  { placeId: "ramen-kumano-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Ramen%20Kumano%2015%20Rue%20Biscarra%20Nice" },
+  { placeId: "otaku-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=OTAKU%202%20Rue%20Paganini%20Nice" },
+  { placeId: "ikko-ramen-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.corner.inc/place/pfXvwKUpRHLb" },
+  { placeId: "yoshi-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Yoshi%20Monaco" },
+  { placeId: "the-niwaki-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=The%20Niwaki%20Monaco" },
   { placeId: "istanbul-restaurant-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Istanbul%20Restaurant%207%20Avenue%20Cernuschi%20Menton" },
   { placeId: "premium-kebab-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/premium-kebab-menton-menton-fr-5035814/" },
   { placeId: "le-gourmand-kebab-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/snack-kebab-le-gourmand-menton-fr-4248576/" },

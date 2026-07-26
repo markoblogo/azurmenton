@@ -180,6 +180,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "best-seafood-restaurants-menton", ignore: ["cluster"], reason: "focused food guide surfaced through the food-and-markets collection and linked to market, wine, beach and apartment content" },
   { slug: "best-pizzerias-menton", ignore: ["cluster"], reason: "focused pizza guide surfaced through the food-and-markets collection and linked to market, beach, family and apartment content" },
   { slug: "kebab-shawarma-falafel-menton", ignore: ["cluster"], reason: "focused takeaway and station-area food guide surfaced through the Food & markets collection and linked to transport, central Menton and apartment-stay content" },
+  { slug: "ramen-near-menton", ignore: ["cluster"], reason: "focused ramen guide linked through sushi, transport, Monaco and day-trip planning rather than a standalone intent cluster" },
   { slug: "fishing-in-menton", ignore: ["cluster"], reason: "living outdoor reference surfaced through the Sport & outdoors collection and linked to official rule sources, coast, mountain alternatives and apartments" },
   { slug: "indian-restaurants-menton", ignore: ["cluster"], reason: "focused dining reference surfaced through the Food & markets collection and linked to central Menton, nearby Riviera alternatives, transport and apartments" },
   { slug: "ukrainian-slavic-restaurants-menton-nice-monaco", ignore: ["cluster"], reason: "focused cultural-food guide surfaced through the Food & markets collection with conservative verification notes for dynamic venues" },
