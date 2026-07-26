@@ -274,7 +274,7 @@ export default async function LocaleHome({ params }: PageProps) {
             </div>
             <HeroImageSlides mainSlides={heroMainSlides} insetSlides={heroInsetSlides} />
           </div>
-          <div className="pb-2 pt-4 lg:pt-5">
+          <div className="-mt-8 pb-1 pt-0 lg:-mt-14">
             <AdvanceBookingNotice
               locale={safeLocale}
               variant="default"
@@ -284,7 +284,7 @@ export default async function LocaleHome({ params }: PageProps) {
         </Container>
       </section>
 
-      <Section className="py-14 sm:py-20">
+      <Section className="pb-14 pt-8 sm:pb-20 sm:pt-12">
         <Container>
           <div className="grid gap-8 border-b border-[#dfd4c1] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
