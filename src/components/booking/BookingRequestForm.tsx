@@ -5,6 +5,7 @@ import type { Route } from "next";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useActionState, useCallback, useEffect, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
+import { advanceBookingNoticeCopy } from "@/components/content/AdvanceBookingNotice";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
@@ -225,6 +226,7 @@ export function BookingRequestForm({
   const searchParams = useSearchParams();
   const today = new Date().toISOString().slice(0, 10);
   const labels = formCopy[locale];
+  const noticeCopy = advanceBookingNoticeCopy[locale];
   const hasTrackedStart = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -316,6 +318,10 @@ export function BookingRequestForm({
             {labels.checkOut}
             <input className="field" min={today} name="checkOut" type="date" required />
           </label>
+        </div>
+
+        <div className="border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">
+          {noticeCopy.helper}
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">

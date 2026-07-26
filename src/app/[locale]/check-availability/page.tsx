@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { BookingFunnelViewTracker } from "@/components/analytics/BookingFunnelViewTracker";
 import { BookingRequestForm } from "@/components/booking/BookingRequestForm";
+import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
 import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
 import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { Button } from "@/components/ui/Button";
@@ -271,6 +272,9 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                     <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
                     <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.formTitle[safeLocale]}</h2>
                     <p className="mt-3 max-w-2xl text-base leading-7 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
+                  </div>
+                  <div className="mb-6">
+                    <AdvanceBookingNotice locale={safeLocale} variant="availability" />
                   </div>
                   <BookingRequestForm apartments={apartments} locale={safeLocale}>
                     <TurnstileWidget />

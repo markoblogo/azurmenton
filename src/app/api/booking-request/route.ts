@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     return jsonResponse({
       ok: true,
       message:
-        "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
+        "Thank you. We have received your request and will personally check the latest availability before replying. Your stay is not confirmed until you receive our confirmation.",
       });
   }
 
@@ -94,6 +94,6 @@ export async function POST(request: Request) {
   return jsonResponse({
     ok: true,
     message:
-      "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
+      "Thank you. We have received your request and will personally check the latest availability before replying. Your stay is not confirmed until you receive our confirmation.",
   });
 }

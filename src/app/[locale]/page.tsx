@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
+import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
 import { HeroImageSlides } from "@/components/home/HeroImageSlides";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
@@ -269,6 +270,14 @@ export default async function LocaleHome({ params }: PageProps) {
                 <Button href={`/${safeLocale}/check-availability`} variant="secondary">
                   {copy.secondaryCta}
                 </Button>
+              </div>
+              <div className="mt-7">
+                <AdvanceBookingNotice
+                  locale={safeLocale}
+                  variant="default"
+                  ctaHref={`/${safeLocale}/check-availability`}
+                  sourceAttribution={{ sourcePageType: "home" }}
+                />
               </div>
             </div>
             <HeroImageSlides mainSlides={heroMainSlides} insetSlides={heroInsetSlides} />

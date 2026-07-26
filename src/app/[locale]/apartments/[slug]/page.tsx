@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
+import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
 import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { ShareActions } from "@/components/content/ShareActions";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -848,6 +849,9 @@ export default async function ApartmentPage({ params }: PageProps) {
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">
                   {copy.compare}
                 </Button>
+              </div>
+              <div className="mt-4 max-w-2xl">
+                <AdvanceBookingNotice locale={safeLocale} variant="compact" />
               </div>
               <div className="mt-5 max-w-2xl">
                 <ShareActions locale={safeLocale} title={apartment.name[safeLocale]} url={apartmentUrl} />

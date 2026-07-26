@@ -23,7 +23,7 @@ const messages = {
     failed:
       "We could not send your request right now. Please contact us by email or WhatsApp and include your dates.",
     success:
-      "Thank you. We received your request and will confirm availability and the best direct offer shortly.",
+      "Thank you. We have received your request and will personally check the latest availability before replying. Your stay is not confirmed until you receive our confirmation.",
     tooMany: "Too many booking requests. Please wait a few minutes and try again.",
     botCheck: "Please complete the anti-spam check and try again.",
   },
@@ -32,7 +32,7 @@ const messages = {
     failed:
       "Nous ne pouvons pas envoyer votre demande pour le moment. Contactez-nous par email ou WhatsApp avec vos dates.",
     success:
-      "Merci. Nous avons bien recu votre demande et confirmerons rapidement la disponibilite et la meilleure offre directe.",
+      "Merci. Nous avons bien reçu votre demande et vérifierons personnellement les dernières disponibilités avant de vous répondre. Votre séjour n’est confirmé qu’après réception de notre confirmation.",
     tooMany: "Trop de demandes envoyees. Veuillez attendre quelques minutes puis reessayer.",
     botCheck: "Veuillez completer la verification anti-spam puis reessayer.",
   },
@@ -41,7 +41,7 @@ const messages = {
     failed:
       "Non possiamo inviare la richiesta in questo momento. Contattaci via email o WhatsApp indicando le date.",
     success:
-      "Grazie. Abbiamo ricevuto la richiesta e confermeremo presto disponibilita e migliore offerta diretta.",
+      "Grazie. Abbiamo ricevuto la tua richiesta e verificheremo personalmente la disponibilità aggiornata prima di risponderti. Il soggiorno non è confermato finché non ricevi la nostra conferma.",
     tooMany: "Troppe richieste inviate. Attendi qualche minuto e riprova.",
     botCheck: "Completa il controllo anti-spam e riprova.",
   },
@@ -50,7 +50,7 @@ const messages = {
     failed:
       "Зараз не вдалося надіслати запит. Зв'яжіться з нами email або WhatsApp і вкажіть дати.",
     success:
-      "Дякуємо. Ми отримали ваш запит і незабаром підтвердимо доступність та найкращу пряму пропозицію.",
+      "Дякуємо. Ми отримали ваш запит і особисто перевіримо актуальну наявність вільних дат перед відповіддю. Проживання вважається підтвердженим лише після отримання нашого підтвердження.",
     tooMany: "Забагато запитів. Зачекайте кілька хвилин і спробуйте ще раз.",
     botCheck: "Пройдіть антиспам-перевірку й спробуйте ще раз.",
   },

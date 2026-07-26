@@ -3,6 +3,7 @@ export const bookingFunnelEvents = {
   guideCtaClick: "guide_cta_click",
   eventCtaClick: "event_cta_click",
   apartmentCtaClick: "apartment_cta_click",
+  advanceBookingNoticeCtaClick: "advance_booking_notice_cta_click",
   bookingFormStart: "booking_form_start",
   bookingRequestSubmitSuccess: "booking_request_submit_success",
   bookingRequestSubmitError: "booking_request_submit_error",
