@@ -10,6 +10,15 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "vanille-et-chocolat-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Vanille%20et%20Chocolat%20Menton" },
+  { placeId: "mada-one-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mada%20One%20One%20Monte-Carlo%20Monaco" },
+  { placeId: "cafe-de-paris-monte-carlo", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20de%20Paris%20Monte-Carlo%20Monaco" },
+  { placeId: "emilies-cookies-coffee-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Emilie%27s%20Cookies%20%26%20Coffee%20Shop%20Nice" },
+  { placeId: "marinette-kitchen-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Marinette%20Kitchen%20Nice" },
+  { placeId: "palais-des-thes-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Palais%20des%20Th%C3%A9s%20Nice" },
+  { placeId: "dammann-freres-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Dammann%20Fr%C3%A8res%20Nice" },
+  { placeId: "kusmi-tea-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Kusmi%20Tea%20Nice" },
+  { placeId: "confucius-tea-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Confucius%20Tea%20Nice" },
   { placeId: "kinto-sushi-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Kinto%20Sushi%20Menton" },
   { placeId: "ramen-toi-sushi-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://ramentoi.fr/" },
   { placeId: "ippon-ya-ramen-nice", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://ipponyaramen.fr/" },

@@ -1337,6 +1337,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "best-ice-cream-menton",
+      "tea-rooms-afternoon-tea-near-menton",
       "local-food-menton",
       "halles-du-marche-menton",
       "best-souvenir-shops-menton-monaco-nice",
@@ -1763,6 +1764,7 @@ export const guideArticles: GuideArticle[] = [
     relatedArticles: [
       "local-food-menton",
       "best-pastries-desserts-cakes-menton",
+      "tea-rooms-afternoon-tea-near-menton",
       "best-ice-cream-menton",
       "halles-du-marche-menton",
       "supermarkets-in-menton",
@@ -9275,7 +9277,6 @@ export const guideArticles: GuideArticle[] = [
     visualTheme: "food",
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
-    isLandingNewest: true,
     tags: [t("ramen", "ramen", "ramen", "ramen"), t("Japanese food", "cuisine japonaise", "cucina giapponese", "японська кухня"), t("train trip", "trajet en train", "gita in treno", "поїздка потягом"), t("Nice", "Nice", "Nizza", "Ніцца")],
     bestFor: [guideBestForOptions[2].label, guideBestForOptions[3].label, guideBestForOptions[4].label, guideBestForOptions[0].label],
     duration: "half-day",
@@ -9415,6 +9416,7 @@ export const guideArticles: GuideArticle[] = [
       "best-breakfast-menton",
       "best-bakeries-in-menton",
       "best-pastries-desserts-cakes-menton",
+      "tea-rooms-afternoon-tea-near-menton",
       "halles-du-marche-menton",
       "local-food-menton",
       "menton-without-a-car",
@@ -9485,6 +9487,149 @@ export const guideArticles: GuideArticle[] = [
         "Prova un caffè in ogni posto per confrontare gli stili.",
         "Спробуйте каву в кожному місці, щоб порівняти стили."
       )
+    ]
+  }),
+  shortArticle({
+    id: "tea-rooms-afternoon-tea-near-menton",
+    slug: "tea-rooms-afternoon-tea-near-menton",
+    title: t(
+      "Best tea rooms and afternoon tea near Menton",
+      "Meilleurs salons de the et afternoon tea pres de Menton",
+      "Migliori sale da te e afternoon tea vicino a Mentone",
+      "Найкращі tea rooms і afternoon tea поруч із Ментоном"
+    ),
+    seoTitle: t(
+      "Best Tea Rooms and Afternoon Tea Near Menton",
+      "Meilleurs salons de the et afternoon tea pres de Menton",
+      "Migliori sale da te e afternoon tea vicino a Mentone",
+      "Найкращі tea rooms і afternoon tea поруч із Ментоном"
+    ),
+    seoDescription: t(
+      "A practical guide to tea rooms and afternoon tea near Menton, with calm tea stops in Menton, elegant Monaco options and stronger tea shopping in Nice.",
+      "Guide pratique des salons de the et de l'afternoon tea pres de Menton, avec pauses calmes a Menton, options elegantes a Monaco et meilleures boutiques de the a Nice.",
+      "Guida pratica alle sale da te e all'afternoon tea vicino a Mentone, con soste tranquille a Mentone, opzioni eleganti a Monaco e acquisti di te piu forti a Nizza.",
+      "Практичний гід по tea rooms і afternoon tea поруч із Ментоном: спокійні чайні паузи в Ментоні, елегантні варіанти в Монако та кращі чайні покупки в Ніцці."
+    ),
+    excerpt: t(
+      "Tea lovers have better Riviera options than they might expect: classic Menton pauses, polished Monaco afternoons and specialist tea shopping in Nice.",
+      "Les amateurs de the ont plus d'options sur la Riviera qu'on ne l'imagine: pauses classiques a Menton, apres-midis soignes a Monaco et achats specialises a Nice.",
+      "Gli amanti del te trovano sulla Riviera piu opzioni di quanto sembri: pause classiche a Mentone, pomeriggi curati a Monaco e acquisti specializzati a Nizza.",
+      "Любителі чаю знайдуть на Рив'єрі більше варіантів, ніж може здатися: класичні паузи в Ментоні, акуратні afteroons у Монако та спеціалізовані покупки чаю в Ніцці."
+    ),
+    category: "food-markets",
+    coverImage: "/images/guide/tea-rooms-afternoon-tea-near-menton.jpg",
+    coverImageAlt: t(
+      "Illustration for tea rooms and afternoon tea near Menton",
+      "Illustration pour les salons de the et l'afternoon tea pres de Menton",
+      "Illustrazione per sale da te e afternoon tea vicino a Mentone",
+      "Ілюстрація до гіда про tea rooms і afternoon tea поруч із Ментоном"
+    ),
+    visualTheme: "food",
+    visualStatus: "project_illustration",
+    sourceStatus: "needs_verification",
+    isLandingNewest: true,
+    tags: [
+      t("tea rooms", "salons de the", "sale da te", "чайні"),
+      t("afternoon tea", "afternoon tea", "afternoon tea", "afternoon tea"),
+      t("Monaco", "Monaco", "Monaco", "Монако"),
+      t("Nice", "Nice", "Nizza", "Ніцца")
+    ],
+    bestFor: [
+      guideBestForOptions[0].label,
+      guideBestForOptions[2].label,
+      guideBestForOptions[3].label,
+      guideBestForOptions[8].label
+    ],
+    duration: "half-day",
+    locationTags: ["menton-centre", "old-town", "monaco", "nice"],
+    relatedPlaces: [
+      "maison-herbin-menton",
+      "vanille-et-chocolat-menton",
+      "mada-one-monaco",
+      "cafe-de-paris-monte-carlo",
+      "emilies-cookies-coffee-nice",
+      "maison-auer-nice",
+      "marinette-kitchen-nice",
+      "palais-des-thes-nice",
+      "dammann-freres-nice",
+      "kusmi-tea-nice",
+      "confucius-tea-nice",
+      "menton-station",
+      "monaco-monte-carlo-station",
+      "nice-ville-station"
+    ],
+    canonicalPlaceTypes: ["restaurant", "market"],
+    relatedArticles: [
+      "best-pastries-desserts-cakes-menton",
+      "best-breakfast-menton",
+      "best-coffee-menton",
+      "local-food-menton",
+      "day-trips-from-menton",
+      "monaco-events-from-menton",
+      "menton-without-a-car",
+      "where-to-stay-in-menton"
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("The short answer", "La reponse courte", "La risposta breve", "Коротка відповідь"),
+        body: [
+          t("If you only want a calm tea stop without leaving Menton, Maison Herbin and Vanille et Chocolat are the most natural starting points. They are central, practical and easy to combine with the old town or a seafront walk.", "Si vous voulez simplement une pause the calme sans quitter Menton, Maison Herbin et Vanille et Chocolat sont les points de depart les plus naturels. Ils sont centraux, pratiques et faciles a combiner avec la vieille ville ou une promenade en bord de mer.", "Se vuoi solo una pausa te tranquilla senza lasciare Mentone, Maison Herbin e Vanille et Chocolat sono i punti di partenza piu naturali. Sono centrali, pratici e facili da abbinare al centro storico o a una passeggiata sul mare.", "Якщо вам потрібна просто спокійна чайна пауза без виїзду з Ментона, Maison Herbin і Vanille et Chocolat - найприродніші стартові точки. Вони центральні, практичні й легко поєднуються зі старим містом або прогулянкою набережною."),
+          t("If tea is a stronger interest, Nice quickly becomes the best half-day answer: broader tea shopping, more specialist shelves and enough cafés to turn buying tea into a proper afternoon.", "Si le the vous interesse davantage, Nice devient vite la meilleure reponse sur une demi-journee : achats plus larges, rayons plus specialises et assez de cafes pour transformer cela en vrai apres-midi.", "Se il te e un interesse piu forte, Nizza diventa presto la migliore risposta da mezza giornata: acquisti piu ampi, scaffali piu specialistici e abbastanza caffe per trasformare tutto in un vero pomeriggio.", "Якщо чай - інтерес серйозніший, Ніцца швидко стає найкращою відповіддю на півдня: ширші покупки, більш спеціалізовані полиці й достатньо кафе, щоб перетворити це на повноцінний afternoon.")
+        ],
+        relatedPlaceIds: ["maison-herbin-menton", "vanille-et-chocolat-menton", "palais-des-thes-nice", "confucius-tea-nice"]
+      },
+      {
+        heading: t("Menton for a classic pause", "Menton pour une pause classique", "Mentone per una pausa classica", "Ментон для класичної паузи"),
+        body: [
+          t("Maison Herbin is one of the town's most elegant calm stops. It is best known for jams and citrus products, but it also works well for tea in an old-town setting that feels distinctly Menton rather than generic Riviera café culture.", "Maison Herbin est l'une des pauses calmes les plus elegantes de la ville. La maison est surtout connue pour ses confitures et produits aux agrumes, mais elle fonctionne aussi tres bien pour le the dans un cadre de vieille ville qui reste tres mentonnais plutot qu'un cafe Riviera generique.", "Maison Herbin e una delle soste calme piu eleganti della citta. E nota soprattutto per confetture e prodotti agli agrumi, ma funziona bene anche per il te in un contesto da centro storico che resta molto Mentone e non un semplice caffe generico della Riviera.", "Maison Herbin - одна з найелегантніших тихих пауз міста. Заклад найбільше відомий джемами й цитрусовими продуктами, але також добре працює для чаю в атмосфері старого міста, що відчувається саме як Ментон, а не generic Riviera café."),
+          t("Vanille et Chocolat makes sense when the tea break is really about the pairing: tea with desserts, pastries and a more relaxed seated stop after the beach or old town.", "Vanille et Chocolat a du sens quand la pause the repose surtout sur l'accord : the avec desserts, patisseries et halte plus detendue apres la plage ou la vieille ville.", "Vanille et Chocolat ha senso quando la pausa te ruota soprattutto intorno all'abbinamento: te con dessert, dolci e una sosta piu rilassata dopo la spiaggia o il centro storico.", "Vanille et Chocolat доречна, коли чайна пауза насправді тримається на поєднанні: чай із десертами, випічкою й більш розслабленою зупинкою після пляжу або старого міста.")
+        ],
+        relatedPlaceIds: ["maison-herbin-menton", "vanille-et-chocolat-menton"]
+      },
+      {
+        heading: t("Monaco for a polished afternoon", "Monaco pour un apres-midi soigne", "Monaco per un pomeriggio curato", "Монако для polished-afternoon"),
+        body: [
+          t("Mada One is the clearest Monaco answer if you want an elegant tea break rather than only a coffee stop. It fits naturally between shopping, Casino Square and a shorter Monaco outing from Menton.", "Mada One est la reponse la plus claire a Monaco si vous cherchez une pause the elegante plutot qu'un simple cafe. L'adresse s'integre naturellement entre shopping, place du Casino et sortie courte depuis Menton.", "Mada One e la risposta piu chiara a Monaco se cerchi una pausa te elegante piuttosto che un semplice caffe. Si inserisce bene tra shopping, Casino Square e una breve uscita da Mentone.", "Mada One - найчіткіша відповідь у Монако, якщо вам потрібна елегантна чайна пауза, а не просто кава. Вона природно лягає між shopping, Casino Square і коротким виїздом із Ментона."),
+          t("Café de Paris Monte-Carlo is less a dedicated tea room than an iconic terrace. Go there for the setting, people-watching and a dressier afternoon feeling rather than for specialist tea culture.", "Le Café de Paris Monte-Carlo est moins un vrai salon de the qu'une terrasse iconique. On y va pour le decor, le passage et une sensation d'apres-midi plus habillee plutot que pour une vraie culture specialisee du the.", "Café de Paris Monte-Carlo e meno una vera sala da te e piu una terrazza iconica. Si va per il contesto, il via vai e un'atmosfera pomeridiana piu elegante piuttosto che per una cultura specialistica del te.", "Café de Paris Monte-Carlo - це радше не окрема tea room, а знакова тераса. Туди йдуть за оточенням, людським потоком і більш dressy afternoon mood, а не за specialist tea culture.")
+        ],
+        relatedPlaceIds: ["mada-one-monaco", "cafe-de-paris-monte-carlo"]
+      },
+      {
+        heading: t("Nice is stronger for tea variety", "Nice est plus forte pour la diversite du the", "Nizza e piu forte per la varieta del te", "Ніцца сильніша за різноманіттям чаю"),
+        body: [
+          t("Nice offers the broadest combination: tea with cakes, historic confectionery and actual tea buying in one outing. Emilie's Cookies & Coffee Shop and Marinette Kitchen suit a relaxed café-style pause, while Maison Auer adds a more classic old-Nice elegance.", "Nice offre la combinaison la plus large : the avec gateaux, confiserie historique et vrai shopping de the en une seule sortie. Emilie's Cookies & Coffee Shop et Marinette Kitchen conviennent a une pause cafe detendue, tandis que Maison Auer apporte une elegance plus classique du vieux Nice.", "Nizza offre la combinazione piu ampia: te con dolci, confetteria storica e vero shopping del te in una sola uscita. Emilie's Cookies & Coffee Shop e Marinette Kitchen vanno bene per una pausa rilassata, mentre Maison Auer aggiunge un'eleganza piu classica del vecchio centro.", "Ніцца дає найширшу комбінацію: чай із десертами, historic confectionery і реальні покупки чаю в межах однієї поїздки. Emilie's Cookies & Coffee Shop і Marinette Kitchen підходять для розслабленої café-паузи, а Maison Auer додає більш класичної елегантності старої Ніцци.")
+        ],
+        relatedPlaceIds: ["emilies-cookies-coffee-nice", "maison-auer-nice", "marinette-kitchen-nice"]
+      },
+      {
+        heading: t("Where to buy better loose-leaf tea", "Ou acheter un meilleur the en vrac", "Dove comprare meglio il te sfuso", "Де купити кращий листовий чай"),
+        body: [
+          t("For the safest all-round recommendation, Palais des Thés is the clearest first stop. Dammann Frères works well for packaged French blends and gifts, while Kusmi Tea is the easiest modern option for wellness blends and attractive tins.", "Pour la recommandation la plus simple et complete, Palais des Thés est le premier arret le plus clair. Dammann Frères fonctionne bien pour melanges francais emballes et cadeaux, tandis que Kusmi Tea est l'option moderne la plus simple pour melanges bien-etre et jolies boites.", "Per la raccomandazione piu semplice e completa, Palais des Thés e la prima tappa piu chiara. Dammann Frères funziona bene per miscele francesi confezionate e regali, mentre Kusmi Tea e l'opzione moderna piu facile per miscele benessere e belle scatole.", "Для найпростішої й найповнішої рекомендації Palais des Thés - найчіткіша перша зупинка. Dammann Frères добре працює для упакованих французьких сумішей і подарунків, а Kusmi Tea - найпростіший сучасний варіант для wellness blends і гарних банок."),
+          t("If your interests lean Chinese rather than classic French tea-house styles, Confucius Tea is the more specialist Nice address to check first.", "Si vos interets penchent vers le the chinois plutot que vers les styles classiques de maison de the francaise, Confucius Tea est l'adresse specialiste a verifier d'abord a Nice.", "Se i tuoi interessi vanno verso il te cinese piuttosto che verso gli stili classici da maison de the francese, Confucius Tea e l'indirizzo specialistico da controllare per primo a Nizza.", "Якщо ваші інтереси тяжіють до китайського чаю, а не до класичних французьких tea-house styles, Confucius Tea - більш спеціалізована адреса в Ніцці, яку варто перевіряти першою.")
+        ],
+        relatedPlaceIds: ["palais-des-thes-nice", "dammann-freres-nice", "kusmi-tea-nice", "confucius-tea-nice"]
+      },
+      {
+        heading: t("Chinese tea and ceremony expectations", "The chinois et attentes autour de la ceremonie", "Te cinese e aspettative sulla cerimonia", "Китайський чай і очікування щодо церемонії"),
+        body: [
+          t("The Riviera is not Paris or London for permanent Chinese tea houses. What Nice does offer is the possibility of buying better leaves, sometimes finding tasting-oriented shops, and occasionally catching workshops or small tea events if you check calendars before the trip.", "La Riviera n'est pas Paris ni Londres pour les maisons de the chinoises permanentes. Ce que Nice offre, c'est la possibilite d'acheter de meilleures feuilles, de trouver parfois des boutiques orientees degustation et, selon la saison, quelques ateliers ou petits evenements si vous verifiez les calendriers avant le voyage.", "La Riviera non e Parigi o Londra per case da te cinesi permanenti. Quello che Nizza offre e la possibilita di comprare foglie migliori, trovare a volte negozi orientati alla degustazione e, secondo la stagione, incrociare workshop o piccoli eventi se controlli i calendari prima del viaggio.", "Рив'єра - не Париж і не Лондон для постійних китайських tea houses. Те, що дає Ніцца, - це можливість купити кращий лист, інколи знайти tasting-oriented shops і час від часу впіймати workshop або невелику tea-подію, якщо перевіряти календарі до поїздки.")
+        ],
+        relatedPlaceIds: ["confucius-tea-nice"]
+      },
+      {
+        heading: t("Why Menton still works as the base", "Pourquoi Menton reste une bonne base", "Perche Mentone resta una buona base", "Чому Ментон лишається хорошою базою"),
+        body: [
+          t("One of Menton's advantages is that a tea outing does not need to become a hotel-change exercise. You can spend an afternoon in Nice or Monaco, then come back the same evening to a quieter apartment base by the sea.", "L'un des avantages de Menton est qu'une sortie autour du the n'a pas besoin de devenir un changement d'hotel. Vous pouvez passer un apres-midi a Nice ou Monaco, puis revenir le soir meme dans un appartement plus calme au bord de la mer.", "Uno dei vantaggi di Mentone e che un'uscita dedicata al te non deve trasformarsi in un cambio di hotel. Puoi passare un pomeriggio a Nizza o Monaco e tornare la sera stessa in un appartamento sul mare piu tranquillo.", "Одна з переваг Ментона в тому, що чайний виїзд не мусить перетворюватися на зміну готелю. Можна провести afternoon у Ніцці чи Монако, а того ж вечора повернутися в спокійніші апартаменти біля моря."),
+          t("That works especially well when you want to carry pastries, biscuits or loose-leaf tea back with you and enjoy them later from an air-conditioned apartment instead of rushing through everything at once.", "Cela fonctionne particulierement bien si vous voulez rapporter patisseries, biscuits ou the en vrac et les apprecier plus tard dans un appartement climatise au lieu de tout consommer d'un coup.", "Funziona particolarmente bene se vuoi riportare con te dolci, biscotti o te sfuso e gustarli piu tardi in un appartamento climatizzato invece di fare tutto di corsa.", "Це особливо добре працює, якщо хочеться привезти з собою pastries, biscuits або loose-leaf tea і насолодитися ними пізніше в апартаментах з кондиціонером, а не поспішати все спробувати одразу.")
+        ],
+        relatedApartmentKeys: allApartments
+      }
+    ],
+    practicalTips: [
+      t("Treat Menton as the easy stop, Monaco as the polished stop and Nice as the specialist shopping stop.", "Considerez Menton comme l'etape facile, Monaco comme l'etape soignee et Nice comme l'etape d'achat specialise.", "Considera Mentone la tappa facile, Monaco la tappa curata e Nizza la tappa per acquisti specializzati.", "Сприймайте Ментон як легку зупинку, Монако як polished stop, а Ніццу як зупинку для спеціалізованих покупок."),
+      t("If tea buying matters, go to Nice with enough time to combine one boutique and one calm café rather than trying to force too many stops.", "Si l'achat de the compte vraiment, allez a Nice avec assez de temps pour combiner une boutique et un cafe calme plutot que de forcer trop d'etapes.", "Se l'acquisto del te conta davvero, vai a Nizza con abbastanza tempo per combinare una boutique e un caffe tranquillo invece di forzare troppe tappe.", "Якщо покупки чаю справді важливі, їдьте до Ніцци з достатнім часом, щоб поєднати одну boutique і одне спокійне кафе, а не намагатися втиснути занадто багато зупинок."),
+      t("Check current opening hours before making a dedicated trip for a specific tea room or boutique.", "Verifiez les horaires actuels avant un deplacement dedie vers un salon de the ou une boutique precise.", "Controlla gli orari aggiornati prima di fare un viaggio dedicato per una specifica tea room o boutique.", "Перевіряйте актуальні години роботи перед окремою поїздкою за конкретною tea room або boutique.")
     ]
   }),
 ];
