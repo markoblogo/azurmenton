@@ -6317,7 +6317,8 @@ const rawPlaces: Place[] = [
     requiresMapReview: true,
     shortNote: text("A coffee stop at Nouveau Port de Garavan. It may suit a short laptop session, but confirm seating and current Wi-Fi policy with the venue first.", "Pause cafe au Nouveau Port de Garavan. Elle peut convenir a une courte session ordinateur, mais confirmez d'abord les places et la politique Wi-Fi actuelle.", "Sosta caffe al Nouveau Port de Garavan. Puo andare bene per una breve sessione al laptop, ma conferma prima posti e politica Wi-Fi attuale.", "Кавова зупинка в Nouveau Port de Garavan. Вона може пасувати для короткої сесії з ноутбуком, але спочатку уточніть місця й актуальну політику Wi-Fi."),
     bestFor: [text("short coffee session", "courte session cafe", "breve sessione caffe", "коротка кавова сесія")],
-    relatedArticleIds: ["coworking-remote-work-menton"],
+    relatedArticleIds: ["coworking-remote-work-menton", "best-coffee-menton"],
+    guideCoverageSlugs: ["best-coffee-menton"],
   },
   {
     id: "chez-angelovas-nice",
@@ -6518,33 +6519,12 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "transport",
   },
   "flowy-coffee-coworking-menton": {
-    image: "/images/guide/coffee-menton.png",
-    imageAlt: text(
-      "Flowy coworking and coffee space in Menton",
-      "Espace café et coworking Flowy à Menton",
-      "Spazio caffè e coworking Flowy a Mentone",
-      "Кавовий та коворкінг-простір Flowy у Ментоні",
-    ),
     visualTheme: "transport",
   },
   "cafe-napoli-menton": {
-    image: "/images/guide/coffee-menton.png",
-    imageAlt: text(
-      "Café Napoli espresso bar in Menton",
-      "Bar à espresso Café Napoli à Menton",
-      "Bar espresso Café Napoli a Mentone",
-      "Еспресо-бар Café Napoli у Ментоні",
-    ),
     visualTheme: "food",
   },
   "gusto-italiano-menton": {
-    image: "/images/guide/coffee-menton.png",
-    imageAlt: text(
-      "Gusto Italiano coffee spot in Menton",
-      "Coffee spot Gusto Italiano à Menton",
-      "Coffee spot Gusto Italiano a Mentone",
-      "Кавова точка Gusto Italiano у Ментоні",
-    ),
     visualTheme: "food",
   },
   "edwige-coffee-menton": {

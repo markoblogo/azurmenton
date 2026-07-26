@@ -9251,6 +9251,17 @@ export const guideArticles: GuideArticle[] = [
     ),
     visualTheme: "food",
     visualStatus: "project_illustration",
+    relatedArticles: [
+      "best-breakfast-menton",
+      "best-bakeries-in-menton",
+      "best-pastries-desserts-cakes-menton",
+      "halles-du-marche-menton",
+      "local-food-menton",
+      "menton-without-a-car",
+      "coworking-remote-work-menton",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
     sections: [
       {
         heading: t(
@@ -9277,10 +9288,10 @@ export const guideArticles: GuideArticle[] = [
         ),
         body: [
           t(
-            "Flowery – Coffeeshop & Coworking offers specialty coffee and coworking spaces.",
-            "Flowery – Coffeeshop & Coworking propose du café de spécialité et des espaces de coworking.",
-            "Flowery – Coffeeshop & Coworking offre caffè speciale e spazi di coworking.",
-            "Flowery – Coffeeshop & Coworking пропонує спеціалізовану каву та простори для coworking."
+            "Flowy – Coffeeshop & Coworking offers specialty coffee and coworking spaces.",
+            "Flowy – Coffeeshop & Coworking propose du café de spécialité et des espaces de coworking.",
+            "Flowy – Coffeeshop & Coworking offre caffè specialty e spazi di coworking.",
+            "Flowy – Coffeeshop & Coworking пропонує specialty-каву та простори для coworking."
           ),
           t(
             "Edwige Coffee provides a relaxed French‑style café experience.",
