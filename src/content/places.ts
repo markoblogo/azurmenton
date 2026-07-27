@@ -9217,31 +9217,31 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of the Cernuschi community book box in Menton", "Illustration de la boite a livres solidaire Cernuschi a Menton", "Illustrazione della scatola solidale per libri Cernuschi a Mentone", "Ілюстрація солідарної книжкової коробки Cernuschi у Ментоні"),
     visualTheme: "old-town",
   },
-};
-
-export const places: Place[] = rawPlaces.map((place) => {
-  const visual = placeVisuals[place.id] ?? {};
-  return {
-    ...place,
-    ...visual,
-    requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
-    visualTheme: place.visualTheme ?? visual.visualTheme ?? visualThemeForPlace(place.type),
-    googleMapsSearchUrl:
-      place.googleMapsSearchUrl ??
-      place.googleMapsUrl ??
-      mapsSearch(place.name, place.address ?? place.area?.en),
-    googleMapsUrl:
-      place.googleMapsUrl ??
-      place.googleMapsSearchUrl ??
-      mapsSearch(place.name, place.address ?? place.area?.en),
-    googlePhotosStatus: place.googlePhotosStatus ?? "not_connected",
-    ratingStatus: place.ratingStatus ?? "not_connected",
-    hoursStatus:
-      place.hoursStatus ??
-      (place.sourceStatus === "needs_verification" ? "needs_manual_verification" : "not_connected"),
-  };
-});
-
+  "cbd-shop-france-menton": {
+    image: "/images/guide/cbd-shop-france-menton.png",
+    imageAlt: text("Illustration of CBD Shop France Menton in Menton", "Illustration de CBD Shop France Menton a Menton", "Illustrazione di CBD Shop France Menton a Mentone", "Ілюстрація CBD Shop France Menton у Ментоні"),
+    visualTheme: "market",
+  },
+  "tatie-cbd-menton": {
+    image: "/images/guide/tatie-cbd-menton.png",
+    imageAlt: text("Illustration of Tatie CBD Menton in Menton", "Illustration de Tatie CBD Menton a Menton", "Illustrazione di Tatie CBD Menton a Mentone", "Ілюстрація Tatie CBD Menton у Ментоні"),
+    visualTheme: "market",
+  },
+  "pharmacie-saint-roman": {
+    image: "/images/guide/pharmacie-saint-roman.png",
+    imageAlt: text("Illustration of Pharmacie Saint Roman in Menton", "Illustration de Pharmacie Saint Roman a Menton", "Illustrazione di Pharmacie Saint Roman a Mentone", "Ілюстрація Pharmacie Saint Roman у Ментоні"),
+    visualTheme: "family",
+  },
+  "pharmacie-hanbury": {
+    image: "/images/guide/pharmacie-hanbury.png",
+    imageAlt: text("Illustration of Pharmacie Hanbury in Menton", "Illustration de Pharmacie Hanbury a Menton", "Illustrazione di Pharmacie Hanbury a Mentone", "Ілюстрація Pharmacie Hanbury у Ментоні"),
+    visualTheme: "family",
+  },
+  "parapharmacie-dietetique-menton": {
+    image: "/images/guide/parapharmacie-dietetique-menton.png",
+    imageAlt: text("Illustration of Parapharmacie Diététique Menton in Menton", "Illustration de Parapharmacie Diététique Menton a Menton", "Illustrazione di Parapharmacie Diététique Menton a Mentone", "Ілюстрація Parapharmacie Diététique Menton у Ментоні"),
+    visualTheme: "market",
+  },
 function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
   const themes: Record<PlaceType, GuideVisualTheme> = {
     market: "market",

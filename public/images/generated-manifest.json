@@ -40,5 +40,40 @@
       "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.avif",
       "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/cbd-shop-france-menton.png",
+    "outputs": [
+      "public/images/guide/generated/cbd-shop-france-menton.avif",
+      "public/images/guide/generated/cbd-shop-france-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/tatie-cbd-menton.png",
+    "outputs": [
+      "public/images/guide/generated/tatie-cbd-menton.avif",
+      "public/images/guide/generated/tatie-cbd-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pharmacie-saint-roman.png",
+    "outputs": [
+      "public/images/guide/generated/pharmacie-saint-roman.avif",
+      "public/images/guide/generated/pharmacie-saint-roman.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pharmacie-hanbury.png",
+    "outputs": [
+      "public/images/guide/generated/pharmacie-hanbury.avif",
+      "public/images/guide/generated/pharmacie-hanbury.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/parapharmacie-dietetique-menton.png",
+    "outputs": [
+      "public/images/guide/generated/parapharmacie-dietetique-menton.avif",
+      "public/images/guide/generated/parapharmacie-dietetique-menton.webp"
+    ]
   }
 ]
