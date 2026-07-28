@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useActionState, useCallback, useEffect, useRef } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useActionState, useCallback, useEffect, useMemo, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import type { DateInterval } from "@/lib/availability/types";
-import { buildAvailabilityPrefillHref, getAvailabilityPrefillFromSearchParams } from "@/lib/availability/prefill";
+import { buildAvailabilityPrefillHref, clearAvailabilityPrefillParams, getAvailabilityPrefillFromSearchParams } from "@/lib/availability/prefill";
 import { advanceBookingNoticeCopy } from "@/components/content/AdvanceBookingNotice";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
@@ -75,6 +75,10 @@ const formCopy = {
     send: "Send request",
     conflictAlternatives: "Nearby alternatives",
     sendFlexible: "Send request with flexible dates",
+    sendSelected: "Request the selected stay",
+    selectedStay: "Selected stay",
+    clearSelection: "Clear selection",
+    chooseCheckout: "Choose your check-out date below.",
   },
   fr: {
     formLabel: "Formulaire de demande directe",
@@ -123,6 +127,10 @@ const formCopy = {
     send: "Envoyer la demande",
     conflictAlternatives: "Alternatives proches",
     sendFlexible: "Envoyer quand meme comme demande flexible",
+    sendSelected: "Demander ce séjour",
+    selectedStay: "Séjour sélectionné",
+    clearSelection: "Effacer la sélection",
+    chooseCheckout: "Choisissez votre date de départ ci-dessous.",
   },
   it: {
     formLabel: "Modulo richiesta diretta",
@@ -171,6 +179,10 @@ const formCopy = {
     send: "Invia richiesta",
     conflictAlternatives: "Alternative vicine",
     sendFlexible: "Invia comunque come richiesta flessibile",
+    sendSelected: "Richiedi il soggiorno selezionato",
+    selectedStay: "Soggiorno selezionato",
+    clearSelection: "Cancella selezione",
+    chooseCheckout: "Scegli sotto la data di partenza.",
   },
   uk: {
     formLabel: "Форма прямого запиту",
@@ -219,12 +231,26 @@ const formCopy = {
     send: "Надіслати запит",
     conflictAlternatives: "Найближчі альтернативи",
     sendFlexible: "Все одно надіслати як гнучкий запит",
+    sendSelected: "Надіслати запит на вибране перебування",
+    selectedStay: "Вибране перебування",
+    clearSelection: "Очистити вибір",
+    chooseCheckout: "Нижче оберіть дату виїзду.",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
 function formatAlternative(locale: Locale, interval: DateInterval) {
   const formatter = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
   return `${formatter.format(new Date(`${interval.start}T00:00:00.000Z`))}–${formatter.format(new Date(`${interval.end}T00:00:00.000Z`))}`;
+}
+
+function formatSelectedStay(locale: Locale, checkIn?: string, checkOut?: string, openEnded?: boolean) {
+  const formatter = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
+  if (!checkIn) return "";
+  if (openEnded || !checkOut) {
+    return `${formatter.format(new Date(`${checkIn}T00:00:00.000Z`))}+`;
+  }
+
+  return `${formatter.format(new Date(`${checkIn}T00:00:00.000Z`))}–${formatter.format(new Date(`${checkOut}T00:00:00.000Z`))}`;
 }
 
 export function BookingRequestForm({
@@ -237,6 +263,7 @@ export function BookingRequestForm({
   locale: Locale;
 }) {
   const [state, formAction, pending] = useActionState(submitBookingRequest, initialState);
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const today = new Date().toISOString().slice(0, 10);
@@ -245,6 +272,8 @@ export function BookingRequestForm({
   const hasTrackedStart = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
   const overrideRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const prefill = useMemo(() => getAvailabilityPrefillFromSearchParams(searchParams), [searchParams]);
 
   const bookingFunnelProps = useCallback((): BookingFunnelProps => {
     const form = formRef.current;
@@ -299,7 +328,6 @@ export function BookingRequestForm({
   }, [bookingFunnelProps, state.status]);
 
   useEffect(() => {
-    const prefill = getAvailabilityPrefillFromSearchParams(searchParams);
     const form = formRef.current;
 
     if (!prefill || !form) return;
@@ -307,25 +335,44 @@ export function BookingRequestForm({
     const apartmentField = form.elements.namedItem("apartment");
     const checkInField = form.elements.namedItem("checkIn");
     const checkOutField = form.elements.namedItem("checkOut");
+    const dateFlexibilityField = form.elements.namedItem("dateFlexibility");
 
     if (apartmentField instanceof HTMLSelectElement) {
-      apartmentField.value = prefill.apartment;
+      apartmentField.value = prefill.apartment ?? "";
     }
 
-    if (checkInField instanceof HTMLInputElement) {
+    if (prefill.checkIn && checkInField instanceof HTMLInputElement) {
       checkInField.value = prefill.checkIn;
     }
 
     if (checkOutField instanceof HTMLInputElement) {
-      checkOutField.value = prefill.checkOut;
+      checkOutField.value = prefill.checkOut ?? "";
     }
-  }, [searchParams]);
+
+    if (prefill.flexible && dateFlexibilityField instanceof HTMLSelectElement) {
+      dateFlexibilityField.value = "flexible-month";
+      if (!prefill.hasSelection) {
+        messageRef.current?.focus();
+      }
+    }
+  }, [prefill]);
 
   function submitFlexibleRequest() {
     if (!formRef.current || !overrideRef.current) return;
     overrideRef.current.value = "accepted";
     formRef.current.requestSubmit();
   }
+
+  function clearSelection() {
+    const next = clearAvailabilityPrefillParams(new URLSearchParams(searchParams.toString()));
+    const query = next.toString();
+    router.replace(query ? `${pathname}?${query}#direct-request-form` : `${pathname}#direct-request-form`, { scroll: false });
+  }
+
+  const selectedApartment = prefill?.apartment ? apartments.find((apartment) => apartment.slug === prefill.apartment) : undefined;
+  const selectedStayLabel = selectedApartment && prefill?.hasSelection
+    ? `${selectedApartment.shortName[locale]}, ${formatSelectedStay(locale, prefill.checkIn, prefill.checkOut, prefill.openEnded)}`
+    : "";
 
   return (
     <form ref={formRef} action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel} onChange={trackFormStart} onFocus={trackFormStart} onSubmit={trackFormStart}>
@@ -336,6 +383,25 @@ export function BookingRequestForm({
         </label>
       </div>
       <input ref={overrideRef} name="availabilityOverride" type="hidden" defaultValue="" />
+
+      {selectedApartment && prefill?.hasSelection ? (
+        <div className="border border-[#dfd4c1] bg-[#f8f2e7] p-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="editorial-label">{labels.selectedStay}</p>
+              <p className="mt-2 text-[1.08rem] font-semibold leading-7 text-[#173f36]">{selectedStayLabel}</p>
+              {prefill.openEnded ? <p className="mt-1 text-[0.98rem] leading-6 text-[#6b5f50]">{labels.chooseCheckout}</p> : null}
+            </div>
+            <button
+              type="button"
+              className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+              onClick={clearSelection}
+            >
+              {labels.clearSelection}
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
         <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.stayDetails}</legend>
@@ -438,6 +504,7 @@ export function BookingRequestForm({
             className="field min-h-28"
             maxLength={2000}
             name="message"
+            ref={messageRef}
           />
           <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.messageHelp}</span>
         </label>
@@ -527,7 +594,7 @@ export function BookingRequestForm({
         </button>
       ) : null}
 
-      <Button type="submit" disabled={pending}>{pending ? labels.sending : labels.send}</Button>
+      <Button type="submit" disabled={pending}>{pending ? labels.sending : prefill?.hasSelection ? labels.sendSelected : labels.send}</Button>
     </form>
   );
 }

@@ -9,6 +9,8 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
 import { isLocale, type Locale } from "@/i18n/locales";
+import { getAvailabilityHintLabel } from "@/lib/availability/presentation";
+import { getPublicAllApartmentAvailability } from "@/lib/availability/service";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
 
@@ -173,6 +175,8 @@ export default async function ApartmentsPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "apartments"));
+  const availability = await getPublicAllApartmentAvailability();
+  const availabilityBySlug = new Map(availability.map((item) => [item.apartmentSlug, item] as const));
 
   return (
     <>
@@ -252,7 +256,13 @@ export default async function ApartmentsPage({ params }: PageProps) {
           <div className="grid gap-6 lg:grid-cols-3">
             {apartments.map((apartment) => (
               <div key={apartment.slug} className="grid gap-3">
-                <ApartmentCard apartment={apartment} locale={safeLocale} />
+                <ApartmentCard
+                  apartment={apartment}
+                  locale={safeLocale}
+                  availabilityHint={availabilityBySlug.get(apartment.slug)?.sourceFreshness === "fresh"
+                    ? getAvailabilityHintLabel(safeLocale, availabilityBySlug.get(apartment.slug)!) ?? undefined
+                    : undefined}
+                />
                 <p className="border-l border-[#c6a66a] pl-3 text-sm font-semibold leading-6 text-[#173f36]">
                   {positioning[apartment.slug].short[safeLocale]}
                 </p>

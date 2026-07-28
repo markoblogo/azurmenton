@@ -16,10 +16,10 @@ export const advanceBookingNoticeCopy = {
     compactBody:
       "Popular dates may be reserved several months ahead. Flexible travel dates give us the best chance of finding a suitable stay.",
     availabilityLabel: "A quick note about availability",
-    availabilityHeading: "Planning ahead is recommended",
+    availabilityHeading: "Popular dates are booked well in advance",
     availabilityBody:
-      "Azur Menton apartments are often reserved several months in advance, and some returning guests book for the following year. If your dates are flexible, please include alternative periods in your request. Short-notice gaps occasionally appear, but availability for the nearest weeks is usually limited.",
-    availabilitySupporting: "Every request is checked personally before a stay is confirmed.",
+      "Summer, school holidays and major Riviera events may be reserved several months ahead. Flexible dates give us the best chance of finding a suitable stay.",
+    availabilitySupporting: "Some returning guests book for the following year, while shorter gaps can still appear closer to arrival.",
     helper:
       "Travelling soon? Adding alternative dates can significantly improve the chance of finding an available apartment.",
     cta: "Check availability",
@@ -32,10 +32,10 @@ export const advanceBookingNoticeCopy = {
     compactBody:
       "Les dates les plus demandées peuvent être réservées plusieurs mois à l’avance. Des dates de voyage flexibles nous donnent davantage de possibilités pour vous proposer un séjour adapté.",
     availabilityLabel: "À savoir concernant les disponibilités",
-    availabilityHeading: "Il est recommandé de planifier votre séjour à l’avance",
+    availabilityHeading: "Les dates les plus demandées se réservent très à l’avance",
     availabilityBody:
-      "Les appartements Azur Menton sont souvent réservés plusieurs mois à l’avance, et certains voyageurs habitués réservent déjà leur prochain séjour pour l’année suivante. Si vos dates sont flexibles, veuillez indiquer d’autres périodes possibles dans votre demande. De courts créneaux peuvent parfois se libérer à la dernière minute, mais les prochaines semaines sont généralement très demandées.",
-    availabilitySupporting: "Chaque demande est vérifiée personnellement avant la confirmation du séjour.",
+      "L’été, les vacances scolaires et les grands événements de la Riviera peuvent être réservés plusieurs mois à l’avance. Des dates flexibles nous donnent les meilleures chances de trouver un séjour adapté.",
+    availabilitySupporting: "Certains voyageurs habitués réservent déjà pour l’année suivante, tandis que de courts créneaux peuvent encore apparaître plus près de l’arrivée.",
     helper:
       "Vous voyagez prochainement ? Indiquer d’autres dates possibles peut considérablement augmenter vos chances de trouver un appartement disponible.",
     cta: "Vérifier la disponibilité",
@@ -48,10 +48,10 @@ export const advanceBookingNoticeCopy = {
     compactBody:
       "Le date più richieste possono essere prenotate con diversi mesi di anticipo. Date di viaggio flessibili ci danno più possibilità di proporti un soggiorno adatto.",
     availabilityLabel: "Una nota rapida sulla disponibilità",
-    availabilityHeading: "Consigliamo di pianificare in anticipo",
+    availabilityHeading: "Le date più richieste si prenotano con largo anticipo",
     availabilityBody:
-      "Gli appartamenti Azur Menton vengono spesso prenotati con diversi mesi di anticipo, e alcuni ospiti abituali prenotano già per l’anno successivo. Se le tue date sono flessibili, indica periodi alternativi nella richiesta. A volte compaiono brevi disponibilità sotto data, ma nelle prossime settimane la disponibilità è di solito limitata.",
-    availabilitySupporting: "Ogni richiesta viene verificata personalmente prima che il soggiorno sia confermato.",
+      "Estate, vacanze scolastiche e grandi eventi della Riviera possono esaurirsi con diversi mesi di anticipo. Date flessibili ci danno più possibilità di trovare un soggiorno adatto.",
+    availabilitySupporting: "Alcuni ospiti abituali prenotano già per l’anno successivo, mentre brevi finestre possono ancora comparire più vicino all’arrivo.",
     helper:
       "Viaggi a breve? Aggiungere date alternative può aumentare sensibilmente le possibilità di trovare un appartamento disponibile.",
     cta: "Controlla disponibilità",
@@ -64,10 +64,10 @@ export const advanceBookingNoticeCopy = {
     compactBody:
       "Популярні дати можуть бути заброньовані за кілька місяців. Гнучкі дати подорожі дають нам більше можливостей запропонувати відповідний варіант проживання.",
     availabilityLabel: "Коротко про наявність вільних дат",
-    availabilityHeading: "Рекомендуємо планувати проживання заздалегідь",
+    availabilityHeading: "Популярні дати бронюють дуже завчасно",
     availabilityBody:
-      "Апартаменти Azur Menton часто бронюють за кілька місяців, а деякі постійні гості планують наступне проживання вже на наступний рік. Якщо ваші дати гнучкі, зазначте в запиті альтернативні періоди. Іноді з’являються короткі вільні проміжки на найближчі дати, але найближчі тижні зазвичай уже зайняті.",
-    availabilitySupporting: "Кожен запит перевіряється особисто перед підтвердженням проживання.",
+      "Літо, шкільні канікули та великі події Рив’єри можуть бути заброньовані за кілька місяців наперед. Гнучкі дати дають нам найкращий шанс знайти відповідне перебування.",
+    availabilitySupporting: "Деякі постійні гості бронюють уже на наступний рік, водночас короткі вільні проміжки можуть з’явитися ближче до приїзду.",
     helper:
       "Плануєте приїхати найближчим часом? Альтернативні дати можуть значно підвищити шанси знайти вільний апартамент.",
     cta: "Перевірити доступність",

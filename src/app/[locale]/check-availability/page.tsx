@@ -14,6 +14,7 @@ import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
+import { buildFlexibleAvailabilityHref, getAvailabilityPrefillFromSearchParams } from "@/lib/availability/prefill";
 import { getPublicAllApartmentAvailability } from "@/lib/availability/service";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { contactPageJsonLd } from "@/lib/structured-data";
@@ -21,6 +22,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 type Localized = Record<Locale, string>;
@@ -28,32 +30,34 @@ const text = (en: string, fr: string, it: string, uk: string): Localized => ({ e
 
 const copy = {
   eyebrow: text("Direct booking", "Réservation directe", "Prenotazione diretta", "Пряме бронювання"),
+  availabilityEyebrow: text("Current availability", "Disponibilités actuelles", "Disponibilità attuale", "Поточна доступність"),
   title: text(
-    "Tell us your dates and we’ll confirm availability personally",
-    "Envoyez vos dates, nous confirmerons la disponibilité personnellement",
-    "Inviaci le date e confermeremo personalmente la disponibilità",
-    "Надішліть дати, і ми особисто підтвердимо доступність",
+    "Find a stay that fits your dates",
+    "Trouvez un séjour qui correspond à vos dates",
+    "Trova un soggiorno adatto alle tue date",
+    "Знайдіть перебування, яке підходить під ваші дати",
   ),
   intro: text(
-    "Azur Menton handles booking requests directly and replies manually with the best available apartment and stay option.",
-    "Azur Menton traite les demandes en direct et répond manuellement avec le meilleur appartement disponible et l’option de séjour adaptée.",
-    "Azur Menton gestisce le richieste direttamente e risponde manualmente con l’appartamento disponibile e l’opzione più adatta.",
-    "Azur Menton обробляє запити напряму й вручну відповідає з найкращим доступним варіантом апартаментів і перебування.",
+    "Our apartments are often reserved several months ahead. Start with the nearest available periods below, or send flexible dates and we will help you find the best match.",
+    "Nos appartements sont souvent réservés plusieurs mois à l’avance. Commencez par les périodes disponibles ci-dessous ou envoyez des dates flexibles et nous vous aiderons à trouver la meilleure option.",
+    "I nostri appartamenti vengono spesso prenotati con diversi mesi di anticipo. Inizia dai periodi disponibili qui sotto oppure inviaci date flessibili e ti aiuteremo a trovare la soluzione migliore.",
+    "Наші апартаменти часто бронюють за кілька місяців наперед. Почніть із найближчих доступних періодів нижче або надішліть гнучкі дати, і ми допоможемо знайти найкращий варіант.",
   ),
   note: text(
-    "Ideal for Riviera weekends, Lemon Festival stays and guests comparing apartments before booking.",
-    "Idéal pour les week-ends Riviera, la Fête du Citron et les voyageurs qui comparent les appartements avant de réserver.",
-    "Ideale per weekend in Riviera, Festa dei Limoni e ospiti che confrontano gli appartamenti prima di prenotare.",
-    "Зручно для вікендів на Рив’єрі, Фестивалю лимонів і гостей, які порівнюють апартаменти перед бронюванням.",
+    "Short-notice gaps occasionally appear, especially after cancellations, so it is always worth checking.",
+    "De courts créneaux apparaissent parfois à la dernière minute, surtout après une annulation, donc cela vaut toujours la peine de vérifier.",
+    "A volte compaiono brevi disponibilità anche sotto data, soprattutto dopo cancellazioni, quindi vale sempre la pena controllare.",
+    "Короткі вільні проміжки іноді з’являються в останній момент, особливо після скасувань, тож перевірити завжди варто.",
   ),
-  apartments: text("Explore apartments", "Explorer les appartements", "Esplora gli appartamenti", "Переглянути апартаменти"),
-  guide: text("Menton guide", "Guide de Menton", "Guida di Mentone", "Гід Ментона"),
-  formTitle: text("Direct request details", "Détails de la demande directe", "Dettagli della richiesta diretta", "Деталі прямого запиту"),
+  viewAvailability: text("View available stays", "Voir les séjours disponibles", "Vedi i soggiorni disponibili", "Переглянути доступні періоди"),
+  sendFlexible: text("Send flexible dates", "Envoyer des dates flexibles", "Invia date flessibili", "Надіслати гнучкі дати"),
+  formTitle: text("Send your stay request", "Envoyer votre demande de séjour", "Invia la tua richiesta di soggiorno", "Надіслати запит на перебування"),
+  formTitleSelected: text("Request the selected stay", "Demander le séjour sélectionné", "Richiedi il soggiorno selezionato", "Надіслати запит на вибране перебування"),
   formIntro: text(
-    "Share the essentials and any context that helps us match your stay accurately.",
-    "Indiquez l’essentiel et tout contexte utile pour adapter précisément votre séjour.",
-    "Condividi le informazioni essenziali e il contesto utile per proporre il soggiorno giusto.",
-    "Додайте основні дані та будь-який контекст, який допоможе точно підібрати перебування.",
+    "We will verify the latest availability personally before confirming your booking.",
+    "Nous vérifierons personnellement les dernières disponibilités avant de confirmer votre séjour.",
+    "Verificheremo personalmente la disponibilità più aggiornata prima di confermare il soggiorno.",
+    "Ми особисто перевіримо актуальну доступність перед підтвердженням вашого бронювання.",
   ),
   stepsTitle: text("How direct booking works", "Comment fonctionne la demande directe", "Come funziona la richiesta diretta", "Як працює прямий запит"),
   fitTitle: text("Which apartment fits?", "Quel appartement vous correspond ?", "Quale appartamento fa per te?", "Які апартаменти підійдуть?"),
@@ -66,8 +70,16 @@ const copy = {
     "Порівняйте апартаменти, перегляньте практичні нотатки про Ментон або напишіть нам напряму, якщо ще обираєте.",
   ),
   compare: text("Compare apartments", "Comparer les appartements", "Confronta appartamenti", "Порівняти апартаменти"),
+  guide: text("Menton guide", "Guide de Menton", "Guida di Mentone", "Гід Ментона"),
   events: text("Riviera events", "Événements Riviera", "Eventi Riviera", "Події Рив’єри"),
   contact: text("Contact us directly", "Nous contacter", "Contattaci", "Написати напряму"),
+  flexibleTitle: text("Can’t find the right dates?", "Vous ne trouvez pas les bonnes dates ?", "Non trovi le date giuste?", "Не знаходите потрібні дати?"),
+  flexibleBody: text(
+    "Send us your preferred period, alternative dates and trip length. We will check the calendars personally and suggest the closest available option.",
+    "Envoyez votre période préférée, des dates alternatives et la durée du séjour. Nous vérifierons les calendriers personnellement et proposerons l’option la plus proche.",
+    "Inviaci il periodo preferito, date alternative e durata del soggiorno. Controlleremo personalmente i calendari e suggeriremo l’opzione più vicina.",
+    "Надішліть бажаний період, альтернативні дати та тривалість поїздки. Ми особисто перевіримо календарі й запропонуємо найближчий доступний варіант.",
+  ),
   guests: text("guests", "voyageurs", "ospiti", "гостей"),
   seoTitle: text(
     "Check Availability | Direct Booking Request | Azur Menton",
@@ -131,12 +143,19 @@ function localPath(locale: Locale, href: string) {
   return `/${locale}${href}` as Route;
 }
 
-export default async function CheckAvailabilityPage({ params }: PageProps) {
+export default async function CheckAvailabilityPage({ params, searchParams }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = t[safeLocale];
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "check-availability"));
   const availability = await getPublicAllApartmentAvailability();
+  const query = await searchParams;
+  const queryParams = new URLSearchParams();
+  for (const [key, value] of Object.entries(query)) {
+    if (typeof value === "string") queryParams.set(key, value);
+  }
+  const prefill = getAvailabilityPrefillFromSearchParams(queryParams);
+  const formTitle = prefill?.hasSelection ? copy.formTitleSelected[safeLocale] : copy.formTitle[safeLocale];
 
   return (
     <>
@@ -151,37 +170,34 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
       />
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
-          <div className="grid gap-10 py-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:py-16">
-            <div>
-              <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
-              <h1 className="serif-heading mt-4 max-w-3xl text-5xl leading-[0.95] text-[#173f36] sm:text-6xl">
-                {copy.title[safeLocale]}
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-[#5f574c]">{copy.intro[safeLocale]}</p>
-              <p className="mt-5 max-w-xl border-l border-[#c6a66a] pl-4 text-base leading-7 text-[#6b5f50]">{copy.note[safeLocale]}</p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href={`/${safeLocale}/apartments`} variant="secondary">{copy.apartments[safeLocale]}</Button>
-                <Button href={`/${safeLocale}/guide`} variant="secondary">{copy.guide[safeLocale]}</Button>
-              </div>
-            </div>
-            <div className="relative overflow-hidden border border-[#dfd4c1] bg-white p-3">
-              <Image
-                src="/images/home/BeachfrontStudio-portret.jpg"
-                alt="Sea-view balcony breakfast at an Azur Menton apartment"
-                width={864}
-                height={1184}
-                preload
-                loading="eager"
-                quality={90}
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="aspect-[4/3] w-full object-cover object-[50%_38%]"
-              />
+          <div className="max-w-4xl py-12 lg:py-14">
+            <p className="editorial-label">{copy.availabilityEyebrow[safeLocale]}</p>
+            <h1 className="serif-heading mt-4 max-w-4xl text-5xl leading-[0.95] text-[#173f36] sm:text-6xl">
+              {copy.title[safeLocale]}
+            </h1>
+            <p className="mt-6 max-w-3xl text-[1.1rem] leading-8 text-[#5f574c]">{copy.intro[safeLocale]}</p>
+            <p className="mt-5 max-w-3xl border-l border-[#c6a66a] pl-4 text-[1rem] leading-7 text-[#6b5f50]">{copy.note[safeLocale]}</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href={`/${safeLocale}/check-availability#availability-hub`} variant="secondary">{copy.viewAvailability[safeLocale]}</Button>
+              <Button href={buildFlexibleAvailabilityHref(safeLocale)}>{copy.sendFlexible[safeLocale]}</Button>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-10 sm:py-14">
+      <section className="py-8 sm:py-10">
+        <Container>
+          <AdvanceBookingNotice locale={safeLocale} variant="availability" />
+        </Container>
+      </section>
+
+      <section className="pb-10 sm:pb-12">
+        <Container>
+          <AvailabilityOverviewSection locale={safeLocale} availability={availability} />
+        </Container>
+      </section>
+
+      <section className="pb-10 sm:pb-14">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
             <aside className="grid gap-5 lg:sticky lg:top-28">
@@ -211,13 +227,12 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                       key={apartment.slug}
                       href={localPath(safeLocale, `/apartments/${apartment.slug}`)}
                       className="group grid grid-cols-[5.8rem_1fr] gap-4 border-t border-[#eadfce] p-4 transition hover:bg-[#fbf7ef]"
-                      >
+                    >
                       <div className="relative aspect-[4/3] overflow-hidden bg-[#efe4d1]">
                         <Image
                           src={apartment.cardImage}
                           alt={apartment.shortName[safeLocale]}
                           fill
-                          quality={90}
                           sizes="96px"
                           className="object-cover transition duration-500 group-hover:scale-[1.04]"
                         />
@@ -247,36 +262,22 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
             </aside>
 
             <div>
-              <Card className="overflow-hidden bg-[#fffdf8]">
-                <div id="direct-request-form" />
-                <div className="grid grid-cols-3 gap-0 border-b border-[#dfd4c1]">
-                  {[
-                    "/images/home/SeaViewBalconyStudio.jpg",
-                    "/images/home/TerraceParkingApartment.jpg",
-                    "/images/home/BeachfrontStudio-portret.jpg",
-                  ].map((src) => (
-                    <div key={src} className="relative aspect-[4/3] overflow-hidden bg-[#efe4d1]">
-                      <Image
-                        src={src}
-                        alt=""
-                        fill
-                        loading={src === "/images/home/BeachfrontStudio-portret.jpg" ? "eager" : "lazy"}
-                        quality={90}
-                        sizes="(min-width: 1024px) 16vw, 33vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
+              <Card className="p-5 sm:p-6">
+                <p className="editorial-label">{copy.sendFlexible[safeLocale]}</p>
+                <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36]">{copy.flexibleTitle[safeLocale]}</h2>
+                <p className="mt-3 max-w-3xl text-[1.05rem] leading-8 text-[#5f574c]">{copy.flexibleBody[safeLocale]}</p>
+                <div className="mt-5">
+                  <Button href={buildFlexibleAvailabilityHref(safeLocale)}>{copy.sendFlexible[safeLocale]}</Button>
                 </div>
+              </Card>
+
+              <Card className="mt-6 overflow-hidden bg-[#fffdf8]">
+                <div id="direct-request-form" className="scroll-mt-28" />
                 <div className="p-5 sm:p-7">
-                  <AvailabilityOverviewSection locale={safeLocale} availability={availability} />
                   <div className="mb-6">
                     <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
-                    <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.formTitle[safeLocale]}</h2>
-                    <p className="mt-3 max-w-2xl text-base leading-7 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
-                  </div>
-                  <div className="mb-6">
-                    <AdvanceBookingNotice locale={safeLocale} variant="availability" />
+                    <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{formTitle}</h2>
+                    <p className="mt-3 max-w-2xl text-[1.04rem] leading-7 text-[#5f574c]">{copy.formIntro[safeLocale]}</p>
                   </div>
                   <BookingRequestForm apartments={apartments} locale={safeLocale}>
                     <TurnstileWidget />

@@ -11,6 +11,7 @@ export function ApartmentCard({
   apartment,
   locale,
   imageOverride,
+  availabilityHint,
   compact = false,
   eagerImage = false,
 }: {
@@ -20,6 +21,7 @@ export function ApartmentCard({
     src: string;
     alt: string;
   };
+  availabilityHint?: string;
   compact?: boolean;
   eagerImage?: boolean;
 }) {
@@ -62,9 +64,12 @@ export function ApartmentCard({
               <dd className="font-semibold text-[#173f36]">{apartment.sizeSqm} m²</dd>
             </div>
           </dl>
+          {availabilityHint ? (
+            <p className="mt-4 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">{availabilityHint}</p>
+          ) : null}
           <span
             aria-hidden="true"
-            className={`${compact ? "mt-4" : "mt-5"} inline-flex min-h-11 items-center justify-center border border-[#c6a66a] bg-transparent px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition group-hover:bg-[#f3ead7]`}
+            className={`${availabilityHint ? "mt-3" : compact ? "mt-4" : "mt-5"} inline-flex min-h-11 items-center justify-center border border-[#c6a66a] bg-transparent px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition group-hover:bg-[#f3ead7]`}
           >
             {copy.viewApartment}
           </span>
