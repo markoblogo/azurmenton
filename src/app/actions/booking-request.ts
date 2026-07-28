@@ -7,14 +7,18 @@ import {
   isHoneypotTriggeredFromFormData,
   validateBookingRequest,
 } from "@/lib/booking-request";
+import type { DateInterval } from "@/lib/availability/types";
+import { validateRequestedApartmentDates } from "@/lib/availability/service";
 import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
 import { verifyTurnstileToken } from "@/lib/turnstile";
 import { isLocale, type Locale } from "@/i18n/locales";
 
 export type BookingRequestState = {
-  status: "idle" | "success" | "error";
+  status: "idle" | "success" | "error" | "conflict";
   message: string;
+  alternatives?: DateInterval[];
+  apartment?: string;
 };
 
 const messages = {
@@ -26,6 +30,9 @@ const messages = {
       "Thank you. We have received your request and will personally check the latest availability before replying. Your stay is not confirmed until you receive our confirmation.",
     tooMany: "Too many booking requests. Please wait a few minutes and try again.",
     botCheck: "Please complete the anti-spam check and try again.",
+    conflict:
+      "These dates no longer appear fully available. Please choose one of the nearby alternatives or send the request with flexible dates so we can check personally.",
+    sendFlexible: "Send request with flexible dates",
   },
   fr: {
     check: "Veuillez verifier votre demande et reessayer.",
@@ -35,6 +42,9 @@ const messages = {
       "Merci. Nous avons bien reçu votre demande et vérifierons personnellement les dernières disponibilités avant de vous répondre. Votre séjour n’est confirmé qu’après réception de notre confirmation.",
     tooMany: "Trop de demandes envoyees. Veuillez attendre quelques minutes puis reessayer.",
     botCheck: "Veuillez completer la verification anti-spam puis reessayer.",
+    conflict:
+      "Ces dates ne semblent plus entièrement disponibles. Choisissez l’une des périodes proches proposées ou envoyez une demande avec des dates flexibles afin que nous puissions vérifier personnellement.",
+    sendFlexible: "Envoyer quand meme comme demande flexible",
   },
   it: {
     check: "Controlla la richiesta e riprova.",
@@ -44,6 +54,9 @@ const messages = {
       "Grazie. Abbiamo ricevuto la tua richiesta e verificheremo personalmente la disponibilità aggiornata prima di risponderti. Il soggiorno non è confermato finché non ricevi la nostra conferma.",
     tooMany: "Troppe richieste inviate. Attendi qualche minuto e riprova.",
     botCheck: "Completa il controllo anti-spam e riprova.",
+    conflict:
+      "Queste date non risultano più completamente disponibili. Scegli una delle alternative vicine oppure invia la richiesta con date flessibili, così potremo verificarle personalmente.",
+    sendFlexible: "Invia comunque come richiesta flessibile",
   },
   uk: {
     check: "Перевірте запит і спробуйте ще раз.",
@@ -53,6 +66,9 @@ const messages = {
       "Дякуємо. Ми отримали ваш запит і особисто перевіримо актуальну наявність вільних дат перед відповіддю. Проживання вважається підтвердженим лише після отримання нашого підтвердження.",
     tooMany: "Забагато запитів. Зачекайте кілька хвилин і спробуйте ще раз.",
     botCheck: "Пройдіть антиспам-перевірку й спробуйте ще раз.",
+    conflict:
+      "Ці дати більше не виглядають повністю доступними. Виберіть один із найближчих альтернативних періодів або надішліть запит із гнучкими датами, щоб ми могли перевірити їх особисто.",
+    sendFlexible: "Все одно надіслати як гнучкий запит",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -182,6 +198,22 @@ export async function submitBookingRequest(
       status: "error",
       message: messages[locale].botCheck,
     };
+  }
+
+  if (payload.apartment !== "not-sure" && payload.availabilityOverride !== "accepted") {
+    const availabilityCheck = await validateRequestedApartmentDates(payload.apartment, {
+      start: payload.checkIn,
+      end: payload.checkOut,
+    });
+
+    if (!availabilityCheck.ok && availabilityCheck.reason === "occupied") {
+      return {
+        status: "conflict",
+        message: messages[locale].conflict,
+        alternatives: availabilityCheck.alternatives,
+        apartment: payload.apartment,
+      };
+    }
   }
 
   console.info("Azur Menton booking request received", createBookingRequestLog(payload));

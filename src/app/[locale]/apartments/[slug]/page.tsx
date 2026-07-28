@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
+import { ApartmentAvailabilityPreview } from "@/components/availability/AvailabilityPanels";
 import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
 import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { ShareActions } from "@/components/content/ShareActions";
@@ -14,6 +15,7 @@ import { Section } from "@/components/ui/Section";
 import { apartments, getApartment, type Apartment } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
+import { getPublicApartmentAvailability } from "@/lib/availability/service";
 import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { imageObjectPosition } from "@/lib/apartment-images";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -800,6 +802,7 @@ export default async function ApartmentPage({ params }: PageProps) {
   const primaryButtonClassName = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${buttonVariants.primary}`;
   const [hero, supportingOne, supportingTwo] = heroImages(apartment);
   const videoEmbed = apartmentVideoEmbeds[apartment.slug];
+  const availabilityPreview = await getPublicApartmentAvailability(apartment.slug);
 
   const glanceItems = [
     { label: labels.guests, value: facts.guests },
@@ -862,6 +865,11 @@ export default async function ApartmentPage({ params }: PageProps) {
               <div className="mt-4 max-w-2xl">
                 <AdvanceBookingNotice locale={safeLocale} variant="compact" />
               </div>
+              {availabilityPreview ? (
+                <div className="max-w-2xl">
+                  <ApartmentAvailabilityPreview locale={safeLocale} availability={availabilityPreview} />
+                </div>
+              ) : null}
               <div className="mt-5 max-w-2xl">
                 <ShareActions locale={safeLocale} title={apartment.name[safeLocale]} url={apartmentUrl} />
               </div>

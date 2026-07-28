@@ -20,6 +20,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 
 - Product facts, apartment details, guide content, events, places, and local recommendations live in typed `src/content/` modules.
 - Booking requests are not confirmations; availability and final terms require human handling.
+- Read-only stay-window previews may be shown from connected external iCal exports, but they remain planning guidance only and must never imply instant confirmation or write back to external channels.
 - Events, hours, prices, routes, and official programmes need current source support. Annual-series pages may use cautious windows when exact dates are not confirmed.
 - Analytics uses aggregate booking-funnel context only. Never put names, email addresses, phone numbers, or message text into analytics.
 - Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.

@@ -195,6 +195,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Finalites et bases legales",
           body: [
             "Les donnees servent a repondre aux demandes de reservation, gerer les echanges precontractuels, gerer une reservation confirmee le cas echeant et assurer le support client.",
+            "Azur Menton peut egalement lire en mode strictement lecture seule des intervalles calendaires agreges provenant d'exports iCal de plateformes de reservation afin d'afficher des fenetres de sejour potentielles. Ces intervalles servent uniquement d'aide a la disponibilite et n'incluent ni noms d'hotes ni notes de reservation ni autres donnees personnelles.",
             "Les bases legales peuvent inclure les mesures precontractuelles demandees par l'utilisateur, l'execution d'un contrat le cas echeant, l'interet legitime pour la communication operationnelle et le consentement lorsque celui-ci est requis.",
           ],
         },
@@ -234,6 +235,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "The booking request form may collect name, email, phone/WhatsApp, preferred language, requested apartment, check-in/check-out dates, guest numbers, parking request and message.",
             "This data is used to respond to booking requests, manage pre-contractual communication, manage confirmed reservations where applicable and provide customer support.",
+            "Azur Menton may also read aggregated external calendar intervals from connected booking-platform iCal exports in read-only mode to display potential stay windows. These intervals are used only for availability guidance and do not include guest names, booking notes or other personal booking content.",
             "Legal bases may include pre-contractual steps requested by the user, contract where applicable, legitimate interest for operational communication and consent where required.",
           ],
         },
@@ -259,6 +261,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "Il titolare del trattamento e SCI Petra et Paul, societe civile immobiliere registrata 983 423 898 R.C.S. Nice, sede legale: 13 Avenue Porte de France, 06500 Menton, Francia.",
             "Il modulo puo raccogliere nome, email, telefono/WhatsApp, lingua, appartamento, date, numero ospiti, richiesta parcheggio e messaggio.",
             "I dati servono per rispondere alla richiesta, gestire comunicazioni precontrattuali, eventuali prenotazioni confermate e supporto.",
+            "Azur Menton puo anche leggere in sola lettura intervalli aggregati di calendario provenienti da export iCal di piattaforme di prenotazione per mostrare finestre di soggiorno potenziali. Questi intervalli servono solo come guida alla disponibilita e non includono nomi degli ospiti, note di prenotazione o altri dati personali di prenotazione.",
           ],
         },
         {
@@ -283,6 +286,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "Контролер даних: SCI Petra et Paul, societe civile immobiliere, зареєстрована як 983 423 898 R.C.S. Nice, юридична адреса: 13 Avenue Porte de France, 06500 Menton, France.",
             "Форма може збирати ім'я, email, телефон/WhatsApp, бажану мову, апартаменти, дати, кількість гостей, запит щодо паркування та повідомлення.",
             "Дані використовуються для відповіді на запити бронювання, переддоговірної комунікації, підтверджених бронювань, якщо застосовно, та підтримки гостей.",
+            "Azur Menton також може в режимі лише читання зчитувати агреговані календарні інтервали з підключених iCal-експортів booking-платформ, щоб показувати потенційні вікна проживання. Такі інтервали використовуються тільки для орієнтовної доступності й не містять імен гостей, нотаток бронювання чи інших персональних даних бронювання.",
           ],
         },
         {
@@ -394,6 +398,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Le formulaire envoie une demande de reservation directe. Il ne s'agit pas d'une confirmation instantanee.",
             "La reservation est confirmee uniquement apres confirmation ecrite de l'hote. Les prix, disponibilites et conditions sont confirmes manuellement jusqu'a l'integration eventuelle d'un channel manager.",
+            "Les apercus de disponibilite affiches sur le site constituent uniquement une aide de planification en lecture seule basee sur des exports iCal externes connectes. Ils ne creent, ne modifient et ne confirment aucune reservation sur Airbnb, Booking.com ou d'autres plateformes.",
           ],
         },
         {
@@ -436,6 +441,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Submitting the form sends a direct booking request only. It is not instant confirmation.",
             "A booking is confirmed only after written confirmation from the host. Availability, prices and conditions are confirmed manually until a channel manager is connected.",
+            "Availability previews shown on the site are read-only planning guidance based on connected external iCal exports. They do not create, update or confirm reservations on Airbnb, Booking.com or other platforms.",
           ],
         },
         {
@@ -469,6 +475,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il modulo invia solo una richiesta diretta. Non e una conferma immediata.",
             "La prenotazione e confermata solo dopo conferma scritta dell'host. Prezzi, disponibilita e condizioni sono confermati manualmente.",
+            "Le anteprime di disponibilita mostrate sul sito sono una guida di pianificazione in sola lettura basata su export iCal esterni collegati. Non creano, modificano o confermano prenotazioni su Airbnb, Booking.com o altre piattaforme.",
             "Pagamento, deposito, cancellazione, tassa di soggiorno, cauzione e orari sono indicati nell'offerta scritta o nello scambio di prenotazione.",
             "Animali, bambini, letto bebe e richieste particolari devono essere confermati prima della prenotazione.",
             "Regole previste: non fumare, niente feste/eventi e rispetto dell'occupazione massima. Il parcheggio dipende dall'appartamento e dalla disponibilita.",
@@ -487,6 +494,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Форма надсилає лише прямий запит на бронювання. Це не є миттєвим підтвердженням.",
             "Бронювання підтверджується лише після письмового підтвердження від хоста. Ціни, доступність і умови перевіряються вручну.",
+            "Прев’ю доступності на сайті є лише орієнтиром для планування і працює в режимі тільки читання на основі підключених зовнішніх iCal-експортів. Воно не створює, не змінює і не підтверджує бронювання на Airbnb, Booking.com чи інших платформах.",
             "Оплата, депозит, скасування, туристичний збір, застава й час заїзду/виїзду вказуються в письмовій пропозиції або під час підтвердження.",
             "Очікувані правила: не палити, не проводити вечірки/події та дотримуватися максимальної кількості гостей. Паркінг залежить від апартаментів і доступності.",
           ],

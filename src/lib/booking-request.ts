@@ -13,6 +13,7 @@ export type BookingRequestPayload = {
   phone: string;
   message: string;
   privacyAcknowledgement: string;
+  availabilityOverride?: string;
 };
 
 export type BookingRequestValidation = {
@@ -86,6 +87,7 @@ export function formDataToBookingPayload(formData: FormData): BookingRequestPayl
     phone: String(formData.get("phone") ?? "").trim(),
     message: String(formData.get("message") ?? "").trim(),
     privacyAcknowledgement: String(formData.get("privacyAcknowledgement") ?? "").trim(),
+    availabilityOverride: String(formData.get("availabilityOverride") ?? "").trim(),
   };
 }
 
@@ -111,6 +113,7 @@ export function unknownToBookingPayload(input: unknown): BookingRequestPayload |
     phone: String(record.phone ?? "").trim(),
     message: String(record.message ?? "").trim(),
     privacyAcknowledgement: String(record.privacyAcknowledgement ?? "").trim(),
+    availabilityOverride: String(record.availabilityOverride ?? "").trim(),
   };
 }
 
@@ -247,6 +250,7 @@ export function createBookingRequestLog(payload: BookingRequestPayload) {
       hasPhone: Boolean(payload.phone),
       hasMessage: Boolean(payload.message),
       privacyAcknowledgement: payload.privacyAcknowledgement === "accepted",
+      availabilityOverride: payload.availabilityOverride === "accepted",
     },
     delivery: {
       hostEmail: "attempted_when_configured",

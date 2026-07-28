@@ -5,6 +5,8 @@ import type { Route } from "next";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useActionState, useCallback, useEffect, useRef } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
+import type { DateInterval } from "@/lib/availability/types";
+import { buildAvailabilityPrefillHref, getAvailabilityPrefillFromSearchParams } from "@/lib/availability/prefill";
 import { advanceBookingNoticeCopy } from "@/components/content/AdvanceBookingNotice";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
@@ -71,6 +73,8 @@ const formCopy = {
     privacyLink: "Privacy Policy",
     sending: "Sending request...",
     send: "Send request",
+    conflictAlternatives: "Nearby alternatives",
+    sendFlexible: "Send request with flexible dates",
   },
   fr: {
     formLabel: "Formulaire de demande directe",
@@ -117,6 +121,8 @@ const formCopy = {
     privacyLink: "Politique de confidentialite",
     sending: "Envoi en cours...",
     send: "Envoyer la demande",
+    conflictAlternatives: "Alternatives proches",
+    sendFlexible: "Envoyer quand meme comme demande flexible",
   },
   it: {
     formLabel: "Modulo richiesta diretta",
@@ -163,6 +169,8 @@ const formCopy = {
     privacyLink: "Informativa privacy",
     sending: "Invio in corso...",
     send: "Invia richiesta",
+    conflictAlternatives: "Alternative vicine",
+    sendFlexible: "Invia comunque come richiesta flessibile",
   },
   uk: {
     formLabel: "Форма прямого запиту",
@@ -209,8 +217,15 @@ const formCopy = {
     privacyLink: "Політика конфіденційності",
     sending: "Надсилаємо запит...",
     send: "Надіслати запит",
+    conflictAlternatives: "Найближчі альтернативи",
+    sendFlexible: "Все одно надіслати як гнучкий запит",
   },
 } satisfies Record<Locale, Record<string, string>>;
+
+function formatAlternative(locale: Locale, interval: DateInterval) {
+  const formatter = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" });
+  return `${formatter.format(new Date(`${interval.start}T00:00:00.000Z`))}–${formatter.format(new Date(`${interval.end}T00:00:00.000Z`))}`;
+}
 
 export function BookingRequestForm({
   apartments,
@@ -229,6 +244,7 @@ export function BookingRequestForm({
   const noticeCopy = advanceBookingNoticeCopy[locale];
   const hasTrackedStart = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const overrideRef = useRef<HTMLInputElement>(null);
 
   const bookingFunnelProps = useCallback((): BookingFunnelProps => {
     const form = formRef.current;
@@ -282,6 +298,35 @@ export function BookingRequestForm({
     }
   }, [bookingFunnelProps, state.status]);
 
+  useEffect(() => {
+    const prefill = getAvailabilityPrefillFromSearchParams(searchParams);
+    const form = formRef.current;
+
+    if (!prefill || !form) return;
+
+    const apartmentField = form.elements.namedItem("apartment");
+    const checkInField = form.elements.namedItem("checkIn");
+    const checkOutField = form.elements.namedItem("checkOut");
+
+    if (apartmentField instanceof HTMLSelectElement) {
+      apartmentField.value = prefill.apartment;
+    }
+
+    if (checkInField instanceof HTMLInputElement) {
+      checkInField.value = prefill.checkIn;
+    }
+
+    if (checkOutField instanceof HTMLInputElement) {
+      checkOutField.value = prefill.checkOut;
+    }
+  }, [searchParams]);
+
+  function submitFlexibleRequest() {
+    if (!formRef.current || !overrideRef.current) return;
+    overrideRef.current.value = "accepted";
+    formRef.current.requestSubmit();
+  }
+
   return (
     <form ref={formRef} action={formAction} className="grid gap-6" aria-busy={pending} aria-label={labels.formLabel} onChange={trackFormStart} onFocus={trackFormStart} onSubmit={trackFormStart}>
       <div className="hidden" aria-hidden="true">
@@ -290,6 +335,7 @@ export function BookingRequestForm({
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
+      <input ref={overrideRef} name="availabilityOverride" type="hidden" defaultValue="" />
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
         <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.stayDetails}</legend>
@@ -452,7 +498,33 @@ export function BookingRequestForm({
           aria-live="polite"
         >
           {state.message}
+          {state.status === "conflict" && state.alternatives?.length ? (
+            <div className="mt-4">
+              <p className="text-sm font-bold uppercase tracking-[0.08em]">{labels.conflictAlternatives}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {state.alternatives.map((interval) => (
+                  <Link
+                    key={`${interval.start}-${interval.end}`}
+                    href={buildAvailabilityPrefillHref(locale, state.apartment ?? "not-sure", interval) as Route}
+                    className="inline-flex min-h-10 items-center border border-[#d9a08f] bg-white px-3 py-2 text-sm font-semibold text-[#8a3b26] hover:bg-[#fff6f1]"
+                  >
+                    {formatAlternative(locale, interval)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
+      ) : null}
+
+      {state.status === "conflict" ? (
+        <button
+          type="button"
+          className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] bg-transparent px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c6a66a]"
+          onClick={submitFlexibleRequest}
+        >
+          {labels.sendFlexible}
+        </button>
       ) : null}
 
       <Button type="submit" disabled={pending}>{pending ? labels.sending : labels.send}</Button>

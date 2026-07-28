@@ -5,6 +5,7 @@ import {
   unknownToBookingPayload,
   validateBookingRequest,
 } from "@/lib/booking-request";
+import { validateRequestedApartmentDates } from "@/lib/availability/service";
 import { checkBookingRequestRateLimit, getClientIdentifierFromHeaders } from "@/lib/rate-limit";
 import { sendBookingRequestEmail } from "@/lib/resend";
 import { verifyTurnstileToken } from "@/lib/turnstile";
@@ -73,6 +74,25 @@ export async function POST(request: Request) {
 
   if (!turnstileResult.ok) {
     return jsonResponse({ error: "Please complete the anti-spam check and try again." }, { status: 400 });
+  }
+
+  if (payload.apartment !== "not-sure" && payload.availabilityOverride !== "accepted") {
+    const availabilityCheck = await validateRequestedApartmentDates(payload.apartment, {
+      start: payload.checkIn,
+      end: payload.checkOut,
+    });
+
+    if (!availabilityCheck.ok && availabilityCheck.reason === "occupied") {
+      return jsonResponse(
+        {
+          error:
+            "These dates no longer appear fully available. Please choose one of the nearby alternatives or send the request with flexible dates so we can check personally.",
+          code: "dates_unavailable",
+          alternatives: availabilityCheck.alternatives,
+        },
+        { status: 409 },
+      );
+    }
   }
 
   console.info("Azur Menton booking request API received", createBookingRequestLog(payload));

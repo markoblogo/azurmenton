@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { BookingFunnelViewTracker } from "@/components/analytics/BookingFunnelViewTracker";
+import { AvailabilityOverviewSection } from "@/components/availability/AvailabilityPanels";
 import { BookingRequestForm } from "@/components/booking/BookingRequestForm";
 import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
 import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
@@ -13,6 +14,7 @@ import { Container } from "@/components/ui/Container";
 import { apartments } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
+import { getPublicAllApartmentAvailability } from "@/lib/availability/service";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { contactPageJsonLd } from "@/lib/structured-data";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -134,6 +136,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = t[safeLocale];
   const pageUrl = absoluteUrl(localizedPath(safeLocale, "check-availability"));
+  const availability = await getPublicAllApartmentAvailability();
 
   return (
     <>
@@ -268,6 +271,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   ))}
                 </div>
                 <div className="p-5 sm:p-7">
+                  <AvailabilityOverviewSection locale={safeLocale} availability={availability} />
                   <div className="mb-6">
                     <p className="editorial-label">{copy.eyebrow[safeLocale]}</p>
                     <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{copy.formTitle[safeLocale]}</h2>
