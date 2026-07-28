@@ -20,6 +20,7 @@
     "guide:check": "node scripts/guide-check.cjs",
     "guide:patch": "node scripts/guide-patch.cjs",
     "guide:publish": "node scripts/guide-publish.cjs",
+    "guide:review": "node scripts/guide-review.cjs",
     "map:report": "node scripts/map-coverage-report.cjs",
     "events:review": "node scripts/events-review.cjs",
     "weekly:validate": "node scripts/weekly-validate.cjs",

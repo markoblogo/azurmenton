@@ -13,6 +13,7 @@ npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/asset-pack
 npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
+npm run guide:review -- --slug <slug>
 ```
 
 ## What Each Step Does
@@ -76,6 +77,18 @@ npm run guide:patch -- --slug <slug>
   - `patch/summary.json`
 - this is the handoff bundle for editing `src/content/guide.ts` and `src/content/places.ts`
 
+### `guide:review`
+
+- verifies the repo after the manual merge has actually happened
+- checks only the touched content graph for the intake:
+  - guide present in `src/content/guide.ts`
+  - planned places present or updated in `src/content/places.ts`
+  - backlinks and `guideCoverageSlugs`
+  - map point / exclusion obligations
+- writes:
+  - `review/report.json`
+  - `review/report.md`
+
 ## Output Contract
 
 `guide:patch` is intentionally not an auto-publisher.
@@ -90,21 +103,15 @@ The operator still decides whether to apply the generated bundle.
 
 ## Remaining Passes To Finish This Automation Block
 
-Keep the rest to three narrow passes.
+Keep the rest to two narrow passes plus the final owner visual sign-off.
 
 ### Pass 1: `guide:review v1`
 
 Goal:
 post-insert verification after the guide has been manually merged into the repo.
 
-Should do:
-
-- accept `--slug`
-- verify that the guide now exists in `src/content/guide.ts`
-- verify that planned places exist or were updated in `src/content/places.ts`
-- verify that required backlinks / `guideCoverageSlugs` landed
-- verify that map obligations are satisfied or explicitly excluded
-- print a short pass/fail review report for the touched graph only
+Status:
+implemented
 
 Why this matters:
 it closes the gap between “patch bundle generated” and “content really landed correctly”.
@@ -146,7 +153,7 @@ this is the only part that should remain human, but it should become structured 
 
 ## End State
 
-After these three passes, the workflow becomes:
+After these remaining passes, the workflow becomes:
 
 1. intake
 2. validation

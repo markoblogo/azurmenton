@@ -110,6 +110,7 @@ npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
 npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
+npm run guide:review -- --slug <slug>
 npm run content:lint
 npm run content:audit
 npm run content:report
