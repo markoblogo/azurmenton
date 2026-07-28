@@ -150,7 +150,7 @@ describe("guide check report", () => {
       slug: "burgers-menton",
       seoTitle: "Burger update",
       metaDescription: "Burger update",
-      coverPathHint: null,
+      coverPathHint: undefined,
       sectionHeadings: ["Places"],
       placeCandidates: [],
       relatedGuideTitles: [],
