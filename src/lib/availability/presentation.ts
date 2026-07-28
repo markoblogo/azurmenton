@@ -99,7 +99,6 @@ export function describeWindow(locale: Locale, apartmentSlug: string, interval: 
 }
 
 export function getAvailabilityHintLabel(locale: Locale, availability: ApartmentAvailability) {
-  if (availability.sourceFreshness !== "fresh") return null;
   if (availability.status === "temporarily-unavailable") return null;
   if (availability.status === "no-windows") return checkedCopy[locale].flexibleDates;
 

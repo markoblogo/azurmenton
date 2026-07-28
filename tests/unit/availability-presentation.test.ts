@@ -41,6 +41,6 @@ describe("availability presentation helpers", () => {
         checkedAt: "2026-07-28T12:10:00.000Z",
         sourceFreshness: "stale",
       }),
-    ).toBeNull();
+    ).toBe("Next available: September 18");
   });
 });

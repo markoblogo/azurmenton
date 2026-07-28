@@ -259,9 +259,7 @@ export default async function ApartmentsPage({ params }: PageProps) {
                 <ApartmentCard
                   apartment={apartment}
                   locale={safeLocale}
-                  availabilityHint={availabilityBySlug.get(apartment.slug)?.sourceFreshness === "fresh"
-                    ? getAvailabilityHintLabel(safeLocale, availabilityBySlug.get(apartment.slug)!) ?? undefined
-                    : undefined}
+                  availabilityHint={getAvailabilityHintLabel(safeLocale, availabilityBySlug.get(apartment.slug)!) ?? undefined}
                 />
                 <p className="border-l border-[#c6a66a] pl-3 text-sm font-semibold leading-6 text-[#173f36]">
                   {positioning[apartment.slug].short[safeLocale]}
