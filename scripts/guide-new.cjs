@@ -20,6 +20,15 @@ function usage() {
   console.log("Usage: npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]");
 }
 
+function todayIso() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Paris",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+}
+
 function renderGuideScaffold(intake) {
   return [
     `slug: ${intake.slug}`,
@@ -30,11 +39,10 @@ function renderGuideScaffold(intake) {
     "",
     "Guide scaffold checklist",
     "- add localized title / seo / excerpt / sections in src/content/guide.ts",
-    "- set publishedOn",
-    "- add relatedPlaces / relatedArticles / relatedApartments",
-    "- copy cover to public/images/guide/<slug>.<ext>",
-    "- add cover target to scripts/generate-image-derivatives.mjs",
-    "- run images:generate + content:lint + content:audit",
+    "- fill publication-plan.json before running guide:check",
+    "- add relatedPlaces / relatedArticles / relatedApartments from publication-plan.json",
+    "- copy cover and place assets with npm run guide:assets -- --slug <slug> ...",
+    "- run guide:check + images:check + content:lint + content:audit",
     "",
     "Section headings",
     ...intake.sectionHeadings.map((heading) => `- ${heading}`),
@@ -67,6 +75,33 @@ function renderPlacesScaffold(intake) {
   ].join("\n");
 }
 
+function buildPublicationPlanTemplate(intake) {
+  return {
+    slug: intake.slug,
+    publishedOn: todayIso(),
+    category: null,
+    coverImageStatus: intake.coverPathHint ? "provided" : "pending",
+    assetsDirectory: null,
+    coverAssetPath: intake.coverPathHint ?? null,
+    coverAssetFileName: intake.coverPathHint ? path.basename(intake.coverPathHint) : null,
+    relatedPlaceIds: [],
+    relatedArticleSlugs: [],
+    relatedApartmentSlugs: [],
+    canonicalGuideForPlaces: false,
+    plannedPlaces: intake.placeCandidates.map((candidate) => ({
+      draftName: candidate.name,
+      existingPlaceId: null,
+      newPlaceId: null,
+      imageStatus: "pending",
+      assetPath: null,
+      assetFileName: null,
+      requiresMapReview: true,
+      mapAction: null,
+      coverageGuideSlug: null,
+    })),
+  };
+}
+
 async function main() {
   const fromPath = readArg("--from");
   const coverPath = readArg("--cover");
@@ -88,16 +123,17 @@ async function main() {
     fs.writeFile(path.join(outputDir, "intake.json"), `${JSON.stringify(intake, null, 2)}\n`),
     fs.writeFile(path.join(outputDir, "guide-scaffold.md"), `${renderGuideScaffold(intake)}\n`),
     fs.writeFile(path.join(outputDir, "places-scaffold.md"), `${renderPlacesScaffold(intake)}\n`),
+    fs.writeFile(path.join(outputDir, "publication-plan.json"), `${JSON.stringify(buildPublicationPlanTemplate(intake), null, 2)}\n`),
   ]);
 
   console.log(`guide intake generated: ${path.relative(root, outputDir)}`);
   console.log(`- intake.json`);
   console.log(`- guide-scaffold.md`);
   console.log(`- places-scaffold.md`);
+  console.log(`- publication-plan.json`);
 }
 
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-

@@ -1,16 +1,16 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuideAssetPlan, parsePlaceAssetArgs } from "../../src/lib/guide-assets";
+import { buildGuideAssetPlan, parsePlaceAssetArgs, resolveGuideAssetPlan } from "../../src/lib/guide-assets";
 
-describe("guide assets planning", () => {
-  it("builds cover and place copy operations into guide image paths", () => {
-    const plan = buildGuideAssetPlan({
+describe("guide assets", () => {
+  it("builds explicit asset copy operations", () => {
+    const operations = buildGuideAssetPlan({
       slug: "burgers-menton",
       coverPathHint: "/tmp/cover.jpeg",
       placeAssets: [{ placeId: "alls-stars-menton", sourcePath: "/tmp/alls-stars.PNG" }],
     });
 
-    expect(plan).toEqual([
+    expect(operations).toEqual([
       {
         kind: "cover",
         sourcePath: "/tmp/cover.jpeg",
@@ -26,11 +26,39 @@ describe("guide assets planning", () => {
     ]);
   });
 
-  it("parses repeated place asset arguments", () => {
-    expect(parsePlaceAssetArgs(["alls-stars-menton=/tmp/a.png", "le-galion-menton=/tmp/b.jpg"])).toEqual([
-      { placeId: "alls-stars-menton", sourcePath: "/tmp/a.png" },
-      { placeId: "le-galion-menton", sourcePath: "/tmp/b.jpg" },
+  it("parses repeated place asset args", () => {
+    expect(parsePlaceAssetArgs(["one=/tmp/a.png", "two=/tmp/b.jpg"])).toEqual([
+      { placeId: "one", sourcePath: "/tmp/a.png" },
+      { placeId: "two", sourcePath: "/tmp/b.jpg" },
     ]);
   });
-});
 
+  it("resolves cover and place assets from publication-plan hints and asset directory", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "best-coffee-menton",
+      intakeTitle: "Best Coffee in Menton",
+      coverImageStatus: "provided",
+      assetsDirectory: "/tmp/assets",
+      coverAssetFileName: "cover.png",
+      plannedPlaces: [
+        {
+          draftName: "Jean-Luc Pelé",
+          newPlaceId: "jean-luc-pele-menton",
+          imageStatus: "provided",
+        },
+        {
+          draftName: "Flowy Coffee Coworking Menton",
+          existingPlaceId: "flowy-coffee-coworking-menton",
+          imageStatus: "pending",
+        },
+      ],
+      availableAssetFiles: ["cover.png", "Jean-Luc Pele.png"],
+    });
+
+    expect(plan.operations.map((operation) => operation.destinationPath)).toEqual([
+      "public/images/guide/best-coffee-menton.png",
+      "public/images/guide/jean-luc-pele-menton.png",
+    ]);
+    expect(plan.issues.map((issue) => issue.code)).toContain("pending-place-asset");
+  });
+});

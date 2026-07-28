@@ -3,6 +3,12 @@ export type PlaceAssetInput = {
   sourcePath: string;
 };
 
+export type GuideAssetPlanIssue = {
+  severity: "warning" | "error";
+  code: string;
+  message: string;
+};
+
 export type GuideAssetPlanInput = {
   slug: string;
   coverPathHint?: string;
@@ -14,6 +20,11 @@ export type GuideAssetCopyOperation = {
   sourcePath: string;
   destinationPath: string;
   publicPath: string;
+};
+
+export type GuideAssetResolutionPlan = {
+  operations: GuideAssetCopyOperation[];
+  issues: GuideAssetPlanIssue[];
 };
 
 function normalizeExt(value: string) {
@@ -67,3 +78,116 @@ export function buildGuideAssetPlan(input: GuideAssetPlanInput): GuideAssetCopyO
   return operations;
 }
 
+function normalizeName(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['’`]/g, "")
+    .replace(/\.[a-z0-9]+$/i, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+export function resolveGuideAssetPlan(input: {
+  slug: string;
+  intakeTitle?: string;
+  coverPathHint?: string;
+  coverImageStatus?: "provided" | "pending" | "not_needed" | null;
+  coverAssetPath?: string | null;
+  coverAssetFileName?: string | null;
+  assetsDirectory?: string | null;
+  plannedPlaces?: Array<{
+    draftName: string;
+    existingPlaceId?: string | null;
+    newPlaceId?: string | null;
+    imageStatus?: "provided" | "pending" | "not_needed" | null;
+    assetPath?: string | null;
+    assetFileName?: string | null;
+  }>;
+  placeAssetOverrides?: PlaceAssetInput[];
+  availableAssetFiles?: string[];
+}) : GuideAssetResolutionPlan {
+  const operations: GuideAssetCopyOperation[] = [];
+  const issues: GuideAssetPlanIssue[] = [];
+  const availableFiles = input.availableAssetFiles ?? [];
+  const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
+  const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
+
+  const findAssetFromDirectory = (candidates: string[]) => {
+    for (const candidate of candidates) {
+      const match = normalizedAvailable.get(normalizeName(candidate));
+      if (match) return match;
+    }
+    return undefined;
+  };
+
+  const coverSourcePath = (() => {
+    if (input.coverPathHint) return input.coverPathHint;
+    if (input.coverAssetPath) return input.coverAssetPath;
+    if (input.assetsDirectory && input.coverAssetFileName) return `${input.assetsDirectory}/${input.coverAssetFileName}`;
+    if (input.assetsDirectory) {
+      const match = findAssetFromDirectory(["cover", input.slug, input.intakeTitle ?? ""]);
+      if (match) return `${input.assetsDirectory}/${match}`;
+    }
+    return undefined;
+  })();
+
+  if (coverSourcePath) {
+    operations.push(...buildGuideAssetPlan({ slug: input.slug, coverPathHint: coverSourcePath }));
+  } else if (input.coverImageStatus === "provided") {
+    issues.push({
+      severity: "error",
+      code: "missing-cover-asset",
+      message: `Cover is marked as provided but no cover asset could be resolved for ${input.slug}.`,
+    });
+  }
+
+  const placeAssets: PlaceAssetInput[] = [];
+  for (const plannedPlace of input.plannedPlaces ?? []) {
+    const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
+    if (!placeId) continue;
+
+    const override = overrideByPlaceId.get(placeId);
+    if (override) {
+      placeAssets.push({ placeId, sourcePath: override });
+      continue;
+    }
+
+    if (plannedPlace.assetPath) {
+      placeAssets.push({ placeId, sourcePath: plannedPlace.assetPath });
+      continue;
+    }
+
+    if (input.assetsDirectory && plannedPlace.assetFileName) {
+      placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${plannedPlace.assetFileName}` });
+      continue;
+    }
+
+    if (input.assetsDirectory) {
+      const match = findAssetFromDirectory([plannedPlace.draftName, placeId]);
+      if (match) {
+        placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${match}` });
+        continue;
+      }
+    }
+
+    if (plannedPlace.imageStatus === "provided") {
+      issues.push({
+        severity: "error",
+        code: "missing-place-asset",
+        message: `Place ${placeId} is marked as provided but no asset could be resolved.`,
+      });
+    } else if (plannedPlace.imageStatus === "pending") {
+      issues.push({
+        severity: "warning",
+        code: "pending-place-asset",
+        message: `Place ${placeId} still has no resolved illustration asset.`,
+      });
+    }
+  }
+
+  operations.push(...buildGuideAssetPlan({ slug: input.slug, placeAssets }));
+
+  return { operations, issues };
+}

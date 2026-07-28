@@ -15,6 +15,7 @@
     "content:lint": "node scripts/content-lint.cjs",
     "content:report": "node scripts/content-audit-report.cjs",
     "guide:assets": "node scripts/guide-assets.cjs",
+    "guide:apply": "node scripts/guide-apply.cjs",
     "guide:new": "node scripts/guide-new.cjs",
     "guide:check": "node scripts/guide-check.cjs",
     "map:report": "node scripts/map-coverage-report.cjs",

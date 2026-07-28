@@ -20,9 +20,22 @@ describe("guide check report", () => {
 
     const report = buildGuideCheckReport(
       intake,
-      [{ slug: "best-pizzerias-menton", title: "Best pizzerias in Menton: restaurants, slices, takeaway and delivery" }],
-      [{ id: "alls-stars-menton", name: "All's Stars Menton" }],
-      { coverExists: true },
+      [{ slug: "best-pizzerias-menton", title: "Best pizzerias in Menton: restaurants, slices, takeaway and delivery", publishedOn: "2026-07-27" }],
+      [{ id: "alls-stars-menton", name: "All's Stars Menton", image: "/images/guide/alls-stars.jpg" }],
+      {
+        coverExists: true,
+        apartmentSlugs: ["sea-view-balcony-studio"],
+        publicationPlan: {
+          publishedOn: "2026-07-28",
+          category: "food-markets",
+          coverImageStatus: "provided",
+          relatedPlaceIds: ["alls-stars-menton"],
+          relatedArticleSlugs: ["best-pizzerias-menton"],
+          relatedApartmentSlugs: [],
+          plannedPlaces: [],
+          canonicalGuideForPlaces: false,
+        },
+      },
     );
 
     expect(report.ok).toBe(true);
@@ -44,11 +57,61 @@ describe("guide check report", () => {
 
     expect(report.ok).toBe(false);
     expect(report.errors.map((issue) => issue.code)).toEqual(
-      expect.arrayContaining(["missing-title", "invalid-slug", "missing-seo-title", "missing-meta-description"]),
+      expect.arrayContaining(["missing-title", "invalid-slug", "missing-seo-title", "missing-meta-description", "missing-publication-plan"]),
     );
     expect(report.warnings.map((issue) => issue.code)).toEqual(
       expect.arrayContaining(["no-sections", "no-place-candidates"]),
     );
   });
-});
 
+  it("enforces publication-plan v2 rules for practical guides and new places", () => {
+    const intake: GuideIntake = {
+      title: "Airport guide",
+      slug: "airport-arrivals-menton",
+      seoTitle: "Airport guide",
+      metaDescription: "Airport guide",
+      sectionHeadings: ["Airports"],
+      placeCandidates: [{ name: "Nice Airport", section: "Airports" }],
+      relatedGuideTitles: [],
+    };
+
+    const report = buildGuideCheckReport(
+      intake,
+      [{ slug: "best-coffee-menton", title: "Best coffee in Menton", publishedOn: "2026-07-28" }],
+      [{ id: "nice-cote-dazur-airport", name: "Nice Cote d'Azur Airport", requiresMapReview: true }],
+      {
+        coverExists: false,
+        apartmentSlugs: ["sea-view-balcony-studio"],
+        mapPointPlaceIds: [],
+        mapExclusionPlaceIds: [],
+        publicationPlan: {
+          publishedOn: "2026-07-27",
+          category: "practical",
+          coverImageStatus: "provided",
+          relatedPlaceIds: [],
+          relatedArticleSlugs: [],
+          relatedApartmentSlugs: [],
+          canonicalGuideForPlaces: true,
+          plannedPlaces: [
+            {
+              draftName: "Nice Airport",
+              newPlaceId: "nice-cote-dazur-airport-new",
+              imageStatus: "pending",
+              requiresMapReview: true,
+              mapAction: null,
+              coverageGuideSlug: null,
+            },
+          ],
+        },
+      },
+    );
+
+    expect(report.ok).toBe(false);
+    expect(report.errors.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(["cover-marked-provided-without-file", "missing-apartment-cta", "missing-map-action", "missing-coverage-guide-slug"]),
+    );
+    expect(report.warnings.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(["not-latest-landing-slot", "no-related-articles-planned"]),
+    );
+  });
+});

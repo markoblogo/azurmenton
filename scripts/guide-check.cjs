@@ -10,7 +10,10 @@ registerTypescriptContent(root);
 
 const { buildGuideCheckReport } = require("../src/lib/guide-check.ts");
 const { guideArticles } = require("../src/content/guide.ts");
+const { apartments } = require("../src/content/apartments.ts");
 const { places } = require("../src/content/places.ts");
+const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
+const { placeMapExclusions } = require("../src/content/planning/place-map-exclusions.ts");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -46,7 +49,15 @@ async function main() {
 
   const intakePath = path.join(root, "build", "guide-intake", slug, "intake.json");
   const reportPath = path.join(root, "build", "guide-intake", slug, "check-report.json");
+  const publicationPlanPath = path.join(root, "build", "guide-intake", slug, "publication-plan.json");
   const intake = JSON.parse(await fs.readFile(intakePath, "utf8"));
+  let publicationPlan = null;
+
+  try {
+    publicationPlan = JSON.parse(await fs.readFile(publicationPlanPath, "utf8"));
+  } catch {
+    publicationPlan = null;
+  }
 
   let coverExists = undefined;
   if (intake.coverPathHint) {
@@ -60,9 +71,23 @@ async function main() {
 
   const report = buildGuideCheckReport(
     intake,
-    guideArticles.map((guide) => ({ slug: guide.slug, title: guide.title.en })),
-    places.map((place) => ({ id: place.id, name: place.name })),
-    { coverExists },
+    guideArticles.map((guide) => ({ slug: guide.slug, title: guide.title.en, publishedOn: guide.publishedOn })),
+    places.map((place) => ({
+      id: place.id,
+      name: place.name,
+      type: place.type,
+      image: place.image,
+      requiresMapReview: place.requiresMapReview,
+      relatedArticleIds: place.relatedArticleIds,
+      guideCoverageSlugs: place.guideCoverageSlugs,
+    })),
+    {
+      coverExists,
+      publicationPlan,
+      apartmentSlugs: apartments.map((apartment) => apartment.slug),
+      mapPointPlaceIds: placeMapPoints.map((point) => point.placeId),
+      mapExclusionPlaceIds: placeMapExclusions.map((exclusion) => exclusion.placeId),
+    },
   );
 
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
@@ -94,4 +119,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-
