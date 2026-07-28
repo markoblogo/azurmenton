@@ -34,6 +34,7 @@ describe("guide review report", () => {
           slug: "burgers-menton",
           publishedOn: "2026-07-28",
           category: "food-markets",
+          coverImage: "/images/guide/burgers-menton.jpg",
           relatedPlaces: ["alls-stars-menton"],
           relatedArticles: ["best-pizzerias-menton"],
           relatedApartments: ["sea-view-balcony-studio"],
@@ -61,6 +62,15 @@ describe("guide review report", () => {
     expect(report.errors).toEqual([]);
     expect(report.guide.relatedPlacesOk).toBe(true);
     expect(report.places[0]?.backlinkOk).toBe(true);
+    expect(report.visualHandoff.inLatestGuideSlot).toBe(true);
+    expect(report.visualHandoff.expectsLatestGuideSlot).toBe(true);
+    expect(report.visualHandoff.coverResolved).toBe(true);
+    expect(report.visualHandoff.localeSpotCheckUrls).toEqual([
+      "/en/guide/burgers-menton",
+      "/fr/guide/burgers-menton",
+      "/it/guide/burgers-menton",
+      "/uk/guide/burgers-menton",
+    ]);
   });
 
   it("fails when the guide, place backlink and map obligations are missing", () => {
@@ -82,7 +92,60 @@ describe("guide review report", () => {
 
     expect(report.ok).toBe(false);
     expect(report.errors.map((issue) => issue.code)).toEqual(
-      expect.arrayContaining(["missing-guide-article", "review-place-not-rendered", "review-backlink-missing", "review-coverage-missing", "review-map-obligation-missing"]),
+      expect.arrayContaining([
+        "missing-guide-article",
+        "review-place-not-rendered",
+        "review-backlink-missing",
+        "review-coverage-missing",
+        "review-map-obligation-missing",
+      ]),
     );
+    expect(report.visualHandoff.inLatestGuideSlot).toBe(false);
+    expect(report.visualHandoff.coverResolved).toBe(false);
+  });
+
+  it("warns when the guide should own the NEW slot but another guide still resolves as latest", () => {
+    const report = buildGuideReviewReport({
+      slug: "burgers-menton",
+      publicationPlan: makePublicationPlan(),
+      guides: [
+        {
+          slug: "burgers-menton",
+          publishedOn: "2026-07-28",
+          coverImage: "/images/guide/burgers-menton.jpg",
+          category: "food-markets",
+          relatedPlaces: ["alls-stars-menton"],
+          relatedArticles: ["best-pizzerias-menton"],
+          relatedApartments: ["sea-view-balcony-studio"],
+          sections: [],
+        },
+        {
+          slug: "later-guide",
+          publishedOn: "2026-07-28",
+          coverImage: "/images/guide/later-guide.jpg",
+          relatedPlaces: [],
+          relatedArticles: [],
+          relatedApartments: [],
+          sections: [],
+        },
+      ],
+      places: [
+        {
+          id: "alls-stars-menton",
+          relatedArticleIds: ["burgers-menton"],
+          guideCoverageSlugs: ["burgers-menton"],
+          requiresMapReview: true,
+        },
+      ],
+      mapPoints: [
+        {
+          placeId: "alls-stars-menton",
+          review: { sourceUrl: "https://example.com", checkedOn: "2026-07-28" },
+        },
+      ],
+      mapExclusions: [],
+    });
+
+    expect(report.warnings.map((issue) => issue.code)).toContain("review-latest-guide-slot-mismatch");
   });
 });

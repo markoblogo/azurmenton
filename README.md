@@ -200,6 +200,20 @@ Guide media is modeled through `GuideVideoEmbed` in `src/content/guide.ts`. Use 
 
 Use `docs/content-operations.md` before adding guide articles, places, events, images or apartment-facing recommendations.
 
+### Guide Automation
+
+New guide ingestion now has a bounded local automation chain:
+
+- `guide:new`
+- `guide:check`
+- `guide:assets` with optional `--strict`
+- `guide:apply`
+- `guide:publish`
+- `guide:patch`
+- `guide:review`
+
+The flow is intentionally not an auto-publisher. It generates intake artifacts, validation reports, patch-ready scaffolds and a final owner visual checklist under `build/guide-intake/<slug>/review/owner-checklist.md`. Manual editorial merge and visual approval remain local and explicit.
+
 ### Stay Planning and Transport
 
 - `src/content/stay-pages.ts`

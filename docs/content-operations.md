@@ -123,6 +123,8 @@ For the guide automation chain, see `docs/guide-automation.md`.
 
 Use `guide:assets -- --strict` once the owner has supplied the full final image package and the pass should fail on unused files or unresolved expected cover/place assets.
 
+After the manual merge, use `build/guide-intake/<slug>/review/owner-checklist.md` as the required visual handoff instead of an ad hoc spot-check.
+
 `npm run preflight` includes content schema lint, weekly digest validation and the booking funnel contract report.
 
 For larger changes also run:

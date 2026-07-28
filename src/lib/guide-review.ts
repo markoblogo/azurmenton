@@ -4,6 +4,7 @@ export type GuideReviewGuideReference = {
   slug: string;
   publishedOn?: string;
   category?: string;
+  coverImage?: string;
   relatedPlaces?: string[];
   relatedArticles?: string[];
   relatedApartments?: string[];
@@ -60,6 +61,21 @@ export type GuideReviewReport = {
     relatedPlacesOk: boolean;
   };
   places: GuideReviewPlaceStatus[];
+  visualHandoff: {
+    expectsLatestGuideSlot: boolean;
+    inLatestGuideSlot: boolean;
+    latestGuideSlug: string | null;
+    localeSpotCheckUrls: string[];
+    landingGuideUrl: string;
+    coverExpected: boolean;
+    coverResolved: boolean;
+    placeImageChecks: Array<{
+      placeId: string;
+      draftName: string;
+      expected: boolean;
+      resolved: boolean;
+    }>;
+  };
   summary: {
     plannedPlaceCount: number;
     reviewedPlaceCount: number;
@@ -73,6 +89,22 @@ function unique(values: string[]) {
 
 function guideRenderedPlaceIds(guide: GuideReviewGuideReference) {
   return new Set(unique([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
+}
+
+function getLatestGuideSlug(guides: GuideReviewGuideReference[]) {
+  const published = guides
+    .map((guide, index) => ({ guide, index }))
+    .filter(({ guide }) => Boolean(guide.publishedOn));
+
+  if (!published.length) return null;
+
+  return published.reduce((latest, candidate) => {
+    const latestDate = latest.guide.publishedOn ?? "";
+    const candidateDate = candidate.guide.publishedOn ?? "";
+    if (candidateDate > latestDate) return candidate;
+    if (candidateDate === latestDate && candidate.index > latest.index) return candidate;
+    return latest;
+  }).guide.slug;
 }
 
 export function buildGuideReviewReport(input: {
@@ -91,6 +123,7 @@ export function buildGuideReviewReport(input: {
   const exclusionIds = new Set(input.mapExclusions.map((exclusion) => exclusion.placeId));
   const plannedPlaces = input.publicationPlan.plannedPlaces ?? [];
   const plannedPlaceIds = plannedPlaces.map((plannedPlace) => plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId).filter(Boolean) as string[];
+  const latestGuideSlug = getLatestGuideSlug(input.guides);
 
   if (!guide) {
     errors.push({
@@ -243,6 +276,44 @@ export function buildGuideReviewReport(input: {
     };
   });
 
+  const coverExpected = input.publicationPlan.coverImageStatus === "provided";
+  const coverResolved = Boolean(guide?.coverImage);
+  const visualPlaceChecks = placeStatuses.map((placeStatus) => {
+    const plannedPlace = plannedPlaces.find(
+      (place) => (place.existingPlaceId ?? place.newPlaceId ?? "missing-place-id") === placeStatus.placeId,
+    );
+    const place = placeById.get(placeStatus.placeId);
+    const expected = plannedPlace?.imageStatus === "provided";
+    return {
+      placeId: placeStatus.placeId,
+      draftName: placeStatus.draftName,
+      expected,
+      resolved: Boolean(place?.image),
+    };
+  });
+
+  const plannedPublishedOn = input.publicationPlan.publishedOn ?? null;
+  const expectsLatestGuideSlot = Boolean(
+    plannedPublishedOn &&
+      input.guides.filter((item) => item.slug !== input.slug).every((item) => !item.publishedOn || item.publishedOn <= plannedPublishedOn),
+  );
+
+  if (coverExpected && !coverResolved) {
+    errors.push({
+      severity: "error",
+      code: "review-guide-cover-missing",
+      message: `Guide ${input.slug} expected a cover image but none is resolved on the published guide record.`,
+    });
+  }
+
+  if (expectsLatestGuideSlot && latestGuideSlug !== input.slug) {
+    warnings.push({
+      severity: "warning",
+      code: "review-latest-guide-slot-mismatch",
+      message: `Guide ${input.slug} should occupy the landing NEW slot but latest guide logic currently resolves to ${latestGuideSlug ?? "n/a"}.`,
+    });
+  }
+
   return {
     slug: input.slug,
     ok: errors.length === 0,
@@ -257,6 +328,16 @@ export function buildGuideReviewReport(input: {
       relatedPlacesOk,
     },
     places: placeStatuses,
+    visualHandoff: {
+      expectsLatestGuideSlot,
+      inLatestGuideSlot: latestGuideSlug === input.slug,
+      latestGuideSlug,
+      localeSpotCheckUrls: ["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${input.slug}`),
+      landingGuideUrl: "/en/guide",
+      coverExpected,
+      coverResolved,
+      placeImageChecks: visualPlaceChecks,
+    },
     summary: {
       plannedPlaceCount: plannedPlaces.length,
       reviewedPlaceCount: placeStatuses.filter((place) => place.present).length,

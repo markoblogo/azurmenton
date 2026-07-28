@@ -69,6 +69,56 @@ function renderMarkdown(report) {
   return `${lines.join("\n")}\n`;
 }
 
+function renderOwnerChecklist(report) {
+  const lines = [
+    `# owner visual handoff for ${report.slug}`,
+    "",
+    "Use this only after the guide has already passed guide:publish and guide:review.",
+    "",
+    "## Cover correctness",
+    `- [ ] Open ${report.visualHandoff.localeSpotCheckUrls[0]} and confirm the cover matches the intended guide topic.`,
+    `- [ ] Confirm the cover is not reused as a fallback on unrelated place cards.`,
+    `- [ ] Confirm the cover crops correctly on desktop and mobile.`,
+    "",
+    "## Place images",
+  ];
+
+  const expectedPlaces = report.visualHandoff.placeImageChecks.filter((place) => place.expected);
+  if (expectedPlaces.length) {
+    for (const place of expectedPlaces) {
+      lines.push(`- [ ] ${place.placeId}: confirm the image belongs to ${place.draftName} and is not swapped with another place.`);
+    }
+  } else {
+    lines.push("- [ ] No required place images were declared for this guide.");
+  }
+
+  lines.push(
+    "",
+    "## Wrong-image regressions",
+    "- [ ] Check the guide page once top-to-bottom for any place card showing the wrong venue photo or a duplicate image from another card.",
+    "",
+    "## Guide landing / NEW slot",
+    `- [ ] Open ${report.visualHandoff.landingGuideUrl} and confirm the guide card appears in the expected guide listing position.`,
+  );
+
+  if (report.visualHandoff.expectsLatestGuideSlot) {
+    lines.push("- [ ] This guide is expected to occupy the dedicated NEW slot on the guide landing page.");
+  } else {
+    lines.push(`- [ ] This guide is not expected to occupy the NEW slot. Current latest guide slug: ${report.visualHandoff.latestGuideSlug ?? "n/a"}.`);
+  }
+
+  lines.push(
+    "",
+    "## Locale spot-check",
+    ...report.visualHandoff.localeSpotCheckUrls.map((url) => `- [ ] Open ${url} and confirm title, cover and key place cards render cleanly.`),
+    "",
+    "## Notes",
+    "- [ ] If any image is wrong, fix the mapping before publishing more assets for the next guide.",
+  );
+
+  return `${lines.join("\n")}\n`;
+}
+
 async function main() {
   const slug = readArg("--slug");
   if (!slug) {
@@ -94,6 +144,7 @@ async function main() {
       slug: guide.slug,
       publishedOn: guide.publishedOn,
       category: guide.category,
+      coverImage: guide.coverImage,
       relatedPlaces: guide.relatedPlaces,
       relatedArticles: guide.relatedArticles,
       relatedApartments: guide.relatedApartments,
@@ -120,6 +171,7 @@ async function main() {
   await Promise.all([
     fs.writeFile(path.join(reviewDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`),
     fs.writeFile(path.join(reviewDir, "report.md"), renderMarkdown(report)),
+    fs.writeFile(path.join(reviewDir, "owner-checklist.md"), renderOwnerChecklist(report)),
   ]);
 
   console.log(`guide review: ${slug}`);

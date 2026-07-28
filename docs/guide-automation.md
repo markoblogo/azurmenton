@@ -1,6 +1,6 @@
 # Guide Automation Workflow
 
-This document defines the current semi-automated flow for publishing new Azur Menton guides and the remaining passes needed to finish the workflow cleanly.
+This document defines the current semi-automated flow for publishing new Azur Menton guides.
 
 ## Current Command Chain
 
@@ -95,6 +95,15 @@ npm run guide:review -- --slug <slug>
 - writes:
   - `review/report.json`
   - `review/report.md`
+  - `review/owner-checklist.md`
+
+`owner-checklist.md` is the structured human handoff for:
+
+- cover correctness
+- place-image correctness
+- wrong-image-on-wrong-place regressions
+- guide landing / NEW slot expectations
+- locale spot-check URLs
 
 ## Output Contract
 
@@ -108,58 +117,19 @@ It must remain:
 
 The operator still decides whether to apply the generated bundle.
 
-## Remaining Passes To Finish This Automation Block
+## Automation Status
 
-Keep the rest to two narrow passes plus the final owner visual sign-off.
+The guide automation block is now complete for repo-side preparation and validation:
 
-### Pass 1: `guide:review v1`
+- intake: `guide:new`
+- validation: `guide:check`
+- asset resolution: `guide:assets` with optional strict package enforcement
+- scaffold generation: `guide:apply`
+- final readiness gate: `guide:publish`
+- patch bundle generation: `guide:patch`
+- post-merge verification plus owner visual handoff: `guide:review`
 
-Goal:
-post-insert verification after the guide has been manually merged into the repo.
-
-Status:
-implemented
-
-Why this matters:
-it closes the gap between “patch bundle generated” and “content really landed correctly”.
-
-### Pass 2: `guide:assets v3`
-
-Goal:
-make illustration handling stricter and faster.
-
-Status:
-implemented
-
-Does:
-
-- report which files from the provided asset package were matched
-- report which files were left unused
-- warn when a place expected an image but no asset matched
-- optional `--strict` mode:
-  - fail when unresolved expected assets remain
-  - fail when the package contains extra unmatched files
-
-Why this matters:
-it removes the repeated manual uncertainty around whether every supplied image was actually consumed and turns incomplete or noisy image packages into an immediate pre-publication failure.
-
-### Pass 3: `guide:review v2` visual handoff
-
-Goal:
-formalize the last non-automated step: editorial/visual confirmation.
-
-Should do:
-
-- generate a short owner-review checklist for:
-  - cover correctness
-  - place-card image correctness
-  - wrong-image-on-wrong-place regressions
-  - guide landing placement / NEW slot expectations
-  - key guide page locale spot-check
-- optionally store the checklist in `build/guide-intake/<slug>/review/`
-
-Why this matters:
-this is the only part that should remain human, but it should become structured instead of ad hoc.
+The only intentionally human step that remains is the owner visual pass driven by `review/owner-checklist.md`.
 
 ## End State
 
