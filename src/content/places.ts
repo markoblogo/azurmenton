@@ -9242,6 +9242,30 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Parapharmacie Diététique Menton in Menton", "Illustration de Parapharmacie Diététique Menton a Menton", "Illustrazione di Parapharmacie Diététique Menton a Mentone", "Ілюстрація Parapharmacie Diététique Menton у Ментоні"),
     visualTheme: "market",
   },
+};
+export const places: Place[] = rawPlaces.map((place) => {
+  const visual = placeVisuals[place.id] ?? {};
+  return {
+    ...place,
+    ...visual,
+    requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
+    visualTheme: place.visualTheme ?? visual.visualTheme ?? visualThemeForPlace(place.type),
+    googleMapsSearchUrl:
+      place.googleMapsSearchUrl ??
+      place.googleMapsUrl ??
+      mapsSearch(place.name, place.address ?? place.area?.en),
+    googleMapsUrl:
+      place.googleMapsUrl ??
+      place.googleMapsSearchUrl ??
+      mapsSearch(place.name, place.address ?? place.area?.en),
+    googlePhotosStatus: place.googlePhotosStatus ?? "not_connected",
+    ratingStatus: place.ratingStatus ?? "not_connected",
+    hoursStatus:
+      place.hoursStatus ??
+      (place.sourceStatus === "needs_verification" ? "needs_manual_verification" : "not_connected"),
+  };
+});;
+
 function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
   const themes: Record<PlaceType, GuideVisualTheme> = {
     market: "market",
