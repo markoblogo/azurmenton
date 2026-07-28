@@ -138,5 +138,12 @@
       "public/images/home/generated/TerraceParkingApartment.avif",
       "public/images/home/generated/TerraceParkingApartment.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/italian-restaurants-in-menton-beyond-pizza.png",
+    "outputs": [
+      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.avif",
+      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.webp"
+    ]
   }
 ]

@@ -174,7 +174,17 @@ describe("content graph audit", () => {
     if (!publishedGuides.length) failures.push("at least one guide must define publishedOn for landing newest selection");
 
     expect(failures).toEqual([]);
-    expect(getLatestLandingGuideSlug(guideArticles)).toBe("burgers-menton");
+    const expectedLatest = guideArticles.reduce<{ slug: string; publishedOn: string; index: number } | null>((latest, article, index) => {
+      if (!article.publishedOn) return latest;
+      if (!latest) return { slug: article.slug, publishedOn: article.publishedOn, index };
+      if (article.publishedOn > latest.publishedOn) return { slug: article.slug, publishedOn: article.publishedOn, index };
+      if (article.publishedOn === latest.publishedOn && index > latest.index) {
+        return { slug: article.slug, publishedOn: article.publishedOn, index };
+      }
+      return latest;
+    }, null);
+
+    expect(getLatestLandingGuideSlug(guideArticles)).toBe(expectedLatest?.slug);
   });
 
   it("keeps guide utility blocks resolvable", () => {

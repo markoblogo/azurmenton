@@ -10,6 +10,16 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "le-napoli-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Le%20Napoli%20Menton" },
+  { placeId: "la-trattoria-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Trattoria%20Menton" },
+  { placeId: "il-ristorante-hotel-napoleon-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Il%20Ristorante%20Hotel%20Napoleon%20Menton" },
+  { placeId: "pasta-basta-ventimiglia", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Pasta%20%26%20Basta%20Ventimiglia" },
+  { placeId: "la-grotta-ventimiglia", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Grotta%20Ventimiglia" },
+  { placeId: "balzi-rossi-area-ventimiglia", reason: "not_a_fixed_venue", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Balzi%20Rossi%20Ventimiglia" },
+  { placeId: "amarea-bordighera", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Amarea%20Bordighera" },
+  { placeId: "magiarge-bordighera", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Magiarge%20Bordighera" },
+  { placeId: "paolo-e-barbara-sanremo", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Paolo%20e%20Barbara%20Sanremo" },
+  { placeId: "osteria-del-marinaio-sanremo", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Osteria%20del%20Marinaio%20Sanremo" },
   { placeId: "vanille-et-chocolat-menton", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Vanille%20et%20Chocolat%20Menton" },
   { placeId: "mada-one-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mada%20One%20One%20Monte-Carlo%20Monaco" },
   { placeId: "cafe-de-paris-monte-carlo", reason: "coordinate_unverified", checkedOn: "2026-07-26", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20de%20Paris%20Monte-Carlo%20Monaco" },
