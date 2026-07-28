@@ -667,6 +667,15 @@ const localizedFacts: Record<
 const apartmentVideoEmbeds: Partial<
   Record<string, { youtubeId: string; title: Record<Locale, string> }>
 > = {
+  "sea-view-balcony-studio": {
+    youtubeId: "SjzuEyoj9jE",
+    title: {
+      en: "Video tour of the Sea View Balcony Studio in Menton",
+      fr: "Video du studio avec balcon vue mer a Menton",
+      it: "Video del monolocale con balcone vista mare a Mentone",
+      uk: "Відео студії з балконом і видом на море в Ментоні",
+    },
+  },
   "panoramic-sea-view-studio": {
     youtubeId: "nk6bMDX9Kjg",
     title: {
