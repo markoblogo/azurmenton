@@ -104,12 +104,20 @@ Use this checklist when adding or changing guide articles, places, events or apa
 Run the relevant checks before committing:
 
 ```bash
+npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
+npm run guide:check -- --slug <slug>
+npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
+npm run guide:apply -- --slug <slug>
+npm run guide:publish -- --slug <slug>
+npm run guide:patch -- --slug <slug>
 npm run content:lint
 npm run content:audit
 npm run content:report
 npm run images:check
 npm run preflight
 ```
+
+For the guide automation chain, see `docs/guide-automation.md`.
 
 `npm run preflight` includes content schema lint, weekly digest validation and the booking funnel contract report.
 
