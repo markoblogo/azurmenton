@@ -1,3 +1,5 @@
+import type { GuidePublicationImageStatus } from "./guide-check";
+
 export type PlaceAssetInput = {
   placeId: string;
   sourcePath: string;
@@ -99,7 +101,7 @@ export function resolveGuideAssetPlan(input: {
   slug: string;
   intakeTitle?: string;
   coverPathHint?: string;
-  coverImageStatus?: "provided" | "pending" | "not_needed" | null;
+  coverImageStatus?: GuidePublicationImageStatus | null;
   coverAssetPath?: string | null;
   coverAssetFileName?: string | null;
   assetsDirectory?: string | null;
@@ -107,12 +109,13 @@ export function resolveGuideAssetPlan(input: {
     draftName: string;
     existingPlaceId?: string | null;
     newPlaceId?: string | null;
-    imageStatus?: "provided" | "pending" | "not_needed" | null;
+    imageStatus?: GuidePublicationImageStatus | null;
     assetPath?: string | null;
     assetFileName?: string | null;
   }>;
   placeAssetOverrides?: PlaceAssetInput[];
   availableAssetFiles?: string[];
+  existingPlaceImages?: Record<string, string | undefined>;
 }) : GuideAssetResolutionPlan {
   const operations: GuideAssetCopyOperation[] = [];
   const issues: GuideAssetPlanIssue[] = [];
@@ -198,6 +201,15 @@ export function resolveGuideAssetPlan(input: {
         code: "missing-place-asset",
         message: `Place ${placeId} is marked as provided but no asset could be resolved.`,
       });
+    } else if (plannedPlace.imageStatus === "existing") {
+      const existingImage = input.existingPlaceImages?.[placeId];
+      if (!existingImage) {
+        issues.push({
+          severity: "error",
+          code: "missing-existing-place-image",
+          message: `Place ${placeId} is marked as already covered by an existing repo image, but no current image was found.`,
+        });
+      }
     } else if (plannedPlace.imageStatus === "pending") {
       issues.push({
         severity: "warning",

@@ -92,4 +92,27 @@ describe("guide assets", () => {
     expect(plan.missingExpectedAssetPlaceIds).toEqual(["tea-room-one"]);
     expect(plan.issues.map((issue) => issue.code)).toEqual(expect.arrayContaining(["missing-cover-asset", "missing-place-asset"]));
   });
+
+  it("accepts existing repo imagery without expecting a new asset file", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "burgers-menton",
+      plannedPlaces: [
+        {
+          draftName: "All's Stars",
+          existingPlaceId: "alls-stars-menton",
+          imageStatus: "existing",
+        },
+      ],
+      existingPlaceImages: {
+        "alls-stars-menton": "/images/guide/alls-stars-menton.jpg",
+      },
+      availableAssetFiles: ["unused.png"],
+    });
+
+    expect(plan.operations).toEqual([]);
+    expect(plan.issues).toEqual([]);
+    expect(plan.expectedAssetPlaceIds).toEqual([]);
+    expect(plan.missingExpectedAssetPlaceIds).toEqual([]);
+    expect(plan.unmatchedAssetFiles).toEqual(["unused.png"]);
+  });
 });

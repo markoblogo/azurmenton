@@ -283,7 +283,7 @@ export function buildGuideReviewReport(input: {
       (place) => (place.existingPlaceId ?? place.newPlaceId ?? "missing-place-id") === placeStatus.placeId,
     );
     const place = placeById.get(placeStatus.placeId);
-    const expected = plannedPlace?.imageStatus === "provided";
+    const expected = plannedPlace?.imageStatus === "provided" || plannedPlace?.imageStatus === "existing";
     return {
       placeId: placeStatus.placeId,
       draftName: placeStatus.draftName,

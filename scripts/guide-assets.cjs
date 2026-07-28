@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { parsePlaceAssetArgs, resolveGuideAssetPlan } = require("../src/lib/guide-assets.ts");
+const { places } = require("../src/content/places.ts");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -67,6 +68,7 @@ async function main() {
   const { loadTargets, saveTargets, generateDerivatives } = await import("./lib/image-derivatives.mjs");
   const overrides = parsePlaceAssetArgs(placeArgs).map((asset) => ({ ...asset, sourcePath: path.resolve(asset.sourcePath) }));
   const resolvedAssetsDir = assetsDir ? path.resolve(assetsDir) : publicationPlan?.assetsDirectory ? path.resolve(publicationPlan.assetsDirectory) : undefined;
+  const existingPlaceImages = Object.fromEntries(places.filter((place) => place.image).map((place) => [place.id, place.image]));
   const resolution = resolveGuideAssetPlan({
     slug,
     intakeTitle: intake.title,
@@ -83,6 +85,7 @@ async function main() {
     plannedPlaces: publicationPlan?.plannedPlaces ?? [],
     placeAssetOverrides: overrides,
     availableAssetFiles: resolvedAssetsDir ? await existingFilesInDirectory(resolvedAssetsDir) : [],
+    existingPlaceImages,
   });
   const operations = [];
   const issues = [...resolution.issues];

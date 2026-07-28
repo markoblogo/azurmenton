@@ -143,4 +143,50 @@ describe("guide check report", () => {
 
     expect(report.errors.map((issue) => issue.code)).not.toContain("missing-cover-file");
   });
+
+  it("fails when a place is marked existing but the repo still has no image", () => {
+    const intake: GuideIntake = {
+      title: "Burger update",
+      slug: "burgers-menton",
+      seoTitle: "Burger update",
+      metaDescription: "Burger update",
+      coverPathHint: null,
+      sectionHeadings: ["Places"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const report = buildGuideCheckReport(
+      intake,
+      [],
+      [{ id: "alls-stars-menton", name: "All's Stars", image: undefined }],
+      {
+        coverExists: true,
+        apartmentSlugs: [],
+        mapPointPlaceIds: [],
+        mapExclusionPlaceIds: [],
+        publicationPlan: {
+          publishedOn: "2026-07-28",
+          category: "food-markets",
+          coverImageStatus: "not_needed",
+          relatedPlaceIds: ["alls-stars-menton"],
+          relatedArticleSlugs: [],
+          relatedApartmentSlugs: [],
+          canonicalGuideForPlaces: false,
+          plannedPlaces: [
+            {
+              draftName: "All's Stars",
+              existingPlaceId: "alls-stars-menton",
+              imageStatus: "existing",
+              requiresMapReview: false,
+              mapAction: "not_needed",
+              coverageGuideSlug: "burgers-menton",
+            },
+          ],
+        },
+      },
+    );
+
+    expect(report.errors.map((issue) => issue.code)).toContain("existing-place-image-expected");
+  });
 });

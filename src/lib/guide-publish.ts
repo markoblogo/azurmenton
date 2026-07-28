@@ -88,7 +88,7 @@ export function buildGuidePublishReport(input: {
     .map((plannedPlace) => {
       const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId;
       if (!placeId) return null;
-      const expected = plannedPlace.imageStatus === "provided";
+      const expected = plannedPlace.imageStatus === "provided" || plannedPlace.imageStatus === "existing";
       const publicPath = resolvedPlaceImages[placeId];
       if (expected && !publicPath) {
         blockers.push({

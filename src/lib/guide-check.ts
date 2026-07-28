@@ -18,7 +18,7 @@ export type PlaceReference = {
 };
 
 export type GuidePublicationCategory = GuideCategory | "";
-export type GuidePublicationImageStatus = "provided" | "pending" | "not_needed";
+export type GuidePublicationImageStatus = "provided" | "pending" | "existing" | "not_needed";
 export type GuidePublicationMapAction = "point" | "exclude" | "not_needed";
 
 export type GuidePublicationPlanPlace = {
@@ -276,6 +276,14 @@ export function buildGuideCheckReport(
             severity: "warning",
             code: "existing-place-still-missing-image",
             message: `Existing place ${plannedPlace.existingPlaceId} still has no image; plan an illustration package or keep the placeholder intentionally.`,
+          });
+        }
+
+        if (existingPlace && !existingPlace.image && plannedPlace.imageStatus === "existing") {
+          errors.push({
+            severity: "error",
+            code: "existing-place-image-expected",
+            message: `Place ${plannedPlace.existingPlaceId} is marked as already covered by an existing repo image, but the current place record has no image.`,
           });
         }
 
