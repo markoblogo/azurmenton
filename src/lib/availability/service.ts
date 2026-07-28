@@ -38,7 +38,7 @@ function sanitizeAvailabilityResult(
   };
 }
 
-function unavailableAvailability(apartmentSlug: ApartmentCalendarSlug, checkedAt = new Date().toISOString(), sourceFreshness: ApartmentAvailability["sourceFreshness"] = "stale"): ApartmentAvailabilitySnapshot {
+function unavailableAvailability(apartmentSlug: ApartmentCalendarSlug, checkedAt = "", sourceFreshness: ApartmentAvailability["sourceFreshness"] = "stale"): ApartmentAvailabilitySnapshot {
   return {
     apartmentSlug,
     status: "temporarily-unavailable",

@@ -123,36 +123,51 @@ export function AvailabilityOverviewSection({
   availability: ApartmentAvailability[];
 }) {
   const local = copy[locale];
+  const allUnavailable = availability.every((item) => item.status === "temporarily-unavailable");
 
   return (
-    <section className="mb-6 border border-[#dfd4c1] bg-[#fbf7ef] p-5 sm:p-6">
+    <section className="mb-5 border border-[#dfd4c1] bg-[#fbf7ef] p-5 sm:p-6">
       <p className="editorial-label">{local.eyebrow}</p>
-      <h2 className="serif-heading mt-3 text-4xl leading-tight text-[#173f36]">{local.title}</h2>
+      <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36] sm:text-4xl">{local.title}</h2>
       <p className="mt-3 max-w-3xl text-base leading-7 text-[#5f574c]">{local.body}</p>
-      <div className="mt-5 grid gap-4 xl:grid-cols-3">
+      {allUnavailable ? (
+        <div className="mt-4 border border-[#eadfce] bg-white/75 px-4 py-3 text-sm leading-6 text-[#5f574c]">
+          {local.unavailable}
+        </div>
+      ) : null}
+      <div className="mt-5 grid gap-4 md:grid-cols-3">
         {availability.map((item) => {
           const apartment = cardForSlug(item.apartmentSlug);
           if (!apartment) return null;
+          const isUnavailable = item.status === "temporarily-unavailable";
 
           return (
-            <article key={item.apartmentSlug} className="overflow-hidden border border-[#dfd4c1] bg-white">
+            <article key={item.apartmentSlug} className="flex h-full flex-col overflow-hidden border border-[#dfd4c1] bg-white">
               <div className="relative aspect-[4/2.35] overflow-hidden bg-[#efe4d1]">
                 <Image src={apartment.cardImage} alt={apartment.shortName[locale]} fill sizes="(min-width: 1280px) 24vw, (min-width: 768px) 46vw, 100vw" className="object-cover" />
               </div>
-              <div className="p-4">
-                <h3 className="serif-heading text-2xl leading-tight text-[#173f36]">{apartment.shortName[locale]}</h3>
+              <div className="flex h-full flex-col p-4">
+                <h3 className="serif-heading text-[1.9rem] leading-tight text-[#173f36]">{apartment.shortName[locale]}</h3>
                 <p className="mt-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
                   {t[locale].upTo} {apartment.maxGuests} {t[locale].guests.toLowerCase()}
                 </p>
                 <div className="mt-4 grid gap-2">
-                  {item.status === "available" ? item.freeWindows.map((interval) => <WindowLine key={`${interval.start}-${interval.end}`} apartmentSlug={item.apartmentSlug} interval={interval} locale={locale} />) : null}
+                  {item.status === "available"
+                    ? item.freeWindows.slice(0, 2).map((interval) => (
+                        <WindowLine key={`${interval.start}-${interval.end}`} apartmentSlug={item.apartmentSlug} interval={interval} locale={locale} />
+                      ))
+                    : null}
                   {item.status === "no-windows" ? <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-sm leading-6 text-[#5f574c]">{local.noWindows}</p> : null}
-                  {item.status === "temporarily-unavailable" ? <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-sm leading-6 text-[#5f574c]">{local.unavailable}</p> : null}
+                  {isUnavailable && !allUnavailable ? (
+                    <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-sm leading-6 text-[#5f574c]">{local.unavailable}</p>
+                  ) : null}
                 </div>
-                <p className="mt-4 text-xs leading-5 text-[#756a5d]">
-                  {local.updated} {formatCheckedAt(locale, item.checkedAt)}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
+                {item.checkedAt ? (
+                  <p className="mt-4 text-xs leading-5 text-[#756a5d]">
+                    {local.updated} {formatCheckedAt(locale, item.checkedAt)}
+                  </p>
+                ) : null}
+                <div className="mt-auto flex flex-wrap gap-3 pt-4">
                   {item.status === "available" && item.freeWindows[0] ? (
                     <Link
                       href={buildAvailabilityPrefillHref(locale, item.apartmentSlug, item.freeWindows[0]) as Route}

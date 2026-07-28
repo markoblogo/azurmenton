@@ -98,19 +98,19 @@ export function ArrivalParkingBlock({
 
   return (
     <section className={`border border-[#dfd4c1] bg-[#fffaf0] p-5 sm:p-6 ${className}`}>
-      <div className="grid gap-5 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
-        <div>
+      <div className={isBooking ? "grid gap-5" : "grid gap-5 lg:grid-cols-[0.34fr_0.66fr] lg:items-start"}>
+        <div className={isBooking ? "max-w-3xl" : ""}>
           <p className="editorial-label">{copy.eyebrow[locale]}</p>
-          <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36] sm:text-4xl">{title}</h2>
+          <h2 className={`serif-heading mt-3 leading-tight text-[#173f36] ${isBooking ? "text-3xl sm:text-[2.6rem]" : "text-3xl sm:text-4xl"}`}>{title}</h2>
           <p className="mt-4 text-sm leading-7 text-[#5f574c]">{intro}</p>
         </div>
         <div>
-          <div className="grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] md:grid-cols-3">
+          <div className={`grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] ${isBooking ? "md:grid-cols-3" : "md:grid-cols-3"}`}>
             <ArrivalItem title={copy.privateTitle[locale]} body={copy.privateBody[locale]} />
             {!isCarFree ? <ArrivalItem title={copy.publicTitle[locale]} body={copy.publicBody[locale]} /> : null}
             <ArrivalItem title={copy.transportTitle[locale]} body={copy.transportBody[locale]} />
           </div>
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+          {!isBooking ? <div className="mt-4 flex flex-col gap-3 sm:flex-row">
             {trackingEventName ? (
               <TrackedLink className={ctaClassName} eventName={trackingEventName} href={href} props={props}>
                 {copy.cta[locale]}
@@ -126,7 +126,7 @@ export function ArrivalParkingBlock({
             >
               {copy.map[locale]}
             </a>
-          </div>
+          </div> : null}
         </div>
       </div>
     </section>

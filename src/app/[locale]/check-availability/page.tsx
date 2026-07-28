@@ -183,7 +183,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
 
       <section className="py-10 sm:py-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
             <aside className="grid gap-5 lg:sticky lg:top-28">
               <Card className="p-6">
                 <p className="editorial-label">{copy.stepsTitle[safeLocale]}</p>
@@ -244,8 +244,6 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   ))}
                 </div>
               </Card>
-
-              <ArrivalParkingBlock locale={safeLocale} context="booking" />
             </aside>
 
             <div>
@@ -285,6 +283,8 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                   </BookingRequestForm>
                 </div>
               </Card>
+
+              <ArrivalParkingBlock className="mt-6" locale={safeLocale} context="booking" />
 
               <div className="mt-6 border-t border-[#dfd4c1] pt-6">
                 <h2 className="serif-heading text-3xl leading-tight text-[#173f36]">{copy.afterTitle[safeLocale]}</h2>
