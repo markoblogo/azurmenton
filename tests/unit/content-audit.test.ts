@@ -174,7 +174,7 @@ describe("content graph audit", () => {
     if (!publishedGuides.length) failures.push("at least one guide must define publishedOn for landing newest selection");
 
     expect(failures).toEqual([]);
-    expect(getLatestLandingGuideSlug(guideArticles)).toBe("where-to-buy-cbd-menton");
+    expect(getLatestLandingGuideSlug(guideArticles)).toBe("burgers-menton");
   });
 
   it("keeps guide utility blocks resolvable", () => {

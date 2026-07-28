@@ -42,6 +42,13 @@
     ]
   },
   {
+    "source": "public/images/guide/burgers-menton.png",
+    "outputs": [
+      "public/images/guide/generated/burgers-menton.avif",
+      "public/images/guide/generated/burgers-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cbd-shop-france-menton.png",
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",

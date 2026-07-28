@@ -13,6 +13,7 @@ const targets = [
   "public/images/apartments/panoramic-sea-view-studio/16-living-room-sea-view.jpg",
   "public/images/apartments/sea-view-balcony-studio/01-balcony-breakfast-sea-view.jpg",
   "public/images/apartments/beachside-family-apartment/01-private-terrace-breakfast.jpg",
+  "public/images/guide/burgers-menton.png",
   "public/images/guide/cbd-shop-france-menton.png",
   "public/images/guide/tatie-cbd-menton.png",
   "public/images/guide/pharmacie-saint-roman.png",
