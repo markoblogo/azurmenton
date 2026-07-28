@@ -185,15 +185,15 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
             <aside className="grid gap-5 lg:sticky lg:top-28">
-              <Card className="p-6">
+              <Card className="p-6 sm:p-7">
                 <p className="editorial-label">{copy.stepsTitle[safeLocale]}</p>
-                <div className="mt-5 grid gap-4">
+                <div className="mt-5 grid gap-5">
                   {steps.map((step) => (
-                    <div key={step.number} className="grid grid-cols-[2.8rem_1fr] gap-4 border-t border-[#eadfce] pt-4 first:border-t-0 first:pt-0">
-                      <span className="font-serif-display text-3xl leading-none text-[#c6a66a]">{step.number}</span>
+                    <div key={step.number} className="grid grid-cols-[3.2rem_1fr] gap-4 border-t border-[#eadfce] pt-5 first:border-t-0 first:pt-0">
+                      <span className="font-serif-display text-[2.55rem] leading-none text-[#c6a66a]">{step.number}</span>
                       <div>
-                        <h2 className="text-base font-semibold leading-snug text-[#173f36]">{step.title[safeLocale]}</h2>
-                        <p className="mt-1 text-base leading-7 text-[#5f574c]">{step.body[safeLocale]}</p>
+                        <h2 className="text-[1.22rem] font-semibold leading-[1.35] text-[#173f36] sm:text-[1.26rem]">{step.title[safeLocale]}</h2>
+                        <p className="mt-1.5 text-[1.1rem] leading-8 text-[#5f574c] sm:text-[1.12rem]">{step.body[safeLocale]}</p>
                       </div>
                     </div>
                   ))}
@@ -211,7 +211,7 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                       key={apartment.slug}
                       href={localPath(safeLocale, `/apartments/${apartment.slug}`)}
                       className="group grid grid-cols-[5.8rem_1fr] gap-4 border-t border-[#eadfce] p-4 transition hover:bg-[#fbf7ef]"
-                    >
+                      >
                       <div className="relative aspect-[4/3] overflow-hidden bg-[#efe4d1]">
                         <Image
                           src={apartment.cardImage}
@@ -223,9 +223,9 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                         />
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold leading-snug text-[#173f36]">{apartment.shortName[safeLocale]}</h3>
-                        <p className="mt-1 text-sm leading-6 text-[#5f574c]">{apartmentPositioning[apartment.slug][safeLocale]}</p>
-                        <p className="mt-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
+                        <h3 className="text-[1.08rem] font-semibold leading-snug text-[#173f36]">{apartment.shortName[safeLocale]}</h3>
+                        <p className="mt-1 text-[1rem] leading-7 text-[#5f574c]">{apartmentPositioning[apartment.slug][safeLocale]}</p>
+                        <p className="mt-2 text-[0.8rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
                           {labels.upTo} {apartment.maxGuests} {copy.guests[safeLocale]} · {apartment.sizeSqm} m²
                         </p>
                       </div>
@@ -234,11 +234,11 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
                 </div>
               </Card>
 
-              <Card className="p-5">
+              <Card className="p-5 sm:p-6">
                 <p className="editorial-label">{copy.reassuranceTitle[safeLocale]}</p>
-                <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="mt-4 grid grid-cols-2 gap-2.5">
                   {reassurance.map((item) => (
-                    <p key={item.en} className="border border-[#eadfce] bg-white/70 px-3 py-2 text-sm font-semibold leading-6 text-[#5f574c]">
+                    <p key={item.en} className="border border-[#eadfce] bg-white/70 px-3.5 py-2.5 text-[1rem] font-semibold leading-7 text-[#5f574c]">
                       {item[safeLocale]}
                     </p>
                   ))}
@@ -288,12 +288,12 @@ export default async function CheckAvailabilityPage({ params }: PageProps) {
 
               <div className="mt-6 border-t border-[#dfd4c1] pt-6">
                 <h2 className="serif-heading text-3xl leading-tight text-[#173f36]">{copy.afterTitle[safeLocale]}</h2>
-                <p className="mt-3 text-base leading-7 text-[#5f574c]">{copy.afterText[safeLocale]}</p>
+                <p className="mt-3 max-w-3xl text-[1.08rem] leading-8 text-[#5f574c]">{copy.afterText[safeLocale]}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Button href={`/${safeLocale}/apartments`} variant="secondary">{copy.compare[safeLocale]}</Button>
-                  <Button href={`/${safeLocale}/guide`} variant="secondary">{copy.guide[safeLocale]}</Button>
-                  <Button href={`/${safeLocale}/events`} variant="secondary">{copy.events[safeLocale]}</Button>
-                  <Button href={`/${safeLocale}/contact`} variant="secondary">{copy.contact[safeLocale]}</Button>
+                  <Button className="min-h-12 px-5 text-[0.76rem]" href={`/${safeLocale}/apartments`} variant="secondary">{copy.compare[safeLocale]}</Button>
+                  <Button className="min-h-12 px-5 text-[0.76rem]" href={`/${safeLocale}/guide`} variant="secondary">{copy.guide[safeLocale]}</Button>
+                  <Button className="min-h-12 px-5 text-[0.76rem]" href={`/${safeLocale}/events`} variant="secondary">{copy.events[safeLocale]}</Button>
+                  <Button className="min-h-12 px-5 text-[0.76rem]" href={`/${safeLocale}/contact`} variant="secondary">{copy.contact[safeLocale]}</Button>
                 </div>
               </div>
             </div>

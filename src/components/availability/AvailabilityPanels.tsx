@@ -103,10 +103,10 @@ function WindowLine({ apartmentSlug, interval, locale }: { apartmentSlug: string
 
   return (
     <div className="border border-[#eadfce] bg-white/70 px-3 py-3">
-      <p className="text-sm font-semibold leading-6 text-[#173f36]">
+      <p className="text-[1rem] font-semibold leading-7 text-[#173f36]">
         {formatDate(locale, interval.start)}–{formatDate(locale, interval.end)}
       </p>
-      {typeof nights === "number" ? <p className="mt-1 text-xs uppercase tracking-[0.08em] text-[#6b5f50]">{nights} {local.nights}</p> : null}
+      {typeof nights === "number" ? <p className="mt-1 text-[0.82rem] uppercase tracking-[0.08em] text-[#6b5f50]">{nights} {local.nights}</p> : null}
     </div>
   );
 }
@@ -129,7 +129,7 @@ export function AvailabilityOverviewSection({
     <section className="mb-5 border border-[#dfd4c1] bg-[#fbf7ef] p-5 sm:p-6">
       <p className="editorial-label">{local.eyebrow}</p>
       <h2 className="serif-heading mt-3 text-3xl leading-tight text-[#173f36] sm:text-4xl">{local.title}</h2>
-      <p className="mt-3 max-w-3xl text-base leading-7 text-[#5f574c]">{local.body}</p>
+      <p className="mt-3 max-w-3xl text-[1.08rem] leading-8 text-[#5f574c]">{local.body}</p>
       {allUnavailable ? (
         <div className="mt-4 border border-[#eadfce] bg-white/75 px-4 py-3 text-sm leading-6 text-[#5f574c]">
           {local.unavailable}
@@ -146,9 +146,9 @@ export function AvailabilityOverviewSection({
               <div className="relative aspect-[4/2.35] overflow-hidden bg-[#efe4d1]">
                 <Image src={apartment.cardImage} alt={apartment.shortName[locale]} fill sizes="(min-width: 1280px) 24vw, (min-width: 768px) 46vw, 100vw" className="object-cover" />
               </div>
-              <div className="flex h-full flex-col p-4">
+              <div className="flex h-full flex-col p-4 sm:p-5">
                 <h3 className="serif-heading text-[1.9rem] leading-tight text-[#173f36]">{apartment.shortName[locale]}</h3>
-                <p className="mt-2 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
+                <p className="mt-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-[#0b6f8f]">
                   {t[locale].upTo} {apartment.maxGuests} {t[locale].guests.toLowerCase()}
                 </p>
                 <div className="mt-4 grid gap-2">
@@ -157,13 +157,13 @@ export function AvailabilityOverviewSection({
                         <WindowLine key={`${interval.start}-${interval.end}`} apartmentSlug={item.apartmentSlug} interval={interval} locale={locale} />
                       ))
                     : null}
-                  {item.status === "no-windows" ? <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-sm leading-6 text-[#5f574c]">{local.noWindows}</p> : null}
+                  {item.status === "no-windows" ? <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-[1rem] leading-7 text-[#5f574c]">{local.noWindows}</p> : null}
                   {isUnavailable && !allUnavailable ? (
-                    <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-sm leading-6 text-[#5f574c]">{local.unavailable}</p>
+                    <p className="border border-[#eadfce] bg-white/70 px-3 py-3 text-[1rem] leading-7 text-[#5f574c]">{local.unavailable}</p>
                   ) : null}
                 </div>
                 {item.checkedAt ? (
-                  <p className="mt-4 text-xs leading-5 text-[#756a5d]">
+                  <p className="mt-4 text-[0.98rem] leading-6 text-[#756a5d]">
                     {local.updated} {formatCheckedAt(locale, item.checkedAt)}
                   </p>
                 ) : null}
@@ -171,14 +171,14 @@ export function AvailabilityOverviewSection({
                   {item.status === "available" && item.freeWindows[0] ? (
                     <Link
                       href={buildAvailabilityPrefillHref(locale, item.apartmentSlug, item.freeWindows[0]) as Route}
-                      className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
+                      className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-4 py-2.5 text-[0.74rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#102f28]"
                     >
                       {local.request}
                     </Link>
                   ) : null}
                   <Link
                     href={`/${locale}/apartments/${item.apartmentSlug}` as Route}
-                    className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+                    className="inline-flex min-h-11 items-center border border-[#c6a66a] px-4 py-2.5 text-[0.74rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
                   >
                     {local.viewApartment}
                   </Link>
@@ -188,7 +188,7 @@ export function AvailabilityOverviewSection({
           );
         })}
       </div>
-      <p className="mt-4 text-sm leading-6 text-[#6b5f50]">{local.disclaimer}</p>
+      <p className="mt-4 text-[1rem] leading-7 text-[#6b5f50]">{local.disclaimer}</p>
     </section>
   );
 }

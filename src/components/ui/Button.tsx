@@ -3,6 +3,7 @@ import type { Route } from "next";
 
 type ButtonProps = {
   children: React.ReactNode;
+  className?: string;
   href?: string;
   variant?: "primary" | "secondary";
   type?: "button" | "submit";
@@ -18,23 +19,24 @@ export const buttonVariants = {
 
 export function Button({
   children,
+  className = "",
   disabled = false,
   href,
   variant = "primary",
   type = "button",
 }: ButtonProps) {
-  const className = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${buttonVariants[variant]}`;
+  const classes = `inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${buttonVariants[variant]} ${className}`.trim();
 
   if (href) {
     return (
-      <Link className={className} href={href as Route}>
+      <Link className={classes} href={href as Route}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button className={className} disabled={disabled} type={type}>
+    <button className={classes} disabled={disabled} type={type}>
       {children}
     </button>
   );

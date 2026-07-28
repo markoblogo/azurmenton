@@ -102,7 +102,7 @@ export function ArrivalParkingBlock({
         <div className={isBooking ? "max-w-3xl" : ""}>
           <p className="editorial-label">{copy.eyebrow[locale]}</p>
           <h2 className={`serif-heading mt-3 leading-tight text-[#173f36] ${isBooking ? "text-3xl sm:text-[2.6rem]" : "text-3xl sm:text-4xl"}`}>{title}</h2>
-          <p className="mt-4 text-sm leading-7 text-[#5f574c]">{intro}</p>
+          <p className="mt-4 text-[1.05rem] leading-8 text-[#5f574c] sm:text-[1.08rem]">{intro}</p>
         </div>
         <div>
           <div className={`grid gap-px overflow-hidden border border-[#dfd4c1] bg-[#dfd4c1] ${isBooking ? "md:grid-cols-3" : "md:grid-cols-3"}`}>
@@ -135,9 +135,9 @@ export function ArrivalParkingBlock({
 
 function ArrivalItem({ body, title }: { body: string; title: string }) {
   return (
-    <div className="bg-[#fffdf8] p-4">
-      <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-[#173f36]">{title}</h3>
-      <p className="mt-3 text-sm leading-6 text-[#5f574c]">{body}</p>
+    <div className="bg-[#fffdf8] p-4 sm:p-5">
+      <h3 className="text-[0.92rem] font-bold uppercase tracking-[0.11em] text-[#173f36]">{title}</h3>
+      <p className="mt-3 text-[1rem] leading-7 text-[#5f574c]">{body}</p>
     </div>
   );
 }

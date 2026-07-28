@@ -352,7 +352,7 @@ export function BookingRequestForm({
             ))}
             <option value="not-sure">{labels.notSure}</option>
           </select>
-          <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.apartmentHelp}</span>
+          <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.apartmentHelp}</span>
         </label>
 
         <div className="grid gap-4 sm:grid-cols-2">
@@ -366,7 +366,7 @@ export function BookingRequestForm({
           </label>
         </div>
 
-        <div className="border-l border-[#c6a66a] pl-4 text-sm leading-6 text-[#6b5f50]">
+        <div className="border-l border-[#c6a66a] pl-4 text-[1rem] leading-7 text-[#6b5f50]">
           {noticeCopy.helper}
         </div>
 
@@ -392,7 +392,7 @@ export function BookingRequestForm({
               <option value="no">{labels.no}</option>
               <option value="not-sure">{labels.notSureShort}</option>
             </select>
-            <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.parkingHelp}</span>
+            <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.parkingHelp}</span>
           </label>
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.language}
@@ -439,7 +439,7 @@ export function BookingRequestForm({
             maxLength={2000}
             name="message"
           />
-          <span className="text-sm font-normal leading-6 text-[#756a5d]">{labels.messageHelp}</span>
+          <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.messageHelp}</span>
         </label>
       </fieldset>
 
@@ -462,7 +462,7 @@ export function BookingRequestForm({
         </label>
       </fieldset>
 
-      <div className="border border-[#dfd4c1] bg-[#fbf7ef] p-4 text-base leading-7 text-[#5c5044]">
+      <div className="border border-[#dfd4c1] bg-[#fbf7ef] p-4 text-[1.04rem] leading-8 text-[#5c5044]">
         {labels.manual}
       </div>
 
