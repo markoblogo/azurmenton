@@ -9202,7 +9202,47 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
   "alls-stars-menton": {
     image: "/images/guide/alls-stars-menton.jpg",
     imageAlt: text("Illustration of All's Stars Menton", "Illustration d'All's Stars Menton", "Illustrazione di All's Stars Menton", "Ілюстрація All's Stars Menton"),
-    visualTheme: "nightlife",
+    visualTheme: "food",
+  },
+  "la-cazamis-menton": {
+    image: "/images/guide/la-cazamis-menton.png",
+    imageAlt: text("Illustration of La Caz'amis in Menton", "Illustration de La Caz'amis a Menton", "Illustrazione di La Caz'amis a Mentone", "Ілюстрація La Caz'amis у Ментоні"),
+    visualTheme: "food",
+  },
+  "frites-city-menton": {
+    image: "/images/guide/frites-city-menton.png",
+    imageAlt: text("Illustration of Frites City in Menton", "Illustration de Frites City a Menton", "Illustrazione di Frites City a Mentone", "Ілюстрація Frites City у Ментоні"),
+    visualTheme: "food",
+  },
+  "pizzamburger-menton": {
+    image: "/images/guide/pizzamburger-menton.png",
+    imageAlt: text("Illustration of Pizzamburger in Menton", "Illustration de Pizzamburger a Menton", "Illustrazione di Pizzamburger a Mentone", "Ілюстрація Pizzamburger у Ментоні"),
+    visualTheme: "food",
+  },
+  "le-31-menton": {
+    image: "/images/guide/le-31-menton.png",
+    imageAlt: text("Illustration of Le 31 in Menton", "Illustration de Le 31 a Menton", "Illustrazione di Le 31 a Mentone", "Ілюстрація Le 31 у Ментоні"),
+    visualTheme: "food",
+  },
+  "abam-menton": {
+    image: "/images/guide/abam-menton.png",
+    imageAlt: text("Illustration of A BOIRE A MANGER (ABAM) in Menton", "Illustration de A BOIRE A MANGER (ABAM) a Menton", "Illustrazione di A BOIRE A MANGER (ABAM) a Mentone", "Ілюстрація A BOIRE A MANGER (ABAM) у Ментоні"),
+    visualTheme: "food",
+  },
+  "mcdonalds-menton-centre": {
+    image: "/images/guide/mcdonalds-menton-centre.png",
+    imageAlt: text("Illustration of McDonald's Menton Centre", "Illustration de McDonald's Menton Centre", "Illustrazione di McDonald's Menton Centre", "Ілюстрація McDonald's Menton Centre"),
+    visualTheme: "food",
+  },
+  "mcdonalds-menton-east": {
+    image: "/images/guide/mcdonalds-menton-east.png",
+    imageAlt: text("Illustration of McDonald's Menton East", "Illustration de McDonald's Menton East", "Illustrazione di McDonald's Menton East", "Ілюстрація McDonald's Menton East"),
+    visualTheme: "food",
+  },
+  "burger-king-nice-centre": {
+    image: "/images/guide/burger-king-nice-centre.png",
+    imageAlt: text("Illustration of Burger King Nice Centre", "Illustration de Burger King Nice Centre", "Illustrazione di Burger King Nice Centre", "Ілюстрація Burger King Nice Centre"),
+    visualTheme: "food",
   },
   "salle-henri-monin-gorbio": {
     image: "/images/guide/salle-henri-monin-gorbio.jpg",

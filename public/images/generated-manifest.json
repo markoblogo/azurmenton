@@ -21,6 +21,20 @@
     ]
   },
   {
+    "source": "public/images/guide/abam-menton.png",
+    "outputs": [
+      "public/images/guide/generated/abam-menton.avif",
+      "public/images/guide/generated/abam-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/burger-king-nice-centre.png",
+    "outputs": [
+      "public/images/guide/generated/burger-king-nice-centre.avif",
+      "public/images/guide/generated/burger-king-nice-centre.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/burgers-menton.png",
     "outputs": [
       "public/images/guide/generated/burgers-menton.avif",
@@ -32,6 +46,41 @@
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",
       "public/images/guide/generated/cbd-shop-france-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/frites-city-menton.png",
+    "outputs": [
+      "public/images/guide/generated/frites-city-menton.avif",
+      "public/images/guide/generated/frites-city-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-cazamis-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-cazamis-menton.avif",
+      "public/images/guide/generated/la-cazamis-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-31-menton.png",
+    "outputs": [
+      "public/images/guide/generated/le-31-menton.avif",
+      "public/images/guide/generated/le-31-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/mcdonalds-menton-centre.png",
+    "outputs": [
+      "public/images/guide/generated/mcdonalds-menton-centre.avif",
+      "public/images/guide/generated/mcdonalds-menton-centre.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/mcdonalds-menton-east.png",
+    "outputs": [
+      "public/images/guide/generated/mcdonalds-menton-east.avif",
+      "public/images/guide/generated/mcdonalds-menton-east.webp"
     ]
   },
   {
@@ -53,6 +102,13 @@
     "outputs": [
       "public/images/guide/generated/pharmacie-saint-roman.avif",
       "public/images/guide/generated/pharmacie-saint-roman.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pizzamburger-menton.png",
+    "outputs": [
+      "public/images/guide/generated/pizzamburger-menton.avif",
+      "public/images/guide/generated/pizzamburger-menton.webp"
     ]
   },
   {

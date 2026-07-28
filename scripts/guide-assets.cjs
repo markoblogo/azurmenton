@@ -19,7 +19,7 @@ function readArg(name) {
 async function existingFilesInDirectory(directory) {
   try {
     const entries = await fs.readdir(directory, { withFileTypes: true });
-    return entries.filter((entry) => entry.isFile()).map((entry) => entry.name);
+    return entries.filter((entry) => entry.isFile() && !entry.name.startsWith(".")).map((entry) => entry.name);
   } catch {
     return [];
   }
@@ -70,7 +70,12 @@ async function main() {
   const resolution = resolveGuideAssetPlan({
     slug,
     intakeTitle: intake.title,
-    coverPathHint: coverOverride ? path.resolve(coverOverride) : intake.coverPathHint,
+    coverPathHint:
+      coverOverride
+        ? path.resolve(coverOverride)
+        : publicationPlan?.coverImageStatus === "not_needed"
+          ? undefined
+          : intake.coverPathHint,
     coverImageStatus: publicationPlan?.coverImageStatus ?? null,
     coverAssetPath: publicationPlan?.coverAssetPath ? path.resolve(publicationPlan.coverAssetPath) : null,
     coverAssetFileName: publicationPlan?.coverAssetFileName ?? null,

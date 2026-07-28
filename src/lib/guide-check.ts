@@ -158,7 +158,7 @@ export function buildGuideCheckReport(
   if (intake.slug && !isKebabCase(intake.slug)) errors.push({ severity: "error", code: "invalid-slug", message: `Slug is not kebab-case: ${intake.slug}` });
   if (!intake.seoTitle?.trim()) errors.push({ severity: "error", code: "missing-seo-title", message: "SEO title is missing." });
   if (!intake.metaDescription?.trim()) errors.push({ severity: "error", code: "missing-meta-description", message: "Meta description is missing." });
-  if (intake.coverPathHint && options?.coverExists === false) {
+  if (intake.coverPathHint && options?.coverExists === false && publicationPlan?.coverImageStatus !== "not_needed") {
     errors.push({ severity: "error", code: "missing-cover-file", message: `Cover path does not exist: ${intake.coverPathHint}` });
   }
 

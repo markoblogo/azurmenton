@@ -114,4 +114,33 @@ describe("guide check report", () => {
       expect.arrayContaining(["not-latest-landing-slot", "no-related-articles-planned"]),
     );
   });
+
+  it("ignores legacy intake cover path when publication plan marks cover as not needed", () => {
+    const intake: GuideIntake = {
+      title: "Burger update",
+      slug: "burgers-menton",
+      seoTitle: "Burger update",
+      metaDescription: "Burger update",
+      coverPathHint: "/missing/legacy-cover.png",
+      sectionHeadings: ["Places"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const report = buildGuideCheckReport(intake, [], [], {
+      coverExists: false,
+      publicationPlan: {
+        publishedOn: "2026-07-28",
+        category: "food-markets",
+        coverImageStatus: "not_needed",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [],
+        relatedApartmentSlugs: [],
+        plannedPlaces: [],
+        canonicalGuideForPlaces: false,
+      },
+    });
+
+    expect(report.errors.map((issue) => issue.code)).not.toContain("missing-cover-file");
+  });
 });
