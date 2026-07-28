@@ -12,7 +12,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
-import { guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
+import { getLatestLandingGuideSlug, guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
@@ -152,7 +152,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
-  const latestGuideSlug = guideArticles.find((article) => article.isLandingNewest)?.slug ?? guideArticles.at(-1)?.slug;
+  const latestGuideSlug = getLatestLandingGuideSlug();
   const query = await searchParams;
   const collectionQuery = typeof query.collection === "string" ? query.collection : undefined;
   const selectedCollection = isContentCollectionId(collectionQuery) ? contentCollections.find((collection) => collection.id === collectionQuery) : undefined;

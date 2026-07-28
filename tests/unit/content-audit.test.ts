@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { apartments } from "../../src/content/apartments";
 import { contentCollections, contentIntentMap, resolveContentCollectionGuideSlugs } from "../../src/content/content-map";
 import { guestPerks } from "../../src/content/guest-perks";
-import { guideArticles } from "../../src/content/guide";
+import { getLatestLandingGuideSlug, guideArticles } from "../../src/content/guide";
 import { guideIntentClusters, guideLinkAuditProfiles } from "../../src/content/guide-intents";
 import { localPartners, partnerLinkRel } from "../../src/content/partners";
 import { stayPlans } from "../../src/content/planning/stay-plans";
@@ -159,6 +159,22 @@ describe("content graph audit", () => {
     }
 
     expect(failures).toEqual([]);
+  });
+
+  it("keeps the landing newest guide driven by publication date", () => {
+    const failures: string[] = [];
+    const publishedGuides = guideArticles.filter((article) => article.publishedOn);
+
+    for (const article of publishedGuides) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(article.publishedOn ?? "")) {
+        failures.push(`${article.slug} has invalid publishedOn`);
+      }
+    }
+
+    if (!publishedGuides.length) failures.push("at least one guide must define publishedOn for landing newest selection");
+
+    expect(failures).toEqual([]);
+    expect(getLatestLandingGuideSlug(guideArticles)).toBe("where-to-buy-cbd-menton");
   });
 
   it("keeps guide utility blocks resolvable", () => {

@@ -170,7 +170,7 @@ export type GuideArticle = {
   visualStatus?: "real_image" | "project_illustration" | "editorial_placeholder";
   sourceStatus: SourceStatus;
   featured?: boolean;
-  isLandingNewest?: boolean;
+  publishedOn?: string;
   sections: LocalizedGuideSection[];
   appTools?: GuideAppTool[];
   practicalTips?: LocalizedText[];
@@ -1256,7 +1256,7 @@ function shortArticle(input: {
   duration: GuideDuration;
   locationTags: string[];
   featured?: boolean;
-  isLandingNewest?: boolean;
+  publishedOn?: string;
   relatedPlaces?: string[];
   canonicalPlaceTypes?: PlaceType[];
   relatedArticles?: string[];
@@ -1276,6 +1276,24 @@ function shortArticle(input: {
   practicalTips?: LocalizedText[];
 }): GuideArticle {
   return { ...input, sourceStatus: input.sourceStatus ?? "editorial" };
+}
+
+export function getLatestLandingGuideSlug(articles: GuideArticle[] = guideArticles) {
+  const published = articles
+    .map((article, index) => ({ article, index }))
+    .filter(({ article }) => Boolean(article.publishedOn));
+
+  if (published.length) {
+    return published.reduce((latest, candidate) => {
+      const latestDate = latest.article.publishedOn ?? "";
+      const candidateDate = candidate.article.publishedOn ?? "";
+      if (candidateDate > latestDate) return candidate;
+      if (candidateDate === latestDate && candidate.index > latest.index) return candidate;
+      return latest;
+    }).article.slug;
+  }
+
+  return articles.at(-1)?.slug;
 }
 
 function drawnPostcardWork(
@@ -9541,6 +9559,7 @@ export const guideArticles: GuideArticle[] = [
       "Immagine di copertina della guida CBD",
       "Зображення обкладинки гайду про CBD"
     ),
+    publishedOn: "2026-07-27",
     visualTheme: "food",
     visualStatus: "project_illustration",
     relatedPlaces: [
@@ -9711,10 +9730,10 @@ export const guideArticles: GuideArticle[] = [
       "Illustrazione per sale da te e afternoon tea vicino a Mentone",
       "Ілюстрація до гіда про tea rooms і afternoon tea поруч із Ментоном"
     ),
+    publishedOn: "2026-07-26",
     visualTheme: "food",
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
-    isLandingNewest: true,
     tags: [
       t("tea rooms", "salons de the", "sale da te", "чайні"),
       t("afternoon tea", "afternoon tea", "afternoon tea", "afternoon tea"),
