@@ -1,23 +1,9 @@
 [
   {
-    "source": "public/images/home/SeaViewBalconyStudio.jpg",
+    "source": "public/images/apartments/beachside-family-apartment/01-private-terrace-breakfast.jpg",
     "outputs": [
-      "public/images/home/generated/SeaViewBalconyStudio.avif",
-      "public/images/home/generated/SeaViewBalconyStudio.webp"
-    ]
-  },
-  {
-    "source": "public/images/home/TerraceParkingApartment.jpg",
-    "outputs": [
-      "public/images/home/generated/TerraceParkingApartment.avif",
-      "public/images/home/generated/TerraceParkingApartment.webp"
-    ]
-  },
-  {
-    "source": "public/images/home/BeachfrontStudio-portret.jpg",
-    "outputs": [
-      "public/images/home/generated/BeachfrontStudio-portret.avif",
-      "public/images/home/generated/BeachfrontStudio-portret.webp"
+      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.avif",
+      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.webp"
     ]
   },
   {
@@ -35,13 +21,6 @@
     ]
   },
   {
-    "source": "public/images/apartments/beachside-family-apartment/01-private-terrace-breakfast.jpg",
-    "outputs": [
-      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.avif",
-      "public/images/apartments/beachside-family-apartment/generated/01-private-terrace-breakfast.webp"
-    ]
-  },
-  {
     "source": "public/images/guide/burgers-menton.png",
     "outputs": [
       "public/images/guide/generated/burgers-menton.avif",
@@ -56,17 +35,10 @@
     ]
   },
   {
-    "source": "public/images/guide/tatie-cbd-menton.png",
+    "source": "public/images/guide/parapharmacie-dietetique-menton.png",
     "outputs": [
-      "public/images/guide/generated/tatie-cbd-menton.avif",
-      "public/images/guide/generated/tatie-cbd-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/pharmacie-saint-roman.png",
-    "outputs": [
-      "public/images/guide/generated/pharmacie-saint-roman.avif",
-      "public/images/guide/generated/pharmacie-saint-roman.webp"
+      "public/images/guide/generated/parapharmacie-dietetique-menton.avif",
+      "public/images/guide/generated/parapharmacie-dietetique-menton.webp"
     ]
   },
   {
@@ -77,10 +49,38 @@
     ]
   },
   {
-    "source": "public/images/guide/parapharmacie-dietetique-menton.png",
+    "source": "public/images/guide/pharmacie-saint-roman.png",
     "outputs": [
-      "public/images/guide/generated/parapharmacie-dietetique-menton.avif",
-      "public/images/guide/generated/parapharmacie-dietetique-menton.webp"
+      "public/images/guide/generated/pharmacie-saint-roman.avif",
+      "public/images/guide/generated/pharmacie-saint-roman.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/tatie-cbd-menton.png",
+    "outputs": [
+      "public/images/guide/generated/tatie-cbd-menton.avif",
+      "public/images/guide/generated/tatie-cbd-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/home/BeachfrontStudio-portret.jpg",
+    "outputs": [
+      "public/images/home/generated/BeachfrontStudio-portret.avif",
+      "public/images/home/generated/BeachfrontStudio-portret.webp"
+    ]
+  },
+  {
+    "source": "public/images/home/SeaViewBalconyStudio.jpg",
+    "outputs": [
+      "public/images/home/generated/SeaViewBalconyStudio.avif",
+      "public/images/home/generated/SeaViewBalconyStudio.webp"
+    ]
+  },
+  {
+    "source": "public/images/home/TerraceParkingApartment.jpg",
+    "outputs": [
+      "public/images/home/generated/TerraceParkingApartment.avif",
+      "public/images/home/generated/TerraceParkingApartment.webp"
     ]
   }
 ]
