@@ -47,5 +47,36 @@ Whether you're looking for a gourmet burger or a familiar fast-food stop, Menton
       "Best Pizza in Menton",
     ]);
   });
-});
 
+  it("ignores recommendation headings when extracting place candidates", () => {
+    const raw = `
+# **Italian Restaurants in Menton Beyond Pizza**
+
+Living next to Italy has shaped Menton's food culture.
+
+## **Best Italian Restaurants in Menton**
+
+### **Gusto Italiano**
+
+### **Le Napoli**
+
+## **Ventimiglia**
+
+### **Pasta & Basta**
+
+# **Our Recommendations**
+
+### **Best all-round Italian restaurant in Menton**
+
+### **Best fine dining**
+`;
+
+    const intake = extractGuideIntake(raw, { coverPathHint: "/tmp/cover.png" });
+
+    expect(intake.placeCandidates).toEqual([
+      { name: "Gusto Italiano", section: "Best Italian Restaurants in Menton" },
+      { name: "Le Napoli", section: "Best Italian Restaurants in Menton" },
+      { name: "Pasta & Basta", section: "Ventimiglia" },
+    ]);
+  });
+});

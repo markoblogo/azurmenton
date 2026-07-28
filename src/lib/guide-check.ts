@@ -34,6 +34,7 @@ export type GuidePublicationPlanPlace = {
 };
 
 export type GuidePublicationPlan = {
+  slug?: string | null;
   publishedOn?: string | null;
   category?: GuidePublicationCategory | null;
   coverImageStatus?: GuidePublicationImageStatus | null;

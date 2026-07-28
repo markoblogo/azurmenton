@@ -16,6 +16,11 @@ export type GuideIntake = {
   rawSuggestedSlug?: string;
 };
 
+type GuideHeading = {
+  level: number;
+  text: string;
+};
+
 function normalizeText(value: string) {
   return value.replace(/\r/g, "").trim();
 }
@@ -63,6 +68,58 @@ function extractTitle(lines: string[]) {
   return "Untitled guide";
 }
 
+function extractHeadings(lines: string[]) {
+  return lines
+    .map(normalizeText)
+    .map((line) => {
+      const match = line.match(/^(#{1,6})\s+/);
+      if (!match) return null;
+
+      const text = stripMarkdownDecoration(line);
+      if (!text) return null;
+
+      return {
+        level: match[1].length,
+        text,
+      };
+    })
+    .filter(Boolean) as GuideHeading[];
+}
+
+function isSuppressedHeading(text: string) {
+  return /^our recommendations$/i.test(text) || /^recommendations$/i.test(text);
+}
+
+function findNearestAncestor(headings: GuideHeading[], index: number, maxLevel: number) {
+  for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
+    const heading = headings[cursor];
+    if (heading.level < maxLevel) return heading;
+  }
+  return undefined;
+}
+
+function hasDeeperDescendants(headings: GuideHeading[], index: number) {
+  const current = headings[index];
+  for (let cursor = index + 1; cursor < headings.length; cursor += 1) {
+    const heading = headings[cursor];
+    if (heading.level <= current.level) return false;
+    if (heading.level > current.level) return true;
+  }
+  return false;
+}
+
+function sitsUnderSuppressedAncestor(headings: GuideHeading[], index: number) {
+  let maxLevel = headings[index].level;
+  for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
+    const heading = headings[cursor];
+    if (heading.level < maxLevel) {
+      if (isSuppressedHeading(heading.text)) return true;
+      maxLevel = heading.level;
+    }
+  }
+  return false;
+}
+
 function extractIntro(lines: string[]) {
   let seenTitle = false;
   const paragraphs: string[] = [];
@@ -90,35 +147,57 @@ function extractIntro(lines: string[]) {
 }
 
 function extractSectionHeadings(lines: string[]) {
-  return lines
-    .map(normalizeText)
-    .filter((line) => /^##(?!#)\s/.test(line))
-    .map(stripMarkdownDecoration)
-    .filter(Boolean);
+  const headings = extractHeadings(lines);
+  const title = headings[0]?.text;
+  const placeCandidateIndexes = new Set<number>();
+
+  headings.forEach((heading, index) => {
+    if (index === 0 || isSuppressedHeading(heading.text)) return;
+
+    if (heading.level === 2) {
+      const ancestor = findNearestAncestor(headings, index, heading.level);
+      if (ancestor && ancestor.level === 1 && ancestor.text !== title && !hasDeeperDescendants(headings, index)) {
+        placeCandidateIndexes.add(index);
+      }
+      return;
+    }
+
+    if (heading.level === 3) {
+      const ancestor = findNearestAncestor(headings, index, heading.level);
+      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text)) {
+        placeCandidateIndexes.add(index);
+      }
+    }
+  });
+
+  return headings
+    .filter((heading, index) => index !== 0 && !placeCandidateIndexes.has(index) && !isSuppressedHeading(heading.text) && !sitsUnderSuppressedAncestor(headings, index))
+    .map((heading) => heading.text);
 }
 
 function extractPlaceCandidates(lines: string[]) {
   const candidates: GuidePlaceCandidate[] = [];
-  let currentSection: string | undefined;
+  const headings = extractHeadings(lines);
+  const title = headings[0]?.text;
 
-  for (const line of lines) {
-    const normalized = normalizeText(line);
-    if (!normalized) continue;
+  headings.forEach((heading, index) => {
+    if (index === 0 || isSuppressedHeading(heading.text)) return;
 
-    if (normalized.startsWith("###")) {
-      const name = stripMarkdownDecoration(normalized);
-      if (name) candidates.push({ name, section: currentSection });
-      continue;
+    if (heading.level === 2) {
+      const ancestor = findNearestAncestor(headings, index, heading.level);
+      if (ancestor && ancestor.level === 1 && ancestor.text !== title && !hasDeeperDescendants(headings, index)) {
+        candidates.push({ name: heading.text, section: ancestor.text });
+      }
+      return;
     }
 
-    if (/^##(?!#)\s/.test(normalized)) {
-      currentSection = stripMarkdownDecoration(normalized);
-      continue;
+    if (heading.level === 3) {
+      const ancestor = findNearestAncestor(headings, index, heading.level);
+      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text)) {
+        candidates.push({ name: heading.text, section: ancestor.text });
+      }
     }
-
-    const bulletMatch = normalized.match(/^- (.+)$/);
-    if (bulletMatch && currentSection?.toLowerCase().includes("related guide")) continue;
-  }
+  });
 
   return candidates;
 }

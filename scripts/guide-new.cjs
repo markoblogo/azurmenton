@@ -9,6 +9,11 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { extractGuideIntake } = require("../src/lib/guide-intake.ts");
+const { buildSeededPublicationPlan, seedGuideIntake } = require("../src/lib/guide-plan-seeding.ts");
+const { guideArticles } = require("../src/content/guide.ts");
+const { places } = require("../src/content/places.ts");
+const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
+const { placeMapExclusions } = require("../src/content/planning/place-map-exclusions.ts");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -75,33 +80,6 @@ function renderPlacesScaffold(intake) {
   ].join("\n");
 }
 
-function buildPublicationPlanTemplate(intake) {
-  return {
-    slug: intake.slug,
-    publishedOn: todayIso(),
-    category: null,
-    coverImageStatus: intake.coverPathHint ? "provided" : "pending",
-    assetsDirectory: null,
-    coverAssetPath: intake.coverPathHint ?? null,
-    coverAssetFileName: intake.coverPathHint ? path.basename(intake.coverPathHint) : null,
-    relatedPlaceIds: [],
-    relatedArticleSlugs: [],
-    relatedApartmentSlugs: [],
-    canonicalGuideForPlaces: false,
-    plannedPlaces: intake.placeCandidates.map((candidate) => ({
-      draftName: candidate.name,
-      existingPlaceId: null,
-      newPlaceId: null,
-      imageStatus: "pending",
-      assetPath: null,
-      assetFileName: null,
-      requiresMapReview: true,
-      mapAction: null,
-      coverageGuideSlug: null,
-    })),
-  };
-}
-
 async function main() {
   const fromPath = readArg("--from");
   const coverPath = readArg("--cover");
@@ -114,7 +92,21 @@ async function main() {
 
   const absoluteInput = path.resolve(fromPath);
   const raw = await fs.readFile(absoluteInput, "utf8");
-  const intake = extractGuideIntake(raw, { coverPathHint: coverPath ? path.resolve(coverPath) : undefined });
+  const intake = seedGuideIntake(extractGuideIntake(raw, { coverPathHint: coverPath ? path.resolve(coverPath) : undefined }));
+  const publicationPlan = buildSeededPublicationPlan({
+    intake,
+    todayIso: todayIso(),
+    guides: guideArticles.map((guide) => ({ slug: guide.slug, title: guide.title.en, category: guide.category })),
+    places: places.map((place) => ({
+      id: place.id,
+      name: place.name,
+      image: place.image,
+      requiresMapReview: place.requiresMapReview,
+      relatedArticleIds: place.relatedArticleIds,
+    })),
+    mapPointPlaceIds: placeMapPoints.map((point) => point.placeId),
+    mapExclusionPlaceIds: placeMapExclusions.map((exclusion) => exclusion.placeId),
+  });
 
   const outputDir = path.join(root, "build", "guide-intake", intake.slug);
   await fs.mkdir(outputDir, { recursive: true });
@@ -123,7 +115,7 @@ async function main() {
     fs.writeFile(path.join(outputDir, "intake.json"), `${JSON.stringify(intake, null, 2)}\n`),
     fs.writeFile(path.join(outputDir, "guide-scaffold.md"), `${renderGuideScaffold(intake)}\n`),
     fs.writeFile(path.join(outputDir, "places-scaffold.md"), `${renderPlacesScaffold(intake)}\n`),
-    fs.writeFile(path.join(outputDir, "publication-plan.json"), `${JSON.stringify(buildPublicationPlanTemplate(intake), null, 2)}\n`),
+    fs.writeFile(path.join(outputDir, "publication-plan.json"), `${JSON.stringify(publicationPlan, null, 2)}\n`),
   ]);
 
   console.log(`guide intake generated: ${path.relative(root, outputDir)}`);
