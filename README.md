@@ -5,133 +5,114 @@
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)
-![Privacy Analytics](https://img.shields.io/badge/Analytics-Plausible%20%2B%20Vercel-173f36)
 
-Production site for **Azur Menton**: a multilingual direct-booking website for three beachfront or beachside apartments in central Menton, France.
+Azur Menton is a multilingual direct-booking site for three central Menton apartments. The public surface combines apartment pages, a practical local guide, Riviera events, stay-planning pages, a useful-places map, and a manual booking funnel.
 
-Production domain: `https://azurmenton.com`
+Production: [https://azurmenton.com](https://azurmenton.com)
 
-![Menton seafront and old town](public/images/home/hero1.jpg)
+## What matters
 
-## System Map
+- Booking is manual. The site never promises instant confirmation.
+- Availability previews are read-only planning guidance from external iCal feeds.
+- Guide, stay and event content exist to support direct booking intent, not compete with it.
+- Content is typed in-repo; there is no CMS.
 
-```mermaid
-flowchart LR
-    Guests["Guests and search visitors"]
-    Site["Public multilingual site"]
-    Content["Apartments, guide, stay and events content"]
-    Booking["Manual booking request flow"]
-    Protection["Turnstile, rate limits, honeypot, CSP"]
-    Delivery["Resend delivery and operator inbox"]
-    Data["Weather, marine and analytics providers"]
-    Future["Future guest AI boundary<br/>read-only and isolated"]
+Product and claim boundaries live in:
 
-    Guests --> Site
-    Content --> Site
-    Site --> Booking
-    Protection --> Booking
-    Booking --> Delivery
-    Data --> Site
-    Future -.-> Site
-```
-
-Keep this map updated when public route families, booking flow, external data sources, or guest-AI boundaries change.
-
-## Purpose
-
-The site combines direct booking, apartment presentation and evergreen local content. Guide, events and stay pages support search intent around Menton stays: beaches, walks, museums, practical errands, Monaco/Nice day trips, seasonal heat, winter travel and Riviera events.
-
-Agent-facing positioning, conversion, proof and claim boundaries are maintained in [`docs/product-context.md`](docs/product-context.md). Use it before SEO, analytics, public-copy, or recurring content work; it does not authorize automated publishing or booking changes.
-
-The staged product roadmap and its human approval gates are maintained in [`docs/ROADMAP.md`](docs/ROADMAP.md). Milestones trigger a review recommendation, never automatic content or booking changes.
-
-The future CortexABV guest-AI path is documented in [`docs/cortex-abv-guest-ai-boundary.md`](docs/cortex-abv-guest-ai-boundary.md). It is not a deployed site feature: any future chat remains read-only, guide-grounded, isolated from personal/project context, and unable to modify booking or publish content.
+- [docs/product-context.md](docs/product-context.md)
+- [docs/ROADMAP.md](docs/ROADMAP.md)
 
 ## Stack
 
-- Next.js `16.2.6` App Router, React `19`, TypeScript, Tailwind CSS `4`
-- Local typed content in `src/content`
-- Resend email delivery for manual booking requests
-- Cloudflare Turnstile, nonce-based CSP, rate limiting and honeypot protection
-- Plausible and Vercel Analytics
-- Open-Meteo weather and marine data
-- Vitest unit tests, optional Playwright E2E checks and GitHub Actions CI/preflight checks
-- Sharp-based WebP/AVIF image derivative pipeline
+- Next.js 16 App Router
+- React 19
+- strict TypeScript
+- Tailwind CSS 4
+- Vitest + optional Playwright
+- Resend for booking-request email delivery
+- Cloudflare Turnstile, honeypot, rate limiting, CSP
+- Plausible + Vercel Analytics
+- Sharp-based image derivative pipeline
 
-Next.js 16 conventions differ from older releases. Before changing framework behavior, check the relevant local docs in `node_modules/next/dist/docs/`.
-
-## Local Development
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`; `/` redirects to `/en`.
+Open `http://localhost:3000`. Root redirects to `/en`.
 
-Main checks before pushing meaningful changes:
+## Core commands
+
+Daily engineering checks:
 
 ```bash
 npm run lint
 npm run typecheck
 npm test
+npm run build
+```
+
+Content and SEO checks:
+
+```bash
 npm run preflight
 npm run content:report
 npm run events:review
-npm run images:check
 npm run seo:priorities
-npm run build
-npm run preflight:postbuild
 ```
 
-Optional checks:
+Additional checks when relevant:
 
 ```bash
 npm run content:audit
-npm run test:e2e
-npm run images:generate
+npm run images:check
 npm run seo:validate
-npm audit
+npm run test:e2e
+npm run preflight:postbuild
 ```
-
-Do not commit `.env.local`, generated build output or private API keys.
 
 ## Environment
 
-Create `.env.local` from `.env.example` when needed.
+Use `.env.local` from `.env.example` when needed.
+
+Key variables:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://azurmenton.com
+
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
 NEXT_PUBLIC_PLAUSIBLE_API_HOST=
 NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=
+
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
-
-WEATHER_PROVIDER=open-meteo
-WEATHER_LATITUDE=43.7745
-WEATHER_LONGITUDE=7.4975
 
 RESEND_API_KEY=
 BOOKING_REQUEST_TO_EMAIL=
 BOOKING_REQUEST_FROM_EMAIL=
 BOOKING_REQUEST_BCC_EMAIL=
 
-# Private, full read-only iCal export URLs for apartment availability previews.
-# Set these only as server environment variables. Never expose them to the client or commit real values.
+WEATHER_PROVIDER=open-meteo
+WEATHER_LATITUDE=43.7745
+WEATHER_LONGITUDE=7.4975
+
 AZUR_ICAL_SEA_VIEW_BALCONY_STUDIO=
 AZUR_ICAL_TERRACE_PARKING_APARTMENT=
 AZUR_ICAL_PANORAMIC_SEA_VIEW_STUDIO=
 ```
 
-Turnstile is enabled only when both Turnstile keys are configured. Plausible is enabled through `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` or the managed script URL in `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC`; do not paste raw analytics snippets into layout files. Booking email delivery needs `RESEND_API_KEY` and `BOOKING_REQUEST_TO_EMAIL` in production. Each request also sends a hidden operational copy to the configured BCC recipient; `BOOKING_REQUEST_BCC_EMAIL` can override the project default.
+Important:
 
-## Public Routes
+- never commit real iCal URLs;
+- never expose iCal URLs client-side;
+- keep Plausible Stats API keys local-only;
+- do not commit `.env.local`.
+
+## Main route families
 
 Supported locales: `en`, `fr`, `it`, `uk`.
-
-Main route families:
 
 - `/[locale]`
 - `/[locale]/apartments`
@@ -139,33 +120,38 @@ Main route families:
 - `/[locale]/check-availability`
 - `/[locale]/guide`
 - `/[locale]/guide/[slug]`
-- `/[locale]/map`
+- `/[locale]/stay`
+- `/[locale]/stay/[slug]`
 - `/[locale]/events`
 - `/[locale]/events/[slug]`
 - `/[locale]/events/this-week`
-- `/[locale]/stay`
-- `/[locale]/stay/[slug]`
+- `/[locale]/map`
 - `/[locale]/partners`
-- `/[locale]/faq`, `/[locale]/contact`, legal and policy pages
+- `/[locale]/faq`
+- `/[locale]/contact`
 - `/llms.txt`
 
-Sitemap and robots are generated by `src/app/sitemap.ts` and `src/app/robots.ts`.
+## Key subsystems
 
-## Key Areas
+### Booking and availability
 
-### Booking
+- Manual request flow: `src/components/booking/`, `src/app/actions/booking-request.ts`, `src/app/api/booking-request/route.ts`
+- Read-only availability layer: `src/lib/availability/`, `src/components/availability/`, `src/app/api/availability/`
 
-The booking flow is a manual request, not instant confirmation. It is implemented in `src/components/booking/`, `src/app/actions/booking-request.ts`, `src/app/api/booking-request/route.ts` and supporting helpers under `src/lib/`.
+Current booking UX includes:
 
-Both the server action and API route enforce validation, rate limiting, honeypot checks and optional Turnstile verification. If email delivery fails, the UI must not pretend that the request was sent.
+- availability hub on `/[locale]/check-availability`;
+- nearest available stay windows;
+- selected-stay prefill into the request form;
+- repeated server-side date validation before submit;
+- compact availability previews on apartment detail pages;
+- compact next-availability hints on the apartment listing page.
 
-Read-only availability previews now sit alongside the manual request flow. They are sourced from server-only external iCal exports, reduced to occupied date intervals, cached and shown as planning guidance only. They do not create, update or confirm reservations on Airbnb, Booking.com or any other platform.
-
-Availability code lives under `src/lib/availability/`, `src/components/availability/` and `src/app/api/availability/`. Public responses and UI must never expose provider URLs, tokens, booking titles, guest names, summaries or booking notes.
+Do not expose provider URLs, booking titles, guest names, summaries, or booking notes.
 
 ### Apartments
 
-Apartment data lives in `src/content/apartments.ts`.
+Source of truth: `src/content/apartments.ts`
 
 Current slugs:
 
@@ -173,178 +159,124 @@ Current slugs:
 - `beachside-family-apartment`
 - `panoramic-sea-view-studio`
 
-Photography lives under `public/images/apartments/` and selected homepage images under `public/images/home/`. When replacing apartment photos, update gallery metadata, hero selections, comparison cards and homepage references together.
+### Guide, places and map
 
-### Guide, Places and Intent Clusters
+Main content files:
 
 - `src/content/guide.ts`
 - `src/content/guide-intents.ts`
 - `src/content/places.ts`
-- `src/components/guide/GuideExplorer.tsx`
-- `src/components/guide/PlaceCard.tsx`
+- `src/content/stay-pages.ts`
+
+Main UI:
+
+- `src/app/[locale]/guide/page.tsx`
+- `src/components/guide/`
 - `src/components/places/UsefulPlacesMap.tsx`
 
-Place cards support local imagery, Google Maps links, official programme/source links where useful, related guide links and full-image lightbox previews. Do not scrape Google Maps photos, hotlink third-party images, invent ratings or publish unverified opening hours.
-
-`/[locale]/guide` is the main guide portal, not only a reverse-chronological article list. It combines a seasonal editorial selection, dynamic planning summary counts, trip-style entry cards, the guide finder, compact intent clusters, a useful-places map preview, transport helper links and apartment recommendations. Keep this page compact and booking-aware when adding new guide features.
-
-Guide intent clusters in `src/content/guide-intents.ts` group existing articles around search intents such as family stays, car-free stays, beachfront stays, day trips, summer heat and practical errands. Keep cluster guide slugs, place ids and apartment keys synchronized with the article content graph.
-
-Reusable guide utility blocks live under `src/components/guide/utility/` with typed data under `src/content/utility/`. They belong in the main reading column when they are central to the guide. Radio playback accepts only direct HTTPS audio streams; HLS support is loaded on demand instead of being included in every guide page.
-
-The airport utility uses `src/content/utility/airports.ts`. Nice Cote d'Azur is the only currently approved embedded flight board and is visible immediately on the airport guide with a privacy notice; Genoa, Cuneo, Turin and Marseille use official external links until their embeds are independently verified. Do not add a new iframe origin without browser testing, an external fallback and the corresponding CSP update.
-
-`/[locale]/map` is a Leaflet/OpenStreetMap planning map for useful places in and near Menton. It filters the existing place graph, keeps Azur Menton apartment pins visible and links out to Google Maps for live routing; it is not a replacement for official route, opening-hours or ticket sources. Reviewed public pins keep a source URL, precision and check date in `src/content/planning/place-map-points.ts`; apartment pins use host-confirmed public building positions without publishing unit numbers.
-
-Guide media is modeled through `GuideVideoEmbed` in `src/content/guide.ts`. Use only privacy-enhanced YouTube or Vimeo embeds with an approved source. Each media card must retain a descriptive external fallback; do not embed unofficial uploads or make fixed streaming-availability claims.
-
-Use `docs/content-operations.md` before adding guide articles, places, events, images or apartment-facing recommendations.
-
-### Guide Automation
-
-New guide ingestion now has a bounded local automation chain:
-
-- `guide:new`
-- `guide:check`
-- `guide:assets` with optional `--strict`
-- `guide:apply`
-- `guide:publish`
-- `guide:patch`
-- `guide:review`
-
-The flow is intentionally not an auto-publisher. It generates intake artifacts, validation reports, patch-ready scaffolds and a final owner visual checklist under `build/guide-intake/<slug>/review/owner-checklist.md`. Manual editorial merge and visual approval remain local and explicit.
-
-### Stay Planning and Transport
-
-- `src/content/stay-pages.ts`
-- `src/content/planning/stay-plans.ts`
-- `src/content/transport.ts`
-- `src/components/transport/TransportHelperBlock.tsx`
-
-Stay pages are commercial intent pages, while stay plans are compact editorial scenarios that connect guides, places, transport notes and apartment recommendations. Transport helper blocks use curated notes plus outbound official timetable/route links; they deliberately avoid embedding live train or bus data until an official API/proxy strategy is reviewed.
-
-### AI, Weekly Digest and Partners
-
-- `src/app/llms.txt/route.ts`
-- `src/content/weekly-digests.ts`
-- `src/content/partners.ts`
-- `src/content/guest-perks.ts`
-
-`/llms.txt` gives AI assistants a concise public summary of the site, apartment pages and booking model. Weekly digest content is a human-reviewed foundation only; it must not auto-publish unverified AI drafts. Partner and guest-perk models are conservative foundations for future guest-only samples, vouchers or disclosed sponsored visibility, not public advertising blocks on booking pages.
-
-The planned CortexABV guest surface is separately governed as a private, read-only project tenant. It may later answer only from a reviewed versioned guide/FAQ/place source pack, cite its sources for factual claims, abstain on unsupported current details, and hand off availability, booking, price, payment, safety, or emergency requests. It must not read personal or sibling-project context, retain guest data, operate booking routes, or be inferred from `/llms.txt` alone. See [`docs/cortex-abv-guest-ai-boundary.md`](docs/cortex-abv-guest-ai-boundary.md).
+The guide portal is not a plain article list. It includes editorial selections, planning clusters, finder/search entry points, compact catalogues, map previews and apartment-aware recommendations.
 
 ### Events
 
+Main files:
+
 - `src/content/riviera-events.ts`
-- `src/lib/events.ts`
+- `src/content/event-occurrences.ts`
 - `src/components/events/EventsCalendar.tsx`
-- `src/app/[locale]/events/[slug]/page.tsx`
 
-Confirmed current/upcoming events appear in the calendar; exact-date events are hidden after they end. Keep expired events in content so pages can be reused or updated later. Event illustrations in `public/images/events/` are project illustrations, not official documentary photos.
+Events use a pragmatic annual-series model with confirmed, pending and estimated states. Keep stale annual events archived for future refresh; do not invent dates.
 
-Events use a pragmatic annual-series model inside the typed content: `seriesSlug`, `occurrenceYear`, `recurrence`, `dateStatus`, `typicalDateWindow`, source URLs and freshness profiles. Use confirmed dates only when an official source has published them; otherwise use pending or estimated annual windows and keep stale annual events archived for the next refresh. Run `npm run events:review` when changing events or guide-event links.
+### Guide automation
 
-Selected high-intent editions have short occurrence pages defined in `src/content/event-occurrences.ts`. They link back to the evergreen series, relevant guides, stay pages and apartment recommendations, but never invent dates or output Event schema for pending editions.
+The guide workflow is now partially automated and remains review-first:
 
-### Media
+```bash
+npm run guide:new
+npm run guide:check
+npm run guide:assets
+npm run guide:apply
+npm run guide:publish
+npm run guide:patch
+npm run guide:review
+```
 
-Use `next/image` for site imagery. Large source images live in `public/images/`; selected generated derivatives are tracked under `generated/` folders and verified by `npm run images:check`. Next serves AVIF and WebP variants where supported; preserve source dimensions and avoid replacing optimized assets with large PNG exports.
+Detailed usage:
 
-Prefer WebP or AVIF for new editorial and utility imagery, keep stable dimensions, and replace multi-megabyte PNG exports before publishing. The content audit enforces a 500 KiB limit for radio utility images so this media set cannot silently regress.
+- [docs/guide-automation.md](docs/guide-automation.md)
+- [docs/content-operations.md](docs/content-operations.md)
 
-The image lightbox is implemented in `src/components/media/ImageLightboxButton.tsx` and renders via a portal above the page. The subtle photo shine effect is implemented in `src/components/media/PhotoShineObserver.tsx` and `src/app/globals.css`; keep it restrained and respect reduced-motion behavior.
+This pipeline prepares and validates guide/place/link/image work. It does not blindly auto-publish.
 
-### SEO
+## SEO, analytics and structured data
+
+Main files:
 
 - `src/lib/seo.ts`
 - `src/lib/structured-data.ts`
-- `src/components/seo/JsonLd.tsx`
+- `src/lib/analytics.ts`
 
-The site emits localized metadata, canonical URLs, hreflang alternates, sitemap/robots and JSON-LD for lodging, vacation rentals, FAQs, articles, breadcrumbs, collection pages and contact pages.
+The site emits:
 
-Apartment `VacationRental` schema must keep stable `identifier`, `geo` and `containsPlace`. Do not add `review` or `aggregateRating` unless real review data exists and can be maintained accurately.
+- localized metadata;
+- canonical + hreflang links;
+- sitemap and robots;
+- JSON-LD for lodging, vacation rental, article, FAQ, breadcrumb and related page types.
 
-### Security and Performance
+Keep analytics non-PII. Funnel events are for attribution and drop-off analysis, not guest profiling.
+
+Useful docs:
+
+- [docs/ANALYTICS.md](docs/ANALYTICS.md)
+- [docs/SEO_MONITORING.md](docs/SEO_MONITORING.md)
+- [docs/search-console-validation.md](docs/search-console-validation.md)
+
+## Security and performance
+
+Main files:
 
 - `next.config.ts`
 - `src/proxy.ts`
 - `src/lib/security-headers.ts`
-- `src/app/api/booking-request/route.ts`
 
-The CSP is nonce-based and generated per request in `src/proxy.ts`. This intentionally makes App Router page responses dynamic. Scripts remain nonce-protected without `script-src 'unsafe-inline'`; `style-src-attr` permits the inline style attributes required by React and `next/image`. `frame-src` remains allowlisted: it currently includes the reviewed Nice Airport board alongside approved media providers.
+Notes:
 
-Run `npm run preflight:postbuild` after `npm run build` for the current CSP/cache audit. Notes and follow-up options live in `docs/csp-cache-audit.md`.
+- CSP is nonce-based and intentionally keeps App Router responses dynamic.
+- `npm run preflight:postbuild` runs the current CSP/cache audit.
+- `next/image` plus generated derivatives are the default media path.
 
-Security headers are split between `next.config.ts` and `src/lib/security-headers.ts`. The CSP allows the configured Plausible host and, when `NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC` is set, the origin of that managed script URL. External tracked links are normalized with `noopener noreferrer` when opened in a new tab.
+See:
 
-### Analytics
+- [docs/csp-cache-audit.md](docs/csp-cache-audit.md)
 
-Analytics is intentionally limited:
-
-- Plausible pageviews and booking funnel events
-- Vercel Analytics for Web Vitals
-
-Canonical funnel event names:
-
-- `check_availability_view`
-- `guide_cta_click`
-- `event_cta_click`
-- `apartment_cta_click`
-- `booking_form_start`
-- `booking_request_submit_success`
-- `booking_request_submit_error`
-- `whatsapp_click`
-- `email_click`
-- `airport_board_loaded`
-- `airport_board_failed`
-- `airport_arrivals_external_click`
-- `airport_departures_external_click`
-- `airport_transport_guide_click`
-
-Keep event names stable and locale-agnostic. Booking funnel events send only aggregate context props: locale/page context, source attribution (`sourcePageType`, `sourceSlug`, guide/event/apartment slugs), trip intent (`apartmentPreference`, `visitingForEvent`, `dateFlexibility`), airport-board context (`airportCode`, `boardType`, `embedMode`) and coarse form context such as `has_dates`, `has_email`, `has_phone`, `guests`, `stay_nights` and `lead_time_days`. Do not send names, email addresses, phone numbers or message text to analytics.
-
-Use `npm run booking:funnel` to print the current event/property contract and dashboard breakdowns for funnel reporting by locale, source page, guide/event/apartment slug and apartment preference. See `docs/ANALYTICS.md` for the internal analytics contract. Plausible/Vercel collect the live data; the repository provides the event contract and owner-only reporting command.
-
-For an owner-only aggregate report, set a local read-only Plausible Stats API key and run `npm run booking:dashboard -- --period=28d`. The key is never a public runtime variable. `docs/LEAD_OPERATIONS.md` defines the manual response, follow-up and privacy workflow.
-
-## Project Structure
+## Repo layout
 
 ```text
-src/app/            App Router pages, API route, sitemap and robots
-src/components/     UI, layout, booking, guide, events, analytics and media
-src/config/         Site-level config
-src/content/        Typed content for apartments, guide, events, places and legal pages
+src/app/            App Router pages and API routes
+src/components/     UI and feature components
+src/content/        Typed site content
 src/i18n/           Locale definitions
-src/lib/            SEO, structured data, booking, weather, security and email helpers
-public/images/      Local images and illustrations
-scripts/            Utility scripts
-tests/              Unit and Playwright tests
-docs/               Operational docs and archived working notes
-.github/workflows/  CI
+src/lib/            Booking, SEO, analytics, availability, security helpers
+public/images/      Local media assets
+scripts/            Validation, reporting and automation scripts
+tests/              Unit and E2E tests
+docs/               Operational docs
 ```
 
-## Content Rules
+## Operational rules
 
-- English is the source editorial language.
-- Keep French, Italian and Ukrainian natural, not placeholder translations.
-- Do not invent dates, ticket prices, ratings, schedules, opening hours or official rules.
-- Use cautious wording when details are not verified.
-- Prefer structured content updates over hardcoded page text.
-- Do not remove old event content solely because the date passed; annual events stay archived for future refresh.
-- Keep partner/perk content separate from guest booking paths. Free sampling must not imply public placement; sponsored visibility must be explicit and disclosed.
-- Use `docs/content-operations.md` as the checklist for guide, place, event, image, linking and preflight work.
-- TypeScript content modules remain the source of truth for now. `npm run content:lint`, `npm run content:audit` and `npm run content:report` provide lightweight schema and content-graph checks before any future JSON/YAML or CMS migration.
-- `src/content/seo-monitoring.ts` maintains a bounded, human-reviewed cohort of 5-10 canonical high-priority URLs. `npm run seo:priorities` validates the cohort during preflight; see `docs/SEO_MONITORING.md`. It does not submit URLs or change Search Console automatically.
-- Weekly digest content is human-reviewed. `npm run weekly:validate` prevents draft or unreviewed weekly items from becoming public; `npm run weekly:draft` is only a non-publishing stub.
-- `npm run events:review` is an operational maintenance report, not a hard failure gate. A clean high-risk count means no stale annual event is silently promoted; pending seasonal placeholders can still appear as review items until official programmes are published.
+- English is the editorial source language.
+- Keep FR/IT/UK natural; do not leave placeholder translations.
+- Do not invent dates, prices, ratings, opening hours or official rules.
+- Keep partner/perk content separate from core booking paths.
+- Prefer structured content updates over hardcoded page copy.
+- Use the docs before making content, SEO or booking-flow changes.
 
-## Deployment
+## Primary docs
 
-Target: Vercel
-DNS: Cloudflare
-Production domain: `azurmenton.com`
-
-CI runs on pushes and pull requests to `main`: install, lint, typecheck, unit tests, content/funnel preflight, image derivative manifest validation, production build and post-build CSP/cache preflight.
-
-See `docs/content-operations.md`, `docs/ROADMAP.md`, `docs/ANALYTICS.md`, `docs/WEEKLY_DIGEST.md`, `docs/csp-cache-audit.md` and `docs/search-console-validation.md` for operational checklists.
+- [docs/product-context.md](docs/product-context.md)
+- [docs/content-operations.md](docs/content-operations.md)
+- [docs/guide-automation.md](docs/guide-automation.md)
+- [docs/ANALYTICS.md](docs/ANALYTICS.md)
+- [docs/LEAD_OPERATIONS.md](docs/LEAD_OPERATIONS.md)
+- [docs/WEEKLY_DIGEST.md](docs/WEEKLY_DIGEST.md)
+- [docs/ROADMAP.md](docs/ROADMAP.md)
