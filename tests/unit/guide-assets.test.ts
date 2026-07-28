@@ -60,5 +60,36 @@ describe("guide assets", () => {
       "public/images/guide/jean-luc-pele-menton.png",
     ]);
     expect(plan.issues.map((issue) => issue.code)).toContain("pending-place-asset");
+    expect(plan.matchedAssetFiles).toEqual(["Jean-Luc Pele.png", "cover.png"]);
+    expect(plan.unmatchedAssetFiles).toEqual([]);
+    expect(plan.expectedCoverAsset).toBe(true);
+    expect(plan.missingExpectedCoverAsset).toBe(false);
+    expect(plan.expectedAssetPlaceIds).toEqual(["jean-luc-pele-menton"]);
+    expect(plan.missingExpectedAssetPlaceIds).toEqual([]);
+  });
+
+  it("reports unused files and missing expected assets", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "best-tea-menton",
+      intakeTitle: "Best Tea in Menton",
+      coverImageStatus: "provided",
+      assetsDirectory: "/tmp/assets",
+      plannedPlaces: [
+        {
+          draftName: "Tea Room One",
+          newPlaceId: "tea-room-one",
+          imageStatus: "provided",
+        },
+      ],
+      availableAssetFiles: ["extra.png"],
+    });
+
+    expect(plan.matchedAssetFiles).toEqual([]);
+    expect(plan.unmatchedAssetFiles).toEqual(["extra.png"]);
+    expect(plan.expectedCoverAsset).toBe(true);
+    expect(plan.missingExpectedCoverAsset).toBe(true);
+    expect(plan.expectedAssetPlaceIds).toEqual(["tea-room-one"]);
+    expect(plan.missingExpectedAssetPlaceIds).toEqual(["tea-room-one"]);
+    expect(plan.issues.map((issue) => issue.code)).toEqual(expect.arrayContaining(["missing-cover-asset", "missing-place-asset"]));
   });
 });

@@ -48,6 +48,13 @@ npm run guide:review -- --slug <slug>
 - resolves cover and place images from a supplied asset package
 - copies source files into `public/images/guide/`
 - updates derivative targets and generated manifest
+- reports:
+  - matched asset files
+  - unused asset files left in the package
+  - expected cover/place assets still missing
+- supports optional `--strict` mode:
+  - fails when expected assets were declared but not matched
+  - fails when extra files remain unused in the package
 - writes `assets-report.json`
 
 ### `guide:apply`
@@ -121,7 +128,10 @@ it closes the gap between “patch bundle generated” and “content really lan
 Goal:
 make illustration handling stricter and faster.
 
-Should do:
+Status:
+implemented
+
+Does:
 
 - report which files from the provided asset package were matched
 - report which files were left unused
@@ -131,7 +141,7 @@ Should do:
   - fail when the package contains extra unmatched files
 
 Why this matters:
-it removes the repeated manual uncertainty around whether every supplied image was actually consumed.
+it removes the repeated manual uncertainty around whether every supplied image was actually consumed and turns incomplete or noisy image packages into an immediate pre-publication failure.
 
 ### Pass 3: `guide:review v2` visual handoff
 

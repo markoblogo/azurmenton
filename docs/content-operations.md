@@ -107,6 +107,7 @@ Run the relevant checks before committing:
 npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
+npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets] --strict
 npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
@@ -119,6 +120,8 @@ npm run preflight
 ```
 
 For the guide automation chain, see `docs/guide-automation.md`.
+
+Use `guide:assets -- --strict` once the owner has supplied the full final image package and the pass should fail on unused files or unresolved expected cover/place assets.
 
 `npm run preflight` includes content schema lint, weekly digest validation and the booking funnel contract report.
 

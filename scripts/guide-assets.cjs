@@ -36,8 +36,9 @@ async function fileExists(targetPath) {
 
 async function main() {
   const slug = readArg("--slug");
+  const strict = process.argv.includes("--strict");
   if (!slug) {
-    console.log("Usage: npm run guide:assets -- --slug <slug> [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path]");
+    console.log("Usage: npm run guide:assets -- --slug <slug> [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--strict]");
     process.exitCode = 1;
     return;
   }
@@ -93,11 +94,42 @@ async function main() {
     operations.push(operation);
   }
 
+  if (strict && resolution.unmatchedAssetFiles.length) {
+    issues.push({
+      severity: "error",
+      code: "unused-asset-files",
+      message: `Asset package still contains ${resolution.unmatchedAssetFiles.length} unused file(s).`,
+    });
+  }
+
+  if (strict && (resolution.missingExpectedCoverAsset || resolution.missingExpectedAssetPlaceIds.length)) {
+    issues.push({
+      severity: "error",
+      code: "strict-expected-assets-missing",
+      message: "Strict mode requires every expected cover/place asset to resolve.",
+    });
+  }
+
+  const report = {
+    slug,
+    strict,
+    operations,
+    issues,
+    matchedAssetFiles: resolution.matchedAssetFiles,
+    unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+    expectedCoverAsset: resolution.expectedCoverAsset,
+    missingExpectedCoverAsset: resolution.missingExpectedCoverAsset,
+    expectedAssetPlaceIds: resolution.expectedAssetPlaceIds,
+    missingExpectedAssetPlaceIds: resolution.missingExpectedAssetPlaceIds,
+  };
+
   if (!operations.length) {
     console.log(`No asset operations for ${slug}.`);
     if (issues.length) {
       for (const issue of issues) console.log(`- [${issue.code}] ${issue.message}`);
-      await fs.writeFile(reportPath, `${JSON.stringify({ slug, operations: [], issues }, null, 2)}\n`);
+      if (resolution.matchedAssetFiles.length) console.log(`- matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
+      if (resolution.unmatchedAssetFiles.length) console.log(`- unused assets: ${resolution.unmatchedAssetFiles.join(", ")}`);
+      await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
       if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     }
     return;
@@ -135,11 +167,17 @@ async function main() {
   }
   await fs.writeFile(`${manifestPath}.tmp`, `${JSON.stringify(manifestEntries, null, 2)}\n`);
   await fs.writeFile(manifestPath, `${JSON.stringify(manifestEntries, null, 2)}\n`);
-  await fs.writeFile(reportPath, `${JSON.stringify({ slug, operations, issues }, null, 2)}\n`);
+  await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
 
   console.log(`updated registry: ${path.relative(root, registryPath)}`);
   console.log(`updated manifest: ${path.relative(root, manifestPath)}`);
   console.log(`report: ${path.relative(root, reportPath)}`);
+  if (resolution.matchedAssetFiles.length) {
+    console.log(`matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
+  }
+  if (resolution.unmatchedAssetFiles.length) {
+    console.log(`unused assets: ${resolution.unmatchedAssetFiles.join(", ")}`);
+  }
   if (issues.length) {
     for (const issue of issues) console.log(`- [${issue.code}] ${issue.message}`);
   }

@@ -25,6 +25,12 @@ export type GuideAssetCopyOperation = {
 export type GuideAssetResolutionPlan = {
   operations: GuideAssetCopyOperation[];
   issues: GuideAssetPlanIssue[];
+  matchedAssetFiles: string[];
+  unmatchedAssetFiles: string[];
+  expectedAssetPlaceIds: string[];
+  missingExpectedAssetPlaceIds: string[];
+  expectedCoverAsset: boolean;
+  missingExpectedCoverAsset: boolean;
 };
 
 function normalizeExt(value: string) {
@@ -113,6 +119,10 @@ export function resolveGuideAssetPlan(input: {
   const availableFiles = input.availableAssetFiles ?? [];
   const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
+  const matchedAssetFiles = new Set<string>();
+  const expectedAssetPlaceIds = new Set<string>();
+  const missingExpectedAssetPlaceIds = new Set<string>();
+  const expectedCoverAsset = input.coverImageStatus === "provided";
 
   const findAssetFromDirectory = (candidates: string[]) => {
     for (const candidate of candidates) {
@@ -125,10 +135,16 @@ export function resolveGuideAssetPlan(input: {
   const coverSourcePath = (() => {
     if (input.coverPathHint) return input.coverPathHint;
     if (input.coverAssetPath) return input.coverAssetPath;
-    if (input.assetsDirectory && input.coverAssetFileName) return `${input.assetsDirectory}/${input.coverAssetFileName}`;
+    if (input.assetsDirectory && input.coverAssetFileName) {
+      matchedAssetFiles.add(input.coverAssetFileName);
+      return `${input.assetsDirectory}/${input.coverAssetFileName}`;
+    }
     if (input.assetsDirectory) {
       const match = findAssetFromDirectory(["cover", input.slug, input.intakeTitle ?? ""]);
-      if (match) return `${input.assetsDirectory}/${match}`;
+      if (match) {
+        matchedAssetFiles.add(match);
+        return `${input.assetsDirectory}/${match}`;
+      }
     }
     return undefined;
   })();
@@ -147,6 +163,7 @@ export function resolveGuideAssetPlan(input: {
   for (const plannedPlace of input.plannedPlaces ?? []) {
     const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
     if (!placeId) continue;
+    if (plannedPlace.imageStatus === "provided") expectedAssetPlaceIds.add(placeId);
 
     const override = overrideByPlaceId.get(placeId);
     if (override) {
@@ -160,6 +177,7 @@ export function resolveGuideAssetPlan(input: {
     }
 
     if (input.assetsDirectory && plannedPlace.assetFileName) {
+      matchedAssetFiles.add(plannedPlace.assetFileName);
       placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${plannedPlace.assetFileName}` });
       continue;
     }
@@ -167,12 +185,14 @@ export function resolveGuideAssetPlan(input: {
     if (input.assetsDirectory) {
       const match = findAssetFromDirectory([plannedPlace.draftName, placeId]);
       if (match) {
+        matchedAssetFiles.add(match);
         placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${match}` });
         continue;
       }
     }
 
     if (plannedPlace.imageStatus === "provided") {
+      missingExpectedAssetPlaceIds.add(placeId);
       issues.push({
         severity: "error",
         code: "missing-place-asset",
@@ -189,5 +209,14 @@ export function resolveGuideAssetPlan(input: {
 
   operations.push(...buildGuideAssetPlan({ slug: input.slug, placeAssets }));
 
-  return { operations, issues };
+  return {
+    operations,
+    issues,
+    matchedAssetFiles: [...matchedAssetFiles].sort(),
+    unmatchedAssetFiles: availableFiles.filter((file) => !matchedAssetFiles.has(file)),
+    expectedAssetPlaceIds: [...expectedAssetPlaceIds].sort(),
+    missingExpectedAssetPlaceIds: [...missingExpectedAssetPlaceIds].sort(),
+    expectedCoverAsset,
+    missingExpectedCoverAsset: expectedCoverAsset && !coverSourcePath,
+  };
 }
