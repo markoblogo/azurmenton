@@ -28,6 +28,20 @@
     ]
   },
   {
+    "source": "public/images/guide/amarea-bordighera.png",
+    "outputs": [
+      "public/images/guide/generated/amarea-bordighera.avif",
+      "public/images/guide/generated/amarea-bordighera.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/balzi-rossi-area-ventimiglia.png",
+    "outputs": [
+      "public/images/guide/generated/balzi-rossi-area-ventimiglia.avif",
+      "public/images/guide/generated/balzi-rossi-area-ventimiglia.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/burger-king-nice-centre.png",
     "outputs": [
       "public/images/guide/generated/burger-king-nice-centre.avif",
@@ -56,6 +70,20 @@
     ]
   },
   {
+    "source": "public/images/guide/il-ristorante-hotel-napoleon-menton.png",
+    "outputs": [
+      "public/images/guide/generated/il-ristorante-hotel-napoleon-menton.avif",
+      "public/images/guide/generated/il-ristorante-hotel-napoleon-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/italian-restaurants-in-menton-beyond-pizza.png",
+    "outputs": [
+      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.avif",
+      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/la-cazamis-menton.png",
     "outputs": [
       "public/images/guide/generated/la-cazamis-menton.avif",
@@ -63,10 +91,38 @@
     ]
   },
   {
+    "source": "public/images/guide/la-grotta-ventimiglia.png",
+    "outputs": [
+      "public/images/guide/generated/la-grotta-ventimiglia.avif",
+      "public/images/guide/generated/la-grotta-ventimiglia.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-trattoria-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-trattoria-menton.avif",
+      "public/images/guide/generated/la-trattoria-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/le-31-menton.png",
     "outputs": [
       "public/images/guide/generated/le-31-menton.avif",
       "public/images/guide/generated/le-31-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-napoli-menton.png",
+    "outputs": [
+      "public/images/guide/generated/le-napoli-menton.avif",
+      "public/images/guide/generated/le-napoli-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/magiarge-bordighera.png",
+    "outputs": [
+      "public/images/guide/generated/magiarge-bordighera.avif",
+      "public/images/guide/generated/magiarge-bordighera.webp"
     ]
   },
   {
@@ -84,10 +140,31 @@
     ]
   },
   {
+    "source": "public/images/guide/osteria-del-marinaio-sanremo.png",
+    "outputs": [
+      "public/images/guide/generated/osteria-del-marinaio-sanremo.avif",
+      "public/images/guide/generated/osteria-del-marinaio-sanremo.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/paolo-e-barbara-sanremo.png",
+    "outputs": [
+      "public/images/guide/generated/paolo-e-barbara-sanremo.avif",
+      "public/images/guide/generated/paolo-e-barbara-sanremo.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/parapharmacie-dietetique-menton.png",
     "outputs": [
       "public/images/guide/generated/parapharmacie-dietetique-menton.avif",
       "public/images/guide/generated/parapharmacie-dietetique-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pasta-basta-ventimiglia.png",
+    "outputs": [
+      "public/images/guide/generated/pasta-basta-ventimiglia.avif",
+      "public/images/guide/generated/pasta-basta-ventimiglia.webp"
     ]
   },
   {
@@ -137,13 +214,6 @@
     "outputs": [
       "public/images/home/generated/TerraceParkingApartment.avif",
       "public/images/home/generated/TerraceParkingApartment.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/italian-restaurants-in-menton-beyond-pizza.png",
-    "outputs": [
-      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.avif",
-      "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.webp"
     ]
   }
 ]

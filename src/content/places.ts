@@ -9532,6 +9532,56 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Parapharmacie Diététique Menton in Menton", "Illustration de Parapharmacie Diététique Menton a Menton", "Illustrazione di Parapharmacie Diététique Menton a Mentone", "Ілюстрація Parapharmacie Diététique Menton у Ментоні"),
     visualTheme: "market",
   },
+  "le-napoli-menton": {
+    image: "/images/guide/le-napoli-menton.png",
+    imageAlt: text("Illustration of Le Napoli in Menton", "Illustration de Le Napoli a Menton", "Illustrazione di Le Napoli a Mentone", "Ілюстрація Le Napoli у Ментоні"),
+    visualTheme: "food",
+  },
+  "la-trattoria-menton": {
+    image: "/images/guide/la-trattoria-menton.png",
+    imageAlt: text("Illustration of La Trattoria in Menton", "Illustration de La Trattoria a Menton", "Illustrazione di La Trattoria a Mentone", "Ілюстрація La Trattoria у Ментоні"),
+    visualTheme: "food",
+  },
+  "il-ristorante-hotel-napoleon-menton": {
+    image: "/images/guide/il-ristorante-hotel-napoleon-menton.png",
+    imageAlt: text("Illustration of Il Ristorante at Hotel Napoleon in Menton", "Illustration de Il Ristorante a l'Hotel Napoleon a Menton", "Illustrazione di Il Ristorante all'Hotel Napoleon a Mentone", "Ілюстрація Il Ristorante в Hotel Napoleon у Ментоні"),
+    visualTheme: "food",
+  },
+  "pasta-basta-ventimiglia": {
+    image: "/images/guide/pasta-basta-ventimiglia.png",
+    imageAlt: text("Illustration of Pasta & Basta in Ventimiglia", "Illustration de Pasta & Basta a Vintimille", "Illustrazione di Pasta & Basta a Ventimiglia", "Ілюстрація Pasta & Basta у Ventimiglia"),
+    visualTheme: "food",
+  },
+  "la-grotta-ventimiglia": {
+    image: "/images/guide/la-grotta-ventimiglia.png",
+    imageAlt: text("Illustration of La Grotta in Ventimiglia", "Illustration de La Grotta a Vintimille", "Illustrazione di La Grotta a Ventimiglia", "Ілюстрація La Grotta у Ventimiglia"),
+    visualTheme: "food",
+  },
+  "balzi-rossi-area-ventimiglia": {
+    image: "/images/guide/balzi-rossi-area-ventimiglia.png",
+    imageAlt: text("Illustration of the Balzi Rossi area near Ventimiglia", "Illustration de la zone de Balzi Rossi pres de Vintimille", "Illustrazione dell'area di Balzi Rossi vicino a Ventimiglia", "Ілюстрація району Balzi Rossi біля Ventimiglia"),
+    visualTheme: "walk",
+  },
+  "amarea-bordighera": {
+    image: "/images/guide/amarea-bordighera.png",
+    imageAlt: text("Illustration of Amarea in Bordighera", "Illustration de Amarea a Bordighera", "Illustrazione di Amarea a Bordighera", "Ілюстрація Amarea у Bordighera"),
+    visualTheme: "food",
+  },
+  "magiarge-bordighera": {
+    image: "/images/guide/magiarge-bordighera.png",
+    imageAlt: text("Illustration of Magiarge in Bordighera", "Illustration de Magiarge a Bordighera", "Illustrazione di Magiarge a Bordighera", "Ілюстрація Magiarge у Bordighera"),
+    visualTheme: "food",
+  },
+  "paolo-e-barbara-sanremo": {
+    image: "/images/guide/paolo-e-barbara-sanremo.png",
+    imageAlt: text("Illustration of Paolo e Barbara in Sanremo", "Illustration de Paolo e Barbara a Sanremo", "Illustrazione di Paolo e Barbara a Sanremo", "Ілюстрація Paolo e Barbara у Sanremo"),
+    visualTheme: "food",
+  },
+  "osteria-del-marinaio-sanremo": {
+    image: "/images/guide/osteria-del-marinaio-sanremo.png",
+    imageAlt: text("Illustration of Osteria del Marinaio in Sanremo", "Illustration de Osteria del Marinaio a Sanremo", "Illustrazione di Osteria del Marinaio a Sanremo", "Ілюстрація Osteria del Marinaio у Sanremo"),
+    visualTheme: "food",
+  },
 };
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? {};
