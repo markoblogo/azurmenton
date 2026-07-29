@@ -229,6 +229,8 @@ async function main() {
         strict,
       })
     : report.likelyGuideTargets[0]?.rerunCommand ?? null;
+  const operatorMode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
+  const operatorStatus = issues.some((issue) => issue.severity === "error") ? "needs-attention" : "ok";
   const persistentSummary = publishedGuideSlug
     ? buildGuideAssetsPersistentSummary({
         slug: workingSlug,
@@ -236,6 +238,8 @@ async function main() {
         missingOnly,
         reportOnly,
         failOnUnmatched,
+        mode: operatorMode,
+        status: operatorStatus,
         matchedAssetFiles: resolution.matchedAssetFiles,
         unmatchedAssetFiles: resolution.unmatchedAssetFiles,
         matchedPlaces: resolution.matchedPlaces,
@@ -244,16 +248,15 @@ async function main() {
         likelyGuideTargets: report.likelyGuideTargets,
         bestRerunCommand: report.bestRerunCommand,
         issues,
+        reportPath: path.relative(root, reportPath),
       })
     : null;
 
   const printOperatorSummary = () => {
-    const mode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
-    const hasErrors = issues.some((issue) => issue.severity === "error");
     printGuideOperatorHandoff({
-      status: hasErrors ? "needs-attention" : "ok",
+      status: operatorStatus,
       subject: workingSlug,
-      mode,
+      mode: operatorMode,
       counts: {
         copied: reportOnly ? 0 : operations.length,
         matched: resolution.matchedPlaces.length,

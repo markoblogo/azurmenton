@@ -63,6 +63,7 @@ export type GuideAssetsPersistentSummary = {
   missingOnly: boolean;
   failOnUnmatched: boolean;
   strict: boolean;
+  operatorSummary: string[];
   counts: {
     matched: number;
     unmatched: number;
@@ -514,6 +515,8 @@ export function buildGuideAssetsPersistentSummary(input: {
   missingOnly: boolean;
   reportOnly: boolean;
   failOnUnmatched: boolean;
+  mode: string;
+  status: "ok" | "needs-attention";
   matchedAssetFiles: string[];
   unmatchedAssetFiles: string[];
   matchedPlaces: Array<{ placeId: string }>;
@@ -522,7 +525,26 @@ export function buildGuideAssetsPersistentSummary(input: {
   likelyGuideTargets: GuideAssetTargetSuggestion[];
   bestRerunCommand: string | null;
   issues: Array<{ code: string }>;
+  reportPath?: string | null;
 }): GuideAssetsPersistentSummary {
+  const counts = {
+    matched: input.matchedPlaces.length,
+    unmatched: input.unmatchedAssetFiles.length,
+    skippedCovered: input.skippedAlreadyCoveredPlaces.length,
+    stillMissing: input.publishedGuidePlacesWithoutImage.length,
+  };
+  const operatorSummary = [
+    `status: ${input.status}`,
+    `subject: ${input.slug}`,
+    `mode: ${input.mode}`,
+    `matched: ${counts.matched}`,
+    `skipped-covered: ${counts.skippedCovered}`,
+    `unmatched: ${counts.unmatched}`,
+    `still-missing: ${counts.stillMissing}`,
+    ...(input.reportPath ? [`report: ${input.reportPath}`] : []),
+    ...(input.bestRerunCommand ? [`rerun: ${input.bestRerunCommand}`] : []),
+  ];
+
   return {
     slug: input.slug,
     mode: "published-guide",
@@ -530,12 +552,8 @@ export function buildGuideAssetsPersistentSummary(input: {
     missingOnly: input.missingOnly,
     reportOnly: input.reportOnly,
     failOnUnmatched: input.failOnUnmatched,
-    counts: {
-      matched: input.matchedPlaces.length,
-      unmatched: input.unmatchedAssetFiles.length,
-      skippedCovered: input.skippedAlreadyCoveredPlaces.length,
-      stillMissing: input.publishedGuidePlacesWithoutImage.length,
-    },
+    operatorSummary,
+    counts,
     matchedAssetFiles: input.matchedAssetFiles,
     unmatchedAssetFiles: input.unmatchedAssetFiles,
     matchedPlaceIds: unique(input.matchedPlaces.map((place) => place.placeId)),

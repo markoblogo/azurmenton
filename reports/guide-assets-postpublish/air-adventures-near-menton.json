@@ -5,6 +5,17 @@
   "missingOnly": true,
   "reportOnly": true,
   "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: air-adventures-near-menton",
+    "mode: published-guide + missing-only + report-only",
+    "matched: 0",
+    "skipped-covered: 8",
+    "unmatched: 6",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/air-adventures-near-menton.json",
+    "rerun: npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only"
+  ],
   "counts": {
     "matched": 0,
     "unmatched": 6,

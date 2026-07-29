@@ -331,6 +331,8 @@ describe("guide assets", () => {
         missingOnly: true,
         reportOnly: true,
         failOnUnmatched: false,
+        mode: "published-guide + missing-only + report-only",
+        status: "ok",
         matchedAssetFiles: [],
         unmatchedAssetFiles: ["French Riviera sightseeing flights.png"],
         matchedPlaces: [],
@@ -348,6 +350,7 @@ describe("guide assets", () => {
         bestRerunCommand:
           "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
         issues: [],
+        reportPath: "build/guide-assets-postpublish/airports-near-menton-live-flights.json",
       }),
     ).toEqual({
       slug: "airports-near-menton-live-flights",
@@ -356,6 +359,17 @@ describe("guide assets", () => {
       missingOnly: true,
       reportOnly: true,
       failOnUnmatched: false,
+      operatorSummary: [
+        "status: ok",
+        "subject: airports-near-menton-live-flights",
+        "mode: published-guide + missing-only + report-only",
+        "matched: 0",
+        "skipped-covered: 1",
+        "unmatched: 1",
+        "still-missing: 0",
+        "report: build/guide-assets-postpublish/airports-near-menton-live-flights.json",
+        "rerun: npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+      ],
       counts: {
         matched: 0,
         unmatched: 1,
@@ -389,6 +403,8 @@ describe("guide assets", () => {
         missingOnly: true,
         reportOnly: true,
         failOnUnmatched: false,
+        mode: "published-guide + missing-only + report-only",
+        status: "ok",
         matchedAssetFiles: [],
         unmatchedAssetFiles: [],
         matchedPlaces: [],
@@ -398,6 +414,7 @@ describe("guide assets", () => {
         bestRerunCommand:
           "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
         issues: [],
+        reportPath: "build/guide-assets-postpublish/air-adventures-near-menton.json",
       }).bestRerunCommand,
     ).toBe(
       "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
