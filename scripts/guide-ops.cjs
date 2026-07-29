@@ -49,6 +49,7 @@ async function main() {
 
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
+    if (entry.name.startsWith("_")) continue;
     const intakeDir = path.join(intakeRoot, entry.name);
     const intake = await readJsonIfExists(path.join(intakeDir, "intake.json"));
     const publicationPlan = await readJsonIfExists(path.join(intakeDir, "publication-plan.json"));

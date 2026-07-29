@@ -129,9 +129,10 @@ export function buildGuideReviewReport(input: {
   mapPoints: GuideReviewMapPointReference[];
   mapExclusions: GuideReviewMapExclusionReference[];
 }): GuideReviewReport {
+  const targetGuideSlug = input.publicationPlan.slug ?? input.slug;
   const errors: GuideReviewIssue[] = [];
   const warnings: GuideReviewIssue[] = [];
-  const guide = input.guides.find((item) => item.slug === input.slug);
+  const guide = input.guides.find((item) => item.slug === targetGuideSlug);
   const placeById = new Map(input.places.map((place) => [place.id, place]));
   const pointById = new Map(input.mapPoints.map((point) => [point.placeId, point]));
   const exclusionIds = new Set(input.mapExclusions.map((exclusion) => exclusion.placeId));
@@ -143,7 +144,7 @@ export function buildGuideReviewReport(input: {
     errors.push({
       severity: "error",
       code: "missing-guide-article",
-      message: `Guide slug ${input.slug} is not present in src/content/guide.ts.`,
+      message: `Guide slug ${targetGuideSlug} is not present in src/content/guide.ts.`,
     });
   }
 
@@ -167,7 +168,7 @@ export function buildGuideReviewReport(input: {
       errors.push({
         severity: "error",
         code: "guide-published-on-mismatch",
-        message: `Guide ${input.slug} does not carry publishedOn ${input.publicationPlan.publishedOn}.`,
+        message: `Guide ${targetGuideSlug} does not carry publishedOn ${input.publicationPlan.publishedOn}.`,
       });
     }
 
@@ -175,7 +176,7 @@ export function buildGuideReviewReport(input: {
       errors.push({
         severity: "error",
         code: "guide-category-mismatch",
-        message: `Guide ${input.slug} does not carry category ${input.publicationPlan.category}.`,
+        message: `Guide ${targetGuideSlug} does not carry category ${input.publicationPlan.category}.`,
       });
     }
 
@@ -183,7 +184,7 @@ export function buildGuideReviewReport(input: {
       errors.push({
         severity: "error",
         code: "guide-related-articles-missing",
-        message: `Guide ${input.slug} is missing one or more planned relatedArticles links.`,
+        message: `Guide ${targetGuideSlug} is missing one or more planned relatedArticles links.`,
       });
     }
 
@@ -191,7 +192,7 @@ export function buildGuideReviewReport(input: {
       errors.push({
         severity: "error",
         code: "guide-related-apartments-missing",
-        message: `Guide ${input.slug} is missing one or more planned relatedApartments links.`,
+        message: `Guide ${targetGuideSlug} is missing one or more planned relatedApartments links.`,
       });
     }
 
@@ -199,7 +200,7 @@ export function buildGuideReviewReport(input: {
       errors.push({
         severity: "error",
         code: "guide-related-places-missing",
-        message: `Guide ${input.slug} does not render one or more planned place ids.`,
+        message: `Guide ${targetGuideSlug} does not render one or more planned place ids.`,
       });
     }
   }
@@ -208,8 +209,8 @@ export function buildGuideReviewReport(input: {
     const placeId = (plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId) as string | undefined;
     const place = placeId ? placeById.get(placeId) : undefined;
     const renderedByGuide = placeId ? renderedPlaceIds.has(placeId) : false;
-    const backlinkOk = placeId ? Boolean(place?.relatedArticleIds.includes(input.slug)) : false;
-    const expectedCoverageSlug = plannedPlace.coverageGuideSlug ?? (input.publicationPlan.canonicalGuideForPlaces ? input.slug : null);
+    const backlinkOk = placeId ? Boolean(place?.relatedArticleIds.includes(targetGuideSlug)) : false;
+    const expectedCoverageSlug = plannedPlace.coverageGuideSlug ?? (input.publicationPlan.canonicalGuideForPlaces ? targetGuideSlug : null);
     const coverageOk = expectedCoverageSlug ? Boolean(place?.guideCoverageSlugs?.includes(expectedCoverageSlug)) : true;
 
     let mapOk = true;
@@ -242,7 +243,7 @@ export function buildGuideReviewReport(input: {
         errors.push({
           severity: "error",
           code: "review-place-not-rendered",
-          message: `Guide ${input.slug} does not render place ${placeId}.`,
+          message: `Guide ${targetGuideSlug} does not render place ${placeId}.`,
         });
       }
 
@@ -250,7 +251,7 @@ export function buildGuideReviewReport(input: {
         errors.push({
           severity: "error",
           code: "review-backlink-missing",
-          message: `Place ${placeId} is missing relatedArticleIds backlink to ${input.slug}.`,
+          message: `Place ${placeId} is missing relatedArticleIds backlink to ${targetGuideSlug}.`,
         });
       }
 
@@ -309,27 +310,27 @@ export function buildGuideReviewReport(input: {
   const plannedPublishedOn = input.publicationPlan.publishedOn ?? null;
   const expectsLatestGuideSlot = Boolean(
     plannedPublishedOn &&
-      input.guides.filter((item) => item.slug !== input.slug).every((item) => !item.publishedOn || item.publishedOn <= plannedPublishedOn),
+      input.guides.filter((item) => item.slug !== targetGuideSlug).every((item) => !item.publishedOn || item.publishedOn <= plannedPublishedOn),
   );
 
   if (coverExpected && !coverResolved) {
     errors.push({
       severity: "error",
       code: "review-guide-cover-missing",
-      message: `Guide ${input.slug} expected a cover image but none is resolved on the published guide record.`,
+      message: `Guide ${targetGuideSlug} expected a cover image but none is resolved on the published guide record.`,
     });
   }
 
-  if (expectsLatestGuideSlot && latestGuideSlug !== input.slug) {
+  if (expectsLatestGuideSlot && latestGuideSlug !== targetGuideSlug) {
     warnings.push({
       severity: "warning",
       code: "review-latest-guide-slot-mismatch",
-      message: `Guide ${input.slug} should occupy the landing NEW slot but latest guide logic currently resolves to ${latestGuideSlug ?? "n/a"}.`,
+      message: `Guide ${targetGuideSlug} should occupy the landing NEW slot but latest guide logic currently resolves to ${latestGuideSlug ?? "n/a"}.`,
     });
   }
 
   return {
-    slug: input.slug,
+    slug: targetGuideSlug,
     ok: errors.length === 0,
     errors,
     warnings,
@@ -344,9 +345,9 @@ export function buildGuideReviewReport(input: {
     places: placeStatuses,
     visualHandoff: {
       expectsLatestGuideSlot,
-      inLatestGuideSlot: latestGuideSlug === input.slug,
+      inLatestGuideSlot: latestGuideSlug === targetGuideSlug,
       latestGuideSlug,
-      localeSpotCheckUrls: ["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${input.slug}`),
+      localeSpotCheckUrls: ["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${targetGuideSlug}`),
       landingGuideUrl: "/en/guide",
       coverExpected,
       coverResolved,
@@ -361,8 +362,8 @@ export function buildGuideReviewReport(input: {
       status: errors.length === 0 ? "ok" : "needs-fix",
       headline:
         errors.length === 0
-          ? `Post-merge review looks good for ${input.slug}. Guide graph, backlinks and map obligations are aligned.`
-          : `Post-merge review still has ${errors.length} error${errors.length === 1 ? "" : "s"} for ${input.slug}.`,
+          ? `Post-merge review looks good for ${targetGuideSlug}. Guide graph, backlinks and map obligations are aligned.`
+          : `Post-merge review still has ${errors.length} error${errors.length === 1 ? "" : "s"} for ${targetGuideSlug}.`,
       counts: {
         errors: errors.length,
         warnings: warnings.length,
@@ -381,14 +382,14 @@ export function buildGuideReviewReport(input: {
         ...(errors.length === 0 ? warnings.slice(0, 3).map((issue) => `[${issue.code}] ${issue.message}`) : []),
       ],
       ownerVisualCheck: [
-        `Open ${`/en/guide/${input.slug}`} and confirm cover correctness.`,
+        `Open ${`/en/guide/${targetGuideSlug}`} and confirm cover correctness.`,
         `Open build/guide-intake/${input.slug}/review/owner-checklist.md for the full visual checklist.`,
         guide && latestGuideSlug
           ? `Check guide landing NEW-slot expectation on /en/guide (${guide.publishedOn === input.publicationPlan.publishedOn ? "same-date/latest logic applies" : `latest guide is ${latestGuideSlug}`}).`
           : `Check guide landing position on /en/guide.`,
       ],
       localeSpotChecks: [
-        ...["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${input.slug}`),
+        ...["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${targetGuideSlug}`),
       ],
     },
   };

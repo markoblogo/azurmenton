@@ -111,6 +111,8 @@ async function main() {
     return;
   }
 
+  const targetGuideSlug = publicationPlan.slug ?? slug;
+
   let coverExists = undefined;
   if (intake.coverPathHint) {
     try {
@@ -142,12 +144,14 @@ async function main() {
     },
   );
 
+  const placeById = new Map(places.map((place) => [place.id, place]));
+
   const placeIds = (publicationPlan.plannedPlaces ?? [])
     .map((plannedPlace) => plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId)
     .filter(Boolean);
   const placeImages = {};
   for (const placeId of placeIds) {
-    const publicPath = await resolvePublicGuideAsset(placeId);
+    const publicPath = (await resolvePublicGuideAsset(placeId)) ?? placeById.get(placeId)?.image;
     if (publicPath) placeImages[placeId] = publicPath;
   }
 
@@ -165,7 +169,7 @@ async function main() {
       guideCoverageSlugs: place.guideCoverageSlugs,
     })),
     assets: {
-      coverImage: await resolvePublicGuideAsset(slug),
+      coverImage: await resolvePublicGuideAsset(targetGuideSlug),
       placeImages,
     },
     checkErrors: checkReport.errors,
@@ -183,12 +187,12 @@ async function main() {
   ]);
 
   const publishReport = buildGuidePublishReport({
-    slug,
+    slug: targetGuideSlug,
     publicationPlan,
     checkReport,
     applyArtifacts,
     assetsReport,
-    resolvedCoverImage: await resolvePublicGuideAsset(slug),
+    resolvedCoverImage: await resolvePublicGuideAsset(targetGuideSlug),
     resolvedPlaceImages: placeImages,
   });
 

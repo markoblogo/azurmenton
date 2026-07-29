@@ -170,4 +170,47 @@ describe("guide review report", () => {
     expect(report.warnings.map((issue) => issue.code)).toContain("review-latest-guide-slot-mismatch");
     expect(report.operator.ownerVisualCheck[2]).toContain("/en/guide");
   });
+
+  it("can review an intake slug against a published guide slug from the publication plan", () => {
+    const plan = {
+      ...makePublicationPlan(),
+      slug: "cheap-eats-menton-budget-lunch",
+    };
+
+    const report = buildGuideReviewReport({
+      slug: "cheap-eats-in-menton-best-budget-lunches-daily-menus-local-canteens",
+      publicationPlan: plan,
+      guides: [
+        {
+          slug: "cheap-eats-menton-budget-lunch",
+          publishedOn: "2026-07-28",
+          category: "food-markets",
+          coverImage: "/images/guide/cheap-eats-menton-budget-lunch.jpg",
+          relatedPlaces: ["alls-stars-menton"],
+          relatedArticles: ["best-pizzerias-menton"],
+          relatedApartments: ["sea-view-balcony-studio"],
+          sections: [],
+        },
+      ],
+      places: [
+        {
+          id: "alls-stars-menton",
+          relatedArticleIds: ["cheap-eats-menton-budget-lunch"],
+          guideCoverageSlugs: ["burgers-menton"],
+          requiresMapReview: true,
+        },
+      ],
+      mapPoints: [
+        {
+          placeId: "alls-stars-menton",
+          review: { sourceUrl: "https://example.com", checkedOn: "2026-07-28" },
+        },
+      ],
+      mapExclusions: [],
+    });
+
+    expect(report.ok).toBe(true);
+    expect(report.slug).toBe("cheap-eats-menton-budget-lunch");
+    expect(report.visualHandoff.localeSpotCheckUrls[0]).toBe("/en/guide/cheap-eats-menton-budget-lunch");
+  });
 });
