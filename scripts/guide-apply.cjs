@@ -49,6 +49,10 @@ async function main() {
   const intakeDir = path.join(root, "build", "guide-intake", slug);
   const intake = JSON.parse(await fs.readFile(path.join(intakeDir, "intake.json"), "utf8"));
   const publicationPlan = JSON.parse(await fs.readFile(path.join(intakeDir, "publication-plan.json"), "utf8"));
+  let structure = null;
+  try {
+    structure = JSON.parse(await fs.readFile(path.join(intakeDir, "structure.json"), "utf8"));
+  } catch {}
 
   let coverExists = undefined;
   if (intake.coverPathHint) {
@@ -107,6 +111,7 @@ async function main() {
       coverImage: await resolvePublicGuideAsset(slug),
       placeImages,
     },
+    structure,
     checkErrors: report.errors,
   });
 

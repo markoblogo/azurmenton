@@ -2,6 +2,7 @@ import type { GuideCategory } from "@/content/guide";
 import type { PlaceType } from "@/content/places";
 import type { GuidePublicationPlan, GuidePublicationPlanPlace } from "@/lib/guide-check";
 import type { GuideIntake, GuidePlaceCandidate } from "@/lib/guide-intake";
+import type { GuideStructure } from "@/lib/guide-structure";
 
 export type GuideApplyGuideReference = {
   slug: string;
@@ -112,11 +113,18 @@ function unique<T>(values: T[]) {
   return [...new Set(values)];
 }
 
+function firstSentence(value: string) {
+  const trimmed = value.trim();
+  if (!trimmed) return trimmed;
+  const match = trimmed.match(/^.+?[.!?](?:\s|$)/);
+  return (match?.[0] ?? trimmed).trim();
+}
+
 function placeIdForPlan(place: GuidePublicationPlanPlace) {
   return place.existingPlaceId ?? place.newPlaceId ?? null;
 }
 
-function buildGuideSections(intake: GuideIntake, publicationPlan: GuidePublicationPlan) {
+function buildGuideSections(intake: GuideIntake, publicationPlan: GuidePublicationPlan, structure?: GuideStructure | null) {
   const placeBySection = new Map<string, string[]>();
 
   for (const plannedPlace of publicationPlan.plannedPlaces ?? []) {
@@ -129,13 +137,29 @@ function buildGuideSections(intake: GuideIntake, publicationPlan: GuidePublicati
     placeBySection.set(candidate.section, existing);
   }
 
+  const structureByHeading = new Map((structure?.sections ?? []).map((section) => [section.heading, section]));
+
   return intake.sectionHeadings.map((heading) => {
     const relatedPlaceIds = unique(placeBySection.get(heading) ?? []);
+    const structuredSection = structureByHeading.get(heading);
+    const derivedBody = structuredSection
+      ? [
+          ...structuredSection.bodyParagraphs,
+          ...structuredSection.placeCards
+            .map((card) => {
+              const summary = card.bodyParagraphs[0] ? firstSentence(card.bodyParagraphs[0]) : "";
+              return summary ? `${card.draftName}: ${summary}` : card.draftName;
+            }),
+        ]
+      : [];
+    const bodyBlock = derivedBody.length
+      ? derivedBody.map((paragraph) => `          ${localizedText(paragraph)}`).join(",\n")
+      : `          ${localizedText("TODO: add localized section body from the draft.")}`;
     const relatedPlaceBlock = relatedPlaceIds.length ? `,\n        relatedPlaceIds: ${arr(relatedPlaceIds, 10)}` : "";
     return `      {
         heading: ${localizedText(heading)},
         body: [
-          ${localizedText("TODO: add localized section body from the draft.")}
+${bodyBlock}
         ]${relatedPlaceBlock}
       }`;
   });
@@ -146,13 +170,14 @@ function buildGuideArticleSnippet(
   publicationPlan: GuidePublicationPlan,
   assets: GuideApplyAssetMap,
   places: GuideApplyPlaceReference[],
+  structure?: GuideStructure | null,
 ) {
   const placeIds = unique([
     ...(publicationPlan.relatedPlaceIds ?? []),
     ...((publicationPlan.plannedPlaces ?? []).map((plannedPlace) => placeIdForPlan(plannedPlace)).filter(Boolean) as string[]),
   ]);
   const apartmentExpr = inferApartmentPreset(publicationPlan.relatedApartmentSlugs ?? []);
-  const sectionBlocks = buildGuideSections(intake, publicationPlan).join(",\n");
+  const sectionBlocks = buildGuideSections(intake, publicationPlan, structure).join(",\n");
   const coverBlock = assets.coverImage
     ? `    coverImage: ${quote(assets.coverImage)},
     coverImageAlt: ${localizedText(`Illustration for ${intake.title}`)},
@@ -304,14 +329,15 @@ export function buildGuideApplyArtifacts(input: {
   guides: GuideApplyGuideReference[];
   places: GuideApplyPlaceReference[];
   assets: GuideApplyAssetMap;
+  structure?: GuideStructure | null;
   checkErrors?: { code: string; message: string }[];
 }) : GuideApplyArtifacts {
-  const { intake, publicationPlan, places, assets, checkErrors } = input;
+  const { intake, publicationPlan, places, assets, structure, checkErrors } = input;
   const newPlaceIds = unique((publicationPlan.plannedPlaces ?? []).map((plannedPlace) => plannedPlace.newPlaceId).filter(Boolean) as string[]);
   const existingPlaceIds = unique((publicationPlan.plannedPlaces ?? []).map((plannedPlace) => plannedPlace.existingPlaceId).filter(Boolean) as string[]);
 
   return {
-    guideArticleSnippet: buildGuideArticleSnippet(intake, publicationPlan, assets, places),
+    guideArticleSnippet: buildGuideArticleSnippet(intake, publicationPlan, assets, places, structure),
     placesRawSnippet: buildPlaceRawSnippet(intake, publicationPlan, places),
     placeVisualsSnippet: buildPlaceVisualsSnippet(publicationPlan, assets),
     integrationChecklist: buildChecklist(intake, publicationPlan, assets, places),

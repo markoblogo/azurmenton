@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { buildGuideApplyArtifacts } from "../../src/lib/guide-apply";
 import type { GuidePublicationPlan } from "../../src/lib/guide-check";
 import type { GuideIntake } from "../../src/lib/guide-intake";
+import type { GuideStructure } from "../../src/lib/guide-structure";
 
 describe("guide apply artifacts", () => {
   it("builds patch-ready scaffolds from intake and publication plan", () => {
@@ -70,5 +71,72 @@ describe("guide apply artifacts", () => {
     expect(artifacts.placesRawSnippet).toContain('id: "new-burger-place-menton"');
     expect(artifacts.placeVisualsSnippet).toContain('"new-burger-place-menton": {');
     expect(artifacts.integrationChecklist).toContain("create new-burger-place-menton");
+  });
+
+  it("uses extracted structure prose when available", () => {
+    const intake: GuideIntake = {
+      title: "Burgers in Menton",
+      slug: "burgers-menton",
+      seoTitle: "Burgers in Menton",
+      metaDescription: "Burger guide",
+      intro: "Burger intro",
+      sectionHeadings: ["Local burger restaurants"],
+      placeCandidates: [{ name: "All's Stars", section: "Local burger restaurants" }],
+      relatedGuideTitles: [],
+    };
+
+    const publicationPlan: GuidePublicationPlan = {
+      publishedOn: "2026-07-28",
+      category: "food-markets",
+      coverImageStatus: "provided",
+      relatedPlaceIds: ["alls-stars-menton"],
+      relatedArticleSlugs: [],
+      relatedApartmentSlugs: [],
+      canonicalGuideForPlaces: true,
+      plannedPlaces: [
+        {
+          draftName: "All's Stars",
+          existingPlaceId: "alls-stars-menton",
+          imageStatus: "provided",
+          requiresMapReview: true,
+          mapAction: "point",
+          coverageGuideSlug: "burgers-menton",
+        },
+      ],
+    };
+
+    const structure: GuideStructure = {
+      slug: "burgers-menton",
+      title: "Burgers in Menton",
+      introParagraphs: ["Burger intro"],
+      sections: [
+        {
+          heading: "Local burger restaurants",
+          kind: "place-group",
+          bodyParagraphs: ["Start with the independent burger addresses around central Menton."],
+          relatedPlaceDraftNames: ["All's Stars"],
+          placeCards: [
+            {
+              draftName: "All's Stars",
+              bodyParagraphs: ["A practical burger stop close to the centre and seafront."],
+            },
+          ],
+        },
+      ],
+    };
+
+    const artifacts = buildGuideApplyArtifacts({
+      intake,
+      publicationPlan,
+      guides: [],
+      places: [{ id: "alls-stars-menton", name: "All's Stars", type: "restaurant", image: "/images/guide/alls-stars-menton.jpg" }],
+      assets: {},
+      structure,
+      checkErrors: [],
+    });
+
+    expect(artifacts.guideArticleSnippet).toContain("Start with the independent burger addresses around central Menton.");
+    expect(artifacts.guideArticleSnippet).toContain("All's Stars: A practical burger stop close to the centre and seafront.");
+    expect(artifacts.guideArticleSnippet).not.toContain("TODO: add localized section body from the draft.");
   });
 });

@@ -9,6 +9,7 @@ Use the commands in this order:
 ```bash
 npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
 npm run guide:match -- --slug <slug>
+npm run guide:structure -- --slug <slug>
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/asset-package]
 npm run guide:apply -- --slug <slug>
@@ -24,7 +25,9 @@ npm run guide:review -- --slug <slug>
 - creates `build/guide-intake/<slug>/`
 - extracts title, slug, section headings, place candidates and related guide hints
 - writes:
+  - `draft.md`
   - `intake.json`
+  - `structure.json`
   - `guide-scaffold.md`
   - `places-scaffold.md`
   - `publication-plan.json`
@@ -44,6 +47,18 @@ npm run guide:review -- --slug <slug>
   - map action
   - coverage guide slug
 - writes `match-report.json`
+
+### `guide:structure`
+
+- rebuilds a section-aware structure from `draft.md`
+- writes:
+  - `structure.json`
+  - `structure-scaffold.md`
+- extracts:
+  - intro paragraphs
+  - section body paragraphs
+  - place-card summaries under the right parent section
+- `guide:apply` uses this when present so section snippets start from real draft prose instead of blank TODO-only bodies
 
 ### `guide:check`
 

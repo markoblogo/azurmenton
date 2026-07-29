@@ -18,6 +18,7 @@
     "guide:apply": "node scripts/guide-apply.cjs",
     "guide:match": "node scripts/guide-match.cjs",
     "guide:new": "node scripts/guide-new.cjs",
+    "guide:structure": "node scripts/guide-structure.cjs",
     "guide:check": "node scripts/guide-check.cjs",
     "guide:patch": "node scripts/guide-patch.cjs",
     "guide:publish": "node scripts/guide-publish.cjs",

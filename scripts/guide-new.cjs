@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { extractGuideIntake } = require("../src/lib/guide-intake.ts");
+const { extractGuideStructure } = require("../src/lib/guide-structure.ts");
 const { buildSeededPublicationPlan, seedGuideIntake } = require("../src/lib/guide-plan-seeding.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
@@ -112,7 +113,9 @@ async function main() {
   await fs.mkdir(outputDir, { recursive: true });
 
   await Promise.all([
+    fs.writeFile(path.join(outputDir, "draft.md"), raw),
     fs.writeFile(path.join(outputDir, "intake.json"), `${JSON.stringify(intake, null, 2)}\n`),
+    fs.writeFile(path.join(outputDir, "structure.json"), `${JSON.stringify(extractGuideStructure(raw, intake), null, 2)}\n`),
     fs.writeFile(path.join(outputDir, "guide-scaffold.md"), `${renderGuideScaffold(intake)}\n`),
     fs.writeFile(path.join(outputDir, "places-scaffold.md"), `${renderPlacesScaffold(intake)}\n`),
     fs.writeFile(path.join(outputDir, "publication-plan.json"), `${JSON.stringify(publicationPlan, null, 2)}\n`),
@@ -120,6 +123,7 @@ async function main() {
 
   console.log(`guide intake generated: ${path.relative(root, outputDir)}`);
   console.log(`- intake.json`);
+  console.log(`- structure.json`);
   console.log(`- guide-scaffold.md`);
   console.log(`- places-scaffold.md`);
   console.log(`- publication-plan.json`);
