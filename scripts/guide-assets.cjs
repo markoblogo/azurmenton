@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { parsePlaceAssetArgs, resolveGuideAssetPlan } = require("../src/lib/guide-assets.ts");
+const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 
 function readArg(name) {
@@ -37,15 +38,19 @@ async function fileExists(targetPath) {
 
 async function main() {
   const slug = readArg("--slug");
+  const publishedGuideSlug = readArg("--published-guide");
   const strict = process.argv.includes("--strict");
-  if (!slug) {
-    console.log("Usage: npm run guide:assets -- --slug <slug> [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--strict]");
+  if (!slug && !publishedGuideSlug) {
+    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--strict]");
     process.exitCode = 1;
     return;
   }
-  const intakePath = path.join(root, "build", "guide-intake", slug, "intake.json");
-  const publicationPlanPath = path.join(root, "build", "guide-intake", slug, "publication-plan.json");
-  const reportPath = path.join(root, "build", "guide-intake", slug, "assets-report.json");
+  const workingSlug = publishedGuideSlug ?? slug;
+  const intakePath = slug ? path.join(root, "build", "guide-intake", slug, "intake.json") : null;
+  const publicationPlanPath = slug ? path.join(root, "build", "guide-intake", slug, "publication-plan.json") : null;
+  const reportPath = slug
+    ? path.join(root, "build", "guide-intake", slug, "assets-report.json")
+    : path.join(root, "build", "guide-assets-postpublish", `${publishedGuideSlug}.json`);
   const registryPath = path.join(root, "scripts", "lib", "image-derivative-targets.json");
   const manifestPath = path.join(root, "public", "images", "generated-manifest.json");
 
@@ -58,26 +63,51 @@ async function main() {
     }
   }
 
-  const intake = JSON.parse(await fs.readFile(intakePath, "utf8"));
+  const intake = intakePath ? JSON.parse(await fs.readFile(intakePath, "utf8")) : null;
   let publicationPlan = null;
-  try {
-    publicationPlan = JSON.parse(await fs.readFile(publicationPlanPath, "utf8"));
-  } catch {
-    publicationPlan = null;
+  if (publicationPlanPath) {
+    try {
+      publicationPlan = JSON.parse(await fs.readFile(publicationPlanPath, "utf8"));
+    } catch {
+      publicationPlan = null;
+    }
   }
   const { loadTargets, saveTargets, generateDerivatives } = await import("./lib/image-derivatives.mjs");
   const overrides = parsePlaceAssetArgs(placeArgs).map((asset) => ({ ...asset, sourcePath: path.resolve(asset.sourcePath) }));
   const resolvedAssetsDir = assetsDir ? path.resolve(assetsDir) : publicationPlan?.assetsDirectory ? path.resolve(publicationPlan.assetsDirectory) : undefined;
   const existingPlaceImages = Object.fromEntries(places.filter((place) => place.image).map((place) => [place.id, place.image]));
+  const publishedGuide = publishedGuideSlug
+    ? (() => {
+        const guide = guideArticles.find((article) => article.slug === publishedGuideSlug);
+        if (!guide) {
+          throw new Error(`Unknown published guide slug: ${publishedGuideSlug}`);
+        }
+        const relatedPlaceIds = [...new Set([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])])];
+        return {
+          slug: guide.slug,
+          intakeTitle: guide.title.en,
+          coverImage: guide.coverImage,
+          places: relatedPlaceIds.map((placeId) => {
+            const place = places.find((entry) => entry.id === placeId);
+            return {
+              placeId,
+              draftName: place?.name ?? placeId,
+              image: place?.image,
+            };
+          }),
+        };
+      })()
+    : null;
   const resolution = resolveGuideAssetPlan({
-    slug,
-    intakeTitle: intake.title,
+    slug: workingSlug,
+    outputSlug: publishedGuide?.slug ?? workingSlug,
+    intakeTitle: publishedGuide?.intakeTitle ?? intake?.title,
     coverPathHint:
       coverOverride
         ? path.resolve(coverOverride)
         : publicationPlan?.coverImageStatus === "not_needed"
           ? undefined
-          : intake.coverPathHint,
+          : intake?.coverPathHint,
     coverImageStatus: publicationPlan?.coverImageStatus ?? null,
     coverAssetPath: publicationPlan?.coverAssetPath ? path.resolve(publicationPlan.coverAssetPath) : null,
     coverAssetFileName: publicationPlan?.coverAssetFileName ?? null,
@@ -86,6 +116,8 @@ async function main() {
     placeAssetOverrides: overrides,
     availableAssetFiles: resolvedAssetsDir ? await existingFilesInDirectory(resolvedAssetsDir) : [],
     existingPlaceImages,
+    knownPlaces: places.map((place) => ({ id: place.id, name: place.name, image: place.image })),
+    publishedGuide: publishedGuide ?? undefined,
   });
   const operations = [];
   const issues = [...resolution.issues];
@@ -119,24 +151,35 @@ async function main() {
   }
 
   const report = {
-    slug,
+    slug: workingSlug,
     strict,
     operations,
     issues,
     matchedAssetFiles: resolution.matchedAssetFiles,
     unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+    matchedPlaces: resolution.matchedPlaces,
     expectedCoverAsset: resolution.expectedCoverAsset,
     missingExpectedCoverAsset: resolution.missingExpectedCoverAsset,
     expectedAssetPlaceIds: resolution.expectedAssetPlaceIds,
     missingExpectedAssetPlaceIds: resolution.missingExpectedAssetPlaceIds,
+    publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
   };
 
+  await fs.mkdir(path.dirname(reportPath), { recursive: true });
   if (!operations.length) {
-    console.log(`No asset operations for ${slug}.`);
+    console.log(`No asset operations for ${workingSlug}.`);
     if (issues.length) {
       for (const issue of issues) console.log(`- [${issue.code}] ${issue.message}`);
       if (resolution.matchedAssetFiles.length) console.log(`- matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
-      if (resolution.unmatchedAssetFiles.length) console.log(`- unused assets: ${resolution.unmatchedAssetFiles.join(", ")}`);
+      if (resolution.matchedPlaces.length) {
+        console.log("matched to existing places");
+        for (const place of resolution.matchedPlaces) console.log(`- ${place.placeId} (${place.draftName}) <= ${path.basename(place.sourcePath)}`);
+      }
+      if (resolution.unmatchedAssetFiles.length) console.log(`unmatched files: ${resolution.unmatchedAssetFiles.join(", ")}`);
+      if (resolution.publishedGuidePlacesWithoutImage.length) {
+        console.log("published guide places still without image");
+        for (const place of resolution.publishedGuidePlacesWithoutImage) console.log(`- ${place.placeId} (${place.draftName})`);
+      }
       await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
       if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     }
@@ -183,8 +226,20 @@ async function main() {
   if (resolution.matchedAssetFiles.length) {
     console.log(`matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
   }
+  if (resolution.matchedPlaces.length) {
+    console.log("matched to existing places");
+    for (const place of resolution.matchedPlaces) {
+      console.log(`- ${place.placeId} (${place.draftName}) <= ${path.basename(place.sourcePath)}`);
+    }
+  }
   if (resolution.unmatchedAssetFiles.length) {
-    console.log(`unused assets: ${resolution.unmatchedAssetFiles.join(", ")}`);
+    console.log(`unmatched files: ${resolution.unmatchedAssetFiles.join(", ")}`);
+  }
+  if (resolution.publishedGuidePlacesWithoutImage.length) {
+    console.log("published guide places still without image");
+    for (const place of resolution.publishedGuidePlacesWithoutImage) {
+      console.log(`- ${place.placeId} (${place.draftName})`);
+    }
   }
   if (issues.length) {
     for (const issue of issues) console.log(`- [${issue.code}] ${issue.message}`);

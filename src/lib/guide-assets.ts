@@ -29,10 +29,42 @@ export type GuideAssetResolutionPlan = {
   issues: GuideAssetPlanIssue[];
   matchedAssetFiles: string[];
   unmatchedAssetFiles: string[];
+  matchedPlaces: Array<{
+    placeId: string;
+    draftName: string;
+    sourcePath: string;
+    destinationPath: string;
+  }>;
   expectedAssetPlaceIds: string[];
   missingExpectedAssetPlaceIds: string[];
   expectedCoverAsset: boolean;
   missingExpectedCoverAsset: boolean;
+  publishedGuidePlacesWithoutImage: Array<{
+    placeId: string;
+    draftName: string;
+  }>;
+};
+
+export type PublishedGuideAssetPlace = {
+  placeId: string;
+  draftName: string;
+  image?: string;
+};
+
+export type PublishedGuideAssetContext = {
+  slug: string;
+  intakeTitle?: string;
+  coverImage?: string;
+  places: PublishedGuideAssetPlace[];
+};
+
+type GuideAssetCandidatePlace = {
+  draftName: string;
+  existingPlaceId?: string | null;
+  newPlaceId?: string | null;
+  imageStatus?: GuidePublicationImageStatus | "existing" | "pending" | null;
+  assetPath?: string | null;
+  assetFileName?: string | null;
 };
 
 function normalizeExt(value: string) {
@@ -99,6 +131,7 @@ function normalizeName(value: string) {
 
 export function resolveGuideAssetPlan(input: {
   slug: string;
+  outputSlug?: string;
   intakeTitle?: string;
   coverPathHint?: string;
   coverImageStatus?: GuidePublicationImageStatus | null;
@@ -116,16 +149,59 @@ export function resolveGuideAssetPlan(input: {
   placeAssetOverrides?: PlaceAssetInput[];
   availableAssetFiles?: string[];
   existingPlaceImages?: Record<string, string | undefined>;
+  knownPlaces?: Array<{
+    id: string;
+    name: string;
+    image?: string;
+  }>;
+  publishedGuide?: PublishedGuideAssetContext;
 }) : GuideAssetResolutionPlan {
   const operations: GuideAssetCopyOperation[] = [];
   const issues: GuideAssetPlanIssue[] = [];
+  const matchedPlaces: GuideAssetResolutionPlan["matchedPlaces"] = [];
   const availableFiles = input.availableAssetFiles ?? [];
   const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
   const matchedAssetFiles = new Set<string>();
   const expectedAssetPlaceIds = new Set<string>();
   const missingExpectedAssetPlaceIds = new Set<string>();
-  const expectedCoverAsset = input.coverImageStatus === "provided";
+  const outputSlug = input.outputSlug ?? input.publishedGuide?.slug ?? input.slug;
+  const knownPlaceById = new Map(
+    [
+      ...(input.knownPlaces ?? []),
+      ...(input.publishedGuide?.places.map((place) => ({ id: place.placeId, name: place.draftName, image: place.image })) ?? []),
+    ].map((place) => [place.id, place]),
+  );
+
+  const candidatePlaces: GuideAssetCandidatePlace[] = [
+    ...(input.plannedPlaces ?? []),
+    ...(input.publishedGuide?.places.map((place) => ({
+      draftName: place.draftName,
+      existingPlaceId: place.placeId,
+      imageStatus: place.image ? ("existing" as const) : ("pending" as const),
+    })) ?? []),
+  ];
+
+  const candidatePlaceIds = new Set(
+    candidatePlaces.map((place) => place.existingPlaceId ?? place.newPlaceId).filter(Boolean) as string[],
+  );
+
+  for (const placeId of overrideByPlaceId.keys()) {
+    if (candidatePlaceIds.has(placeId)) continue;
+    const knownPlace = knownPlaceById.get(placeId);
+    candidatePlaces.push({
+      draftName: knownPlace?.name ?? placeId,
+      existingPlaceId: placeId,
+      imageStatus: "provided",
+    });
+    candidatePlaceIds.add(placeId);
+  }
+
+  const expectedCoverAsset =
+    input.coverImageStatus === "provided" ||
+    Boolean(input.coverAssetPath) ||
+    Boolean(input.coverAssetFileName) ||
+    Boolean(input.coverPathHint);
 
   const findAssetFromDirectory = (candidates: string[]) => {
     for (const candidate of candidates) {
@@ -152,8 +228,14 @@ export function resolveGuideAssetPlan(input: {
     return undefined;
   })();
 
-  if (coverSourcePath) {
-    operations.push(...buildGuideAssetPlan({ slug: input.slug, coverPathHint: coverSourcePath }));
+  if (coverSourcePath && input.publishedGuide?.coverImage) {
+    issues.push({
+      severity: "error",
+      code: "published-guide-cover-already-exists",
+      message: `Published guide ${input.publishedGuide.slug} already has cover ${input.publishedGuide.coverImage}; guide:assets will not create a duplicate cover asset.`,
+    });
+  } else if (coverSourcePath) {
+    operations.push(...buildGuideAssetPlan({ slug: outputSlug, coverPathHint: coverSourcePath }));
   } else if (input.coverImageStatus === "provided") {
     issues.push({
       severity: "error",
@@ -163,7 +245,7 @@ export function resolveGuideAssetPlan(input: {
   }
 
   const placeAssets: PlaceAssetInput[] = [];
-  for (const plannedPlace of input.plannedPlaces ?? []) {
+  for (const plannedPlace of candidatePlaces) {
     const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
     if (!placeId) continue;
     if (plannedPlace.imageStatus === "provided") expectedAssetPlaceIds.add(placeId);
@@ -171,17 +253,35 @@ export function resolveGuideAssetPlan(input: {
     const override = overrideByPlaceId.get(placeId);
     if (override) {
       placeAssets.push({ placeId, sourcePath: override });
+      matchedPlaces.push({
+        placeId,
+        draftName: plannedPlace.draftName,
+        sourcePath: override,
+        destinationPath: `public/images/guide/${placeId}${normalizeExt(override.slice(override.lastIndexOf(".")))}`,
+      });
       continue;
     }
 
     if (plannedPlace.assetPath) {
       placeAssets.push({ placeId, sourcePath: plannedPlace.assetPath });
+      matchedPlaces.push({
+        placeId,
+        draftName: plannedPlace.draftName,
+        sourcePath: plannedPlace.assetPath,
+        destinationPath: `public/images/guide/${placeId}${normalizeExt(plannedPlace.assetPath.slice(plannedPlace.assetPath.lastIndexOf(".")))}`,
+      });
       continue;
     }
 
     if (input.assetsDirectory && plannedPlace.assetFileName) {
       matchedAssetFiles.add(plannedPlace.assetFileName);
       placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${plannedPlace.assetFileName}` });
+      matchedPlaces.push({
+        placeId,
+        draftName: plannedPlace.draftName,
+        sourcePath: `${input.assetsDirectory}/${plannedPlace.assetFileName}`,
+        destinationPath: `public/images/guide/${placeId}${normalizeExt(plannedPlace.assetFileName.slice(plannedPlace.assetFileName.lastIndexOf(".")))}`,
+      });
       continue;
     }
 
@@ -190,6 +290,12 @@ export function resolveGuideAssetPlan(input: {
       if (match) {
         matchedAssetFiles.add(match);
         placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${match}` });
+        matchedPlaces.push({
+          placeId,
+          draftName: plannedPlace.draftName,
+          sourcePath: `${input.assetsDirectory}/${match}`,
+          destinationPath: `public/images/guide/${placeId}${normalizeExt(match.slice(match.lastIndexOf(".")))}`,
+        });
         continue;
       }
     }
@@ -219,16 +325,31 @@ export function resolveGuideAssetPlan(input: {
     }
   }
 
-  operations.push(...buildGuideAssetPlan({ slug: input.slug, placeAssets }));
+  operations.push(...buildGuideAssetPlan({ slug: outputSlug, placeAssets }));
+
+  const publishedGuidePlacesWithoutImage = input.publishedGuide
+    ? candidatePlaces
+        .map((plannedPlace) => {
+          const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
+          if (!placeId) return null;
+          const existingImage = input.existingPlaceImages?.[placeId] ?? knownPlaceById.get(placeId)?.image;
+          const matched = matchedPlaces.some((entry) => entry.placeId === placeId);
+          if (existingImage || matched) return null;
+          return { placeId, draftName: plannedPlace.draftName };
+        })
+        .filter(Boolean) as Array<{ placeId: string; draftName: string }>
+    : [];
 
   return {
     operations,
     issues,
     matchedAssetFiles: [...matchedAssetFiles].sort(),
     unmatchedAssetFiles: availableFiles.filter((file) => !matchedAssetFiles.has(file)),
+    matchedPlaces,
     expectedAssetPlaceIds: [...expectedAssetPlaceIds].sort(),
     missingExpectedAssetPlaceIds: [...missingExpectedAssetPlaceIds].sort(),
     expectedCoverAsset,
     missingExpectedCoverAsset: expectedCoverAsset && !coverSourcePath,
+    publishedGuidePlacesWithoutImage,
   };
 }

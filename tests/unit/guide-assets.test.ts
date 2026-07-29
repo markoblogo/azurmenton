@@ -115,4 +115,76 @@ describe("guide assets", () => {
     expect(plan.missingExpectedAssetPlaceIds).toEqual([]);
     expect(plan.unmatchedAssetFiles).toEqual(["unused.png"]);
   });
+
+  it("accepts explicit place overrides even when a place is outside the intake publication plan", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "cheap-eats-intake-slug",
+      placeAssetOverrides: [{ placeId: "la-cantine-des-copains-nice", sourcePath: "/tmp/copains.png" }],
+      knownPlaces: [{ id: "la-cantine-des-copains-nice", name: "La Cantine des Copains" }],
+    });
+
+    expect(plan.operations).toEqual([
+      {
+        kind: "place",
+        sourcePath: "/tmp/copains.png",
+        destinationPath: "public/images/guide/la-cantine-des-copains-nice.png",
+        publicPath: "/images/guide/la-cantine-des-copains-nice.png",
+      },
+    ]);
+    expect(plan.matchedPlaces).toEqual([
+      {
+        placeId: "la-cantine-des-copains-nice",
+        draftName: "La Cantine des Copains",
+        sourcePath: "/tmp/copains.png",
+        destinationPath: "public/images/guide/la-cantine-des-copains-nice.png",
+      },
+    ]);
+  });
+
+  it("supports published-guide mode, blocks duplicate cover creation and reports remaining missing place images", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "cheap-eats-intake-slug",
+      outputSlug: "cheap-eats-menton-budget-lunch",
+      assetsDirectory: "/tmp/assets",
+      availableAssetFiles: ["cover.png", "Mont Gout.png"],
+      publishedGuide: {
+        slug: "cheap-eats-menton-budget-lunch",
+        intakeTitle: "Cheap Eats in Menton",
+        coverImage: "/images/guide/cheap-eats-menton-budget-lunch.png",
+        places: [
+          { placeId: "mont-gout-menton", draftName: "Mont Goût" },
+          { placeId: "chez-les-grecs-monaco", draftName: "Chez Les Grecs" },
+          { placeId: "la-pescaria-de-menton", draftName: "La Pescaria de Menton", image: "/images/guide/la-pescaria-de-menton.jpg" },
+        ],
+      },
+      knownPlaces: [
+        { id: "mont-gout-menton", name: "Mont Goût" },
+        { id: "chez-les-grecs-monaco", name: "Chez Les Grecs" },
+        { id: "la-pescaria-de-menton", name: "La Pescaria de Menton", image: "/images/guide/la-pescaria-de-menton.jpg" },
+      ],
+      existingPlaceImages: {
+        "la-pescaria-de-menton": "/images/guide/la-pescaria-de-menton.jpg",
+      },
+    });
+
+    expect(plan.operations).toEqual([
+      {
+        kind: "place",
+        sourcePath: "/tmp/assets/Mont Gout.png",
+        destinationPath: "public/images/guide/mont-gout-menton.png",
+        publicPath: "/images/guide/mont-gout-menton.png",
+      },
+    ]);
+    expect(plan.issues.map((issue) => issue.code)).toContain("published-guide-cover-already-exists");
+    expect(plan.unmatchedAssetFiles).toEqual([]);
+    expect(plan.matchedPlaces).toEqual([
+      {
+        placeId: "mont-gout-menton",
+        draftName: "Mont Goût",
+        sourcePath: "/tmp/assets/Mont Gout.png",
+        destinationPath: "public/images/guide/mont-gout-menton.png",
+      },
+    ]);
+    expect(plan.publishedGuidePlacesWithoutImage).toEqual([{ placeId: "chez-les-grecs-monaco", draftName: "Chez Les Grecs" }]);
+  });
 });

@@ -98,6 +98,20 @@
     ]
   },
   {
+    "source": "public/images/guide/la-cantine-de-jo-nice.png",
+    "outputs": [
+      "public/images/guide/generated/la-cantine-de-jo-nice.avif",
+      "public/images/guide/generated/la-cantine-de-jo-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-cantine-des-copains-nice.png",
+    "outputs": [
+      "public/images/guide/generated/la-cantine-des-copains-nice.avif",
+      "public/images/guide/generated/la-cantine-des-copains-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/la-cazamis-menton.png",
     "outputs": [
       "public/images/guide/generated/la-cazamis-menton.avif",
