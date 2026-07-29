@@ -9,7 +9,13 @@ const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs"
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
-const { parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets, buildPublishedGuideAssetsRerunCommand } = require("../src/lib/guide-assets.ts");
+const {
+  parsePlaceAssetArgs,
+  resolveGuideAssetPlan,
+  suggestPublishedGuideTargets,
+  buildPublishedGuideAssetsRerunCommand,
+  buildGuideAssetsPersistentSummary,
+} = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 
@@ -55,6 +61,9 @@ async function main() {
   const reportPath = slug
     ? path.join(root, "build", "guide-intake", slug, "assets-report.json")
     : path.join(root, "build", "guide-assets-postpublish", `${publishedGuideSlug}.json`);
+  const persistentReportPath = publishedGuideSlug
+    ? path.join(root, "reports", "guide-assets-postpublish", `${publishedGuideSlug}.json`)
+    : null;
   const registryPath = path.join(root, "scripts", "lib", "image-derivative-targets.json");
   const manifestPath = path.join(root, "public", "images", "generated-manifest.json");
 
@@ -211,6 +220,23 @@ async function main() {
   };
 
   report.bestRerunCommand = report.likelyGuideTargets[0]?.rerunCommand ?? null;
+  const persistentSummary = publishedGuideSlug
+    ? buildGuideAssetsPersistentSummary({
+        slug: workingSlug,
+        strict,
+        missingOnly,
+        reportOnly,
+        failOnUnmatched,
+        matchedAssetFiles: resolution.matchedAssetFiles,
+        unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+        matchedPlaces: resolution.matchedPlaces,
+        skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
+        publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
+        likelyGuideTargets: report.likelyGuideTargets,
+        bestRerunCommand: report.bestRerunCommand,
+        issues,
+      })
+    : null;
 
   const printOperatorSummary = () => {
     const mode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
@@ -234,13 +260,22 @@ async function main() {
         { label: "rerun", values: report.likelyGuideTargets.map((target) => target.rerunCommand), limit: 1 },
       ],
     });
+    if (persistentReportPath) {
+      console.log(`- persistent report: ${path.relative(root, persistentReportPath)}`);
+    }
   };
 
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
+  if (persistentReportPath) {
+    await fs.mkdir(path.dirname(persistentReportPath), { recursive: true });
+  }
   if (!operations.length) {
     console.log(`No asset operations for ${workingSlug}.`);
     printOperatorSummary();
     await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    if (persistentReportPath && persistentSummary) {
+      await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+    }
     if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     return;
   }
@@ -248,6 +283,9 @@ async function main() {
   if (reportOnly) {
     printOperatorSummary();
     await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    if (persistentReportPath && persistentSummary) {
+      await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+    }
     if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     return;
   }
@@ -285,6 +323,9 @@ async function main() {
   await fs.writeFile(`${manifestPath}.tmp`, `${JSON.stringify(manifestEntries, null, 2)}\n`);
   await fs.writeFile(manifestPath, `${JSON.stringify(manifestEntries, null, 2)}\n`);
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  if (persistentReportPath && persistentSummary) {
+    await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+  }
 
   printOperatorSummary();
   if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;

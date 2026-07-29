@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuideAssetPlan, buildPublishedGuideAssetsRerunCommand, parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } from "../../src/lib/guide-assets";
+import {
+  buildGuideAssetPlan,
+  buildGuideAssetsPersistentSummary,
+  buildPublishedGuideAssetsRerunCommand,
+  parsePlaceAssetArgs,
+  resolveGuideAssetPlan,
+  suggestPublishedGuideTargets,
+} from "../../src/lib/guide-assets";
 
 describe("guide assets", () => {
   it("builds explicit asset copy operations", () => {
@@ -314,5 +321,63 @@ describe("guide assets", () => {
     ).toBe(
       "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only --fail-on-unmatched",
     );
+  });
+
+  it("builds a sanitized persistent post-publish summary", () => {
+    expect(
+      buildGuideAssetsPersistentSummary({
+        slug: "airports-near-menton-live-flights",
+        strict: false,
+        missingOnly: true,
+        reportOnly: true,
+        failOnUnmatched: false,
+        matchedAssetFiles: [],
+        unmatchedAssetFiles: ["French Riviera sightseeing flights.png"],
+        matchedPlaces: [],
+        skippedAlreadyCoveredPlaces: [{ placeId: "nice-cote-dazur-airport" }],
+        publishedGuidePlacesWithoutImage: [],
+        likelyGuideTargets: [
+          {
+            guideSlug: "air-adventures-near-menton",
+            matchedAssetFiles: ["French Riviera sightseeing flights.png"],
+            matchedPlaceIds: ["french-riviera-sightseeing-flights"],
+            rerunCommand:
+              "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+          },
+        ],
+        bestRerunCommand:
+          "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+        issues: [],
+      }),
+    ).toEqual({
+      slug: "airports-near-menton-live-flights",
+      mode: "published-guide",
+      strict: false,
+      missingOnly: true,
+      reportOnly: true,
+      failOnUnmatched: false,
+      counts: {
+        matched: 0,
+        unmatched: 1,
+        skippedCovered: 1,
+        stillMissing: 0,
+      },
+      matchedAssetFiles: [],
+      unmatchedAssetFiles: ["French Riviera sightseeing flights.png"],
+      matchedPlaceIds: [],
+      publishedGuidePlacesWithoutImage: [],
+      likelyGuideTargets: [
+        {
+          guideSlug: "air-adventures-near-menton",
+          matchedAssetFiles: ["French Riviera sightseeing flights.png"],
+          matchedPlaceIds: ["french-riviera-sightseeing-flights"],
+          rerunCommand:
+            "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+        },
+      ],
+      bestRerunCommand:
+        "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+      issueCodes: [],
+    });
   });
 });

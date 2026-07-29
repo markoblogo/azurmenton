@@ -118,6 +118,13 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - fails when expected assets were declared but not matched
   - fails when extra files remain unused in the package
 - writes `assets-report.json`
+- in `--published-guide` mode also writes a small git-trackable summary to:
+  - `reports/guide-assets-postpublish/<guide-slug>.json`
+- this persistent summary is sanitized for review:
+  - no absolute local asset paths
+  - includes matched/unmatched counts
+  - includes `likelyGuideTargets`
+  - includes `bestRerunCommand`
 
 ### `guide:apply`
 

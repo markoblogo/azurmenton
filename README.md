@@ -215,6 +215,11 @@ npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/pa
 
 Add `--fail-on-unmatched` when the asset package must be fully reconciled before sign-off.
 
+In post-publish mode the script now writes two reports:
+
+- transient full report in `build/guide-assets-postpublish/`
+- small git-tracked summary in `reports/guide-assets-postpublish/`
+
 ## SEO, analytics and structured data
 
 Main files:

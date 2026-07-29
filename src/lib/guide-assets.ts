@@ -56,6 +56,31 @@ export type GuideAssetTargetSuggestion = {
   rerunCommand?: string;
 };
 
+export type GuideAssetsPersistentSummary = {
+  slug: string;
+  mode: "published-guide";
+  reportOnly: boolean;
+  missingOnly: boolean;
+  failOnUnmatched: boolean;
+  strict: boolean;
+  counts: {
+    matched: number;
+    unmatched: number;
+    skippedCovered: number;
+    stillMissing: number;
+  };
+  matchedAssetFiles: string[];
+  unmatchedAssetFiles: string[];
+  matchedPlaceIds: string[];
+  publishedGuidePlacesWithoutImage: Array<{
+    placeId: string;
+    draftName: string;
+  }>;
+  likelyGuideTargets: GuideAssetTargetSuggestion[];
+  bestRerunCommand: string | null;
+  issueCodes: string[];
+};
+
 export type PublishedGuideAssetPlace = {
   placeId: string;
   draftName: string;
@@ -481,4 +506,47 @@ export function buildPublishedGuideAssetsRerunCommand(input: {
   if (input.strict) parts.push("--strict");
 
   return parts.join(" ");
+}
+
+export function buildGuideAssetsPersistentSummary(input: {
+  slug: string;
+  strict: boolean;
+  missingOnly: boolean;
+  reportOnly: boolean;
+  failOnUnmatched: boolean;
+  matchedAssetFiles: string[];
+  unmatchedAssetFiles: string[];
+  matchedPlaces: Array<{ placeId: string }>;
+  skippedAlreadyCoveredPlaces: Array<{ placeId: string }>;
+  publishedGuidePlacesWithoutImage: Array<{ placeId: string; draftName: string }>;
+  likelyGuideTargets: GuideAssetTargetSuggestion[];
+  bestRerunCommand: string | null;
+  issues: Array<{ code: string }>;
+}): GuideAssetsPersistentSummary {
+  return {
+    slug: input.slug,
+    mode: "published-guide",
+    strict: input.strict,
+    missingOnly: input.missingOnly,
+    reportOnly: input.reportOnly,
+    failOnUnmatched: input.failOnUnmatched,
+    counts: {
+      matched: input.matchedPlaces.length,
+      unmatched: input.unmatchedAssetFiles.length,
+      skippedCovered: input.skippedAlreadyCoveredPlaces.length,
+      stillMissing: input.publishedGuidePlacesWithoutImage.length,
+    },
+    matchedAssetFiles: input.matchedAssetFiles,
+    unmatchedAssetFiles: input.unmatchedAssetFiles,
+    matchedPlaceIds: unique(input.matchedPlaces.map((place) => place.placeId)),
+    publishedGuidePlacesWithoutImage: input.publishedGuidePlacesWithoutImage,
+    likelyGuideTargets: input.likelyGuideTargets.map((target) => ({
+      guideSlug: target.guideSlug,
+      matchedAssetFiles: target.matchedAssetFiles,
+      matchedPlaceIds: target.matchedPlaceIds,
+      rerunCommand: target.rerunCommand,
+    })),
+    bestRerunCommand: input.bestRerunCommand,
+    issueCodes: unique(input.issues.map((issue) => issue.code)),
+  };
 }

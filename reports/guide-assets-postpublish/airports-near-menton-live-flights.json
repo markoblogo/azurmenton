@@ -1,0 +1,28 @@
+{
+  "slug": "airports-near-menton-live-flights",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": true,
+  "failOnUnmatched": false,
+  "counts": {
+    "matched": 0,
+    "unmatched": 6,
+    "skippedCovered": 8,
+    "stillMissing": 0
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [
+    "Cannes Fréjus skydiving.png",
+    "French Riviera sightseeing flights.png",
+    "Gourdon paragliding area.png",
+    "Italian Riviera paragliding clubs.png",
+    "Nice region skydiving.png",
+    "Roquebrune Menton paragliding area.png"
+  ],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": null,
+  "issueCodes": []
+}
