@@ -13,7 +13,9 @@ const { places } = require("../src/content/places.ts");
 const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
 const { placeMapExclusions } = require("../src/content/planning/place-map-exclusions.ts");
 const { buildSeededPublicationPlan } = require("../src/lib/guide-plan-seeding.ts");
+const { buildGuideMatchMemory } = require("../src/lib/guide-match-memory.ts");
 const { mergePublicationPlanWithMatches } = require("../src/lib/guide-match.ts");
+const { loadGuideMatchMemory } = require("./lib/guide-match-memory.cjs");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -53,6 +55,7 @@ async function main() {
 
   const intake = await readJson(intakePath);
   const currentPlan = await readJson(publicationPlanPath).catch(() => null);
+  const historicalMatchMemory = buildGuideMatchMemory(await loadGuideMatchMemory(root, slug));
 
   const seededPlan = buildSeededPublicationPlan({
     intake,
@@ -67,6 +70,7 @@ async function main() {
     })),
     mapPointPlaceIds: placeMapPoints.map((point) => point.placeId),
     mapExclusionPlaceIds: placeMapExclusions.map((exclusion) => exclusion.placeId),
+    matchMemory: historicalMatchMemory,
   });
 
   const mergedPlan = mergePublicationPlanWithMatches({
@@ -80,6 +84,7 @@ async function main() {
     safeExisting: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "safe_existing").length,
     needsHumanChoice: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "needs_human_choice").length,
     likelyNewPlace: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "likely_new_place").length,
+    memoryResolved: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchReason?.includes("historical-")).length,
     places: (mergedPlan.plannedPlaces ?? []).map((place) => ({
       draftName: place.draftName,
       matchStatus: place.matchStatus ?? null,
@@ -100,6 +105,7 @@ async function main() {
   console.log(`- safe existing: ${report.safeExisting}`);
   console.log(`- needs human choice: ${report.needsHumanChoice}`);
   console.log(`- likely new place: ${report.likelyNewPlace}`);
+  console.log(`- memory resolved: ${report.memoryResolved}`);
   console.log(`- report: ${path.relative(root, reportPath)}`);
 }
 

@@ -15,6 +15,8 @@ const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
 const { placeMapExclusions } = require("../src/content/planning/place-map-exclusions.ts");
+const { buildGuideMatchMemory } = require("../src/lib/guide-match-memory.ts");
+const { loadGuideMatchMemory } = require("./lib/guide-match-memory.cjs");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -95,6 +97,7 @@ async function main() {
   const absoluteInput = path.resolve(fromPath);
   const raw = await fs.readFile(absoluteInput, "utf8");
   const intake = seedGuideIntake(extractGuideIntake(raw, { coverPathHint: coverPath ? path.resolve(coverPath) : undefined }));
+  const historicalMatchMemory = buildGuideMatchMemory(await loadGuideMatchMemory(root, intake.slug));
   const publicationPlan = buildSeededPublicationPlan({
     intake,
     todayIso: todayIso(),
@@ -108,6 +111,7 @@ async function main() {
     })),
     mapPointPlaceIds: placeMapPoints.map((point) => point.placeId),
     mapExclusionPlaceIds: placeMapExclusions.map((exclusion) => exclusion.placeId),
+    matchMemory: historicalMatchMemory,
   });
 
   const outputDir = path.join(root, "build", "guide-intake", intake.slug);

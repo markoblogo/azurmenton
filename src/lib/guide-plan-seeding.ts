@@ -2,6 +2,7 @@ import type { GuideCategory } from "@/content/guide";
 import type { GuidePublicationMapAction, GuidePublicationPlan, GuidePublicationPlanPlace } from "@/lib/guide-check";
 import type { GuideIntake } from "@/lib/guide-intake";
 import { classifyPlaceMatchDetailed, rankPlaceMatches, toMatchCandidates, type PlaceSeedReference } from "@/lib/guide-match";
+import { findGuideMatchMemoryHint, type GuideMatchMemory } from "@/lib/guide-match-memory";
 
 type GuideSeedReference = {
   slug: string;
@@ -174,6 +175,7 @@ export function buildSeededPublicationPlan(input: {
   places: PlaceSeedReference[];
   mapPointPlaceIds: string[];
   mapExclusionPlaceIds: string[];
+  matchMemory?: GuideMatchMemory | null;
 }) : GuidePublicationPlan {
   const { intake } = input;
   const category = (intake.categoryHint as GuideCategory | undefined) ?? inferCategory(intake);
@@ -188,40 +190,55 @@ export function buildSeededPublicationPlan(input: {
     const top = rankedPlaces[0];
     const match = classifyPlaceMatchDetailed(rankedPlaces);
     const topMatches = toMatchCandidates(rankedPlaces);
+    const fallbackNewPlaceId = buildNewPlaceId(candidate.name, candidate.section, intake.title, existingIds);
+    const memoryHint = findGuideMatchMemoryHint({
+      draftName: candidate.name,
+      rankedMatches: rankedPlaces,
+      matchMemory: input.matchMemory,
+      fallbackNewPlaceId,
+    });
+    const effectiveDecision = memoryHint?.decision ?? match.decision;
 
-    if (match.decision === "safe_existing" && top) {
-      relatedPlaceIds.push(top.place.id);
-      for (const slug of top.place.relatedArticleIds ?? []) {
+    if (effectiveDecision === "safe_existing") {
+      const chosenExistingId = memoryHint?.existingPlaceId ?? top?.place.id ?? null;
+      const chosenExistingPlace = chosenExistingId ? input.places.find((place) => place.id === chosenExistingId) : undefined;
+
+      if (!chosenExistingPlace || !chosenExistingId) {
+        throw new Error(`guide match memory resolved ${candidate.name} to missing existing place ${chosenExistingId ?? "null"}`);
+      }
+
+      relatedPlaceIds.push(chosenExistingId);
+      for (const slug of chosenExistingPlace.relatedArticleIds ?? []) {
         relatedArticleVotes.set(slug, (relatedArticleVotes.get(slug) ?? 0) + 2);
       }
 
       return {
         draftName: candidate.name,
-        existingPlaceId: top.place.id,
+        existingPlaceId: chosenExistingId,
         newPlaceId: null,
-        suggestedExistingPlaceId: top.place.id,
-        matchStatus: match.status,
-        matchDecision: match.decision,
-        matchReason: `${top.reason};${match.reason}`,
+        suggestedExistingPlaceId: chosenExistingId,
+        matchStatus: "existing_place",
+        matchDecision: effectiveDecision,
+        matchReason: memoryHint ? `${memoryHint.reason};memory-assisted` : `${top?.reason ?? "memory-existing"};${match.reason}`,
         topMatches,
-        imageStatus: top.place.image ? "existing" : "pending",
+        imageStatus: chosenExistingPlace.image ? "existing" : "pending",
         assetPath: null,
         assetFileName: null,
-        requiresMapReview: top.place.requiresMapReview ?? true,
-        mapAction: inferMapAction(top.place, pointIds, exclusionIds, candidate.name),
+        requiresMapReview: chosenExistingPlace.requiresMapReview ?? true,
+        mapAction: inferMapAction(chosenExistingPlace, pointIds, exclusionIds, candidate.name),
         coverageGuideSlug: null,
       };
     }
 
-    if (match.decision === "needs_human_choice" && top) {
+    if (effectiveDecision === "needs_human_choice" && top) {
       return {
         draftName: candidate.name,
         existingPlaceId: null,
         newPlaceId: null,
-        suggestedExistingPlaceId: top.place.id,
+        suggestedExistingPlaceId: memoryHint?.suggestedExistingPlaceId ?? top.place.id,
         matchStatus: match.status,
-        matchDecision: match.decision,
-        matchReason: `${top.reason};${match.reason}`,
+        matchDecision: effectiveDecision,
+        matchReason: memoryHint ? `${top.reason};${match.reason};${memoryHint.reason}` : `${top.reason};${match.reason}`,
         topMatches,
         imageStatus: "pending",
         assetPath: null,
@@ -235,11 +252,11 @@ export function buildSeededPublicationPlan(input: {
     return {
       draftName: candidate.name,
       existingPlaceId: null,
-      newPlaceId: buildNewPlaceId(candidate.name, candidate.section, intake.title, existingIds),
+      newPlaceId: memoryHint?.newPlaceId ?? fallbackNewPlaceId,
       suggestedExistingPlaceId: null,
       matchStatus: match.status,
-      matchDecision: match.decision,
-      matchReason: top ? `${top.reason};${match.reason}` : match.reason,
+      matchDecision: effectiveDecision,
+      matchReason: memoryHint ? `${top?.reason ?? "no-top-match"};${match.reason};${memoryHint.reason}` : top ? `${top.reason};${match.reason}` : match.reason,
       topMatches,
       imageStatus: "pending",
       assetPath: null,

@@ -49,6 +49,9 @@ npm run guide:review -- --slug <slug>
   - `needs_human_choice`
   - `likely_new_place`
 - stronger heuristics reduce false auto-matches and only auto-fill `existingPlaceId` when the top candidate is clearly ahead
+- v3 also reuses stable historical resolutions from older `build/guide-intake/*/publication-plan.json` files:
+  - repeated ambiguous branches can be resolved automatically when the same draft name and candidate set recur
+  - conflicting historical resolutions are intentionally ignored rather than auto-applied
 - preserves already-entered editorial decisions such as:
   - `existingPlaceId`
   - `newPlaceId`
