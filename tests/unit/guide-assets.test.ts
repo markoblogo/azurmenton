@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuideAssetPlan, parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } from "../../src/lib/guide-assets";
+import { buildGuideAssetPlan, buildPublishedGuideAssetsRerunCommand, parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } from "../../src/lib/guide-assets";
 
 describe("guide assets", () => {
   it("builds explicit asset copy operations", () => {
@@ -300,5 +300,19 @@ describe("guide assets", () => {
         "italian-riviera-paragliding-clubs",
       ],
     });
+  });
+
+  it("builds a rerun command for published-guide asset recovery", () => {
+    expect(
+      buildPublishedGuideAssetsRerunCommand({
+        guideSlug: "air-adventures-near-menton",
+        assetsDir: "/tmp/assets",
+        missingOnly: true,
+        reportOnly: true,
+        failOnUnmatched: true,
+      }),
+    ).toBe(
+      "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only --fail-on-unmatched",
+    );
   });
 });

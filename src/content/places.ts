@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
+import imageDerivativeTargets from "../../scripts/lib/image-derivative-targets.json";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -9811,13 +9812,42 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     visualTheme: "food",
   },
 };
+
+const autoPlaceImageTargets = new Set(imageDerivativeTargets);
+
+function autoImageAlt(name: string) {
+  return text(
+    `Illustration of ${name}`,
+    `Illustration de ${name}`,
+    `Illustrazione di ${name}`,
+    `Ілюстрація ${name}`,
+  );
+}
+
+function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" | "visualTheme"> | undefined {
+  const extensions = [".png", ".jpg", ".jpeg", ".webp"];
+
+  for (const extension of extensions) {
+    const sourcePath = `public/images/guide/${place.id}${extension}`;
+    if (!autoPlaceImageTargets.has(sourcePath)) continue;
+
+    return {
+      image: `/images/guide/${place.id}${extension}`,
+      imageAlt: autoImageAlt(place.name),
+      visualTheme: visualThemeForPlace(place.type),
+    };
+  }
+
+  return undefined;
+}
+
 export const places: Place[] = rawPlaces.map((place) => {
-  const visual = placeVisuals[place.id] ?? {};
+  const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   return {
     ...place,
     ...visual,
     requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
-    visualTheme: place.visualTheme ?? visual.visualTheme ?? visualThemeForPlace(place.type),
+    visualTheme: place.visualTheme ?? visual?.visualTheme ?? visualThemeForPlace(place.type),
     googleMapsSearchUrl:
       place.googleMapsSearchUrl ??
       place.googleMapsUrl ??

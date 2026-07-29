@@ -53,6 +53,7 @@ export type GuideAssetTargetSuggestion = {
   guideSlug: string;
   matchedAssetFiles: string[];
   matchedPlaceIds: string[];
+  rerunCommand?: string;
 };
 
 export type PublishedGuideAssetPlace = {
@@ -455,4 +456,29 @@ export function suggestPublishedGuideTargets(input: {
 
     return left.guideSlug.localeCompare(right.guideSlug);
   });
+}
+
+export function buildPublishedGuideAssetsRerunCommand(input: {
+  guideSlug: string;
+  assetsDir?: string | null;
+  missingOnly?: boolean;
+  reportOnly?: boolean;
+  failOnUnmatched?: boolean;
+  strict?: boolean;
+}) {
+  const parts = [
+    "npm run guide:assets --",
+    "--published-guide",
+    input.guideSlug,
+  ];
+
+  if (input.assetsDir) {
+    parts.push("--assets-dir", input.assetsDir);
+  }
+  if (input.missingOnly) parts.push("--missing-only");
+  if (input.reportOnly) parts.push("--report-only");
+  if (input.failOnUnmatched) parts.push("--fail-on-unmatched");
+  if (input.strict) parts.push("--strict");
+
+  return parts.join(" ");
 }

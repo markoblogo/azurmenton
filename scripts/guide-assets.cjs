@@ -9,7 +9,7 @@ const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs"
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
-const { parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } = require("../src/lib/guide-assets.ts");
+const { parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets, buildPublishedGuideAssetsRerunCommand } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 
@@ -195,9 +195,22 @@ async function main() {
               image: place.image,
             })),
             missingOnly,
-          }).slice(0, 3)
+          }).slice(0, 3).map((target) => ({
+            ...target,
+            rerunCommand: buildPublishedGuideAssetsRerunCommand({
+              guideSlug: target.guideSlug,
+              assetsDir: resolvedAssetsDir,
+              missingOnly,
+              reportOnly,
+              failOnUnmatched,
+              strict,
+            }),
+          }))
         : [],
+    bestRerunCommand: null,
   };
+
+  report.bestRerunCommand = report.likelyGuideTargets[0]?.rerunCommand ?? null;
 
   const printOperatorSummary = () => {
     const mode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
@@ -218,6 +231,7 @@ async function main() {
         { label: "unmatched sample", values: resolution.unmatchedAssetFiles },
         { label: "missing sample", values: resolution.publishedGuidePlacesWithoutImage.map((place) => place.placeId) },
         { label: "likely guide", values: report.likelyGuideTargets.map((target) => `${target.guideSlug} (${target.matchedPlaceIds.length})`) },
+        { label: "rerun", values: report.likelyGuideTargets.map((target) => target.rerunCommand), limit: 1 },
       ],
     });
   };
