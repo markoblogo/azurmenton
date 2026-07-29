@@ -87,6 +87,15 @@ describe("guide publish report", () => {
     );
     expect(report.manualActions).toHaveLength(5);
     expect(report.manualActions[0]).toContain("guide-article.snippet.txt");
+    expect(report.operator.status).toBe("ready");
+    expect(report.operator.blockedTop).toEqual([]);
+    expect(report.operator.autoResolvedTop).toEqual(
+      expect.arrayContaining([
+        "Cover resolved at /images/guide/burgers-menton.png.",
+        "Existing place match confirmed for alls-stars-menton.",
+      ]),
+    );
+    expect(report.operator.nextManualActions[0]).toContain("guide-article.snippet.txt");
   });
 
   it("blocks publish when provided assets are still unresolved", () => {
@@ -126,6 +135,19 @@ describe("guide publish report", () => {
       expect.arrayContaining(["missing-place-asset", "missing-published-cover-asset", "missing-published-place-asset"]),
     );
     expect(report.manualActions).toEqual(
+      expect.arrayContaining([
+        "Resolve every blocked item listed in publish-report.json.",
+        "Re-run npm run guide:publish -- --slug <slug> until ready becomes yes.",
+      ]),
+    );
+    expect(report.operator.status).toBe("blocked");
+    expect(report.operator.blockedTop).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("[missing-place-asset]"),
+        expect.stringContaining("[missing-published-cover-asset]"),
+      ]),
+    );
+    expect(report.operator.nextManualActions).toEqual(
       expect.arrayContaining([
         "Resolve every blocked item listed in publish-report.json.",
         "Re-run npm run guide:publish -- --slug <slug> until ready becomes yes.",

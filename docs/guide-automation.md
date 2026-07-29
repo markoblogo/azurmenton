@@ -134,11 +134,17 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
 - recomputes `check-report` and `apply` outputs
 - verifies that required public cover/place assets are actually resolved
 - writes `publish-report.json`
+- writes `operator-report.md` as the short human handoff inside the intake folder
 - `ready: yes` means the intake is fit for manual insertion
 - v2 report shape now explicitly separates:
   - `blocked`
   - `autoResolved`
   - `manualActions`
+- v3 also adds a very short `operator` summary layer:
+  - headline
+  - blocker / warning / auto-resolved counts
+  - top blocked items
+  - next manual actions
 - this is the one-file readiness summary before using `guide:patch`
 
 ### `guide:patch`

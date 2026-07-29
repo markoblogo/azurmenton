@@ -43,6 +43,20 @@ export type GuidePublishReport = {
     relatedArticleCount: number;
     relatedApartmentCount: number;
   };
+  operator: {
+    status: "ready" | "blocked";
+    headline: string;
+    counts: {
+      blockers: number;
+      warnings: number;
+      autoResolved: number;
+      manualActions: number;
+    };
+    blockedTop: string[];
+    warningTop: string[];
+    autoResolvedTop: string[];
+    nextManualActions: string[];
+  };
 };
 
 type GuidePublishBlockedScope = "intake" | "check" | "assets" | "apply" | "publish";
@@ -53,6 +67,10 @@ function toIssue(issue: GuideCheckIssue | GuideAssetPlanIssue): GuidePublishIssu
     code: issue.code,
     message: issue.message,
   };
+}
+
+function summarizeIssue(issue: GuidePublishIssue) {
+  return `[${issue.code}] ${issue.message}`;
 }
 
 export function buildGuidePublishReport(input: {
@@ -208,6 +226,23 @@ export function buildGuidePublishReport(input: {
       existingPlaceCount: input.applyArtifacts.summary.existingPlaceIds.length,
       relatedArticleCount: input.applyArtifacts.summary.relatedArticleSlugs.length,
       relatedApartmentCount: input.applyArtifacts.summary.relatedApartmentSlugs.length,
+    },
+    operator: {
+      status: blockers.length === 0 ? "ready" : "blocked",
+      headline:
+        blockers.length === 0
+          ? `Ready to merge ${input.slug}: ${plannedPlaces.length} planned places, ${input.applyArtifacts.summary.newPlaceIds.length} new, ${input.applyArtifacts.summary.existingPlaceIds.length} existing updates.`
+          : `Blocked: ${blockers.length} blocker${blockers.length === 1 ? "" : "s"} remain before ${input.slug} can be merged.`,
+      counts: {
+        blockers: blockers.length,
+        warnings: warnings.length,
+        autoResolved: [...new Set(autoResolved)].length,
+        manualActions: manualActions.length,
+      },
+      blockedTop: blockers.slice(0, 5).map(summarizeIssue),
+      warningTop: warnings.slice(0, 3).map(summarizeIssue),
+      autoResolvedTop: [...new Set(autoResolved)].slice(0, 5),
+      nextManualActions: manualActions.slice(0, 5),
     },
   };
 }

@@ -47,6 +47,45 @@ async function resolvePublicGuideAsset(baseName) {
   return undefined;
 }
 
+function renderOperatorReportMarkdown(report, slug) {
+  const lines = [
+    `# guide:publish operator report`,
+    "",
+    `- slug: \`${slug}\``,
+    `- status: **${report.operator.status}**`,
+    `- headline: ${report.operator.headline}`,
+    `- counts: blockers ${report.operator.counts.blockers}, warnings ${report.operator.counts.warnings}, auto-resolved ${report.operator.counts.autoResolved}, manual actions ${report.operator.counts.manualActions}`,
+    "",
+  ];
+
+  lines.push("## Blocked");
+  if (report.operator.blockedTop.length) {
+    for (const item of report.operator.blockedTop) lines.push(`- ${item}`);
+  } else {
+    lines.push("- none");
+  }
+  lines.push("");
+
+  lines.push("## Auto-resolved");
+  if (report.operator.autoResolvedTop.length) {
+    for (const item of report.operator.autoResolvedTop) lines.push(`- ${item}`);
+  } else {
+    lines.push("- none");
+  }
+  lines.push("");
+
+  lines.push("## Next manual actions");
+  for (const item of report.operator.nextManualActions) lines.push(`- ${item.replace(/<slug>/g, slug)}`);
+
+  if (report.operator.warningTop.length) {
+    lines.push("");
+    lines.push("## Warnings");
+    for (const item of report.operator.warningTop) lines.push(`- ${item}`);
+  }
+
+  return `${lines.join("\n")}\n`;
+}
+
 async function main() {
   const slug = readArg("--slug");
   if (!slug) {
@@ -154,42 +193,30 @@ async function main() {
   });
 
   const publishReportPath = path.join(intakeDir, "publish-report.json");
-  await fs.writeFile(publishReportPath, `${JSON.stringify(publishReport, null, 2)}\n`);
+  const operatorReportPath = path.join(intakeDir, "operator-report.md");
+  await Promise.all([
+    fs.writeFile(publishReportPath, `${JSON.stringify(publishReport, null, 2)}\n`),
+    fs.writeFile(operatorReportPath, renderOperatorReportMarkdown(publishReport, slug)),
+  ]);
 
   console.log(`guide publish: ${slug}`);
   console.log(`report: ${path.relative(root, publishReportPath)}`);
+  console.log(`operator: ${path.relative(root, operatorReportPath)}`);
   console.log(`ready: ${publishReport.ready ? "yes" : "no"}`);
-
-  if (publishReport.blockers.length) {
-    console.log("blockers");
-    for (const blocker of publishReport.blockers) console.log(`- [${blocker.code}] ${blocker.message}`);
-  } else {
-    console.log("blockers\n- none");
-  }
-
-  if (publishReport.warnings.length) {
-    console.log("warnings");
-    for (const warning of publishReport.warnings) console.log(`- [${warning.code}] ${warning.message}`);
-  } else {
-    console.log("warnings\n- none");
-  }
+  console.log(`headline: ${publishReport.operator.headline}`);
+  console.log(
+    `counts: blockers ${publishReport.operator.counts.blockers}, warnings ${publishReport.operator.counts.warnings}, auto-resolved ${publishReport.operator.counts.autoResolved}, manual actions ${publishReport.operator.counts.manualActions}`,
+  );
 
   console.log("blocked");
-  if (publishReport.blocked.length) {
-    for (const item of publishReport.blocked) console.log(`- [${item.scope}] [${item.code}] ${item.message}`);
+  if (publishReport.operator.blockedTop.length) {
+    for (const item of publishReport.operator.blockedTop) console.log(`- ${item}`);
   } else {
     console.log("- none");
   }
 
-  console.log("auto resolved");
-  if (publishReport.autoResolved.length) {
-    for (const item of publishReport.autoResolved) console.log(`- ${item}`);
-  } else {
-    console.log("- none");
-  }
-
-  console.log("manual actions");
-  for (const step of publishReport.manualActions) console.log(`- ${step.replace(/<slug>/g, slug)}`);
+  console.log("next actions");
+  for (const step of publishReport.operator.nextManualActions) console.log(`- ${step.replace(/<slug>/g, slug)}`);
 
   if (!publishReport.ready) process.exitCode = 1;
 }

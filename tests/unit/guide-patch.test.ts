@@ -93,6 +93,15 @@ describe("guide patch bundle", () => {
           relatedArticleCount: 1,
           relatedApartmentCount: 1,
         },
+        operator: {
+          status: "ready",
+          headline: "Ready.",
+          counts: { blockers: 0, warnings: 0, autoResolved: 0, manualActions: 0 },
+          blockedTop: [],
+          warningTop: [],
+          autoResolvedTop: [],
+          nextManualActions: [],
+        },
       },
       applyArtifacts,
       places: [
@@ -142,6 +151,15 @@ describe("guide patch bundle", () => {
           existingPlaceCount: 1,
           relatedArticleCount: 1,
           relatedApartmentCount: 1,
+        },
+        operator: {
+          status: "blocked",
+          headline: "Blocked.",
+          counts: { blockers: 1, warnings: 0, autoResolved: 0, manualActions: 0 },
+          blockedTop: ["[missing-cover] Cover missing."],
+          warningTop: [],
+          autoResolvedTop: [],
+          nextManualActions: [],
         },
       },
       applyArtifacts: {
