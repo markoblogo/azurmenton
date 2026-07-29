@@ -1,4 +1,5 @@
 import type { GuidePublicationPlan } from "@/lib/guide-check";
+import { buildGuideOperatorSummary } from "@/lib/guide-operator-summary";
 
 export type GuideReviewGuideReference = {
   slug: string;
@@ -50,6 +51,7 @@ export type GuideReviewPlaceStatus = {
 export type GuideReviewReport = {
   slug: string;
   ok: boolean;
+  operatorSummary: string[];
   errors: GuideReviewIssue[];
   warnings: GuideReviewIssue[];
   guide: {
@@ -128,6 +130,7 @@ export function buildGuideReviewReport(input: {
   places: GuideReviewPlaceReference[];
   mapPoints: GuideReviewMapPointReference[];
   mapExclusions: GuideReviewMapExclusionReference[];
+  reportPath?: string;
 }): GuideReviewReport {
   const targetGuideSlug = input.publicationPlan.slug ?? input.slug;
   const errors: GuideReviewIssue[] = [];
@@ -329,9 +332,25 @@ export function buildGuideReviewReport(input: {
     });
   }
 
+  const operatorStatus = errors.length === 0 ? "ok" : "needs-fix";
+  const reviewedPlacesCount = placeStatuses.filter((place) => place.present).length;
+  const mapSatisfiedCount = placeStatuses.filter((place) => place.mapOk).length;
+
   return {
     slug: targetGuideSlug,
     ok: errors.length === 0,
+    operatorSummary: buildGuideOperatorSummary({
+      status: operatorStatus,
+      subject: targetGuideSlug,
+      mode: "guide-review",
+      counts: {
+        errors: errors.length,
+        warnings: warnings.length,
+        "reviewed-places": reviewedPlacesCount,
+        "map-satisfied": mapSatisfiedCount,
+      },
+      reportPath: input.reportPath,
+    }),
     errors,
     warnings,
     guide: {
@@ -355,11 +374,11 @@ export function buildGuideReviewReport(input: {
     },
     summary: {
       plannedPlaceCount: plannedPlaces.length,
-      reviewedPlaceCount: placeStatuses.filter((place) => place.present).length,
-      mapSatisfiedCount: placeStatuses.filter((place) => place.mapOk).length,
+      reviewedPlaceCount: reviewedPlacesCount,
+      mapSatisfiedCount,
     },
     operator: {
-      status: errors.length === 0 ? "ok" : "needs-fix",
+      status: operatorStatus,
       headline:
         errors.length === 0
           ? `Post-merge review looks good for ${targetGuideSlug}. Guide graph, backlinks and map obligations are aligned.`
@@ -367,8 +386,8 @@ export function buildGuideReviewReport(input: {
       counts: {
         errors: errors.length,
         warnings: warnings.length,
-        reviewedPlaces: placeStatuses.filter((place) => place.present).length,
-        mapSatisfied: placeStatuses.filter((place) => place.mapOk).length,
+        reviewedPlaces: reviewedPlacesCount,
+        mapSatisfied: mapSatisfiedCount,
       },
       inserted: [
         guide ? `Guide article present in src/content/guide.ts.` : `Guide article not yet present in src/content/guide.ts.`,

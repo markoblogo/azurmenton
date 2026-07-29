@@ -172,6 +172,7 @@ async function main() {
   }
 
   const publicationPlan = await readJson(path.join(intakeDir, "publication-plan.json"));
+  const reviewDir = path.join(intakeDir, "review");
   const report = buildGuideReviewReport({
     slug,
     publicationPlan,
@@ -199,9 +200,9 @@ async function main() {
     mapExclusions: placeMapExclusions.map((exclusion) => ({
       placeId: exclusion.placeId,
     })),
+    reportPath: path.relative(root, reviewDir),
   });
 
-  const reviewDir = path.join(intakeDir, "review");
   await fs.mkdir(reviewDir, { recursive: true });
   await Promise.all([
     fs.writeFile(path.join(reviewDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`),

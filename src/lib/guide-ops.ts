@@ -1,3 +1,5 @@
+import { buildGuideOperatorSummary } from "@/lib/guide-operator-summary";
+
 export type GuideOpsIntakeSnapshot = {
   slug: string;
   hasIntake: boolean;
@@ -21,6 +23,7 @@ export type GuideOpsItem = {
 };
 
 export type GuideOpsSummary = {
+  operatorSummary: string[];
   counts: {
     ready: number;
     blocked: number;
@@ -30,7 +33,7 @@ export type GuideOpsSummary = {
   items: GuideOpsItem[];
 };
 
-export function buildGuideOpsSummary(snapshots: GuideOpsIntakeSnapshot[]): GuideOpsSummary {
+export function buildGuideOpsSummary(snapshots: GuideOpsIntakeSnapshot[], options?: { reportPath?: string }): GuideOpsSummary {
   const items = snapshots
     .map((snapshot): GuideOpsItem => {
       if (snapshot.reviewOk === true && snapshot.publishReady === true) {
@@ -99,13 +102,22 @@ export function buildGuideOpsSummary(snapshots: GuideOpsIntakeSnapshot[]): Guide
       return rank[a.status] - rank[b.status] || a.slug.localeCompare(b.slug);
     });
 
+  const counts = {
+    ready: items.filter((item) => item.status === "ready").length,
+    blocked: items.filter((item) => item.status === "blocked").length,
+    incomplete: items.filter((item) => item.status === "incomplete").length,
+    total: items.length,
+  };
+
   return {
-    counts: {
-      ready: items.filter((item) => item.status === "ready").length,
-      blocked: items.filter((item) => item.status === "blocked").length,
-      incomplete: items.filter((item) => item.status === "incomplete").length,
-      total: items.length,
-    },
+    operatorSummary: buildGuideOperatorSummary({
+      status: counts.blocked ? "needs-attention" : "ok",
+      subject: "guide-intake",
+      mode: "guide-ops",
+      counts,
+      reportPath: options?.reportPath,
+    }),
+    counts,
     items,
   };
 }

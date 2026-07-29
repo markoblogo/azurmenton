@@ -41,6 +41,15 @@ describe("guide ops summary", () => {
       incomplete: 1,
       total: 3,
     });
+    expect(summary.operatorSummary).toEqual([
+      "status: needs-attention",
+      "subject: guide-intake",
+      "mode: guide-ops",
+      "ready: 1",
+      "blocked: 1",
+      "incomplete: 1",
+      "total: 3",
+    ]);
 
     expect(summary.items[0]).toEqual(
       expect.objectContaining({

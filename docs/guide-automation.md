@@ -180,6 +180,7 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - `review/report.md`
   - `review/owner-checklist.md`
   - `review/operator-report.md`
+- `review/report.json` now carries `operatorSummary` in the shared short handoff format
 
 - v3 adds a short post-merge operator layer:
   - what is already inserted
@@ -220,6 +221,7 @@ The guide automation block is now complete for repo-side preparation and validat
 - patch bundle generation: `guide:patch`
 - post-merge verification plus owner visual handoff: `guide:review`
 - intake-level queue overview: `guide:ops`
+- shared short handoff summaries: `operatorSummary` across `guide:assets`, `guide:review`, `guide:ops`
 
 The only intentionally human step that remains is the owner visual pass driven by `review/owner-checklist.md`.
 

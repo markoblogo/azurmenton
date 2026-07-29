@@ -71,8 +71,9 @@ async function main() {
     });
   }
 
-  const summary = buildGuideOpsSummary(snapshots);
   const reportDir = path.join(intakeRoot, "_ops");
+  const reportPath = path.relative(root, path.join(reportDir, "summary.md"));
+  const summary = buildGuideOpsSummary(snapshots, { reportPath });
   await fs.mkdir(reportDir, { recursive: true });
 
   await Promise.all([
@@ -90,7 +91,7 @@ async function main() {
       ready: summary.counts.ready,
       total: summary.counts.total,
     },
-    reportPath: path.relative(root, path.join(reportDir, "summary.md")),
+    reportPath,
     samples: [{ label: "next actions", values: summary.items.map((item) => `${item.slug}: ${item.nextAction}`) }],
   });
 }

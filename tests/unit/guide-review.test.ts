@@ -59,6 +59,15 @@ describe("guide review report", () => {
     });
 
     expect(report.ok).toBe(true);
+    expect(report.operatorSummary).toEqual([
+      "status: ok",
+      "subject: burgers-menton",
+      "mode: guide-review",
+      "errors: 0",
+      "warnings: 0",
+      "reviewed-places: 1",
+      "map-satisfied: 1",
+    ]);
     expect(report.errors).toEqual([]);
     expect(report.guide.relatedPlacesOk).toBe(true);
     expect(report.places[0]?.backlinkOk).toBe(true);
@@ -105,6 +114,8 @@ describe("guide review report", () => {
     });
 
     expect(report.ok).toBe(false);
+    expect(report.operatorSummary[0]).toBe("status: needs-fix");
+    expect(report.operatorSummary[2]).toBe("mode: guide-review");
     expect(report.errors.map((issue) => issue.code)).toEqual(
       expect.arrayContaining([
         "missing-guide-article",

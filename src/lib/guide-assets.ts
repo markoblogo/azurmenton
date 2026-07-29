@@ -1,4 +1,5 @@
 import type { GuidePublicationImageStatus } from "./guide-check";
+import { buildGuideOperatorSummary } from "./guide-operator-summary";
 
 export type PlaceAssetInput = {
   placeId: string;
@@ -533,17 +534,19 @@ export function buildGuideAssetsPersistentSummary(input: {
     skippedCovered: input.skippedAlreadyCoveredPlaces.length,
     stillMissing: input.publishedGuidePlacesWithoutImage.length,
   };
-  const operatorSummary = [
-    `status: ${input.status}`,
-    `subject: ${input.slug}`,
-    `mode: ${input.mode}`,
-    `matched: ${counts.matched}`,
-    `skipped-covered: ${counts.skippedCovered}`,
-    `unmatched: ${counts.unmatched}`,
-    `still-missing: ${counts.stillMissing}`,
-    ...(input.reportPath ? [`report: ${input.reportPath}`] : []),
-    ...(input.bestRerunCommand ? [`rerun: ${input.bestRerunCommand}`] : []),
-  ];
+  const operatorSummary = buildGuideOperatorSummary({
+    status: input.status,
+    subject: input.slug,
+    mode: input.mode,
+    counts: {
+      matched: counts.matched,
+      "skipped-covered": counts.skippedCovered,
+      unmatched: counts.unmatched,
+      "still-missing": counts.stillMissing,
+    },
+    reportPath: input.reportPath,
+    rerunCommand: input.bestRerunCommand,
+  });
 
   return {
     slug: input.slug,
