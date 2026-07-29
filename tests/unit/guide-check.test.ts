@@ -115,6 +115,54 @@ describe("guide check report", () => {
     );
   });
 
+  it("warns when a place remains in ambiguous match state without a manual resolution", () => {
+    const intake: GuideIntake = {
+      title: "Coffee in Menton",
+      slug: "best-coffee-menton",
+      seoTitle: "Coffee in Menton",
+      metaDescription: "Coffee in Menton",
+      sectionHeadings: ["Coffee spots"],
+      placeCandidates: [{ name: "Cafe Napoli", section: "Coffee spots" }],
+      relatedGuideTitles: [],
+    };
+
+    const report = buildGuideCheckReport(
+      intake,
+      [{ slug: "local-food-menton", title: "Local food in Menton", publishedOn: "2026-07-28" }],
+      [{ id: "cafe-napoli-menton", name: "Cafe Napoli Menton", requiresMapReview: true }],
+      {
+        coverExists: true,
+        apartmentSlugs: [],
+        mapPointPlaceIds: ["cafe-napoli-menton"],
+        publicationPlan: {
+          publishedOn: "2026-07-29",
+          category: "food-markets",
+          coverImageStatus: "not_needed",
+          relatedPlaceIds: [],
+          relatedArticleSlugs: [],
+          relatedApartmentSlugs: [],
+          canonicalGuideForPlaces: false,
+          plannedPlaces: [
+            {
+              draftName: "Cafe Napoli",
+              suggestedExistingPlaceId: "cafe-napoli-menton",
+              matchStatus: "ambiguous_match",
+              matchReason: "name-similarity+locality",
+              topMatches: [{ id: "cafe-napoli-menton", name: "Cafe Napoli Menton", score: 0.88, reason: "name-similarity+locality" }],
+              imageStatus: "pending",
+              requiresMapReview: true,
+              mapAction: "point",
+              coverageGuideSlug: null,
+            },
+          ],
+        },
+      },
+    );
+
+    expect(report.errors.map((issue) => issue.code)).toContain("unresolved-planned-place");
+    expect(report.warnings.map((issue) => issue.code)).toContain("ambiguous-place-match");
+  });
+
   it("ignores legacy intake cover path when publication plan marks cover as not needed", () => {
     const intake: GuideIntake = {
       title: "Burger update",

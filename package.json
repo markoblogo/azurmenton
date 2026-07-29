@@ -16,6 +16,7 @@
     "content:report": "node scripts/content-audit-report.cjs",
     "guide:assets": "node scripts/guide-assets.cjs",
     "guide:apply": "node scripts/guide-apply.cjs",
+    "guide:match": "node scripts/guide-match.cjs",
     "guide:new": "node scripts/guide-new.cjs",
     "guide:check": "node scripts/guide-check.cjs",
     "guide:patch": "node scripts/guide-patch.cjs",

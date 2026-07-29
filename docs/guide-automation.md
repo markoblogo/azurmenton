@@ -8,6 +8,7 @@ Use the commands in this order:
 
 ```bash
 npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
+npm run guide:match -- --slug <slug>
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/asset-package]
 npm run guide:apply -- --slug <slug>
@@ -27,6 +28,22 @@ npm run guide:review -- --slug <slug>
   - `guide-scaffold.md`
   - `places-scaffold.md`
   - `publication-plan.json`
+
+### `guide:match`
+
+- re-runs place matching for an existing intake
+- updates `publication-plan.json` with:
+  - `matchStatus`
+  - `suggestedExistingPlaceId`
+  - `topMatches`
+  - `matchReason`
+- preserves already-entered editorial decisions such as:
+  - `existingPlaceId`
+  - `newPlaceId`
+  - image status
+  - map action
+  - coverage guide slug
+- writes `match-report.json`
 
 ### `guide:check`
 

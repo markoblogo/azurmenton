@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { buildSeededPublicationPlan, seedGuideIntake } from "../../src/lib/guide-plan-seeding";
+import { mergePublicationPlanWithMatches } from "../../src/lib/guide-match";
 import type { GuideIntake } from "../../src/lib/guide-intake";
 
 describe("guide plan seeding", () => {
@@ -58,12 +59,21 @@ describe("guide plan seeding", () => {
         expect.objectContaining({
           draftName: "Gusto Italiano",
           existingPlaceId: "gusto-italiano-menton",
+          suggestedExistingPlaceId: "gusto-italiano-menton",
+          matchStatus: "existing_place",
           imageStatus: "existing",
           mapAction: "point",
+          topMatches: expect.arrayContaining([
+            expect.objectContaining({
+              id: "gusto-italiano-menton",
+            }),
+          ]),
         }),
         expect.objectContaining({
           draftName: "A Boire A Manger (ABAM)",
           existingPlaceId: "abam-menton",
+          suggestedExistingPlaceId: "abam-menton",
+          matchStatus: "existing_place",
           imageStatus: "existing",
           mapAction: "not_needed",
         }),
@@ -71,10 +81,74 @@ describe("guide plan seeding", () => {
           draftName: "Le Napoli",
           existingPlaceId: null,
           newPlaceId: "le-napoli-menton",
+          matchStatus: "new_place_candidate",
           imageStatus: "pending",
           mapAction: "point",
         }),
       ]),
+    );
+  });
+
+  it("marks ambiguous matches and preserves manual resolution when merging", () => {
+    const intake: GuideIntake = {
+      title: "Coffee in Menton",
+      slug: "best-coffee-menton",
+      intro: "Coffee guide",
+      sectionHeadings: ["Coffee spots"],
+      placeCandidates: [{ name: "Cafe Napoli", section: "Coffee spots" }],
+      relatedGuideTitles: [],
+    };
+
+    const seededPlan = buildSeededPublicationPlan({
+      intake,
+      todayIso: "2026-07-29",
+      guides: [{ slug: "local-food-menton", title: "Local food in Menton: what to try first", category: "food-markets" }],
+      places: [
+        { id: "cafe-napoli-menton", name: "Cafe Napoli Menton", requiresMapReview: true },
+        { id: "cafe-napoli-monaco", name: "Cafe Napoli Monaco", requiresMapReview: true },
+      ],
+      mapPointPlaceIds: ["cafe-napoli-menton"],
+      mapExclusionPlaceIds: [],
+    });
+
+    const ambiguous = seededPlan.plannedPlaces?.[0];
+    expect(ambiguous).toEqual(
+      expect.objectContaining({
+        draftName: "Cafe Napoli",
+        existingPlaceId: null,
+        newPlaceId: null,
+        suggestedExistingPlaceId: "cafe-napoli-menton",
+        matchStatus: "ambiguous_match",
+      }),
+    );
+    expect(ambiguous?.topMatches?.length).toBeGreaterThan(1);
+
+    const merged = mergePublicationPlanWithMatches({
+      intake,
+      seededPlan,
+      currentPlan: {
+        plannedPlaces: [
+          {
+            draftName: "Cafe Napoli",
+            existingPlaceId: "cafe-napoli-menton",
+            imageStatus: "existing",
+            mapAction: "point",
+            coverageGuideSlug: "best-coffee-menton",
+          },
+        ],
+      },
+    });
+
+    expect(merged.plannedPlaces?.[0]).toEqual(
+      expect.objectContaining({
+        draftName: "Cafe Napoli",
+        existingPlaceId: "cafe-napoli-menton",
+        suggestedExistingPlaceId: "cafe-napoli-menton",
+        matchStatus: "ambiguous_match",
+        imageStatus: "existing",
+        mapAction: "point",
+        coverageGuideSlug: "best-coffee-menton",
+      }),
     );
   });
 });

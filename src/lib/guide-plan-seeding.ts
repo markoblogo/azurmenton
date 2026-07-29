@@ -1,19 +1,12 @@
 import type { GuideCategory } from "@/content/guide";
 import type { GuidePublicationMapAction, GuidePublicationPlan, GuidePublicationPlanPlace } from "@/lib/guide-check";
 import type { GuideIntake } from "@/lib/guide-intake";
+import { classifyPlaceMatch, rankPlaceMatches, toMatchCandidates, type PlaceSeedReference } from "@/lib/guide-match";
 
 type GuideSeedReference = {
   slug: string;
   title: string;
   category: GuideCategory;
-};
-
-type PlaceSeedReference = {
-  id: string;
-  name: string;
-  image?: string;
-  requiresMapReview?: boolean;
-  relatedArticleIds?: string[];
 };
 
 function normalize(value: string) {
@@ -190,18 +183,12 @@ export function buildSeededPublicationPlan(input: {
   const relatedArticleVotes = new Map<string, number>();
 
   const plannedPlaces: GuidePublicationPlanPlace[] = intake.placeCandidates.map((candidate) => {
-    const rankedPlaces = input.places
-      .map((place) => ({ place, score: phraseScore(candidate.name, place.name) }))
-      .sort((a, b) => b.score - a.score);
-
+    const rankedPlaces = rankPlaceMatches(candidate, input.places, intake.title);
     const top = rankedPlaces[0];
-    const second = rankedPlaces[1];
-    const confidentExisting =
-      top &&
-      top.score >= 0.9 &&
-      (!second || top.score - second.score >= 0.12 || second.score < 0.75);
+    const matchStatus = classifyPlaceMatch(rankedPlaces);
+    const topMatches = toMatchCandidates(rankedPlaces);
 
-    if (confidentExisting) {
+    if (matchStatus === "existing_place" && top) {
       relatedPlaceIds.push(top.place.id);
       for (const slug of top.place.relatedArticleIds ?? []) {
         relatedArticleVotes.set(slug, (relatedArticleVotes.get(slug) ?? 0) + 2);
@@ -211,7 +198,29 @@ export function buildSeededPublicationPlan(input: {
         draftName: candidate.name,
         existingPlaceId: top.place.id,
         newPlaceId: null,
+        suggestedExistingPlaceId: top.place.id,
+        matchStatus,
+        matchReason: top.reason,
+        topMatches,
         imageStatus: top.place.image ? "existing" : "pending",
+        assetPath: null,
+        assetFileName: null,
+        requiresMapReview: top.place.requiresMapReview ?? true,
+        mapAction: inferMapAction(top.place, pointIds, exclusionIds, candidate.name),
+        coverageGuideSlug: null,
+      };
+    }
+
+    if (matchStatus === "ambiguous_match" && top) {
+      return {
+        draftName: candidate.name,
+        existingPlaceId: null,
+        newPlaceId: null,
+        suggestedExistingPlaceId: top.place.id,
+        matchStatus,
+        matchReason: top.reason,
+        topMatches,
+        imageStatus: "pending",
         assetPath: null,
         assetFileName: null,
         requiresMapReview: top.place.requiresMapReview ?? true,
@@ -224,6 +233,10 @@ export function buildSeededPublicationPlan(input: {
       draftName: candidate.name,
       existingPlaceId: null,
       newPlaceId: buildNewPlaceId(candidate.name, candidate.section, intake.title, existingIds),
+      suggestedExistingPlaceId: null,
+      matchStatus,
+      matchReason: top?.reason ?? "no-confident-match",
+      topMatches,
       imageStatus: "pending",
       assetPath: null,
       assetFileName: null,

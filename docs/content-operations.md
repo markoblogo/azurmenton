@@ -105,6 +105,7 @@ Run the relevant checks before committing:
 
 ```bash
 npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
+npm run guide:match -- --slug <slug>
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets] --strict

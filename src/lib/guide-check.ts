@@ -20,11 +20,22 @@ export type PlaceReference = {
 export type GuidePublicationCategory = GuideCategory | "";
 export type GuidePublicationImageStatus = "provided" | "pending" | "existing" | "not_needed";
 export type GuidePublicationMapAction = "point" | "exclude" | "not_needed";
+export type GuidePublicationPlaceMatchStatus = "existing_place" | "new_place_candidate" | "ambiguous_match";
+export type GuidePublicationPlaceTopMatch = {
+  id: string;
+  name: string;
+  score: number;
+  reason?: string;
+};
 
 export type GuidePublicationPlanPlace = {
   draftName: string;
   existingPlaceId?: string | null;
   newPlaceId?: string | null;
+  suggestedExistingPlaceId?: string | null;
+  matchStatus?: GuidePublicationPlaceMatchStatus | null;
+  matchReason?: string | null;
+  topMatches?: GuidePublicationPlaceTopMatch[] | null;
   imageStatus?: GuidePublicationImageStatus | null;
   assetPath?: string | null;
   assetFileName?: string | null;
@@ -246,8 +257,23 @@ export function buildGuideCheckReport(
         errors.push({ severity: "error", code: "unresolved-planned-place", message: `Place ${plannedPlace.draftName} must declare existingPlaceId or newPlaceId.` });
       }
 
+      if (plannedPlace.matchStatus === "ambiguous_match" && !plannedPlace.existingPlaceId && !plannedPlace.newPlaceId) {
+        const suggested = plannedPlace.topMatches?.[0];
+        warnings.push({
+          severity: "warning",
+          code: "ambiguous-place-match",
+          message: suggested
+            ? `Place ${plannedPlace.draftName} has an ambiguous existing match. Top suggestion: ${suggested.id} (${suggested.score}).`
+            : `Place ${plannedPlace.draftName} has an ambiguous existing match and still needs manual resolution.`,
+        });
+      }
+
       if (plannedPlace.existingPlaceId && !placeIdSet.has(plannedPlace.existingPlaceId)) {
         errors.push({ severity: "error", code: "unknown-existing-place", message: `Place ${plannedPlace.draftName} references unknown existingPlaceId ${plannedPlace.existingPlaceId}.` });
+      }
+
+      if (plannedPlace.suggestedExistingPlaceId && !placeIdSet.has(plannedPlace.suggestedExistingPlaceId)) {
+        errors.push({ severity: "error", code: "unknown-suggested-place", message: `Place ${plannedPlace.draftName} references unknown suggestedExistingPlaceId ${plannedPlace.suggestedExistingPlaceId}.` });
       }
 
       if (plannedPlace.newPlaceId && !isKebabCase(plannedPlace.newPlaceId)) {
