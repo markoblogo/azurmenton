@@ -40,9 +40,15 @@ npm run guide:review -- --slug <slug>
 - re-runs place matching for an existing intake
 - updates `publication-plan.json` with:
   - `matchStatus`
+  - `matchDecision`
   - `suggestedExistingPlaceId`
   - `topMatches`
   - `matchReason`
+- `matchDecision` now splits candidates into:
+  - `safe_existing`
+  - `needs_human_choice`
+  - `likely_new_place`
+- stronger heuristics reduce false auto-matches and only auto-fill `existingPlaceId` when the top candidate is clearly ahead
 - preserves already-entered editorial decisions such as:
   - `existingPlaceId`
   - `newPlaceId`

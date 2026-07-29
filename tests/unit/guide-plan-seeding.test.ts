@@ -61,6 +61,7 @@ describe("guide plan seeding", () => {
           existingPlaceId: "gusto-italiano-menton",
           suggestedExistingPlaceId: "gusto-italiano-menton",
           matchStatus: "existing_place",
+          matchDecision: "safe_existing",
           imageStatus: "existing",
           mapAction: "point",
           topMatches: expect.arrayContaining([
@@ -74,6 +75,7 @@ describe("guide plan seeding", () => {
           existingPlaceId: "abam-menton",
           suggestedExistingPlaceId: "abam-menton",
           matchStatus: "existing_place",
+          matchDecision: "safe_existing",
           imageStatus: "existing",
           mapAction: "not_needed",
         }),
@@ -82,6 +84,7 @@ describe("guide plan seeding", () => {
           existingPlaceId: null,
           newPlaceId: "le-napoli-menton",
           matchStatus: "new_place_candidate",
+          matchDecision: "likely_new_place",
           imageStatus: "pending",
           mapAction: "point",
         }),
@@ -119,6 +122,7 @@ describe("guide plan seeding", () => {
         newPlaceId: null,
         suggestedExistingPlaceId: "cafe-napoli-menton",
         matchStatus: "ambiguous_match",
+        matchDecision: "needs_human_choice",
       }),
     );
     expect(ambiguous?.topMatches?.length).toBeGreaterThan(1);
@@ -145,6 +149,7 @@ describe("guide plan seeding", () => {
         existingPlaceId: "cafe-napoli-menton",
         suggestedExistingPlaceId: "cafe-napoli-menton",
         matchStatus: "ambiguous_match",
+        matchDecision: "needs_human_choice",
         imageStatus: "existing",
         mapAction: "point",
         coverageGuideSlug: "best-coffee-menton",

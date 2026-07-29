@@ -147,6 +147,7 @@ describe("guide check report", () => {
               draftName: "Cafe Napoli",
               suggestedExistingPlaceId: "cafe-napoli-menton",
               matchStatus: "ambiguous_match",
+              matchDecision: "needs_human_choice",
               matchReason: "name-similarity+locality",
               topMatches: [{ id: "cafe-napoli-menton", name: "Cafe Napoli Menton", score: 0.88, reason: "name-similarity+locality" }],
               imageStatus: "pending",

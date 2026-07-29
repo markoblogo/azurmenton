@@ -21,6 +21,7 @@ export type GuidePublicationCategory = GuideCategory | "";
 export type GuidePublicationImageStatus = "provided" | "pending" | "existing" | "not_needed";
 export type GuidePublicationMapAction = "point" | "exclude" | "not_needed";
 export type GuidePublicationPlaceMatchStatus = "existing_place" | "new_place_candidate" | "ambiguous_match";
+export type GuidePublicationPlaceMatchDecision = "safe_existing" | "needs_human_choice" | "likely_new_place";
 export type GuidePublicationPlaceTopMatch = {
   id: string;
   name: string;
@@ -34,6 +35,7 @@ export type GuidePublicationPlanPlace = {
   newPlaceId?: string | null;
   suggestedExistingPlaceId?: string | null;
   matchStatus?: GuidePublicationPlaceMatchStatus | null;
+  matchDecision?: GuidePublicationPlaceMatchDecision | null;
   matchReason?: string | null;
   topMatches?: GuidePublicationPlaceTopMatch[] | null;
   imageStatus?: GuidePublicationImageStatus | null;
@@ -298,7 +300,27 @@ export function buildGuideCheckReport(
         errors.push({ severity: "error", code: "unresolved-planned-place", message: `Place ${plannedPlace.draftName} must declare existingPlaceId or newPlaceId.` });
       }
 
-      if (plannedPlace.matchStatus === "ambiguous_match" && !plannedPlace.existingPlaceId && !plannedPlace.newPlaceId) {
+      if (plannedPlace.matchDecision === "safe_existing" && !plannedPlace.existingPlaceId) {
+        errors.push({
+          severity: "error",
+          code: "safe-existing-without-id",
+          message: `Place ${plannedPlace.draftName} is marked safe_existing but has no existingPlaceId.`,
+        });
+      }
+
+      if (plannedPlace.matchDecision === "likely_new_place" && !plannedPlace.newPlaceId) {
+        errors.push({
+          severity: "error",
+          code: "likely-new-without-id",
+          message: `Place ${plannedPlace.draftName} is marked likely_new_place but has no newPlaceId.`,
+        });
+      }
+
+      if (
+        (plannedPlace.matchDecision === "needs_human_choice" || plannedPlace.matchStatus === "ambiguous_match") &&
+        !plannedPlace.existingPlaceId &&
+        !plannedPlace.newPlaceId
+      ) {
         const suggested = plannedPlace.topMatches?.[0];
         warnings.push({
           severity: "warning",

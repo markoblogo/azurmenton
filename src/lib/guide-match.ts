@@ -1,4 +1,8 @@
-import type { GuidePublicationPlan, GuidePublicationPlanPlace } from "@/lib/guide-check";
+import type {
+  GuidePublicationPlaceMatchDecision,
+  GuidePublicationPlan,
+  GuidePublicationPlanPlace,
+} from "@/lib/guide-check";
 import type { GuideIntake, GuidePlaceCandidate } from "@/lib/guide-intake";
 
 export type PlaceSeedReference = {
@@ -21,6 +25,12 @@ export type GuidePlaceMatchCandidate = {
 export type RankedPlaceMatch = {
   place: PlaceSeedReference;
   score: number;
+  reason: string;
+};
+
+export type ClassifiedPlaceMatch = {
+  status: GuidePlaceMatchStatus;
+  decision: GuidePublicationPlaceMatchDecision;
   reason: string;
 };
 
@@ -136,6 +146,54 @@ export function classifyPlaceMatch(matches: RankedPlaceMatch[]): GuidePlaceMatch
   return "new_place_candidate";
 }
 
+function topMatchSpread(top?: RankedPlaceMatch, second?: RankedPlaceMatch) {
+  if (!top) return 0;
+  return roundScore(top.score - (second?.score ?? 0));
+}
+
+export function classifyPlaceMatchDetailed(matches: RankedPlaceMatch[]): ClassifiedPlaceMatch {
+  const top = matches[0];
+  const second = matches[1];
+
+  if (!top) {
+    return {
+      status: "new_place_candidate",
+      decision: "likely_new_place",
+      reason: "no-match",
+    };
+  }
+
+  const spread = topMatchSpread(top, second);
+  const exactName = top.reason.includes("exact-name-match");
+  const localityAligned = top.reason.includes("locality");
+
+  if (
+    (exactName && top.score >= 0.9 && spread >= 0.06) ||
+    (top.score >= 0.94 && spread >= 0.08) ||
+    (top.score >= 0.9 && (!second || second.score < 0.72))
+  ) {
+    return {
+      status: "existing_place",
+      decision: "safe_existing",
+      reason: spread > 0 ? `confident-existing:${spread}` : "confident-existing",
+    };
+  }
+
+  if (top.score >= 0.74 || (top.score >= 0.68 && localityAligned) || (top.score >= 0.62 && spread >= 0.08)) {
+    return {
+      status: "ambiguous_match",
+      decision: "needs_human_choice",
+      reason: spread > 0 ? `candidate-needs-review:${spread}` : "candidate-needs-review",
+    };
+  }
+
+  return {
+    status: "new_place_candidate",
+    decision: "likely_new_place",
+    reason: top.score >= 0.4 ? "weak-existing-signal" : "no-confident-match",
+  };
+}
+
 export function toMatchCandidates(matches: RankedPlaceMatch[]): GuidePlaceMatchCandidate[] {
   return matches.map((match) => ({
     id: match.place.id,
@@ -173,6 +231,7 @@ export function mergePublicationPlanWithMatches(input: {
       draftName: candidate.name,
       suggestedExistingPlaceId: seeded?.suggestedExistingPlaceId ?? existing?.suggestedExistingPlaceId ?? null,
       matchStatus: seeded?.matchStatus ?? existing?.matchStatus ?? null,
+      matchDecision: existing?.matchDecision ?? seeded?.matchDecision ?? null,
       matchReason: seeded?.matchReason ?? existing?.matchReason ?? null,
       topMatches: seeded?.topMatches ?? existing?.topMatches ?? null,
       existingPlaceId: existing?.existingPlaceId ?? seeded?.existingPlaceId ?? null,

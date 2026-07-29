@@ -1,7 +1,7 @@
 import type { GuideCategory } from "@/content/guide";
 import type { GuidePublicationMapAction, GuidePublicationPlan, GuidePublicationPlanPlace } from "@/lib/guide-check";
 import type { GuideIntake } from "@/lib/guide-intake";
-import { classifyPlaceMatch, rankPlaceMatches, toMatchCandidates, type PlaceSeedReference } from "@/lib/guide-match";
+import { classifyPlaceMatchDetailed, rankPlaceMatches, toMatchCandidates, type PlaceSeedReference } from "@/lib/guide-match";
 
 type GuideSeedReference = {
   slug: string;
@@ -186,10 +186,10 @@ export function buildSeededPublicationPlan(input: {
   const plannedPlaces: GuidePublicationPlanPlace[] = intake.placeCandidates.map((candidate) => {
     const rankedPlaces = rankPlaceMatches(candidate, input.places, intake.title);
     const top = rankedPlaces[0];
-    const matchStatus = classifyPlaceMatch(rankedPlaces);
+    const match = classifyPlaceMatchDetailed(rankedPlaces);
     const topMatches = toMatchCandidates(rankedPlaces);
 
-    if (matchStatus === "existing_place" && top) {
+    if (match.decision === "safe_existing" && top) {
       relatedPlaceIds.push(top.place.id);
       for (const slug of top.place.relatedArticleIds ?? []) {
         relatedArticleVotes.set(slug, (relatedArticleVotes.get(slug) ?? 0) + 2);
@@ -200,8 +200,9 @@ export function buildSeededPublicationPlan(input: {
         existingPlaceId: top.place.id,
         newPlaceId: null,
         suggestedExistingPlaceId: top.place.id,
-        matchStatus,
-        matchReason: top.reason,
+        matchStatus: match.status,
+        matchDecision: match.decision,
+        matchReason: `${top.reason};${match.reason}`,
         topMatches,
         imageStatus: top.place.image ? "existing" : "pending",
         assetPath: null,
@@ -212,14 +213,15 @@ export function buildSeededPublicationPlan(input: {
       };
     }
 
-    if (matchStatus === "ambiguous_match" && top) {
+    if (match.decision === "needs_human_choice" && top) {
       return {
         draftName: candidate.name,
         existingPlaceId: null,
         newPlaceId: null,
         suggestedExistingPlaceId: top.place.id,
-        matchStatus,
-        matchReason: top.reason,
+        matchStatus: match.status,
+        matchDecision: match.decision,
+        matchReason: `${top.reason};${match.reason}`,
         topMatches,
         imageStatus: "pending",
         assetPath: null,
@@ -235,8 +237,9 @@ export function buildSeededPublicationPlan(input: {
       existingPlaceId: null,
       newPlaceId: buildNewPlaceId(candidate.name, candidate.section, intake.title, existingIds),
       suggestedExistingPlaceId: null,
-      matchStatus,
-      matchReason: top?.reason ?? "no-confident-match",
+      matchStatus: match.status,
+      matchDecision: match.decision,
+      matchReason: top ? `${top.reason};${match.reason}` : match.reason,
       topMatches,
       imageStatus: "pending",
       assetPath: null,

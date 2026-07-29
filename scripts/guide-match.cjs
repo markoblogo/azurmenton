@@ -77,12 +77,13 @@ async function main() {
 
   const report = {
     slug,
-    matchedExisting: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchStatus === "existing_place").length,
-    ambiguous: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchStatus === "ambiguous_match").length,
-    newCandidates: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchStatus === "new_place_candidate").length,
+    safeExisting: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "safe_existing").length,
+    needsHumanChoice: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "needs_human_choice").length,
+    likelyNewPlace: (mergedPlan.plannedPlaces ?? []).filter((place) => place.matchDecision === "likely_new_place").length,
     places: (mergedPlan.plannedPlaces ?? []).map((place) => ({
       draftName: place.draftName,
       matchStatus: place.matchStatus ?? null,
+      matchDecision: place.matchDecision ?? null,
       existingPlaceId: place.existingPlaceId ?? null,
       suggestedExistingPlaceId: place.suggestedExistingPlaceId ?? null,
       newPlaceId: place.newPlaceId ?? null,
@@ -96,9 +97,9 @@ async function main() {
   ]);
 
   console.log(`guide match updated: ${path.relative(root, publicationPlanPath)}`);
-  console.log(`- matched existing: ${report.matchedExisting}`);
-  console.log(`- ambiguous: ${report.ambiguous}`);
-  console.log(`- new candidates: ${report.newCandidates}`);
+  console.log(`- safe existing: ${report.safeExisting}`);
+  console.log(`- needs human choice: ${report.needsHumanChoice}`);
+  console.log(`- likely new place: ${report.likelyNewPlace}`);
   console.log(`- report: ${path.relative(root, reportPath)}`);
 }
 
