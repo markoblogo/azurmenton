@@ -63,6 +63,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cannes-frejus-skydiving.png",
+    "outputs": [
+      "public/images/guide/generated/cannes-frejus-skydiving.avif",
+      "public/images/guide/generated/cannes-frejus-skydiving.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cbd-shop-france-menton.png",
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",
@@ -84,10 +91,24 @@
     ]
   },
   {
+    "source": "public/images/guide/french-riviera-sightseeing-flights.png",
+    "outputs": [
+      "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
+      "public/images/guide/generated/french-riviera-sightseeing-flights.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/frites-city-menton.png",
     "outputs": [
       "public/images/guide/generated/frites-city-menton.avif",
       "public/images/guide/generated/frites-city-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/gourdon-paragliding-area.png",
+    "outputs": [
+      "public/images/guide/generated/gourdon-paragliding-area.avif",
+      "public/images/guide/generated/gourdon-paragliding-area.webp"
     ]
   },
   {
@@ -102,6 +123,13 @@
     "outputs": [
       "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.avif",
       "public/images/guide/generated/italian-restaurants-in-menton-beyond-pizza.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/italian-riviera-paragliding-clubs.png",
+    "outputs": [
+      "public/images/guide/generated/italian-riviera-paragliding-clubs.avif",
+      "public/images/guide/generated/italian-riviera-paragliding-clubs.webp"
     ]
   },
   {
@@ -196,6 +224,13 @@
     ]
   },
   {
+    "source": "public/images/guide/nice-region-skydiving.png",
+    "outputs": [
+      "public/images/guide/generated/nice-region-skydiving.avif",
+      "public/images/guide/generated/nice-region-skydiving.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/osteria-del-marinaio-sanremo.png",
     "outputs": [
       "public/images/guide/generated/osteria-del-marinaio-sanremo.avif",
@@ -245,6 +280,13 @@
     ]
   },
   {
+    "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
+    "outputs": [
+      "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
+      "public/images/guide/generated/roquebrune-menton-paragliding-area.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/tatie-cbd-menton.png",
     "outputs": [
       "public/images/guide/generated/tatie-cbd-menton.avif",
@@ -273,45 +315,10 @@
     ]
   },
   {
-    "source": "public/images/guide/french-riviera-sightseeing-flights.png",
+    "source": "public/images/guide/monaco-helicopter-experiences.png",
     "outputs": [
-      "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
-      "public/images/guide/generated/french-riviera-sightseeing-flights.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
-    "outputs": [
-      "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
-      "public/images/guide/generated/roquebrune-menton-paragliding-area.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/gourdon-paragliding-area.png",
-    "outputs": [
-      "public/images/guide/generated/gourdon-paragliding-area.avif",
-      "public/images/guide/generated/gourdon-paragliding-area.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/nice-region-skydiving.png",
-    "outputs": [
-      "public/images/guide/generated/nice-region-skydiving.avif",
-      "public/images/guide/generated/nice-region-skydiving.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/cannes-frejus-skydiving.png",
-    "outputs": [
-      "public/images/guide/generated/cannes-frejus-skydiving.avif",
-      "public/images/guide/generated/cannes-frejus-skydiving.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/italian-riviera-paragliding-clubs.png",
-    "outputs": [
-      "public/images/guide/generated/italian-riviera-paragliding-clubs.avif",
-      "public/images/guide/generated/italian-riviera-paragliding-clubs.webp"
+      "public/images/guide/generated/monaco-helicopter-experiences.avif",
+      "public/images/guide/generated/monaco-helicopter-experiences.webp"
     ]
   }
 ]
