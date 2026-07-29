@@ -219,7 +219,16 @@ async function main() {
     bestRerunCommand: null,
   };
 
-  report.bestRerunCommand = report.likelyGuideTargets[0]?.rerunCommand ?? null;
+  report.bestRerunCommand = publishedGuideSlug
+    ? buildPublishedGuideAssetsRerunCommand({
+        guideSlug: workingSlug,
+        assetsDir: resolvedAssetsDir,
+        missingOnly,
+        reportOnly,
+        failOnUnmatched,
+        strict,
+      })
+    : report.likelyGuideTargets[0]?.rerunCommand ?? null;
   const persistentSummary = publishedGuideSlug
     ? buildGuideAssetsPersistentSummary({
         slug: workingSlug,

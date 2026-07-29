@@ -380,4 +380,27 @@ describe("guide assets", () => {
       issueCodes: [],
     });
   });
+
+  it("keeps a direct rerun command in persistent post-publish summaries even without likely targets", () => {
+    expect(
+      buildGuideAssetsPersistentSummary({
+        slug: "air-adventures-near-menton",
+        strict: false,
+        missingOnly: true,
+        reportOnly: true,
+        failOnUnmatched: false,
+        matchedAssetFiles: [],
+        unmatchedAssetFiles: [],
+        matchedPlaces: [],
+        skippedAlreadyCoveredPlaces: [],
+        publishedGuidePlacesWithoutImage: [],
+        likelyGuideTargets: [],
+        bestRerunCommand:
+          "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+        issues: [],
+      }).bestRerunCommand,
+    ).toBe(
+      "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
+    );
+  });
 });

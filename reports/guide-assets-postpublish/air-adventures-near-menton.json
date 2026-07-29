@@ -23,6 +23,6 @@
   "matchedPlaceIds": [],
   "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
-  "bestRerunCommand": null,
+  "bestRerunCommand": "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only",
   "issueCodes": []
 }

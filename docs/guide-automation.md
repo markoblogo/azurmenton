@@ -124,7 +124,7 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - no absolute local asset paths
   - includes matched/unmatched counts
   - includes `likelyGuideTargets`
-  - includes `bestRerunCommand`
+  - includes `bestRerunCommand` for the current `--published-guide` rerun, even when there are no likely-target suggestions
 
 ### `guide:apply`
 
