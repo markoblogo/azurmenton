@@ -17,6 +17,7 @@
     "guide:assets": "node scripts/guide-assets.cjs",
     "guide:apply": "node scripts/guide-apply.cjs",
     "guide:match": "node scripts/guide-match.cjs",
+    "guide:link-plan": "node scripts/guide-link-plan.cjs",
     "guide:new": "node scripts/guide-new.cjs",
     "guide:structure": "node scripts/guide-structure.cjs",
     "guide:check": "node scripts/guide-check.cjs",

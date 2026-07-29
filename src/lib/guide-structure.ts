@@ -217,7 +217,7 @@ export function extractGuideStructure(raw: string, intake: GuideIntake): GuideSt
 
   const structuredSections = intake.sectionHeadings
     .map((heading) => sections.get(heading))
-    .filter(Boolean)
+    .filter((section): section is GuideStructuredSection => Boolean(section))
     .map((section) => {
       section.kind = inferSectionKind(section);
       return section;

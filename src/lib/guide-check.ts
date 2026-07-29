@@ -44,6 +44,46 @@ export type GuidePublicationPlanPlace = {
   coverageGuideSlug?: string | null;
 };
 
+export type GuideLinkPlanPriority = "required" | "recommended" | "noise-risk";
+
+export type GuidePublicationLinkSuggestion = {
+  slug: string;
+  priority: GuideLinkPlanPriority;
+  source: string;
+  reason: string;
+  score?: number;
+};
+
+export type GuidePublicationBacklinkSuggestion = {
+  draftName: string;
+  existingPlaceId?: string | null;
+  newPlaceId?: string | null;
+  priority: GuideLinkPlanPriority;
+  action: "add-related-article" | "already-linked" | "defer-until-place-created" | "skip";
+  reason: string;
+};
+
+export type GuidePublicationCoverageSuggestion = {
+  draftName: string;
+  existingPlaceId?: string | null;
+  newPlaceId?: string | null;
+  priority: GuideLinkPlanPriority;
+  action: "set-coverage-guide" | "already-covered" | "defer-until-place-created" | "skip";
+  coverageGuideSlug: string;
+  reason: string;
+};
+
+export type GuidePublicationLinkPlan = {
+  matchedClusterIds: string[];
+  matchedCollectionIds: string[];
+  relatedArticles: GuidePublicationLinkSuggestion[];
+  relatedApartments: GuidePublicationLinkSuggestion[];
+  backlinkObligations: GuidePublicationBacklinkSuggestion[];
+  specialistCoverageUpdates: GuidePublicationCoverageSuggestion[];
+  autoAppliedRelatedArticles: string[];
+  autoAppliedRelatedApartments: string[];
+};
+
 export type GuidePublicationPlan = {
   slug?: string | null;
   publishedOn?: string | null;
@@ -57,6 +97,7 @@ export type GuidePublicationPlan = {
   relatedApartmentSlugs?: string[];
   canonicalGuideForPlaces?: boolean;
   plannedPlaces?: GuidePublicationPlanPlace[];
+  linkPlan?: GuidePublicationLinkPlan;
 };
 
 export type GuideCheckIssue = {

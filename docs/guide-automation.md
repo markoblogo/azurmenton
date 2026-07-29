@@ -10,6 +10,7 @@ Use the commands in this order:
 npm run guide:new -- --from /absolute/path/to/draft.txt [--cover /absolute/path/to/cover.png]
 npm run guide:match -- --slug <slug>
 npm run guide:structure -- --slug <slug>
+npm run guide:link-plan -- --slug <slug>
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/asset-package]
 npm run guide:apply -- --slug <slug>
@@ -59,6 +60,23 @@ npm run guide:review -- --slug <slug>
   - section body paragraphs
   - place-card summaries under the right parent section
 - `guide:apply` uses this when present so section snippets start from real draft prose instead of blank TODO-only bodies
+
+### `guide:link-plan`
+
+Reads `publication-plan.json` plus current repo content and adds a narrow suggestion layer:
+
+- auto-suggest `relatedArticleSlugs`
+- auto-suggest `relatedApartmentSlugs`
+- backlink obligations for rendered places
+- specialist coverage updates for canonical place guides
+- required vs recommended vs noise-risk split
+
+It writes:
+
+- `build/guide-intake/<slug>/publication-plan.json` with `linkPlan`
+- `build/guide-intake/<slug>/link-plan-report.json`
+
+If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also autofills them from the required/recommended suggestions.
 
 ### `guide:check`
 
@@ -155,6 +173,7 @@ The guide automation block is now complete for repo-side preparation and validat
 
 - intake: `guide:new`
 - validation: `guide:check`
+- link planning: `guide:link-plan`
 - asset resolution: `guide:assets` with optional strict package enforcement
 - scaffold generation: `guide:apply`
 - final readiness gate: `guide:publish`
