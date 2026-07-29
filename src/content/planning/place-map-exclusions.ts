@@ -10,6 +10,12 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "mont-gout-menton", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mont%20Go%C3%BBt%20Menton" },
+  { placeId: "marche-de-la-condamine-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.visitmonaco.com/en/enjoy/shopping-in-monaco/la-condamine-authentic-and-commercial-charm" },
+  { placeId: "maison-des-pates-condamine-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Maison%20des%20P%C3%A2tes%20Condamine%20Monaco" },
+  { placeId: "chez-les-grecs-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Chez%20Les%20Grecs%20Monaco" },
+  { placeId: "la-cantine-des-copains-nice", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Cantine%20des%20Copains%20Nice" },
+  { placeId: "la-cantine-de-jo-nice", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20cantine%20de%20jo%20Nice" },
   { placeId: "le-napoli-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Le%20Napoli%20Menton" },
   { placeId: "la-trattoria-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Trattoria%20Menton" },
   { placeId: "il-ristorante-hotel-napoleon-menton", reason: "coordinate_unverified", checkedOn: "2026-07-28", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Il%20Ristorante%20Hotel%20Napoleon%20Menton" },

@@ -173,6 +173,7 @@ export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },
   { slug: "best-breakfast-menton", ignore: ["cluster"], reason: "focused breakfast guide surfaced through the Food & markets collection and linked to pastries, coffee, market and stay content" },
+  { slug: "cheap-eats-menton-budget-lunch", ignore: ["cluster"], reason: "focused budget-food guide surfaced through the Food & markets collection and linked to markets, bakeries, Monaco and Nice day-trip lunch options" },
   { slug: "bookshops-libraries-menton", ignore: ["cluster"], reason: "focused reading guide surfaced through the culture-and-evenings collection and linked to local library, bookshop and slow-stay content" },
   { slug: "best-bakeries-in-menton", ignore: ["cluster"], reason: "focused bakery guide surfaced through the Food & markets collection and linked to breakfast, local food and practical stay content" },
   { slug: "best-coffee-menton", ignore: ["cluster"], reason: "focused coffee guide surfaced through the Food & markets collection and linked to breakfast, bakeries, markets, practical stay and remote-work content" },

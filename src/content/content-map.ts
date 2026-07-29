@@ -44,8 +44,8 @@ export const contentCollections: ContentCollection[] = [
     title: t("Food & markets", "Cuisine & marches", "Cibo e mercati", "Їжа та ринки"),
     description: t("Markets, local food, restaurants and practical shopping.", "Marches, cuisine locale, restaurants et courses pratiques.", "Mercati, cucina locale, ristoranti e spesa pratica.", "Ринки, місцева кухня, ресторани та практичні покупки."),
     categories: ["food-markets", "nightlife-drinks"],
-    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "best-bakeries-in-menton", "best-coffee-menton", "indian-restaurants-menton", "ukrainian-slavic-restaurants-menton-nice-monaco", "kebab-shawarma-falafel-menton"],
-    priorityGuideSlugs: ["local-food-menton", "halles-du-marche-menton", "best-seafood-restaurants-menton", "best-bakeries-in-menton", "best-coffee-menton", "best-pastries-desserts-cakes-menton", "supermarkets-in-menton"],
+    includeGuideSlugs: ["supermarkets-in-menton", "best-seafood-restaurants-menton", "best-pastries-desserts-cakes-menton", "best-bakeries-in-menton", "best-coffee-menton", "indian-restaurants-menton", "ukrainian-slavic-restaurants-menton-nice-monaco", "kebab-shawarma-falafel-menton", "cheap-eats-menton-budget-lunch"],
+    priorityGuideSlugs: ["local-food-menton", "cheap-eats-menton-budget-lunch", "halles-du-marche-menton", "best-seafood-restaurants-menton", "best-bakeries-in-menton", "best-coffee-menton", "best-pastries-desserts-cakes-menton", "supermarkets-in-menton"],
   },
   {
     id: "beaches-and-seafront",
@@ -136,6 +136,7 @@ export const contentCollections: ContentCollection[] = [
 
 export const contentIntentMap: ContentIntent[] = [
   { id: "menton-local-food", query: t("local food in Menton", "gastronomie locale a Menton", "cucina locale a Mentone", "місцева їжа в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "local-food-menton", season: "all-year" },
+  { id: "menton-cheap-eats", query: t("cheap eats in Menton", "bons plans dejeuner a Menton", "mangiare spendendo poco a Mentone", "дешева їжа в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "cheap-eats-menton-budget-lunch", season: "all-year" },
   { id: "menton-markets", query: t("Menton market and food hall", "marche et halles de Menton", "mercato e halles di Mentone", "ринок і криті ряди Ментона"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "halles-du-marche-menton", season: "all-year" },
   { id: "menton-supermarkets", query: t("supermarkets in Menton", "supermarches a Menton", "supermercati a Mentone", "супермаркети в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "supermarkets-in-menton", season: "all-year" },
   { id: "menton-seafood", query: t("best seafood in Menton", "meilleurs fruits de mer a Menton", "miglior pesce a Mentone", "найкращі морепродукти в Ментоні"), collectionId: "food-and-markets", priority: "now", status: "covered", targetGuideSlug: "best-seafood-restaurants-menton", season: "all-year" },

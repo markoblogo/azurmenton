@@ -63,6 +63,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cheap-eats-menton-budget-lunch.png",
+    "outputs": [
+      "public/images/guide/generated/cheap-eats-menton-budget-lunch.avif",
+      "public/images/guide/generated/cheap-eats-menton-budget-lunch.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/frites-city-menton.png",
     "outputs": [
       "public/images/guide/generated/frites-city-menton.avif",
