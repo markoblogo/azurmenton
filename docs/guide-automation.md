@@ -17,6 +17,7 @@ npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
 npm run guide:review -- --slug <slug>
+npm run guide:ops
 ```
 
 ## What Each Step Does
@@ -210,6 +211,7 @@ The guide automation block is now complete for repo-side preparation and validat
 - final readiness gate: `guide:publish`
 - patch bundle generation: `guide:patch`
 - post-merge verification plus owner visual handoff: `guide:review`
+- intake-level queue overview: `guide:ops`
 
 The only intentionally human step that remains is the owner visual pass driven by `review/owner-checklist.md`.
 
