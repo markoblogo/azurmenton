@@ -217,6 +217,13 @@
     ]
   },
   {
+    "source": "public/images/guide/monaco-helicopter-experiences.png",
+    "outputs": [
+      "public/images/guide/generated/monaco-helicopter-experiences.avif",
+      "public/images/guide/generated/monaco-helicopter-experiences.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/mont-gout-menton.png",
     "outputs": [
       "public/images/guide/generated/mont-gout-menton.avif",
@@ -315,10 +322,10 @@
     ]
   },
   {
-    "source": "public/images/guide/monaco-helicopter-experiences.png",
+    "source": "public/images/guide/post-offices-stamps-menton.png",
     "outputs": [
-      "public/images/guide/generated/monaco-helicopter-experiences.avif",
-      "public/images/guide/generated/monaco-helicopter-experiences.webp"
+      "public/images/guide/generated/post-offices-stamps-menton.avif",
+      "public/images/guide/generated/post-offices-stamps-menton.webp"
     ]
   }
 ]
