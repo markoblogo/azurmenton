@@ -10,6 +10,7 @@ export type GuideIntake = {
   metaDescription?: string;
   intro?: string;
   coverPathHint?: string;
+  categoryHint?: string;
   sectionHeadings: string[];
   placeCandidates: GuidePlaceCandidate[];
   relatedGuideTitles: string[];
@@ -28,7 +29,11 @@ function normalizeText(value: string) {
 function stripMarkdownDecoration(value: string) {
   return value
     .replace(/^#+\s*/, "")
+    .replace(/^\d{1,2}[.)]\s*/, "")
+    .replace(/^[IVXLCM]+[.)]\s+/i, "")
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
     .replace(/\*\*/g, "")
+    .replace(/\*/g, "")
     .replace(/`/g, "")
     .trim();
 }
@@ -57,11 +62,36 @@ function extractField(lines: string[], label: string) {
   return undefined;
 }
 
+function extractFirstField(lines: string[], labels: string[]) {
+  for (const label of labels) {
+    const value = extractField(lines, label);
+    if (value) return value;
+  }
+  return undefined;
+}
+
+function normalizeHeadingText(value: string) {
+  return stripMarkdownDecoration(value)
+    .replace(/^\d{1,2}[.)]\s*/, "")
+    .replace(/^[IVXLCM]+[.)]\s+/i, "")
+    .replace(/^[-–—]\s*/, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function slugToTitle(slug: string) {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function extractTitle(lines: string[]) {
   for (const line of lines) {
     const normalized = normalizeText(line);
     if (!normalized.startsWith("#")) continue;
-    const title = stripMarkdownDecoration(normalized);
+    const title = normalizeHeadingText(normalized);
     if (title) return title;
   }
 
@@ -75,7 +105,7 @@ function extractHeadings(lines: string[]) {
       const match = line.match(/^(#{1,6})\s+/);
       if (!match) return null;
 
-      const text = stripMarkdownDecoration(line);
+      const text = normalizeHeadingText(line);
       if (!text) return null;
 
       return {
@@ -213,7 +243,7 @@ function extractRelatedGuideTitles(lines: string[]) {
       continue;
     }
 
-    if (/^##\s*\**related guides\**/i.test(normalized)) {
+    if (/^##\s*\**(related guides|related articles|relevant guides|useful related guides)\**/i.test(normalized)) {
       inRelatedGuides = true;
       continue;
     }
@@ -223,23 +253,30 @@ function extractRelatedGuideTitles(lines: string[]) {
 
     const bulletMatch = normalized.match(/^- (.+)$/);
     if (!bulletMatch) continue;
-    titles.push(stripMarkdownDecoration(bulletMatch[1]));
+    const bullet = stripMarkdownDecoration(bulletMatch[1]);
+    const guideUrlMatch = bullet.match(/https?:\/\/[^)\s]+\/[a-z]{2}\/guide\/([a-z0-9-]+)/i);
+    if (guideUrlMatch?.[1]) {
+      titles.push(slugToTitle(guideUrlMatch[1]));
+      continue;
+    }
+
+    titles.push(bullet);
   }
 
-  return titles;
+  return [...new Set(titles.map((title) => title.trim()).filter(Boolean))];
 }
 
 export function extractGuideIntake(raw: string, options?: { coverPathHint?: string }): GuideIntake {
   const lines = raw.replace(/\r/g, "").split("\n");
   const title = extractTitle(lines);
-  const rawSuggestedSlug = extractField(lines, "Suggested slug");
+  const rawSuggestedSlug = extractFirstField(lines, ["Suggested slug", "Slug", "Suggested URL"]);
   const suggestedSlug = rawSuggestedSlug?.replace(/^\/[a-z]{2}\/guide\//i, "").replace(/^\/+/, "");
 
   return {
     title,
     slug: suggestedSlug ? toKebabCase(suggestedSlug) : toKebabCase(title),
-    seoTitle: extractField(lines, "SEO title"),
-    metaDescription: extractField(lines, "Meta description"),
+    seoTitle: extractFirstField(lines, ["SEO title", "SEO Title", "Title tag"]),
+    metaDescription: extractFirstField(lines, ["Meta description", "Meta Description", "Description"]),
     intro: extractIntro(lines),
     coverPathHint: options?.coverPathHint,
     sectionHeadings: extractSectionHeadings(lines),

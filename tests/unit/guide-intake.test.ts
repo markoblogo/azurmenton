@@ -36,6 +36,7 @@ Whether you're looking for a gourmet burger or a familiar fast-food stop, Menton
     expect(intake.seoTitle).toBe("Burgers in Menton: Local Burger Restaurants and Fast Food Chains");
     expect(intake.metaDescription).toContain("McDonald's");
     expect(intake.coverPathHint).toBe("/tmp/cover.png");
+    expect(intake.categoryHint).toBeUndefined();
     expect(intake.sectionHeadings).toEqual(["Local burger restaurants", "Restaurant-quality burgers", "Related guides"]);
     expect(intake.placeCandidates).toEqual([
       { name: "All's Stars", section: "Local burger restaurants" },
@@ -77,6 +78,51 @@ Living next to Italy has shaped Menton's food culture.
       { name: "Gusto Italiano", section: "Best Italian Restaurants in Menton" },
       { name: "Le Napoli", section: "Best Italian Restaurants in Menton" },
       { name: "Pasta & Basta", section: "Ventimiglia" },
+    ]);
+  });
+
+  it("normalizes numbered headings and extracts related guide hints from links and alternate labels", () => {
+    const raw = `
+Title tag: Italian restaurants in Menton beyond pizza
+Description: A practical guide to Ligurian and Italian restaurants around Menton.
+Suggested URL: /en/guide/italian-restaurants-in-menton-beyond-pizza
+
+# **Italian restaurants in Menton: beyond pizza**
+
+Living next to Italy shapes everyday eating in Menton.
+
+## **1. Menton**
+
+### **1. Gusto Italiano**
+
+### **2. Le Napoli**
+
+## **2. Beyond Menton**
+
+### **Pasta & Basta**
+
+## **Relevant guides**
+
+- [Italian Riviera Day Trip from Menton](https://azurmenton.com/en/guide/italian-riviera-day-trip-from-menton)
+- https://azurmenton.com/en/guide/local-food-menton
+- Best pizza in Menton
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.slug).toBe("italian-restaurants-in-menton-beyond-pizza");
+    expect(intake.seoTitle).toBe("Italian restaurants in Menton beyond pizza");
+    expect(intake.metaDescription).toBe("A practical guide to Ligurian and Italian restaurants around Menton.");
+    expect(intake.sectionHeadings).toEqual(["Menton", "Beyond Menton", "Relevant guides"]);
+    expect(intake.placeCandidates).toEqual([
+      { name: "Gusto Italiano", section: "Menton" },
+      { name: "Le Napoli", section: "Menton" },
+      { name: "Pasta & Basta", section: "Beyond Menton" },
+    ]);
+    expect(intake.relatedGuideTitles).toEqual([
+      "Italian Riviera Day Trip from Menton",
+      "Local Food Menton",
+      "Best pizza in Menton",
     ]);
   });
 });

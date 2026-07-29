@@ -73,7 +73,7 @@ function clampDescription(value: string, maxLength = 158) {
   return `${(cut > 80 ? sliced.slice(0, cut) : sliced).trim()}.`;
 }
 
-function inferCategory(intake: GuideIntake): GuideCategory {
+export function inferCategory(intake: GuideIntake): GuideCategory {
   const corpus = normalize([intake.title, intake.intro ?? "", ...intake.sectionHeadings].join(" "));
 
   if (/\b(restaurant|restaurants|food|eat|cafe|coffee|tea|bakery|pastry|dessert|pizza|burger|sushi|ramen|indian|vegan|seafood|italian|market|boulangerie|patisserie)\b/.test(corpus)) {
@@ -163,6 +163,7 @@ export function seedGuideIntake(intake: GuideIntake): GuideIntake {
     ...intake,
     seoTitle: inferSeoTitle(intake),
     metaDescription: inferMetaDescription(intake),
+    categoryHint: intake.categoryHint ?? inferCategory(intake),
   };
 }
 
@@ -175,7 +176,7 @@ export function buildSeededPublicationPlan(input: {
   mapExclusionPlaceIds: string[];
 }) : GuidePublicationPlan {
   const { intake } = input;
-  const category = inferCategory(intake);
+  const category = (intake.categoryHint as GuideCategory | undefined) ?? inferCategory(intake);
   const pointIds = new Set(input.mapPointPlaceIds);
   const exclusionIds = new Set(input.mapExclusionPlaceIds);
   const existingIds = new Set(input.places.map((place) => place.id));

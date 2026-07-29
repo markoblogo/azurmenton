@@ -25,6 +25,7 @@ npm run guide:review -- --slug <slug>
 
 - creates `build/guide-intake/<slug>/`
 - extracts title, slug, section headings, place candidates and related guide hints
+- v2 also normalizes numbered headings, alternate SEO/meta labels and guide-link bullets/URLs
 - writes:
   - `draft.md`
   - `intake.json`
@@ -32,6 +33,7 @@ npm run guide:review -- --slug <slug>
   - `guide-scaffold.md`
   - `places-scaffold.md`
   - `publication-plan.json`
+- `guide-scaffold.md` now also surfaces `categoryHint` immediately for the first editorial pass
 
 ### `guide:match`
 

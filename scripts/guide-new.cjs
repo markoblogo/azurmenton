@@ -41,6 +41,7 @@ function renderGuideScaffold(intake) {
     `title: ${intake.title}`,
     `seoTitle: ${intake.seoTitle ?? "TODO"}`,
     `metaDescription: ${intake.metaDescription ?? "TODO"}`,
+    `categoryHint: ${intake.categoryHint ?? "TODO"}`,
     `coverPathHint: ${intake.coverPathHint ?? "TODO"}`,
     "",
     "Guide scaffold checklist",
