@@ -92,12 +92,28 @@ describe("guide patch bundle", () => {
         },
       },
       applyArtifacts,
+      places: [
+        {
+          id: "alls-stars-menton",
+          name: "All's Stars",
+          relatedArticleIds: ["best-burgers-menton"],
+          guideCoverageSlugs: [],
+          image: "/images/guide/alls-stars-menton.jpg",
+        },
+      ],
     });
 
     expect(bundle.ready).toBe(true);
     expect(bundle.targets.map((target) => target.file)).toEqual(expect.arrayContaining(["src/content/guide.ts", "src/content/places.ts"]));
     expect(bundle.targets[0]?.snippet).toContain("shortArticle({");
     expect(bundle.targets.some((target) => target.action === "update")).toBe(true);
+    expect(bundle.targets.find((target) => target.action === "update")?.placeUpdates?.[0]).toEqual(
+      expect.objectContaining({
+        placeId: "alls-stars-menton",
+        addRelatedArticleIds: ["burgers-menton"],
+        addGuideCoverageSlugs: ["burgers-menton"],
+      }),
+    );
   });
 
   it("refuses to build patch targets while publish blockers remain", () => {
@@ -136,6 +152,7 @@ describe("guide patch bundle", () => {
           relatedApartmentSlugs: [],
         },
       },
+      places: [],
     });
 
     expect(bundle.ready).toBe(false);

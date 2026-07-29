@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { buildGuidePatchBundle } = require("../src/lib/guide-patch.ts");
+const { places } = require("../src/content/places.ts");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -49,8 +50,15 @@ function renderBundleMarkdown(bundle) {
       lines.push(`- action: ${target.action}`);
       lines.push(`- anchor: ${target.anchor}`);
       for (const note of target.notes) lines.push(`- note: ${note}`);
+      if (target.placeUpdates?.length) lines.push(`- place updates: ${target.placeUpdates.length}`);
       if (target.snippet) {
         lines.push("", "```ts", target.snippet, "```");
+      }
+      if (target.placeUpdates?.length) {
+        lines.push("", "#### Existing place update blocks");
+        for (const update of target.placeUpdates) {
+          lines.push(`- ${update.placeId}: backlink ${update.alreadySatisfied.backlink ? "ok" : "needs merge"}, coverage ${update.alreadySatisfied.coverage ? "ok" : "needs merge"}, visual ${update.alreadySatisfied.visual ? "ok" : "needs merge"}`);
+        }
       }
       lines.push("");
     }
@@ -96,6 +104,13 @@ async function main() {
     publicationPlan,
     publishReport,
     applyArtifacts,
+    places: places.map((place) => ({
+      id: place.id,
+      name: place.name,
+      relatedArticleIds: place.relatedArticleIds,
+      guideCoverageSlugs: place.guideCoverageSlugs,
+      image: place.image,
+    })),
   });
 
   const patchDir = path.join(intakeDir, "patch");
@@ -103,6 +118,10 @@ async function main() {
   await Promise.all([
     fs.writeFile(path.join(patchDir, "summary.json"), `${JSON.stringify(bundle, null, 2)}\n`),
     fs.writeFile(path.join(patchDir, "content-bundle.md"), renderBundleMarkdown(bundle)),
+    fs.writeFile(
+      path.join(patchDir, "existing-place-updates.json"),
+      `${JSON.stringify(bundle.targets.flatMap((target) => target.placeUpdates ?? []), null, 2)}\n`,
+    ),
   ]);
 
   console.log(`guide patch: ${slug}`);

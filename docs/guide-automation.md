@@ -131,7 +131,9 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
 - collects the ready artifacts into one reviewable patch bundle
 - writes:
   - `patch/content-bundle.md`
+  - `patch/existing-place-updates.json`
   - `patch/summary.json`
+- includes per-place update blocks for backlinks, specialist coverage and resolved visuals
 - this is the handoff bundle for editing `src/content/guide.ts` and `src/content/places.ts`
 
 ### `guide:review`
