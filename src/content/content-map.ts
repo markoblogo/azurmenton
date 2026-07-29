@@ -99,8 +99,8 @@ export const contentCollections: ContentCollection[] = [
     title: t("Sport & outdoors", "Sport & plein air", "Sport & attivita all'aperto", "Спорт і активний відпочинок"),
     description: t("Gyms, yoga, pétanque, golf, tennis, padel, cycling, hiking and skateparks for active Riviera days.", "Salles de sport, yoga, petanque, golf, tennis, padel, velo, randonnee et skateparks pour des journees actives sur la Riviera.", "Palestre, yoga, petanque, golf, tennis, padel, bici, escursioni e skatepark per giornate attive in Riviera.", "Спортзали, йога, петанк, гольф, теніс, падел, велосипед, походи й скейтпарки для активних днів на Рив'єрі."),
     categories: [],
-    includeGuideSlugs: ["gyms-fitness-centres-menton", "yoga-in-menton", "saunas-spas-menton", "petanque-in-menton", "golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton", "fishing-in-menton"],
-    priorityGuideSlugs: ["petanque-in-menton", "yoga-in-menton", "gyms-fitness-centres-menton", "tennis-padel-courts-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "cycling-bike-rental-menton", "skateparks-near-menton"],
+    includeGuideSlugs: ["gyms-fitness-centres-menton", "yoga-in-menton", "saunas-spas-menton", "petanque-in-menton", "golf-near-menton", "tennis-padel-courts-menton", "best-walks-and-hikes-around-menton", "skateparks-near-menton", "cycling-bike-rental-menton", "fishing-in-menton", "air-adventures-near-menton"],
+    priorityGuideSlugs: ["air-adventures-near-menton", "petanque-in-menton", "yoga-in-menton", "gyms-fitness-centres-menton", "tennis-padel-courts-menton", "golf-near-menton", "best-walks-and-hikes-around-menton", "cycling-bike-rental-menton", "skateparks-near-menton"],
   },
   {
     id: "evening-plans",
@@ -172,6 +172,7 @@ export const contentIntentMap: ContentIntent[] = [
   { id: "menton-yoga", query: t("yoga in Menton", "yoga a Menton", "yoga a Mentone", "йога в Ментоні"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "yoga-in-menton", season: "all-year" },
   { id: "menton-wellness-spas", query: t("saunas and spas in Menton", "saunas et spas a Menton", "saune e spa a Mentone", "сауни та спа в Ментоні"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "saunas-spas-menton", season: "all-year" },
   { id: "menton-petanque", query: t("pétanque in Menton", "petanque a Menton", "petanque a Mentone", "петанк у Ментоні"), collectionId: "sport-and-outdoors", priority: "now", status: "covered", targetGuideSlug: "petanque-in-menton", season: "all-year" },
+  { id: "menton-air-adventures", query: t("air adventures near Menton", "activites aeriennes pres de Menton", "avventure aeree vicino a Mentone", "повітряні пригоди біля Ментона"), collectionId: "sport-and-outdoors", priority: "next", status: "covered", targetGuideSlug: "air-adventures-near-menton", season: "all-year" },
   { id: "menton-evening-plans", query: t("evening plans in Menton", "idees de soiree a Menton", "idee per la sera a Mentone", "вечірні плани в Ментоні"), collectionId: "evening-plans", priority: "now", status: "covered", targetGuideSlug: "quiet-evening-in-menton", season: "all-year" },
   { id: "menton-live-music", query: t("live music near Menton", "musique live pres de Menton", "musica dal vivo vicino a Mentone", "жива музика біля Ментона"), collectionId: "evening-plans", priority: "now", status: "covered", targetGuideSlug: "jazz-live-music-near-menton", season: "all-year" },
 ];

@@ -264,5 +264,12 @@
       "public/images/home/generated/TerraceParkingApartment.avif",
       "public/images/home/generated/TerraceParkingApartment.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/air-adventures-near-menton.png",
+    "outputs": [
+      "public/images/guide/generated/air-adventures-near-menton.avif",
+      "public/images/guide/generated/air-adventures-near-menton.webp"
+    ]
   }
 ]

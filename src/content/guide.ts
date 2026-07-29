@@ -9294,6 +9294,7 @@ export const guideArticles: GuideArticle[] = [
     category: "food-markets",
     coverImage: "/images/guide/ramen-near-menton.png",
     coverImageAlt: t("Illustration for ramen near Menton", "Illustration pour le ramen pres de Menton", "Illustrazione per il ramen vicino a Mentone", "Ілюстрація до гіда про ramen поруч із Ментоном"),
+    publishedOn: "2026-07-27",
     visualTheme: "food",
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
@@ -10019,6 +10020,108 @@ export const guideArticles: GuideArticle[] = [
     ],
   }),
   shortArticle({
+    id: "air-adventures-near-menton",
+    slug: "air-adventures-near-menton",
+    title: t("Air Adventures Near Menton: Helicopter Flights, Paragliding & Skydiving on the French Riviera", "Aventures aeriennes pres de Menton : helicoptere, parapente et saut en parachute sur la Riviera", "Avventure aeree vicino a Mentone: elicottero, parapendio e skydiving sulla Riviera", "Повітряні пригоди біля Ментона: вертольоти, параплан і skydiving на Рив'єрі"),
+    seoTitle: t("Air Adventures Near Menton: Helicopter Flights, Paragliding & Skydiving on the French Riviera", "Aventures aeriennes pres de Menton : helicoptere, parapente et parachutisme", "Air adventures vicino a Mentone: elicottero, parapendio e skydiving", "Повітряні пригоди біля Ментона: helicopter flights, paragliding і skydiving"),
+    seoDescription: t("Discover the best helicopter flights, paragliding, skydiving and scenic air experiences near Menton, Monaco, Nice and the Italian Riviera.", "Decouvrez les meilleurs vols en helicoptere, spots de parapente, sauts tandem et experiences aeriennes panoramiques pres de Menton, Monaco, Nice et de la Riviera italienne.", "Scopri voli in elicottero, parapendio, skydiving ed esperienze aeree panoramiche vicino a Mentone, Monaco, Nizza e Riviera italiana.", "Дізнайтеся про helicopter flights, paragliding, skydiving і scenic air experiences біля Ментона, Монако, Ніцци та Італійської Рив'єри."),
+    excerpt: t("Within an hour of Menton you can fly over Monaco by helicopter, paraglide from Alpine launch sites or plan a tandem skydive above the Côte d’Azur.", "A moins d'une heure de Menton, vous pouvez survoler Monaco en helicoptere, decoller en parapente depuis les reliefs alpins ou preparer un saut tandem au-dessus de la Cote d'Azur.", "A meno di un'ora da Mentone puoi sorvolare Monaco in elicottero, decollare in parapendio dai rilievi alpini o organizzare un tandem skydive sopra la Costa Azzurra.", "Менш ніж за годину від Ментона можна пролетіти над Монако на helicopter, стартувати на параплані з альпійських launch sites або спланувати tandem skydive над Côte d’Azur."),
+    category: "day-trips",
+    coverImage: "/images/guide/air-adventures-near-menton.png",
+    coverImageAlt: t("Illustration for air adventures, helicopter flights and paragliding near Menton", "Illustration pour les aventures aeriennes pres de Menton", "Illustrazione per avventure aeree vicino a Mentone", "Ілюстрація до гіда про повітряні пригоди біля Ментона"),
+    publishedOn: "2026-07-29",
+    visualTheme: "walk",
+    visualStatus: "project_illustration",
+    sourceStatus: "needs_verification",
+    tags: [
+      t("air adventures", "aventures aeriennes", "avventure aeree", "повітряні пригоди"),
+      t("helicopter flights", "vols en helicoptere", "voli in elicottero", "helicopter flights"),
+      t("paragliding", "parapente", "parapendio", "paragliding"),
+      t("skydiving", "parachutisme", "skydiving", "skydiving"),
+    ],
+    bestFor: [guideBestForOptions[1].label, guideBestForOptions[4].label, guideBestForOptions[5].label, guideBestForOptions[11].label],
+    duration: "full-day",
+    locationTags: ["menton-centre", "monaco", "nice", "italian-riviera"],
+    relatedPlaces: [
+      "monaco-helicopter-experiences",
+      "french-riviera-sightseeing-flights",
+      "roquebrune-menton-paragliding-area",
+      "col-de-la-madone",
+      "gourdon-paragliding-area",
+      "nice-region-skydiving",
+      "cannes-frejus-skydiving",
+      "italian-riviera-paragliding-clubs",
+    ],
+    canonicalPlaceTypes: ["mountain", "viewpoint"],
+    relatedArticles: [
+      "best-walks-and-hikes-around-menton",
+      "mountains-snow-skiing-near-menton",
+      "day-trips-from-menton",
+      "monaco-events-from-menton",
+      "how-to-get-to-menton-from-nice-airport",
+      "where-to-stay-in-menton",
+    ],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Why Menton works as the base", "Pourquoi Menton fonctionne comme base", "Perche Mentone funziona come base", "Чому Menton добре працює як база"),
+        body: [
+          t("Menton is unusually well placed for air adventures because the sea, mountain relief and several regional transport corridors all sit close together. You can sleep on the coast, head into Monaco or the hills in the morning, and still return to a calmer seafront base the same evening.", "Menton est tres bien place pour ce type d'activites car la mer, le relief montagneux et plusieurs axes regionaux se trouvent tres proches. On peut dormir au bord de l'eau, partir vers Monaco ou les hauteurs le matin et revenir le soir dans une base plus calme.", "Mentone funziona molto bene per queste attivita perche mare, rilievi montani e corridoi di trasporto regionali sono tutti vicini. Puoi dormire sul mare, partire verso Monaco o le alture al mattino e rientrare la sera in una base piu tranquilla.", "Menton незвично добре підходить для таких планів, бо море, гірський рельєф і кілька регіональних транспортних коридорів тут дуже близько. Можна ночувати біля моря, зранку їхати до Монако чи в гори і того ж вечора повертатися в спокійнішу seaside-base."),
+          t("That matters because helicopter tours, paragliding and skydiving all depend on weather, timing and logistics. Menton gives you flexibility without forcing you to stay in the most expensive part of the Riviera.", "C'est important car helicoptere, parapente et parachutisme dependent tous de la meteo, du timing et de la logistique. Menton apporte cette flexibilite sans vous obliger a dormir dans la partie la plus chere de la Riviera.", "Questo conta perche elicottero, parapendio e skydiving dipendono tutti da meteo, timing e logistica. Mentone ti lascia flessibilita senza costringerti a dormire nella parte piu costosa della Riviera.", "Це важливо, бо helicopter tours, paragliding і skydiving залежать від погоди, таймінгу та логістики. Menton дає цю гнучкість без необхідності жити в найдорожчій частині Рив'єри."),
+        ],
+      },
+      {
+        heading: t("Helicopter flights", "Vols en helicoptere", "Voli in elicottero", "Польоти на вертольоті"),
+        body: [
+          t("Monaco remains the clearest luxury-sightseeing answer. Scenic helicopter flights here are less about adrenaline and more about seeing the harbour, cliffs, Cap Martin and the Riviera coastline from a completely different angle.", "Monaco reste la reponse la plus nette pour un survol haut de gamme. Ici, le vol en helicoptere releve moins de l'adrenaline que d'une nouvelle lecture du port, des falaises, du Cap Martin et de toute la ligne de cote.", "Monaco resta la risposta piu chiara per un'esperienza panoramica di livello alto. Qui l'elicottero riguarda meno l'adrenalina e piu il vedere porto, scogliere, Cap Martin e costa da un'altra prospettiva.", "Monaco залишається найчіткішою відповіддю для luxury-sightseeing. Тут helicopter experience менше про адреналін і більше про зовсім інший погляд на гавань, скелі, Cap Martin і всю берегову лінію."),
+          t("Longer sightseeing routes push farther west toward Nice, Villefranche, Cap Ferrat, Cannes or the Esterel, so this category works best when your priority is views, photography and a special-occasion mood rather than a pure sport session.", "Les parcours plus longs poussent vers Nice, Villefranche, le Cap Ferrat, Cannes ou l'Esterel. Cette categorie convient donc surtout a ceux qui cherchent les vues, la photo et une ambiance occasion speciale plutot qu'une seance sportive.", "I percorsi piu lunghi si spingono verso Nizza, Villefranche, Cap Ferrat, Cannes o l'Esterel. Questa categoria funziona quindi meglio se il tuo obiettivo sono panorami, fotografia e atmosfera da occasione speciale piu che una vera attivita sportiva.", "Довші маршрути йдуть далі на захід до Nice, Villefranche, Cap Ferrat, Cannes чи Esterel. Тому цей формат найкраще підходить, якщо в пріоритеті views, photography і special-occasion mood, а не чисто спортивна сесія."),
+        ],
+        relatedPlaceIds: ["monaco-helicopter-experiences", "french-riviera-sightseeing-flights"],
+      },
+      {
+        heading: t("Paragliding", "Parapente", "Parapendio", "Параплан"),
+        body: [
+          t("If one activity fits the geography around Menton almost perfectly, it is paragliding. The mountain backdrop rises quickly behind the Mediterranean, which is why tandem flights above Menton and Roquebrune feel so dramatic even for first-time flyers.", "S'il y a une activite parfaitement adaptee a la geographie de Menton, c'est bien le parapente. Le relief monte tres vite derriere la Mediterranee, d'ou l'effet spectaculaire des vols tandem au-dessus de Menton et Roquebrune meme pour une premiere experience.", "Se c'e un'attivita perfettamente adatta alla geografia di Mentone, e il parapendio. I rilievi salgono molto rapidamente dietro il Mediterraneo, e per questo i voli tandem sopra Mentone e Roquebrune risultano cosi scenografici anche per chi prova per la prima volta.", "Якщо якась активність ідеально пасує географії навколо Menton, то це paragliding. Гори дуже швидко підіймаються за Середземним морем, тому tandem flights над Menton і Roquebrune виглядають настільки ефектно навіть для first-time flyers."),
+          t("Col de la Madone gives this category a strong local reference point, while Gourdon is the more classic south-of-France extension when you are ready to drive farther for a more established flying zone.", "Le col de la Madone sert ici de repere local fort, tandis que Gourdon represente l'extension plus classique du sud de la France si vous acceptez de rouler davantage pour un vrai site reconnu.", "Il Col de la Madone da a questa categoria un riferimento locale forte, mentre Gourdon rappresenta l'estensione piu classica del sud della Francia se sei disposto a guidare di piu per una zona di volo piu consolidata.", "Col de la Madone дає цій темі сильну local reference point, а Gourdon — це вже більш класичне south-of-France продовження, якщо ви готові їхати далі заради більш established flying zone."),
+        ],
+        relatedPlaceIds: ["roquebrune-menton-paragliding-area", "col-de-la-madone", "gourdon-paragliding-area"],
+      },
+      {
+        heading: t("Skydiving and scenic fixed-wing options", "Parachutisme et vols panoramiques en petit avion", "Skydiving e voli panoramici in piccolo aereo", "Skydiving і scenic flights на легких літаках"),
+        body: [
+          t("There is no single Menton drop zone, so the practical approach is to think regionally. The Nice side is usually the closest tandem-skydiving reference, while the Cannes and Fréjus side makes more sense if you want to turn the day into a bigger west-Riviera adventure.", "Il n'y a pas une seule drop zone mentonnaise ; il faut donc penser en echelle regionale. Le cote Nice reste generalement la reference tandem la plus proche, tandis que Cannes et Frejus ont plus de sens pour une grande journee a l'ouest de la Riviera.", "Non esiste una singola drop zone a Mentone, quindi conviene ragionare in termini regionali. Il lato di Nizza e di solito il riferimento tandem piu vicino, mentre Cannes e Frejus hanno piu senso se vuoi trasformare la giornata in una vera avventura sulla Riviera ovest.", "У Ментона немає однієї власної drop zone, тож практично треба мислити регіонально. Сторона Nice зазвичай є найближчим tandem-reference, а Cannes і Fréjus логічніші, якщо хочеться зробити з цього більшу western-Riviera пригоду."),
+          t("If freefall feels too extreme, light-aircraft scenic flights can be the cleaner compromise: longer time in the air, easier photography and less physical intensity while still getting the same coastline-from-above payoff.", "Si la chute libre vous semble excessive, les vols panoramiques en petit avion offrent souvent le meilleur compromis : plus de temps en l'air, des photos plus faciles et moins d'intensite physique, avec presque le meme gain visuel.", "Se la caduta libera ti sembra troppo estrema, i voli panoramici in piccolo aereo sono spesso il compromesso migliore: piu tempo in aria, foto piu facili e meno intensita fisica, pur mantenendo quasi lo stesso payoff panoramico.", "Якщо freefall здається занадто екстремальним, light-aircraft scenic flights часто дають кращий компроміс: більше часу в повітрі, простіша photography і менша фізична інтенсивність, але майже той самий coastline-from-above payoff."),
+        ],
+        relatedPlaceIds: ["nice-region-skydiving", "cannes-frejus-skydiving", "french-riviera-sightseeing-flights"],
+      },
+      {
+        heading: t("Italian Riviera add-on", "Extension cote Riviera italienne", "Estensione Riviera italiana", "Італійське доповнення"),
+        body: [
+          t("If you are already planning a Ligurian day trip, the Italian side adds another layer of flying culture. The mountains above Ventimiglia and Sanremo are relevant more as a club-and-tandem landscape than as one fixed bookable venue, which is why this guide treats them as an area rather than a single pin.", "Si vous prevoyez deja une sortie ligure, le cote italien ajoute une autre couche au sujet. Les montagnes au-dessus de Vintimille et Sanremo comptent davantage comme paysage de clubs et de vols tandem que comme une adresse unique reservable, d'ou le choix de les traiter comme une zone plutot qu'un point unique.", "Se stai gia pianificando una gita in Liguria, il lato italiano aggiunge un altro livello al tema. Le montagne sopra Ventimiglia e Sanremo contano piu come paesaggio di club e voli tandem che come un'unica sede prenotabile, per questo la guida le tratta come area e non come singolo pin.", "Якщо ви вже плануєте лігурійський day trip, італійський бік додає ще один шар до теми. Гори над Ventimiglia і Sanremo важливіші як клубно-тандемний ландшафт, ніж як один фіксований venue, тому гід трактує їх як area, а не як один pin."),
+        ],
+        relatedPlaceIds: ["italian-riviera-paragliding-clubs"],
+      },
+      {
+        heading: t("Which air adventure is right for you?", "Quelle aventure aerienne choisir ?", "Quale air adventure scegliere?", "Яка повітряна пригода підійде саме вам?"),
+        body: [
+          t("Choose a helicopter flight if you want the easiest premium views, paragliding if you want the strongest feeling of flight for good value, and skydiving if the whole point is pure adrenaline and a once-in-a-lifetime memory.", "Choisissez l'helicoptere pour les vues premium les plus faciles, le parapente pour la sensation de vol la plus forte au meilleur rapport plaisir-prix, et le parachutisme si l'objectif est l'adrenaline pure et un souvenir unique.", "Scegli l'elicottero se vuoi i panorami premium piu facili, il parapendio se cerchi la sensazione di volo piu intensa con buon valore, e lo skydiving se il punto e l'adrenalina pura e il ricordo da una volta nella vita.", "Обирайте helicopter flight, якщо потрібні найлегші premium views, paragliding — якщо хочеться найсильнішого відчуття польоту за добру ціну, а skydiving — якщо вся суть у pure adrenaline і once-in-a-lifetime memory."),
+        ],
+      },
+      {
+        heading: t("Stay in Menton and keep flexibility", "Restez a Menton pour garder de la flexibilite", "Soggiorna a Mentone per mantenere flessibilita", "Зупиніться в Menton і збережіть гнучкість"),
+        body: [
+          t("This is exactly the kind of plan where a calm seaside base helps. Weather may move, operators may shift time slots, and some adventures make more sense early in the morning. Staying in Menton lets you keep the trip practical without committing to Monaco or Nice hotel prices just to be near the action.", "C'est exactement le type de programme ou une base calme au bord de l'eau aide vraiment. La meteo peut bouger, les horaires peuvent glisser, et certaines activites fonctionnent mieux tot le matin. Rester a Menton permet de garder un voyage pratique sans payer les tarifs hoteliers de Monaco ou Nice.", "Questo e proprio il tipo di programma in cui una base tranquilla sul mare aiuta davvero. Il meteo puo cambiare, gli operatori possono spostare gli orari e alcune attivita funzionano meglio al mattino presto. Restare a Mentone mantiene il viaggio pratico senza entrare nei prezzi hotel di Monaco o Nizza.", "Це саме той тип плану, де спокійна seaside-base справді допомагає. Погода може зміститися, оператори можуть рухати слоти, а частина активностей краще працює рано вранці. Залишаючись у Menton, ви зберігаєте практичність без цін hotel-ринку Monaco чи Nice."),
+        ],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Keep at least one flexible weather window if paragliding or skydiving is the main reason for the day.", "Gardez au moins une fenetre meteo flexible si le parapente ou le parachutisme est la raison principale de la journee.", "Tieni almeno una finestra meteo flessibile se parapendio o skydiving sono il motivo principale della giornata.", "Залишайте хоча б одне гнучке weather-window, якщо paragliding або skydiving є головною метою дня."),
+      t("Helicopter sightseeing works well for special occasions and shorter Riviera stays, while paragliding usually offers the strongest value-to-wow ratio.", "Le survol en helicoptere fonctionne tres bien pour une occasion speciale ou un court sejour, tandis que le parapente offre souvent le meilleur rapport wow-prix.", "L'elicottero funziona molto bene per un'occasione speciale o un soggiorno breve, mentre il parapendio offre spesso il miglior rapporto tra effetto wow e valore.", "Helicopter sightseeing добре працює для special occasion і коротких Riviera stays, тоді як paragliding часто дає найкращий value-to-wow ratio."),
+      t("Use airport, train and driving guides together when planning these activities because several operators sit outside simple central-Menton walking range.", "Croisez les guides aeroport, train et voiture pour preparer ces activites, car plusieurs operateurs restent hors de portee d'une simple marche depuis le centre de Menton.", "Usa insieme le guide su aeroporto, treno e auto quando pianifichi queste attivita, perche diversi operatori stanno fuori dalla semplice distanza a piedi dal centro di Mentone.", "Користуйтеся разом airport, train і driving guides при плануванні таких активностей, бо багато операторів лежать поза межами простої прогулянки з центру Menton."),
+    ],
+  }),
+  shortArticle({
     id: "italian-restaurants-in-menton-beyond-pizza",
     slug: "italian-restaurants-in-menton-beyond-pizza",
     title: t("Italian restaurants in Menton beyond pizza", "Restaurants italiens a Menton au-dela de la pizza", "Ristoranti italiani a Mentone oltre la pizza", "Італійські ресторани в Ментоні: не лише піца"),
@@ -10037,6 +10140,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["menton-centre", "old-town", "seafront", "italian-riviera"],
     relatedPlaces: [
+      "chez-mimi-menton",
       "gusto-italiano-menton",
       "le-napoli-menton",
       "abam-menton",
@@ -10068,7 +10172,7 @@ export const guideArticles: GuideArticle[] = [
           t("Living next to Italy has shaped Menton's food culture in a way few French towns can match. Cross-border families, Italian suppliers and generations of Ligurian influence mean that good Italian food here is part of everyday life, not a staged tourist theme.", "La proximite de l'Italie a faconne la culture culinaire de Menton comme peu d'autres villes francaises. Familles transfrontalieres, fournisseurs italiens et generations d'influence ligure font qu'une bonne table italienne y releve du quotidien, pas d'un decor touristique.", "La vicinanza con l'Italia ha modellato la cultura gastronomica di Mentone come poche altre citta francesi. Famiglie oltreconfine, fornitori italiani e generazioni di influenza ligure fanno si che una buona tavola italiana qui appartenga alla vita quotidiana, non a un tema turistico costruito.", "Близькість до Італії сформувала кулінарну культуру Ментона так, як можуть небагато французьких міст. Прикордонні родини, італійські постачальники та покоління лігурійського впливу роблять хорошу італійську їжу частиною повсякденного життя, а не туристичною декорацією."),
           t("That means the best Italian guide for Menton should not stop at pizza. It should cover espresso bars, deli-style stops, central trattoria meals and the practical question of when it is worth crossing into Ventimiglia, Bordighera or Sanremo for a fuller Italian outing.", "C'est pourquoi un bon guide italien de Menton ne doit pas s'arreter a la pizza. Il doit couvrir espresso, epicerie fine, repas de trattoria au centre et la question pratique de savoir quand il vaut la peine de passer a Vintimille, Bordighera ou Sanremo.", "Per questo una buona guida italiana di Mentone non deve fermarsi alla pizza. Deve includere espresso, deli, pasti di trattoria in centro e la domanda pratica su quando convenga passare a Ventimiglia, Bordighera o Sanremo.", "Тому хороший італійський гід по Ментону не має зупинятися на pizza. Він має охоплювати espresso-бари, deli-формат, центральні trattoria-вечері та практичне питання, коли справді варто їхати до Ventimiglia, Bordighera чи Sanremo."),
         ],
-        relatedPlaceIds: ["gusto-italiano-menton", "abam-menton", "le-napoli-menton"],
+        relatedPlaceIds: ["chez-mimi-menton", "gusto-italiano-menton", "abam-menton", "le-napoli-menton"],
       },
       {
         heading: t("Italian restaurants in Menton", "Restaurants italiens a Menton", "Ristoranti italiani a Mentone", "Італійські ресторани в Ментоні"),
@@ -10084,7 +10188,7 @@ export const guideArticles: GuideArticle[] = [
           t("Sometimes the right Italian plan in Menton is not a full dinner at all. It can be an espresso stop, a light lunch, a deli counter or a combination of market browsing and coffee before the beach. That is why Gusto Italiano still matters here even if you also keep the more formal restaurants on the list.", "Parfois, le bon plan italien a Menton n'est pas un diner complet. Cela peut etre un espresso, un dejeuner leger, un comptoir deli ou une combinaison marche plus cafe avant la plage. C'est pour cela que Gusto Italiano compte ici, meme en gardant les restaurants plus formels sur la liste.", "A volte il giusto piano italiano a Mentone non e affatto una cena completa. Puo essere un espresso, un pranzo leggero, un banco deli o un mix tra mercato e caffe prima della spiaggia. Per questo Gusto Italiano conta ancora anche se tieni in lista ristoranti piu formali.", "Іноді правильний італійський план у Ментоні взагалі не є повною вечерею. Це може бути espresso-stop, легкий обід, deli-прилавок або поєднання ринку з кавою перед пляжем. Саме тому Gusto Italiano важливий навіть якщо в списку є і більш формальні ресторани."),
           t("Use central Menton for the easy everyday version of Italian food. Save the longer cross-border detours for the days when food itself is part of the outing rather than just the meal between beach, market and apartment plans.", "Utilisez le centre de Menton pour la version italienne facile du quotidien. Gardez les detours transfrontaliers plus longs pour les jours ou la nourriture fait partie de la sortie elle-meme, et non simplement du repas entre plage, marche et appartement.", "Usa il centro di Mentone per la versione italiana piu facile del quotidiano. Tieni le deviazioni oltreconfine piu lunghe per i giorni in cui il cibo fa parte dell'uscita stessa, non solo del pasto tra spiaggia, mercato e appartamento.", "Використовуйте центр Ментона для легкої повсякденної версії італійської їжі. Довші поїздки за кордон залишайте на дні, де їжа сама є частиною маршруту, а не просто стравою між пляжем, ринком і апартаментами."),
         ],
-        relatedPlaceIds: ["gusto-italiano-menton", "halles-du-marche"],
+        relatedPlaceIds: ["chez-mimi-menton", "gusto-italiano-menton", "halles-du-marche"],
       },
       {
         heading: t("Cross-border Italian restaurants worth the short trip", "Restaurants italiens au-dela de la frontiere qui valent le trajet", "Ristoranti italiani oltreconfine che valgono il tragitto", "Італійські ресторани за кордоном, які варті короткої поїздки"),
