@@ -70,6 +70,13 @@
     ]
   },
   {
+    "source": "public/images/guide/chez-les-grecs-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/chez-les-grecs-monaco.avif",
+      "public/images/guide/generated/chez-les-grecs-monaco.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/frites-city-menton.png",
     "outputs": [
       "public/images/guide/generated/frites-city-menton.avif",
@@ -133,6 +140,20 @@
     ]
   },
   {
+    "source": "public/images/guide/maison-des-pates-condamine-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/maison-des-pates-condamine-monaco.avif",
+      "public/images/guide/generated/maison-des-pates-condamine-monaco.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/marche-de-la-condamine-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/marche-de-la-condamine-monaco.avif",
+      "public/images/guide/generated/marche-de-la-condamine-monaco.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/mcdonalds-menton-centre.png",
     "outputs": [
       "public/images/guide/generated/mcdonalds-menton-centre.avif",
@@ -144,6 +165,13 @@
     "outputs": [
       "public/images/guide/generated/mcdonalds-menton-east.avif",
       "public/images/guide/generated/mcdonalds-menton-east.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/mont-gout-menton.png",
+    "outputs": [
+      "public/images/guide/generated/mont-gout-menton.avif",
+      "public/images/guide/generated/mont-gout-menton.webp"
     ]
   },
   {
