@@ -39,6 +39,10 @@ export type GuideAssetResolutionPlan = {
   missingExpectedAssetPlaceIds: string[];
   expectedCoverAsset: boolean;
   missingExpectedCoverAsset: boolean;
+  skippedAlreadyCoveredPlaces: Array<{
+    placeId: string;
+    draftName: string;
+  }>;
   publishedGuidePlacesWithoutImage: Array<{
     placeId: string;
     draftName: string;
@@ -155,10 +159,12 @@ export function resolveGuideAssetPlan(input: {
     image?: string;
   }>;
   publishedGuide?: PublishedGuideAssetContext;
+  missingOnly?: boolean;
 }) : GuideAssetResolutionPlan {
   const operations: GuideAssetCopyOperation[] = [];
   const issues: GuideAssetPlanIssue[] = [];
   const matchedPlaces: GuideAssetResolutionPlan["matchedPlaces"] = [];
+  const skippedAlreadyCoveredPlaces: GuideAssetResolutionPlan["skippedAlreadyCoveredPlaces"] = [];
   const availableFiles = input.availableAssetFiles ?? [];
   const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
@@ -249,6 +255,15 @@ export function resolveGuideAssetPlan(input: {
     const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
     if (!placeId) continue;
     if (plannedPlace.imageStatus === "provided") expectedAssetPlaceIds.add(placeId);
+    const existingImage = input.existingPlaceImages?.[placeId] ?? knownPlaceById.get(placeId)?.image;
+
+    if (input.missingOnly && existingImage) {
+      skippedAlreadyCoveredPlaces.push({
+        placeId,
+        draftName: plannedPlace.draftName,
+      });
+      continue;
+    }
 
     const override = overrideByPlaceId.get(placeId);
     if (override) {
@@ -308,7 +323,6 @@ export function resolveGuideAssetPlan(input: {
         message: `Place ${placeId} is marked as provided but no asset could be resolved.`,
       });
     } else if (plannedPlace.imageStatus === "existing") {
-      const existingImage = input.existingPlaceImages?.[placeId];
       if (!existingImage) {
         issues.push({
           severity: "error",
@@ -332,9 +346,9 @@ export function resolveGuideAssetPlan(input: {
         .map((plannedPlace) => {
           const placeId = plannedPlace.existingPlaceId ?? plannedPlace.newPlaceId ?? null;
           if (!placeId) return null;
-          const existingImage = input.existingPlaceImages?.[placeId] ?? knownPlaceById.get(placeId)?.image;
+          const resolvedExistingImage = input.existingPlaceImages?.[placeId] ?? knownPlaceById.get(placeId)?.image;
           const matched = matchedPlaces.some((entry) => entry.placeId === placeId);
-          if (existingImage || matched) return null;
+          if (resolvedExistingImage || matched) return null;
           return { placeId, draftName: plannedPlace.draftName };
         })
         .filter(Boolean) as Array<{ placeId: string; draftName: string }>
@@ -350,6 +364,7 @@ export function resolveGuideAssetPlan(input: {
     missingExpectedAssetPlaceIds: [...missingExpectedAssetPlaceIds].sort(),
     expectedCoverAsset,
     missingExpectedCoverAsset: expectedCoverAsset && !coverSourcePath,
+    skippedAlreadyCoveredPlaces,
     publishedGuidePlacesWithoutImage,
   };
 }

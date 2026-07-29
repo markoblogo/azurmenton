@@ -187,4 +187,40 @@ describe("guide assets", () => {
     ]);
     expect(plan.publishedGuidePlacesWithoutImage).toEqual([{ placeId: "chez-les-grecs-monaco", draftName: "Chez Les Grecs" }]);
   });
+
+  it("supports missing-only by skipping already-covered published guide places", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "cheap-eats-intake-slug",
+      outputSlug: "cheap-eats-menton-budget-lunch",
+      assetsDirectory: "/tmp/assets",
+      availableAssetFiles: ["Mont Gout.png", "La Pescaria de Menton.png"],
+      publishedGuide: {
+        slug: "cheap-eats-menton-budget-lunch",
+        intakeTitle: "Cheap Eats in Menton",
+        places: [
+          { placeId: "mont-gout-menton", draftName: "Mont Goût" },
+          { placeId: "la-pescaria-de-menton", draftName: "La Pescaria de Menton", image: "/images/guide/la-pescaria-de-menton.jpg" },
+        ],
+      },
+      knownPlaces: [
+        { id: "mont-gout-menton", name: "Mont Goût" },
+        { id: "la-pescaria-de-menton", name: "La Pescaria de Menton", image: "/images/guide/la-pescaria-de-menton.jpg" },
+      ],
+      existingPlaceImages: {
+        "la-pescaria-de-menton": "/images/guide/la-pescaria-de-menton.jpg",
+      },
+      missingOnly: true,
+    });
+
+    expect(plan.operations).toEqual([
+      {
+        kind: "place",
+        sourcePath: "/tmp/assets/Mont Gout.png",
+        destinationPath: "public/images/guide/mont-gout-menton.png",
+        publicPath: "/images/guide/mont-gout-menton.png",
+      },
+    ]);
+    expect(plan.skippedAlreadyCoveredPlaces).toEqual([{ placeId: "la-pescaria-de-menton", draftName: "La Pescaria de Menton" }]);
+    expect(plan.unmatchedAssetFiles).toEqual(["La Pescaria de Menton.png"]);
+  });
 });

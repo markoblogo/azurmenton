@@ -40,8 +40,9 @@ async function main() {
   const slug = readArg("--slug");
   const publishedGuideSlug = readArg("--published-guide");
   const strict = process.argv.includes("--strict");
+  const missingOnly = process.argv.includes("--missing-only");
   if (!slug && !publishedGuideSlug) {
-    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--strict]");
+    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--strict]");
     process.exitCode = 1;
     return;
   }
@@ -118,6 +119,7 @@ async function main() {
     existingPlaceImages,
     knownPlaces: places.map((place) => ({ id: place.id, name: place.name, image: place.image })),
     publishedGuide: publishedGuide ?? undefined,
+    missingOnly,
   });
   const operations = [];
   const issues = [...resolution.issues];
@@ -153,6 +155,7 @@ async function main() {
   const report = {
     slug: workingSlug,
     strict,
+    missingOnly,
     operations,
     issues,
     matchedAssetFiles: resolution.matchedAssetFiles,
@@ -162,27 +165,43 @@ async function main() {
     missingExpectedCoverAsset: resolution.missingExpectedCoverAsset,
     expectedAssetPlaceIds: resolution.expectedAssetPlaceIds,
     missingExpectedAssetPlaceIds: resolution.missingExpectedAssetPlaceIds,
+    skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
     publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
+  };
+
+  const printOperatorSummary = () => {
+    console.log("operator summary");
+    console.log(`- mode: ${publishedGuideSlug ? "published-guide" : "intake"}${missingOnly ? " + missing-only" : ""}`);
+    console.log(`- copied: ${operations.length}`);
+    console.log(`- matched places: ${resolution.matchedPlaces.length}`);
+    console.log(`- skipped already covered: ${resolution.skippedAlreadyCoveredPlaces.length}`);
+    console.log(`- unmatched files: ${resolution.unmatchedAssetFiles.length}`);
+    console.log(`- still missing in published guide: ${resolution.publishedGuidePlacesWithoutImage.length}`);
   };
 
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
   if (!operations.length) {
     console.log(`No asset operations for ${workingSlug}.`);
+    printOperatorSummary();
     if (issues.length) {
       for (const issue of issues) console.log(`- [${issue.code}] ${issue.message}`);
-      if (resolution.matchedAssetFiles.length) console.log(`- matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
-      if (resolution.matchedPlaces.length) {
-        console.log("matched to existing places");
-        for (const place of resolution.matchedPlaces) console.log(`- ${place.placeId} (${place.draftName}) <= ${path.basename(place.sourcePath)}`);
-      }
-      if (resolution.unmatchedAssetFiles.length) console.log(`unmatched files: ${resolution.unmatchedAssetFiles.join(", ")}`);
-      if (resolution.publishedGuidePlacesWithoutImage.length) {
-        console.log("published guide places still without image");
-        for (const place of resolution.publishedGuidePlacesWithoutImage) console.log(`- ${place.placeId} (${place.draftName})`);
-      }
-      await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-      if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     }
+    if (resolution.matchedAssetFiles.length) console.log(`- matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
+    if (resolution.matchedPlaces.length) {
+      console.log("matched to existing places");
+      for (const place of resolution.matchedPlaces) console.log(`- ${place.placeId} (${place.draftName}) <= ${path.basename(place.sourcePath)}`);
+    }
+    if (resolution.skippedAlreadyCoveredPlaces.length) {
+      console.log("skipped already covered places");
+      for (const place of resolution.skippedAlreadyCoveredPlaces) console.log(`- ${place.placeId} (${place.draftName})`);
+    }
+    if (resolution.unmatchedAssetFiles.length) console.log(`unmatched files: ${resolution.unmatchedAssetFiles.join(", ")}`);
+    if (resolution.publishedGuidePlacesWithoutImage.length) {
+      console.log("published guide places still without image");
+      for (const place of resolution.publishedGuidePlacesWithoutImage) console.log(`- ${place.placeId} (${place.draftName})`);
+    }
+    await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     return;
   }
 
@@ -223,6 +242,7 @@ async function main() {
   console.log(`updated registry: ${path.relative(root, registryPath)}`);
   console.log(`updated manifest: ${path.relative(root, manifestPath)}`);
   console.log(`report: ${path.relative(root, reportPath)}`);
+  printOperatorSummary();
   if (resolution.matchedAssetFiles.length) {
     console.log(`matched assets: ${resolution.matchedAssetFiles.join(", ")}`);
   }
@@ -230,6 +250,12 @@ async function main() {
     console.log("matched to existing places");
     for (const place of resolution.matchedPlaces) {
       console.log(`- ${place.placeId} (${place.draftName}) <= ${path.basename(place.sourcePath)}`);
+    }
+  }
+  if (resolution.skippedAlreadyCoveredPlaces.length) {
+    console.log("skipped already covered places");
+    for (const place of resolution.skippedAlreadyCoveredPlaces) {
+      console.log(`- ${place.placeId} (${place.draftName})`);
     }
   }
   if (resolution.unmatchedAssetFiles.length) {
