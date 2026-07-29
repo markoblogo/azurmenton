@@ -111,6 +111,8 @@ npm run guide:link-plan -- --slug <slug>
 npm run guide:check -- --slug <slug>
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets] --strict
+npm run guide:assets -- --published-guide <guide-slug> [--assets-dir /absolute/path/to/assets] --missing-only --report-only
+npm run guide:assets -- --published-guide <guide-slug> [--assets-dir /absolute/path/to/assets] --missing-only --report-only --fail-on-unmatched
 npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
@@ -125,6 +127,14 @@ npm run preflight
 For the guide automation chain, see `docs/guide-automation.md`.
 
 Use `guide:assets -- --strict` once the owner has supplied the full final image package and the pass should fail on unused files or unresolved expected cover/place assets.
+
+For already published guides, use the post-publish asset path instead of re-running the intake plan blindly:
+
+```bash
+npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --report-only
+```
+
+This mode reads the real place cards already rendered by the published guide, skips places that already have images, reports any still-missing places, and can fail on leftover files with `--fail-on-unmatched`.
 
 After the manual merge, use `build/guide-intake/<slug>/review/owner-checklist.md` as the required visual handoff instead of an ad hoc spot-check.
 

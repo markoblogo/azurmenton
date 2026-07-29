@@ -4,6 +4,7 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
+const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -209,21 +210,23 @@ async function main() {
     fs.writeFile(path.join(reviewDir, "operator-report.md"), renderOperatorReportMarkdown(report)),
   ]);
 
-  console.log(`guide review: ${slug}`);
-  console.log(`output: ${path.relative(root, reviewDir)}`);
-  console.log(`ok: ${report.ok ? "yes" : "no"}`);
-  console.log(`headline: ${report.operator.headline}`);
-  console.log(
-    `counts: errors ${report.operator.counts.errors}, warnings ${report.operator.counts.warnings}, reviewed places ${report.operator.counts.reviewedPlaces}, map satisfied ${report.operator.counts.mapSatisfied}`,
-  );
-  console.log("open items");
-  if (report.operator.openItems.length) {
-    for (const item of report.operator.openItems) console.log(`- ${item}`);
-  } else {
-    console.log("- none");
-  }
-  console.log("owner visual check");
-  for (const item of report.operator.ownerVisualCheck) console.log(`- ${item}`);
+  printGuideOperatorHandoff({
+    status: report.ok ? "ok" : "needs-attention",
+    subject: slug,
+    mode: "guide-review",
+    headline: report.operator.headline,
+    counts: {
+      errors: report.operator.counts.errors,
+      warnings: report.operator.counts.warnings,
+      "reviewed-places": report.operator.counts.reviewedPlaces,
+      "map-satisfied": report.operator.counts.mapSatisfied,
+    },
+    reportPath: path.relative(root, reviewDir),
+    samples: [
+      { label: "open items", values: report.operator.openItems },
+      { label: "owner check", values: report.operator.ownerVisualCheck },
+    ],
+  });
 
   if (!report.ok) process.exitCode = 1;
 }

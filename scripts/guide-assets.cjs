@@ -4,6 +4,7 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
+const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -184,22 +185,23 @@ async function main() {
   const printOperatorSummary = () => {
     const mode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
     const hasErrors = issues.some((issue) => issue.severity === "error");
-    console.log("operator handoff");
-    console.log(`- status: ${hasErrors ? "needs-attention" : "ok"}`);
-    console.log(`- guide: ${workingSlug}`);
-    console.log(`- mode: ${mode}`);
-    console.log(`- copied: ${reportOnly ? 0 : operations.length}`);
-    console.log(`- matched: ${resolution.matchedPlaces.length}`);
-    console.log(`- skipped-covered: ${resolution.skippedAlreadyCoveredPlaces.length}`);
-    console.log(`- unmatched: ${resolution.unmatchedAssetFiles.length}`);
-    console.log(`- still-missing: ${resolution.publishedGuidePlacesWithoutImage.length}`);
-    console.log(`- report: ${path.relative(root, reportPath)}`);
-    if (resolution.unmatchedAssetFiles.length) {
-      console.log(`- unmatched sample: ${resolution.unmatchedAssetFiles.slice(0, 3).join(", ")}`);
-    }
-    if (resolution.publishedGuidePlacesWithoutImage.length) {
-      console.log(`- missing sample: ${resolution.publishedGuidePlacesWithoutImage.slice(0, 3).map((place) => place.placeId).join(", ")}`);
-    }
+    printGuideOperatorHandoff({
+      status: hasErrors ? "needs-attention" : "ok",
+      subject: workingSlug,
+      mode,
+      counts: {
+        copied: reportOnly ? 0 : operations.length,
+        matched: resolution.matchedPlaces.length,
+        "skipped-covered": resolution.skippedAlreadyCoveredPlaces.length,
+        unmatched: resolution.unmatchedAssetFiles.length,
+        "still-missing": resolution.publishedGuidePlacesWithoutImage.length,
+      },
+      reportPath: path.relative(root, reportPath),
+      samples: [
+        { label: "unmatched sample", values: resolution.unmatchedAssetFiles },
+        { label: "missing sample", values: resolution.publishedGuidePlacesWithoutImage.map((place) => place.placeId) },
+      ],
+    });
   };
 
   await fs.mkdir(path.dirname(reportPath), { recursive: true });

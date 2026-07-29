@@ -207,6 +207,14 @@ Detailed usage:
 
 This pipeline prepares and validates guide/place/link/image work. It does not blindly auto-publish.
 
+For image work after a guide is already live, use the post-publish path:
+
+```bash
+npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --report-only
+```
+
+Add `--fail-on-unmatched` when the asset package must be fully reconciled before sign-off.
+
 ## SEO, analytics and structured data
 
 Main files:

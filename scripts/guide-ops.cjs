@@ -4,6 +4,7 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
+const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -78,13 +79,19 @@ async function main() {
     fs.writeFile(path.join(reportDir, "summary.md"), renderMarkdown(summary)),
   ]);
 
-  console.log("guide ops");
-  console.log(`report: ${path.relative(root, path.join(reportDir, "summary.md"))}`);
-  console.log(`counts: blocked ${summary.counts.blocked}, incomplete ${summary.counts.incomplete}, ready ${summary.counts.ready}, total ${summary.counts.total}`);
-
-  for (const item of summary.items) {
-    console.log(`- [${item.status}] ${item.slug}: ${item.nextAction}`);
-  }
+  printGuideOperatorHandoff({
+    status: summary.counts.blocked ? "needs-attention" : "ok",
+    subject: "guide-intake",
+    mode: "guide-ops",
+    counts: {
+      blocked: summary.counts.blocked,
+      incomplete: summary.counts.incomplete,
+      ready: summary.counts.ready,
+      total: summary.counts.total,
+    },
+    reportPath: path.relative(root, path.join(reportDir, "summary.md")),
+    samples: [{ label: "next actions", values: summary.items.map((item) => `${item.slug}: ${item.nextAction}`) }],
+  });
 }
 
 main().catch((error) => {
