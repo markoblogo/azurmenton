@@ -71,6 +71,20 @@ describe("guide review report", () => {
       "/it/guide/burgers-menton",
       "/uk/guide/burgers-menton",
     ]);
+    expect(report.operator.status).toBe("ok");
+    expect(report.operator.inserted).toEqual(
+      expect.arrayContaining([
+        "Guide article present in src/content/guide.ts.",
+        "Place present: alls-stars-menton.",
+      ]),
+    );
+    expect(report.operator.openItems).toEqual([]);
+    expect(report.operator.localeSpotChecks).toEqual([
+      "/en/guide/burgers-menton",
+      "/fr/guide/burgers-menton",
+      "/it/guide/burgers-menton",
+      "/uk/guide/burgers-menton",
+    ]);
   });
 
   it("fails when the guide, place backlink and map obligations are missing", () => {
@@ -102,6 +116,13 @@ describe("guide review report", () => {
     );
     expect(report.visualHandoff.inLatestGuideSlot).toBe(false);
     expect(report.visualHandoff.coverResolved).toBe(false);
+    expect(report.operator.status).toBe("needs-fix");
+    expect(report.operator.openItems).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("[missing-guide-article]"),
+        expect.stringContaining("[review-backlink-missing]"),
+      ]),
+    );
   });
 
   it("warns when the guide should own the NEW slot but another guide still resolves as latest", () => {
@@ -147,5 +168,6 @@ describe("guide review report", () => {
     });
 
     expect(report.warnings.map((issue) => issue.code)).toContain("review-latest-guide-slot-mismatch");
+    expect(report.operator.ownerVisualCheck[2]).toContain("/en/guide");
   });
 });

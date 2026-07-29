@@ -119,6 +119,40 @@ function renderOwnerChecklist(report) {
   return `${lines.join("\n")}\n`;
 }
 
+function renderOperatorReportMarkdown(report) {
+  const lines = [
+    "# guide:review operator report",
+    "",
+    `- slug: \`${report.slug}\``,
+    `- status: **${report.operator.status}**`,
+    `- headline: ${report.operator.headline}`,
+    `- counts: errors ${report.operator.counts.errors}, warnings ${report.operator.counts.warnings}, reviewed places ${report.operator.counts.reviewedPlaces}, map satisfied ${report.operator.counts.mapSatisfied}`,
+    "",
+    "## Inserted",
+  ];
+
+  if (report.operator.inserted.length) {
+    for (const item of report.operator.inserted) lines.push(`- ${item}`);
+  } else {
+    lines.push("- none confirmed yet");
+  }
+
+  lines.push("", "## Open items");
+  if (report.operator.openItems.length) {
+    for (const item of report.operator.openItems) lines.push(`- ${item}`);
+  } else {
+    lines.push("- none");
+  }
+
+  lines.push("", "## Owner visual check");
+  for (const item of report.operator.ownerVisualCheck) lines.push(`- ${item}`);
+
+  lines.push("", "## Locale spot-check");
+  for (const item of report.operator.localeSpotChecks) lines.push(`- ${item}`);
+
+  return `${lines.join("\n")}\n`;
+}
+
 async function main() {
   const slug = readArg("--slug");
   if (!slug) {
@@ -172,23 +206,24 @@ async function main() {
     fs.writeFile(path.join(reviewDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`),
     fs.writeFile(path.join(reviewDir, "report.md"), renderMarkdown(report)),
     fs.writeFile(path.join(reviewDir, "owner-checklist.md"), renderOwnerChecklist(report)),
+    fs.writeFile(path.join(reviewDir, "operator-report.md"), renderOperatorReportMarkdown(report)),
   ]);
 
   console.log(`guide review: ${slug}`);
   console.log(`output: ${path.relative(root, reviewDir)}`);
   console.log(`ok: ${report.ok ? "yes" : "no"}`);
-  if (report.errors.length) {
-    console.log("errors");
-    for (const issue of report.errors) console.log(`- [${issue.code}] ${issue.message}`);
+  console.log(`headline: ${report.operator.headline}`);
+  console.log(
+    `counts: errors ${report.operator.counts.errors}, warnings ${report.operator.counts.warnings}, reviewed places ${report.operator.counts.reviewedPlaces}, map satisfied ${report.operator.counts.mapSatisfied}`,
+  );
+  console.log("open items");
+  if (report.operator.openItems.length) {
+    for (const item of report.operator.openItems) console.log(`- ${item}`);
   } else {
-    console.log("errors\n- none");
+    console.log("- none");
   }
-  if (report.warnings.length) {
-    console.log("warnings");
-    for (const issue of report.warnings) console.log(`- [${issue.code}] ${issue.message}`);
-  } else {
-    console.log("warnings\n- none");
-  }
+  console.log("owner visual check");
+  for (const item of report.operator.ownerVisualCheck) console.log(`- ${item}`);
 
   if (!report.ok) process.exitCode = 1;
 }

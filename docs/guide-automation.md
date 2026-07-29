@@ -170,6 +170,13 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - `review/report.json`
   - `review/report.md`
   - `review/owner-checklist.md`
+  - `review/operator-report.md`
+
+- v3 adds a short post-merge operator layer:
+  - what is already inserted
+  - what is still open
+  - where to run owner visual review
+  - which locale guide URLs must be spot-checked
 
 `owner-checklist.md` is the structured human handoff for:
 

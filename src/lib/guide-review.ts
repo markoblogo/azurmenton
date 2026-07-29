@@ -81,6 +81,20 @@ export type GuideReviewReport = {
     reviewedPlaceCount: number;
     mapSatisfiedCount: number;
   };
+  operator: {
+    status: "ok" | "needs-fix";
+    headline: string;
+    counts: {
+      errors: number;
+      warnings: number;
+      reviewedPlaces: number;
+      mapSatisfied: number;
+    };
+    inserted: string[];
+    openItems: string[];
+    ownerVisualCheck: string[];
+    localeSpotChecks: string[];
+  };
 };
 
 function unique(values: string[]) {
@@ -342,6 +356,40 @@ export function buildGuideReviewReport(input: {
       plannedPlaceCount: plannedPlaces.length,
       reviewedPlaceCount: placeStatuses.filter((place) => place.present).length,
       mapSatisfiedCount: placeStatuses.filter((place) => place.mapOk).length,
+    },
+    operator: {
+      status: errors.length === 0 ? "ok" : "needs-fix",
+      headline:
+        errors.length === 0
+          ? `Post-merge review looks good for ${input.slug}. Guide graph, backlinks and map obligations are aligned.`
+          : `Post-merge review still has ${errors.length} error${errors.length === 1 ? "" : "s"} for ${input.slug}.`,
+      counts: {
+        errors: errors.length,
+        warnings: warnings.length,
+        reviewedPlaces: placeStatuses.filter((place) => place.present).length,
+        mapSatisfied: placeStatuses.filter((place) => place.mapOk).length,
+      },
+      inserted: [
+        guide ? `Guide article present in src/content/guide.ts.` : `Guide article not yet present in src/content/guide.ts.`,
+        ...placeStatuses
+          .filter((place) => place.present)
+          .slice(0, 5)
+          .map((place) => `Place present: ${place.placeId}.`),
+      ].slice(0, 6),
+      openItems: [
+        ...errors.slice(0, 5).map((issue) => `[${issue.code}] ${issue.message}`),
+        ...(errors.length === 0 ? warnings.slice(0, 3).map((issue) => `[${issue.code}] ${issue.message}`) : []),
+      ],
+      ownerVisualCheck: [
+        `Open ${`/en/guide/${input.slug}`} and confirm cover correctness.`,
+        `Open build/guide-intake/${input.slug}/review/owner-checklist.md for the full visual checklist.`,
+        guide && latestGuideSlug
+          ? `Check guide landing NEW-slot expectation on /en/guide (${guide.publishedOn === input.publicationPlan.publishedOn ? "same-date/latest logic applies" : `latest guide is ${latestGuideSlug}`}).`
+          : `Check guide landing position on /en/guide.`,
+      ],
+      localeSpotChecks: [
+        ...["en", "fr", "it", "uk"].map((locale) => `/${locale}/guide/${input.slug}`),
+      ],
     },
   };
 }
