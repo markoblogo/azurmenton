@@ -15,6 +15,7 @@ const {
   suggestPublishedGuideTargets,
   buildPublishedGuideAssetsRerunCommand,
   buildGuideAssetsPersistentSummary,
+  buildPublishedGuidePlaceImagePatchBundle,
 } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
@@ -23,6 +24,39 @@ function readArg(name) {
   const index = process.argv.indexOf(name);
   if (index === -1) return undefined;
   return process.argv[index + 1];
+}
+
+function renderPlaceImagePatchMarkdown(bundle) {
+  const lines = [
+    `# place image patch for ${bundle.slug}`,
+    "",
+    ...bundle.operatorSummary.map((line) => `- ${line}`),
+    "",
+    "## Updates",
+  ];
+
+  if (!bundle.updates.length) {
+    lines.push("- none");
+    return `${lines.join("\n")}\n`;
+  }
+
+  for (const update of bundle.updates) {
+    lines.push(`### ${update.placeId}`);
+    lines.push(`- draftName: ${update.draftName}`);
+    lines.push(`- anchor: ${update.anchor}`);
+    lines.push(`- currentImage: ${update.currentImage ?? "none"}`);
+    lines.push(`- targetImage: ${update.imagePublicPath}`);
+    lines.push(`- alreadySatisfied: ${update.alreadySatisfied ? "yes" : "no"}`);
+    lines.push("```ts");
+    lines.push(update.snippet);
+    lines.push("```");
+    if (update.notes.length) {
+      for (const note of update.notes) lines.push(`- note: ${note}`);
+    }
+    lines.push("");
+  }
+
+  return `${lines.join("\n")}\n`;
 }
 
 async function existingFilesInDirectory(directory) {
@@ -61,6 +95,12 @@ async function main() {
   const reportPath = slug
     ? path.join(root, "build", "guide-intake", slug, "assets-report.json")
     : path.join(root, "build", "guide-assets-postpublish", `${publishedGuideSlug}.json`);
+  const patchJsonPath = publishedGuideSlug
+    ? path.join(root, "build", "guide-assets-postpublish", `${publishedGuideSlug}.places-image-patch.json`)
+    : null;
+  const patchMdPath = publishedGuideSlug
+    ? path.join(root, "build", "guide-assets-postpublish", `${publishedGuideSlug}.places-image-patch.md`)
+    : null;
   const persistentReportPath = publishedGuideSlug
     ? path.join(root, "reports", "guide-assets-postpublish", `${publishedGuideSlug}.json`)
     : null;
@@ -183,6 +223,7 @@ async function main() {
     issues,
     matchedAssetFiles: resolution.matchedAssetFiles,
     unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+    alreadyCoveredAssetFiles: resolution.alreadyCoveredAssetFiles,
     matchedPlaces: resolution.matchedPlaces,
     expectedCoverAsset: resolution.expectedCoverAsset,
     missingExpectedCoverAsset: resolution.missingExpectedCoverAsset,
@@ -243,6 +284,7 @@ async function main() {
         status: operatorStatus,
         matchedAssetFiles: resolution.matchedAssetFiles,
         unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+        alreadyCoveredAssetFiles: resolution.alreadyCoveredAssetFiles,
         matchedPlaces: resolution.matchedPlaces,
         skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
         publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
@@ -250,6 +292,14 @@ async function main() {
         bestRerunCommand: report.bestRerunCommand,
         issues,
         reportPath: path.relative(root, reportPath),
+      })
+    : null;
+  const placeImagePatchBundle = publishedGuideSlug
+    ? buildPublishedGuidePlaceImagePatchBundle({
+        slug: workingSlug,
+        matchedPlaces: resolution.matchedPlaces,
+        currentPlaces: places.map((place) => ({ id: place.id, image: place.image })),
+        reportPath: patchJsonPath ? path.relative(root, patchJsonPath) : null,
       })
     : null;
 
@@ -262,12 +312,14 @@ async function main() {
         copied: reportOnly ? 0 : operations.length,
         matched: resolution.matchedPlaces.length,
         "skipped-covered": resolution.skippedAlreadyCoveredPlaces.length,
+        "already-covered": resolution.alreadyCoveredAssetFiles.length,
         unmatched: resolution.unmatchedAssetFiles.length,
         "still-missing": resolution.publishedGuidePlacesWithoutImage.length,
       },
       reportPath: path.relative(root, reportPath),
       samples: [
         { label: "unmatched sample", values: resolution.unmatchedAssetFiles },
+        { label: "already-covered sample", values: resolution.alreadyCoveredAssetFiles },
         { label: "missing sample", values: resolution.publishedGuidePlacesWithoutImage.map((place) => place.placeId) },
         { label: "likely guide", values: report.likelyGuideTargets.map((target) => `${target.guideSlug} (${target.matchedPlaceIds.length})`) },
         { label: "rerun", values: report.likelyGuideTargets.map((target) => target.rerunCommand), limit: 1 },
@@ -275,6 +327,10 @@ async function main() {
     });
     if (persistentReportPath) {
       console.log(`- persistent report: ${path.relative(root, persistentReportPath)}`);
+    }
+    if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
+      console.log(`- places patch: ${path.relative(root, patchJsonPath)}`);
+      console.log(`- places patch md: ${path.relative(root, patchMdPath)}`);
     }
   };
 
@@ -289,6 +345,12 @@ async function main() {
     if (persistentReportPath && persistentSummary) {
       await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
     }
+    if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
+      await Promise.all([
+        fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
+        fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
+      ]);
+    }
     if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     return;
   }
@@ -298,6 +360,12 @@ async function main() {
     await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
     if (persistentReportPath && persistentSummary) {
       await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+    }
+    if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
+      await Promise.all([
+        fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
+        fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
+      ]);
     }
     if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
     return;
@@ -338,6 +406,12 @@ async function main() {
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
   if (persistentReportPath && persistentSummary) {
     await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+  }
+  if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
+    await Promise.all([
+      fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
+      fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
+    ]);
   }
 
   printOperatorSummary();

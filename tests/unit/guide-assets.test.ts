@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildGuideAssetPlan,
   buildGuideAssetsPersistentSummary,
+  buildPublishedGuidePlaceImagePatchBundle,
   buildPublishedGuideAssetsRerunCommand,
   parsePlaceAssetArgs,
   resolveGuideAssetPlan,
@@ -178,6 +179,7 @@ describe("guide assets", () => {
         draftName: "La Cantine des Copains",
         sourcePath: "/tmp/copains.png",
         destinationPath: "public/images/guide/la-cantine-des-copains-nice.png",
+        publicPath: "/images/guide/la-cantine-des-copains-nice.png",
       },
     ]);
   });
@@ -224,6 +226,7 @@ describe("guide assets", () => {
         draftName: "Mont Goût",
         sourcePath: "/tmp/assets/Mont Gout.png",
         destinationPath: "public/images/guide/mont-gout-menton.png",
+        publicPath: "/images/guide/mont-gout-menton.png",
       },
     ]);
     expect(plan.publishedGuidePlacesWithoutImage).toEqual([{ placeId: "chez-les-grecs-monaco", draftName: "Chez Les Grecs" }]);
@@ -262,7 +265,8 @@ describe("guide assets", () => {
       },
     ]);
     expect(plan.skippedAlreadyCoveredPlaces).toEqual([{ placeId: "la-pescaria-de-menton", draftName: "La Pescaria de Menton" }]);
-    expect(plan.unmatchedAssetFiles).toEqual(["La Pescaria de Menton.png"]);
+    expect(plan.alreadyCoveredAssetFiles).toEqual(["La Pescaria de Menton.png"]);
+    expect(plan.unmatchedAssetFiles).toEqual([]);
   });
 
   it("suggests likely published guides when an asset package matches another guide better", () => {
@@ -353,6 +357,7 @@ describe("guide assets", () => {
         status: "ok",
         matchedAssetFiles: [],
         unmatchedAssetFiles: ["French Riviera sightseeing flights.png"],
+        alreadyCoveredAssetFiles: ["Nice Côte d'Azur Airport.png"],
         matchedPlaces: [],
         skippedAlreadyCoveredPlaces: [{ placeId: "nice-cote-dazur-airport" }],
         publishedGuidePlacesWithoutImage: [],
@@ -383,6 +388,7 @@ describe("guide assets", () => {
         "mode: published-guide + missing-only + report-only",
         "matched: 0",
         "skipped-covered: 1",
+        "already-covered: 1",
         "unmatched: 1",
         "still-missing: 0",
         "report: build/guide-assets-postpublish/airports-near-menton-live-flights.json",
@@ -391,11 +397,14 @@ describe("guide assets", () => {
       counts: {
         matched: 0,
         unmatched: 1,
+        alreadyCovered: 1,
         skippedCovered: 1,
         stillMissing: 0,
+        patchReady: 0,
       },
       matchedAssetFiles: [],
       unmatchedAssetFiles: ["French Riviera sightseeing flights.png"],
+      alreadyCoveredAssetFiles: ["Nice Côte d'Azur Airport.png"],
       matchedPlaceIds: [],
       publishedGuidePlacesWithoutImage: [],
       likelyGuideTargets: [
@@ -425,6 +434,7 @@ describe("guide assets", () => {
         status: "ok",
         matchedAssetFiles: [],
         unmatchedAssetFiles: [],
+        alreadyCoveredAssetFiles: [],
         matchedPlaces: [],
         skippedAlreadyCoveredPlaces: [],
         publishedGuidePlacesWithoutImage: [],
@@ -437,5 +447,72 @@ describe("guide assets", () => {
     ).toBe(
       "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
     );
+  });
+
+  it("builds a patch-ready place image handoff for post-publish flows", () => {
+    expect(
+      buildPublishedGuidePlaceImagePatchBundle({
+        slug: "post-offices-stamps-menton",
+        matchedPlaces: [
+          {
+            placeId: "la-poste-menton-centre",
+            draftName: "La Poste Menton Centre",
+            sourcePath: "/tmp/La Poste Menton Centre.png",
+            destinationPath: "public/images/guide/la-poste-menton-centre.png",
+            publicPath: "/images/guide/la-poste-menton-centre.png",
+          },
+          {
+            placeId: "la-poste-garavan-menton",
+            draftName: "La Poste Garavan",
+            sourcePath: "/tmp/La Poste Garavan.png",
+            destinationPath: "public/images/guide/la-poste-garavan-menton.png",
+            publicPath: "/images/guide/la-poste-garavan-menton.png",
+          },
+        ],
+        currentPlaces: [
+          { id: "la-poste-menton-centre" },
+          { id: "la-poste-garavan-menton", image: "/images/guide/la-poste-garavan-menton.png" },
+        ],
+        reportPath: "build/guide-assets-postpublish/post-offices-stamps-menton.places-image-patch.json",
+      }),
+    ).toEqual({
+      slug: "post-offices-stamps-menton",
+      counts: {
+        matchedPlaces: 2,
+        patchReady: 1,
+        alreadySatisfied: 1,
+      },
+      operatorSummary: [
+        "status: needs-follow-up",
+        "subject: post-offices-stamps-menton",
+        "mode: guide-assets-postpublish-patch",
+        "matched: 2",
+        "patch-ready: 1",
+        "already-satisfied: 1",
+        "report: build/guide-assets-postpublish/post-offices-stamps-menton.places-image-patch.json",
+      ],
+      updates: [
+        {
+          placeId: "la-poste-menton-centre",
+          draftName: "La Poste Menton Centre",
+          anchor: 'id: "la-poste-menton-centre"',
+          imagePublicPath: "/images/guide/la-poste-menton-centre.png",
+          currentImage: null,
+          alreadySatisfied: false,
+          snippet: 'image: "/images/guide/la-poste-menton-centre.png",',
+          notes: ["Insert or replace the image field inside the matching rawPlaces object."],
+        },
+        {
+          placeId: "la-poste-garavan-menton",
+          draftName: "La Poste Garavan",
+          anchor: 'id: "la-poste-garavan-menton"',
+          imagePublicPath: "/images/guide/la-poste-garavan-menton.png",
+          currentImage: "/images/guide/la-poste-garavan-menton.png",
+          alreadySatisfied: true,
+          snippet: 'image: "/images/guide/la-poste-garavan-menton.png",',
+          notes: ["Image field already matches the resolved public asset path."],
+        },
+      ],
+    });
   });
 });

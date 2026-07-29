@@ -30,11 +30,13 @@ export type GuideAssetResolutionPlan = {
   issues: GuideAssetPlanIssue[];
   matchedAssetFiles: string[];
   unmatchedAssetFiles: string[];
+  alreadyCoveredAssetFiles: string[];
   matchedPlaces: Array<{
     placeId: string;
     draftName: string;
     sourcePath: string;
     destinationPath: string;
+    publicPath: string;
   }>;
   expectedAssetPlaceIds: string[];
   missingExpectedAssetPlaceIds: string[];
@@ -68,11 +70,14 @@ export type GuideAssetsPersistentSummary = {
   counts: {
     matched: number;
     unmatched: number;
+    alreadyCovered: number;
     skippedCovered: number;
     stillMissing: number;
+    patchReady: number;
   };
   matchedAssetFiles: string[];
   unmatchedAssetFiles: string[];
+  alreadyCoveredAssetFiles: string[];
   matchedPlaceIds: string[];
   publishedGuidePlacesWithoutImage: Array<{
     placeId: string;
@@ -81,6 +86,28 @@ export type GuideAssetsPersistentSummary = {
   likelyGuideTargets: GuideAssetTargetSuggestion[];
   bestRerunCommand: string | null;
   issueCodes: string[];
+};
+
+export type PublishedGuidePlaceImagePatchUpdate = {
+  placeId: string;
+  draftName: string;
+  anchor: string;
+  imagePublicPath: string;
+  currentImage: string | null;
+  alreadySatisfied: boolean;
+  snippet: string;
+  notes: string[];
+};
+
+export type PublishedGuidePlaceImagePatchBundle = {
+  slug: string;
+  counts: {
+    matchedPlaces: number;
+    patchReady: number;
+    alreadySatisfied: number;
+  };
+  operatorSummary: string[];
+  updates: PublishedGuidePlaceImagePatchUpdate[];
 };
 
 export type PublishedGuideAssetPlace = {
@@ -217,6 +244,7 @@ export function resolveGuideAssetPlan(input: {
   const issues: GuideAssetPlanIssue[] = [];
   const matchedPlaces: GuideAssetResolutionPlan["matchedPlaces"] = [];
   const skippedAlreadyCoveredPlaces: GuideAssetResolutionPlan["skippedAlreadyCoveredPlaces"] = [];
+  const alreadyCoveredAssetFiles = new Set<string>();
   const availableFiles = input.availableAssetFiles ?? [];
   const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
@@ -313,6 +341,13 @@ export function resolveGuideAssetPlan(input: {
     const existingImage = input.existingPlaceImages?.[placeId] ?? knownPlaceById.get(placeId)?.image;
 
     if (input.missingOnly && existingImage) {
+      if (input.assetsDirectory) {
+        const alreadyCoveredMatch = findAssetFromDirectory([plannedPlace.draftName, placeId]);
+        if (alreadyCoveredMatch) {
+          matchedAssetFiles.add(alreadyCoveredMatch);
+          alreadyCoveredAssetFiles.add(alreadyCoveredMatch);
+        }
+      }
       skippedAlreadyCoveredPlaces.push({
         placeId,
         draftName: plannedPlace.draftName,
@@ -328,6 +363,7 @@ export function resolveGuideAssetPlan(input: {
         draftName: plannedPlace.draftName,
         sourcePath: override,
         destinationPath: `public/images/guide/${placeId}${normalizeExt(override.slice(override.lastIndexOf(".")))}`,
+        publicPath: `/images/guide/${placeId}${normalizeExt(override.slice(override.lastIndexOf(".")))}`,
       });
       continue;
     }
@@ -339,6 +375,7 @@ export function resolveGuideAssetPlan(input: {
         draftName: plannedPlace.draftName,
         sourcePath: plannedPlace.assetPath,
         destinationPath: `public/images/guide/${placeId}${normalizeExt(plannedPlace.assetPath.slice(plannedPlace.assetPath.lastIndexOf(".")))}`,
+        publicPath: `/images/guide/${placeId}${normalizeExt(plannedPlace.assetPath.slice(plannedPlace.assetPath.lastIndexOf(".")))}`,
       });
       continue;
     }
@@ -351,6 +388,7 @@ export function resolveGuideAssetPlan(input: {
         draftName: plannedPlace.draftName,
         sourcePath: `${input.assetsDirectory}/${plannedPlace.assetFileName}`,
         destinationPath: `public/images/guide/${placeId}${normalizeExt(plannedPlace.assetFileName.slice(plannedPlace.assetFileName.lastIndexOf(".")))}`,
+        publicPath: `/images/guide/${placeId}${normalizeExt(plannedPlace.assetFileName.slice(plannedPlace.assetFileName.lastIndexOf(".")))}`,
       });
       continue;
     }
@@ -365,6 +403,7 @@ export function resolveGuideAssetPlan(input: {
           draftName: plannedPlace.draftName,
           sourcePath: `${input.assetsDirectory}/${match}`,
           destinationPath: `public/images/guide/${placeId}${normalizeExt(match.slice(match.lastIndexOf(".")))}`,
+          publicPath: `/images/guide/${placeId}${normalizeExt(match.slice(match.lastIndexOf(".")))}`,
         });
         continue;
       }
@@ -414,6 +453,7 @@ export function resolveGuideAssetPlan(input: {
     issues,
     matchedAssetFiles: [...matchedAssetFiles].sort(),
     unmatchedAssetFiles: availableFiles.filter((file) => !matchedAssetFiles.has(file)),
+    alreadyCoveredAssetFiles: [...alreadyCoveredAssetFiles].sort(),
     matchedPlaces,
     expectedAssetPlaceIds: [...expectedAssetPlaceIds].sort(),
     missingExpectedAssetPlaceIds: [...missingExpectedAssetPlaceIds].sort(),
@@ -520,6 +560,7 @@ export function buildGuideAssetsPersistentSummary(input: {
   status: "ok" | "needs-attention";
   matchedAssetFiles: string[];
   unmatchedAssetFiles: string[];
+  alreadyCoveredAssetFiles: string[];
   matchedPlaces: Array<{ placeId: string }>;
   skippedAlreadyCoveredPlaces: Array<{ placeId: string }>;
   publishedGuidePlacesWithoutImage: Array<{ placeId: string; draftName: string }>;
@@ -528,11 +569,14 @@ export function buildGuideAssetsPersistentSummary(input: {
   issues: Array<{ code: string }>;
   reportPath?: string | null;
 }): GuideAssetsPersistentSummary {
+  const patchReady = input.matchedPlaces.length;
   const counts = {
     matched: input.matchedPlaces.length,
     unmatched: input.unmatchedAssetFiles.length,
+    alreadyCovered: input.alreadyCoveredAssetFiles.length,
     skippedCovered: input.skippedAlreadyCoveredPlaces.length,
     stillMissing: input.publishedGuidePlacesWithoutImage.length,
+    patchReady,
   };
   const operatorSummary = buildGuideOperatorSummary({
     status: input.status,
@@ -541,6 +585,7 @@ export function buildGuideAssetsPersistentSummary(input: {
     counts: {
       matched: counts.matched,
       "skipped-covered": counts.skippedCovered,
+      "already-covered": counts.alreadyCovered,
       unmatched: counts.unmatched,
       "still-missing": counts.stillMissing,
     },
@@ -559,6 +604,7 @@ export function buildGuideAssetsPersistentSummary(input: {
     counts,
     matchedAssetFiles: input.matchedAssetFiles,
     unmatchedAssetFiles: input.unmatchedAssetFiles,
+    alreadyCoveredAssetFiles: input.alreadyCoveredAssetFiles,
     matchedPlaceIds: unique(input.matchedPlaces.map((place) => place.placeId)),
     publishedGuidePlacesWithoutImage: input.publishedGuidePlacesWithoutImage,
     likelyGuideTargets: input.likelyGuideTargets.map((target) => ({
@@ -569,5 +615,62 @@ export function buildGuideAssetsPersistentSummary(input: {
     })),
     bestRerunCommand: input.bestRerunCommand,
     issueCodes: unique(input.issues.map((issue) => issue.code)),
+  };
+}
+
+function quote(value: string) {
+  return JSON.stringify(value);
+}
+
+export function buildPublishedGuidePlaceImagePatchBundle(input: {
+  slug: string;
+  matchedPlaces: GuideAssetResolutionPlan["matchedPlaces"];
+  currentPlaces: Array<{
+    id: string;
+    image?: string;
+  }>;
+  reportPath?: string | null;
+}): PublishedGuidePlaceImagePatchBundle {
+  const currentById = new Map(input.currentPlaces.map((place) => [place.id, place]));
+  const updates = input.matchedPlaces.map((place) => {
+    const currentImage = currentById.get(place.placeId)?.image ?? null;
+    const alreadySatisfied = currentImage === place.publicPath;
+
+    return {
+      placeId: place.placeId,
+      draftName: place.draftName,
+      anchor: `id: ${quote(place.placeId)}`,
+      imagePublicPath: place.publicPath,
+      currentImage,
+      alreadySatisfied,
+      snippet: `image: ${quote(place.publicPath)},`,
+      notes: alreadySatisfied
+        ? ["Image field already matches the resolved public asset path."]
+        : ["Insert or replace the image field inside the matching rawPlaces object."],
+    };
+  });
+
+  const patchReady = updates.filter((update) => !update.alreadySatisfied).length;
+  const alreadySatisfied = updates.filter((update) => update.alreadySatisfied).length;
+
+  return {
+    slug: input.slug,
+    counts: {
+      matchedPlaces: updates.length,
+      patchReady,
+      alreadySatisfied,
+    },
+    operatorSummary: buildGuideOperatorSummary({
+      status: patchReady ? "needs-follow-up" : "ok",
+      subject: input.slug,
+      mode: "guide-assets-postpublish-patch",
+      counts: {
+        matched: updates.length,
+        "patch-ready": patchReady,
+        "already-satisfied": alreadySatisfied,
+      },
+      reportPath: input.reportPath,
+    }),
+    updates,
   };
 }
