@@ -193,6 +193,36 @@ describe("guide check report", () => {
     expect(report.errors.map((issue) => issue.code)).not.toContain("missing-cover-file");
   });
 
+  it("ignores legacy intake cover path when publication plan marks cover as existing", () => {
+    const intake: GuideIntake = {
+      title: "Ramen update",
+      slug: "ramen-near-menton",
+      seoTitle: "Ramen update",
+      metaDescription: "Ramen update",
+      coverPathHint: "/missing/legacy-cover.png",
+      sectionHeadings: ["Places"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const report = buildGuideCheckReport(intake, [], [], {
+      coverExists: false,
+      publicationPlan: {
+        publishedOn: "2026-07-27",
+        category: "food-markets",
+        coverImageStatus: "existing",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [],
+        relatedApartmentSlugs: [],
+        plannedPlaces: [],
+        canonicalGuideForPlaces: false,
+      },
+    });
+
+    expect(report.errors.map((issue) => issue.code)).not.toContain("missing-cover-file");
+    expect(report.errors.map((issue) => issue.code)).not.toContain("cover-marked-provided-without-file");
+  });
+
   it("fails when a place is marked existing but the repo still has no image", () => {
     const intake: GuideIntake = {
       title: "Burger update",

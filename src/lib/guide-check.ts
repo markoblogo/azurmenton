@@ -207,13 +207,14 @@ export function buildGuideCheckReport(
   const mapExclusionPlaceIds = new Set(options?.mapExclusionPlaceIds ?? []);
   const placeById = new Map(places.map((place) => [place.id, place]));
   const publicationPlan = options?.publicationPlan;
+  const coverFileExpected = !publicationPlan ? Boolean(intake.coverPathHint) : publicationPlan.coverImageStatus === "provided";
 
   if (!intake.title.trim()) errors.push({ severity: "error", code: "missing-title", message: "Draft title is missing." });
   if (!intake.slug.trim()) errors.push({ severity: "error", code: "missing-slug", message: "Suggested slug is missing." });
   if (intake.slug && !isKebabCase(intake.slug)) errors.push({ severity: "error", code: "invalid-slug", message: `Slug is not kebab-case: ${intake.slug}` });
   if (!intake.seoTitle?.trim()) errors.push({ severity: "error", code: "missing-seo-title", message: "SEO title is missing." });
   if (!intake.metaDescription?.trim()) errors.push({ severity: "error", code: "missing-meta-description", message: "Meta description is missing." });
-  if (intake.coverPathHint && options?.coverExists === false && publicationPlan?.coverImageStatus !== "not_needed") {
+  if (coverFileExpected && options?.coverExists === false) {
     errors.push({ severity: "error", code: "missing-cover-file", message: `Cover path does not exist: ${intake.coverPathHint}` });
   }
 

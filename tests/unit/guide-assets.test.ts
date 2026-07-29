@@ -116,6 +116,22 @@ describe("guide assets", () => {
     expect(plan.unmatchedAssetFiles).toEqual(["unused.png"]);
   });
 
+  it("ignores stale legacy cover hints when the publication plan already treats cover as existing", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "ramen-near-menton-the-best-bowls-in-menton-monaco-nice",
+      outputSlug: "ramen-near-menton",
+      coverPathHint: "/missing/legacy-cover.png",
+      coverImageStatus: "existing",
+      availableAssetFiles: ["cover.png"],
+    });
+
+    expect(plan.operations).toEqual([]);
+    expect(plan.expectedCoverAsset).toBe(false);
+    expect(plan.missingExpectedCoverAsset).toBe(false);
+    expect(plan.issues).toEqual([]);
+    expect(plan.unmatchedAssetFiles).toEqual(["cover.png"]);
+  });
+
   it("accepts explicit place overrides even when a place is outside the intake publication plan", () => {
     const plan = resolveGuideAssetPlan({
       slug: "cheap-eats-intake-slug",
@@ -175,8 +191,8 @@ describe("guide assets", () => {
         publicPath: "/images/guide/mont-gout-menton.png",
       },
     ]);
-    expect(plan.issues.map((issue) => issue.code)).toContain("published-guide-cover-already-exists");
-    expect(plan.unmatchedAssetFiles).toEqual([]);
+    expect(plan.issues.map((issue) => issue.code)).not.toContain("published-guide-cover-already-exists");
+    expect(plan.unmatchedAssetFiles).toEqual(["cover.png"]);
     expect(plan.matchedPlaces).toEqual([
       {
         placeId: "mont-gout-menton",

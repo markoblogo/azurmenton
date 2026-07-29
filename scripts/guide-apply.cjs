@@ -54,8 +54,9 @@ async function main() {
     structure = JSON.parse(await fs.readFile(path.join(intakeDir, "structure.json"), "utf8"));
   } catch {}
 
+  const coverSourceExpected = publicationPlan?.coverImageStatus === "provided";
   let coverExists = undefined;
-  if (intake.coverPathHint) {
+  if (coverSourceExpected && intake.coverPathHint) {
     try {
       await fs.access(intake.coverPathHint);
       coverExists = true;

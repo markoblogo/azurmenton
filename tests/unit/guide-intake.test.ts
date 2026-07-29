@@ -125,4 +125,36 @@ Living next to Italy shapes everyday eating in Menton.
       "Best pizza in Menton",
     ]);
   });
+
+  it("skips SEO-style preamble headings before the real guide H1", () => {
+    const raw = `
+# SEO
+
+SEO title: Air Adventures Near Menton: Helicopter Flights, Paragliding & Skydiving on the French Riviera
+Meta description: Discover the best helicopter flights, paragliding, skydiving and scenic air experiences near Menton, Monaco, Nice and the Italian Riviera.
+
+# **Air Adventures Near Menton: Helicopter Flights, Paragliding & Skydiving on the French Riviera**
+
+Menton works well as a base for air experiences across the Riviera.
+
+## **Helicopter flights**
+
+### **Monaco helicopter experiences**
+
+## **Paragliding**
+
+### **Roquebrune paragliding area**
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.title).toBe("Air Adventures Near Menton: Helicopter Flights, Paragliding & Skydiving on the French Riviera");
+    expect(intake.slug).toBe("air-adventures-near-menton-helicopter-flights-paragliding-skydiving-on-the-french-riviera");
+    expect(intake.intro).toBe("Menton works well as a base for air experiences across the Riviera.");
+    expect(intake.sectionHeadings).toEqual(["Helicopter flights", "Paragliding"]);
+    expect(intake.placeCandidates).toEqual([
+      { name: "Monaco helicopter experiences", section: "Helicopter flights" },
+      { name: "Roquebrune paragliding area", section: "Paragliding" },
+    ]);
+  });
 });

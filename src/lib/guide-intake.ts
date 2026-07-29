@@ -20,6 +20,7 @@ export type GuideIntake = {
 type GuideHeading = {
   level: number;
   text: string;
+  lineIndex: number;
 };
 
 function normalizeText(value: string) {
@@ -87,21 +88,26 @@ function slugToTitle(slug: string) {
     .join(" ");
 }
 
-function extractTitle(lines: string[]) {
-  for (const line of lines) {
-    const normalized = normalizeText(line);
+function isPreambleHeading(text: string) {
+  return /^(seo|metadata|service(?:\s+preamble)?|publication notes?|operator notes?|editorial notes?)$/i.test(text);
+}
+
+function findPrimaryTitleLineIndex(lines: string[]) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const normalized = normalizeText(lines[index]);
     if (!normalized.startsWith("#")) continue;
     const title = normalizeHeadingText(normalized);
-    if (title) return title;
+    if (!title || isPreambleHeading(title)) continue;
+    return index;
   }
 
-  return "Untitled guide";
+  return -1;
 }
 
 function extractHeadings(lines: string[]) {
   return lines
     .map(normalizeText)
-    .map((line) => {
+    .map((line, lineIndex) => {
       const match = line.match(/^(#{1,6})\s+/);
       if (!match) return null;
 
@@ -111,9 +117,27 @@ function extractHeadings(lines: string[]) {
       return {
         level: match[1].length,
         text,
+        lineIndex,
       };
     })
     .filter(Boolean) as GuideHeading[];
+}
+
+function findPrimaryHeadingOffset(headings: GuideHeading[]) {
+  const levelOne = headings.findIndex((heading) => heading.level === 1 && !isPreambleHeading(heading.text));
+  if (levelOne !== -1) return levelOne;
+  const firstNonPreamble = headings.findIndex((heading) => !isPreambleHeading(heading.text));
+  return firstNonPreamble === -1 ? 0 : firstNonPreamble;
+}
+
+function extractTitle(lines: string[]) {
+  const titleLineIndex = findPrimaryTitleLineIndex(lines);
+  if (titleLineIndex !== -1) {
+    const title = normalizeHeadingText(normalizeText(lines[titleLineIndex]));
+    if (title) return title;
+  }
+
+  return "Untitled guide";
 }
 
 function isSuppressedHeading(text: string) {
@@ -151,16 +175,13 @@ function sitsUnderSuppressedAncestor(headings: GuideHeading[], index: number) {
 }
 
 function extractIntro(lines: string[]) {
-  let seenTitle = false;
+  const titleLineIndex = findPrimaryTitleLineIndex(lines);
+  if (titleLineIndex === -1) return undefined;
   const paragraphs: string[] = [];
 
-  for (const line of lines) {
+  for (let index = titleLineIndex + 1; index < lines.length; index += 1) {
+    const line = lines[index];
     const normalized = normalizeText(line);
-
-    if (!seenTitle) {
-      if (normalized.startsWith("#")) seenTitle = true;
-      continue;
-    }
 
     if (!normalized) {
       if (paragraphs.length) break;
@@ -177,7 +198,8 @@ function extractIntro(lines: string[]) {
 }
 
 function extractSectionHeadings(lines: string[]) {
-  const headings = extractHeadings(lines);
+  const allHeadings = extractHeadings(lines);
+  const headings = allHeadings.slice(findPrimaryHeadingOffset(allHeadings));
   const title = headings[0]?.text;
   const placeCandidateIndexes = new Set<number>();
 
@@ -207,7 +229,8 @@ function extractSectionHeadings(lines: string[]) {
 
 function extractPlaceCandidates(lines: string[]) {
   const candidates: GuidePlaceCandidate[] = [];
-  const headings = extractHeadings(lines);
+  const allHeadings = extractHeadings(lines);
+  const headings = allHeadings.slice(findPrimaryHeadingOffset(allHeadings));
   const title = headings[0]?.text;
 
   headings.forEach((heading, index) => {

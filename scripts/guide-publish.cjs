@@ -113,8 +113,9 @@ async function main() {
 
   const targetGuideSlug = publicationPlan.slug ?? slug;
 
+  const coverSourceExpected = publicationPlan?.coverImageStatus === "provided";
   let coverExists = undefined;
-  if (intake.coverPathHint) {
+  if (coverSourceExpected && intake.coverPathHint) {
     try {
       await fs.access(intake.coverPathHint);
       coverExists = true;

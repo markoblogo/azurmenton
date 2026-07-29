@@ -133,6 +133,20 @@ function normalizeName(value: string) {
     .trim();
 }
 
+function shouldRequireFreshCoverSource(input: {
+  coverImageStatus?: GuidePublicationImageStatus | null;
+  coverAssetPath?: string | null;
+  coverAssetFileName?: string | null;
+  coverPathHint?: string;
+  publishedGuide?: PublishedGuideAssetContext;
+}) {
+  if (input.publishedGuide?.coverImage) return false;
+  if (input.coverImageStatus === "provided") return true;
+  if (input.coverAssetPath || input.coverAssetFileName) return true;
+  if (input.coverImageStatus === "existing" || input.coverImageStatus === "not_needed") return false;
+  return Boolean(input.coverPathHint);
+}
+
 export function resolveGuideAssetPlan(input: {
   slug: string;
   outputSlug?: string;
@@ -203,11 +217,7 @@ export function resolveGuideAssetPlan(input: {
     candidatePlaceIds.add(placeId);
   }
 
-  const expectedCoverAsset =
-    input.coverImageStatus === "provided" ||
-    Boolean(input.coverAssetPath) ||
-    Boolean(input.coverAssetFileName) ||
-    Boolean(input.coverPathHint);
+  const expectedCoverAsset = shouldRequireFreshCoverSource(input);
 
   const findAssetFromDirectory = (candidates: string[]) => {
     for (const candidate of candidates) {
@@ -217,8 +227,15 @@ export function resolveGuideAssetPlan(input: {
     return undefined;
   };
 
+  const useLegacyCoverPathHint =
+    Boolean(input.coverPathHint) &&
+    !input.publishedGuide?.coverImage &&
+    input.coverImageStatus !== "existing" &&
+    input.coverImageStatus !== "not_needed";
+
   const coverSourcePath = (() => {
-    if (input.coverPathHint) return input.coverPathHint;
+    if (!expectedCoverAsset) return undefined;
+    if (useLegacyCoverPathHint && input.coverPathHint) return input.coverPathHint;
     if (input.coverAssetPath) return input.coverAssetPath;
     if (input.assetsDirectory && input.coverAssetFileName) {
       matchedAssetFiles.add(input.coverAssetFileName);
@@ -234,7 +251,7 @@ export function resolveGuideAssetPlan(input: {
     return undefined;
   })();
 
-  if (coverSourcePath && input.publishedGuide?.coverImage) {
+  if (coverSourcePath && input.publishedGuide?.coverImage && expectedCoverAsset) {
     issues.push({
       severity: "error",
       code: "published-guide-cover-already-exists",

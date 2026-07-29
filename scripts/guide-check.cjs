@@ -59,8 +59,9 @@ async function main() {
     publicationPlan = null;
   }
 
+  const coverSourceExpected = !publicationPlan ? Boolean(intake.coverPathHint) : publicationPlan.coverImageStatus === "provided";
   let coverExists = undefined;
-  if (intake.coverPathHint) {
+  if (coverSourceExpected && intake.coverPathHint) {
     try {
       await fs.access(intake.coverPathHint);
       coverExists = true;
