@@ -9,7 +9,7 @@ const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs"
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
-const { parsePlaceAssetArgs, resolveGuideAssetPlan } = require("../src/lib/guide-assets.ts");
+const { parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 
@@ -180,6 +180,23 @@ async function main() {
     missingExpectedAssetPlaceIds: resolution.missingExpectedAssetPlaceIds,
     skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
     publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
+    likelyGuideTargets:
+      publishedGuideSlug && !resolution.matchedPlaces.length && resolution.unmatchedAssetFiles.length
+        ? suggestPublishedGuideTargets({
+            assetFiles: resolution.unmatchedAssetFiles,
+            guides: guideArticles.map((guide) => ({
+              slug: guide.slug,
+              relatedPlaces: guide.relatedPlaces ?? [],
+              sections: guide.sections,
+            })),
+            places: places.map((place) => ({
+              id: place.id,
+              name: place.name,
+              image: place.image,
+            })),
+            missingOnly,
+          }).slice(0, 3)
+        : [],
   };
 
   const printOperatorSummary = () => {
@@ -200,6 +217,7 @@ async function main() {
       samples: [
         { label: "unmatched sample", values: resolution.unmatchedAssetFiles },
         { label: "missing sample", values: resolution.publishedGuidePlacesWithoutImage.map((place) => place.placeId) },
+        { label: "likely guide", values: report.likelyGuideTargets.map((target) => `${target.guideSlug} (${target.matchedPlaceIds.length})`) },
       ],
     });
   };

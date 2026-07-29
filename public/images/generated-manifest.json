@@ -28,6 +28,13 @@
     ]
   },
   {
+    "source": "public/images/guide/air-adventures-near-menton.png",
+    "outputs": [
+      "public/images/guide/generated/air-adventures-near-menton.avif",
+      "public/images/guide/generated/air-adventures-near-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/amarea-bordighera.png",
     "outputs": [
       "public/images/guide/generated/amarea-bordighera.avif",
@@ -266,10 +273,45 @@
     ]
   },
   {
-    "source": "public/images/guide/air-adventures-near-menton.png",
+    "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
-      "public/images/guide/generated/air-adventures-near-menton.avif",
-      "public/images/guide/generated/air-adventures-near-menton.webp"
+      "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
+      "public/images/guide/generated/french-riviera-sightseeing-flights.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
+    "outputs": [
+      "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
+      "public/images/guide/generated/roquebrune-menton-paragliding-area.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/gourdon-paragliding-area.png",
+    "outputs": [
+      "public/images/guide/generated/gourdon-paragliding-area.avif",
+      "public/images/guide/generated/gourdon-paragliding-area.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/nice-region-skydiving.png",
+    "outputs": [
+      "public/images/guide/generated/nice-region-skydiving.avif",
+      "public/images/guide/generated/nice-region-skydiving.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/cannes-frejus-skydiving.png",
+    "outputs": [
+      "public/images/guide/generated/cannes-frejus-skydiving.avif",
+      "public/images/guide/generated/cannes-frejus-skydiving.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/italian-riviera-paragliding-clubs.png",
+    "outputs": [
+      "public/images/guide/generated/italian-riviera-paragliding-clubs.avif",
+      "public/images/guide/generated/italian-riviera-paragliding-clubs.webp"
     ]
   }
 ]

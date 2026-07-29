@@ -49,6 +49,12 @@ export type GuideAssetResolutionPlan = {
   }>;
 };
 
+export type GuideAssetTargetSuggestion = {
+  guideSlug: string;
+  matchedAssetFiles: string[];
+  matchedPlaceIds: string[];
+};
+
 export type PublishedGuideAssetPlace = {
   placeId: string;
   draftName: string;
@@ -131,6 +137,10 @@ function normalizeName(value: string) {
     .replace(/\.[a-z0-9]+$/i, "")
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+}
+
+function unique<T>(values: T[]) {
+  return [...new Set(values)];
 }
 
 function shouldRequireFreshCoverSource(input: {
@@ -384,4 +394,65 @@ export function resolveGuideAssetPlan(input: {
     skippedAlreadyCoveredPlaces,
     publishedGuidePlacesWithoutImage,
   };
+}
+
+export function suggestPublishedGuideTargets(input: {
+  assetFiles: string[];
+  guides: Array<{
+    slug: string;
+    relatedPlaces?: string[];
+    sections: Array<{
+      relatedPlaceIds?: string[];
+    }>;
+  }>;
+  places: Array<{
+    id: string;
+    name: string;
+    image?: string;
+  }>;
+  missingOnly?: boolean;
+}) : GuideAssetTargetSuggestion[] {
+  const normalizedFiles = new Map(input.assetFiles.map((file) => [normalizeName(file), file]));
+  const placeById = new Map(input.places.map((place) => [place.id, place]));
+  const suggestions: GuideAssetTargetSuggestion[] = [];
+
+  for (const guide of input.guides) {
+    const relatedPlaceIds = unique([
+      ...(guide.relatedPlaces ?? []),
+      ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? []),
+    ]);
+
+    const matchedPlaceIds: string[] = [];
+    const matchedAssetFiles: string[] = [];
+
+    for (const placeId of relatedPlaceIds) {
+      const place = placeById.get(placeId);
+      if (!place) continue;
+      if (input.missingOnly && place.image) continue;
+
+      const file =
+        normalizedFiles.get(normalizeName(place.name)) ??
+        normalizedFiles.get(normalizeName(place.id));
+
+      if (!file) continue;
+      matchedPlaceIds.push(placeId);
+      matchedAssetFiles.push(file);
+    }
+
+    if (!matchedPlaceIds.length) continue;
+
+    suggestions.push({
+      guideSlug: guide.slug,
+      matchedPlaceIds: unique(matchedPlaceIds),
+      matchedAssetFiles: unique(matchedAssetFiles),
+    });
+  }
+
+  return suggestions.sort((left, right) => {
+    if (right.matchedPlaceIds.length !== left.matchedPlaceIds.length) {
+      return right.matchedPlaceIds.length - left.matchedPlaceIds.length;
+    }
+
+    return left.guideSlug.localeCompare(right.guideSlug);
+  });
 }

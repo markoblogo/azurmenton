@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuideAssetPlan, parsePlaceAssetArgs, resolveGuideAssetPlan } from "../../src/lib/guide-assets";
+import { buildGuideAssetPlan, parsePlaceAssetArgs, resolveGuideAssetPlan, suggestPublishedGuideTargets } from "../../src/lib/guide-assets";
 
 describe("guide assets", () => {
   it("builds explicit asset copy operations", () => {
@@ -238,5 +238,67 @@ describe("guide assets", () => {
     ]);
     expect(plan.skippedAlreadyCoveredPlaces).toEqual([{ placeId: "la-pescaria-de-menton", draftName: "La Pescaria de Menton" }]);
     expect(plan.unmatchedAssetFiles).toEqual(["La Pescaria de Menton.png"]);
+  });
+
+  it("suggests likely published guides when an asset package matches another guide better", () => {
+    const suggestions = suggestPublishedGuideTargets({
+      assetFiles: [
+        "Cannes Fréjus skydiving.png",
+        "French Riviera sightseeing flights.png",
+        "Gourdon paragliding area.png",
+        "Italian Riviera paragliding clubs.png",
+        "Nice region skydiving.png",
+        "Roquebrune Menton paragliding area.png",
+      ],
+      guides: [
+        {
+          slug: "airports-near-menton-live-flights",
+          relatedPlaces: ["nice-cote-dazur-airport"],
+          sections: [],
+        },
+        {
+          slug: "air-adventures-near-menton",
+          relatedPlaces: [
+            "french-riviera-sightseeing-flights",
+            "roquebrune-menton-paragliding-area",
+            "gourdon-paragliding-area",
+            "nice-region-skydiving",
+            "cannes-frejus-skydiving",
+            "italian-riviera-paragliding-clubs",
+          ],
+          sections: [],
+        },
+      ],
+      places: [
+        { id: "nice-cote-dazur-airport", name: "Nice Côte d'Azur Airport", image: "/images/guide/nice-cote-dazur-airport.jpg" },
+        { id: "french-riviera-sightseeing-flights", name: "French Riviera sightseeing flights" },
+        { id: "roquebrune-menton-paragliding-area", name: "Roquebrune & Menton paragliding area" },
+        { id: "gourdon-paragliding-area", name: "Gourdon paragliding area" },
+        { id: "nice-region-skydiving", name: "Nice region skydiving" },
+        { id: "cannes-frejus-skydiving", name: "Cannes & Fréjus skydiving" },
+        { id: "italian-riviera-paragliding-clubs", name: "Italian Riviera paragliding clubs" },
+      ],
+      missingOnly: true,
+    });
+
+    expect(suggestions[0]).toEqual({
+      guideSlug: "air-adventures-near-menton",
+      matchedAssetFiles: [
+        "French Riviera sightseeing flights.png",
+        "Roquebrune Menton paragliding area.png",
+        "Gourdon paragliding area.png",
+        "Nice region skydiving.png",
+        "Cannes Fréjus skydiving.png",
+        "Italian Riviera paragliding clubs.png",
+      ],
+      matchedPlaceIds: [
+        "french-riviera-sightseeing-flights",
+        "roquebrune-menton-paragliding-area",
+        "gourdon-paragliding-area",
+        "nice-region-skydiving",
+        "cannes-frejus-skydiving",
+        "italian-riviera-paragliding-clubs",
+      ],
+    });
   });
 });
