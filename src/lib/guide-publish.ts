@@ -28,6 +28,13 @@ export type GuidePublishReport = {
   blockers: GuidePublishIssue[];
   warnings: GuidePublishIssue[];
   nextSteps: string[];
+  blocked: Array<{
+    scope: "intake" | "check" | "assets" | "apply" | "publish";
+    code: string;
+    message: string;
+  }>;
+  autoResolved: string[];
+  manualActions: string[];
   assets: GuidePublishAssetsState;
   summary: {
     plannedPlaceCount: number;
@@ -37,6 +44,8 @@ export type GuidePublishReport = {
     relatedApartmentCount: number;
   };
 };
+
+type GuidePublishBlockedScope = "intake" | "check" | "assets" | "apply" | "publish";
 
 function toIssue(issue: GuideCheckIssue | GuideAssetPlanIssue): GuidePublishIssue {
   return {
@@ -57,6 +66,7 @@ export function buildGuidePublishReport(input: {
 }): GuidePublishReport {
   const blockers: GuidePublishIssue[] = [];
   const warnings: GuidePublishIssue[] = [];
+  const autoResolved: string[] = [];
   const resolvedPlaceImages = input.resolvedPlaceImages ?? {};
 
   for (const issue of input.checkReport.errors) blockers.push(toIssue(issue));
@@ -76,12 +86,19 @@ export function buildGuidePublishReport(input: {
 
   const plannedPlaces = input.publicationPlan.plannedPlaces ?? [];
   const coverExpected = input.publicationPlan.coverImageStatus === "provided";
+  if (input.publicationPlan.coverImageStatus === "existing") {
+    autoResolved.push("Cover already resolved from an existing public guide asset.");
+  }
   if (coverExpected && !input.resolvedCoverImage) {
     blockers.push({
       severity: "error",
       code: "missing-published-cover-asset",
       message: `Cover is marked as provided but no public guide cover asset is currently resolved for ${input.slug}.`,
     });
+  }
+
+  if (coverExpected && input.resolvedCoverImage) {
+    autoResolved.push(`Cover resolved at ${input.resolvedCoverImage}.`);
   }
 
   const placeAssets: GuidePublishAssetsState["places"] = plannedPlaces
@@ -98,6 +115,16 @@ export function buildGuidePublishReport(input: {
         });
       }
 
+      if (expected && publicPath) {
+        autoResolved.push(`Place image resolved for ${placeId} at ${publicPath}.`);
+      }
+      if (plannedPlace.existingPlaceId) {
+        autoResolved.push(`Existing place match confirmed for ${plannedPlace.existingPlaceId}.`);
+      }
+      if (plannedPlace.newPlaceId && !plannedPlace.existingPlaceId) {
+        autoResolved.push(`New place scaffold prepared for ${plannedPlace.newPlaceId}.`);
+      }
+
       return {
         placeId,
         expected,
@@ -106,6 +133,46 @@ export function buildGuidePublishReport(input: {
       };
     })
     .filter(Boolean) as GuidePublishAssetsState["places"];
+
+  if ((input.publicationPlan.relatedArticleSlugs ?? []).length) {
+    autoResolved.push(`Related guides planned: ${(input.publicationPlan.relatedArticleSlugs ?? []).join(", ")}.`);
+  }
+
+  if ((input.publicationPlan.relatedApartmentSlugs ?? []).length) {
+    autoResolved.push(`Apartment CTA planned: ${(input.publicationPlan.relatedApartmentSlugs ?? []).join(", ")}.`);
+  }
+
+  if (plannedPlaces.some((plannedPlace) => plannedPlace.coverageGuideSlug)) {
+    autoResolved.push("Specialist place coverage slugs are present in the publication plan.");
+  }
+
+  const blocked = blockers.map((issue) => {
+    let scope: GuidePublishBlockedScope = "publish";
+    if (issue.code.includes("cover") || issue.code.includes("place-asset")) scope = "assets";
+    else if (issue.code === "apply-not-ready") scope = "apply";
+    else if (issue.code.startsWith("missing-") || issue.code.startsWith("invalid-") || issue.code.includes("related-") || issue.code.includes("map-")) scope = "check";
+
+    return {
+      scope,
+      code: issue.code,
+      message: issue.message,
+    };
+  });
+
+  const manualActionsRaw = blockers.length
+    ? [
+        "Resolve every blocked item listed in publish-report.json.",
+        "Re-run npm run guide:publish -- --slug <slug> until ready becomes yes.",
+      ]
+    : [
+        `Insert build/guide-intake/<slug>/apply/guide-article.snippet.txt into src/content/guide.ts.`,
+        `Insert build/guide-intake/<slug>/apply/places-raw.snippet.txt into src/content/places.ts if new place objects are required.`,
+        `Apply backlinks, guideCoverageSlugs and visual field merges from build/guide-intake/<slug>/patch/existing-place-updates.json.`,
+        "Run content preflight and build before commit.",
+        "Run guide:review after the manual merge.",
+      ];
+
+  const manualActions = [...new Set(manualActionsRaw)].slice(0, 5);
 
   const nextSteps = blockers.length
     ? [
@@ -124,6 +191,9 @@ export function buildGuidePublishReport(input: {
     blockers,
     warnings,
     nextSteps,
+    blocked,
+    autoResolved: [...new Set(autoResolved)],
+    manualActions,
     assets: {
       cover: {
         expected: coverExpected,

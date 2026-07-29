@@ -174,8 +174,22 @@ async function main() {
     console.log("warnings\n- none");
   }
 
-  console.log("next steps");
-  for (const step of publishReport.nextSteps) console.log(`- ${step.replace("<slug>", slug)}`);
+  console.log("blocked");
+  if (publishReport.blocked.length) {
+    for (const item of publishReport.blocked) console.log(`- [${item.scope}] [${item.code}] ${item.message}`);
+  } else {
+    console.log("- none");
+  }
+
+  console.log("auto resolved");
+  if (publishReport.autoResolved.length) {
+    for (const item of publishReport.autoResolved) console.log(`- ${item}`);
+  } else {
+    console.log("- none");
+  }
+
+  console.log("manual actions");
+  for (const step of publishReport.manualActions) console.log(`- ${step.replace(/<slug>/g, slug)}`);
 
   if (!publishReport.ready) process.exitCode = 1;
 }

@@ -79,6 +79,9 @@ describe("guide patch bundle", () => {
         blockers: [],
         warnings: [],
         nextSteps: [],
+        blocked: [],
+        autoResolved: [],
+        manualActions: [],
         assets: {
           cover: { expected: true, resolved: true, publicPath: "/images/guide/burgers-menton.png" },
           places: [],
@@ -126,6 +129,9 @@ describe("guide patch bundle", () => {
         blockers: [{ severity: "error", code: "missing-cover", message: "Cover missing." }],
         warnings: [],
         nextSteps: [],
+        blocked: [{ scope: "assets", code: "missing-cover", message: "Cover missing." }],
+        autoResolved: [],
+        manualActions: [],
         assets: {
           cover: { expected: true, resolved: false },
           places: [],

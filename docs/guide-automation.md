@@ -124,6 +124,11 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
 - verifies that required public cover/place assets are actually resolved
 - writes `publish-report.json`
 - `ready: yes` means the intake is fit for manual insertion
+- v2 report shape now explicitly separates:
+  - `blocked`
+  - `autoResolved`
+  - `manualActions`
+- this is the one-file readiness summary before using `guide:patch`
 
 ### `guide:patch`
 
