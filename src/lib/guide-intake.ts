@@ -23,6 +23,22 @@ type GuideHeading = {
   lineIndex: number;
 };
 
+const GUIDE_FIELD_LABELS = [
+  "SEO title",
+  "SEO Title",
+  "Title tag",
+  "Meta description",
+  "Meta Description",
+  "Description",
+  "Suggested slug",
+  "Suggested URL",
+  "Slug",
+  "Guide slug",
+  "Canonical slug",
+  "URL slug",
+  "Cover image",
+];
+
 function normalizeText(value: string) {
   return value.replace(/\r/g, "").trim();
 }
@@ -39,6 +55,10 @@ function stripMarkdownDecoration(value: string) {
     .trim();
 }
 
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function toKebabCase(value: string) {
   return value
     .toLowerCase()
@@ -50,13 +70,13 @@ function toKebabCase(value: string) {
 }
 
 function extractField(lines: string[], label: string) {
-  const lowerLabel = label.toLowerCase();
+  const pattern = new RegExp(`^${escapeRegExp(label)}\\s*[:\\-]?\\s*(.+)$`, "i");
 
   for (const line of lines) {
-    const normalized = normalizeText(line);
-    const index = normalized.toLowerCase().indexOf(lowerLabel);
-    if (index !== 0) continue;
-    const value = normalized.slice(label.length).trim().replace(/^[:\-]\s*/, "");
+    const normalized = stripMarkdownDecoration(normalizeText(line).replace(/^[-*]\s*/, ""));
+    const match = normalized.match(pattern);
+    if (!match) continue;
+    const value = match[1]?.trim();
     if (value) return value;
   }
 
@@ -78,6 +98,21 @@ function normalizeHeadingText(value: string) {
     .replace(/^[-–—]\s*/, "")
     .replace(/\s{2,}/g, " ")
     .trim();
+}
+
+export function splitGuideDraftIntoPreambleAndBody(lines: string[]) {
+  const titleLineIndex = findPrimaryTitleLineIndex(lines);
+  if (titleLineIndex === -1) {
+    return {
+      preambleLines: lines,
+      bodyLines: lines,
+    };
+  }
+
+  return {
+    preambleLines: lines.slice(0, titleLineIndex),
+    bodyLines: lines.slice(titleLineIndex),
+  };
 }
 
 function slugToTitle(slug: string) {
@@ -138,6 +173,19 @@ function extractTitle(lines: string[]) {
   }
 
   return "Untitled guide";
+}
+
+function extractExplicitGuideSlug(lines: string[]) {
+  const directField = extractFirstField(lines, ["Suggested slug", "Suggested URL", "Guide slug", "Canonical slug", "URL slug", "Slug"]);
+  if (directField) return directField;
+
+  for (const line of lines) {
+    const normalized = stripMarkdownDecoration(normalizeText(line));
+    const guidePathMatch = normalized.match(/\/[a-z]{2}\/guide\/([a-z0-9-]+)/i);
+    if (guidePathMatch?.[1]) return guidePathMatch[1];
+  }
+
+  return undefined;
 }
 
 function isSuppressedHeading(text: string) {
@@ -291,20 +339,22 @@ function extractRelatedGuideTitles(lines: string[]) {
 
 export function extractGuideIntake(raw: string, options?: { coverPathHint?: string }): GuideIntake {
   const lines = raw.replace(/\r/g, "").split("\n");
+  const { preambleLines, bodyLines } = splitGuideDraftIntoPreambleAndBody(lines);
   const title = extractTitle(lines);
-  const rawSuggestedSlug = extractFirstField(lines, ["Suggested slug", "Slug", "Suggested URL"]);
+  const metadataLines = [...preambleLines, ...bodyLines.filter((line) => GUIDE_FIELD_LABELS.some((label) => stripMarkdownDecoration(normalizeText(line)).toLowerCase().startsWith(label.toLowerCase())))];
+  const rawSuggestedSlug = extractExplicitGuideSlug(metadataLines);
   const suggestedSlug = rawSuggestedSlug?.replace(/^\/[a-z]{2}\/guide\//i, "").replace(/^\/+/, "");
 
   return {
     title,
     slug: suggestedSlug ? toKebabCase(suggestedSlug) : toKebabCase(title),
-    seoTitle: extractFirstField(lines, ["SEO title", "SEO Title", "Title tag"]),
-    metaDescription: extractFirstField(lines, ["Meta description", "Meta Description", "Description"]),
-    intro: extractIntro(lines),
+    seoTitle: extractFirstField(metadataLines, ["SEO title", "SEO Title", "Title tag"]),
+    metaDescription: extractFirstField(metadataLines, ["Meta description", "Meta Description", "Description"]),
+    intro: extractIntro(bodyLines),
     coverPathHint: options?.coverPathHint,
-    sectionHeadings: extractSectionHeadings(lines),
-    placeCandidates: extractPlaceCandidates(lines),
-    relatedGuideTitles: extractRelatedGuideTitles(lines),
+    sectionHeadings: extractSectionHeadings(bodyLines),
+    placeCandidates: extractPlaceCandidates(bodyLines),
+    relatedGuideTitles: extractRelatedGuideTitles(bodyLines),
     rawSuggestedSlug,
   };
 }

@@ -34,6 +34,15 @@ function stripMarkdownDecoration(value: string) {
     .trim();
 }
 
+function normalizeHeadingText(value: string) {
+  return stripMarkdownDecoration(value)
+    .replace(/^\d{1,2}[.)]\s*/, "")
+    .replace(/^[IVXLCM]+[.)]\s+/i, "")
+    .replace(/^[-–—]\s*/, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 function normalize(value: string) {
   return value
     .toLowerCase()
@@ -77,27 +86,46 @@ function toParagraphs(lines: string[]) {
 }
 
 function firstTitle(lines: string[]) {
+  const primaryTitleLineIndex = findPrimaryTitleLineIndex(lines);
+  if (primaryTitleLineIndex !== -1) {
+    const text = normalizeHeadingText(normalizeText(lines[primaryTitleLineIndex]));
+    if (text) return text;
+  }
+
   for (const line of lines) {
     const normalized = normalizeText(line);
     if (!normalized.startsWith("#")) continue;
-    const text = stripMarkdownDecoration(normalized);
+    const text = normalizeHeadingText(normalized);
     if (text) return text;
   }
 
   return "Untitled guide";
 }
 
+function isPreambleHeading(text: string) {
+  return /^(seo|metadata|service(?:\s+preamble)?|publication notes?|operator notes?|editorial notes?)$/i.test(text);
+}
+
+function findPrimaryTitleLineIndex(lines: string[]) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const normalized = normalizeText(lines[index]);
+    if (!normalized.startsWith("#")) continue;
+    const title = normalizeHeadingText(normalized);
+    if (!title || isPreambleHeading(title)) continue;
+    return index;
+  }
+
+  return -1;
+}
+
 function collectIntroParagraphs(lines: string[]) {
-  let seenTitle = false;
+  const titleLineIndex = findPrimaryTitleLineIndex(lines);
+  if (titleLineIndex === -1) return [];
   const introLines: string[] = [];
 
-  for (const rawLine of lines) {
+  for (let index = titleLineIndex + 1; index < lines.length; index += 1) {
+    const rawLine = lines[index];
     const line = normalizeText(rawLine);
-
-    if (!seenTitle) {
-      if (line.startsWith("#")) seenTitle = true;
-      continue;
-    }
 
     if (line.startsWith("##")) break;
     if (/^(SEO title|Meta description|Suggested slug|Cover image)/i.test(line)) continue;
@@ -120,7 +148,9 @@ function inferSectionKind(section: GuideStructuredSection): GuideStructuredSecti
 
 export function extractGuideStructure(raw: string, intake: GuideIntake): GuideStructure {
   const lines = raw.replace(/\r/g, "").split("\n");
-  const title = firstTitle(lines);
+  const primaryTitleLineIndex = findPrimaryTitleLineIndex(lines);
+  const contentLines = primaryTitleLineIndex === -1 ? lines : lines.slice(primaryTitleLineIndex);
+  const title = firstTitle(contentLines);
   const candidateByName = new Map(intake.placeCandidates.map((candidate) => [normalize(candidate.name), candidate]));
 
   const sections = new Map<string, GuideStructuredSection>();
@@ -172,7 +202,7 @@ export function extractGuideStructure(raw: string, intake: GuideIntake): GuideSt
     directLines = [];
   };
 
-  for (const rawLine of lines) {
+  for (const rawLine of contentLines) {
     const line = normalizeText(rawLine);
     if (!line) {
       if (currentPlaceCard) cardLines.push(rawLine);
@@ -227,7 +257,7 @@ export function extractGuideStructure(raw: string, intake: GuideIntake): GuideSt
   return {
     slug: intake.slug,
     title,
-    introParagraphs: collectIntroParagraphs(lines),
+    introParagraphs: collectIntroParagraphs(contentLines),
     sections: structuredSections,
   };
 }

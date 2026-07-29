@@ -156,4 +156,52 @@ describe("guide plan seeding", () => {
       }),
     );
   });
+
+  it("reduces noisy postal false matches and can safely resolve central La Poste variants", () => {
+    const intake: GuideIntake = {
+      title: "Post Offices, Stamps & Parcel Services in Menton",
+      slug: "post-offices-stamps-menton",
+      intro: "Postal guide",
+      sectionHeadings: ["Menton", "Nice"],
+      placeCandidates: [
+        { name: "Garavan Postal Branch", section: "Menton" },
+        { name: "Central La Poste Nice", section: "Nice" },
+      ],
+      relatedGuideTitles: [],
+    };
+
+    const seededPlan = buildSeededPublicationPlan({
+      intake,
+      todayIso: "2026-07-29",
+      guides: [],
+      places: [
+        { id: "la-poste-garavan-menton", name: "La Poste Garavan", requiresMapReview: true },
+        { id: "menton-garavan-station", name: "Menton Garavan Station", requiresMapReview: true },
+        { id: "la-poste-nice-centre", name: "La Poste Nice Centre", requiresMapReview: true },
+        { id: "la-yogurteria-menton", name: "L.A. Yogurteria", requiresMapReview: true },
+      ],
+      mapPointPlaceIds: [],
+      mapExclusionPlaceIds: [],
+    });
+
+    expect(seededPlan.plannedPlaces).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          draftName: "Garavan Postal Branch",
+          existingPlaceId: "la-poste-garavan-menton",
+          matchDecision: "safe_existing",
+          suggestedExistingPlaceId: "la-poste-garavan-menton",
+        }),
+        expect.objectContaining({
+          draftName: "Central La Poste Nice",
+          existingPlaceId: "la-poste-nice-centre",
+          matchDecision: "safe_existing",
+          suggestedExistingPlaceId: "la-poste-nice-centre",
+        }),
+      ]),
+    );
+
+    const garavan = seededPlan.plannedPlaces?.find((place) => place.draftName === "Garavan Postal Branch");
+    expect(garavan?.topMatches?.map((entry) => entry.id)).not.toContain("la-yogurteria-menton");
+  });
 });

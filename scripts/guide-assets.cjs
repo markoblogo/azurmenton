@@ -89,6 +89,7 @@ async function main() {
   const overrides = parsePlaceAssetArgs(placeArgs).map((asset) => ({ ...asset, sourcePath: path.resolve(asset.sourcePath) }));
   const resolvedAssetsDir = assetsDir ? path.resolve(assetsDir) : publicationPlan?.assetsDirectory ? path.resolve(publicationPlan.assetsDirectory) : undefined;
   const existingPlaceImages = Object.fromEntries(places.filter((place) => place.image).map((place) => [place.id, place.image]));
+  const outputSlug = publishedGuideSlug ?? publicationPlan?.slug ?? intake?.slug ?? workingSlug;
   const publishedGuide = publishedGuideSlug
     ? (() => {
         const guide = guideArticles.find((article) => article.slug === publishedGuideSlug);
@@ -113,7 +114,7 @@ async function main() {
     : null;
   const resolution = resolveGuideAssetPlan({
     slug: workingSlug,
-    outputSlug: publishedGuide?.slug ?? workingSlug,
+    outputSlug,
     intakeTitle: publishedGuide?.intakeTitle ?? intake?.title,
     coverPathHint:
       coverOverride

@@ -287,6 +287,13 @@
     ]
   },
   {
+    "source": "public/images/guide/post-offices-stamps-menton.png",
+    "outputs": [
+      "public/images/guide/generated/post-offices-stamps-menton.avif",
+      "public/images/guide/generated/post-offices-stamps-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
     "outputs": [
       "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
@@ -322,10 +329,38 @@
     ]
   },
   {
-    "source": "public/images/guide/post-offices-stamps-menton.png",
+    "source": "public/images/guide/la-poste-menton-centre.png",
     "outputs": [
-      "public/images/guide/generated/post-offices-stamps-menton.avif",
-      "public/images/guide/generated/post-offices-stamps-menton.webp"
+      "public/images/guide/generated/la-poste-menton-centre.avif",
+      "public/images/guide/generated/la-poste-menton-centre.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/point-postal-felix-faure-menton.png",
+    "outputs": [
+      "public/images/guide/generated/point-postal-felix-faure-menton.avif",
+      "public/images/guide/generated/point-postal-felix-faure-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-poste-garavan-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-poste-garavan-menton.avif",
+      "public/images/guide/generated/la-poste-garavan-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/monte-carlo-post-office.png",
+    "outputs": [
+      "public/images/guide/generated/monte-carlo-post-office.avif",
+      "public/images/guide/generated/monte-carlo-post-office.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-poste-nice-centre.png",
+    "outputs": [
+      "public/images/guide/generated/la-poste-nice-centre.avif",
+      "public/images/guide/generated/la-poste-nice-centre.webp"
     ]
   }
 ]

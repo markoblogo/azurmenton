@@ -157,4 +157,30 @@ Menton works well as a base for air experiences across the Riviera.
       { name: "Roquebrune paragliding area", section: "Paragliding" },
     ]);
   });
+
+  it("extracts explicit slug and metadata from a service preamble without treating it as article content", () => {
+    const raw = `
+# **SEO**
+
+- **SEO title:** Post Offices, Stamps & Parcel Services in Menton (Plus Monaco & Nice)
+- **Meta description:** Looking for a post office in Menton? Find where to buy stamps, send postcards and parcels in Menton, Monaco and Nice, with practical tips for travellers.
+- **Canonical slug:** /en/guide/post-offices-stamps-menton
+
+# **Post Offices, Stamps & Parcel Services in Menton**
+
+Many visitors still enjoy sending a real postcard from the French Riviera.
+
+## **Menton**
+
+### **Main Post Office (La Poste Menton)**
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.slug).toBe("post-offices-stamps-menton");
+    expect(intake.seoTitle).toBe("Post Offices, Stamps & Parcel Services in Menton (Plus Monaco & Nice)");
+    expect(intake.metaDescription).toContain("buy stamps");
+    expect(intake.intro).toBe("Many visitors still enjoy sending a real postcard from the French Riviera.");
+    expect(intake.placeCandidates).toEqual([{ name: "Main Post Office (La Poste Menton)", section: "Menton" }]);
+  });
 });

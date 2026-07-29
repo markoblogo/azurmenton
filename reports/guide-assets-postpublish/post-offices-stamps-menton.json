@@ -1,0 +1,44 @@
+{
+  "slug": "post-offices-stamps-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: post-offices-stamps-menton",
+    "mode: published-guide + missing-only",
+    "matched: 5",
+    "skipped-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/post-offices-stamps-menton.json",
+    "rerun: npm run guide:assets -- --published-guide post-offices-stamps-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only"
+  ],
+  "counts": {
+    "matched": 5,
+    "unmatched": 0,
+    "skippedCovered": 0,
+    "stillMissing": 0
+  },
+  "matchedAssetFiles": [
+    "La Poste Garavan.png",
+    "La Poste Menton Centre.png",
+    "La Poste Nice Centre.png",
+    "Monte-Carlo Post Office.png",
+    "Point postal Félix Faure.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "matchedPlaceIds": [
+    "la-poste-menton-centre",
+    "point-postal-felix-faure-menton",
+    "la-poste-garavan-menton",
+    "monte-carlo-post-office",
+    "la-poste-nice-centre"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide post-offices-stamps-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only",
+  "issueCodes": []
+}

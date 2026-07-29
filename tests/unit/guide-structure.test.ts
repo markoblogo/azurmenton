@@ -64,4 +64,40 @@ Simple, fast and central if you want an easy border-crossing meal.
       }),
     ]);
   });
+
+  it("ignores service preamble headings when building structure output", () => {
+    const raw = `
+# **SEO**
+
+SEO title: Post Offices, Stamps & Parcel Services in Menton (Plus Monaco & Nice)
+Meta description: Looking for a post office in Menton?
+Suggested slug: /en/guide/post-offices-stamps-menton
+
+# **Post Offices, Stamps & Parcel Services in Menton**
+
+Many visitors still enjoy sending a real postcard from the French Riviera.
+
+## **Menton**
+
+The central office is usually enough for most travellers.
+
+### **Main Post Office (La Poste Menton)**
+
+The easiest full-service post office in town.
+`;
+
+    const intake = extractGuideIntake(raw);
+    const structure = extractGuideStructure(raw, intake);
+
+    expect(structure.title).toBe("Post Offices, Stamps & Parcel Services in Menton");
+    expect(structure.introParagraphs).toEqual(["Many visitors still enjoy sending a real postcard from the French Riviera."]);
+    expect(structure.sections).toEqual([
+      expect.objectContaining({
+        heading: "Menton",
+        kind: "place-group",
+        bodyParagraphs: ["The central office is usually enough for most travellers."],
+        relatedPlaceDraftNames: ["Main Post Office (La Poste Menton)"],
+      }),
+    ]);
+  });
 });

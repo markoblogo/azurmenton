@@ -9,6 +9,7 @@ const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
 const { extractGuideIntake } = require("../src/lib/guide-intake.ts");
+const { splitGuideDraftIntoPreambleAndBody } = require("../src/lib/guide-intake.ts");
 const { extractGuideStructure } = require("../src/lib/guide-structure.ts");
 const { buildSeededPublicationPlan, seedGuideIntake } = require("../src/lib/guide-plan-seeding.ts");
 const { guideArticles } = require("../src/content/guide.ts");
@@ -96,6 +97,7 @@ async function main() {
 
   const absoluteInput = path.resolve(fromPath);
   const raw = await fs.readFile(absoluteInput, "utf8");
+  const draftParts = splitGuideDraftIntoPreambleAndBody(raw.replace(/\r/g, "").split("\n"));
   const intake = seedGuideIntake(extractGuideIntake(raw, { coverPathHint: coverPath ? path.resolve(coverPath) : undefined }));
   const historicalMatchMemory = buildGuideMatchMemory(await loadGuideMatchMemory(root, intake.slug));
   const publicationPlan = buildSeededPublicationPlan({
@@ -119,6 +121,19 @@ async function main() {
 
   await Promise.all([
     fs.writeFile(path.join(outputDir, "draft.md"), raw),
+    fs.writeFile(path.join(outputDir, "draft-body.md"), `${draftParts.bodyLines.join("\n")}\n`),
+    fs.writeFile(
+      path.join(outputDir, "preamble.json"),
+      `${JSON.stringify(
+        {
+          hasPreamble: draftParts.preambleLines.some((line) => line.trim().length > 0),
+          preambleLines: draftParts.preambleLines,
+          bodyStartsWith: draftParts.bodyLines.find((line) => line.trim().length > 0) ?? null,
+        },
+        null,
+        2,
+      )}\n`,
+    ),
     fs.writeFile(path.join(outputDir, "intake.json"), `${JSON.stringify(intake, null, 2)}\n`),
     fs.writeFile(path.join(outputDir, "structure.json"), `${JSON.stringify(extractGuideStructure(raw, intake), null, 2)}\n`),
     fs.writeFile(path.join(outputDir, "guide-scaffold.md"), `${renderGuideScaffold(intake)}\n`),
@@ -128,6 +143,8 @@ async function main() {
 
   console.log(`guide intake generated: ${path.relative(root, outputDir)}`);
   console.log(`- intake.json`);
+  console.log(`- draft-body.md`);
+  console.log(`- preamble.json`);
   console.log(`- structure.json`);
   console.log(`- guide-scaffold.md`);
   console.log(`- places-scaffold.md`);

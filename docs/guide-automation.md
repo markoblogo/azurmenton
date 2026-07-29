@@ -29,12 +29,16 @@ npm run guide:ops
 - v2 also normalizes numbered headings, alternate SEO/meta labels and guide-link bullets/URLs
 - writes:
   - `draft.md`
+  - `draft-body.md`
+  - `preamble.json`
   - `intake.json`
   - `structure.json`
   - `guide-scaffold.md`
   - `places-scaffold.md`
   - `publication-plan.json`
 - `guide-scaffold.md` now also surfaces `categoryHint` immediately for the first editorial pass
+- `draft-body.md` keeps the editorial body from the first real guide H1 onward
+- `preamble.json` keeps any SEO/service preamble that appeared before the real article body
 
 ### `guide:match`
 
@@ -126,6 +130,10 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - includes `operatorSummary` as a one-screen handoff snapshot
   - includes `likelyGuideTargets`
   - includes `bestRerunCommand` for the current `--published-guide` rerun, even when there are no likely-target suggestions
+- important current boundary:
+  - `guide:assets` copies files and writes reports
+  - it does not yet auto-merge `image:` fields into `src/content/places.ts` for already-published guides
+  - that final content merge still needs a narrow manual edit or a future automation pass
 
 ### `guide:apply`
 

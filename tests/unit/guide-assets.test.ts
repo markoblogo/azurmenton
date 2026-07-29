@@ -139,6 +139,24 @@ describe("guide assets", () => {
     expect(plan.unmatchedAssetFiles).toEqual(["cover.png"]);
   });
 
+  it("uses the published guide slug for cover output when intake folder slug differs", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "post-offices-stamps-parcel-services-in-menton",
+      outputSlug: "post-offices-stamps-menton",
+      coverPathHint: "/tmp/cover.png",
+      coverImageStatus: "provided",
+    });
+
+    expect(plan.operations).toEqual([
+      {
+        kind: "cover",
+        sourcePath: "/tmp/cover.png",
+        destinationPath: "public/images/guide/post-offices-stamps-menton.png",
+        publicPath: "/images/guide/post-offices-stamps-menton.png",
+      },
+    ]);
+  });
+
   it("accepts explicit place overrides even when a place is outside the intake publication plan", () => {
     const plan = resolveGuideAssetPlan({
       slug: "cheap-eats-intake-slug",
