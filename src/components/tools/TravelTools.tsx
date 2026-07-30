@@ -101,6 +101,24 @@ const ui = {
     referenceDate: "Reference date",
     ratesUnavailable: "Reference rates temporarily unavailable.",
     uahNote: "UAH may be unavailable in the ECB reference feed; compare with your card provider when needed.",
+    conditionsTitle: "Detailed weather, sea and beaches",
+    conditionsText: "A single planning layer for air temperature, sea temperature, 5-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
+    currentConditions: "Current conditions",
+    nextDays: "5-day outlook",
+    beachFlagStatus: "Beach flags",
+    beachFlagText: "No reliable timestamped flag feed is available. Check the flag shown on the beach and use the official bathing-water portal.",
+    checkOnSite: "Check on site",
+    weatherToolCta: "Weather",
+    seaToolCta: "Sea",
+    beachesToolCta: "Beaches",
+    wavesNow: "Waves now",
+    swellNow: "Swell",
+    wavePeriod: "Wave period",
+    seaForecast: "Sea",
+    rainForecast: "Rain",
+    updated: "Updated",
+    provider: "Provider",
+    seaUnavailable: "Sea data unavailable",
   },
   fr: {
     weather: "Meteo",
@@ -175,6 +193,24 @@ const ui = {
     referenceDate: "Date de reference",
     ratesUnavailable: "Taux de reference temporairement indisponibles.",
     uahNote: "UAH peut etre absent du flux BCE; comparez avec votre fournisseur de carte si besoin.",
+    conditionsTitle: "Meteo, mer et plages en detail",
+    conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 5 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
+    currentConditions: "Conditions actuelles",
+    nextDays: "Prevision 5 jours",
+    beachFlagStatus: "Drapeaux de plage",
+    beachFlagText: "Aucun flux horodate fiable pour les drapeaux. Verifiez le drapeau sur place et le portail officiel des baignades.",
+    checkOnSite: "Verifier sur place",
+    weatherToolCta: "Meteo",
+    seaToolCta: "Mer",
+    beachesToolCta: "Plages",
+    wavesNow: "Vagues",
+    swellNow: "Houle",
+    wavePeriod: "Periode",
+    seaForecast: "Mer",
+    rainForecast: "Pluie",
+    updated: "Mise a jour",
+    provider: "Source",
+    seaUnavailable: "Donnees mer indisponibles",
   },
   it: {
     weather: "Meteo",
@@ -249,6 +285,24 @@ const ui = {
     referenceDate: "Data di riferimento",
     ratesUnavailable: "Tassi di riferimento temporaneamente non disponibili.",
     uahNote: "UAH potrebbe non essere presente nel feed BCE; confronta con il provider della carta se serve.",
+    conditionsTitle: "Meteo, mare e spiagge in dettaglio",
+    conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 5 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
+    currentConditions: "Condizioni attuali",
+    nextDays: "Prossimi 5 giorni",
+    beachFlagStatus: "Bandiere spiaggia",
+    beachFlagText: "Non esiste un feed affidabile e timestamped per le bandiere. Controlla la bandiera in spiaggia e il portale ufficiale.",
+    checkOnSite: "Controlla sul posto",
+    weatherToolCta: "Meteo",
+    seaToolCta: "Mare",
+    beachesToolCta: "Spiagge",
+    wavesNow: "Onde",
+    swellNow: "Mareggiata",
+    wavePeriod: "Periodo",
+    seaForecast: "Mare",
+    rainForecast: "Pioggia",
+    updated: "Aggiornato",
+    provider: "Fonte",
+    seaUnavailable: "Dati mare non disponibili",
   },
   uk: {
     weather: "Погода",
@@ -323,41 +377,36 @@ const ui = {
     referenceDate: "Дата довідки",
     ratesUnavailable: "Довідкові курси тимчасово недоступні.",
     uahNote: "UAH може бути відсутня у фіді ECB; за потреби звіряйтеся зі своїм банком або карткою.",
+    conditionsTitle: "Погода, море і пляжі в деталях",
+    conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 5-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
+    currentConditions: "Поточні умови",
+    nextDays: "Прогноз на 5 днів",
+    beachFlagStatus: "Пляжні прапори",
+    beachFlagText: "Надійного timestamped feed для прапорів немає. Перевіряйте прапор прямо на пляжі та офіційний портал якості води.",
+    checkOnSite: "Перевірити на місці",
+    weatherToolCta: "Погода",
+    seaToolCta: "Море",
+    beachesToolCta: "Пляжі",
+    wavesNow: "Хвилі",
+    swellNow: "Свел",
+    wavePeriod: "Період хвилі",
+    seaForecast: "Море",
+    rainForecast: "Опади",
+    updated: "Оновлено",
+    provider: "Джерело",
+    seaUnavailable: "Дані моря недоступні",
   },
 } as const;
 
 export async function TravelToolPage({ locale }: { locale: Locale }) {
   const copy = travelToolSectionCopy[locale];
-  const text = ui[locale];
   const rightNow = await getMentonRightNow();
 
   return (
     <>
       <Section className="bg-[#fffaf0] py-8 sm:py-10">
         <Container>
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
-            <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5 sm:p-6">
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.rightNowTitle}</p>
-              <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{copy.rightNowTitle}</h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#5c5044]">{copy.rightNowDescription}</p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-                <MetricCard label={text.weather} value={rightNow.weather ? `${rightNow.weather.temperature}°C` : copy.unavailable} detail={rightNow.weather ? weatherLabel(rightNow.weather.weatherCode) : undefined} status={rightNow.weather ? "live" : "unavailable"} locale={locale} />
-                <MetricCard label={text.sea} value={typeof rightNow.marine?.seaTemperature === "number" ? `${rightNow.marine.seaTemperature}°C` : copy.unavailable} detail={typeof rightNow.marine?.waveHeight === "number" ? `${rightNow.marine.waveHeight} m` : undefined} status={rightNow.marine ? "live" : "unavailable"} locale={locale} />
-                <MetricCard label={text.wind} value={typeof rightNow.weather?.windSpeed === "number" ? `${rightNow.weather.windSpeed} km/h` : copy.unavailable} detail={typeof rightNow.weather?.windGusts === "number" ? `${text.windGusts} ${rightNow.weather.windGusts} km/h` : undefined} status={rightNow.weather ? "live" : "unavailable"} locale={locale} />
-                <MetricCard label={text.uv} value={typeof rightNow.airQuality?.uvIndex === "number" ? rightNow.airQuality.uvIndex.toFixed(1) : typeof rightNow.weather?.uvIndexMax === "number" ? rightNow.weather.uvIndexMax.toFixed(1) : copy.unavailable} detail={typeof rightNow.airQuality?.uvIndexMax === "number" ? `max ${rightNow.airQuality.uvIndexMax.toFixed(1)}` : typeof rightNow.weather?.uvIndexMax === "number" ? `max ${rightNow.weather.uvIndexMax.toFixed(1)}` : undefined} status={rightNow.airQuality || typeof rightNow.weather?.uvIndexMax === "number" ? "live" : "unavailable"} locale={locale} />
-                <MetricCard label={text.airQuality} value={typeof rightNow.airQuality?.europeanAqi === "number" ? `${rightNow.airQuality.europeanAqi}` : copy.unavailable} detail={typeof rightNow.airQuality?.pm2_5 === "number" ? `PM2.5 ${rightNow.airQuality.pm2_5}` : undefined} status={rightNow.airQuality ? "live" : "unavailable"} locale={locale} />
-              </div>
-            </div>
-            <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5 sm:p-6">
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.moneyTimeTitle}</p>
-              <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36]">{copy.moneyTimeTitle}</h2>
-              <p className="mt-4 text-sm leading-7 text-[#5c5044]">{copy.moneyTimeNote}</p>
-              <div className="mt-5 grid gap-3 md:grid-cols-2">
-                <MiniExternalCard title="Menton / Monaco / Nice" body="Europe/Paris" href={`/${locale}/tools/currency` as Route} cta={copy.fullTool} />
-                <MiniExternalCard title="Water and weather" body="See live sea, air and UV context together before leaving the apartment." href={`/${locale}/tools/weather` as Route} cta={copy.fullTool} />
-              </div>
-            </div>
-          </div>
+          <UnifiedConditionsPanel locale={locale} rightNow={rightNow} />
         </Container>
       </Section>
 
@@ -519,29 +568,6 @@ function ToolStateBadge({ locale, status }: { locale: Locale; status: TravelTool
   return <span className={`inline-flex min-h-8 items-center border px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.14em] ${tone}`}>{label}</span>;
 }
 
-function MetricCard({ label, value, detail, status, locale }: { label: string; value: string; detail?: string; status: TravelToolMetricStatus; locale: Locale }) {
-  return (
-    <div className="border border-[#e6d9c6] bg-[#fffdf8] p-3">
-      <div className="flex items-center justify-between gap-2">
-        <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{label}</p>
-        <ToolStateBadge locale={locale} status={status} />
-      </div>
-      <p className="mt-2 text-xl font-semibold text-[#173f36]">{value}</p>
-      {detail ? <p className="mt-1 text-xs leading-5 text-[#71665b]">{detail}</p> : null}
-    </div>
-  );
-}
-
-function MiniExternalCard({ title, body, href, cta }: { title: string; body: string; href: Route; cta: string }) {
-  return (
-    <div className="border border-[#e6d9c6] bg-[#fffdf8] p-4">
-      <p className="text-sm font-semibold text-[#173f36]">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-[#5c5044]">{body}</p>
-      <Link href={href} className="mt-3 inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{cta}</Link>
-    </div>
-  );
-}
-
 function summarizeMetric(slug: TravelToolSlug, locale: Locale, rightNow: Awaited<ReturnType<typeof getMentonRightNow>> | null) {
   const text = ui[locale];
   if (!rightNow) return null;
@@ -638,6 +664,346 @@ function InfoGrid({ items }: { items: Array<[string, string]> }) {
           <p className="mt-2 text-lg font-semibold text-[#173f36]">{value}</p>
         </div>
       ))}
+    </section>
+  );
+}
+
+function weatherGlyphTone(code?: number) {
+  if (typeof code !== "number") return "partly";
+  if (code === 0) return "sun";
+  if ([1, 2].includes(code)) return "partly";
+  if (code === 3) return "cloud";
+  if ([45, 48].includes(code)) return "mist";
+  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "rain";
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return "snow";
+  if ([95, 96, 99].includes(code)) return "storm";
+  return "partly";
+}
+
+function waveTone(height?: number) {
+  if (typeof height !== "number") return "calm";
+  if (height < 0.2) return "flat";
+  if (height < 0.6) return "calm";
+  if (height < 1.2) return "breezy";
+  return "stormy";
+}
+
+function formatToolDay(locale: Locale, value: string) {
+  return new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short" }).format(new Date(value));
+}
+
+function beachFlagTone(waveHeight?: number, rainChance?: number) {
+  if (typeof waveHeight === "number" && waveHeight >= 1.2) return "red";
+  if (typeof rainChance === "number" && rainChance >= 60) return "red";
+  if (typeof waveHeight === "number" && waveHeight >= 0.6) return "yellow";
+  if (typeof rainChance === "number" && rainChance >= 30) return "yellow";
+  return "green";
+}
+
+function WeatherGlyphPanel({ code, compact = false }: { code?: number; compact?: boolean }) {
+  const tone = weatherGlyphTone(code);
+  const sizeClass = compact ? "h-12 w-12" : "h-24 w-24";
+
+  if (tone === "sun") {
+    return (
+      <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+        <g stroke="#f3a42d" strokeLinecap="round" strokeWidth="5">
+          <path d="M48 6v12" />
+          <path d="M48 78v12" />
+          <path d="M6 48h12" />
+          <path d="M78 48h12" />
+          <path d="m18 18 8.5 8.5" />
+          <path d="m69.5 69.5 8.5 8.5" />
+          <path d="m78 18-8.5 8.5" />
+          <path d="m26.5 69.5-8.5 8.5" />
+        </g>
+        <circle cx="48" cy="48" r="23" fill="#e98524" />
+        <circle cx="43" cy="42" r="17" fill="#f7bd3c" />
+        <circle cx="38" cy="36" r="7" fill="#fff4a8" opacity="0.9" />
+      </svg>
+    );
+  }
+
+  if (tone === "partly") {
+    return (
+      <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+        <circle cx="34" cy="34" r="16" fill="#f7bd3c" />
+        <path
+          d="M26 63h40c8 0 14-5 14-12 0-7-5-12-12-13-3-9-11-15-21-15-11 0-20 7-22 18-7 1-12 6-12 11 0 7 6 11 13 11Z"
+          fill="#f8fbff"
+          stroke="#d5e2e8"
+          strokeWidth="3"
+        />
+        <path d="M22 72h48" stroke="#6fc2d4" strokeLinecap="round" strokeWidth="4" />
+      </svg>
+    );
+  }
+
+  if (tone === "rain" || tone === "storm") {
+    return (
+      <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+        <path
+          d="M24 57h44c10 0 17-6 17-15 0-8-6-14-14-15-4-12-14-20-27-20-15 0-27 10-30 24C6 33 0 39 0 47c0 7 7 10 24 10Z"
+          fill="#ecf5f8"
+          stroke="#b9d5dd"
+          strokeWidth="3"
+          transform="translate(6 8)"
+        />
+        {tone === "storm" ? (
+          <path d="M50 54 39 73h11l-4 15 17-22H52l6-12Z" fill="#f7bd3c" />
+        ) : (
+          <g stroke="#1f9bb8" strokeLinecap="round" strokeWidth="4">
+            <path d="M30 67 25 80" />
+            <path d="M48 67 43 80" />
+            <path d="M66 67 61 80" />
+          </g>
+        )}
+      </svg>
+    );
+  }
+
+  if (tone === "mist") {
+    return (
+      <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+        <circle cx="30" cy="26" r="13" fill="#f7bd3c" opacity="0.85" />
+        <g stroke="#9cc8d3" strokeLinecap="round" strokeWidth="5">
+          <path d="M18 44h56" />
+          <path d="M12 58h68" />
+          <path d="M24 72h44" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (tone === "snow") {
+    return (
+      <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+        <path
+          d="M24 57h44c10 0 17-6 17-15 0-8-6-14-14-15-4-12-14-20-27-20-15 0-27 10-30 24C6 33 0 39 0 47c0 7 7 10 24 10Z"
+          fill="#f8fbff"
+          stroke="#c8dce3"
+          strokeWidth="3"
+          transform="translate(6 8)"
+        />
+        <g fill="#80cde0">
+          <circle cx="34" cy="74" r="3" />
+          <circle cx="50" cy="81" r="3" />
+          <circle cx="66" cy="74" r="3" />
+        </g>
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+      <path
+        d="M22 64h48c10 0 17-6 17-15 0-8-6-14-14-15-4-12-14-20-27-20-15 0-27 10-30 24C8 40 2 46 2 54c0 7 7 10 20 10Z"
+        fill="#eef6f5"
+        stroke="#bdd6d0"
+        strokeWidth="3"
+      />
+    </svg>
+  );
+}
+
+function SeaGlyphPanel({ waveHeight, compact = false }: { waveHeight?: number; compact?: boolean }) {
+  const tone = waveTone(waveHeight);
+  const sizeClass = compact ? "h-12 w-12" : "h-20 w-20";
+
+  return (
+    <svg className={sizeClass} viewBox="0 0 96 96" aria-hidden="true">
+      <circle cx="48" cy="20" r="10" fill="#8ed0de" opacity="0.35" />
+      <g fill="none" strokeLinecap="round" strokeWidth="5">
+        <path d="M12 46c8-7 16-7 24 0s16 7 24 0 16-7 24 0 16 7 24 0" stroke="#6bbcd0" />
+        <path d="M12 58c8-7 16-7 24 0s16 7 24 0 16-7 24 0 16 7 24 0" stroke="#4ea8c0" />
+        <path d="M12 70c8-7 16-7 24 0s16 7 24 0 16-7 24 0 16 7 24 0" stroke="#2c90ad" />
+      </g>
+      {tone === "flat" ? <path d="M20 56h56" stroke="#6bbcd0" strokeWidth="4" strokeLinecap="round" /> : null}
+      {tone === "breezy" ? <path d="M56 34c6 0 8 4 8 8" stroke="#4ea8c0" strokeWidth="4" strokeLinecap="round" /> : null}
+      {tone === "stormy" ? <path d="M52 26 44 42h8l-4 14 14-18h-8l5-12Z" fill="#f7bd3c" /> : null}
+    </svg>
+  );
+}
+
+function BeachFlagGlyph({ tone }: { tone: "green" | "yellow" | "red" }) {
+  const fill = tone === "green" ? "#5ea66b" : tone === "yellow" ? "#f0c14b" : "#d96b5a";
+
+  return (
+    <svg className="h-16 w-16" viewBox="0 0 96 96" aria-hidden="true">
+      <path d="M26 16v64" stroke="#8b6a44" strokeWidth="5" strokeLinecap="round" />
+      <path d="M29 22h34l-8 12 8 12H29Z" fill={fill} stroke={fill} strokeLinejoin="round" strokeWidth="3" />
+      <path d="M18 82h18" stroke="#8b6a44" strokeWidth="5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function detailValue(value: number | undefined, unit: string, digits = 0) {
+  if (typeof value !== "number") return "—";
+  return `${digits > 0 ? value.toFixed(digits) : Math.round(value)}${unit}`;
+}
+
+function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow: Awaited<ReturnType<typeof getMentonRightNow>> }) {
+  const copy = travelToolSectionCopy[locale];
+  const text = ui[locale];
+  const weather = rightNow.weather;
+  const marine = rightNow.marine;
+  const air = rightNow.airQuality;
+  const forecast = weather?.forecast ?? [];
+  const flagTone = beachFlagTone(marine?.waveHeight, weather?.rainChance);
+  const detailCards = [
+    { label: text.feelsLike, value: detailValue(weather?.feelsLike, "°C"), tone: "sand" },
+    { label: text.humidity, value: detailValue(weather?.humidity, "%"), tone: "sand" },
+    { label: text.wind, value: detailValue(weather?.windSpeed, " km/h"), tone: "sand" },
+    { label: text.windGusts, value: detailValue(weather?.windGusts, " km/h"), tone: "sand" },
+    {
+      label: text.uv,
+      value:
+        typeof air?.uvIndex === "number"
+          ? air.uvIndex.toFixed(1)
+          : typeof weather?.uvIndexMax === "number"
+            ? weather.uvIndexMax.toFixed(1)
+            : "—",
+      tone: "sea",
+    },
+    { label: text.airQuality, value: typeof air?.europeanAqi === "number" ? `${air.europeanAqi}` : "—", tone: "sea" },
+    { label: text.wavesNow, value: detailValue(marine?.waveHeight, " m", 1), tone: "sea" },
+    { label: text.swellNow, value: detailValue(marine?.swellWaveHeight, " m", 1), tone: "sea" },
+  ] as const;
+
+  return (
+    <section className="relative overflow-hidden border-y border-[#dfd4c1] bg-[#f7efe0]">
+      <div
+        className="absolute inset-0 opacity-90"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(140deg, rgba(255,244,205,0.96) 0%, rgba(209,235,239,0.82) 42%, rgba(251,247,239,0.86) 70%), radial-gradient(circle at 18% 18%, rgba(247,189,60,0.42), transparent 26%), linear-gradient(180deg, transparent 68%, rgba(61,156,180,0.14) 69%, rgba(61,156,180,0.06) 80%, transparent 81%)",
+        }}
+      />
+      <div className="relative mx-auto grid w-full max-w-6xl gap-6 px-5 py-8 sm:px-6 lg:px-8">
+        <div className="border border-white/60 bg-[#fbf7ef]/72 p-5 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-6">
+          <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{copy.rightNowTitle}</p>
+          <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{text.conditionsTitle}</h2>
+          <p className="mt-4 max-w-4xl text-sm leading-7 text-[#5c5044]">{text.conditionsText}</p>
+
+          <div className="mt-6 grid gap-5 xl:grid-cols-[0.82fr_1.18fr]">
+            <div className="relative overflow-hidden border border-white/70 bg-white/58 p-6 shadow-[0_18px_50px_rgba(31,105,126,0.12)] backdrop-blur-sm sm:p-8">
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#f7bd3c]/28 blur-2xl" aria-hidden="true" />
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.currentConditions}</p>
+              <div className="mt-5 grid gap-5 sm:grid-cols-[1.05fr_0.95fr]">
+                <div className="flex items-center gap-5">
+                  <WeatherGlyphPanel code={weather?.weatherCode} />
+                  <div>
+                    <p className="font-serif-display text-7xl font-semibold leading-none text-[#173f36]">
+                      {weather ? `${weather.temperature}°C` : copy.unavailable}
+                    </p>
+                    <p className="mt-2 text-base font-semibold text-[#4f615c]">
+                      {weather ? weatherLabel(weather.weatherCode) : copy.unavailable}
+                    </p>
+                  </div>
+                </div>
+                <div className="border border-white/70 bg-[#eaf8fb]/78 px-4 py-4">
+                  <div className="flex items-center gap-4">
+                    <SeaGlyphPanel waveHeight={marine?.waveHeight} />
+                    <div>
+                      <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#0b6f8f]">{text.sea}</p>
+                      <p className="mt-2 text-3xl font-semibold text-[#173f36]">
+                        {typeof marine?.seaTemperature === "number" ? `${marine.seaTemperature}°C` : "—"}
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-[#58706d]">
+                        {typeof marine?.waveHeight === "number" ? `${detailValue(marine.waveHeight, " m", 1)} · ${text.wavesNow}` : text.seaUnavailable}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="border border-white/70 bg-[#fff9ed]/76 px-4 py-4">
+                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b07820]">{text.beachFlagStatus}</p>
+                  <div className="mt-3 flex items-center gap-4">
+                    <BeachFlagGlyph tone={flagTone} />
+                    <div>
+                      <p className="text-lg font-semibold text-[#173f36]">{text.checkOnSite}</p>
+                      <p className="mt-1 text-xs leading-5 text-[#58706d]">{text.beachFlagText}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="border border-white/70 bg-[#fff9ed]/76 px-4 py-4">
+                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b07820]">{text.wavePeriod}</p>
+                  <p className="mt-3 text-3xl font-semibold text-[#173f36]">{detailValue(marine?.swellWavePeriod, " s", 1)}</p>
+                  <p className="mt-1 text-xs leading-5 text-[#58706d]">
+                    {typeof marine?.swellWaveHeight === "number" ? `${detailValue(marine.swellWaveHeight, " m", 1)} · ${text.swellNow}` : text.seaUnavailable}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-between border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5">
+              <div>
+                <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.nextDays}</p>
+                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+                  {forecast.map((day) => (
+                    <div
+                      key={day.date}
+                      className="min-h-56 border border-white/80 bg-white/70 p-4 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]"
+                    >
+                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#6c7169]">{formatToolDay(locale, day.date)}</p>
+                      <div className="mt-3 flex justify-center">
+                        <WeatherGlyphPanel code={day.weatherCode} compact />
+                      </div>
+                      <p className="mt-3 text-base font-semibold text-[#1b2c2d]">
+                        {day.high}° / {day.low}°
+                      </p>
+                      <div className="mt-3 flex justify-center">
+                        <BeachFlagGlyph tone={beachFlagTone(day.waveHeight, day.rainChance)} />
+                      </div>
+                      <p className="mt-2 text-xs font-medium text-[#58706d]">
+                        {text.seaForecast}: {typeof day.seaTemperature === "number" ? `${day.seaTemperature.toFixed(1)}°C` : "—"}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#58706d]">
+                        {text.rainForecast}: {typeof day.rainChance === "number" ? `${day.rainChance}%` : "—"}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#58706d]">
+                        {text.wavesNow}: {typeof day.waveHeight === "number" ? `${day.waveHeight.toFixed(1)} m` : "—"}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#58706d]">
+                        {text.wind}: {typeof day.windSpeedMax === "number" ? `${day.windSpeedMax} km/h` : "—"}
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#58706d]">
+                        {text.uv}: {typeof day.uvIndexMax === "number" ? day.uvIndexMax.toFixed(1) : "—"}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs leading-5 text-[#695f51]">
+                  {text.updated}: {new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(new Date(weather?.updatedAt ?? marine?.updatedAt ?? new Date().toISOString()))} · {text.provider}: {weather?.provider ?? marine?.provider ?? "Open-Meteo"}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {detailCards.map((card) => (
+              <div
+                key={card.label}
+                className={`border px-4 py-4 ${
+                  card.tone === "sea" ? "border-white/70 bg-[#eaf8fb]/78" : "border-white/70 bg-[#fff9ed]/76"
+                }`}
+              >
+                <p className={`text-[0.62rem] font-bold uppercase tracking-[0.16em] ${card.tone === "sea" ? "text-[#0b6f8f]" : "text-[#b07820]"}`}>{card.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-[#173f36]">{card.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3 border-t border-white/80 pt-5">
+            <Link href={`/${locale}/tools/weather` as Route} className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white hover:bg-[#235246]">{text.weatherToolCta}</Link>
+            <Link href={`/${locale}/tools/sea` as Route} className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{text.seaToolCta}</Link>
+            <Link href={`/${locale}/tools/beaches` as Route} className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{text.beachesToolCta}</Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
