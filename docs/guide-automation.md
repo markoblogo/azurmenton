@@ -130,10 +130,12 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - includes `operatorSummary` as a one-screen handoff snapshot
   - includes `likelyGuideTargets`
   - includes `bestRerunCommand` for the current `--published-guide` rerun, even when there are no likely-target suggestions
-- important current boundary:
-  - `guide:assets` copies files and writes reports
-  - it does not yet auto-merge `image:` fields into `src/content/places.ts` for already-published guides
-  - that final content merge still needs a narrow manual edit or a future automation pass
+- for already-published guides, `--apply-places-patch-safe` can now:
+  - validate each target place object by unique `id: "<placeId>"` anchor
+  - update only the `image:` field inside the matching `rawPlaces` object
+  - fail closed if anchor resolution is ambiguous or missing
+- recommended safe path for a published guide image pass:
+  - `npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --apply-places-patch-safe`
 
 ### `guide:apply`
 

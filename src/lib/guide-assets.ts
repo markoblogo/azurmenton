@@ -110,6 +110,12 @@ export type PublishedGuidePlaceImagePatchBundle = {
   updates: PublishedGuidePlaceImagePatchUpdate[];
 };
 
+export type PublishedGuidePlaceImagePatchApplyResult = {
+  updatedSource: string;
+  appliedPlaceIds: string[];
+  skippedAlreadySatisfiedPlaceIds: string[];
+};
+
 export type PublishedGuideAssetPlace = {
   placeId: string;
   draftName: string;
@@ -672,5 +678,80 @@ export function buildPublishedGuidePlaceImagePatchBundle(input: {
       reportPath: input.reportPath,
     }),
     updates,
+  };
+}
+
+export function applyPublishedGuidePlaceImagePatchSafe(input: {
+  placesSource: string;
+  bundle: PublishedGuidePlaceImagePatchBundle;
+}): PublishedGuidePlaceImagePatchApplyResult {
+  const lines = input.placesSource.split("\n");
+  const appliedPlaceIds: string[] = [];
+  const skippedAlreadySatisfiedPlaceIds: string[] = [];
+
+  for (const update of input.bundle.updates) {
+    if (update.alreadySatisfied) {
+      skippedAlreadySatisfiedPlaceIds.push(update.placeId);
+      continue;
+    }
+
+    const anchorIndexes = lines
+      .map((line, index) => ({ line, index }))
+      .filter((entry) => entry.line.includes(update.anchor))
+      .map((entry) => entry.index);
+
+    if (anchorIndexes.length !== 1) {
+      throw new Error(
+        `Unable to apply place image patch safely for ${update.placeId}: expected exactly one anchor ${update.anchor}, found ${anchorIndexes.length}.`,
+      );
+    }
+
+    const anchorIndex = anchorIndexes[0];
+    let objectStart = anchorIndex;
+    while (objectStart >= 0 && !/^  \{\s*$/.test(lines[objectStart])) {
+      objectStart -= 1;
+    }
+    if (objectStart < 0) {
+      throw new Error(`Unable to apply place image patch safely for ${update.placeId}: object start not found.`);
+    }
+
+    let objectEnd = anchorIndex;
+    while (objectEnd < lines.length && !/^  },?\s*$/.test(lines[objectEnd])) {
+      objectEnd += 1;
+    }
+    if (objectEnd >= lines.length) {
+      throw new Error(`Unable to apply place image patch safely for ${update.placeId}: object end not found.`);
+    }
+
+    const block = lines.slice(objectStart, objectEnd + 1);
+    const anchorCountInBlock = block.filter((line) => line.includes(update.anchor)).length;
+    if (anchorCountInBlock !== 1) {
+      throw new Error(
+        `Unable to apply place image patch safely for ${update.placeId}: anchor validation failed inside object block.`,
+      );
+    }
+
+    const existingImageRelativeIndex = block.findIndex((line) => /^\s{4}image:\s/.test(line));
+    const replacementLine = `    image: ${quote(update.imagePublicPath)},`;
+    const updatedBlock = [...block];
+
+    if (existingImageRelativeIndex >= 0) {
+      updatedBlock[existingImageRelativeIndex] = replacementLine;
+    } else {
+      const preferredInsertRelativeIndex = updatedBlock.findIndex((line) =>
+        /^\s{4}(imageAlt|visualTheme|programmeUrl|websiteUrl|googleMapsSearchUrl|googleMapsUrl|sourceStatus|shortNote):\s/.test(line),
+      );
+      const insertRelativeIndex = preferredInsertRelativeIndex >= 0 ? preferredInsertRelativeIndex : updatedBlock.length - 1;
+      updatedBlock.splice(insertRelativeIndex, 0, replacementLine);
+    }
+
+    lines.splice(objectStart, objectEnd - objectStart + 1, ...updatedBlock);
+    appliedPlaceIds.push(update.placeId);
+  }
+
+  return {
+    updatedSource: lines.join("\n"),
+    appliedPlaceIds,
+    skippedAlreadySatisfiedPlaceIds,
   };
 }

@@ -16,6 +16,7 @@ const {
   buildPublishedGuideAssetsRerunCommand,
   buildGuideAssetsPersistentSummary,
   buildPublishedGuidePlaceImagePatchBundle,
+  applyPublishedGuidePlaceImagePatchSafe,
 } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
@@ -84,10 +85,17 @@ async function main() {
   const missingOnly = process.argv.includes("--missing-only");
   const reportOnly = process.argv.includes("--report-only");
   const failOnUnmatched = process.argv.includes("--fail-on-unmatched");
+  const applyPlacesPatchSafe = process.argv.includes("--apply-places-patch-safe");
   if (!slug && !publishedGuideSlug) {
-    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--report-only] [--fail-on-unmatched] [--strict]");
+    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--report-only] [--fail-on-unmatched] [--apply-places-patch-safe] [--strict]");
     process.exitCode = 1;
     return;
+  }
+  if (applyPlacesPatchSafe && !publishedGuideSlug) {
+    throw new Error("--apply-places-patch-safe is supported only with --published-guide.");
+  }
+  if (applyPlacesPatchSafe && reportOnly) {
+    throw new Error("--apply-places-patch-safe cannot be combined with --report-only.");
   }
   const workingSlug = publishedGuideSlug ?? slug;
   const intakePath = slug ? path.join(root, "build", "guide-intake", slug, "intake.json") : null;
@@ -412,6 +420,21 @@ async function main() {
       fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
       fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
     ]);
+  }
+
+  if (applyPlacesPatchSafe && placeImagePatchBundle) {
+    const placesPath = path.join(root, "src", "content", "places.ts");
+    const placesSource = await fs.readFile(placesPath, "utf8");
+    const applyResult = applyPublishedGuidePlaceImagePatchSafe({
+      placesSource,
+      bundle: placeImagePatchBundle,
+    });
+    await fs.writeFile(placesPath, applyResult.updatedSource);
+    if (applyResult.appliedPlaceIds.length) {
+      console.log(`- applied places patch safely: ${applyResult.appliedPlaceIds.join(", ")}`);
+    } else {
+      console.log("- applied places patch safely: no pending image updates");
+    }
   }
 
   printOperatorSummary();

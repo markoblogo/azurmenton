@@ -113,6 +113,7 @@ npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets]
 npm run guide:assets -- --slug <slug> [--assets-dir /absolute/path/to/assets] --strict
 npm run guide:assets -- --published-guide <guide-slug> [--assets-dir /absolute/path/to/assets] --missing-only --report-only
 npm run guide:assets -- --published-guide <guide-slug> [--assets-dir /absolute/path/to/assets] --missing-only --report-only --fail-on-unmatched
+npm run guide:assets -- --published-guide <guide-slug> [--assets-dir /absolute/path/to/assets] --missing-only --apply-places-patch-safe
 npm run guide:apply -- --slug <slug>
 npm run guide:publish -- --slug <slug>
 npm run guide:patch -- --slug <slug>
@@ -132,9 +133,12 @@ For already published guides, use the post-publish asset path instead of re-runn
 
 ```bash
 npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --report-only
+npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --apply-places-patch-safe
 ```
 
 This mode reads the real place cards already rendered by the published guide, skips places that already have images, reports any still-missing places, and can fail on leftover files with `--fail-on-unmatched`.
+
+`--apply-places-patch-safe` is the narrow auto-merge path for already-published guides: after matching copied assets, it validates the target `id:` anchors in `src/content/places.ts` and updates only the corresponding `image:` fields. Use `--report-only` when you want the report without mutating `places.ts`.
 
 After the manual merge, use `build/guide-intake/<slug>/review/owner-checklist.md` as the required visual handoff instead of an ad hoc spot-check.
 

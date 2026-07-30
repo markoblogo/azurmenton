@@ -13,7 +13,7 @@
     "skipped-covered: 9",
     "already-covered: 4",
     "unmatched: 0",
-    "still-missing: 1",
+    "still-missing: 0",
     "report: build/guide-assets-postpublish/water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling.json",
     "rerun: npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only"
   ],
@@ -22,7 +22,7 @@
     "unmatched": 0,
     "alreadyCovered": 4,
     "skippedCovered": 9,
-    "stillMissing": 1,
+    "stillMissing": 0,
     "patchReady": 0
   },
   "matchedAssetFiles": [
@@ -39,15 +39,8 @@
     "Nice diving and wing-foil area.png"
   ],
   "matchedPlaceIds": [],
-  "publishedGuidePlacesWithoutImage": [
-    {
-      "placeId": "balzi-rossi-area",
-      "draftName": "balzi-rossi-area"
-    }
-  ],
+  "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
   "bestRerunCommand": "npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only",
-  "issueCodes": [
-    "pending-place-asset"
-  ]
+  "issueCodes": []
 }

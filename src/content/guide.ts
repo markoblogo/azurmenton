@@ -10329,7 +10329,6 @@ export const guideArticles: GuideArticle[] = [
       "plage-rondelli",
       "cap-martin-snorkelling-shoreline",
       "port-de-garavan",
-      "balzi-rossi-area",
       "monaco-water-sports-and-e-foils",
       "nice-diving-and-wing-foil-area",
     ],
@@ -10375,7 +10374,7 @@ export const guideArticles: GuideArticle[] = [
           t("Menton itself is better for easy shoreline snorkelling than for dramatic offshore diving. The useful pattern is rocky edges, quieter morning light and avoiding the busiest swim hours. Cap Martin and the Balzi Rossi side become more interesting when you want a more textured seabed and generally clearer visibility than a sandy central beach gives.", "Menton se prete mieux au snorkelling de bord de mer simple qu'a une plongee offshore spectaculaire. Le bon schema est d'utiliser les zones rocheuses, la lumiere du matin et d'eviter les heures de baignade les plus chargees. Le Cap Martin et le cote Balzi Rossi deviennent plus interessants si vous cherchez un fond plus texture et souvent une meilleure visibilite qu'une plage de sable centrale.", "Mentone si presta meglio a uno snorkelling costiero semplice che a una spettacolare immersione offshore. Il modello utile e fatto di bordi rocciosi, luce del mattino e fuori dalle ore piu affollate per il bagno. Cap Martin e il lato Balzi Rossi diventano piu interessanti quando vuoi fondali piu ricchi e spesso una visibilita migliore rispetto a una spiaggia centrale sabbiosa.", "Сам Menton краще підходить для простого shoreline snorkelling, ніж для драматичного offshore diving. Корисний патерн тут — скелясті краї, ранкове світло й уникання найзавантаженіших swim hours. Cap Martin і сторона Balzi Rossi стають цікавішими, коли хочеться більш фактурного seabed і зазвичай чистішої видимості, ніж дає піщаний центральний пляж."),
           t("Treat these places as conditions-based plans, not automatic yes/no recommendations. Water shoes, a conservative distance from rocks and a quick local check of wind or swell matter more than a perfect-looking photo.", "Traitez ces lieux comme des plans dependants des conditions, pas comme des recommandations automatiques. Des chaussures d'eau, une distance prudente des rochers et un rapide controle local du vent ou de la houle comptent plus qu'une belle photo.", "Tratta questi luoghi come piani dipendenti dalle condizioni, non come raccomandazioni automatiche. Scarpette da acqua, distanza prudente dagli scogli e un rapido controllo locale di vento o swell contano piu di una foto perfetta.", "Ставтеся до цих місць як до condition-based plans, а не як до автоматичних рекомендацій yes/no. Аквашузи, обережна дистанція від скель і швидка локальна перевірка вітру чи swell важливіші за ідеальне фото."),
         ],
-        relatedPlaceIds: ["cap-martin-snorkelling-shoreline", "balzi-rossi-area", "rondelli-garavan-side"],
+        relatedPlaceIds: ["cap-martin-snorkelling-shoreline", "rondelli-garavan-side"],
       },
       {
         heading: t("Sailing, boat rental and the organised side of the sea", "Voile, location de bateau et cote plus organise de la mer", "Vela, noleggio barche e lato piu organizzato del mare", "Sailing, оренда човнів і більш організований бік моря"),

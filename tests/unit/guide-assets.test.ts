@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  applyPublishedGuidePlaceImagePatchSafe,
   buildGuideAssetPlan,
   buildGuideAssetsPersistentSummary,
   buildPublishedGuidePlaceImagePatchBundle,
@@ -513,6 +514,72 @@ describe("guide assets", () => {
           notes: ["Image field already matches the resolved public asset path."],
         },
       ],
+    });
+  });
+
+  it("applies a post-publish place image patch safely after anchor validation", () => {
+    const bundle = buildPublishedGuidePlaceImagePatchBundle({
+      slug: "post-offices-stamps-menton",
+      matchedPlaces: [
+        {
+          placeId: "la-poste-menton-centre",
+          draftName: "La Poste Menton Centre",
+          sourcePath: "/tmp/La Poste Menton Centre.png",
+          destinationPath: "public/images/guide/la-poste-menton-centre.png",
+          publicPath: "/images/guide/la-poste-menton-centre.png",
+        },
+        {
+          placeId: "la-poste-garavan-menton",
+          draftName: "La Poste Garavan",
+          sourcePath: "/tmp/La Poste Garavan.png",
+          destinationPath: "public/images/guide/la-poste-garavan-menton.png",
+          publicPath: "/images/guide/la-poste-garavan-menton.png",
+        },
+      ],
+      currentPlaces: [
+        { id: "la-poste-menton-centre" },
+        { id: "la-poste-garavan-menton", image: "/images/guide/la-poste-garavan-menton.png" },
+      ],
+    });
+
+    const source = `const rawPlaces = [
+  {
+    id: "la-poste-menton-centre",
+    name: "La Poste Menton Centre",
+    sourceStatus: "needs_verification",
+  },
+  {
+    id: "la-poste-garavan-menton",
+    name: "La Poste Garavan",
+    image: "/images/guide/la-poste-garavan-menton.png",
+    sourceStatus: "needs_verification",
+  },
+];
+`;
+
+    expect(
+      applyPublishedGuidePlaceImagePatchSafe({
+        placesSource: source,
+        bundle,
+      }),
+    ).toEqual({
+      updatedSource: `const rawPlaces = [
+  {
+    id: "la-poste-menton-centre",
+    name: "La Poste Menton Centre",
+    image: "/images/guide/la-poste-menton-centre.png",
+    sourceStatus: "needs_verification",
+  },
+  {
+    id: "la-poste-garavan-menton",
+    name: "La Poste Garavan",
+    image: "/images/guide/la-poste-garavan-menton.png",
+    sourceStatus: "needs_verification",
+  },
+];
+`,
+      appliedPlaceIds: ["la-poste-menton-centre"],
+      skippedAlreadySatisfiedPlaceIds: ["la-poste-garavan-menton"],
     });
   });
 });
