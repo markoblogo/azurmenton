@@ -15,7 +15,6 @@ import {
   getTravelToolSources,
   getTravelToolsForGuide,
   localizeText,
-  travelToolCategories,
   travelToolSectionCopy,
   type TravelTool,
   type TravelToolMetricStatus,
@@ -23,6 +22,8 @@ import {
 } from "@/content/travel-tools";
 import type { Locale } from "@/i18n/locales";
 import { getEuroReferenceRates } from "@/lib/currency";
+import { EuroRatesWidget } from "@/components/tools/EuroRatesWidget";
+import { WorldClocks } from "@/components/tools/WorldClocks";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 import { getMentonRightNow, weatherLabel } from "@/lib/weather";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
@@ -387,8 +388,8 @@ const ui = {
 } as const;
 
 export async function TravelToolPage({ locale }: { locale: Locale }) {
-  const copy = travelToolSectionCopy[locale];
   const rightNow = await getMentonRightNow();
+  const rates = await getEuroReferenceRates();
 
   return (
     <>
@@ -400,28 +401,16 @@ export async function TravelToolPage({ locale }: { locale: Locale }) {
 
       <Section className="bg-[#f8f3ea] py-6 sm:py-8">
         <Container>
-          <div className="mb-6 max-w-3xl">
-            <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.categoryTitle}</p>
-            <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{copy.categoryTitle}</h2>
-            <p className="mt-4 text-sm leading-7 text-[#5c5044]">{copy.categoryDescription}</p>
+          <div className="space-y-5">
+            <WorldClocks locale={locale} />
+            <EuroRatesWidget locale={locale} rates={rates} />
           </div>
-          <div className="space-y-4">
-            {travelToolCategories.map((category) => (
-              <div key={category.slug} className="border border-[#dfd2b8] bg-[#fffdf8] p-4 sm:p-5">
-                <div className="max-w-3xl">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{localizeText(category.title, locale)}</p>
-                  <p className="mt-2 text-sm leading-7 text-[#5c5044]">{localizeText(category.description, locale)}</p>
-                </div>
-                <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:grid-cols-4">
-                  {category.toolSlugs.map((toolSlug) => {
-                    const tool = getTravelTool(toolSlug);
-                    if (!tool) return null;
-                    return <TravelToolCard key={tool.slug} locale={locale} tool={tool} rightNow={rightNow} compact={false} />;
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[#fffaf0] py-8 sm:py-10">
+        <Container>
+          <SafetyPanel locale={locale} />
         </Container>
       </Section>
     </>

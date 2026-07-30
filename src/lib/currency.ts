@@ -1,6 +1,6 @@
 import { unstable_cache } from "next/cache";
 
-export type SupportedReferenceCurrency = "GBP" | "USD" | "CHF" | "UAH";
+export type SupportedReferenceCurrency = "GBP" | "USD" | "CHF" | "UAH" | "JPY" | "CAD" | "AUD" | "SEK" | "NOK" | "PLN";
 
 export type EuroReferenceRate = {
   currency: SupportedReferenceCurrency;
@@ -14,7 +14,7 @@ export type EuroReferenceRates = {
   rates: EuroReferenceRate[];
 };
 
-const supportedCurrencies: SupportedReferenceCurrency[] = ["GBP", "USD", "CHF", "UAH"];
+const supportedCurrencies: SupportedReferenceCurrency[] = ["GBP", "USD", "CHF", "UAH", "JPY", "CAD", "AUD", "SEK", "NOK", "PLN"];
 
 async function fetchEuroReferenceRates(): Promise<EuroReferenceRates | null> {
   try {
