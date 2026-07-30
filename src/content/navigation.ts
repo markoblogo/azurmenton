@@ -3,8 +3,8 @@ import type { Locale } from "@/i18n/locales";
 export const navItems = [
   { key: "apartments", href: "/apartments" },
   { key: "guide", href: "/guide" },
-  { key: "tools", href: "/tools" },
   { key: "events", href: "/events" },
+  { key: "tools", href: "/tools" },
   { key: "faq", href: "/faq" },
   { key: "contact", href: "/contact" },
 ] as const;
