@@ -2,6 +2,7 @@ import type { Locale } from "@/i18n/locales";
 import type { GuideUtilityBlock } from "@/content/guide";
 import { AirportLiveBoard } from "./AirportLiveBoard";
 import { LocalRadioBlock } from "./LocalRadioBlock";
+import { MarineConditionsBlock } from "./MarineConditionsBlock";
 
 export function UtilityBlockRenderer({ blocks, locale }: { blocks: GuideUtilityBlock[]; locale: Locale }) {
   if (!blocks.length) return null;
@@ -15,6 +16,10 @@ export function UtilityBlockRenderer({ blocks, locale }: { blocks: GuideUtilityB
 
         if (block.type === "airportLiveBoard") {
           return <AirportLiveBoard key={`${block.type}-${block.airportIds?.join(",") ?? "all"}`} block={block} locale={locale} />;
+        }
+
+        if (block.type === "marineConditions") {
+          return <MarineConditionsBlock key={`${block.type}-${block.focusActivities?.join(",") ?? "default"}`} block={block} locale={locale} />;
         }
 
         return null;

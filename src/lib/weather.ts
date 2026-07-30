@@ -19,6 +19,21 @@ export type MentonWeather = {
   forecast: WeatherDay[];
 };
 
+export type MentonMarineConditions = {
+  provider: string;
+  updatedAt: string;
+  seaTemperature?: number;
+  windSpeed?: number;
+  weatherCode?: number;
+  rainChance?: number;
+  waveHeight?: number;
+  waveDirection?: number;
+  swellWaveHeight?: number;
+  swellWaveDirection?: number;
+  swellWavePeriod?: number;
+  forecast: WeatherDay[];
+};
+
 type OpenMeteoResponse = {
   current?: {
     time?: string;
@@ -43,7 +58,22 @@ type OpenMeteoMarineResponse = {
   current?: {
     time?: string;
     sea_surface_temperature?: number;
+    wave_height?: number;
+    wave_direction?: number;
+    swell_wave_height?: number;
+    swell_wave_direction?: number;
+    swell_wave_period?: number;
   };
+};
+
+type OpenMeteoMarineSnapshot = {
+  updatedAt: string;
+  seaTemperature?: number;
+  waveHeight?: number;
+  waveDirection?: number;
+  swellWaveHeight?: number;
+  swellWaveDirection?: number;
+  swellWavePeriod?: number;
 };
 
 const defaultLatitude = "43.7745";
@@ -130,7 +160,7 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
     provider: "Open-Meteo",
     updatedAt: data.current.time ?? new Date().toISOString(),
     temperature: Math.round(data.current.temperature_2m),
-    seaTemperature: await fetchOpenMeteoSeaTemperature(latitude, longitude),
+    seaTemperature: (await fetchOpenMeteoMarineSnapshot(latitude, longitude))?.seaTemperature,
     windSpeed: Math.round(data.current.wind_speed_10m),
     weatherCode: data.current.weather_code,
     rainChance: closestRainChance(data),
@@ -138,27 +168,40 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
   };
 }
 
-async function fetchOpenMeteoSeaTemperature(latitude: string, longitude: string) {
+async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string): Promise<OpenMeteoMarineSnapshot | null> {
   const url = new URL("https://marine-api.open-meteo.com/v1/marine");
 
   url.searchParams.set("latitude", latitude);
   url.searchParams.set("longitude", longitude);
   url.searchParams.set("timezone", "Europe/Paris");
-  url.searchParams.set("current", "sea_surface_temperature");
+  url.searchParams.set(
+    "current",
+    "sea_surface_temperature,wave_height,wave_direction,swell_wave_height,swell_wave_direction,swell_wave_period",
+  );
 
   try {
     const response = await fetch(url, {
       next: { revalidate: weatherRevalidateSeconds },
     });
 
-    if (!response.ok) return undefined;
+    if (!response.ok) return null;
 
     const data = (await response.json()) as OpenMeteoMarineResponse;
-    const seaTemperature = data.current?.sea_surface_temperature;
-
-    return typeof seaTemperature === "number" ? Math.round(seaTemperature) : undefined;
+    return {
+      updatedAt: data.current?.time ?? new Date().toISOString(),
+      seaTemperature:
+        typeof data.current?.sea_surface_temperature === "number" ? Math.round(data.current.sea_surface_temperature) : undefined,
+      waveHeight: typeof data.current?.wave_height === "number" ? Number(data.current.wave_height.toFixed(1)) : undefined,
+      waveDirection: typeof data.current?.wave_direction === "number" ? Math.round(data.current.wave_direction) : undefined,
+      swellWaveHeight:
+        typeof data.current?.swell_wave_height === "number" ? Number(data.current.swell_wave_height.toFixed(1)) : undefined,
+      swellWaveDirection:
+        typeof data.current?.swell_wave_direction === "number" ? Math.round(data.current.swell_wave_direction) : undefined,
+      swellWavePeriod:
+        typeof data.current?.swell_wave_period === "number" ? Number(data.current.swell_wave_period.toFixed(1)) : undefined,
+    };
   } catch {
-    return undefined;
+    return null;
   }
 }
 
@@ -174,6 +217,20 @@ const getCachedOpenMeteoWeather = unstable_cache(
   { revalidate: weatherRevalidateSeconds },
 );
 
+const getCachedOpenMeteoMarineSnapshot = unstable_cache(
+  async () => {
+    const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
+    const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
+    const marine = await fetchOpenMeteoMarineSnapshot(latitude, longitude);
+    if (!marine) {
+      throw new Error("Open-Meteo marine snapshot unavailable");
+    }
+    return marine;
+  },
+  ["menton-marine-v1"],
+  { revalidate: weatherRevalidateSeconds },
+);
+
 export async function getMentonWeather() {
   const provider = process.env.WEATHER_PROVIDER || "open-meteo";
 
@@ -186,4 +243,36 @@ export async function getMentonWeather() {
   } catch {
     return null;
   }
+}
+
+export async function getMentonMarineConditions(): Promise<MentonMarineConditions | null> {
+  const provider = process.env.WEATHER_PROVIDER || "open-meteo";
+
+  if (provider !== "open-meteo") {
+    return null;
+  }
+
+  const [weather, marine] = await Promise.all([
+    getMentonWeather(),
+    getCachedOpenMeteoMarineSnapshot().catch(() => null),
+  ]);
+
+  if (!weather && !marine) {
+    return null;
+  }
+
+  return {
+    provider: "Open-Meteo marine + weather",
+    updatedAt: marine?.updatedAt ?? weather?.updatedAt ?? new Date().toISOString(),
+    seaTemperature: marine?.seaTemperature ?? weather?.seaTemperature,
+    windSpeed: weather?.windSpeed,
+    weatherCode: weather?.weatherCode,
+    rainChance: weather?.rainChance,
+    waveHeight: marine?.waveHeight,
+    waveDirection: marine?.waveDirection,
+    swellWaveHeight: marine?.swellWaveHeight,
+    swellWaveDirection: marine?.swellWaveDirection,
+    swellWavePeriod: marine?.swellWavePeriod,
+    forecast: weather?.forecast ?? [],
+  };
 }

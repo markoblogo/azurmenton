@@ -149,7 +149,14 @@ export type AirportLiveBoardUtilityBlock = {
   description?: string | LocalizedText;
 };
 
-export type GuideUtilityBlock = LocalRadioUtilityBlock | AirportLiveBoardUtilityBlock;
+export type MarineConditionsUtilityBlock = {
+  type: "marineConditions";
+  title?: string | LocalizedText;
+  description?: string | LocalizedText;
+  focusActivities?: Array<"swimming" | "snorkelling" | "paddleboarding" | "kayaking" | "sailing">;
+};
+
+export type GuideUtilityBlock = LocalRadioUtilityBlock | AirportLiveBoardUtilityBlock | MarineConditionsUtilityBlock;
 
 export type GuideArticle = {
   id: string;
@@ -10278,6 +10285,122 @@ export const guideArticles: GuideArticle[] = [
       t("Use Menton for easy everyday Italian meals, Ventimiglia for the shortest serious Italian detour, and Bordighera or Sanremo when food is part of a fuller day out.", "Utilisez Menton pour l'italien du quotidien, Vintimille pour le detour le plus court, et Bordighera ou Sanremo quand la nourriture fait partie d'une sortie plus ample.", "Usa Mentone per l'italiano quotidiano, Ventimiglia per il detour piu corto e Bordighera o Sanremo quando il cibo fa parte di una giornata piu ampia.", "Використовуйте Menton для повсякденної італійської їжі, Ventimiglia — для найкоротшого серйозного detour, а Bordighera чи Sanremo — коли їжа є частиною більшого денного виїзду."),
       t("Check current opening hours before crossing the border only for lunch; Italian coastal hours can shift by season and weekday.", "Verifiez les horaires avant de passer la frontiere uniquement pour dejeuner ; les rythmes italiens changent selon saison et jour de semaine.", "Controlla gli orari prima di passare il confine solo per pranzo; gli orari costieri italiani cambiano secondo stagione e giorno.", "Перевіряйте актуальні години роботи перед поїздкою через кордон лише на обід; на італійському узбережжі графіки змінюються за сезоном і днем тижня."),
       t("If you stay in an Azur Menton apartment without a car, Ventimiglia is usually the easiest first Italian food extension by train.", "Si vous sejournez en appartement Azur Menton sans voiture, Vintimille reste generalement l'extension italienne la plus facile en train.", "Se soggiorni in un appartamento Azur Menton senza auto, Ventimiglia resta di solito l'estensione italiana piu facile in treno.", "Якщо ви зупиняєтеся в апартаментах Azur Menton без авто, Ventimiglia зазвичай є найпростішим першим італійським харчовим продовженням потягом."),
+    ],
+  }),
+  shortArticle({
+    id: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+    slug: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+    title: t("Water sports in Menton: paddleboard, kayak, sailing and snorkelling", "Sports nautiques a Menton : paddle, kayak, voile et snorkelling", "Sport acquatici a Mentone: paddle, kayak, vela e snorkelling", "Водні активності в Ментоні: paddleboard, kayak, sailing і snorkelling"),
+    seoTitle: t("Water sports in Menton: paddleboard, kayak, sailing and snorkelling", "Sports nautiques a Menton : paddle, kayak, voile et snorkelling", "Sport acquatici a Mentone: paddle, kayak, vela e snorkelling", "Водні активності в Ментоні: paddleboard, kayak, sailing і snorkelling"),
+    seoDescription: t("Discover the best water sports in Menton and nearby. Paddleboarding, kayaking, sailing, snorkelling, diving, wind sports and where to go along the French and Italian Riviera.", "Decouvrez les meilleurs sports nautiques a Menton et autour : paddle, kayak, voile, snorkelling, plongee et spots utiles sur la Riviera francaise et italienne.", "Scopri i migliori sport acquatici a Mentone e dintorni: paddle, kayak, vela, snorkelling, diving e spot utili tra Riviera francese e italiana.", "Дізнайтеся про найкращі water sports у Ментоні та поруч: paddleboarding, kayaking, sailing, snorkelling, diving і корисні локації Французької та Італійської Рив'єри."),
+    excerpt: t("Menton's calmer bay works especially well for paddleboarding, kayaking, easy swimming and beginner-friendly seaside plans, while Monaco, Nice and the Italian side add diving, sailing and premium water experiences.", "La baie plus calme de Menton fonctionne tres bien pour le paddle, le kayak, la baignade simple et les plans mer accessibles, tandis que Monaco, Nice et le cote italien ajoutent plongee, voile et experiences premium.", "La baia piu calma di Mentone funziona molto bene per paddle, kayak, nuoto facile e programmi sul mare adatti anche ai principianti, mentre Monaco, Nizza e il lato italiano aggiungono diving, vela ed esperienze premium.", "Спокійніша затока Ментона особливо добре підходить для paddleboarding, kayaking, простого плавання й beginner-friendly seaside plans, а Монако, Ніцца та італійський бік додають diving, sailing і premium water experiences."),
+    category: "beaches",
+    tags: [
+      t("water sports", "sports nautiques", "sport acquatici", "водні активності"),
+      t("paddleboard", "paddle", "paddle", "paddleboard"),
+      t("kayak", "kayak", "kayak", "kayak"),
+      t("snorkelling", "snorkelling", "snorkelling", "snorkelling"),
+      t("sailing", "voile", "vela", "sailing"),
+    ],
+    bestFor: [
+      t("Couples", "Couples", "Coppie", "Пари"),
+      t("Families", "Familles", "Famiglie", "Сім'ї"),
+      t("Summer stays", "Sejours d'ete", "Soggiorni estivi", "Літні поїздки"),
+      t("Without a car", "Sans voiture", "Senza auto", "Без авто"),
+    ],
+    duration: "half-day",
+    locationTags: ["menton-centre", "garavan", "monaco", "nice", "italian-riviera"],
+    visualStatus: "editorial_placeholder",
+    visualTheme: "beach",
+    sourceStatus: "needs_verification",
+    publishedOn: "2026-07-30",
+    relatedPlaces: [
+      "menton-water-sports-bay",
+      "plage-sablettes",
+      "plage-fossan",
+      "rondelli-garavan-side",
+      "plage-rondelli",
+      "cap-martin-snorkelling-shoreline",
+      "port-de-garavan",
+      "balzi-rossi-area",
+      "monaco-water-sports-and-e-foils",
+      "nice-diving-and-wing-foil-area",
+    ],
+    relatedArticles: [
+      "best-beaches-in-menton",
+      "stay-cool-in-menton-summer",
+      "day-trips-from-menton",
+      "menton-with-kids-family-guide",
+      "menton-without-a-car",
+      "where-to-stay-in-menton",
+      "useful-apps-websites-menton-monaco-italian-riviera",
+    ],
+    relatedApartments: allApartments,
+    utilityBlocks: [
+      {
+        type: "marineConditions",
+        title: t("Current sea conditions for Menton", "Conditions de mer actuelles a Menton", "Condizioni del mare attuali a Mentone", "Поточні морські умови для Ментона"),
+        description: t("Use this as a planning helper for paddleboarding, kayaking, snorkelling and calm-day beach sessions. It is a practical signal, not a guarantee of safety.", "Utilisez ce bloc comme aide pratique pour le paddle, le kayak, le snorkelling et les jours de plage calmes. C'est un signal utile, pas une garantie de securite.", "Usa questo blocco come aiuto pratico per paddle, kayak, snorkelling e giornate di mare calme. E un segnale utile, non una garanzia di sicurezza.", "Використовуйте цей блок як практичний planning-helper для paddleboarding, kayaking, snorkelling і спокійних beach sessions. Це корисний сигнал, а не гарантія безпеки."),
+        focusActivities: ["paddleboarding", "kayaking", "snorkelling", "sailing"],
+      },
+    ],
+    utilityBlocksAfterSectionIndex: 0,
+    sections: [
+      {
+        heading: t("Why Menton works so well for easy water time", "Pourquoi Menton fonctionne si bien pour les activites nautiques faciles", "Perche Mentone funziona cosi bene per attivita in acqua semplici", "Чому Menton так добре працює для простих водних планів"),
+        body: [
+          t("Menton sits between the mountains and the Mediterranean, which often leaves its main bay calmer than windier parts of the Riviera. That matters if you want a low-friction plan: rent a paddleboard, launch a kayak, swim before breakfast or keep a beach day flexible instead of building the whole trip around one operator slot.", "Menton se trouve entre montagnes et Mediterranee, ce qui laisse souvent sa baie principale plus calme que d'autres parties plus ventees de la Riviera. C'est important si vous voulez un plan simple : louer un paddle, partir en kayak, nager avant le petit-dejeuner ou garder une journee plage flexible plutot que de tout organiser autour d'un seul horaire d'operateur.", "Mentone si trova tra montagne e Mediterraneo, e questo lascia spesso la baia principale piu calma rispetto ad altre parti piu ventose della Riviera. Conta molto se vuoi un piano facile: noleggiare un paddle, partire in kayak, nuotare prima di colazione o tenere la giornata mare flessibile invece di costruire tutto attorno a un solo orario di operatore.", "Menton лежить між горами та Середземним морем, і це часто робить його головну затоку спокійнішою за більш вітряні частини Рив'єри. Це важливо, якщо вам потрібен low-friction plan: орендувати paddleboard, спустити kayak, поплавати до сніданку або тримати beach day гнучким замість того, щоб будувати всю поїздку навколо одного слоту оператора."),
+          t("Monaco, Nice and the Italian side then extend the subject: more organised sailing, dive schools, e-foils, charter-style add-ons and stronger wind-based sessions when calm Menton water is not the point of the day.", "Monaco, Nice et le cote italien prolongent ensuite le sujet : voile plus organisee, ecoles de plongee, e-foils, ajouts type charter et sessions de vent plus fortes lorsque l'eau calme de Menton n'est pas l'objectif du jour.", "Monaco, Nizza e il lato italiano estendono poi il tema: vela piu organizzata, scuole diving, e-foil, add-on in stile charter e sessioni piu ventose quando l'acqua calma di Mentone non e il punto della giornata.", "Монако, Ніцца та італійський бік далі розширюють тему: більш організований sailing, diving schools, e-foils, charter-style add-ons і сильніші вітрові сесії, коли спокійна вода Ментона не є головною метою дня."),
+        ],
+        relatedPlaceIds: ["menton-water-sports-bay", "plage-sablettes", "plage-fossan", "plage-rondelli"],
+      },
+      {
+        heading: t("Paddleboarding and kayaking in the calm bay", "Paddle et kayak dans la baie calme", "Paddle e kayak nella baia calma", "Paddleboarding і kayaking у спокійній затоці"),
+        body: [
+          t("For many visitors this is the easiest starting point. Plage des Sablettes, Plage du Fossan, Rondelli and the Garavan side all make sense on calmer mornings, especially when you want clear water, light effort and a half-day format rather than a fully booked sports excursion.", "Pour beaucoup de visiteurs, c'est le point de depart le plus simple. Les Sablettes, le Fossan, Rondelli et le cote Garavan ont du sens les matins calmes, surtout si vous voulez une eau claire, peu d'effort et un format demi-journee plutot qu'une excursion sportive lourde.", "Per molti visitatori questo e il punto di partenza piu semplice. Sablettes, Fossan, Rondelli e il lato Garavan hanno senso nelle mattine calme, soprattutto se vuoi acqua limpida, sforzo moderato e un formato da mezza giornata invece di una lunga escursione sportiva prenotata.", "Для багатьох гостей це найпростіший старт. Sablettes, Fossan, Rondelli та бік Garavan мають сенс у спокійні ранки, особливо якщо хочеться чистої води, невеликого зусилля й half-day формату, а не fully-booked sports excursion."),
+          t("The practical rhythm is simple: go early, keep the route coastal, and stay conservative when afternoon wind or boat traffic starts changing the surface. This is one of the strongest arguments for staying in central Menton rather than making every sea plan a transfer problem.", "Le rythme pratique est simple : partez tot, gardez un itineraire cotier et restez prudent quand le vent de l'apres-midi ou le trafic des bateaux commence a changer la surface. C'est aussi un argument fort pour loger dans Menton centre plutot que de transformer chaque plan mer en probleme de transfert.", "Il ritmo pratico e semplice: partire presto, restare su un percorso costiero e restare prudenti quando il vento del pomeriggio o il traffico nautico cominciano a cambiare la superficie. E anche uno dei migliori argomenti per soggiornare nel centro di Mentone invece di trasformare ogni piano sul mare in un problema di transfer.", "Практичний ритм тут простий: вирушайте рано, тримайтеся прибережного маршруту й будьте консервативні, коли денний вітер або boat traffic починають міняти поверхню води. Це також один із найкращих аргументів на користь проживання в центрі Menton, а не перетворення кожного морського плану на transfer-problem."),
+        ],
+        relatedPlaceIds: ["menton-water-sports-bay", "plage-sablettes", "plage-fossan", "rondelli-garavan-side", "plage-rondelli"],
+      },
+      {
+        heading: t("Snorkelling, rocks and clearer-water spots", "Snorkelling, rochers et zones a eau plus claire", "Snorkelling, rocce e tratti con acqua piu chiara", "Snorkelling, скелі та місця з чистішою водою"),
+        body: [
+          t("Menton itself is better for easy shoreline snorkelling than for dramatic offshore diving. The useful pattern is rocky edges, quieter morning light and avoiding the busiest swim hours. Cap Martin and the Balzi Rossi side become more interesting when you want a more textured seabed and generally clearer visibility than a sandy central beach gives.", "Menton se prete mieux au snorkelling de bord de mer simple qu'a une plongee offshore spectaculaire. Le bon schema est d'utiliser les zones rocheuses, la lumiere du matin et d'eviter les heures de baignade les plus chargees. Le Cap Martin et le cote Balzi Rossi deviennent plus interessants si vous cherchez un fond plus texture et souvent une meilleure visibilite qu'une plage de sable centrale.", "Mentone si presta meglio a uno snorkelling costiero semplice che a una spettacolare immersione offshore. Il modello utile e fatto di bordi rocciosi, luce del mattino e fuori dalle ore piu affollate per il bagno. Cap Martin e il lato Balzi Rossi diventano piu interessanti quando vuoi fondali piu ricchi e spesso una visibilita migliore rispetto a una spiaggia centrale sabbiosa.", "Сам Menton краще підходить для простого shoreline snorkelling, ніж для драматичного offshore diving. Корисний патерн тут — скелясті краї, ранкове світло й уникання найзавантаженіших swim hours. Cap Martin і сторона Balzi Rossi стають цікавішими, коли хочеться більш фактурного seabed і зазвичай чистішої видимості, ніж дає піщаний центральний пляж."),
+          t("Treat these places as conditions-based plans, not automatic yes/no recommendations. Water shoes, a conservative distance from rocks and a quick local check of wind or swell matter more than a perfect-looking photo.", "Traitez ces lieux comme des plans dependants des conditions, pas comme des recommandations automatiques. Des chaussures d'eau, une distance prudente des rochers et un rapide controle local du vent ou de la houle comptent plus qu'une belle photo.", "Tratta questi luoghi come piani dipendenti dalle condizioni, non come raccomandazioni automatiche. Scarpette da acqua, distanza prudente dagli scogli e un rapido controllo locale di vento o swell contano piu di una foto perfetta.", "Ставтеся до цих місць як до condition-based plans, а не як до автоматичних рекомендацій yes/no. Аквашузи, обережна дистанція від скель і швидка локальна перевірка вітру чи swell важливіші за ідеальне фото."),
+        ],
+        relatedPlaceIds: ["cap-martin-snorkelling-shoreline", "balzi-rossi-area", "rondelli-garavan-side"],
+      },
+      {
+        heading: t("Sailing, boat rental and the organised side of the sea", "Voile, location de bateau et cote plus organise de la mer", "Vela, noleggio barche e lato piu organizzato del mare", "Sailing, оренда човнів і більш організований бік моря"),
+        body: [
+          t("If you want the day to feel more structured, think port and marina logic rather than beach logic. Port de Garavan is the practical Menton-side anchor for harbour departures, while Monaco adds a more polished marina culture and premium charter-style experiences.", "Si vous voulez une journee plus structuree, pensez plutot logique port et marina que logique plage. Le Port de Garavan est l'ancrage pratique cote Menton pour les departs, tandis que Monaco ajoute une culture marina plus soignee et des experiences premium type charter.", "Se vuoi che la giornata sia piu strutturata, ragiona piu in termini di porto e marina che di spiaggia. Port de Garavan e l'ancora pratica lato Mentone per le partenze, mentre Monaco aggiunge una cultura marina piu curata ed esperienze premium in stile charter.", "Якщо хочеться, щоб день був більш структурованим, думайте логікою порту та марини, а не пляжу. Port de Garavan — практичний Menton-side anchor для виходів із гавані, а Монако додає більш polished marina culture і premium charter-style experiences."),
+          t("This is also where small motor boats, licence-free formats or skippered options can make sense. The point is less sport-for-sport's-sake and more seeing the coastline differently, especially if you want Menton old town, Cap Martin and Monaco to read as one continuous seafront landscape.", "C'est aussi ici que petits bateaux a moteur, formats sans permis ou options avec skipper peuvent avoir du sens. Le sujet est moins le sport pour lui-meme que la lecture differente du littoral, surtout si vous voulez voir Menton, le Cap Martin et Monaco comme un paysage maritime continu.", "E anche qui che piccoli motoscafi, formati senza patente o opzioni con skipper possono avere senso. Il punto e meno lo sport puro e piu il vedere la costa in modo diverso, soprattutto se vuoi leggere Mentone, Cap Martin e Monaco come un unico paesaggio sul mare.", "Саме тут можуть мати сенс small motor boats, licence-free formats або skippered options. Суть менше в спорті заради спорту, а більше в іншому погляді на узбережжя, особливо якщо хочеться відчути Menton old town, Cap Martin і Monaco як один безперервний seafront landscape."),
+        ],
+        relatedPlaceIds: ["port-de-garavan", "monaco-water-sports-and-e-foils"],
+      },
+      {
+        heading: t("Diving, wing foiling and stronger specialist sessions", "Plongee, wing foil et formats plus specialises", "Diving, wing foil e sessioni piu specialistiche", "Diving, wing foiling і сильніші спеціалізовані сесії"),
+        body: [
+          t("Central Menton is usually the calm-water answer, not the full specialist answer. When diving schools, stronger wind formats, e-foils or wider operator choice matter more than staying hyper-local, Nice and Monaco become the logical extensions.", "Menton centre repond surtout a l'eau calme, pas a toute l'offre specialisee. Quand les ecoles de plongee, les formats plus venteux, les e-foils ou un choix d'operateurs plus large comptent davantage que le fait de rester ultra local, Nice et Monaco deviennent les extensions logiques.", "Il centro di Mentone risponde soprattutto all'acqua calma, non a tutta l'offerta specialistica. Quando scuole diving, formati piu ventosi, e-foil o una scelta di operatori piu ampia contano piu del restare iper-locale, Nizza e Monaco diventano le estensioni logiche.", "Центральний Menton зазвичай є відповіддю для calm-water plans, а не для повного specialist layer. Коли diving schools, stronger-wind formats, e-foils або ширший вибір операторів важливіші за гіперлокальність, Ніцца й Монако стають логічним продовженням."),
+          t("That does not make Menton weaker as a base. It makes it more practical. You can sleep in a calmer seaside town, choose the right direction for the day and return without committing the whole stay to the most expensive stretch of Riviera waterfront.", "Cela ne rend pas Menton plus faible comme base. Au contraire, cela la rend plus pratique. Vous dormez dans une ville de bord de mer plus calme, choisissez la bonne direction pour la journee puis revenez sans consacrer tout le sejour au front de mer le plus cher de la Riviera.", "Questo non rende Mentone una base piu debole. La rende piu pratica. Dormi in una cittadina di mare piu calma, scegli la direzione giusta per la giornata e torni senza dedicare tutto il soggiorno al tratto di lungomare piu costoso della Riviera.", "Це не робить Menton слабшою базою. Це робить його практичнішим. Ви ночуєте в спокійнішому seaside town, обираєте правильний напрямок на день і повертаєтеся назад без прив'язки всього перебування до найдорожчого відрізка Riviera waterfront."),
+        ],
+        relatedPlaceIds: ["nice-diving-and-wing-foil-area", "monaco-water-sports-and-e-foils"],
+      },
+      {
+        heading: t("Family rhythm, best season and what to avoid", "Rythme famille, meilleure saison et ce qu'il vaut mieux eviter", "Ritmo famiglia, stagione migliore e cosa evitare", "Сімейний ритм, найкращий сезон і чого краще уникати"),
+        body: [
+          t("Families usually get the best result from the simplest formats: calm morning swims, pedal boats, transparent kayaks when available, short paddles near shore and beach sessions that can end early if children lose interest. September is often the best overall month because the sea stays warm while the beaches and promenade feel less overloaded than in peak August.", "Les familles obtiennent generalement le meilleur resultat avec les formats les plus simples : baignade calme le matin, pedalo, kayak transparent quand disponible, petits parcours pres du bord et sessions de plage faciles a raccourcir si les enfants se lassent. Septembre est souvent le meilleur mois global : la mer reste chaude et le front de mer est moins charge qu'en plein mois d'aout.", "Le famiglie ottengono di solito il risultato migliore con i formati piu semplici: nuoto tranquillo al mattino, pedalò, kayak trasparenti quando disponibili, brevi paddle vicino a riva e sessioni di spiaggia che possono finire presto se i bambini perdono interesse. Settembre e spesso il mese migliore in assoluto: il mare resta caldo e il lungomare e meno sovraccarico che in pieno agosto.", "Сім'ї зазвичай отримують найкращий результат від найпростіших форматів: спокійне ранкове купання, pedal boats, transparent kayaks коли вони є, короткі paddles біля берега й beach sessions, які можна рано завершити, якщо дітям набридло. Вересень часто є найкращим місяцем загалом: море залишається теплим, а пляжі й променад відчуваються менш перевантаженими, ніж у піковому серпні."),
+          t("Kitesurfing is not really the reason to choose Menton. If wind is your whole priority, go where the coastline and launch space actually suit that sport instead of forcing the local bay into the wrong role.", "Le kitesurf n'est pas vraiment la raison de choisir Menton. Si le vent est votre priorite absolue, allez plutot sur un littoral dont l'espace et l'orientation conviennent vraiment a ce sport au lieu de forcer la baie locale a jouer un mauvais role.", "Il kitesurf non e davvero il motivo per scegliere Mentone. Se il vento e la tua priorita assoluta, vai dove costa e spazio di decollo si adattano davvero a questo sport invece di forzare la baia locale nel ruolo sbagliato.", "Kitesurfing насправді не є причиною обирати Menton. Якщо вітер — ваш абсолютний пріоритет, краще їхати туди, де узбережжя й launch space справді підходять цьому спорту, а не змушувати локальну затоку грати чужу роль."),
+        ],
+        relatedPlaceIds: ["plage-sablettes", "rondelli-garavan-side", "nice-diving-and-wing-foil-area"],
+        relatedApartmentKeys: allApartments,
+      },
+    ],
+    practicalTips: [
+      t("Morning usually works better than late afternoon for paddleboarding, easy kayaking and clearer snorkelling visibility.", "Le matin fonctionne generalement mieux que la fin d'apres-midi pour le paddle, le kayak facile et une meilleure visibilite en snorkelling.", "Il mattino funziona in genere meglio del tardo pomeriggio per paddle, kayak semplice e migliore visibilita per snorkelling.", "Ранок зазвичай працює краще за пізній день для paddleboarding, простого kayaking і чистішої видимості для snorkelling."),
+      t("Use the sea-conditions block as a practical hint, but still verify wind, swell and local safety before going out on the water.", "Utilisez le bloc conditions de mer comme indice pratique, mais verifiez quand meme vent, houle et securite locale avant d'aller sur l'eau.", "Usa il blocco delle condizioni marine come aiuto pratico, ma verifica comunque vento, swell e sicurezza locale prima di andare in acqua.", "Використовуйте блок морських умов як практичну підказку, але все одно перевіряйте вітер, swell і локальну безпеку перед виходом на воду."),
+      t("Water shoes are worth carrying whenever you plan rocky entries, snorkelling edges or the Balzi Rossi side.", "Des chaussures d'eau valent la peine des qu'il y a entree rocheuse, bord snorkelling ou cote Balzi Rossi.", "Le scarpe da acqua valgono la pena ogni volta che prevedi ingressi rocciosi, bordi da snorkelling o il lato Balzi Rossi.", "Аквашузи варто мати щоразу, коли плануєте rocky entries, snorkelling edges або сторону Balzi Rossi."),
+      t("If your stay depends on one specialist session such as diving or e-foils, keep at least one flexible weather window in the plan.", "Si votre sejour depend d'une session specialisee comme la plongee ou les e-foils, gardez au moins une fenetre meteo flexible.", "Se il soggiorno dipende da una sessione specialistica come diving o e-foil, tieni almeno una finestra meteo flessibile.", "Якщо ваше перебування залежить від однієї спеціалізованої сесії на кшталт diving чи e-foils, залишайте хоча б одне гнучке weather window."),
     ],
   }),
 ];

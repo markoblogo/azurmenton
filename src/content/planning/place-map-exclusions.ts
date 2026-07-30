@@ -10,6 +10,10 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "menton-water-sports-bay", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Menton%20water%20sports%20bay" },
+  { placeId: "cap-martin-snorkelling-shoreline", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Cap%20Martin%20snorkelling%20shoreline" },
+  { placeId: "monaco-water-sports-and-e-foils", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Monaco%20water%20sports%20e-foils" },
+  { placeId: "nice-diving-and-wing-foil-area", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Nice%20diving%20wing%20foil" },
   { placeId: "monaco-helicopter-experiences", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Monaco%20helicopter%20experiences" },
   { placeId: "french-riviera-sightseeing-flights", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=French%20Riviera%20sightseeing%20flights" },
   { placeId: "roquebrune-menton-paragliding-area", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Roquebrune%20Menton%20paragliding" },
