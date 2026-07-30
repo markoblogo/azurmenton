@@ -154,4 +154,42 @@ describe("guide publish report", () => {
       ]),
     );
   });
+
+  it("flags merged guides that still have expected cover input but no cover wiring", () => {
+    const intake = makeIntake();
+    const publicationPlan = {
+      ...makePublicationPlan(),
+      coverImageStatus: "pending" as const,
+    };
+    const applyArtifacts = buildGuideApplyArtifacts({
+      intake,
+      publicationPlan,
+      guides: [{ slug: "best-pizzerias-menton", title: "Best Pizza in Menton" }],
+      places: [{ id: "alls-stars-menton", name: "All's Stars", type: "restaurant" }],
+      assets: {},
+      checkErrors: [],
+    });
+
+    const report = buildGuidePublishReport({
+      slug: intake.slug,
+      publicationPlan,
+      checkReport: {
+        slug: intake.slug,
+        ok: true,
+        errors: [],
+        warnings: [],
+        relatedGuideSuggestions: [],
+        placeSuggestions: [],
+      },
+      applyArtifacts,
+      resolvedPlaceImages: {},
+      expectedGuideCover: true,
+      mergedGuidePresent: true,
+    });
+
+    expect(report.ready).toBe(false);
+    expect(report.blockers.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(["missing-published-cover-asset", "merged-guide-cover-wiring-missing"]),
+    );
+  });
 });

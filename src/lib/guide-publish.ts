@@ -81,6 +81,8 @@ export function buildGuidePublishReport(input: {
   assetsReport?: { issues?: GuideAssetPlanIssue[] } | null;
   resolvedCoverImage?: string;
   resolvedPlaceImages?: Record<string, string>;
+  expectedGuideCover?: boolean;
+  mergedGuidePresent?: boolean;
 }): GuidePublishReport {
   const blockers: GuidePublishIssue[] = [];
   const warnings: GuidePublishIssue[] = [];
@@ -103,7 +105,7 @@ export function buildGuidePublishReport(input: {
   }
 
   const plannedPlaces = input.publicationPlan.plannedPlaces ?? [];
-  const coverExpected = input.publicationPlan.coverImageStatus === "provided";
+  const coverExpected = input.expectedGuideCover ?? input.publicationPlan.coverImageStatus === "provided";
   if (input.publicationPlan.coverImageStatus === "existing") {
     autoResolved.push("Cover already resolved from an existing public guide asset.");
   }
@@ -112,6 +114,14 @@ export function buildGuidePublishReport(input: {
       severity: "error",
       code: "missing-published-cover-asset",
       message: `Cover is marked as provided but no public guide cover asset is currently resolved for ${input.slug}.`,
+    });
+  }
+
+  if (input.mergedGuidePresent && coverExpected && !input.resolvedCoverImage) {
+    blockers.push({
+      severity: "error",
+      code: "merged-guide-cover-wiring-missing",
+      message: `Guide ${input.slug} already exists in content but still has no resolved coverImage wiring.`,
     });
   }
 

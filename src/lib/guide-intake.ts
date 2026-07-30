@@ -17,6 +17,8 @@ export type GuideIntake = {
   rawSuggestedSlug?: string;
 };
 
+const ABSOLUTE_IMAGE_PATH_RE = /(\/(?:Users|Volumes)\/[^\s"')]+?\.(?:png|jpe?g|webp|avif))/i;
+
 type GuideHeading = {
   level: number;
   text: string;
@@ -188,6 +190,25 @@ function extractExplicitGuideSlug(lines: string[]) {
   return undefined;
 }
 
+function extractCoverPathHint(lines: string[]) {
+  for (const line of lines) {
+    const normalized = normalizeText(line);
+    if (!normalized) continue;
+    if (!/cover|oblozhk|обложк|couverture|copertina/i.test(normalized)) continue;
+    const match = normalized.match(ABSOLUTE_IMAGE_PATH_RE);
+    if (match?.[1]) return match[1];
+  }
+
+  for (const line of lines) {
+    const normalized = normalizeText(line);
+    if (!normalized) continue;
+    const match = normalized.match(ABSOLUTE_IMAGE_PATH_RE);
+    if (match?.[1]) return match[1];
+  }
+
+  return undefined;
+}
+
 function isSuppressedHeading(text: string) {
   return /^our recommendations$/i.test(text) || /^recommendations$/i.test(text);
 }
@@ -351,7 +372,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
     seoTitle: extractFirstField(metadataLines, ["SEO title", "SEO Title", "Title tag"]),
     metaDescription: extractFirstField(metadataLines, ["Meta description", "Meta Description", "Description"]),
     intro: extractIntro(bodyLines),
-    coverPathHint: options?.coverPathHint,
+    coverPathHint: options?.coverPathHint ?? extractCoverPathHint(preambleLines),
     sectionHeadings: extractSectionHeadings(bodyLines),
     placeCandidates: extractPlaceCandidates(bodyLines),
     relatedGuideTitles: extractRelatedGuideTitles(bodyLines),

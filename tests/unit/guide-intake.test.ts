@@ -183,4 +183,23 @@ Many visitors still enjoy sending a real postcard from the French Riviera.
     expect(intake.intro).toBe("Many visitors still enjoy sending a real postcard from the French Riviera.");
     expect(intake.placeCandidates).toEqual([{ name: "Main Post Office (La Poste Menton)", section: "Menton" }]);
   });
+
+  it("extracts cover path hints from a normal user preamble when --cover is not passed", () => {
+    const raw = `
+Вот материал для нового гайда - размести его на сайте в формате проекта, а обложка вот тут: /Users/antonbiletskiy-volokh/Desktop/cover.png.
+
+# **Water sports in Menton**
+
+Short intro.
+
+## **Paddleboarding**
+
+### **Plage des Sablettes**
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.coverPathHint).toBe("/Users/antonbiletskiy-volokh/Desktop/cover.png");
+    expect(intake.title).toBe("Water sports in Menton");
+  });
 });

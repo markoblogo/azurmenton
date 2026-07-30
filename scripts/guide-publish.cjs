@@ -112,6 +112,7 @@ async function main() {
   }
 
   const targetGuideSlug = publicationPlan.slug ?? slug;
+  const targetGuide = guideArticles.find((guide) => guide.slug === targetGuideSlug);
 
   const coverSourceExpected = publicationPlan?.coverImageStatus === "provided";
   let coverExists = undefined;
@@ -195,6 +196,8 @@ async function main() {
     assetsReport,
     resolvedCoverImage: await resolvePublicGuideAsset(targetGuideSlug),
     resolvedPlaceImages: placeImages,
+    expectedGuideCover: publicationPlan.coverImageStatus === "provided" || Boolean(intake.coverPathHint),
+    mergedGuidePresent: Boolean(targetGuide),
   });
 
   const publishReportPath = path.join(intakeDir, "publish-report.json");
