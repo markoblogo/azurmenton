@@ -10,9 +10,18 @@ function currencySymbol(currency: string) {
 }
 
 function Coin({ currency }: { currency: string }) {
+  const symbol = currencySymbol(currency);
+
   return (
-    <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display text-2xl font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-20 sm:w-20 sm:text-3xl" aria-hidden="true">
-      <span style={{ textShadow: "1px 1px 0 #fff1b6, 2px 2px 0 #9a6d2d, 3px 3px 2px rgba(77,50,15,0.35)" }}>{currencySymbol(currency)}</span>
+    <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-20 sm:w-20" aria-hidden="true">
+      <span
+        className={`drop-shadow-[0_2px_1px_rgba(255,255,255,0.55)] ${
+          symbol.length > 1 ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl"
+        }`}
+        style={{ textShadow: "1px 1px 0 #fff1b6, 2px 2px 0 #9a6d2d, 3px 3px 2px rgba(77,50,15,0.35)" }}
+      >
+        {symbol}
+      </span>
     </div>
   );
 }
