@@ -73,6 +73,7 @@ export function Footer({ locale }: { locale: Locale }) {
             ["apartments", "/apartments"],
             ["availability", "/check-availability"],
             ["guide", "/guide"],
+            ["tools", "/tools"],
             ["contact", "/contact"],
             ["legal", "/legal"],
             ["privacy", "/privacy"],

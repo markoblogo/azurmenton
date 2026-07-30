@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         destination: "https://azurmenton.com/:path*",
         permanent: true,
       },
+      { source: "/fr/outils", destination: "/fr/tools", permanent: true },
+      { source: "/fr/outils/:slug", destination: "/fr/tools/:slug", permanent: true },
+      { source: "/it/strumenti", destination: "/it/tools", permanent: true },
+      { source: "/it/strumenti/:slug", destination: "/it/tools/:slug", permanent: true },
+      { source: "/ru/tools", destination: "/uk/tools", permanent: true },
+      { source: "/ru/tools/:slug", destination: "/uk/tools/:slug", permanent: true },
     ];
   },
   async headers() {

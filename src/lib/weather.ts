@@ -12,9 +12,14 @@ export type MentonWeather = {
   provider: string;
   updatedAt: string;
   temperature: number;
+  feelsLike?: number;
   seaTemperature?: number;
   windSpeed: number;
+  windGusts?: number;
+  humidity?: number;
   weatherCode: number;
+  uvIndex?: number;
+  uvIndexMax?: number;
   rainChance?: number;
   forecast: WeatherDay[];
 };
@@ -38,7 +43,10 @@ type OpenMeteoResponse = {
   current?: {
     time?: string;
     temperature_2m?: number;
+    apparent_temperature?: number;
     wind_speed_10m?: number;
+    wind_gusts_10m?: number;
+    relative_humidity_2m?: number;
     weather_code?: number;
   };
   hourly?: {
@@ -51,7 +59,41 @@ type OpenMeteoResponse = {
     temperature_2m_min?: number[];
     weather_code?: number[];
     precipitation_probability_max?: number[];
+    uv_index_max?: number[];
   };
+};
+
+type OpenMeteoAirQualityResponse = {
+  current?: {
+    time?: string;
+    european_aqi?: number;
+    pm2_5?: number;
+    pm10?: number;
+    nitrogen_dioxide?: number;
+    ozone?: number;
+    uv_index?: number;
+  };
+  daily?: {
+    uv_index_max?: number[];
+  };
+};
+
+export type MentonAirQuality = {
+  provider: string;
+  updatedAt: string;
+  europeanAqi?: number;
+  pm2_5?: number;
+  pm10?: number;
+  no2?: number;
+  ozone?: number;
+  uvIndex?: number;
+  uvIndexMax?: number;
+};
+
+export type MentonRightNow = {
+  weather: MentonWeather | null;
+  marine: MentonMarineConditions | null;
+  airQuality: MentonAirQuality | null;
 };
 
 type OpenMeteoMarineResponse = {
@@ -126,9 +168,9 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
   url.searchParams.set("longitude", longitude);
   url.searchParams.set("timezone", "Europe/Paris");
   url.searchParams.set("forecast_days", "5");
-  url.searchParams.set("current", "temperature_2m,weather_code,wind_speed_10m");
+  url.searchParams.set("current", "temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_gusts_10m,relative_humidity_2m");
   url.searchParams.set("hourly", "precipitation_probability");
-  url.searchParams.set("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max");
+  url.searchParams.set("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max");
 
   const response = await fetch(url, {
     next: { revalidate: weatherRevalidateSeconds },
@@ -160,12 +202,49 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
     provider: "Open-Meteo",
     updatedAt: data.current.time ?? new Date().toISOString(),
     temperature: Math.round(data.current.temperature_2m),
+    feelsLike: typeof data.current.apparent_temperature === "number" ? Math.round(data.current.apparent_temperature) : undefined,
     seaTemperature: (await fetchOpenMeteoMarineSnapshot(latitude, longitude))?.seaTemperature,
     windSpeed: Math.round(data.current.wind_speed_10m),
+    windGusts: typeof data.current.wind_gusts_10m === "number" ? Math.round(data.current.wind_gusts_10m) : undefined,
+    humidity: typeof data.current.relative_humidity_2m === "number" ? Math.round(data.current.relative_humidity_2m) : undefined,
     weatherCode: data.current.weather_code,
+    uvIndexMax: typeof data.daily?.uv_index_max?.[0] === "number" ? Number(data.daily.uv_index_max[0].toFixed(1)) : undefined,
     rainChance: closestRainChance(data),
     forecast,
   };
+}
+
+async function fetchOpenMeteoAirQuality(): Promise<MentonAirQuality | null> {
+  const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
+  const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
+  const url = new URL("https://air-quality-api.open-meteo.com/v1/air-quality");
+
+  url.searchParams.set("latitude", latitude);
+  url.searchParams.set("longitude", longitude);
+  url.searchParams.set("timezone", "Europe/Paris");
+  url.searchParams.set("current", "european_aqi,pm2_5,pm10,nitrogen_dioxide,ozone,uv_index");
+  url.searchParams.set("daily", "uv_index_max");
+
+  try {
+    const response = await fetch(url, {
+      next: { revalidate: weatherRevalidateSeconds },
+    });
+    if (!response.ok) return null;
+    const data = (await response.json()) as OpenMeteoAirQualityResponse;
+    return {
+      provider: "Open-Meteo Air Quality",
+      updatedAt: data.current?.time ?? new Date().toISOString(),
+      europeanAqi: typeof data.current?.european_aqi === "number" ? Math.round(data.current.european_aqi) : undefined,
+      pm2_5: typeof data.current?.pm2_5 === "number" ? Number(data.current.pm2_5.toFixed(1)) : undefined,
+      pm10: typeof data.current?.pm10 === "number" ? Number(data.current.pm10.toFixed(1)) : undefined,
+      no2: typeof data.current?.nitrogen_dioxide === "number" ? Number(data.current.nitrogen_dioxide.toFixed(1)) : undefined,
+      ozone: typeof data.current?.ozone === "number" ? Number(data.current.ozone.toFixed(1)) : undefined,
+      uvIndex: typeof data.current?.uv_index === "number" ? Number(data.current.uv_index.toFixed(1)) : undefined,
+      uvIndexMax: typeof data.daily?.uv_index_max?.[0] === "number" ? Number(data.daily.uv_index_max[0].toFixed(1)) : undefined,
+    };
+  } catch {
+    return null;
+  }
 }
 
 async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string): Promise<OpenMeteoMarineSnapshot | null> {
@@ -231,6 +310,18 @@ const getCachedOpenMeteoMarineSnapshot = unstable_cache(
   { revalidate: weatherRevalidateSeconds },
 );
 
+const getCachedOpenMeteoAirQuality = unstable_cache(
+  async () => {
+    const airQuality = await fetchOpenMeteoAirQuality();
+    if (!airQuality) {
+      throw new Error("Open-Meteo air quality unavailable");
+    }
+    return airQuality;
+  },
+  ["menton-air-quality-v1"],
+  { revalidate: weatherRevalidateSeconds },
+);
+
 export async function getMentonWeather() {
   const provider = process.env.WEATHER_PROVIDER || "open-meteo";
 
@@ -275,4 +366,27 @@ export async function getMentonMarineConditions(): Promise<MentonMarineCondition
     swellWavePeriod: marine?.swellWavePeriod,
     forecast: weather?.forecast ?? [],
   };
+}
+
+export async function getMentonAirQuality(): Promise<MentonAirQuality | null> {
+  const provider = process.env.WEATHER_PROVIDER || "open-meteo";
+  if (provider !== "open-meteo") {
+    return null;
+  }
+
+  try {
+    return await getCachedOpenMeteoAirQuality();
+  } catch {
+    return null;
+  }
+}
+
+export async function getMentonRightNow(): Promise<MentonRightNow> {
+  const [weather, marine, airQuality] = await Promise.all([
+    getMentonWeather(),
+    getMentonMarineConditions(),
+    getMentonAirQuality(),
+  ]);
+
+  return { weather, marine, airQuality };
 }

@@ -41,7 +41,7 @@ export function Navigation({ locale }: { locale: Locale }) {
         aria-label="Mobile primary"
         className="mx-auto flex w-full max-w-6xl gap-5 overflow-x-auto border-t border-[#eadfce] px-5 py-3 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#5f675f] sm:px-6 lg:hidden lg:px-8"
       >
-        {navItems.slice(0, 4).map((item) => (
+        {navItems.slice(0, 5).map((item) => (
           <Link
             key={item.key}
             href={`/${locale}${item.href}` as Route}

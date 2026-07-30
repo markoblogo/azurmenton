@@ -18,6 +18,7 @@ import { PublicTransportGuide } from "@/components/guide/PublicTransportGuide";
 import { RealMentonPlan } from "@/components/guide/RealMentonPlan";
 import { WalkingDistanceGuide } from "@/components/guide/WalkingDistanceGuide";
 import { UtilityBlockRenderer } from "@/components/guide/utility/UtilityBlockRenderer";
+import { GuideTravelToolsPanel } from "@/components/tools/GuideTravelToolsPanel";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { Container } from "@/components/ui/Container";
@@ -157,6 +158,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 />
               ) : null}
               {authorityProfile ? <RealMentonPlan plan={authorityProfile.plan} label={copy.realPlan} /> : null}
+              <GuideTravelToolsPanel locale={locale} guideSlug={article.slug} />
               {localized.appTools?.length ? (
                 <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.appToolkit}</h2>

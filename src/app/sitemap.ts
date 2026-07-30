@@ -4,6 +4,7 @@ import { apartments } from "@/content/apartments";
 import { guideArticles, guidePages } from "@/content/guide";
 import { eventDetailSlugs, getEventDetail, isIndexableEventDetail } from "@/content/riviera-events";
 import { stayPages } from "@/content/stay-pages";
+import { travelTools } from "@/content/travel-tools";
 import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 
@@ -12,6 +13,7 @@ const staticRoutes = [
   "apartments",
   "check-availability",
   "guide",
+  "tools",
   "map",
   "events",
   "events/this-week",
@@ -37,6 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       route: localizedPath(locale, `guide/${page.slug}`),
       path: `guide/${page.slug}`,
       image: guideArticles.find((article) => article.slug === page.slug)?.coverImage,
+    })),
+    ...travelTools.map((tool) => ({
+      route: localizedPath(locale, `tools/${tool.slug}`),
+      path: `tools/${tool.slug}`,
+      image: undefined,
     })),
     ...eventDetailSlugs.filter((slug) => {
       const event = getEventDetail(slug);
@@ -76,6 +83,10 @@ function imageForStaticRoute(path: string) {
     return "/images/guide/menton-without-a-car.jpg";
   }
 
+  if (path === "tools") {
+    return siteConfig.defaultOgImage;
+  }
+
   if (path === "events") {
     return "/images/events/menton-lemon-festival.jpg";
   }
@@ -112,7 +123,7 @@ function priorityForRoute(route: string) {
     return 0.9;
   }
 
-  if (route.includes("/guide") || route.includes("/events") || route.includes("/stay") || route.includes("/map")) {
+  if (route.includes("/guide") || route.includes("/tools") || route.includes("/events") || route.includes("/stay") || route.includes("/map")) {
     return 0.7;
   }
 
