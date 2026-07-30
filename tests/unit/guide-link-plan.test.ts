@@ -346,4 +346,67 @@ describe("guide link plan", () => {
     expect(refreshed.relatedArticleSlugs).toContain("where-to-stay-in-menton");
     expect(refreshed.relatedArticleSlugs).not.toContain("menton-with-kids-family-guide");
   });
+
+  it("keeps broad collection links tight for mixed-intent beach guides", () => {
+    const intake: GuideIntake = {
+      title: "Water sports in Menton",
+      slug: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+      intro: "Practical guide to paddleboarding, kayaking and snorkelling.",
+      sectionHeadings: ["Best beaches for paddleboarding", "Where to rent gear", "Sea conditions and safety"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const plan = buildGuideLinkPlan({
+      intake,
+      publicationPlan: {
+        slug: intake.slug,
+        category: "beaches",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [],
+        relatedApartmentSlugs: [],
+        canonicalGuideForPlaces: false,
+        plannedPlaces: [],
+      },
+      guides: [
+        { slug: intake.slug, title: intake.title, category: "beaches" },
+        { slug: "best-beaches-in-menton", title: "Best beaches in Menton", category: "beaches" },
+        { slug: "stay-cool-in-menton-summer", title: "How to stay cool in Menton in summer", category: "practical" },
+        { slug: "where-to-stay-in-menton", title: "Where to stay in Menton", category: "practical" },
+        { slug: "best-photo-spots-menton", title: "Best photo spots in Menton", category: "photo-spots" },
+        { slug: "famous-paintings-of-menton", title: "Famous paintings of Menton", category: "photo-spots" },
+        { slug: "films-shot-in-menton", title: "Films shot in Menton", category: "photo-spots" },
+        { slug: "menton-hand-drawn-postcards", title: "Menton hand-drawn postcards", category: "photo-spots" },
+        { slug: "music-videos-filmed-in-menton", title: "Music videos filmed in Menton", category: "photo-spots" },
+      ],
+      places: [],
+      apartments: [] as never,
+      collections: [
+        {
+          id: "beaches-and-seafront",
+          title: { en: "", fr: "", it: "", uk: "" },
+          description: { en: "", fr: "", it: "", uk: "" },
+          categories: ["beaches", "photo-spots"],
+          includeGuideSlugs: ["stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+          priorityGuideSlugs: ["best-beaches-in-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+        },
+      ],
+      clusters: [],
+    });
+
+    const collectionSlugs = plan.relatedArticles.filter((entry) => entry.source === "content-collection").map((entry) => entry.slug);
+
+    expect(collectionSlugs).toEqual(
+      expect.arrayContaining(["best-beaches-in-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"]),
+    );
+    expect(collectionSlugs).not.toEqual(
+      expect.arrayContaining([
+        "best-photo-spots-menton",
+        "famous-paintings-of-menton",
+        "films-shot-in-menton",
+        "menton-hand-drawn-postcards",
+        "music-videos-filmed-in-menton",
+      ]),
+    );
+  });
 });

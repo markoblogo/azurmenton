@@ -235,6 +235,7 @@ function buildArticleSuggestions(input: {
   const suggestions = new Map<string, GuideLinkPlanArticleSuggestion>();
   const guideBySlug = new Map(input.guides.map((guide) => [guide.slug, guide]));
   const placeById = new Map(input.places.map((place) => [place.id, place]));
+  const intakePrimaryCorpus = [input.intake.slug, input.intake.title, ...input.intake.sectionHeadings].join(" ");
 
   const push = (entry: GuideLinkPlanArticleSuggestion) => {
     if (entry.slug === input.intake.slug || !guideBySlug.has(entry.slug)) return;
@@ -296,12 +297,42 @@ function buildArticleSuggestions(input: {
   for (const collectionId of input.matchedCollectionIds) {
     const collection = input.collections.find((entry) => entry.id === collectionId);
     if (!collection) continue;
-    for (const slug of resolveContentCollectionGuideSlugs(collection, input.guides).slice(0, 8)) {
+    const explicitCollectionSlugs = new Set([...(collection.priorityGuideSlugs ?? []), ...(collection.includeGuideSlugs ?? [])]);
+    const rankedCollectionGuides = resolveContentCollectionGuideSlugs(collection, input.guides)
+      .map((slug) => {
+        const guide = guideBySlug.get(slug);
+        if (!guide) return null;
+
+        const sameCategory = guide.category === input.category;
+        const explicitCollectionGuide = explicitCollectionSlugs.has(slug);
+        const relevanceScore = Math.max(phraseScore(input.intake.title, guide.title), phraseScore(intakePrimaryCorpus, `${guide.slug} ${guide.title}`));
+        const shouldKeep = sameCategory || explicitCollectionGuide || relevanceScore >= 0.58;
+
+        if (!shouldKeep) return null;
+
+        return {
+          guide,
+          sameCategory,
+          explicitCollectionGuide,
+          relevanceScore,
+          rank: (sameCategory ? 2 : 0) + (explicitCollectionGuide ? 1 : 0) + relevanceScore,
+        };
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .sort((a, b) => b.rank - a.rank)
+      .slice(0, 5);
+
+    for (const entry of rankedCollectionGuides) {
       push({
-        slug,
+        slug: entry.guide.slug,
         priority: "recommended",
         source: "content-collection",
-        reason: `${collection.id} is a matching collection for this guide.`,
+        reason: entry.sameCategory
+          ? `${collection.id} contains the closest same-category guides for this article.`
+          : entry.explicitCollectionGuide
+            ? `${collection.id} keeps this guide as an explicit cross-link for this intent.`
+            : `${collection.id} is a close collection-level match for this guide.`,
+        score: entry.rank,
       });
     }
   }
