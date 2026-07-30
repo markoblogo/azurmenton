@@ -54,7 +54,7 @@ Useful for stamps and parcels.
     const intakeDir = path.join(repoRoot, "build", "guide-intake", slug);
     createdPaths.push(intakeDir);
 
-    execFileSync("sh", ["-lc", `node scripts/guide-new.cjs --from ${JSON.stringify(draftPath)} --cover ${JSON.stringify(coverPath)}`], {
+    execFileSync("/usr/bin/env", ["node", "scripts/guide-new.cjs", "--from", draftPath, "--cover", coverPath], {
       cwd: repoRoot,
       stdio: "pipe",
     });
@@ -68,7 +68,7 @@ Useful for stamps and parcels.
     expect(draftBody.startsWith("# **Post Offices in Menton**")).toBe(true);
     expect(draftBody).not.toContain("# **SEO**");
 
-    execFileSync("sh", ["-lc", `node scripts/guide-assets.cjs --slug ${JSON.stringify(slug)} --assets-dir ${JSON.stringify(assetsDir)} --report-only`], {
+    execFileSync("/usr/bin/env", ["node", "scripts/guide-assets.cjs", "--slug", slug, "--assets-dir", assetsDir, "--report-only"], {
       cwd: repoRoot,
       stdio: "pipe",
     });
