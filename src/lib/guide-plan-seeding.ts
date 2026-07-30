@@ -75,7 +75,12 @@ function clampDescription(value: string, maxLength = 158) {
 }
 
 export function inferCategory(intake: GuideIntake): GuideCategory {
-  const corpus = normalize([intake.title, intake.intro ?? "", ...intake.sectionHeadings].join(" "));
+  const corpus = normalize([
+    intake.title,
+    intake.intro ?? "",
+    ...intake.sectionHeadings,
+    ...(intake.utilityBlockHints ?? []).map((hint) => `${hint.type} ${hint.section ?? ""} ${(hint.providerHints ?? []).join(" ")}`),
+  ].join(" "));
 
   if (/\b(restaurant|restaurants|food|eat|cafe|coffee|tea|bakery|pastry|dessert|pizza|burger|sushi|ramen|indian|vegan|seafood|italian|market|boulangerie|patisserie)\b/.test(corpus)) {
     return "food-markets";
@@ -84,8 +89,8 @@ export function inferCategory(intake: GuideIntake): GuideCategory {
   if (/\b(photo|photography|instagram|viewpoint|view point|sunset spot)\b/.test(corpus)) return "photo-spots";
   if (/\b(itinerary|one day|two day|three day|weekend plan)\b/.test(corpus)) return "itineraries";
   if (/\b(day trip|from menton|ventimiglia|sanremo|bordighera|dolceacqua|monaco|nice)\b/.test(corpus) && /\btrain|trip|escape|cross the border|worth the short trip\b/.test(corpus)) return "day-trips";
+  if (/\b(beach|plage|seafront|water sports|watersports|paddle|paddleboard|sup|kayak|snorkel|snorkelling|sailing|diving|windsurfing|wing foiling|kitesurfing|e foils|e foil|sea temperature|marine)\b/.test(corpus)) return "beaches";
   if (/\b(kids|children|family)\b/.test(corpus)) return "with-children";
-  if (/\b(beach|plage|seafront)\b/.test(corpus)) return "beaches";
   if (/\b(hike|walk|trail|view|garden|park|promenade|village|mountain)\b/.test(corpus)) return "walks-views";
   if (/\b(bar|beer|wine|cocktail|nightlife|shisha|hookah|jazz|live music|club|casino)\b/.test(corpus)) return "nightlife-drinks";
   return "practical";

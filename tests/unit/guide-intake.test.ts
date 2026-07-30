@@ -202,4 +202,55 @@ Short intro.
     expect(intake.coverPathHint).toBe("/Users/antonbiletskiy-volokh/Desktop/cover.png");
     expect(intake.title).toBe("Water sports in Menton");
   });
+
+  it("treats widget/provider sections as utility hints instead of place candidates", () => {
+    const raw = `
+Вот материал для нового гайда - а обложка вот тут: /Users/antonbiletskiy-volokh/Desktop/cover.png.
+
+# **Water sports in Menton: paddleboard, kayak, sailing and snorkelling**
+
+**Meta title:** Water sports in Menton: paddleboard, kayak, sailing and snorkelling
+**Meta description:** Discover the best water sports in Menton and nearby.
+
+# **Water sports in Menton: paddleboard, kayak, sailing and snorkelling**
+
+Menton sits between the mountains and the Mediterranean.
+
+# **Scuba diving**
+
+## **Menton**
+
+Ideal for introductory dives.
+
+## **Monaco**
+
+Suitable for certified divers.
+
+## **Nice**
+
+Offers numerous dive schools.
+
+# **Useful weather and sea widgets for this guide**
+
+## **Option 1 (Recommended): Windy.com Embed**
+
+## **Option 2: Windfinder Widget**
+
+## **Option 3: OpenWeather + Open-Meteo (Custom)**
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.intro).toBe("Menton sits between the mountains and the Mediterranean.");
+    expect(intake.coverPathHint).toBe("/Users/antonbiletskiy-volokh/Desktop/cover.png");
+    expect(intake.placeCandidates).toEqual([]);
+    expect(intake.sectionHeadings).not.toContain("Useful weather and sea widgets for this guide");
+    expect(intake.utilityBlockHints).toEqual([
+      expect.objectContaining({
+        type: "marineConditions",
+        section: "Useful weather and sea widgets for this guide",
+        providerHints: expect.arrayContaining(["Windy", "Windfinder", "OpenWeather", "Open-Meteo"]),
+      }),
+    ]);
+  });
 });

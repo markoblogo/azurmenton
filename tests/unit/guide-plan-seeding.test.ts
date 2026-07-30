@@ -204,4 +204,25 @@ describe("guide plan seeding", () => {
     const garavan = seededPlan.plannedPlaces?.find((place) => place.draftName === "Garavan Postal Branch");
     expect(garavan?.topMatches?.map((entry) => entry.id)).not.toContain("la-yogurteria-menton");
   });
+
+  it("classifies water-sports guides as beaches when marine/widget hints are present", () => {
+    const intake: GuideIntake = {
+      title: "Water sports in Menton",
+      slug: "water-sports-in-menton",
+      intro: "Calm bay for paddleboarding, kayaking and snorkelling.",
+      sectionHeadings: ["Paddleboarding", "Snorkelling", "Sailing"],
+      placeCandidates: [],
+      utilityBlockHints: [
+        {
+          type: "marineConditions",
+          section: "Useful weather and sea widgets for this guide",
+          providerHints: ["Windy", "Open-Meteo"],
+        },
+      ],
+      relatedGuideTitles: [],
+    };
+
+    const seededIntake = seedGuideIntake(intake);
+    expect(seededIntake.categoryHint).toBe("beaches");
+  });
 });

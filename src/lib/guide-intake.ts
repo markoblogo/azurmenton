@@ -3,6 +3,12 @@ export type GuidePlaceCandidate = {
   section?: string;
 };
 
+export type GuideUtilityBlockHint = {
+  type: "marineConditions" | "airportLiveBoard" | "localRadio";
+  section?: string;
+  providerHints?: string[];
+};
+
 export type GuideIntake = {
   title: string;
   slug: string;
@@ -13,6 +19,7 @@ export type GuideIntake = {
   categoryHint?: string;
   sectionHeadings: string[];
   placeCandidates: GuidePlaceCandidate[];
+  utilityBlockHints?: GuideUtilityBlockHint[];
   relatedGuideTitles: string[];
   rawSuggestedSlug?: string;
 };
@@ -28,6 +35,8 @@ type GuideHeading = {
 const GUIDE_FIELD_LABELS = [
   "SEO title",
   "SEO Title",
+  "Meta title",
+  "Meta Title",
   "Title tag",
   "Meta description",
   "Meta Description",
@@ -129,6 +138,40 @@ function isPreambleHeading(text: string) {
   return /^(seo|metadata|service(?:\s+preamble)?|publication notes?|operator notes?|editorial notes?)$/i.test(text);
 }
 
+function isGuideFieldLine(value: string) {
+  const normalized = stripMarkdownDecoration(normalizeText(value).replace(/^[-*]\s*/, ""));
+  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image)/i.test(normalized);
+}
+
+function isWidgetSectionHeading(text: string) {
+  return /\b(widget|widgets|live board|live boards|radio streams?|listen live|weather tools?|sea tools?)\b/i.test(text);
+}
+
+function isDividerLine(text: string) {
+  return /^[-_*]{3,}$/.test(text.trim());
+}
+
+function inferUtilityBlockType(sectionText: string, fullText: string): GuideUtilityBlockHint["type"] | null {
+  const corpus = `${sectionText} ${fullText}`;
+
+  if (
+    /\b(windy|windfinder|surf-forecast|surf forecast|meteoblue|openweather|open-meteo|sea temperature|marine)\b/i.test(corpus) ||
+    /\b(paddle|kayak|snorkel|snorkelling|sailing|wind sports|water sports)\b/i.test(corpus)
+  ) {
+    return "marineConditions";
+  }
+
+  if (/\b(airport|flight|arrivals|departures|live board|boarding)\b/i.test(corpus)) {
+    return "airportLiveBoard";
+  }
+
+  if (/\b(radio|fm|stream|listen live)\b/i.test(corpus)) {
+    return "localRadio";
+  }
+
+  return null;
+}
+
 function findPrimaryTitleLineIndex(lines: string[]) {
   for (let index = 0; index < lines.length; index += 1) {
     const normalized = normalizeText(lines[index]);
@@ -213,6 +256,10 @@ function isSuppressedHeading(text: string) {
   return /^our recommendations$/i.test(text) || /^recommendations$/i.test(text);
 }
 
+function isBroadLocalityHeading(text: string) {
+  return /^(menton|monaco|nice|sanremo|ventimiglia|bordighera|beausoleil|roquebrune|cap martin|italy|france|french riviera|italian riviera)$/i.test(text.trim());
+}
+
 function findNearestAncestor(headings: GuideHeading[], index: number, maxLevel: number) {
   for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
     const heading = headings[cursor];
@@ -243,10 +290,24 @@ function sitsUnderSuppressedAncestor(headings: GuideHeading[], index: number) {
   return false;
 }
 
+function sitsUnderWidgetAncestor(headings: GuideHeading[], index: number) {
+  let maxLevel = headings[index].level;
+  for (let cursor = index - 1; cursor >= 0; cursor -= 1) {
+    const heading = headings[cursor];
+    if (heading.level < maxLevel) {
+      if (isWidgetSectionHeading(heading.text)) return true;
+      maxLevel = heading.level;
+    }
+  }
+  return false;
+}
+
 function extractIntro(lines: string[]) {
   const titleLineIndex = findPrimaryTitleLineIndex(lines);
   if (titleLineIndex === -1) return undefined;
   const paragraphs: string[] = [];
+  const title = extractTitle(lines);
+  let skippedDuplicateTitle = false;
 
   for (let index = titleLineIndex + 1; index < lines.length; index += 1) {
     const line = lines[index];
@@ -257,8 +318,17 @@ function extractIntro(lines: string[]) {
       continue;
     }
 
+    if (isDividerLine(normalized)) continue;
+    if (normalized.startsWith("#")) {
+      const headingText = normalizeHeadingText(normalized);
+      if (!skippedDuplicateTitle && headingText === title) {
+        skippedDuplicateTitle = true;
+        continue;
+      }
+      break;
+    }
     if (normalized.startsWith("##")) break;
-    if (/^(SEO title|Meta description|Suggested slug|Cover image)/i.test(normalized)) continue;
+    if (isGuideFieldLine(normalized)) continue;
 
     paragraphs.push(stripMarkdownDecoration(normalized));
   }
@@ -271,13 +341,21 @@ function extractSectionHeadings(lines: string[]) {
   const headings = allHeadings.slice(findPrimaryHeadingOffset(allHeadings));
   const title = headings[0]?.text;
   const placeCandidateIndexes = new Set<number>();
+  const utilitySectionIndexes = new Set<number>();
+
+  headings.forEach((heading, index) => {
+    if (index === 0) return;
+    if (isWidgetSectionHeading(heading.text)) utilitySectionIndexes.add(index);
+  });
 
   headings.forEach((heading, index) => {
     if (index === 0 || isSuppressedHeading(heading.text)) return;
+    if (utilitySectionIndexes.has(index)) return;
+    if (heading.text === title) return;
 
     if (heading.level === 2) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
-      if (ancestor && ancestor.level === 1 && ancestor.text !== title && !hasDeeperDescendants(headings, index)) {
+      if (ancestor && ancestor.level === 1 && ancestor.text !== title && !hasDeeperDescendants(headings, index) && !isWidgetSectionHeading(ancestor.text)) {
         placeCandidateIndexes.add(index);
       }
       return;
@@ -285,14 +363,24 @@ function extractSectionHeadings(lines: string[]) {
 
     if (heading.level === 3) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
-      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text)) {
+      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text) && !isWidgetSectionHeading(ancestor.text)) {
         placeCandidateIndexes.add(index);
       }
     }
   });
 
   return headings
-    .filter((heading, index) => index !== 0 && !placeCandidateIndexes.has(index) && !isSuppressedHeading(heading.text) && !sitsUnderSuppressedAncestor(headings, index))
+    .filter(
+      (heading, index) =>
+        index !== 0 &&
+        heading.text !== title &&
+        !utilitySectionIndexes.has(index) &&
+        !isWidgetSectionHeading(heading.text) &&
+        !sitsUnderWidgetAncestor(headings, index) &&
+        !placeCandidateIndexes.has(index) &&
+        !isSuppressedHeading(heading.text) &&
+        !sitsUnderSuppressedAncestor(headings, index),
+    )
     .map((heading) => heading.text);
 }
 
@@ -304,10 +392,20 @@ function extractPlaceCandidates(lines: string[]) {
 
   headings.forEach((heading, index) => {
     if (index === 0 || isSuppressedHeading(heading.text)) return;
+    if (heading.text === title) return;
+    if (sitsUnderWidgetAncestor(headings, index) || isWidgetSectionHeading(heading.text)) return;
 
     if (heading.level === 2) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
-      if (ancestor && ancestor.level === 1 && ancestor.text !== title && !hasDeeperDescendants(headings, index)) {
+      if (
+        ancestor &&
+        ancestor.level === 1 &&
+        ancestor.text !== title &&
+        !hasDeeperDescendants(headings, index) &&
+        !isWidgetSectionHeading(ancestor.text) &&
+        !isWidgetSectionHeading(heading.text) &&
+        !isBroadLocalityHeading(heading.text)
+      ) {
         candidates.push({ name: heading.text, section: ancestor.text });
       }
       return;
@@ -315,13 +413,51 @@ function extractPlaceCandidates(lines: string[]) {
 
     if (heading.level === 3) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
-      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text)) {
+      if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text) && !isWidgetSectionHeading(ancestor.text)) {
         candidates.push({ name: heading.text, section: ancestor.text });
       }
     }
   });
 
   return candidates;
+}
+
+function extractUtilityBlockHints(lines: string[]) {
+  const hints: GuideUtilityBlockHint[] = [];
+  const allHeadings = extractHeadings(lines);
+  const headings = allHeadings.slice(findPrimaryHeadingOffset(allHeadings));
+
+  for (let index = 0; index < headings.length; index += 1) {
+    const heading = headings[index];
+    if (index === 0 || !isWidgetSectionHeading(heading.text) || sitsUnderWidgetAncestor(headings, index)) continue;
+
+    let nextLineIndex = lines.length;
+    for (let cursor = index + 1; cursor < headings.length; cursor += 1) {
+      if (headings[cursor].level <= heading.level) {
+        nextLineIndex = headings[cursor].lineIndex;
+        break;
+      }
+    }
+    const sectionLines = lines.slice(heading.lineIndex + 1, nextLineIndex);
+    const sectionText = sectionLines.join("\n");
+    const type = inferUtilityBlockType(heading.text, sectionText);
+    if (!type) continue;
+
+    const providerHints = Array.from(
+      new Set(
+        ["Windy", "Windfinder", "Surf-Forecast", "Meteoblue", "OpenWeather", "Open-Meteo"]
+          .filter((provider) => new RegExp(provider.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i").test(sectionText)),
+      ),
+    );
+
+    hints.push({
+      type,
+      section: heading.text,
+      providerHints,
+    });
+  }
+
+  return hints;
 }
 
 function extractRelatedGuideTitles(lines: string[]) {
@@ -363,6 +499,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
   const { preambleLines, bodyLines } = splitGuideDraftIntoPreambleAndBody(lines);
   const title = extractTitle(lines);
   const metadataLines = [...preambleLines, ...bodyLines.filter((line) => GUIDE_FIELD_LABELS.some((label) => stripMarkdownDecoration(normalizeText(line)).toLowerCase().startsWith(label.toLowerCase())))];
+  const utilityBlockHints = extractUtilityBlockHints(bodyLines);
   const rawSuggestedSlug = extractExplicitGuideSlug(metadataLines);
   const suggestedSlug = rawSuggestedSlug?.replace(/^\/[a-z]{2}\/guide\//i, "").replace(/^\/+/, "");
 
@@ -375,6 +512,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
     coverPathHint: options?.coverPathHint ?? extractCoverPathHint(preambleLines),
     sectionHeadings: extractSectionHeadings(bodyLines),
     placeCandidates: extractPlaceCandidates(bodyLines),
+    utilityBlockHints,
     relatedGuideTitles: extractRelatedGuideTitles(bodyLines),
     rawSuggestedSlug,
   };
