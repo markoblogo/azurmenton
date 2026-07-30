@@ -6143,6 +6143,7 @@ export const guideArticles: GuideArticle[] = [
       "where-to-stay-in-menton",
       "public-toilets-menton",
       "coworking-remote-work-menton",
+      "post-offices-stamps-menton",
     ],
     relatedApartments: allApartments,
     appTools: [

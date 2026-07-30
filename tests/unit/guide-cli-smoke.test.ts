@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import process from "node:process";
 
 const repoRoot = "/Volumes/Work/Work/menton";
 const createdPaths: string[] = [];
@@ -54,7 +55,7 @@ Useful for stamps and parcels.
     const intakeDir = path.join(repoRoot, "build", "guide-intake", slug);
     createdPaths.push(intakeDir);
 
-    execFileSync("node", ["scripts/guide-new.cjs", "--from", draftPath, "--cover", coverPath], {
+    execFileSync(process.execPath, ["scripts/guide-new.cjs", "--from", draftPath, "--cover", coverPath], {
       cwd: repoRoot,
       stdio: "pipe",
     });
@@ -68,7 +69,7 @@ Useful for stamps and parcels.
     expect(draftBody.startsWith("# **Post Offices in Menton**")).toBe(true);
     expect(draftBody).not.toContain("# **SEO**");
 
-    execFileSync("node", ["scripts/guide-assets.cjs", "--slug", slug, "--assets-dir", assetsDir, "--report-only"], {
+    execFileSync(process.execPath, ["scripts/guide-assets.cjs", "--slug", slug, "--assets-dir", assetsDir, "--report-only"], {
       cwd: repoRoot,
       stdio: "pipe",
     });
