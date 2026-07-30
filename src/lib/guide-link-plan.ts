@@ -106,6 +106,10 @@ function includesAny(haystack: string, terms: string[]) {
   return terms.some((term) => haystack.includes(term));
 }
 
+function countMatches(haystack: string, terms: string[]) {
+  return terms.reduce((count, term) => count + (haystack.includes(term) ? 1 : 0), 0);
+}
+
 function dedupeByKey<T>(items: T[], key: (item: T) => string) {
   const seen = new Set<string>();
   return items.filter((item) => {
@@ -124,6 +128,35 @@ function guideRequiresApartmentCta(category: GuideCategory | "" | null | undefin
   return ["where-to-stay", "without-a-car", "stay-cool", "airport", "public-transport", "beaches"].some((token) => slug.includes(token));
 }
 
+function hasStrongFamilyIntent(intake: GuideIntake, category: GuideCategory | "" | null | undefined) {
+  if (category === "with-children") return true;
+
+  const primaryCorpus = normalize([intake.slug, intake.title, ...intake.sectionHeadings].join(" "));
+  const explicitIntentTerms = [
+    "with kids",
+    "with kid",
+    "with children",
+    "for kids",
+    "for children",
+    "kid friendly",
+    "kids friendly",
+    "child friendly",
+    "children friendly",
+    "family guide",
+    "family holiday",
+    "family vacation",
+    "family stay",
+    "travelling with kids",
+    "traveling with kids",
+    "travelling with children",
+    "traveling with children",
+  ];
+
+  if (includesAny(primaryCorpus, explicitIntentTerms)) return true;
+
+  return countMatches(primaryCorpus, ["kids", "kid", "children", "child", "family"]) >= 2;
+}
+
 function detectClusterIds(intake: GuideIntake, category: GuideCategory | "" | null | undefined, clusters: GuideIntentCluster[]) {
   const corpus = normalize([intake.slug, intake.title, intake.intro ?? "", ...intake.sectionHeadings].join(" "));
   const matched = new Set<string>();
@@ -136,7 +169,7 @@ function detectClusterIds(intake: GuideIntake, category: GuideCategory | "" | nu
 
     switch (cluster.id) {
       case "menton-with-kids":
-        if (category === "with-children" || includesAny(corpus, ["kids", "kid", "children", "child", "family"])) matched.add(cluster.id);
+        if (hasStrongFamilyIntent(intake, category)) matched.add(cluster.id);
         break;
       case "menton-without-car":
         if (includesAny(corpus, ["without a car", "sans voiture", "senza auto", "car free", "public transport", "train", "airport", "station"])) matched.add(cluster.id);
@@ -486,6 +519,16 @@ export function buildGuideLinkPlan(input: {
 }
 
 export function applyGuideLinkPlan(publicationPlan: GuidePublicationPlan, linkPlan: GuideLinkPlan): GuidePublicationPlan {
+  const previousAutoArticles = new Set(publicationPlan.linkPlan?.autoAppliedRelatedArticles ?? []);
+  const previousAutoApartments = new Set(publicationPlan.linkPlan?.autoAppliedRelatedApartments ?? []);
+  const currentSuggestedArticles = new Set(linkPlan.relatedArticles.map((entry) => entry.slug));
+  const currentSuggestedApartments = new Set(linkPlan.relatedApartments.map((entry) => entry.slug));
+  const preservedManualArticles = (publicationPlan.relatedArticleSlugs ?? []).filter(
+    (slug) => !previousAutoArticles.has(slug) && currentSuggestedArticles.has(slug),
+  );
+  const preservedManualApartments = (publicationPlan.relatedApartmentSlugs ?? []).filter(
+    (slug) => !previousAutoApartments.has(slug) && currentSuggestedApartments.has(slug),
+  );
   const plannedPlaces = (publicationPlan.plannedPlaces ?? []).map((plannedPlace) => {
     if (!publicationPlan.canonicalGuideForPlaces) return plannedPlace;
     if (plannedPlace.coverageGuideSlug) return plannedPlace;
@@ -498,14 +541,14 @@ export function applyGuideLinkPlan(publicationPlan: GuidePublicationPlan, linkPl
   return {
     ...publicationPlan,
     plannedPlaces,
-    relatedArticleSlugs:
-      publicationPlan.relatedArticleSlugs && publicationPlan.relatedArticleSlugs.length
-        ? publicationPlan.relatedArticleSlugs
-        : linkPlan.autoAppliedRelatedArticles,
-    relatedApartmentSlugs:
-      publicationPlan.relatedApartmentSlugs && publicationPlan.relatedApartmentSlugs.length
-        ? publicationPlan.relatedApartmentSlugs
-        : linkPlan.autoAppliedRelatedApartments,
+    relatedArticleSlugs: dedupeByKey(
+      [...preservedManualArticles, ...linkPlan.autoAppliedRelatedArticles].map((slug) => ({ slug })),
+      (entry) => entry.slug,
+    ).map((entry) => entry.slug),
+    relatedApartmentSlugs: dedupeByKey(
+      [...preservedManualApartments, ...linkPlan.autoAppliedRelatedApartments].map((slug) => ({ slug })),
+      (entry) => entry.slug,
+    ).map((entry) => entry.slug),
     linkPlan,
   };
 }

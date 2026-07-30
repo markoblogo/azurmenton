@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildGuideLinkPlan } from "../../src/lib/guide-link-plan";
+import { applyGuideLinkPlan, buildGuideLinkPlan } from "../../src/lib/guide-link-plan";
 import type { GuideIntake } from "../../src/lib/guide-intake";
 
 describe("guide link plan", () => {
@@ -175,5 +175,175 @@ describe("guide link plan", () => {
 
     expect(plan.relatedArticles.some((entry) => entry.priority === "noise-risk")).toBe(true);
     expect(plan.autoAppliedRelatedArticles).not.toContain("best-coffee-menton");
+  });
+
+  it("does not treat one family section in a mixed-intent guide as a kids cluster requirement", () => {
+    const intake: GuideIntake = {
+      title: "Water sports in Menton",
+      slug: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+      intro: "Practical water sports guide for Menton beaches and seafront planning.",
+      sectionHeadings: ["Best beaches for paddleboarding", "Family-friendly water activities", "Where to rent gear"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const plan = buildGuideLinkPlan({
+      intake,
+      publicationPlan: {
+        slug: intake.slug,
+        category: "beaches",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [],
+        relatedApartmentSlugs: [],
+        canonicalGuideForPlaces: false,
+        plannedPlaces: [],
+      },
+      guides: [
+        { slug: "menton-with-kids-family-guide", title: "Menton with kids", category: "with-children" },
+        { slug: "where-to-stay-in-menton", title: "Where to stay in Menton", category: "practical" },
+        { slug: intake.slug, title: intake.title, category: "beaches" },
+      ],
+      places: [],
+      apartments: [
+        { slug: "sea-view-balcony-studio" },
+        { slug: "beachside-family-apartment" },
+        { slug: "panoramic-sea-view-studio" },
+      ] as never,
+      collections: [],
+      clusters: [
+        {
+          id: "menton-with-kids",
+          title: { en: "", fr: "", it: "", uk: "" },
+          excerpt: { en: "", fr: "", it: "", uk: "" },
+          canonicalGuideSlug: "menton-with-kids-family-guide",
+          supportingGuideSlugs: [],
+          relatedPlaceIds: [],
+          relatedApartmentKeys: ["beachside-family-apartment"],
+        },
+        {
+          id: "beachfront-stay",
+          title: { en: "", fr: "", it: "", uk: "" },
+          excerpt: { en: "", fr: "", it: "", uk: "" },
+          canonicalGuideSlug: "where-to-stay-in-menton",
+          supportingGuideSlugs: [],
+          relatedPlaceIds: [],
+          relatedApartmentKeys: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
+        },
+      ],
+    });
+
+    expect(plan.matchedClusterIds).toContain("beachfront-stay");
+    expect(plan.matchedClusterIds).not.toContain("menton-with-kids");
+    expect(plan.autoAppliedRelatedArticles).toContain("where-to-stay-in-menton");
+    expect(plan.autoAppliedRelatedArticles).not.toContain("menton-with-kids-family-guide");
+  });
+
+  it("refreshes stale auto-applied related guides on rerun", () => {
+    const intake: GuideIntake = {
+      title: "Water sports in Menton",
+      slug: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+      intro: "Practical water sports guide for Menton beaches and seafront planning.",
+      sectionHeadings: ["Best beaches for paddleboarding", "Family-friendly water activities"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const linkPlan = buildGuideLinkPlan({
+      intake,
+      publicationPlan: {
+        slug: intake.slug,
+        category: "beaches",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [
+          "menton-with-kids-family-guide",
+          "where-to-stay-in-menton",
+          "best-beaches-in-menton",
+        ],
+        relatedApartmentSlugs: ["beachside-family-apartment"],
+        canonicalGuideForPlaces: false,
+        plannedPlaces: [],
+        linkPlan: {
+          matchedClusterIds: ["menton-with-kids", "beachfront-stay"],
+          matchedCollectionIds: ["beaches-and-seafront"],
+          relatedArticles: [],
+          relatedApartments: [],
+          backlinkObligations: [],
+          specialistCoverageUpdates: [],
+          autoAppliedRelatedArticles: ["where-to-stay-in-menton", "best-beaches-in-menton"],
+          autoAppliedRelatedApartments: ["beachside-family-apartment"],
+        },
+      },
+      guides: [
+        { slug: "menton-with-kids-family-guide", title: "Menton with kids", category: "with-children" },
+        { slug: "where-to-stay-in-menton", title: "Where to stay in Menton", category: "practical" },
+        { slug: "best-beaches-in-menton", title: "Best beaches in Menton", category: "beaches" },
+        { slug: intake.slug, title: intake.title, category: "beaches" },
+      ],
+      places: [],
+      apartments: [
+        { slug: "sea-view-balcony-studio" },
+        { slug: "beachside-family-apartment" },
+        { slug: "panoramic-sea-view-studio" },
+      ] as never,
+      collections: [
+        {
+          id: "beaches-and-seafront",
+          title: { en: "", fr: "", it: "", uk: "" },
+          description: { en: "", fr: "", it: "", uk: "" },
+          categories: ["beaches"],
+          priorityGuideSlugs: ["best-beaches-in-menton"],
+        },
+      ],
+      clusters: [
+        {
+          id: "menton-with-kids",
+          title: { en: "", fr: "", it: "", uk: "" },
+          excerpt: { en: "", fr: "", it: "", uk: "" },
+          canonicalGuideSlug: "menton-with-kids-family-guide",
+          supportingGuideSlugs: [],
+          relatedPlaceIds: [],
+          relatedApartmentKeys: ["beachside-family-apartment"],
+        },
+        {
+          id: "beachfront-stay",
+          title: { en: "", fr: "", it: "", uk: "" },
+          excerpt: { en: "", fr: "", it: "", uk: "" },
+          canonicalGuideSlug: "where-to-stay-in-menton",
+          supportingGuideSlugs: [],
+          relatedPlaceIds: [],
+          relatedApartmentKeys: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
+        },
+      ],
+    });
+
+    const refreshed = applyGuideLinkPlan(
+      {
+        slug: intake.slug,
+        category: "beaches",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [
+          "menton-with-kids-family-guide",
+          "where-to-stay-in-menton",
+          "best-beaches-in-menton",
+        ],
+        relatedApartmentSlugs: ["beachside-family-apartment"],
+        canonicalGuideForPlaces: false,
+        plannedPlaces: [],
+        linkPlan: {
+          matchedClusterIds: ["menton-with-kids", "beachfront-stay"],
+          matchedCollectionIds: ["beaches-and-seafront"],
+          relatedArticles: [],
+          relatedApartments: [],
+          backlinkObligations: [],
+          specialistCoverageUpdates: [],
+          autoAppliedRelatedArticles: ["where-to-stay-in-menton", "best-beaches-in-menton"],
+          autoAppliedRelatedApartments: ["beachside-family-apartment"],
+        },
+      },
+      linkPlan,
+    );
+
+    expect(refreshed.relatedArticleSlugs).toContain("where-to-stay-in-menton");
+    expect(refreshed.relatedArticleSlugs).not.toContain("menton-with-kids-family-guide");
   });
 });
