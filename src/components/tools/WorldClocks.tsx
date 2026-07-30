@@ -72,9 +72,9 @@ export function WorldClocks({ locale }: { locale: string }) {
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {zones.map((clock, index) => (
-            <div key={clock.id} className={`border border-white/80 p-5 ${now && !isDaytime(now, clock.zone) ? "bg-[#dfecef]" : index === 0 ? "bg-[#fff3cf]" : "bg-[#fffdf8]/72"}`}>
-              <p className="text-lg font-semibold text-[#173f36]">{clock.label}</p>
-              <p className="mt-5 font-mono text-4xl font-semibold tracking-[0.08em] text-[#173f36]">{now ? formatTime(now, clock.zone) : "--:--"}</p>
+            <div key={clock.id} className={`border p-5 ${now && !isDaytime(now, clock.zone) ? "border-[#1f4969] bg-[#102c45]" : index === 0 ? "border-white/80 bg-[#fff3cf]" : "border-white/80 bg-[#fffdf8]/72"}`}>
+              <p className={`text-lg font-semibold ${now && !isDaytime(now, clock.zone) ? "text-white" : "text-[#173f36]"}`}>{clock.label}</p>
+              <p className={`mt-6 font-mono text-5xl font-semibold leading-none tracking-[0.08em] ${now && !isDaytime(now, clock.zone) ? "text-white" : "text-[#173f36]"}`}>{now ? formatTime(now, clock.zone) : "--:--"}</p>
               {index === 0 ? (
                 <label className="mt-3 block">
                   <span className="sr-only">{copy.select}</span>

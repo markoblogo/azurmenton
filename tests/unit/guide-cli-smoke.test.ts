@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
-const repoRoot = "/Volumes/Work/Work/menton";
+const repoRoot = process.cwd();
 const createdPaths: string[] = [];
 const require = createRequire(import.meta.url);
 const { main: runGuideNew } = require("../../scripts/guide-new.cjs") as { main: (args: string[]) => Promise<void> };
