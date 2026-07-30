@@ -1,11 +1,14 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { execFileSync } from "node:child_process";
+import { createRequire } from "node:module";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
 const repoRoot = "/Volumes/Work/Work/menton";
 const createdPaths: string[] = [];
+const require = createRequire(import.meta.url);
+const { main: runGuideNew } = require("../../scripts/guide-new.cjs") as { main: (args: string[]) => Promise<void> };
+const { main: runGuideAssets } = require("../../scripts/guide-assets.cjs") as { main: (args: string[]) => Promise<void> };
 
 async function safeRemove(targetPath: string) {
   await fs.rm(targetPath, { recursive: true, force: true });
@@ -54,10 +57,7 @@ Useful for stamps and parcels.
     const intakeDir = path.join(repoRoot, "build", "guide-intake", slug);
     createdPaths.push(intakeDir);
 
-    execFileSync("/usr/bin/env", ["node", "scripts/guide-new.cjs", "--from", draftPath, "--cover", coverPath], {
-      cwd: repoRoot,
-      stdio: "pipe",
-    });
+    await runGuideNew(["--from", draftPath, "--cover", coverPath]);
 
     const intake = JSON.parse(await fs.readFile(path.join(intakeDir, "intake.json"), "utf8"));
     const preamble = JSON.parse(await fs.readFile(path.join(intakeDir, "preamble.json"), "utf8"));
@@ -68,10 +68,7 @@ Useful for stamps and parcels.
     expect(draftBody.startsWith("# **Post Offices in Menton**")).toBe(true);
     expect(draftBody).not.toContain("# **SEO**");
 
-    execFileSync("/usr/bin/env", ["node", "scripts/guide-assets.cjs", "--slug", slug, "--assets-dir", assetsDir, "--report-only"], {
-      cwd: repoRoot,
-      stdio: "pipe",
-    });
+    await runGuideAssets(["--slug", slug, "--assets-dir", assetsDir, "--report-only"]);
 
     const assetsReport = JSON.parse(await fs.readFile(path.join(intakeDir, "assets-report.json"), "utf8"));
     expect(assetsReport.slug).toBe(slug);

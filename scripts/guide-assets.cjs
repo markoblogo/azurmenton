@@ -22,10 +22,10 @@ const {
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 
-function readArg(name) {
-  const index = process.argv.indexOf(name);
+function readArg(name, args = process.argv.slice(2)) {
+  const index = args.indexOf(name);
   if (index === -1) return undefined;
-  return process.argv[index + 1];
+  return args[index + 1];
 }
 
 function renderPlaceImagePatchMarkdown(bundle) {
@@ -79,14 +79,14 @@ async function fileExists(targetPath) {
   }
 }
 
-async function main() {
-  const slug = readArg("--slug");
-  const publishedGuideSlug = readArg("--published-guide");
-  const strict = process.argv.includes("--strict");
-  const missingOnly = process.argv.includes("--missing-only");
-  const reportOnly = process.argv.includes("--report-only");
-  const failOnUnmatched = process.argv.includes("--fail-on-unmatched");
-  const applyPlacesPatchSafe = process.argv.includes("--apply-places-patch-safe");
+async function main(args = process.argv.slice(2)) {
+  const slug = readArg("--slug", args);
+  const publishedGuideSlug = readArg("--published-guide", args);
+  const strict = args.includes("--strict");
+  const missingOnly = args.includes("--missing-only");
+  const reportOnly = args.includes("--report-only");
+  const failOnUnmatched = args.includes("--fail-on-unmatched");
+  const applyPlacesPatchSafe = args.includes("--apply-places-patch-safe");
   if (!slug && !publishedGuideSlug) {
     console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--report-only] [--fail-on-unmatched] [--apply-places-patch-safe] [--strict]");
     process.exitCode = 1;
@@ -116,12 +116,12 @@ async function main() {
   const registryPath = path.join(root, "scripts", "lib", "image-derivative-targets.json");
   const manifestPath = path.join(root, "public", "images", "generated-manifest.json");
 
-  const coverOverride = readArg("--cover");
-  const assetsDir = readArg("--assets-dir");
+  const coverOverride = readArg("--cover", args);
+  const assetsDir = readArg("--assets-dir", args);
   const placeArgs = [];
-  for (let index = 0; index < process.argv.length; index += 1) {
-    if (process.argv[index] === "--place" && process.argv[index + 1]) {
-      placeArgs.push(process.argv[index + 1]);
+  for (let index = 0; index < args.length; index += 1) {
+    if (args[index] === "--place" && args[index + 1]) {
+      placeArgs.push(args[index + 1]);
     }
   }
 
@@ -464,7 +464,11 @@ async function main() {
   if (issues.some((issue) => issue.severity === "error")) process.exitCode = 1;
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+module.exports = { main };
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

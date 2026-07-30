@@ -19,10 +19,10 @@ const { placeMapExclusions } = require("../src/content/planning/place-map-exclus
 const { buildGuideMatchMemory } = require("../src/lib/guide-match-memory.ts");
 const { loadGuideMatchMemory } = require("./lib/guide-match-memory.cjs");
 
-function readArg(name) {
-  const index = process.argv.indexOf(name);
+function readArg(name, args = process.argv.slice(2)) {
+  const index = args.indexOf(name);
   if (index === -1) return undefined;
-  return process.argv[index + 1];
+  return args[index + 1];
 }
 
 function usage() {
@@ -85,9 +85,9 @@ function renderPlacesScaffold(intake) {
   ].join("\n");
 }
 
-async function main() {
-  const fromPath = readArg("--from");
-  const coverPath = readArg("--cover");
+async function main(args = process.argv.slice(2)) {
+  const fromPath = readArg("--from", args);
+  const coverPath = readArg("--cover", args);
 
   if (!fromPath) {
     usage();
@@ -151,7 +151,11 @@ async function main() {
   console.log(`- publication-plan.json`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+module.exports = { main };
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
