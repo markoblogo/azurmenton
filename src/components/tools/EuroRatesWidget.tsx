@@ -14,7 +14,7 @@ function Coin({ currency, labelOverride }: { currency: string; labelOverride?: s
   const displaySymbol = labelOverride ?? symbol;
 
   return (
-    <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-16 sm:w-16" aria-hidden="true">
+    <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-14 sm:w-14" aria-hidden="true">
       <span
         className={`drop-shadow-[0_2px_1px_rgba(255,255,255,0.55)] ${
           symbol.length > 1 ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl"
