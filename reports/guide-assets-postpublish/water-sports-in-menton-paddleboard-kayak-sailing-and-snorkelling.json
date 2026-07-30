@@ -1,0 +1,53 @@
+{
+  "slug": "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": true,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+    "mode: published-guide + missing-only + report-only",
+    "matched: 0",
+    "skipped-covered: 9",
+    "already-covered: 4",
+    "unmatched: 0",
+    "still-missing: 1",
+    "report: build/guide-assets-postpublish/water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling.json",
+    "rerun: npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only"
+  ],
+  "counts": {
+    "matched": 0,
+    "unmatched": 0,
+    "alreadyCovered": 4,
+    "skippedCovered": 9,
+    "stillMissing": 1,
+    "patchReady": 0
+  },
+  "matchedAssetFiles": [
+    "Cap Martin snorkelling shoreline.png",
+    "Menton water sports bay.png",
+    "Monaco water sports and e-foils.png",
+    "Nice diving and wing-foil area.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [
+    "Cap Martin snorkelling shoreline.png",
+    "Menton water sports bay.png",
+    "Monaco water sports and e-foils.png",
+    "Nice diving and wing-foil area.png"
+  ],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [
+    {
+      "placeId": "balzi-rossi-area",
+      "draftName": "balzi-rossi-area"
+    }
+  ],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --report-only",
+  "issueCodes": [
+    "pending-place-asset"
+  ]
+}

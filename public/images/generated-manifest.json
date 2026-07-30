@@ -161,6 +161,27 @@
     ]
   },
   {
+    "source": "public/images/guide/la-poste-garavan-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-poste-garavan-menton.avif",
+      "public/images/guide/generated/la-poste-garavan-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-poste-menton-centre.png",
+    "outputs": [
+      "public/images/guide/generated/la-poste-menton-centre.avif",
+      "public/images/guide/generated/la-poste-menton-centre.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-poste-nice-centre.png",
+    "outputs": [
+      "public/images/guide/generated/la-poste-nice-centre.avif",
+      "public/images/guide/generated/la-poste-nice-centre.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/la-trattoria-menton.png",
     "outputs": [
       "public/images/guide/generated/la-trattoria-menton.avif",
@@ -231,6 +252,13 @@
     ]
   },
   {
+    "source": "public/images/guide/monte-carlo-post-office.png",
+    "outputs": [
+      "public/images/guide/generated/monte-carlo-post-office.avif",
+      "public/images/guide/generated/monte-carlo-post-office.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/nice-region-skydiving.png",
     "outputs": [
       "public/images/guide/generated/nice-region-skydiving.avif",
@@ -287,6 +315,13 @@
     ]
   },
   {
+    "source": "public/images/guide/point-postal-felix-faure-menton.png",
+    "outputs": [
+      "public/images/guide/generated/point-postal-felix-faure-menton.avif",
+      "public/images/guide/generated/point-postal-felix-faure-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/post-offices-stamps-menton.png",
     "outputs": [
       "public/images/guide/generated/post-offices-stamps-menton.avif",
@@ -329,38 +364,31 @@
     ]
   },
   {
-    "source": "public/images/guide/la-poste-menton-centre.png",
+    "source": "public/images/guide/menton-water-sports-bay.png",
     "outputs": [
-      "public/images/guide/generated/la-poste-menton-centre.avif",
-      "public/images/guide/generated/la-poste-menton-centre.webp"
+      "public/images/guide/generated/menton-water-sports-bay.avif",
+      "public/images/guide/generated/menton-water-sports-bay.webp"
     ]
   },
   {
-    "source": "public/images/guide/point-postal-felix-faure-menton.png",
+    "source": "public/images/guide/cap-martin-snorkelling-shoreline.png",
     "outputs": [
-      "public/images/guide/generated/point-postal-felix-faure-menton.avif",
-      "public/images/guide/generated/point-postal-felix-faure-menton.webp"
+      "public/images/guide/generated/cap-martin-snorkelling-shoreline.avif",
+      "public/images/guide/generated/cap-martin-snorkelling-shoreline.webp"
     ]
   },
   {
-    "source": "public/images/guide/la-poste-garavan-menton.png",
+    "source": "public/images/guide/monaco-water-sports-and-e-foils.png",
     "outputs": [
-      "public/images/guide/generated/la-poste-garavan-menton.avif",
-      "public/images/guide/generated/la-poste-garavan-menton.webp"
+      "public/images/guide/generated/monaco-water-sports-and-e-foils.avif",
+      "public/images/guide/generated/monaco-water-sports-and-e-foils.webp"
     ]
   },
   {
-    "source": "public/images/guide/monte-carlo-post-office.png",
+    "source": "public/images/guide/nice-diving-and-wing-foil-area.png",
     "outputs": [
-      "public/images/guide/generated/monte-carlo-post-office.avif",
-      "public/images/guide/generated/monte-carlo-post-office.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/la-poste-nice-centre.png",
-    "outputs": [
-      "public/images/guide/generated/la-poste-nice-centre.avif",
-      "public/images/guide/generated/la-poste-nice-centre.webp"
+      "public/images/guide/generated/nice-diving-and-wing-foil-area.avif",
+      "public/images/guide/generated/nice-diving-and-wing-foil-area.webp"
     ]
   }
 ]
