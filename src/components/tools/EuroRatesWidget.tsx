@@ -6,21 +6,22 @@ import type { EuroReferenceRates, SupportedReferenceCurrency } from "@/lib/curre
 const customOptions: SupportedReferenceCurrency[] = ["JPY", "CAD", "AUD", "SEK", "NOK", "PLN", "GBP", "CHF", "UAH", "USD"];
 
 function currencySymbol(currency: string) {
-  return currency === "USD" ? "$" : currency === "GBP" ? "£" : currency === "JPY" ? "¥" : currency === "CHF" ? "Fr" : currency === "UAH" ? "₴" : currency === "CAD" ? "C$" : currency === "AUD" ? "A$" : currency.slice(0, 1);
+  return currency === "USD" ? "$" : currency === "GBP" ? "£" : currency === "JPY" ? "¥" : currency === "CHF" ? "₣" : currency === "UAH" ? "₴" : currency === "CAD" ? "C$" : currency === "AUD" ? "A$" : currency === "EUR" ? "€" : currency.slice(0, 1);
 }
 
-function Coin({ currency }: { currency: string }) {
+function Coin({ currency, labelOverride }: { currency: string; labelOverride?: string }) {
   const symbol = currencySymbol(currency);
+  const displaySymbol = labelOverride ?? symbol;
 
   return (
-    <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-20 sm:w-20" aria-hidden="true">
+    <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)] sm:h-16 sm:w-16" aria-hidden="true">
       <span
         className={`drop-shadow-[0_2px_1px_rgba(255,255,255,0.55)] ${
           symbol.length > 1 ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl"
         }`}
         style={{ textShadow: "1px 1px 0 #fff1b6, 2px 2px 0 #9a6d2d, 3px 3px 2px rgba(77,50,15,0.35)" }}
       >
-        {symbol}
+        {displaySymbol}
       </span>
     </div>
   );
@@ -69,7 +70,7 @@ export function EuroRatesWidget({ locale, rates }: { locale: string; rates: Euro
               <div key={`${currency}-${index}`} className={`border border-white/80 p-4 ${index === 0 ? "bg-[#fff9ed]" : "bg-white/62"}`}>
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                    <Coin currency="EUR" />
+                    <Coin currency="EUR" labelOverride="1€" />
                     <span className="text-xl font-semibold text-[#b49353]">→</span>
                     <Coin currency={currency} />
                   </div>
