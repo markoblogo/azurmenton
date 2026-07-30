@@ -86,6 +86,10 @@ export type GuideAssetsPersistentSummary = {
   likelyGuideTargets: GuideAssetTargetSuggestion[];
   bestRerunCommand: string | null;
   issueCodes: string[];
+  postApplyVerify?: {
+    verifiedPlaceIds: string[];
+    failedPlaceIds: string[];
+  };
 };
 
 export type PublishedGuidePlaceImagePatchUpdate = {
@@ -114,6 +118,11 @@ export type PublishedGuidePlaceImagePatchApplyResult = {
   updatedSource: string;
   appliedPlaceIds: string[];
   skippedAlreadySatisfiedPlaceIds: string[];
+};
+
+export type PublishedGuidePlaceImagePatchVerifyResult = {
+  verifiedPlaceIds: string[];
+  failedPlaceIds: string[];
 };
 
 export type PublishedGuideAssetPlace = {
@@ -537,6 +546,7 @@ export function buildPublishedGuideAssetsRerunCommand(input: {
   missingOnly?: boolean;
   reportOnly?: boolean;
   failOnUnmatched?: boolean;
+  applyPlacesPatchSafe?: boolean;
   strict?: boolean;
 }) {
   const parts = [
@@ -551,6 +561,7 @@ export function buildPublishedGuideAssetsRerunCommand(input: {
   if (input.missingOnly) parts.push("--missing-only");
   if (input.reportOnly) parts.push("--report-only");
   if (input.failOnUnmatched) parts.push("--fail-on-unmatched");
+  if (input.applyPlacesPatchSafe) parts.push("--apply-places-patch-safe");
   if (input.strict) parts.push("--strict");
 
   return parts.join(" ");
@@ -574,6 +585,7 @@ export function buildGuideAssetsPersistentSummary(input: {
   bestRerunCommand: string | null;
   issues: Array<{ code: string }>;
   reportPath?: string | null;
+  postApplyVerify?: PublishedGuidePlaceImagePatchVerifyResult | null;
 }): GuideAssetsPersistentSummary {
   const patchReady = input.matchedPlaces.length;
   const counts = {
@@ -621,6 +633,12 @@ export function buildGuideAssetsPersistentSummary(input: {
     })),
     bestRerunCommand: input.bestRerunCommand,
     issueCodes: unique(input.issues.map((issue) => issue.code)),
+    postApplyVerify: input.postApplyVerify
+      ? {
+          verifiedPlaceIds: unique(input.postApplyVerify.verifiedPlaceIds),
+          failedPlaceIds: unique(input.postApplyVerify.failedPlaceIds),
+        }
+      : undefined,
   };
 }
 
@@ -753,5 +771,54 @@ export function applyPublishedGuidePlaceImagePatchSafe(input: {
     updatedSource: lines.join("\n"),
     appliedPlaceIds,
     skippedAlreadySatisfiedPlaceIds,
+  };
+}
+
+export function verifyPublishedGuidePlaceImagePatchApplied(input: {
+  placesSource: string;
+  bundle: PublishedGuidePlaceImagePatchBundle;
+}): PublishedGuidePlaceImagePatchVerifyResult {
+  const verifiedPlaceIds: string[] = [];
+  const failedPlaceIds: string[] = [];
+
+  for (const update of input.bundle.updates) {
+    const expectedLine = `image: ${quote(update.imagePublicPath)},`;
+    const anchorIndexes = input.placesSource
+      .split("\n")
+      .map((line, index) => ({ line, index }))
+      .filter((entry) => entry.line.includes(update.anchor))
+      .map((entry) => entry.index);
+
+    if (anchorIndexes.length !== 1) {
+      failedPlaceIds.push(update.placeId);
+      continue;
+    }
+
+    const lines = input.placesSource.split("\n");
+    const anchorIndex = anchorIndexes[0];
+    let objectStart = anchorIndex;
+    while (objectStart >= 0 && !/^  \{\s*$/.test(lines[objectStart])) {
+      objectStart -= 1;
+    }
+    let objectEnd = anchorIndex;
+    while (objectEnd < lines.length && !/^  },?\s*$/.test(lines[objectEnd])) {
+      objectEnd += 1;
+    }
+    if (objectStart < 0 || objectEnd >= lines.length) {
+      failedPlaceIds.push(update.placeId);
+      continue;
+    }
+
+    const block = lines.slice(objectStart, objectEnd + 1);
+    if (block.some((line) => line.includes(expectedLine))) {
+      verifiedPlaceIds.push(update.placeId);
+    } else {
+      failedPlaceIds.push(update.placeId);
+    }
+  }
+
+  return {
+    verifiedPlaceIds,
+    failedPlaceIds,
   };
 }

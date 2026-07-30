@@ -17,6 +17,7 @@ const {
   buildGuideAssetsPersistentSummary,
   buildPublishedGuidePlaceImagePatchBundle,
   applyPublishedGuidePlaceImagePatchSafe,
+  verifyPublishedGuidePlaceImagePatchApplied,
 } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
@@ -262,11 +263,13 @@ async function main() {
               missingOnly,
               reportOnly,
               failOnUnmatched,
+              applyPlacesPatchSafe,
               strict,
             }),
           }))
         : [],
     bestRerunCommand: null,
+    postApplyVerify: null,
   };
 
   report.bestRerunCommand = publishedGuideSlug
@@ -276,32 +279,11 @@ async function main() {
         missingOnly,
         reportOnly,
         failOnUnmatched,
+        applyPlacesPatchSafe,
         strict,
       })
     : report.likelyGuideTargets[0]?.rerunCommand ?? null;
   const operatorMode = [publishedGuideSlug ? "published-guide" : "intake", missingOnly ? "missing-only" : null, reportOnly ? "report-only" : null].filter(Boolean).join(" + ");
-  const operatorStatus = issues.some((issue) => issue.severity === "error") ? "needs-attention" : "ok";
-  const persistentSummary = publishedGuideSlug
-    ? buildGuideAssetsPersistentSummary({
-        slug: workingSlug,
-        strict,
-        missingOnly,
-        reportOnly,
-        failOnUnmatched,
-        mode: operatorMode,
-        status: operatorStatus,
-        matchedAssetFiles: resolution.matchedAssetFiles,
-        unmatchedAssetFiles: resolution.unmatchedAssetFiles,
-        alreadyCoveredAssetFiles: resolution.alreadyCoveredAssetFiles,
-        matchedPlaces: resolution.matchedPlaces,
-        skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
-        publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
-        likelyGuideTargets: report.likelyGuideTargets,
-        bestRerunCommand: report.bestRerunCommand,
-        issues,
-        reportPath: path.relative(root, reportPath),
-      })
-    : null;
   const placeImagePatchBundle = publishedGuideSlug
     ? buildPublishedGuidePlaceImagePatchBundle({
         slug: workingSlug,
@@ -311,9 +293,34 @@ async function main() {
       })
     : null;
 
+  const getOperatorStatus = () => (issues.some((issue) => issue.severity === "error") ? "needs-attention" : "ok");
+  const buildPersistentSummary = () =>
+    publishedGuideSlug
+      ? buildGuideAssetsPersistentSummary({
+          slug: workingSlug,
+          strict,
+          missingOnly,
+          reportOnly,
+          failOnUnmatched,
+          mode: operatorMode,
+          status: getOperatorStatus(),
+          matchedAssetFiles: resolution.matchedAssetFiles,
+          unmatchedAssetFiles: resolution.unmatchedAssetFiles,
+          alreadyCoveredAssetFiles: resolution.alreadyCoveredAssetFiles,
+          matchedPlaces: resolution.matchedPlaces,
+          skippedAlreadyCoveredPlaces: resolution.skippedAlreadyCoveredPlaces,
+          publishedGuidePlacesWithoutImage: resolution.publishedGuidePlacesWithoutImage,
+          likelyGuideTargets: report.likelyGuideTargets,
+          bestRerunCommand: report.bestRerunCommand,
+          issues,
+          reportPath: path.relative(root, reportPath),
+          postApplyVerify: report.postApplyVerify,
+        })
+      : null;
+
   const printOperatorSummary = () => {
     printGuideOperatorHandoff({
-      status: operatorStatus,
+      status: getOperatorStatus(),
       subject: workingSlug,
       mode: operatorMode,
       counts: {
@@ -329,6 +336,8 @@ async function main() {
         { label: "unmatched sample", values: resolution.unmatchedAssetFiles },
         { label: "already-covered sample", values: resolution.alreadyCoveredAssetFiles },
         { label: "missing sample", values: resolution.publishedGuidePlacesWithoutImage.map((place) => place.placeId) },
+        { label: "verified", values: report.postApplyVerify?.verifiedPlaceIds ?? [] },
+        { label: "verify-failed", values: report.postApplyVerify?.failedPlaceIds ?? [] },
         { label: "likely guide", values: report.likelyGuideTargets.map((target) => `${target.guideSlug} (${target.matchedPlaceIds.length})`) },
         { label: "rerun", values: report.likelyGuideTargets.map((target) => target.rerunCommand), limit: 1 },
       ],
@@ -350,6 +359,7 @@ async function main() {
     console.log(`No asset operations for ${workingSlug}.`);
     printOperatorSummary();
     await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    const persistentSummary = buildPersistentSummary();
     if (persistentReportPath && persistentSummary) {
       await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
     }
@@ -366,6 +376,7 @@ async function main() {
   if (reportOnly) {
     printOperatorSummary();
     await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+    const persistentSummary = buildPersistentSummary();
     if (persistentReportPath && persistentSummary) {
       await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
     }
@@ -411,17 +422,6 @@ async function main() {
   }
   await fs.writeFile(`${manifestPath}.tmp`, `${JSON.stringify(manifestEntries, null, 2)}\n`);
   await fs.writeFile(manifestPath, `${JSON.stringify(manifestEntries, null, 2)}\n`);
-  await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  if (persistentReportPath && persistentSummary) {
-    await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
-  }
-  if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
-    await Promise.all([
-      fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
-      fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
-    ]);
-  }
-
   if (applyPlacesPatchSafe && placeImagePatchBundle) {
     const placesPath = path.join(root, "src", "content", "places.ts");
     const placesSource = await fs.readFile(placesPath, "utf8");
@@ -430,11 +430,34 @@ async function main() {
       bundle: placeImagePatchBundle,
     });
     await fs.writeFile(placesPath, applyResult.updatedSource);
+    report.postApplyVerify = verifyPublishedGuidePlaceImagePatchApplied({
+      placesSource: applyResult.updatedSource,
+      bundle: placeImagePatchBundle,
+    });
     if (applyResult.appliedPlaceIds.length) {
       console.log(`- applied places patch safely: ${applyResult.appliedPlaceIds.join(", ")}`);
     } else {
       console.log("- applied places patch safely: no pending image updates");
     }
+    if (report.postApplyVerify.failedPlaceIds.length) {
+      issues.push({
+        severity: "error",
+        code: "post-apply-verify-failed",
+        message: `Post-apply verification failed for ${report.postApplyVerify.failedPlaceIds.join(", ")}.`,
+      });
+    }
+  }
+
+  await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  const persistentSummary = buildPersistentSummary();
+  if (persistentReportPath && persistentSummary) {
+    await fs.writeFile(persistentReportPath, `${JSON.stringify(persistentSummary, null, 2)}\n`);
+  }
+  if (patchJsonPath && patchMdPath && placeImagePatchBundle) {
+    await Promise.all([
+      fs.writeFile(patchJsonPath, `${JSON.stringify(placeImagePatchBundle, null, 2)}\n`),
+      fs.writeFile(patchMdPath, renderPlaceImagePatchMarkdown(placeImagePatchBundle)),
+    ]);
   }
 
   printOperatorSummary();

@@ -9,6 +9,7 @@ import {
   parsePlaceAssetArgs,
   resolveGuideAssetPlan,
   suggestPublishedGuideTargets,
+  verifyPublishedGuidePlaceImagePatchApplied,
 } from "../../src/lib/guide-assets";
 
 describe("guide assets", () => {
@@ -346,6 +347,19 @@ describe("guide assets", () => {
     );
   });
 
+  it("builds a rerun command with safe places patch apply for post-publish recovery", () => {
+    expect(
+      buildPublishedGuideAssetsRerunCommand({
+        guideSlug: "air-adventures-near-menton",
+        assetsDir: "/tmp/assets",
+        missingOnly: true,
+        applyPlacesPatchSafe: true,
+      }),
+    ).toBe(
+      "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --apply-places-patch-safe",
+    );
+  });
+
   it("builds a sanitized persistent post-publish summary", () => {
     expect(
       buildGuideAssetsPersistentSummary({
@@ -420,6 +434,7 @@ describe("guide assets", () => {
       bestRerunCommand:
         "npm run guide:assets -- --published-guide air-adventures-near-menton --assets-dir /tmp/assets --missing-only --report-only",
       issueCodes: [],
+      postApplyVerify: undefined,
     });
   });
 
@@ -580,6 +595,51 @@ describe("guide assets", () => {
 `,
       appliedPlaceIds: ["la-poste-menton-centre"],
       skippedAlreadySatisfiedPlaceIds: ["la-poste-garavan-menton"],
+    });
+  });
+
+  it("verifies post-publish place image patch results by exact place ids", () => {
+    const bundle = buildPublishedGuidePlaceImagePatchBundle({
+      slug: "post-offices-stamps-menton",
+      matchedPlaces: [
+        {
+          placeId: "la-poste-menton-centre",
+          draftName: "La Poste Menton Centre",
+          sourcePath: "/tmp/La Poste Menton Centre.png",
+          destinationPath: "public/images/guide/la-poste-menton-centre.png",
+          publicPath: "/images/guide/la-poste-menton-centre.png",
+        },
+        {
+          placeId: "la-poste-garavan-menton",
+          draftName: "La Poste Garavan",
+          sourcePath: "/tmp/La Poste Garavan.png",
+          destinationPath: "public/images/guide/la-poste-garavan-menton.png",
+          publicPath: "/images/guide/la-poste-garavan-menton.png",
+        },
+      ],
+      currentPlaces: [],
+    });
+
+    const verifiedSource = `const rawPlaces = [
+  {
+    id: "la-poste-menton-centre",
+    image: "/images/guide/la-poste-menton-centre.png",
+  },
+  {
+    id: "la-poste-garavan-menton",
+    image: "/images/guide/la-poste-garavan-menton.png",
+  },
+];
+`;
+
+    expect(
+      verifyPublishedGuidePlaceImagePatchApplied({
+        placesSource: verifiedSource,
+        bundle,
+      }),
+    ).toEqual({
+      verifiedPlaceIds: ["la-poste-menton-centre", "la-poste-garavan-menton"],
+      failedPlaceIds: [],
     });
   });
 });

@@ -134,6 +134,7 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
   - validate each target place object by unique `id: "<placeId>"` anchor
   - update only the `image:` field inside the matching `rawPlaces` object
   - fail closed if anchor resolution is ambiguous or missing
+  - run a short post-apply verify by concrete `placeId`, so the operator handoff shows which image fields were actually confirmed
 - recommended safe path for a published guide image pass:
   - `npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --apply-places-patch-safe`
 

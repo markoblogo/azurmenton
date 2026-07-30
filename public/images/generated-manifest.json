@@ -70,6 +70,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cap-martin-snorkelling-shoreline.png",
+    "outputs": [
+      "public/images/guide/generated/cap-martin-snorkelling-shoreline.avif",
+      "public/images/guide/generated/cap-martin-snorkelling-shoreline.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cbd-shop-france-menton.png",
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",
@@ -238,10 +245,24 @@
     ]
   },
   {
+    "source": "public/images/guide/menton-water-sports-bay.png",
+    "outputs": [
+      "public/images/guide/generated/menton-water-sports-bay.avif",
+      "public/images/guide/generated/menton-water-sports-bay.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/monaco-helicopter-experiences.png",
     "outputs": [
       "public/images/guide/generated/monaco-helicopter-experiences.avif",
       "public/images/guide/generated/monaco-helicopter-experiences.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/monaco-water-sports-and-e-foils.png",
+    "outputs": [
+      "public/images/guide/generated/monaco-water-sports-and-e-foils.avif",
+      "public/images/guide/generated/monaco-water-sports-and-e-foils.webp"
     ]
   },
   {
@@ -256,6 +277,13 @@
     "outputs": [
       "public/images/guide/generated/monte-carlo-post-office.avif",
       "public/images/guide/generated/monte-carlo-post-office.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/nice-diving-and-wing-foil-area.png",
+    "outputs": [
+      "public/images/guide/generated/nice-diving-and-wing-foil-area.avif",
+      "public/images/guide/generated/nice-diving-and-wing-foil-area.webp"
     ]
   },
   {
@@ -361,34 +389,6 @@
     "outputs": [
       "public/images/home/generated/TerraceParkingApartment.avif",
       "public/images/home/generated/TerraceParkingApartment.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/menton-water-sports-bay.png",
-    "outputs": [
-      "public/images/guide/generated/menton-water-sports-bay.avif",
-      "public/images/guide/generated/menton-water-sports-bay.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/cap-martin-snorkelling-shoreline.png",
-    "outputs": [
-      "public/images/guide/generated/cap-martin-snorkelling-shoreline.avif",
-      "public/images/guide/generated/cap-martin-snorkelling-shoreline.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/monaco-water-sports-and-e-foils.png",
-    "outputs": [
-      "public/images/guide/generated/monaco-water-sports-and-e-foils.avif",
-      "public/images/guide/generated/monaco-water-sports-and-e-foils.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/nice-diving-and-wing-foil-area.png",
-    "outputs": [
-      "public/images/guide/generated/nice-diving-and-wing-foil-area.avif",
-      "public/images/guide/generated/nice-diving-and-wing-foil-area.webp"
     ]
   }
 ]
