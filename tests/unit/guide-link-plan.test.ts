@@ -409,4 +409,60 @@ describe("guide link plan", () => {
       ]),
     );
   });
+
+  it("keeps cluster supporting guides tight for mixed-intent beach guides", () => {
+    const intake: GuideIntake = {
+      title: "Water sports in Menton",
+      slug: "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+      intro: "Practical guide to paddleboarding, kayaking and snorkelling.",
+      sectionHeadings: ["Best beaches for paddleboarding", "Where to rent gear", "Sea conditions and safety"],
+      placeCandidates: [],
+      relatedGuideTitles: [],
+    };
+
+    const plan = buildGuideLinkPlan({
+      intake,
+      publicationPlan: {
+        slug: intake.slug,
+        category: "beaches",
+        relatedPlaceIds: [],
+        relatedArticleSlugs: [],
+        relatedApartmentSlugs: [],
+        canonicalGuideForPlaces: false,
+        plannedPlaces: [],
+      },
+      guides: [
+        { slug: intake.slug, title: intake.title, category: "beaches" },
+        { slug: "where-to-stay-in-menton", title: "Where to stay in Menton", category: "practical" },
+        { slug: "best-beaches-in-menton", title: "Best beaches in Menton", category: "beaches" },
+        { slug: "stay-cool-in-menton-summer", title: "How to stay cool in Menton in summer", category: "practical" },
+        { slug: "best-ice-cream-menton", title: "Best ice cream in Menton", category: "with-children" },
+        { slug: "quiet-evening-in-menton", title: "Quiet evening in Menton", category: "nightlife-drinks" },
+      ],
+      places: [],
+      apartments: [] as never,
+      collections: [],
+      clusters: [
+        {
+          id: "beachfront-stay",
+          title: { en: "", fr: "", it: "", uk: "" },
+          excerpt: { en: "", fr: "", it: "", uk: "" },
+          canonicalGuideSlug: "where-to-stay-in-menton",
+          supportingGuideSlugs: [
+            "best-beaches-in-menton",
+            "best-ice-cream-menton",
+            "stay-cool-in-menton-summer",
+            "quiet-evening-in-menton",
+          ],
+          relatedPlaceIds: [],
+          relatedApartmentKeys: [],
+        },
+      ],
+    });
+
+    const clusterSlugs = plan.relatedArticles.filter((entry) => entry.source === "intent-cluster").map((entry) => entry.slug);
+
+    expect(clusterSlugs).toEqual(expect.arrayContaining(["where-to-stay-in-menton", "best-beaches-in-menton"]));
+    expect(clusterSlugs).not.toEqual(expect.arrayContaining(["best-ice-cream-menton", "quiet-evening-in-menton"]));
+  });
 });

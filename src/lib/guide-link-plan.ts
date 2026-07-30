@@ -346,12 +346,39 @@ function buildArticleSuggestions(input: {
       source: "intent-cluster",
       reason: `${cluster.id} is the closest search-intent cluster for this guide.`,
     });
-    for (const slug of cluster.supportingGuideSlugs.slice(0, 6)) {
+    const rankedSupportingGuides = cluster.supportingGuideSlugs
+      .map((slug) => {
+        const guide = guideBySlug.get(slug);
+        if (!guide) return null;
+
+        const sameCategory = guide.category === input.category;
+        const relevanceScore = Math.max(
+          phraseScore(input.intake.title, guide.title),
+          phraseScore(intakePrimaryCorpus, `${guide.slug} ${guide.title}`),
+        );
+
+        if (!sameCategory && relevanceScore < 0.58) return null;
+
+        return {
+          guide,
+          sameCategory,
+          relevanceScore,
+          rank: (sameCategory ? 1.5 : 0) + relevanceScore,
+        };
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .sort((a, b) => b.rank - a.rank)
+      .slice(0, 4);
+
+    for (const entry of rankedSupportingGuides) {
       push({
-        slug,
+        slug: entry.guide.slug,
         priority: "recommended",
         source: "intent-cluster",
-        reason: `${cluster.id} supporting guide.`,
+        reason: entry.sameCategory
+          ? `${cluster.id} supporting guide with the closest category match.`
+          : `${cluster.id} supporting guide with a close intent match.`,
+        score: entry.rank,
       });
     }
   }
