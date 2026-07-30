@@ -13,6 +13,7 @@ const copy = {
     seaUnavailable: "Sea data unavailable",
     updated: "Last updated",
     provider: "Weather data provider",
+    moreDetails: "More weather details",
     fallback: "Weather data is temporarily unavailable. Menton is waiting by the sea.",
   },
   fr: {
@@ -25,6 +26,7 @@ const copy = {
     seaUnavailable: "Temperature mer indisponible",
     updated: "Mis a jour",
     provider: "Source meteo",
+    moreDetails: "Plus de details meteo",
     fallback: "La meteo est temporairement indisponible. Menton vous attend au bord de la mer.",
   },
   it: {
@@ -37,6 +39,7 @@ const copy = {
     seaUnavailable: "Temperatura mare non disponibile",
     updated: "Aggiornato",
     provider: "Fonte meteo",
+    moreDetails: "Altri dettagli meteo",
     fallback: "I dati meteo non sono temporaneamente disponibili. Mentone ti aspetta sul mare.",
   },
   uk: {
@@ -49,6 +52,7 @@ const copy = {
     seaUnavailable: "Температура моря недоступна",
     updated: "Оновлено",
     provider: "Джерело погоди",
+    moreDetails: "Більше деталей про погоду",
     fallback: "Дані про погоду тимчасово недоступні. Ментон чекає біля моря.",
   },
 } satisfies Record<Locale, Record<string, string>>;
@@ -323,6 +327,11 @@ export async function WeatherWidget({ locale }: { locale: Locale }) {
                   </dd>
                 </div>
               </dl>
+              <div className="mt-3 flex justify-end">
+                <Button href={`/${locale}/tools`} variant="secondary" className="min-h-10 px-4 py-2 text-[0.62rem]">
+                  {labels.moreDetails}
+                </Button>
+              </div>
             </>
           ) : (
             <p className="mt-4 max-w-md text-sm leading-7 text-[#695f51]">{labels.fallback}</p>
