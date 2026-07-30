@@ -5,10 +5,14 @@ import type { EuroReferenceRates, SupportedReferenceCurrency } from "@/lib/curre
 
 const customOptions: SupportedReferenceCurrency[] = ["JPY", "CAD", "AUD", "SEK", "NOK", "PLN", "GBP", "CHF", "UAH", "USD"];
 
-function CurrencyGlyph({ currency }: { currency: string }) {
+function currencySymbol(currency: string) {
+  return currency === "USD" ? "$" : currency === "GBP" ? "£" : currency === "JPY" ? "¥" : currency === "CHF" ? "Fr" : currency === "UAH" ? "₴" : currency === "CAD" ? "C$" : currency === "AUD" ? "A$" : currency.slice(0, 1);
+}
+
+function Coin({ currency }: { currency: string }) {
   return (
-    <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#d9bf89] bg-[#fff9ed] text-lg font-serif-display font-semibold text-[#173f36]" aria-hidden="true">
-      {currency === "USD" ? "$" : currency === "GBP" ? "£" : currency === "JPY" ? "¥" : currency === "CHF" ? "Fr" : currency === "UAH" ? "₴" : currency.slice(0, 1)}
+    <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#c9a665] bg-[radial-gradient(circle_at_32%_28%,#fff6cc,#d2ac61_72%)] font-serif-display text-lg font-semibold text-[#604b26] shadow-[inset_2px_2px_3px_rgba(255,255,255,0.65),inset_-2px_-2px_3px_rgba(103,69,24,0.28)]" aria-hidden="true">
+      {currencySymbol(currency)}
     </div>
   );
 }
@@ -22,10 +26,16 @@ export function EuroRatesWidget({ locale, rates }: { locale: string; rates: Euro
     uk: "Довідкові курси валют",
   };
   const notes: Record<string, string> = {
-    en: "ECB reference values for planning only. Your bank or card provider may use a different rate.",
+    en: "Reference values for planning only. Your bank or card provider may use a different rate.",
     fr: "Valeurs de reference BCE pour planifier uniquement. Votre banque peut appliquer un autre taux.",
     it: "Valori BCE indicativi per la pianificazione. La banca puo applicare un tasso diverso.",
     uk: "Довідкові значення ECB лише для планування. Ваш банк або картка можуть застосувати інший курс.",
+  };
+  const unavailable: Record<string, string> = {
+    en: "Unavailable",
+    fr: "Indisponible",
+    it: "Non disponibile",
+    uk: "Недоступно",
   };
   const fixedCurrencies: SupportedReferenceCurrency[] = ["USD", "GBP", "UAH", "CHF"];
   const rateMap = useMemo(() => new Map((rates?.rates ?? []).map((rate) => [rate.currency, rate.rate])), [rates]);
@@ -49,10 +59,13 @@ export function EuroRatesWidget({ locale, rates }: { locale: string; rates: Euro
             return (
               <div key={`${currency}-${index}`} className={`border border-white/80 p-4 ${index === 0 ? "bg-[#fff9ed]" : "bg-white/62"}`}>
                 <div className="flex items-center justify-between gap-3">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">1 EUR</p>
-                  <CurrencyGlyph currency={currency} />
+                  <div className="flex items-center gap-2">
+                    <Coin currency="EUR" />
+                    <span className="text-xl font-semibold text-[#b49353]">→</span>
+                    <Coin currency={currency} />
+                  </div>
                 </div>
-                <p className="mt-3 font-serif-display text-2xl font-semibold text-[#173f36]">{typeof rate === "number" ? `${rate.toFixed(4)} ${currency}` : "—"}</p>
+                <p className="mt-4 border border-[#173f36] bg-[#173f36] px-3 py-2 font-mono text-2xl font-semibold tracking-[0.04em] text-[#f8eecf] shadow-[inset_0_0_12px_rgba(255,255,255,0.08)]">{typeof rate === "number" ? rate.toFixed(4) : unavailable[locale] ?? unavailable.en}</p>
                 {index === cards.length - 1 ? (
                   <label className="mt-3 block">
                     <span className="sr-only">Select a reference currency</span>
@@ -61,7 +74,7 @@ export function EuroRatesWidget({ locale, rates }: { locale: string; rates: Euro
                     </select>
                   </label>
                 ) : (
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#71665b]">{currency}</p>
+                  <p className="mt-3 text-base font-semibold uppercase tracking-[0.12em] text-[#71665b]">{currency}</p>
                 )}
               </div>
             );

@@ -23,43 +23,25 @@ const selectableZones = [
   { label: "Sydney", zone: "Australia/Sydney" },
 ];
 
-function ClockFace({ date, zone }: { date: Date; zone: string }) {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    timeZone: zone,
-    hour: "numeric",
-    minute: "numeric",
-    hour12: false,
-  }).formatToParts(date);
-  const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0) % 12;
-  const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
-  const hourAngle = hour * 30 + minute * 0.5;
-  const minuteAngle = minute * 6;
-
-  return (
-    <svg className="h-16 w-16" viewBox="0 0 80 80" aria-hidden="true">
-      <circle cx="40" cy="40" r="31" fill="#fff9ed" stroke="#d9bf89" strokeWidth="2" />
-      <path d="M40 12v5M40 63v5M12 40h5M63 40h5" stroke="#d9bf89" strokeLinecap="round" strokeWidth="2" />
-      <path d="M40 40 40 23" stroke="#173f36" strokeLinecap="round" strokeWidth="4" transform={`rotate(${hourAngle} 40 40)`} />
-      <path d="M40 40 40 16" stroke="#287e8f" strokeLinecap="round" strokeWidth="2.5" transform={`rotate(${minuteAngle} 40 40)`} />
-      <circle cx="40" cy="40" r="3.5" fill="#e98524" />
-    </svg>
-  );
-}
-
 function formatTime(date: Date, zone: string) {
   return new Intl.DateTimeFormat("en-GB", { timeZone: zone, hour: "2-digit", minute: "2-digit" }).format(date);
+}
+
+function isDaytime(date: Date, zone: string) {
+  const hour = Number(new Intl.DateTimeFormat("en-GB", { timeZone: zone, hour: "numeric", hour12: false }).format(date));
+  return hour >= 7 && hour < 19;
 }
 
 export function WorldClocks({ locale }: { locale: string }) {
   const [now, setNow] = useState<Date | null>(null);
   const [selectedZone, setSelectedZone] = useState("Europe/Paris");
   const copy = {
-    en: { eyebrow: "Local time", title: "Riviera time zones", note: "Menton, Monaco, Nice and Italy share Europe/Paris time.", custom: "Your time", fixed: "World time", select: "Select your time zone" },
-    fr: { eyebrow: "Heure locale", title: "Fuseaux horaires de la Riviera", note: "Menton, Monaco, Nice et l’Italie partagent l’heure Europe/Paris.", custom: "Votre heure", fixed: "Heure locale", select: "Choisir votre fuseau horaire" },
-    it: { eyebrow: "Ora locale", title: "Fusi orari della Riviera", note: "Mentone, Monaco, Nizza e l’Italia condividono l’ora Europe/Paris.", custom: "La tua ora", fixed: "Ora locale", select: "Scegli il tuo fuso orario" },
-    uk: { eyebrow: "Місцевий час", title: "Часові пояси Рив’єри", note: "Ментон, Монако, Ніцца та Італія мають час Europe/Paris.", custom: "Ваш час", fixed: "Місцевий час", select: "Оберіть свій часовий пояс" },
+    en: { eyebrow: "Local time", title: "Riviera time zones", note: "Menton, Monaco, Nice and Italy share Europe/Paris time.", custom: "Your time", select: "Select your time zone" },
+    fr: { eyebrow: "Heure locale", title: "Fuseaux horaires de la Riviera", note: "Menton, Monaco, Nice et l’Italie partagent l’heure Europe/Paris.", custom: "Votre heure", select: "Choisir votre fuseau horaire" },
+    it: { eyebrow: "Ora locale", title: "Fusi orari della Riviera", note: "Mentone, Monaco, Nizza e l’Italia condividono l’ora Europe/Paris.", custom: "La tua ora", select: "Scegli il tuo fuso orario" },
+    uk: { eyebrow: "Місцевий час", title: "Часові пояси Рив’єри", note: "Ментон, Монако, Ніцца та Італія мають час Europe/Paris.", custom: "Ваш час", select: "Оберіть свій часовий пояс" },
   }[locale as "en" | "fr" | "it" | "uk"] ?? {
-    eyebrow: "Local time", title: "Riviera time zones", note: "Menton, Monaco, Nice and Italy share Europe/Paris time.", custom: "Your time", fixed: "World time", select: "Select your time zone",
+    eyebrow: "Local time", title: "Riviera time zones", note: "Menton, Monaco, Nice and Italy share Europe/Paris time.", custom: "Your time", select: "Select your time zone",
   };
 
   useEffect(() => {
@@ -90,12 +72,9 @@ export function WorldClocks({ locale }: { locale: string }) {
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {zones.map((clock, index) => (
-            <div key={clock.id} className={`border border-white/80 p-4 ${index === 0 ? "bg-[#fff9ed]" : "bg-white/62"}`}>
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{index === 0 ? copy.custom : copy.fixed}</p>
-                <ClockFace date={now ?? new Date(0)} zone={clock.zone} />
-              </div>
-              <p className="mt-2 font-serif-display text-3xl font-semibold text-[#173f36]">{now ? formatTime(now, clock.zone) : "--:--"}</p>
+            <div key={clock.id} className={`border border-white/80 p-5 ${now && !isDaytime(now, clock.zone) ? "bg-[#dfecef]" : index === 0 ? "bg-[#fff3cf]" : "bg-[#fffdf8]/72"}`}>
+              <p className="text-lg font-semibold text-[#173f36]">{clock.label}</p>
+              <p className="mt-5 font-mono text-4xl font-semibold tracking-[0.08em] text-[#173f36]">{now ? formatTime(now, clock.zone) : "--:--"}</p>
               {index === 0 ? (
                 <label className="mt-3 block">
                   <span className="sr-only">{copy.select}</span>
@@ -103,9 +82,7 @@ export function WorldClocks({ locale }: { locale: string }) {
                     {selectableZones.map((option) => <option key={option.zone} value={option.zone}>{option.label}</option>)}
                   </select>
                 </label>
-              ) : (
-                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.1em] text-[#71665b]">{clock.label}</p>
-              )}
+              ) : null}
             </div>
           ))}
         </div>
