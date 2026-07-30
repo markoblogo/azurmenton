@@ -105,9 +105,6 @@ const ui = {
     conditionsText: "A single planning layer for air temperature, sea temperature, 5-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
     currentConditions: "Current conditions",
     nextDays: "5-day outlook",
-    beachFlagStatus: "Beach flags",
-    beachFlagText: "No reliable timestamped flag feed is available. Check the flag shown on the beach and use the official bathing-water portal.",
-    checkOnSite: "Check on site",
     weatherToolCta: "Weather",
     seaToolCta: "Sea",
     beachesToolCta: "Beaches",
@@ -197,9 +194,6 @@ const ui = {
     conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 5 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
     currentConditions: "Conditions actuelles",
     nextDays: "Prevision 5 jours",
-    beachFlagStatus: "Drapeaux de plage",
-    beachFlagText: "Aucun flux horodate fiable pour les drapeaux. Verifiez le drapeau sur place et le portail officiel des baignades.",
-    checkOnSite: "Verifier sur place",
     weatherToolCta: "Meteo",
     seaToolCta: "Mer",
     beachesToolCta: "Plages",
@@ -289,9 +283,6 @@ const ui = {
     conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 5 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
     currentConditions: "Condizioni attuali",
     nextDays: "Prossimi 5 giorni",
-    beachFlagStatus: "Bandiere spiaggia",
-    beachFlagText: "Non esiste un feed affidabile e timestamped per le bandiere. Controlla la bandiera in spiaggia e il portale ufficiale.",
-    checkOnSite: "Controlla sul posto",
     weatherToolCta: "Meteo",
     seaToolCta: "Mare",
     beachesToolCta: "Spiagge",
@@ -381,9 +372,6 @@ const ui = {
     conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 5-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
     currentConditions: "Поточні умови",
     nextDays: "Прогноз на 5 днів",
-    beachFlagStatus: "Пляжні прапори",
-    beachFlagText: "Надійного timestamped feed для прапорів немає. Перевіряйте прапор прямо на пляжі та офіційний портал якості води.",
-    checkOnSite: "Перевірити на місці",
     weatherToolCta: "Погода",
     seaToolCta: "Море",
     beachesToolCta: "Пляжі",
@@ -842,6 +830,91 @@ function detailValue(value: number | undefined, unit: string, digits = 0) {
   return `${digits > 0 ? value.toFixed(digits) : Math.round(value)}${unit}`;
 }
 
+type MetricKind = "feelsLike" | "humidity" | "wind" | "gusts" | "uv" | "air" | "waves" | "swell";
+
+function metricTone(kind: MetricKind, value?: number) {
+  if (typeof value !== "number") return "muted";
+  if (kind === "feelsLike") return value < 10 ? "cool" : value < 24 ? "mild" : value < 32 ? "warm" : "hot";
+  if (kind === "humidity") return value < 40 ? "dry" : value < 70 ? "balanced" : value < 85 ? "humid" : "very-humid";
+  if (kind === "wind" || kind === "gusts") return value < 12 ? "calm" : value < 28 ? "breezy" : value < 50 ? "strong" : "stormy";
+  if (kind === "uv") return value <= 2 ? "low" : value <= 5 ? "moderate" : value <= 7 ? "high" : value <= 10 ? "very-high" : "extreme";
+  if (kind === "air") return value <= 50 ? "good" : value <= 100 ? "moderate" : value <= 150 ? "sensitive" : "unhealthy";
+  return waveTone(value);
+}
+
+function MetricGlyph({ kind, value }: { kind: MetricKind; value?: number }) {
+  const tone = metricTone(kind, value);
+  const colors: Record<string, string> = {
+    cool: "#5baac0",
+    mild: "#73b9c6",
+    warm: "#e98524",
+    hot: "#d75d40",
+    dry: "#c9a24e",
+    balanced: "#73b9a8",
+    humid: "#4ea8c0",
+    "very-humid": "#2c789b",
+    calm: "#73b9c6",
+    breezy: "#4ea8c0",
+    strong: "#e0a13a",
+    stormy: "#d75d40",
+    low: "#73b9a8",
+    moderate: "#e0b04f",
+    high: "#e98524",
+    "very-high": "#d75d40",
+    extreme: "#a94b55",
+    good: "#5ea66b",
+    sensitive: "#e98524",
+    unhealthy: "#d75d40",
+    flat: "#73b9c6",
+    "muted": "#b9b09e",
+  };
+  const color = colors[tone] ?? "#4ea8c0";
+
+  return (
+    <svg className="h-14 w-14 shrink-0" viewBox="0 0 64 64" aria-hidden="true">
+      {kind === "feelsLike" ? (
+        <>
+          <path d="M31 10a7 7 0 0 0-7 7v22a12 12 0 1 0 14 0V17a7 7 0 0 0-7-7Z" fill="none" stroke={color} strokeWidth="4" />
+          <path d="M31 25v22" stroke={color} strokeLinecap="round" strokeWidth="5" />
+          <circle cx="31" cy="48" r="7" fill={color} />
+        </>
+      ) : null}
+      {kind === "humidity" ? (
+        <path d="M32 8C26 18 16 28 16 39a16 16 0 0 0 32 0C48 28 38 18 32 8Z" fill="none" stroke={color} strokeWidth="4" />
+      ) : null}
+      {kind === "wind" || kind === "gusts" ? (
+        <g fill="none" stroke={color} strokeLinecap="round" strokeWidth="4">
+          <path d="M8 23h31c7 0 7-10 0-10-3 0-5 2-6 4" />
+          <path d="M8 33h43c7 0 7-10 0-10-3 0-5 2-6 4" />
+          <path d="M8 43h27c7 0 7 10 0 10-3 0-5-2-6-4" />
+        </g>
+      ) : null}
+      {kind === "uv" ? (
+        <>
+          <circle cx="32" cy="32" r="12" fill={color} />
+          <g stroke={color} strokeLinecap="round" strokeWidth="4">
+            <path d="M32 7v8M32 49v8M7 32h8M49 32h8M14 14l6 6M44 44l6 6M50 14l-6 6M20 44l-6 6" />
+          </g>
+        </>
+      ) : null}
+      {kind === "air" ? (
+        <g fill="none" stroke={color} strokeLinecap="round" strokeWidth="4">
+          <path d="M10 24h24c7 0 7-10 0-10-3 0-5 2-6 4" />
+          <path d="M10 36h38" />
+          <path d="M10 48h25c7 0 7-10 0-10" />
+        </g>
+      ) : null}
+      {kind === "waves" || kind === "swell" ? (
+        <g fill="none" stroke={color} strokeLinecap="round" strokeWidth="4">
+          <path d="M8 25c8-7 16-7 24 0s16 7 24 0" />
+          <path d="M8 37c8-7 16-7 24 0s16 7 24 0" />
+          <path d="M8 49c8-7 16-7 24 0s16 7 24 0" />
+        </g>
+      ) : null}
+    </svg>
+  );
+}
+
 function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow: Awaited<ReturnType<typeof getMentonRightNow>> }) {
   const copy = travelToolSectionCopy[locale];
   const text = ui[locale];
@@ -849,25 +922,26 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
   const marine = rightNow.marine;
   const air = rightNow.airQuality;
   const forecast = weather?.forecast ?? [];
-  const flagTone = beachFlagTone(marine?.waveHeight, weather?.rainChance);
   const detailCards = [
-    { label: text.feelsLike, value: detailValue(weather?.feelsLike, "°C"), tone: "sand" },
-    { label: text.humidity, value: detailValue(weather?.humidity, "%"), tone: "sand" },
-    { label: text.wind, value: detailValue(weather?.windSpeed, " km/h"), tone: "sand" },
-    { label: text.windGusts, value: detailValue(weather?.windGusts, " km/h"), tone: "sand" },
+    { label: text.feelsLike, value: weather?.feelsLike, formatted: detailValue(weather?.feelsLike, "°C"), kind: "feelsLike", tone: "sand" },
+    { label: text.humidity, value: weather?.humidity, formatted: detailValue(weather?.humidity, "%"), kind: "humidity", tone: "sand" },
+    { label: text.wind, value: weather?.windSpeed, formatted: detailValue(weather?.windSpeed, " km/h"), kind: "wind", tone: "sand" },
+    { label: text.windGusts, value: weather?.windGusts, formatted: detailValue(weather?.windGusts, " km/h"), kind: "gusts", tone: "sand" },
     {
       label: text.uv,
-      value:
+      value: typeof air?.uvIndex === "number" ? air.uvIndex : weather?.uvIndexMax,
+      formatted:
         typeof air?.uvIndex === "number"
           ? air.uvIndex.toFixed(1)
           : typeof weather?.uvIndexMax === "number"
             ? weather.uvIndexMax.toFixed(1)
             : "—",
+      kind: "uv",
       tone: "sea",
     },
-    { label: text.airQuality, value: typeof air?.europeanAqi === "number" ? `${air.europeanAqi}` : "—", tone: "sea" },
-    { label: text.wavesNow, value: detailValue(marine?.waveHeight, " m", 1), tone: "sea" },
-    { label: text.swellNow, value: detailValue(marine?.swellWaveHeight, " m", 1), tone: "sea" },
+    { label: text.airQuality, value: air?.europeanAqi, formatted: typeof air?.europeanAqi === "number" ? `${air.europeanAqi}` : "—", kind: "air", tone: "sea" },
+    { label: text.wavesNow, value: marine?.waveHeight, formatted: detailValue(marine?.waveHeight, " m", 1), kind: "waves", tone: "sea" },
+    { label: text.swellNow, value: marine?.swellWaveHeight, formatted: detailValue(marine?.swellWaveHeight, " m", 1), kind: "swell", tone: "sea" },
   ] as const;
 
   return (
@@ -918,20 +992,13 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
                 </div>
               </div>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <div className="border border-white/70 bg-[#fff9ed]/76 px-4 py-4">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b07820]">{text.beachFlagStatus}</p>
-                  <div className="mt-3 flex items-center gap-4">
-                    <BeachFlagGlyph tone={flagTone} />
-                    <div>
-                      <p className="text-lg font-semibold text-[#173f36]">{text.checkOnSite}</p>
-                      <p className="mt-1 text-xs leading-5 text-[#58706d]">{text.beachFlagText}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="border border-white/70 bg-[#fff9ed]/76 px-4 py-4">
+              <div className="mt-5 max-w-sm border border-white/70 bg-[#fff9ed]/76 px-4 py-4">
+                <div>
                   <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b07820]">{text.wavePeriod}</p>
-                  <p className="mt-3 text-3xl font-semibold text-[#173f36]">{detailValue(marine?.swellWavePeriod, " s", 1)}</p>
+                  <div className="mt-3 flex items-center justify-between gap-4">
+                    <p className="text-3xl font-semibold text-[#173f36]">{detailValue(marine?.swellWavePeriod, " s", 1)}</p>
+                    <MetricGlyph kind="swell" value={marine?.swellWaveHeight} />
+                  </div>
                   <p className="mt-1 text-xs leading-5 text-[#58706d]">
                     {typeof marine?.swellWaveHeight === "number" ? `${detailValue(marine.swellWaveHeight, " m", 1)} · ${text.swellNow}` : text.seaUnavailable}
                   </p>
@@ -946,7 +1013,7 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
                   {forecast.map((day) => (
                     <div
                       key={day.date}
-                      className="min-h-56 border border-white/80 bg-white/70 p-4 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]"
+                      className="border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]"
                     >
                       <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#6c7169]">{formatToolDay(locale, day.date)}</p>
                       <div className="mt-3 flex justify-center">
@@ -958,21 +1025,11 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
                       <div className="mt-3 flex justify-center">
                         <BeachFlagGlyph tone={beachFlagTone(day.waveHeight, day.rainChance)} />
                       </div>
-                      <p className="mt-2 text-xs font-medium text-[#58706d]">
-                        {text.seaForecast}: {typeof day.seaTemperature === "number" ? `${day.seaTemperature.toFixed(1)}°C` : "—"}
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[#58706d]">
-                        {text.rainForecast}: {typeof day.rainChance === "number" ? `${day.rainChance}%` : "—"}
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[#58706d]">
-                        {text.wavesNow}: {typeof day.waveHeight === "number" ? `${day.waveHeight.toFixed(1)} m` : "—"}
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[#58706d]">
-                        {text.wind}: {typeof day.windSpeedMax === "number" ? `${day.windSpeedMax} km/h` : "—"}
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[#58706d]">
-                        {text.uv}: {typeof day.uvIndexMax === "number" ? day.uvIndexMax.toFixed(1) : "—"}
-                      </p>
+                      {typeof day.seaTemperature === "number" ? <p className="mt-2 text-xs font-medium text-[#58706d]">{text.seaForecast}: {day.seaTemperature.toFixed(1)}°C</p> : null}
+                      {typeof day.rainChance === "number" ? <p className="mt-1 text-xs font-medium text-[#58706d]">{text.rainForecast}: {day.rainChance}%</p> : null}
+                      {typeof day.waveHeight === "number" ? <p className="mt-1 text-xs font-medium text-[#58706d]">{text.wavesNow}: {day.waveHeight.toFixed(1)} m</p> : null}
+                      {typeof day.windSpeedMax === "number" ? <p className="mt-1 text-xs font-medium text-[#58706d]">{text.wind}: {day.windSpeedMax} km/h</p> : null}
+                      {typeof day.uvIndexMax === "number" ? <p className="mt-1 text-xs font-medium text-[#58706d]">{text.uv}: {day.uvIndexMax.toFixed(1)}</p> : null}
                     </div>
                   ))}
                 </div>
@@ -992,7 +1049,10 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
                 }`}
               >
                 <p className={`text-[0.62rem] font-bold uppercase tracking-[0.16em] ${card.tone === "sea" ? "text-[#0b6f8f]" : "text-[#b07820]"}`}>{card.label}</p>
-                <p className="mt-2 text-2xl font-semibold text-[#173f36]">{card.value}</p>
+                <div className="mt-2 flex items-center justify-between gap-3">
+                  <p className="text-2xl font-semibold text-[#173f36]">{card.formatted}</p>
+                  <MetricGlyph kind={card.kind} value={card.value} />
+                </div>
               </div>
             ))}
           </div>
