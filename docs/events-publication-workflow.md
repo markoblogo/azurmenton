@@ -9,6 +9,7 @@ Azur Menton events use a repository-based editorial workflow. There is no admin 
 - Published repository events: `src/content/events/published/events.json`
 - Manual event inbox: `src/content/events/manual-inbox/`
 - Durable owner overrides: `src/content/events/overrides/`
+- Durable image locks: `src/content/events/overrides/image-overrides.json`
 
 Published JSON records are imported through `src/content/events/published/index.ts` and bridged into `src/content/riviera-events.ts`, so existing `/[locale]/events` filters, detail routes, sitemap logic and JSON-LD eligibility continue to use the same public event model.
 
@@ -35,10 +36,12 @@ Every prepared or borderline event includes a short `relevanceReason`.
 
 Preparation is conservative:
 
-- `approved-source` and `manual-approved` are publishable image states.
+- Event images carry both a visual kind and a rights state.
+- Publishable local kinds are `official-poster`, `official-photo`, `azur-editorial`, `category-fallback` and `location-fallback`.
+- Publishable rights states are `approved`, `official-promotional` and `manual-approved`.
 - `remote-reference` keeps the poster/image URL for editorial review but does not publish it automatically.
-- `fallback` uses an Azur Menton local fallback and marks the generated public media as `needs_review`.
 - `missing` is allowed when the UI handles an empty image cleanly.
+- Owner-approved image choices are locked in `src/content/events/overrides/image-overrides.json` so later batch preparation does not re-open the same image decision.
 
 Do not hotlink arbitrary third-party images or treat visible website images as reusable.
 
@@ -61,7 +64,16 @@ Inspect:
 ```text
 src/content/events/batches/<batch-id>/batch.json
 src/content/events/batches/<batch-id>/report.md
+src/content/events/batches/<batch-id>/publishing-queue.md
+src/content/events/batches/<batch-id>/image-queue.md
+src/content/events/batches/<batch-id>/verification-queue.md
 ```
+
+The queues separate publication readiness from image work and source verification:
+
+- `publishing-queue`: prepared records that can be created or updated explicitly.
+- `image-queue`: missing or unapproved images that need an Azur Menton illustration or an owner-approved official asset.
+- `verification-queue`: factual checks to review before relying on price, accessibility, free-entry or other claims.
 
 Dry-run:
 
@@ -78,6 +90,14 @@ npm run events:publish -- --batch <batch-id> --ids event-id-1,event-id-2
 ```
 
 Publishing without `--all`, `--city` or `--ids` is a safe no-write dry run.
+
+Attach owner-supplied event illustrations after publication:
+
+```bash
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
+```
+
+This optimizes matched images into `public/images/events/`, updates published event media and records the decision in `src/content/events/overrides/image-overrides.json`.
 
 Validate:
 

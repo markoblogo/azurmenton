@@ -8,6 +8,7 @@ const sharp = require("sharp");
 const root = path.resolve(__dirname, "..");
 const publicEventsDir = path.join(root, "public", "images", "events");
 const publishedEventsPath = path.join(root, "src", "content", "events", "published", "events.json");
+const imageOverridesPath = path.join(root, "src", "content", "events", "overrides", "image-overrides.json");
 
 function readArg(name, args = process.argv.slice(2)) {
   const index = args.indexOf(name);
@@ -59,7 +60,17 @@ function eventMediaFor(event, publicPath) {
     },
     mediaType: "project_illustration",
     mediaStatus: "available",
+    mediaSourceName: "Azur Menton",
+    mediaRightsNote: "Owner-approved Azur Menton event illustration.",
   };
+}
+
+async function readJson(filePath, fallback) {
+  try {
+    return JSON.parse(await fs.readFile(filePath, "utf8"));
+  } catch {
+    return fallback;
+  }
 }
 
 async function listAssetFiles(assetsDir) {
@@ -86,6 +97,7 @@ async function main(args = process.argv.slice(2)) {
 
   const resolvedAssetsDir = path.resolve(assetsDir);
   const events = JSON.parse(await fs.readFile(publishedEventsPath, "utf8"));
+  const imageOverrides = await readJson(imageOverridesPath, []);
   const targetEvents = events.filter((event) => !missingOnly || !event.media?.image);
   const assetFiles = await listAssetFiles(resolvedAssetsDir);
   const unmatchedAssetFiles = [];
@@ -136,6 +148,7 @@ async function main(args = process.argv.slice(2)) {
     unmatchedAssetFiles,
     alreadyCoveredAssetFiles,
     publishedEventsStillWithoutImage,
+    persistentDecisionPath: "src/content/events/overrides/image-overrides.json",
   };
 
   const reportDir = path.join(root, "build", "events-assets-postpublish");
@@ -158,8 +171,26 @@ async function main(args = process.argv.slice(2)) {
         .toFile(item.destinationPath);
       const event = events.find((candidate) => candidate.slug === item.eventSlug);
       event.media = eventMediaFor(event, item.publicPath);
+      const override = {
+        eventSlug: event.slug,
+        sourceUrl: event.sourceUrl,
+        localPath: item.publicPath,
+        kind: "azur-editorial",
+        rightsStatus: "manual-approved",
+        alt: event.media.imageAlt?.en ?? `${event.title} event image`,
+        sourceName: "Azur Menton",
+        credit: "Azur Menton",
+        rightsNote: "Owner-approved Azur Menton event illustration.",
+        approvedAt: new Date().toISOString(),
+        locked: true,
+      };
+      const overrideIndex = imageOverrides.findIndex((candidate) => candidate.eventSlug === event.slug);
+      if (overrideIndex === -1) imageOverrides.push(override);
+      else imageOverrides[overrideIndex] = { ...imageOverrides[overrideIndex], ...override };
     }
     await fs.writeFile(publishedEventsPath, `${JSON.stringify(events, null, 2)}\n`);
+    await fs.mkdir(path.dirname(imageOverridesPath), { recursive: true });
+    await fs.writeFile(imageOverridesPath, `${JSON.stringify(imageOverrides, null, 2)}\n`);
   }
 
   console.log(`events:assets ${apply ? "applied" : "report-only"}`);

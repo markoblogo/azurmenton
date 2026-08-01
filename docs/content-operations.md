@@ -68,6 +68,8 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Ingestion candidates pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain cross-source matches must remain review candidates, not silent deletes.
 - Do not copy long source descriptions or hotlink third-party images. Store factual fields and write original AzurMenton summaries during manual publication.
 - If a source changes date, venue, URL or cancellation state, preserve edited summaries and return the candidate to review rather than overwriting public copy.
+- Do not reuse existing images for new events. If no owner-approved event illustration exists, publish without media so the missing image remains visible in the image queue.
+- Owner-approved event image choices belong in `src/content/events/overrides/image-overrides.json`; later preparation passes use that file as a durable lock.
 
 ### Event batch workflow
 
@@ -92,6 +94,9 @@ The prepared JSON and human report are written to:
 ```text
 src/content/events/batches/<batch-id>/batch.json
 src/content/events/batches/<batch-id>/report.md
+src/content/events/batches/<batch-id>/publishing-queue.md
+src/content/events/batches/<batch-id>/image-queue.md
+src/content/events/batches/<batch-id>/verification-queue.md
 ```
 
 Preparation reads temporary candidates from `build/events-ingestion/events-ingestion-store.json` and optional manual JSON records from `src/content/events/manual-inbox/`. It never publishes public content.
@@ -130,10 +135,18 @@ Menton and surrounding cities use different relevance thresholds:
 
 Image handling is conservative:
 
-- approved local/project images can be published;
-- remote source images are retained as `remote-reference` for owner review only;
-- fallback images are marked `needs_review`;
+- only local/project images with an approved/manual/official-promotional rights state can be published;
+- remote source images are retained as `remote-reference` for owner review only and do not render publicly;
+- missing images stay in `image-queue` until an owner asset pack is applied;
 - never hotlink arbitrary posters or social images as event heroes.
+
+After publication, apply owner event covers with:
+
+```bash
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
+```
+
+The command writes optimized WebP files, updates `src/content/events/published/events.json` and records durable image decisions in `src/content/events/overrides/image-overrides.json`.
 
 Manual corrections should survive later ingestion. Use `src/content/events/overrides/` for durable owner-approved overrides and do not overwrite published summaries, images or exclusions just because source data changed.
 

@@ -6,9 +6,30 @@ import type { ImportedEventCandidate } from "@/lib/events-ingestion/types";
 
 export type EventEditorialScope = "menton-local" | "destination-worthy" | "borderline" | "exclude";
 export type PreparedEventImageStatus = "approved-source" | "manual-approved" | "remote-reference" | "fallback" | "missing";
+export type EventImageKind =
+  | "official-poster"
+  | "official-photo"
+  | "azur-editorial"
+  | "category-fallback"
+  | "location-fallback"
+  | "remote-reference"
+  | "missing";
+export type EventImageRightsStatus = "approved" | "official-promotional" | "manual-approved" | "unknown" | "not-approved";
+export type EventImageRecommendation =
+  | "keep-official-poster"
+  | "official-photo-suitable"
+  | "generate-azur-editorial"
+  | "manual-image-review"
+  | "fallback-acceptable"
+  | "publish-without-image";
 
 export type PreparedEventImage = {
+  id: string;
   status: PreparedEventImageStatus;
+  kind: EventImageKind;
+  rightsStatus: EventImageRightsStatus;
+  recommendation: EventImageRecommendation;
+  recommendationReason: string;
   originalUrl?: string;
   localPath?: string;
   sourceName?: string;
@@ -17,8 +38,54 @@ export type PreparedEventImage = {
   rightsNote?: string;
   width?: number;
   height?: number;
+  aspectRatio?: number;
+  fileSize?: number;
   mimeType?: string;
+  isCurrent?: boolean;
+  manuallySelected?: boolean;
+  locked?: boolean;
+  discoveredAt?: string;
+  approvedAt?: string;
+  updatedAt?: string;
   alt: string;
+};
+
+export type PublishingQueueItem = {
+  id: string;
+  slug: string;
+  title: string;
+  location: EventDiscoveryLocation;
+  startDate: string;
+  sourceUrl: string;
+  action: "publish" | "update-source" | "skip-unchanged";
+  reason: string;
+};
+
+export type ImageQueueItem = {
+  id: string;
+  slug: string;
+  title: string;
+  status: PreparedEventImageStatus;
+  kind: EventImageKind;
+  rightsStatus: EventImageRightsStatus;
+  recommendation: EventImageRecommendation;
+  sourceUrl?: string;
+  originalUrl?: string;
+  reason: string;
+};
+
+export type VerificationQueueItem = {
+  id: string;
+  slug: string;
+  title: string;
+  sourceUrl: string;
+  checks: string[];
+};
+
+export type EventQueues = {
+  publishing: PublishingQueueItem[];
+  images: ImageQueueItem[];
+  verification: VerificationQueueItem[];
 };
 
 export type LocalizedEventContent = {
@@ -35,6 +102,27 @@ export type EventManualOverrides = {
   fields: string[];
   updatedAt: string;
   note?: string;
+};
+
+export type EventImageOverride = {
+  eventSlug?: string;
+  sourceEventId?: string;
+  sourceUrl?: string;
+  localPath: string;
+  kind: Exclude<EventImageKind, "remote-reference" | "missing">;
+  rightsStatus: Extract<EventImageRightsStatus, "approved" | "official-promotional" | "manual-approved">;
+  alt?: string;
+  sourceName?: string;
+  sourceUrlForImage?: string;
+  credit?: string;
+  rightsNote?: string;
+  width?: number;
+  height?: number;
+  fileSize?: number;
+  mimeType?: string;
+  approvedAt: string;
+  updatedAt?: string;
+  locked?: boolean;
 };
 
 export type PreparedEvent = {
@@ -110,7 +198,55 @@ export type EventBatch = {
     publishedWithSourceUpdates: number;
     cancelled: number;
   };
+  queues?: EventQueues;
 };
+
+function applyEventImageOverride(input: {
+  image: PreparedEventImage;
+  eventSlug: string;
+  sourceEventId?: string;
+  sourceUrl: string;
+  title: string;
+  override?: EventImageOverride;
+}): PreparedEventImage {
+  const override = input.override;
+  if (!override) return input.image;
+  const aspectRatio = override.width && override.height ? Number((override.width / override.height).toFixed(3)) : undefined;
+  return {
+    ...input.image,
+    id: `${input.eventSlug}-manual-image`,
+    status: "manual-approved",
+    kind: override.kind,
+    rightsStatus: override.rightsStatus,
+    recommendation: override.kind === "official-poster" ? "keep-official-poster" : "official-photo-suitable",
+    recommendationReason: "Owner-approved image override is locked for this event.",
+    localPath: override.localPath,
+    sourceName: override.sourceName,
+    sourceUrl: override.sourceUrlForImage ?? input.sourceUrl,
+    credit: override.credit,
+    rightsNote: override.rightsNote ?? "Owner-approved event image.",
+    width: override.width,
+    height: override.height,
+    aspectRatio,
+    fileSize: override.fileSize,
+    mimeType: override.mimeType,
+    alt: override.alt ?? `${input.title} event image`,
+    isCurrent: true,
+    manuallySelected: true,
+    locked: override.locked ?? true,
+    approvedAt: override.approvedAt,
+    updatedAt: override.updatedAt ?? override.approvedAt,
+  };
+}
+
+function findEventImageOverride(overrides: EventImageOverride[] = [], input: { eventSlug: string; sourceEventId?: string; sourceUrl: string }) {
+  return overrides.find((override) => {
+    if (override.eventSlug && override.eventSlug === input.eventSlug) return true;
+    if (override.sourceEventId && input.sourceEventId && override.sourceEventId === input.sourceEventId) return true;
+    if (override.sourceUrl && override.sourceUrl === input.sourceUrl) return true;
+    return false;
+  });
+}
 
 export type PublishSelection = {
   all?: boolean;
@@ -208,20 +344,95 @@ function eventImage(candidate: ImportedEventCandidate, sourceName: string): Prep
   const raw = candidate.rawPayload as { imageUrl?: string } | undefined;
   if (raw?.imageUrl) {
     return {
+      id: `${candidate.id}-remote-image`,
       status: "remote-reference",
+      kind: "remote-reference",
+      rightsStatus: "unknown",
+      recommendation: "manual-image-review",
+      recommendationReason: "A source image exists, but it must be checked for official promotional use or replaced with an Azur Menton illustration before publication.",
       originalUrl: raw.imageUrl,
       sourceName,
       sourceUrl: candidate.sourceUrl,
       rightsNote: "Remote source image retained for editorial review only; not published automatically.",
+      discoveredAt: candidate.lastVerifiedAt,
+      updatedAt: candidate.lastVerifiedAt,
       alt: `${candidate.title} event image reference`,
     };
   }
 
   return {
+    id: `${candidate.id}-missing-image`,
     status: "missing",
+    kind: "missing",
+    rightsStatus: "not-approved",
+    recommendation: "generate-azur-editorial",
+    recommendationReason: "No approved event image is attached yet.",
     rightsNote: "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached.",
+    discoveredAt: candidate.lastVerifiedAt,
+    updatedAt: candidate.lastVerifiedAt,
     alt: `${candidate.title} event image placeholder`,
   };
+}
+
+export function canPublishEventImage(image: PreparedEventImage) {
+  if (!image.localPath) return false;
+  if (image.kind === "remote-reference" || image.kind === "missing") return false;
+  return ["approved", "official-promotional", "manual-approved"].includes(image.rightsStatus);
+}
+
+export function buildEventQueues(batch: Pick<EventBatch, "candidates">): EventQueues {
+  const publishing: PublishingQueueItem[] = [];
+  const images: ImageQueueItem[] = [];
+  const verification: VerificationQueueItem[] = [];
+
+  for (const event of batch.candidates) {
+    const action: PublishingQueueItem["action"] =
+      event.publicationState === "unchanged" ? "skip-unchanged" : event.publicationState === "updated" ? "update-source" : "publish";
+    publishing.push({
+      id: event.id,
+      slug: event.slug,
+      title: event.titleCanonical,
+      location: event.location,
+      startDate: event.startDate,
+      sourceUrl: event.sourceUrl,
+      action,
+      reason: event.relevanceReason,
+    });
+
+    if (!canPublishEventImage(event.image)) {
+      images.push({
+        id: event.id,
+        slug: event.slug,
+        title: event.titleCanonical,
+        status: event.image.status,
+        kind: event.image.kind,
+        rightsStatus: event.image.rightsStatus,
+        recommendation: event.image.recommendation,
+        sourceUrl: event.image.sourceUrl,
+        originalUrl: event.image.originalUrl,
+        reason: event.image.recommendationReason,
+      });
+    }
+
+    const checks = [
+      event.sourceUrl.startsWith("https://") ? undefined : "replace non-HTTPS source URL",
+      event.warnings.length ? "review ingestion/editorial warnings" : undefined,
+      event.accessibilityConfirmed === null ? "avoid accessibility claims unless confirmed" : undefined,
+      event.isFree === null || event.isFree === undefined ? "avoid free-entry claims unless confirmed" : undefined,
+    ].filter(Boolean) as string[];
+
+    if (checks.length) {
+      verification.push({
+        id: event.id,
+        slug: event.slug,
+        title: event.titleCanonical,
+        sourceUrl: event.sourceUrl,
+        checks,
+      });
+    }
+  }
+
+  return { publishing, images, verification };
 }
 
 function localizedContent(candidate: ImportedEventCandidate, editorialNote: string): PreparedEvent["localized"] {
@@ -343,6 +554,7 @@ export function prepareEventBatch(input: {
   candidates: ImportedEventCandidate[];
   sourceRuns?: EventBatch["sourceRuns"];
   existingEvents?: RivieraEvent[];
+  imageOverrides?: EventImageOverride[];
   createdAt?: string;
   id?: string;
   sourceNames?: Record<string, string>;
@@ -410,7 +622,15 @@ export function prepareEventBatch(input: {
       continue;
     }
 
-    const image = eventImage(candidate, sourceName);
+    const rawPayload = candidate.rawPayload as { isFree?: boolean | null; priceText?: string; programmeUrl?: string; bookingUrl?: string } | undefined;
+    const image = applyEventImageOverride({
+      image: eventImage(candidate, sourceName),
+      eventSlug: slugBase,
+      sourceEventId: candidate.sourceEventId,
+      sourceUrl: candidate.sourceUrl,
+      title: candidate.title,
+      override: findEventImageOverride(input.imageOverrides, { eventSlug: slugBase, sourceEventId: candidate.sourceEventId, sourceUrl: candidate.sourceUrl }),
+    });
     const editorialNote = candidate.editorialNote ?? relevance.reason;
     prepared.push({
       id: `${slugBase}-${shortHash(candidate.id)}`,
@@ -437,6 +657,10 @@ export function prepareEventBatch(input: {
       isOutdoor: candidate.editorialSuggestion.suitability.outdoor,
       isRainyDayOption: candidate.editorialSuggestion.suitability.rainyDayOption,
       bookingRecommended: candidate.editorialSuggestion.suitability.bookingRecommended,
+      isFree: rawPayload?.isFree ?? null,
+      priceText: rawPayload?.priceText,
+      programmeUrl: rawPayload?.programmeUrl,
+      bookingUrl: rawPayload?.bookingUrl,
       accessibilityConfirmed: null,
       image,
       localized: localizedContent(candidate, editorialNote),
@@ -447,6 +671,8 @@ export function prepareEventBatch(input: {
       publicationState,
     });
   }
+
+  const queues = buildEventQueues({ candidates: prepared });
 
   return {
     id,
@@ -462,16 +688,18 @@ export function prepareEventBatch(input: {
       borderline: countByLocation(borderline),
       excluded: excluded.length,
       duplicates: duplicates.length,
-      missingApprovedImage: prepared.filter((event) => event.image.status !== "approved-source" && event.image.status !== "manual-approved").length,
+      missingApprovedImage: prepared.filter((event) => !canPublishEventImage(event.image)).length,
       requiresFactualVerification: prepared.filter((event) => event.warnings.length > 0).length,
       alreadyPublishedUnchanged,
       publishedWithSourceUpdates,
       cancelled,
     },
+    queues,
   };
 }
 
 export function eventBatchReportMarkdown(batch: EventBatch) {
+  const queues = batch.queues ?? buildEventQueues(batch);
   const lines = [
     `# Event batch ${batch.id}`,
     "",
@@ -485,6 +713,9 @@ export function eventBatchReportMarkdown(batch: EventBatch) {
     `Probable duplicates: ${batch.duplicates.length}`,
     `Missing approved image: ${batch.statistics.missingApprovedImage}`,
     `Requires factual verification: ${batch.statistics.requiresFactualVerification}`,
+    `Publishing queue: ${queues.publishing.length}`,
+    `Image queue: ${queues.images.length}`,
+    `Verification queue: ${queues.verification.length}`,
     "",
     "## Prepared",
     "",
@@ -493,7 +724,8 @@ export function eventBatchReportMarkdown(batch: EventBatch) {
       `   Date: ${event.startDate}${event.endDate ? `-${event.endDate}` : ""}`,
       `   Venue: ${event.venue ?? "unknown"}`,
       `   Scope: ${event.editorialScope}`,
-      `   Image: ${event.image.status}`,
+      `   Image: ${event.image.status} / ${event.image.kind} / ${event.image.rightsStatus}`,
+      `   Image action: ${event.image.recommendation}`,
       `   Source: ${event.sourceUrl}`,
       `   Warnings: ${event.warnings.length ? event.warnings.join("; ") : "none"}`,
     ]),
@@ -506,6 +738,22 @@ export function eventBatchReportMarkdown(batch: EventBatch) {
     "",
     ...batch.excluded.slice(0, 50).map((event) => `- [${event.location ?? "unknown"}] ${event.title}: ${event.reason}`),
   ];
+  return `${lines.join("\n")}\n`;
+}
+
+function queueMarkdown(title: string, rows: Array<Record<string, unknown>>) {
+  const lines = [`# ${title}`, ""];
+  if (!rows.length) {
+    lines.push("No items.");
+    return `${lines.join("\n")}\n`;
+  }
+  for (const [index, row] of rows.entries()) {
+    lines.push(`${index + 1}. ${String(row.title ?? row.slug ?? row.id)}`);
+    for (const [key, value] of Object.entries(row)) {
+      if (["title"].includes(key) || value === undefined) continue;
+      lines.push(`   ${key}: ${Array.isArray(value) ? value.join("; ") : String(value)}`);
+    }
+  }
   return `${lines.join("\n")}\n`;
 }
 
@@ -528,12 +776,24 @@ export function eventsContentRoot(rootDir = process.cwd()) {
 
 export async function writePreparedBatch(batch: EventBatch, rootDir = process.cwd()) {
   const batchDir = path.join(eventsContentRoot(rootDir), "batches", batch.id);
-  await writeJsonFile(path.join(batchDir, "batch.json"), batch);
+  const queues = batch.queues ?? buildEventQueues(batch);
+  await writeJsonFile(path.join(batchDir, "batch.json"), { ...batch, queues });
   await fs.writeFile(path.join(batchDir, "report.md"), eventBatchReportMarkdown(batch), "utf8");
+  await writeJsonFile(path.join(batchDir, "publishing-queue.json"), queues.publishing);
+  await writeJsonFile(path.join(batchDir, "image-queue.json"), queues.images);
+  await writeJsonFile(path.join(batchDir, "verification-queue.json"), queues.verification);
+  await fs.writeFile(path.join(batchDir, "publishing-queue.md"), queueMarkdown("Publishing queue", queues.publishing), "utf8");
+  await fs.writeFile(path.join(batchDir, "image-queue.md"), queueMarkdown("Image queue", queues.images), "utf8");
+  await fs.writeFile(path.join(batchDir, "verification-queue.md"), queueMarkdown("Verification queue", queues.verification), "utf8");
   return {
     batchDir,
     jsonPath: path.join(batchDir, "batch.json"),
     reportPath: path.join(batchDir, "report.md"),
+    queuePaths: [
+      path.join(batchDir, "publishing-queue.json"),
+      path.join(batchDir, "image-queue.json"),
+      path.join(batchDir, "verification-queue.json"),
+    ],
   };
 }
 
@@ -606,7 +866,7 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
     searchIndexing: "standard",
     lastChecked: event.lastVerifiedAt,
     lastVerifiedAt: event.lastVerifiedAt,
-    media: event.image.localPath
+    media: canPublishEventImage(event.image)
       ? {
           image: event.image.localPath,
           imageAlt: {
@@ -623,6 +883,8 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
           },
           mediaType: "project_illustration",
           mediaStatus: event.image.status === "fallback" ? "needs_review" : "available",
+          mediaSourceName: event.image.sourceName,
+          mediaRightsNote: event.image.rightsNote,
         }
       : undefined,
   };

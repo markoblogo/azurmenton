@@ -63,6 +63,7 @@ npm run content:report
 npm run events:ingest
 npm run events:prepare -- --latest
 npm run events:publish -- --batch <batch-id> --all --dry-run
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply
 npm run events:review
 npm run seo:priorities
 ```
@@ -115,6 +116,7 @@ Important:
 - never commit real iCal URLs;
 - never expose iCal URLs client-side;
 - keep Plausible Stats API keys local-only;
+- never hotlink third-party event posters; use event image queues and owner-approved asset packs;
 - do not commit `.env.local`.
 
 ## Main route families

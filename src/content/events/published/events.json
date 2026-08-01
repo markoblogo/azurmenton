@@ -1,5 +1,139 @@
 [
   {
+    "id": "bibliotheque-a-la-plage-menton-2026-07-01-1hwqyb4",
+    "slug": "bibliotheque-a-la-plage-menton-2026-07-01",
+    "title": "Beach library in Menton",
+    "titleLocalized": {
+      "en": "Beach library in Menton",
+      "fr": "Beach library in Menton",
+      "it": "Beach library in Menton",
+      "uk": "Beach library in Menton"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-01-2026-08-31",
+    "dateLabelLocalized": {
+      "en": "2026-07-01-2026-08-31",
+      "fr": "2026-07-01-2026-08-31",
+      "it": "2026-07-01-2026-08-31",
+      "uk": "2026-07-01-2026-08-31"
+    },
+    "startDate": "2026-07-01",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "beach",
+      "family",
+      "books"
+    ],
+    "shortDescription": {
+      "en": "A seasonal beach library on Esplanade Francis Palmero with books for adults and children, useful for relaxed beach days and family downtime.",
+      "fr": "A seasonal beach library on Esplanade Francis Palmero with books for adults and children, useful for relaxed beach days and family downtime.",
+      "it": "A seasonal beach library on Esplanade Francis Palmero with books for adults and children, useful for relaxed beach days and family downtime.",
+      "uk": "A seasonal beach library on Esplanade Francis Palmero with books for adults and children, useful for relaxed beach days and family downtime."
+    },
+    "whyShowOnSite": {
+      "en": "Practical free summer stop near the seafront; verify opening days on the official page.",
+      "fr": "Practical free summer stop near the seafront; verify opening days on the official page.",
+      "it": "Practical free summer stop near the seafront; verify opening days on the official page.",
+      "uk": "Practical free summer stop near the seafront; verify opening days on the official page."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/bibliotheque-a-la-plage-menton-fr-5003608/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/bibliotheque-a-la-plage-menton-fr-5003608/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
+    "slug": "grande-roue-de-menton-menton-2026-07-01",
+    "title": "Menton Ferris wheel",
+    "titleLocalized": {
+      "en": "Menton Ferris wheel",
+      "fr": "Menton Ferris wheel",
+      "it": "Menton Ferris wheel",
+      "uk": "Menton Ferris wheel"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-01-2026-08-31",
+    "dateLabelLocalized": {
+      "en": "2026-07-01-2026-08-31",
+      "fr": "2026-07-01-2026-08-31",
+      "it": "2026-07-01-2026-08-31",
+      "uk": "2026-07-01-2026-08-31"
+    },
+    "startDate": "2026-07-01",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "family",
+      "seafront",
+      "summer"
+    ],
+    "shortDescription": {
+      "en": "A summer Ferris wheel at Espace Rondelli, easy to combine with Sablettes, the old town and an evening walk along Menton's seafront.",
+      "fr": "A summer Ferris wheel at Espace Rondelli, easy to combine with Sablettes, the old town and an evening walk along Menton's seafront.",
+      "it": "A summer Ferris wheel at Espace Rondelli, easy to combine with Sablettes, the old town and an evening walk along Menton's seafront.",
+      "uk": "A summer Ferris wheel at Espace Rondelli, easy to combine with Sablettes, the old town and an evening walk along Menton's seafront."
+    },
+    "whyShowOnSite": {
+      "en": "Simple visual summer attraction for families and evening walks; check official hours before going.",
+      "fr": "Simple visual summer attraction for families and evening walks; check official hours before going.",
+      "it": "Simple visual summer attraction for families and evening walks; check official hours before going.",
+      "uk": "Simple visual summer attraction for families and evening walks; check official hours before going."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/grande-roue-de-menton-menton-fr-5813862/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/grande-roue-de-menton-menton-fr-5813862/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
     "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
     "slug": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12",
     "title": "La Farandole – Festival International de Folklore de Nice",
@@ -140,6 +274,210 @@
       "mediaType": "project_illustration",
       "mediaStatus": "available"
     }
+  },
+  {
+    "id": "le-train-touristique-de-menton-menton-2026-06-01-1q3nypc",
+    "slug": "le-train-touristique-de-menton-menton-2026-06-01",
+    "title": "Menton tourist train",
+    "titleLocalized": {
+      "en": "Menton tourist train",
+      "fr": "Menton tourist train",
+      "it": "Menton tourist train",
+      "uk": "Menton tourist train"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-06",
+    "dateLabel": "2026-06-01-2026-08-31",
+    "dateLabelLocalized": {
+      "en": "2026-06-01-2026-08-31",
+      "fr": "2026-06-01-2026-08-31",
+      "it": "2026-06-01-2026-08-31",
+      "uk": "2026-06-01-2026-08-31"
+    },
+    "startDate": "2026-06-01",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "sightseeing",
+      "family",
+      "old town"
+    ],
+    "shortDescription": {
+      "en": "A 45-minute narrated tourist train route from Esplanade Francis Palmero through the old town, seafront and higher viewpoints, useful for a low-effort overview of Menton.",
+      "fr": "A 45-minute narrated tourist train route from Esplanade Francis Palmero through the old town, seafront and higher viewpoints, useful for a low-effort overview of Menton.",
+      "it": "A 45-minute narrated tourist train route from Esplanade Francis Palmero through the old town, seafront and higher viewpoints, useful for a low-effort overview of Menton.",
+      "uk": "A 45-minute narrated tourist train route from Esplanade Francis Palmero through the old town, seafront and higher viewpoints, useful for a low-effort overview of Menton."
+    },
+    "whyShowOnSite": {
+      "en": "Good first-day orientation tool, especially for guests travelling with children or limited walking energy.",
+      "fr": "Good first-day orientation tool, especially for guests travelling with children or limited walking energy.",
+      "it": "Good first-day orientation tool, especially for guests travelling with children or limited walking energy.",
+      "uk": "Good first-day orientation tool, especially for guests travelling with children or limited walking energy."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/le-train-touristique-de-menton-menton-fr-6331813/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/le-train-touristique-de-menton-menton-fr-6331813/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "les-visites-surprises-de-menton-menton-2026-07-04-1h6x5ax",
+    "slug": "les-visites-surprises-de-menton-menton-2026-07-04",
+    "title": "Menton surprise guided visits",
+    "titleLocalized": {
+      "en": "Menton surprise guided visits",
+      "fr": "Menton surprise guided visits",
+      "it": "Menton surprise guided visits",
+      "uk": "Menton surprise guided visits"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-04-2026-08-29",
+    "dateLabelLocalized": {
+      "en": "2026-07-04-2026-08-29",
+      "fr": "2026-07-04-2026-08-29",
+      "it": "2026-07-04-2026-08-29",
+      "uk": "2026-07-04-2026-08-29"
+    },
+    "startDate": "2026-07-04",
+    "endDate": "2026-08-29",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "art",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "old town",
+      "guided visit",
+      "culture"
+    ],
+    "shortDescription": {
+      "en": "A theatrical guided visit starting by Saint-Michel, designed as a different way to discover Menton's old town and heritage during the summer.",
+      "fr": "A theatrical guided visit starting by Saint-Michel, designed as a different way to discover Menton's old town and heritage during the summer.",
+      "it": "A theatrical guided visit starting by Saint-Michel, designed as a different way to discover Menton's old town and heritage during the summer.",
+      "uk": "A theatrical guided visit starting by Saint-Michel, designed as a different way to discover Menton's old town and heritage during the summer."
+    },
+    "whyShowOnSite": {
+      "en": "Useful for guests who want a structured old-town walk rather than a self-guided route.",
+      "fr": "Useful for guests who want a structured old-town walk rather than a self-guided route.",
+      "it": "Useful for guests who want a structured old-town walk rather than a self-guided route.",
+      "uk": "Useful for guests who want a structured old-town walk rather than a self-guided route."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/les-visites-surprises-de-menton-menton-fr-6587775/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/les-visites-surprises-de-menton-menton-fr-6587775/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "miss-rainette-et-le-mystere-de-la-statue-menton-2026-08-01-8rs8fp",
+    "slug": "miss-rainette-et-le-mystere-de-la-statue-menton-2026-08-01",
+    "title": "Miss Rainette family garden mystery",
+    "titleLocalized": {
+      "en": "Miss Rainette family garden mystery",
+      "fr": "Miss Rainette family garden mystery",
+      "it": "Miss Rainette family garden mystery",
+      "uk": "Miss Rainette family garden mystery"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-01-2026-09-30",
+    "dateLabelLocalized": {
+      "en": "2026-08-01-2026-09-30",
+      "fr": "2026-08-01-2026-09-30",
+      "it": "2026-08-01-2026-09-30",
+      "uk": "2026-08-01-2026-09-30"
+    },
+    "startDate": "2026-08-01",
+    "endDate": "2026-09-30",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "kids",
+      "gardens",
+      "family"
+    ],
+    "shortDescription": {
+      "en": "A self-guided family mystery trail at Serre de la Madone, built for children and adults to explore the garden through clues, statues and small challenges.",
+      "fr": "A self-guided family mystery trail at Serre de la Madone, built for children and adults to explore the garden through clues, statues and small challenges.",
+      "it": "A self-guided family mystery trail at Serre de la Madone, built for children and adults to explore the garden through clues, statues and small challenges.",
+      "uk": "A self-guided family mystery trail at Serre de la Madone, built for children and adults to explore the garden through clues, statues and small challenges."
+    },
+    "whyShowOnSite": {
+      "en": "Good family activity when guests want something more structured than another beach session.",
+      "fr": "Good family activity when guests want something more structured than another beach session.",
+      "it": "Good family activity when guests want something more structured than another beach session.",
+      "uk": "Good family activity when guests want something more structured than another beach session."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/miss-rainette-et-le-mystere-de-la-statue-menton-fr-6702200/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/miss-rainette-et-le-mystere-de-la-statue-menton-fr-6702200/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
   },
   {
     "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
@@ -585,5 +923,279 @@
       "mediaType": "project_illustration",
       "mediaStatus": "available"
     }
+  },
+  {
+    "id": "village-d-ete-menton-2026-06-29-gt97zc",
+    "slug": "village-d-ete-menton-2026-06-29",
+    "title": "Menton Summer Village",
+    "titleLocalized": {
+      "en": "Menton Summer Village",
+      "fr": "Menton Summer Village",
+      "it": "Menton Summer Village",
+      "uk": "Menton Summer Village"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-06",
+    "dateLabel": "2026-06-29-2026-08-31",
+    "dateLabelLocalized": {
+      "en": "2026-06-29-2026-08-31",
+      "fr": "2026-06-29-2026-08-31",
+      "it": "2026-06-29-2026-08-31",
+      "uk": "2026-06-29-2026-08-31"
+    },
+    "startDate": "2026-06-29",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "family",
+      "seasonal",
+      "food-local"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "summer",
+      "families",
+      "seafront"
+    ],
+    "shortDescription": {
+      "en": "A summer seafront village with casual food, drinks and family activities on Esplanade Elisée Reclus, useful for guests looking for an easy evening stop in central Menton.",
+      "fr": "A summer seafront village with casual food, drinks and family activities on Esplanade Elisée Reclus, useful for guests looking for an easy evening stop in central Menton.",
+      "it": "A summer seafront village with casual food, drinks and family activities on Esplanade Elisée Reclus, useful for guests looking for an easy evening stop in central Menton.",
+      "uk": "A summer seafront village with casual food, drinks and family activities on Esplanade Elisée Reclus, useful for guests looking for an easy evening stop in central Menton."
+    },
+    "whyShowOnSite": {
+      "en": "Good low-friction option for families already walking along the seafront; check the official listing for current hours.",
+      "fr": "Good low-friction option for families already walking along the seafront; check the official listing for current hours.",
+      "it": "Good low-friction option for families already walking along the seafront; check the official listing for current hours.",
+      "uk": "Good low-friction option for families already walking along the seafront; check the official listing for current hours."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/village-dete-menton-fr-6632896/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/village-dete-menton-fr-6632896/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "visite-guidee-atelier-parfum-fragonard-menton-2026-07-01-1tv8fua",
+    "slug": "visite-guidee-atelier-parfum-fragonard-menton-2026-07-01",
+    "title": "Fragonard perfume workshop at Serre de la Madone",
+    "titleLocalized": {
+      "en": "Fragonard perfume workshop at Serre de la Madone",
+      "fr": "Fragonard perfume workshop at Serre de la Madone",
+      "it": "Fragonard perfume workshop at Serre de la Madone",
+      "uk": "Fragonard perfume workshop at Serre de la Madone"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-01-2026-08-31",
+    "dateLabelLocalized": {
+      "en": "2026-07-01-2026-08-31",
+      "fr": "2026-07-01-2026-08-31",
+      "it": "2026-07-01-2026-08-31",
+      "uk": "2026-07-01-2026-08-31"
+    },
+    "startDate": "2026-07-01",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "art",
+      "seasonal"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "menton",
+      "gardens",
+      "workshop",
+      "perfume"
+    ],
+    "shortDescription": {
+      "en": "A guided garden visit paired with a Fragonard perfume workshop at Serre de la Madone, suited to guests who want a more distinctive booked activity in Menton.",
+      "fr": "A guided garden visit paired with a Fragonard perfume workshop at Serre de la Madone, suited to guests who want a more distinctive booked activity in Menton.",
+      "it": "A guided garden visit paired with a Fragonard perfume workshop at Serre de la Madone, suited to guests who want a more distinctive booked activity in Menton.",
+      "uk": "A guided garden visit paired with a Fragonard perfume workshop at Serre de la Madone, suited to guests who want a more distinctive booked activity in Menton."
+    },
+    "whyShowOnSite": {
+      "en": "Good premium summer activity; keep booking and accessibility claims tied to the official listing.",
+      "fr": "Good premium summer activity; keep booking and accessibility claims tied to the official listing.",
+      "it": "Good premium summer activity; keep booking and accessibility claims tied to the official listing.",
+      "uk": "Good premium summer activity; keep booking and accessibility claims tied to the official listing."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-atelier-parfum-fragonard-menton-fr-6630577/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-atelier-parfum-fragonard-menton-fr-6630577/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "visite-guidee-du-domaine-gannac-en-anglais-menton-2026-06-30-p1ao9p",
+    "slug": "visite-guidee-du-domaine-gannac-en-anglais-menton-2026-06-30",
+    "title": "Maison Gannac English guided visit",
+    "titleLocalized": {
+      "en": "Maison Gannac English guided visit",
+      "fr": "Maison Gannac English guided visit",
+      "it": "Maison Gannac English guided visit",
+      "uk": "Maison Gannac English guided visit"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-06",
+    "dateLabel": "2026-06-30-2026-08-29",
+    "dateLabelLocalized": {
+      "en": "2026-06-30-2026-08-29",
+      "fr": "2026-06-30-2026-08-29",
+      "it": "2026-06-30-2026-08-29",
+      "uk": "2026-06-30-2026-08-29"
+    },
+    "startDate": "2026-06-30",
+    "endDate": "2026-08-29",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "food-local",
+      "family",
+      "seasonal"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "lemon",
+      "guided visit",
+      "food"
+    ],
+    "shortDescription": {
+      "en": "An English-language guided visit at Maison Gannac with citrus-grove context and a tasting, especially useful for visitors who want a local Menton lemon experience without needing French.",
+      "fr": "An English-language guided visit at Maison Gannac with citrus-grove context and a tasting, especially useful for visitors who want a local Menton lemon experience without needing French.",
+      "it": "An English-language guided visit at Maison Gannac with citrus-grove context and a tasting, especially useful for visitors who want a local Menton lemon experience without needing French.",
+      "uk": "An English-language guided visit at Maison Gannac with citrus-grove context and a tasting, especially useful for visitors who want a local Menton lemon experience without needing French."
+    },
+    "whyShowOnSite": {
+      "en": "Strong Menton-specific experience for guests interested in local produce; booking and access should be checked before travel.",
+      "fr": "Strong Menton-specific experience for guests interested in local produce; booking and access should be checked before travel.",
+      "it": "Strong Menton-specific experience for guests interested in local produce; booking and access should be checked before travel.",
+      "uk": "Strong Menton-specific experience for guests interested in local produce; booking and access should be checked before travel."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-du-domaine-gannac-en-anglais-menton-fr-6568973/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-du-domaine-gannac-en-anglais-menton-fr-6568973/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-2026-07-01-8vl73p",
+    "slug": "visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-2026-07-01",
+    "title": "Villa Maria Serena night garden visits",
+    "titleLocalized": {
+      "en": "Villa Maria Serena night garden visits",
+      "fr": "Villa Maria Serena night garden visits",
+      "it": "Villa Maria Serena night garden visits",
+      "uk": "Villa Maria Serena night garden visits"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-01-2026-08-29",
+    "dateLabelLocalized": {
+      "en": "2026-07-01-2026-08-29",
+      "fr": "2026-07-01-2026-08-29",
+      "it": "2026-07-01-2026-08-29",
+      "uk": "2026-07-01-2026-08-29"
+    },
+    "startDate": "2026-07-01",
+    "endDate": "2026-08-29",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "art",
+      "seasonal",
+      "family"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "gardens",
+      "evening",
+      "summer"
+    ],
+    "shortDescription": {
+      "en": "Evening guided visits of Jardin Maria Serena, giving guests a cooler summer way to see one of Menton's most atmospheric gardens after the heat drops.",
+      "fr": "Evening guided visits of Jardin Maria Serena, giving guests a cooler summer way to see one of Menton's most atmospheric gardens after the heat drops.",
+      "it": "Evening guided visits of Jardin Maria Serena, giving guests a cooler summer way to see one of Menton's most atmospheric gardens after the heat drops.",
+      "uk": "Evening guided visits of Jardin Maria Serena, giving guests a cooler summer way to see one of Menton's most atmospheric gardens after the heat drops."
+    },
+    "whyShowOnSite": {
+      "en": "Useful for warm summer evenings and Garavan-area stays; confirm exact visit slots and booking with the official source.",
+      "fr": "Useful for warm summer evenings and Garavan-area stays; confirm exact visit slots and booking with the official source.",
+      "it": "Useful for warm summer evenings and Garavan-area stays; confirm exact visit slots and booking with the official source.",
+      "uk": "Useful for warm summer evenings and Garavan-area stays; confirm exact visit slots and booking with the official source."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-fr-5822606/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-fr-5822606/",
+    "ticketsUrl": "https://boutique.menton-riviera-merveilles.fr/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
   }
 ]

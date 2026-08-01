@@ -8,7 +8,10 @@ import {
   eventBatchId,
   eventBatchReportMarkdown,
   evaluateEventRelevance,
+  buildEventQueues,
+  canPublishEventImage,
   prepareEventBatch,
+  preparedEventToPublishedRecord,
   publishEventBatch,
   writePreparedBatch,
 } from "../../src/lib/events-publication/workflow";
@@ -73,8 +76,80 @@ describe("events publication workflow", () => {
       },
     });
     expect(batch.candidates[1].image.status).toBe("remote-reference");
+    expect(batch.candidates[1].image).toMatchObject({
+      kind: "remote-reference",
+      rightsStatus: "unknown",
+      recommendation: "manual-image-review",
+    });
     expect(batch.statistics.missingApprovedImage).toBe(2);
     expect(eventBatchReportMarkdown(batch)).toContain("Prepared for publication: 2");
+    expect(batch.queues?.images).toHaveLength(2);
+  });
+
+  it("keeps remote reference images out of public event media until approved", () => {
+    const batch = prepareEventBatch({
+      candidates: [
+        candidate({
+          title: "International Art Festival",
+          city: "monaco",
+          sourceEventId: "monaco-art",
+          imageUrl: "https://example.com/poster.jpg",
+        }),
+      ],
+    });
+    const event = batch.candidates[0];
+
+    expect(canPublishEventImage(event.image)).toBe(false);
+    expect(preparedEventToPublishedRecord(event).media).toBeUndefined();
+  });
+
+  it("publishes local approved event images and puts unresolved images into the image queue", () => {
+    const batch = prepareEventBatch({ candidates: [candidate({ title: "Menton music evening" })] });
+    const event = batch.candidates[0];
+    event.image = {
+      ...event.image,
+      id: "approved-image",
+      status: "manual-approved",
+      kind: "azur-editorial",
+      rightsStatus: "manual-approved",
+      recommendation: "keep-official-poster",
+      recommendationReason: "Owner-approved Azur Menton event illustration.",
+      localPath: "/images/events/menton-music-evening.webp",
+      manuallySelected: true,
+      approvedAt: "2026-08-01T12:00:00.000Z",
+    };
+
+    expect(canPublishEventImage(event.image)).toBe(true);
+    expect(preparedEventToPublishedRecord(event).media).toMatchObject({
+      image: "/images/events/menton-music-evening.webp",
+      mediaStatus: "available",
+    });
+    expect(buildEventQueues(batch).images).toEqual([]);
+  });
+
+  it("applies durable owner image overrides during batch preparation", () => {
+    const batch = prepareEventBatch({
+      candidates: [candidate({ title: "Menton summer fireworks", sourceEventId: "fireworks-1" })],
+      imageOverrides: [{
+        sourceEventId: "fireworks-1",
+        localPath: "/images/events/menton-summer-fireworks.webp",
+        kind: "azur-editorial",
+        rightsStatus: "manual-approved",
+        alt: "Menton summer fireworks illustration",
+        approvedAt: "2026-08-01T12:00:00.000Z",
+        locked: true,
+      }],
+    });
+
+    expect(batch.candidates[0].image).toMatchObject({
+      status: "manual-approved",
+      kind: "azur-editorial",
+      rightsStatus: "manual-approved",
+      localPath: "/images/events/menton-summer-fireworks.webp",
+      locked: true,
+    });
+    expect(batch.statistics.missingApprovedImage).toBe(0);
+    expect(batch.queues?.images).toEqual([]);
   });
 
   it("consolidates source-fragmented multi-day records into one prepared event", () => {

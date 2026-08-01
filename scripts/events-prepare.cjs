@@ -50,7 +50,7 @@ async function loadManualInbox(nowIso) {
     const items = Array.isArray(value) ? value : [value];
     for (const item of items) {
       if (!item?.title || !item?.sourceUrl) continue;
-      records.push(candidateFromRaw({
+      const candidate = candidateFromRaw({
         sourceId: item.sourceId ?? `manual-${item.city ?? "menton"}`,
         sourceEventId: item.sourceEventId,
         title: item.title,
@@ -62,7 +62,16 @@ async function loadManualInbox(nowIso) {
         categoryLabel: item.categoryLabel,
         imageUrl: item.imageUrl,
         rawPayload: item,
-      }, nowIso));
+      }, nowIso);
+      if (item.publicTitle) candidate.publicTitle = item.publicTitle;
+      if (item.publicSummary) candidate.publicSummary = item.publicSummary;
+      if (item.editorialNote) candidate.editorialNote = item.editorialNote;
+      if (Array.isArray(item.tags)) candidate.editorialSuggestion.suggestedTags = item.tags;
+      if (Array.isArray(item.category)) candidate.category = item.category;
+      if (item.suitability) candidate.editorialSuggestion.suitability = { ...candidate.editorialSuggestion.suitability, ...item.suitability };
+      if (Array.isArray(item.warnings)) candidate.editorialSuggestion.warnings = item.warnings;
+      else if (item.publicSummary) candidate.editorialSuggestion.warnings = [];
+      records.push(candidate);
     }
   }
   return records;
@@ -76,6 +85,7 @@ async function main() {
   const report = await readJson(path.join(ingestionDir, "events-ingestion-report.json"), { results: [] });
   const nowIso = new Date().toISOString();
   const manualCandidates = await loadManualInbox(nowIso);
+  const imageOverrides = await readJson(path.join(root, "src", "content", "events", "overrides", "image-overrides.json"), []);
   const sourceNames = Object.fromEntries(eventSources.map((source) => [source.id, source.name]));
   const candidates = [...(store.candidates ?? []), ...manualCandidates]
     .filter((candidate) => !args.source || candidate.sourceId === args.source)
@@ -86,6 +96,7 @@ async function main() {
   const batch = prepareEventBatch({
     candidates,
     existingEvents: rivieraEvents,
+    imageOverrides,
     sourceNames,
     sourceRuns: (report.results ?? []).map((result) => ({
       sourceId: result.sourceId,
