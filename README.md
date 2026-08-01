@@ -151,15 +151,6 @@ Supported locales: `en`, `fr`, `it`, `uk`.
 - Manual request flow: `src/components/booking/`, `src/app/actions/booking-request.ts`, `src/app/api/booking-request/route.ts`
 - Read-only availability layer: `src/lib/availability/`, `src/components/availability/`, `src/app/api/availability/`
 
-### Events
-
-- Public events are typed in `src/content/riviera-events.ts`.
-- Event source metadata lives in `src/content/event-sources.ts`.
-- Official-source ingestion is review-first: `npm run events:ingest` writes temporary diagnostics and candidates under `build/events-ingestion/`.
-- Editorial batches are durable repo content under `src/content/events/batches/<batch-id>/`.
-- Approved published events are durable repo content in `src/content/events/published/events.json` and are bridged into the existing `/[locale]/events` UI.
-- Protected cron/API entrypoint: `/api/cron/events-ingest`, guarded by `EVENT_INGEST_SECRET` or `CRON_SECRET`.
-
 Current booking UX includes:
 
 - availability hub on `/[locale]/check-availability`;
@@ -238,6 +229,14 @@ npm run events:publish -- --batch <batch-id> --all
 ```
 
 Preparation never publishes. Publication requires `--all`, `--city <city>` or `--ids <id,id>`; otherwise it prints a safe no-write summary. Menton uses a broad local usefulness threshold, while Monaco, Nice, Ventimiglia and Sanremo require destination-worthy value from a Menton base.
+
+Post-publish event images use the owner-approved asset path:
+
+```bash
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
+```
+
+This writes local WebP event covers, updates published media records and locks owner decisions in `src/content/events/overrides/image-overrides.json`. The event asset pipeline normalizes covers to a consistent `1200x720` crop so event cards keep equal image height.
 
 ### Guide automation
 

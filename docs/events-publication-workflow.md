@@ -112,11 +112,7 @@ npm run events:assets -- --published-events --assets-dir /absolute/path/to/asset
 npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
 ```
 
-```bash
-npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
-```
-
-This optimizes matched images into `public/images/events/`, updates published event media and records the decision in `src/content/events/overrides/image-overrides.json`.
+This optimizes matched images into `public/images/events/`, crops them to the shared `1200x720` event-card format, updates published event media and records the decision in `src/content/events/overrides/image-overrides.json`.
 
 Validate:
 

@@ -146,7 +146,7 @@ After publication, apply owner event covers with:
 npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
 ```
 
-The command writes optimized WebP files, updates `src/content/events/published/events.json` and records durable image decisions in `src/content/events/overrides/image-overrides.json`.
+The command writes optimized `1200x720` WebP files, updates `src/content/events/published/events.json` and records durable image decisions in `src/content/events/overrides/image-overrides.json`. Use `--report-only` first when the asset package has ambiguous filenames.
 
 Manual corrections should survive later ingestion. Use `src/content/events/overrides/` for durable owner-approved overrides and do not overwrite published summaries, images or exclusions just because source data changed.
 Use `relatedGuideSlugs` and `relatedPlaceIds` in manual event records when a
