@@ -1258,22 +1258,30 @@ function SafetyPanel({ locale }: { locale: Locale }) {
   const text = ui[locale];
   return (
     <div className="space-y-4">
-      <section className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-        <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{text.emergencyTitle}</h2>
-        <p className="mt-3 text-sm leading-7 text-[#5c5044]">{text.emergencyText}</p>
-        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      <section className="border border-[#173f36] bg-[#173f36] p-5 text-[#fffaf0] sm:p-7">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[0.64rem] font-bold uppercase tracking-[0.2em] text-[#d7b56c]">SOS</p>
+            <h2 className="mt-2 serif-heading text-3xl leading-none sm:text-4xl">{text.emergencyTitle}</h2>
+          </div>
+          <span className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b9dfe4]">{text.emergencyNumbers}</span>
+        </div>
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-[#e8ded0]">{text.emergencyText}</p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {[
-            ["112", text.euroEmergency],
-            ["15", text.medicalEmergency],
-            ["17", text.police],
-            ["18", text.fire],
-            ["114", text.smsEmergency],
-            ["112 Italy", text.italyEmergency],
-          ].map(([number, label]) => (
-            <a key={number} href={`tel:${number.replace(/\s+/g, "")}`} className="border border-[#e6d9c6] bg-white/65 p-4 text-sm font-semibold text-[#173f36]">
-              {number}
-              <br />
-              <span className="font-normal text-[#5c5044]">{label}</span>
+            ["112", text.euroEmergency, "EU", "border-[#d7b56c] bg-[#fff8e8] text-[#173f36]"],
+            ["15", text.medicalEmergency, "MED", "border-[#e59a7a] bg-[#fff1eb] text-[#173f36]"],
+            ["17", text.police, "POL", "border-[#9cced8] bg-[#edfafd] text-[#173f36]"],
+            ["18", text.fire, "FIRE", "border-[#e59a7a] bg-[#fff1eb] text-[#173f36]"],
+            ["114", text.smsEmergency, "SMS", "border-[#9cced8] bg-[#edfafd] text-[#173f36]"],
+            ["112 Italy", text.italyEmergency, "IT", "border-[#a9c99f] bg-[#f1faee] text-[#173f36]"],
+          ].map(([number, label, badge, tone]) => (
+            <a key={number} href={`tel:${number.replace(/\s+/g, "")}`} className={`flex min-h-24 items-center gap-3 border p-4 transition-transform hover:-translate-y-0.5 ${tone}`}>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-current text-[0.62rem] font-black uppercase tracking-[0.08em]" aria-hidden="true">{badge}</span>
+              <span className="flex min-w-0 items-baseline gap-3">
+                <strong className="shrink-0 text-3xl leading-none tracking-tight">{number}</strong>
+                <span className="text-sm font-semibold leading-5">{label}</span>
+              </span>
             </a>
           ))}
         </div>
