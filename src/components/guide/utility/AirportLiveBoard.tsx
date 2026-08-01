@@ -62,11 +62,12 @@ export function AirportLiveBoard({ block, locale, compact = false }: { block: Ai
       </div>
 
       {compact ? (
-        <section id={`${tabId}-${airport.id}`} role="tabpanel" className="mt-5 grid items-start gap-4 border border-[#e6d9c6] bg-white/65 p-4 sm:p-5 lg:grid-cols-[minmax(14rem,0.8fr)_minmax(0,1.6fr)_minmax(14rem,0.8fr)]">
+        <section id={`${tabId}-${airport.id}`} role="tabpanel" className="mt-5 grid items-start gap-4 border border-[#e6d9c6] bg-white/65 p-4 sm:p-5 lg:grid-cols-[minmax(16rem,0.85fr)_minmax(0,1.5fr)_minmax(16rem,0.85fr)]">
           <div>
             <div className="flex items-start justify-between gap-3">
               <div>
-                <h3 className="text-xl font-semibold text-[#173f36]">{airport.name[locale]}</h3>
+                <h3 className="text-2xl font-semibold text-[#173f36]">{airport.code}</h3>
+                <p className="mt-1 text-sm font-semibold leading-6 text-[#173f36]">{airport.name[locale]}</p>
                 <p className="mt-2 text-sm leading-6 text-[#5c5044]">{airport.summary[locale]}</p>
               </div>
               <span className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-[#71665b]">{canEmbed ? copy.supported : copy.externalOnly}</span>
