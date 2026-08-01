@@ -222,7 +222,7 @@ async function fetchOpenMeteoWeather(forecastDays: WeatherForecastDays = 5): Pro
     return null;
   }
 
-  const forecast = (data.daily?.time ?? []).slice(0, 5).map((date, index) => ({
+  const forecast = (data.daily?.time ?? []).map((date, index) => ({
     date,
     high: Math.round(data.daily?.temperature_2m_max?.[index] ?? 0),
     low: Math.round(data.daily?.temperature_2m_min?.[index] ?? 0),
@@ -336,7 +336,7 @@ async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string,
       marineByDate.set(dateKey, currentEntry);
     });
 
-    const forecast = (data.daily?.time ?? []).slice(0, 5).map((date, index) => {
+    const forecast = (data.daily?.time ?? []).map((date, index) => {
       const dailyEntry = marineByDate.get(date);
       const averagedSea =
         dailyEntry && dailyEntry.seaCount > 0 ? Number((dailyEntry.seaSum / dailyEntry.seaCount).toFixed(1)) : undefined;

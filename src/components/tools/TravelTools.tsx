@@ -105,6 +105,7 @@ const ui = {
     uahNote: "UAH may be unavailable in the ECB reference feed; compare with your card provider when needed.",
     conditionsTitle: "Detailed weather, sea and beaches",
     conditionsText: "A single planning layer for air temperature, sea temperature, 16-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
+    climateOverviewTitle: "Menton’s microclimate",
     climateOverview: "Menton enjoys one of the French Riviera’s most pleasant microclimates, with around 316 sunny days a year and a sheltered position between the Mediterranean Sea and the Alps. Summers are typically warm rather than oppressive, with average daytime temperatures of around 25°C (77°F) in July and August, while refreshing sea breezes keep the coast comfortable even on hotter days. Spring arrives early with mild temperatures, flowers and citrus trees in bloom, making it ideal for hiking and sightseeing. Autumn often stays warm enough for swimming well into October, and winters are remarkably gentle, with January averaging around 11°C (52°F) and sunshine remaining a regular companion. Whether you’re planning beach days, coastal walks or outdoor cafés, Menton offers one of Europe’s longest and most reliable seasons for enjoying life outside.",
     currentConditions: "Current conditions",
     nextDays: "16-day outlook",
@@ -196,6 +197,7 @@ const ui = {
     uahNote: "UAH peut etre absent du flux BCE; comparez avec votre fournisseur de carte si besoin.",
     conditionsTitle: "Meteo, mer et plages en detail",
     conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 16 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
+    climateOverviewTitle: "Le microclimat de Menton",
     climateOverview: "Menton profite de l’un des microclimats les plus agreables de la Cote d’Azur, avec environ 316 jours de soleil par an et une position abritee entre la Mediterranee et les Alpes. Les etes sont generalement chauds sans etre accablants, avec des temperatures moyennes d’environ 25 °C en juillet et aout. Les brises marines rafraichissent la cote, meme pendant les journees les plus chaudes. Le printemps arrive tot, avec des temperatures douces, des fleurs et des agrumes en floraison, ce qui en fait une excellente saison pour randonner et visiter. L’automne reste souvent assez doux pour se baigner jusqu’en octobre, tandis que les hivers sont remarquablement clements, avec une moyenne de 11 °C en janvier et un soleil regulier. Que vous prepariez des journees a la plage, des promenades cotieres ou des terrasses, Menton offre l’une des saisons de plein air les plus longues et les plus fiables d’Europe.",
     currentConditions: "Conditions actuelles",
     nextDays: "Prevision 16 jours",
@@ -287,6 +289,7 @@ const ui = {
     uahNote: "UAH potrebbe non essere presente nel feed BCE; confronta con il provider della carta se serve.",
     conditionsTitle: "Meteo, mare e spiagge in dettaglio",
     conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 16 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
+    climateOverviewTitle: "Il microclima di Menton",
     climateOverview: "Menton gode di uno dei microclimi piu piacevoli della Costa Azzurra, con circa 316 giorni di sole all’anno e una posizione riparata tra il Mediterraneo e le Alpi. Le estati sono generalmente calde ma non opprimenti, con temperature diurne medie intorno ai 25 °C in luglio e agosto. Le brezze marine rendono piacevole la costa anche nelle giornate piu calde. La primavera arriva presto, con temperature miti, fiori e agrumi in fiore: e una stagione ideale per escursioni e visite. L’autunno resta spesso abbastanza caldo per nuotare fino a ottobre, mentre gli inverni sono sorprendentemente miti, con una media di 11 °C a gennaio e sole frequente. Che stiate programmando giornate in spiaggia, passeggiate sul litorale o aperitivi all’aperto, Menton offre una delle stagioni all’aperto piu lunghe e affidabili d’Europa.",
     currentConditions: "Condizioni attuali",
     nextDays: "Prossimi 16 giorni",
@@ -378,6 +381,7 @@ const ui = {
     uahNote: "UAH може бути відсутня у фіді ECB; за потреби звіряйтеся зі своїм банком або карткою.",
     conditionsTitle: "Погода, море і пляжі в деталях",
     conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 16-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
+    climateOverviewTitle: "Мікроклімат Ментона",
     climateOverview: "Ментон має один із найприємніших мікрокліматів Лазурового узбережжя: близько 316 сонячних днів на рік і захищене розташування між Середземним морем та Альпами. Влітку тут зазвичай тепло, але не задушливо: середня денна температура в липні та серпні становить близько 25 °C. Свіжі морські бризи роблять узбережжя комфортним навіть у спекотні дні. Весна приходить рано, приносячи м’яку погоду, квіти та цвітіння цитрусових, тому це чудовий час для прогулянок і огляду пам’яток. Восени часто достатньо тепло для купання аж до жовтня, а зими напрочуд м’які: середня температура січня близько 11 °C, і сонячні дні залишаються звичними. Незалежно від того, чи плануєте ви пляжний відпочинок, прогулянки узбережжям або каву просто неба, Ментон пропонує один із найдовших і найнадійніших сезонів для відпочинку на свіжому повітрі в Європі.",
     currentConditions: "Поточні умови",
     nextDays: "Прогноз на 16 днів",
@@ -505,7 +509,8 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
             <>
               <UnifiedConditionsPanel locale={locale} rightNow={rightNow} extended />
               <section className="mt-8 border border-[#dfd2b8] bg-[#fffdf8] px-5 py-6 sm:px-8 sm:py-7">
-                <p className="max-w-4xl text-base leading-8 text-[#51483f] sm:text-lg sm:leading-9">{text.climateOverview}</p>
+                <h2 className="serif-heading text-3xl leading-tight text-[#173f36] sm:text-4xl">{text.climateOverviewTitle}</h2>
+                <p className="mt-4 max-w-4xl text-base leading-8 text-[#51483f] sm:text-lg sm:leading-9">{renderClimateOverview(text.climateOverview)}</p>
               </section>
               <div className="mt-8 grid gap-6 lg:grid-cols-2">
                 <ToolSources label={copy.source} sources={sources} />
@@ -945,6 +950,19 @@ function MetricGlyph({ kind, value }: { kind: MetricKind; value?: number }) {
         </g>
       ) : null}
     </svg>
+  );
+}
+
+function renderClimateOverview(text: string) {
+  const temperaturePattern = /^\d{1,2}\s?°C(?:\s*\([^)]*°F\))?$/;
+  return text.split(/(\d{1,2}\s?°C(?:\s*\([^)]*°F\))?)/g).map((part, index) =>
+    temperaturePattern.test(part) ? (
+      <strong key={`${part}-${index}`} className="font-semibold text-[#173f36]">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
   );
 }
 
