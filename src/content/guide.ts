@@ -10332,6 +10332,18 @@ export const guideArticles: GuideArticle[] = [
       "port-de-garavan",
       "monaco-water-sports-and-e-foils",
       "nice-diving-and-wing-foil-area",
+      "centre-nautique-ville-de-menton",
+      "jet-rent-menton",
+      "mer-passion-menton",
+      "asd-pianeta-blu-imbarco-menton",
+      "larvotto-beach-water-sports-operators",
+      "yacht-club-de-monaco-sailing-programmes",
+      "oceanographic-museum-partner-dive-operators",
+      "cap-d-ail-water-sports-base",
+      "la-base-riviera-nautic-sport-nice",
+      "nice-diving",
+      "poseidon-diving-snorkeling-nice",
+      "club-sea-nice",
     ],
     relatedArticles: [
       "best-beaches-in-menton",
@@ -10394,6 +10406,27 @@ export const guideArticles: GuideArticle[] = [
         relatedPlaceIds: ["nice-diving-and-wing-foil-area", "monaco-water-sports-and-e-foils"],
       },
       {
+        heading: t("Recommended operators and rental points: Menton", "Operateurs et points de location recommandes : Menton", "Operatori e punti di noleggio consigliati: Mentone", "Рекомендовані оператори й пункти прокату: Menton"),
+        body: [
+          t("These are useful first checks rather than guarantees of current opening hours or availability. Ask about the current season, meeting point, equipment and weather policy before relying on one booking.", "Ce sont des premiers points de verification, pas une garantie des horaires ou disponibilites actuels. Demandez la saison, le lieu de rendez-vous, le materiel et la politique meteo avant de reserver.", "Sono primi riferimenti da verificare, non una garanzia su orari o disponibilita attuali. Chiedi stagione, punto d'incontro, attrezzatura e politica meteo prima di prenotare.", "Це корисні перші орієнтири, а не гарантія актуальних годин чи наявності. Перед бронюванням уточніть сезон, місце зустрічі, спорядження та weather policy."),
+        ],
+        relatedPlaceIds: ["centre-nautique-ville-de-menton", "jet-rent-menton", "mer-passion-menton", "asd-pianeta-blu-imbarco-menton"],
+      },
+      {
+        heading: t("Recommended operators and rental points: Monaco", "Operateurs et points de location recommandes : Monaco", "Operatori e punti di noleggio consigliati: Monaco", "Рекомендовані оператори й пункти прокату: Monaco"),
+        body: [
+          t("Monaco is a good extension when you want more organised marina and beach operators. Larvotto is the practical seasonal starting point; for sailing or diving, check the programme and partner arrangements directly rather than assuming a daily departure.", "Monaco est une bonne extension si vous cherchez des operateurs plus structures cote marina et plage. Larvotto est le point de depart saisonnier le plus pratique ; pour la voile ou la plongee, verifiez directement le programme et les partenaires plutot que de supposer un depart quotidien.", "Monaco e una buona estensione quando cerchi operatori piu organizzati tra marina e spiaggia. Larvotto e il punto di partenza stagionale piu pratico; per vela o diving, controlla direttamente programma e partner invece di dare per scontata una partenza quotidiana.", "Монако — хороше продовження, якщо потрібні більш організовані marina та beach operators. Larvotto — практичний сезонний старт; для sailing або diving перевіряйте програму й партнерські умови безпосередньо, а не припускайте щоденний виїзд."),
+        ],
+        relatedPlaceIds: ["larvotto-beach-water-sports-operators", "yacht-club-de-monaco-sailing-programmes", "oceanographic-museum-partner-dive-operators", "cap-d-ail-water-sports-base"],
+      },
+      {
+        heading: t("Recommended operators and rental points: Nice", "Operateurs et points de location recommandes : Nice", "Operatori e punti di noleggio consigliati: Nizza", "Рекомендовані оператори й пункти прокату: Nice"),
+        body: [
+          t("Nice adds the widest operator choice in this guide: larger rental bases, diving centres and guided kayaking. It works best as a deliberate day trip from Menton, with the departure point and return time checked before you leave.", "Nice ajoute le choix d'operateurs le plus large de ce guide : grandes bases de location, centres de plongee et kayak guide. C'est surtout une excursion a organiser depuis Menton, en verifiant le depart et l'heure de retour avant de partir.", "Nizza offre la scelta piu ampia di operatori in questa guida: basi di noleggio piu grandi, centri diving e kayak guidato. Funziona meglio come giornata organizzata da Mentone, verificando partenza e rientro prima di partire.", "Ніцца додає найбільший вибір операторів у цьому гіді: великі rental bases, diving centres і guided kayaking. Найкраще планувати це як окрему day trip з Menton, заздалегідь перевіривши місце старту й час повернення."),
+        ],
+        relatedPlaceIds: ["la-base-riviera-nautic-sport-nice", "nice-diving", "poseidon-diving-snorkeling-nice", "club-sea-nice"],
+      },
+      {
         heading: t("Family rhythm, best season and what to avoid", "Rythme famille, meilleure saison et ce qu'il vaut mieux eviter", "Ritmo famiglia, stagione migliore e cosa evitare", "Сімейний ритм, найкращий сезон і чого краще уникати"),
         body: [
           t("Families usually get the best result from the simplest formats: calm morning swims, pedal boats, transparent kayaks when available, short paddles near shore and beach sessions that can end early if children lose interest. September is often the best overall month because the sea stays warm while the beaches and promenade feel less overloaded than in peak August.", "Les familles obtiennent generalement le meilleur resultat avec les formats les plus simples : baignade calme le matin, pedalo, kayak transparent quand disponible, petits parcours pres du bord et sessions de plage faciles a raccourcir si les enfants se lassent. Septembre est souvent le meilleur mois global : la mer reste chaude et le front de mer est moins charge qu'en plein mois d'aout.", "Le famiglie ottengono di solito il risultato migliore con i formati piu semplici: nuoto tranquillo al mattino, pedalò, kayak trasparenti quando disponibili, brevi paddle vicino a riva e sessioni di spiaggia che possono finire presto se i bambini perdono interesse. Settembre e spesso il mese migliore in assoluto: il mare resta caldo e il lungomare e meno sovraccarico che in pieno agosto.", "Сім'ї зазвичай отримують найкращий результат від найпростіших форматів: спокійне ранкове купання, pedal boats, transparent kayaks коли вони є, короткі paddles біля берега й beach sessions, які можна рано завершити, якщо дітям набридло. Вересень часто є найкращим місяцем загалом: море залишається теплим, а пляжі й променад відчуваються менш перевантаженими, ніж у піковому серпні."),
@@ -10401,6 +10434,16 @@ export const guideArticles: GuideArticle[] = [
         ],
         relatedPlaceIds: ["plage-sablettes", "rondelli-garavan-side", "nice-diving-and-wing-foil-area"],
         relatedApartmentKeys: allApartments,
+      },
+      {
+        heading: t("Quick recommendations", "Recommandations rapides", "Raccomandazioni rapide", "Швидкі рекомендації"),
+        body: [
+          t("Best place for paddleboarding: Menton Water Sports Centre for calmer water, or Larvotto Beach in Monaco.", "Meilleur endroit pour le paddle : le Centre nautique de Menton pour une eau plus calme, ou la plage du Larvotto a Monaco.", "Miglior posto per il paddle: il Centro nautico di Mentone per acqua piu calma, oppure la spiaggia di Larvotto a Monaco.", "Найкраще місце для paddleboarding: Menton Water Sports Centre зі спокійнішою водою або Larvotto Beach у Монако."),
+          t("Best place for kayaking: Club Sea Nice for a guided outing, or Centre Nautique de Menton for a simpler local start.", "Meilleur endroit pour le kayak : Club Sea Nice pour une sortie guidee, ou le Centre nautique de Menton pour un depart local plus simple.", "Miglior posto per il kayak: Club Sea Nice per un'uscita guidata, oppure il Centro nautico di Mentone per un inizio locale piu semplice.", "Найкраще місце для kayaking: Club Sea Nice для guided outing або Centre Nautique de Menton для простішого локального старту."),
+          t("Best place for snorkelling: Nice Diving, Poseidon Diving, or the Cap Martin shoreline for a self-guided, conditions-based plan.", "Meilleur endroit pour le snorkelling : Nice Diving, Poseidon Diving ou le littoral du Cap Martin pour un plan autonome dependant des conditions.", "Miglior posto per lo snorkelling: Nice Diving, Poseidon Diving oppure la costa di Cap Martin per un piano autonomo basato sulle condizioni.", "Найкраще місце для snorkelling: Nice Diving, Poseidon Diving або узбережжя Cap Martin для самостійного плану, залежного від умов."),
+          t("Best place for sailing lessons: Centre Nautique de Menton or the Yacht Club de Monaco. Check current programmes before travelling.", "Meilleur endroit pour les cours de voile : le Centre nautique de Menton ou le Yacht Club de Monaco. Verifiez les programmes actuels avant de vous deplacer.", "Miglior posto per corsi di vela: il Centro nautico di Mentone o lo Yacht Club de Monaco. Controlla i programmi attuali prima di partire.", "Найкраще місце для sailing lessons: Centre Nautique de Menton або Yacht Club de Monaco. Перед поїздкою перевірте актуальні програми."),
+        ],
+        relatedPlaceIds: ["centre-nautique-ville-de-menton", "larvotto-beach-water-sports-operators", "club-sea-nice", "nice-diving", "poseidon-diving-snorkeling-nice", "cap-martin-snorkelling-shoreline", "yacht-club-de-monaco-sailing-programmes"],
       },
     ],
     practicalTips: [

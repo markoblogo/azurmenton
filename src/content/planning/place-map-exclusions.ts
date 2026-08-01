@@ -10,6 +10,18 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "centre-nautique-ville-de-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Centre%20Nautique%20Ville%20de%20Menton" },
+  { placeId: "jet-rent-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Jet%20Rent%20Menton%20Port%20Garavan" },
+  { placeId: "mer-passion-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mer%20passion%20Menton%20boat%20rental" },
+  { placeId: "asd-pianeta-blu-imbarco-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=ASD%20Pianeta%20Blu%20IMBARCO%20Menton" },
+  { placeId: "larvotto-beach-water-sports-operators", reason: "not_a_fixed_venue", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Larvotto%20Beach%20water%20sports%20Monaco" },
+  { placeId: "yacht-club-de-monaco-sailing-programmes", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Yacht%20Club%20de%20Monaco" },
+  { placeId: "oceanographic-museum-partner-dive-operators", reason: "not_a_fixed_venue", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Oceanographic%20Museum%20Monaco%20diving" },
+  { placeId: "cap-d-ail-water-sports-base", reason: "not_a_fixed_venue", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Cap%20d%27Ail%20water%20sports" },
+  { placeId: "la-base-riviera-nautic-sport-nice", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=La%20Base%20By%20Riviera%20Nautic%20Sport%20Nice" },
+  { placeId: "nice-diving", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Nice%20Diving%20Port%20of%20Nice" },
+  { placeId: "poseidon-diving-snorkeling-nice", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Poseidon%20Diving%20Snorkeling%20Nice" },
+  { placeId: "club-sea-nice", reason: "not_a_fixed_venue", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Club%20Sea%20Nice%20sea%20kayaking" },
   { placeId: "laverie-des-jardins-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20des%20Jardins%20Menton" },
   { placeId: "blanchisserie-pressing-mentonnais", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Blanchisserie%20Pressing%20Mentonnais" },
   { placeId: "laverie-self-service-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20Self%20Service%20Menton" },
