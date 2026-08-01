@@ -56,6 +56,13 @@
     ]
   },
   {
+    "source": "public/images/guide/blanchisserie-pressing-mentonnais.png",
+    "outputs": [
+      "public/images/guide/generated/blanchisserie-pressing-mentonnais.avif",
+      "public/images/guide/generated/blanchisserie-pressing-mentonnais.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/burger-king-nice-centre.png",
     "outputs": [
       "public/images/guide/generated/burger-king-nice-centre.avif",
@@ -249,6 +256,34 @@
     "outputs": [
       "public/images/guide/generated/laundry-laundromats-menton.avif",
       "public/images/guide/generated/laundry-laundromats-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-des-jardins-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-des-jardins-menton.avif",
+      "public/images/guide/generated/laverie-des-jardins-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-revolution-laundry-intermarche-saint-roman-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.avif",
+      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-revolution-laundry-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-revolution-laundry-menton.avif",
+      "public/images/guide/generated/laverie-revolution-laundry-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-self-service-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-self-service-menton.avif",
+      "public/images/guide/generated/laverie-self-service-menton.webp"
     ]
   },
   {
@@ -483,38 +518,10 @@
     ]
   },
   {
-    "source": "public/images/guide/laverie-des-jardins-menton.png",
+    "source": "public/images/tools/weather.png",
     "outputs": [
-      "public/images/guide/generated/laverie-des-jardins-menton.avif",
-      "public/images/guide/generated/laverie-des-jardins-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/blanchisserie-pressing-mentonnais.png",
-    "outputs": [
-      "public/images/guide/generated/blanchisserie-pressing-mentonnais.avif",
-      "public/images/guide/generated/blanchisserie-pressing-mentonnais.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/laverie-self-service-menton.png",
-    "outputs": [
-      "public/images/guide/generated/laverie-self-service-menton.avif",
-      "public/images/guide/generated/laverie-self-service-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/laverie-revolution-laundry-menton.png",
-    "outputs": [
-      "public/images/guide/generated/laverie-revolution-laundry-menton.avif",
-      "public/images/guide/generated/laverie-revolution-laundry-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/laverie-revolution-laundry-intermarche-saint-roman-menton.png",
-    "outputs": [
-      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.avif",
-      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.webp"
+      "public/images/tools/generated/weather.avif",
+      "public/images/tools/generated/weather.webp"
     ]
   }
 ]

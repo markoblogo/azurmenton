@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
 import { AirportLiveBoard } from "@/components/guide/utility/AirportLiveBoard";
@@ -103,9 +104,9 @@ const ui = {
     ratesUnavailable: "Reference rates temporarily unavailable.",
     uahNote: "UAH may be unavailable in the ECB reference feed; compare with your card provider when needed.",
     conditionsTitle: "Detailed weather, sea and beaches",
-    conditionsText: "A single planning layer for air temperature, sea temperature, 5-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
+    conditionsText: "A single planning layer for air temperature, sea temperature, 16-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
     currentConditions: "Current conditions",
-    nextDays: "5-day outlook",
+    nextDays: "16-day outlook",
     weatherToolCta: "Weather",
     seaToolCta: "Sea",
     beachesToolCta: "Beaches",
@@ -192,9 +193,9 @@ const ui = {
     ratesUnavailable: "Taux de reference temporairement indisponibles.",
     uahNote: "UAH peut etre absent du flux BCE; comparez avec votre fournisseur de carte si besoin.",
     conditionsTitle: "Meteo, mer et plages en detail",
-    conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 5 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
+    conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 16 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
     currentConditions: "Conditions actuelles",
-    nextDays: "Prevision 5 jours",
+    nextDays: "Prevision 16 jours",
     weatherToolCta: "Meteo",
     seaToolCta: "Mer",
     beachesToolCta: "Plages",
@@ -281,9 +282,9 @@ const ui = {
     ratesUnavailable: "Tassi di riferimento temporaneamente non disponibili.",
     uahNote: "UAH potrebbe non essere presente nel feed BCE; confronta con il provider della carta se serve.",
     conditionsTitle: "Meteo, mare e spiagge in dettaglio",
-    conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 5 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
+    conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 16 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
     currentConditions: "Condizioni attuali",
-    nextDays: "Prossimi 5 giorni",
+    nextDays: "Prossimi 16 giorni",
     weatherToolCta: "Meteo",
     seaToolCta: "Mare",
     beachesToolCta: "Spiagge",
@@ -370,9 +371,9 @@ const ui = {
     ratesUnavailable: "Довідкові курси тимчасово недоступні.",
     uahNote: "UAH може бути відсутня у фіді ECB; за потреби звіряйтеся зі своїм банком або карткою.",
     conditionsTitle: "Погода, море і пляжі в деталях",
-    conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 5-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
+    conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 16-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
     currentConditions: "Поточні умови",
-    nextDays: "Прогноз на 5 днів",
+    nextDays: "Прогноз на 16 днів",
     weatherToolCta: "Погода",
     seaToolCta: "Море",
     beachesToolCta: "Пляжі",
@@ -417,13 +418,47 @@ export async function TravelToolPage({ locale }: { locale: Locale }) {
   );
 }
 
+function ToolSources({ label, sources }: { label: string; sources: ReturnType<typeof getTravelToolSources> }) {
+  return (
+    <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
+      <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{label}</p>
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
+        {sources.map((source) => (
+          <div key={source.id} className="border border-[#e6d9c6] bg-white/65 p-4">
+            <p className="font-semibold text-[#173f36]">{source.providerLabel}</p>
+            <p className="mt-1 text-sm leading-6 text-[#71665b]">{source.attribution}</p>
+            <p className="mt-2 text-xs leading-5 text-[#71665b]">Cache: {source.cacheDuration}</p>
+            <a href={source.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">Official source</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ToolGuides({ label, locale, guideSlugs }: { label: string; locale: Locale; guideSlugs: string[] }) {
+  return (
+    <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
+      <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{label}</p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {guideSlugs.map((guideSlug) => {
+          const guide = getGuideArticle(guideSlug);
+          const label = guide ? guide.title[locale] : guideSlug;
+          return <Link key={guideSlug} href={`/${locale}/guide/${guideSlug}` as Route} className="inline-flex min-h-9 items-center border border-[#dfd2b8] px-3 py-2 text-xs font-semibold text-[#173f36] hover:bg-[#f3ead7]">{label}</Link>;
+        })}
+      </div>
+    </div>
+  );
+}
+
 export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; slug: TravelToolSlug }) {
   const tool = getTravelTool(slug);
   if (!tool) return null;
   const copy = travelToolSectionCopy[locale];
   const text = ui[locale];
   const sources = getTravelToolSources(tool.sourceIds);
-  const rightNow = await getMentonRightNow();
+  const isWeatherDetail = slug === "weather";
+  const rightNow = await getMentonRightNow(isWeatherDetail ? 16 : 5);
   const pageUrl = absoluteUrl(localizedPath(locale, `tools/${tool.slug}`));
 
   return (
@@ -437,46 +472,44 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
       />
       <Section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
         <Container>
-          <Link href={`/${locale}/tools` as Route} className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353] hover:text-[#173f36]">{copy.title}</Link>
-          <h1 className="mt-4 max-w-5xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localizeText(tool.title, locale)}</h1>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[#5c5044]">{localizeText(tool.intro, locale)}</p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            <ToolStateBadge locale={locale} status={stateToStatus(tool.state)} />
-            {sources[0] ? <span className="inline-flex min-h-9 items-center border border-[#dfd2b8] bg-[#fffdf8] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#71665b]">{copy.source}: {sources[0].providerLabel}</span> : null}
+          <div className={isWeatherDetail ? "grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)]" : ""}>
+            <div>
+              <Link href={`/${locale}/tools` as Route} className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353] hover:text-[#173f36]">{copy.title}</Link>
+              <h1 className="mt-4 max-w-5xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localizeText(tool.title, locale)}</h1>
+              <p className="mt-5 max-w-3xl text-base leading-8 text-[#5c5044]">{localizeText(tool.intro, locale)}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <ToolStateBadge locale={locale} status={stateToStatus(tool.state)} />
+                {sources[0] ? <span className="inline-flex min-h-9 items-center border border-[#dfd2b8] bg-[#fffdf8] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#71665b]">{copy.source}: {sources[0].providerLabel}</span> : null}
+              </div>
+            </div>
+            {isWeatherDetail ? (
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#dfd2b8] bg-[#eaf8fb] shadow-[0_18px_50px_rgba(31,105,126,0.12)]">
+                <Image src="/images/tools/weather.png" alt="Menton weather over the Mediterranean" fill priority sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
+              </div>
+            ) : null}
           </div>
         </Container>
       </Section>
 
       <Section className="bg-[#fffaf0] py-8 sm:py-10">
         <Container>
-          <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
-            <div className="space-y-6">{await renderToolContent(locale, slug, rightNow)}</div>
-            <aside className="space-y-4 xl:sticky xl:top-24 xl:self-start">
-              <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.source}</p>
-                <div className="mt-4 space-y-3 text-sm leading-6 text-[#5c5044]">
-                  {sources.map((source) => (
-                    <div key={source.id} className="border border-[#e6d9c6] bg-white/65 p-3">
-                      <p className="font-semibold text-[#173f36]">{source.providerLabel}</p>
-                      <p className="mt-1 text-xs leading-5 text-[#71665b]">{source.attribution}</p>
-                      <p className="mt-2 text-xs leading-5 text-[#71665b]">Cache: {source.cacheDuration}</p>
-                      <a href={source.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-9 items-center border border-[#c6a66a] px-3 py-2 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">Official source</a>
-                    </div>
-                  ))}
-                </div>
+          {isWeatherDetail ? (
+            <>
+              <UnifiedConditionsPanel locale={locale} rightNow={rightNow} extended />
+              <div className="mt-8 grid gap-6 lg:grid-cols-2">
+                <ToolSources label={copy.source} sources={sources} />
+                <ToolGuides label={text.guides} locale={locale} guideSlugs={tool.relatedGuideSlugs} />
               </div>
-              <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{text.guides}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {tool.relatedGuideSlugs.map((guideSlug) => {
-                    const guide = getGuideArticle(guideSlug);
-                    const label = guide ? guide.title[locale] : guideSlug;
-                    return <Link key={guideSlug} href={`/${locale}/guide/${guideSlug}` as Route} className="inline-flex min-h-9 items-center border border-[#dfd2b8] px-3 py-2 text-xs font-semibold text-[#173f36] hover:bg-[#f3ead7]">{label}</Link>;
-                  })}
-                </div>
-              </div>
-            </aside>
-          </div>
+            </>
+          ) : (
+            <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
+              <div className="space-y-6">{await renderToolContent(locale, slug, rightNow)}</div>
+              <aside className="space-y-4 xl:sticky xl:top-24 xl:self-start">
+                <ToolSources label={copy.source} sources={sources} />
+                <ToolGuides label={text.guides} locale={locale} guideSlugs={tool.relatedGuideSlugs} />
+              </aside>
+            </div>
+          )}
         </Container>
       </Section>
     </>
@@ -904,7 +937,7 @@ function MetricGlyph({ kind, value }: { kind: MetricKind; value?: number }) {
   );
 }
 
-function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow: Awaited<ReturnType<typeof getMentonRightNow>> }) {
+function UnifiedConditionsPanel({ locale, rightNow, extended = false }: { locale: Locale; rightNow: Awaited<ReturnType<typeof getMentonRightNow>>; extended?: boolean }) {
   const copy = travelToolSectionCopy[locale];
   const text = ui[locale];
   const weather = rightNow.weather;
@@ -998,11 +1031,11 @@ function UnifiedConditionsPanel({ locale, rightNow }: { locale: Locale; rightNow
             <div className="flex flex-col justify-between border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5">
               <div>
                 <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.nextDays}</p>
-                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+                <div className={extended ? "mt-4 flex snap-x gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" : "mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5"}>
                   {forecast.map((day) => (
                     <div
                       key={day.date}
-                      className="border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]"
+                      className={`${extended ? "min-w-[9.25rem] snap-start" : ""} border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]`}
                     >
                       <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#6c7169]">{formatToolDay(locale, day.date)}</p>
                       <div className="mt-3 flex justify-center">

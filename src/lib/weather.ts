@@ -149,6 +149,7 @@ type OpenMeteoMarineSnapshot = {
 const defaultLatitude = "43.7745";
 const defaultLongitude = "7.4975";
 export const weatherRevalidateSeconds = 7200;
+export type WeatherForecastDays = 5 | 16;
 
 export function weatherLabel(code: number) {
   if (code === 0) return "Clear";
@@ -187,7 +188,7 @@ function closestRainChance(data: OpenMeteoResponse) {
   return probabilities[safeIndex];
 }
 
-async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
+async function fetchOpenMeteoWeather(forecastDays: WeatherForecastDays = 5): Promise<MentonWeather | null> {
   const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
   const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
   const url = new URL("https://api.open-meteo.com/v1/forecast");
@@ -195,7 +196,7 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
   url.searchParams.set("latitude", latitude);
   url.searchParams.set("longitude", longitude);
   url.searchParams.set("timezone", "Europe/Paris");
-  url.searchParams.set("forecast_days", "5");
+  url.searchParams.set("forecast_days", String(forecastDays));
   url.searchParams.set("current", "temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_gusts_10m,relative_humidity_2m");
   url.searchParams.set("hourly", "precipitation_probability");
   url.searchParams.set(
@@ -242,7 +243,7 @@ async function fetchOpenMeteoWeather(): Promise<MentonWeather | null> {
     updatedAt: data.current.time ?? new Date().toISOString(),
     temperature: Math.round(data.current.temperature_2m),
     feelsLike: typeof data.current.apparent_temperature === "number" ? Math.round(data.current.apparent_temperature) : undefined,
-    seaTemperature: (await fetchOpenMeteoMarineSnapshot(latitude, longitude))?.seaTemperature,
+    seaTemperature: (await fetchOpenMeteoMarineSnapshot(latitude, longitude, forecastDays))?.seaTemperature,
     windSpeed: Math.round(data.current.wind_speed_10m),
     windGusts: typeof data.current.wind_gusts_10m === "number" ? Math.round(data.current.wind_gusts_10m) : undefined,
     humidity: typeof data.current.relative_humidity_2m === "number" ? Math.round(data.current.relative_humidity_2m) : undefined,
@@ -286,13 +287,13 @@ async function fetchOpenMeteoAirQuality(): Promise<MentonAirQuality | null> {
   }
 }
 
-async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string): Promise<OpenMeteoMarineSnapshot | null> {
+async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string, forecastDays: WeatherForecastDays = 5): Promise<OpenMeteoMarineSnapshot | null> {
   const url = new URL("https://marine-api.open-meteo.com/v1/marine");
 
   url.searchParams.set("latitude", latitude);
   url.searchParams.set("longitude", longitude);
   url.searchParams.set("timezone", "Europe/Paris");
-  url.searchParams.set("forecast_days", "5");
+  url.searchParams.set("forecast_days", String(forecastDays));
   url.searchParams.set(
     "current",
     "sea_surface_temperature,wave_height,wave_direction,swell_wave_height,swell_wave_direction,swell_wave_period",
@@ -383,8 +384,8 @@ async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string)
 }
 
 const getCachedOpenMeteoWeather = unstable_cache(
-  async () => {
-    const weather = await fetchOpenMeteoWeather();
+  async (forecastDays: WeatherForecastDays) => {
+    const weather = await fetchOpenMeteoWeather(forecastDays);
     if (!weather) {
       throw new Error("Open-Meteo weather unavailable");
     }
@@ -395,10 +396,10 @@ const getCachedOpenMeteoWeather = unstable_cache(
 );
 
 const getCachedOpenMeteoMarineSnapshot = unstable_cache(
-  async () => {
+  async (forecastDays: WeatherForecastDays) => {
     const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
     const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
-    const marine = await fetchOpenMeteoMarineSnapshot(latitude, longitude);
+    const marine = await fetchOpenMeteoMarineSnapshot(latitude, longitude, forecastDays);
     if (!marine) {
       throw new Error("Open-Meteo marine snapshot unavailable");
     }
@@ -420,7 +421,7 @@ const getCachedOpenMeteoAirQuality = unstable_cache(
   { revalidate: weatherRevalidateSeconds },
 );
 
-export async function getMentonWeather() {
+export async function getMentonWeather(forecastDays: WeatherForecastDays = 5) {
   const provider = process.env.WEATHER_PROVIDER || "open-meteo";
 
   if (provider !== "open-meteo") {
@@ -428,13 +429,13 @@ export async function getMentonWeather() {
   }
 
   try {
-    return await getCachedOpenMeteoWeather();
+    return await getCachedOpenMeteoWeather(forecastDays);
   } catch {
     return null;
   }
 }
 
-export async function getMentonMarineConditions(): Promise<MentonMarineConditions | null> {
+export async function getMentonMarineConditions(forecastDays: WeatherForecastDays = 5): Promise<MentonMarineConditions | null> {
   const provider = process.env.WEATHER_PROVIDER || "open-meteo";
 
   if (provider !== "open-meteo") {
@@ -442,8 +443,8 @@ export async function getMentonMarineConditions(): Promise<MentonMarineCondition
   }
 
   const [weather, marine] = await Promise.all([
-    getMentonWeather(),
-    getCachedOpenMeteoMarineSnapshot().catch(() => null),
+    getMentonWeather(forecastDays),
+    getCachedOpenMeteoMarineSnapshot(forecastDays).catch(() => null),
   ]);
 
   if (!weather && !marine) {
@@ -486,10 +487,10 @@ export async function getMentonAirQuality(): Promise<MentonAirQuality | null> {
   }
 }
 
-export async function getMentonRightNow(): Promise<MentonRightNow> {
+export async function getMentonRightNow(forecastDays: WeatherForecastDays = 5): Promise<MentonRightNow> {
   const [weather, marine, airQuality] = await Promise.all([
-    getMentonWeather(),
-    getMentonMarineConditions(),
+    getMentonWeather(forecastDays),
+    getMentonMarineConditions(forecastDays),
     getMentonAirQuality(),
   ]);
 

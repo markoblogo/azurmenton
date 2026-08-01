@@ -292,7 +292,7 @@ export const travelTools: TravelTool[] = [
     seoTitle: t("Menton weather tool", "Meteo Menton", "Meteo Mentone", "Погода в Ментоні"),
     metaDescription: t("Current weather, wind, humidity, UV and forecast for Menton.", "Temperature, vent, humidite et UV a Menton.", "Temperatura, vento, umidita e UV a Mentone.", "Поточна погода, вітер, вологість, UV і прогноз для Ментона."),
     excerpt: t("Current weather, wind and UV for Menton.", "Meteo et UV a Menton.", "Meteo e UV a Mentone.", "Погода та UV у Ментоні."),
-    intro: t("Current weather and UV context for Menton.", "Conditions meteo actuelles a Menton.", "Condizioni meteo attuali a Mentone.", "Поточні погодні умови для Ментона."),
+    intro: t("Current weather, UV and a 16-day planning outlook for Menton.", "Conditions meteo, UV et tendance a 16 jours pour Menton.", "Condizioni meteo, UV e prospettiva a 16 giorni per Mentone.", "Поточна погода, UV і 16-денний planning outlook для Ментона."),
     compactDescription: t("Temperature, wind and UV before you head out.", "Temperature, vent et UV avant de sortir.", "Temperatura, vento e UV prima di uscire.", "Температура, вітер і UV перед виходом."),
     valueProposition: t("Useful for beach mornings, walks, transport timing and heat planning.", "Utile pour la plage, les balades et les fortes chaleurs.", "Utile per spiaggia, passeggiate e giornate calde.", "Корисно для пляжу, прогулянок і спеки."),
     statusNote: t("Live values come from Open-Meteo and are cached conservatively.", "Valeurs live via Open-Meteo avec cache prudent.", "Valori live via Open-Meteo con cache prudente.", "Live-дані йдуть з Open-Meteo з консервативним кешем."),
