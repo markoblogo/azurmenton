@@ -75,6 +75,11 @@ The queues separate publication readiness from image work and source verificatio
 - `image-queue`: missing or unapproved images that need an Azur Menton illustration or an owner-approved official asset.
 - `verification-queue`: factual checks to review before relying on price, accessibility, free-entry or other claims.
 
+Published event records support `relatedGuideSlugs` and `relatedPlaceIds`.
+Manual inbox values are kept first; the publication workflow only supplements
+obvious city/category/venue defaults such as Menton family, beach, library,
+garden, transport and Monaco/Nice/Italian Riviera travel links.
+
 Dry-run:
 
 ```bash
@@ -92,6 +97,11 @@ npm run events:publish -- --batch <batch-id> --ids event-id-1,event-id-2
 Publishing without `--all`, `--city` or `--ids` is a safe no-write dry run.
 
 Attach owner-supplied event illustrations after publication:
+
+```bash
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --report-only --fail-on-unmatched
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
+```
 
 ```bash
 npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched

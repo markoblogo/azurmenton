@@ -77,6 +77,7 @@ export type RivieraEvent = {
   detailPage?: boolean;
   relatedApartmentKeys?: string[];
   relatedGuideSlugs?: string[];
+  relatedPlaceIds?: string[];
   detailContent?: {
     overview: LocalizedText[];
     venues: LocalizedText[];
@@ -618,6 +619,58 @@ function defaultDistanceFromMenton(event: RivieraEvent) {
   if (event.location === "Nice") return 30;
   if (event.location === "Italian Riviera") return 32;
   return 45;
+}
+
+function eventText(event: RivieraEvent) {
+  return `${event.title} ${event.city ?? ""} ${event.location} ${event.category.join(" ")} ${event.audience.join(" ")} ${event.detailContent?.venues.map((venue) => venue.en).join(" ") ?? ""}`.toLowerCase();
+}
+
+function defaultRelatedGuideSlugs(event: RivieraEvent) {
+  const slugs = new Set(event.relatedGuideSlugs ?? []);
+  const text = eventText(event);
+
+  if (event.location === "Menton") {
+    slugs.add("menton-without-a-car");
+    if (event.category.includes("family")) slugs.add("menton-with-kids-family-guide");
+    if (event.category.includes("seasonal")) slugs.add("stay-cool-in-menton-summer");
+    if (event.category.includes("food-local")) slugs.add("local-food-menton");
+    if (event.category.includes("music")) slugs.add("jazz-live-music-near-menton");
+    if (text.includes("bibliothe") || text.includes("library") || text.includes("book")) slugs.add("bookshops-libraries-menton");
+    if (text.includes("bibliothe") || text.includes("library")) slugs.add("menton-with-kids-family-guide");
+    if (text.includes("train")) slugs.add("public-transport-in-menton");
+    if (text.includes("rue saint") || text.includes("old town") || text.includes("surprise")) slugs.add("menton-old-town");
+    if (text.includes("plage") || text.includes("beach") || text.includes("rondelli")) slugs.add("best-beaches-in-menton");
+  }
+  if (event.location === "Monaco") {
+    slugs.add("monaco-events-from-menton");
+    slugs.add("public-transport-in-menton");
+  }
+  if (event.location === "Nice") {
+    slugs.add("day-trips-from-menton");
+    slugs.add("public-transport-in-menton");
+  }
+  if (event.location === "Italian Riviera") {
+    slugs.add("italian-riviera-day-trip-from-menton");
+    slugs.add("public-transport-in-menton");
+  }
+  if (event.location !== "Menton" || event.distanceFromMentonKm) slugs.add("where-to-stay-in-menton");
+
+  return [...slugs].slice(0, 6);
+}
+
+function defaultRelatedPlaceIds(event: RivieraEvent) {
+  const ids = new Set(event.relatedPlaceIds ?? []);
+  const text = eventText(event);
+
+  if (text.includes("gannac")) ids.add("maison-gannac-menton");
+  if (text.includes("maria serena")) ids.add("villa-maria-serena");
+  if (text.includes("serre de la madone") || text.includes("fragonard")) ids.add("jardin-serre-de-la-madone");
+  if (text.includes("bibliotheque a la plage") || text.includes("beach library")) ids.add("bibliotheque-a-la-plage-menton");
+  if (text.includes("rue saint") || text.includes("surprise")) ids.add("rue-saint-michel-menton");
+  if (text.includes("rondelli") || text.includes("grande roue") || text.includes("ferris wheel")) ids.add("plage-rondelli");
+  if (text.includes("summer village") || text.includes("village d'ete") || text.includes("village d ete")) ids.add("promenade-du-soleil");
+
+  return [...ids].slice(0, 6);
 }
 
 const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
@@ -3113,6 +3166,8 @@ export const rivieraEvents: RivieraEvent[] = [...rivieraEventsBase, ...published
   ...event,
   titleLocalized: eventTitleLabels[event.id] ?? event.titleLocalized,
   dateLabelLocalized: eventDateLabels[event.id] ?? event.dateLabelLocalized,
+  relatedGuideSlugs: defaultRelatedGuideSlugs(event),
+  relatedPlaceIds: defaultRelatedPlaceIds(event),
   media: eventIllustrations[event.id] ?? event.media ?? missingEventMedia,
 }));
 

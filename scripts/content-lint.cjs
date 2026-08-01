@@ -219,6 +219,9 @@ for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {
   for (const guideSlug of event.relatedGuideSlugs ?? []) {
     if (!guideSlugs.has(guideSlug)) fail(`${owner}.relatedGuideSlugs -> ${guideSlug}`);
   }
+  for (const placeId of event.relatedPlaceIds ?? []) {
+    if (!placeIds.has(placeId)) fail(`${owner}.relatedPlaceIds -> ${placeId}`);
+  }
   if (event.sourceStatus === "verified" && !event.sourceUrl) fail(`${owner} is verified but has no sourceUrl`);
   checkPath(owner, "media.image", event.media?.image);
   if (event.media?.image && !event.media.imageAlt) fail(`${owner}.media.imageAlt missing`);

@@ -160,6 +160,8 @@ export type PreparedEvent = {
   priceText?: string;
   travelNote?: RivieraEvent["travelNote"];
   detailContent?: RivieraEvent["detailContent"];
+  relatedGuideSlugs?: string[];
+  relatedPlaceIds?: string[];
   image: PreparedEventImage;
   localized: Record<"en" | "fr" | "it" | "uk", LocalizedEventContent>;
   firstSeenAt: string;
@@ -479,6 +481,53 @@ function publishedLocation(location: EventDiscoveryLocation): RivieraEvent["loca
   return "French Riviera";
 }
 
+function eventSearchText(event: Pick<PreparedEvent, "titleCanonical" | "venue" | "tags" | "category" | "location">) {
+  return `${event.titleCanonical} ${event.venue ?? ""} ${event.tags.join(" ")} ${event.category.join(" ")} ${event.location}`.toLowerCase();
+}
+
+function inferRelatedGuideSlugs(event: Pick<PreparedEvent, "titleCanonical" | "venue" | "tags" | "category" | "location" | "relatedGuideSlugs">) {
+  const slugs = new Set(event.relatedGuideSlugs ?? []);
+  const text = eventSearchText(event);
+
+  if (event.location === "menton") {
+    slugs.add("menton-without-a-car");
+    if (event.category.includes("family")) slugs.add("menton-with-kids-family-guide");
+    if (event.category.includes("seasonal")) slugs.add("stay-cool-in-menton-summer");
+    if (event.category.includes("food-local")) slugs.add("local-food-menton");
+    if (text.includes("bibliothe") || text.includes("library") || text.includes("book")) slugs.add("bookshops-libraries-menton");
+    if (text.includes("bibliothe") || text.includes("library")) slugs.add("menton-with-kids-family-guide");
+    if (text.includes("train")) slugs.add("public-transport-in-menton");
+    if (text.includes("rue saint") || text.includes("vieille") || text.includes("old town") || text.includes("surprise")) slugs.add("menton-old-town");
+    if (text.includes("plage") || text.includes("beach") || text.includes("rondelli")) slugs.add("best-beaches-in-menton");
+  } else if (event.location === "monaco") {
+    slugs.add("monaco-events-from-menton");
+    slugs.add("public-transport-in-menton");
+  } else if (event.location === "nice") {
+    slugs.add("day-trips-from-menton");
+    slugs.add("public-transport-in-menton");
+  } else if (event.location === "sanremo" || event.location === "ventimiglia") {
+    slugs.add("italian-riviera-day-trip-from-menton");
+    slugs.add("public-transport-in-menton");
+  }
+
+  return [...slugs].slice(0, 6);
+}
+
+function inferRelatedPlaceIds(event: Pick<PreparedEvent, "titleCanonical" | "venue" | "tags" | "category" | "location" | "relatedPlaceIds">) {
+  const ids = new Set(event.relatedPlaceIds ?? []);
+  const text = eventSearchText(event);
+
+  if (text.includes("gannac")) ids.add("maison-gannac-menton");
+  if (text.includes("maria serena")) ids.add("villa-maria-serena");
+  if (text.includes("serre de la madone") || text.includes("fragonard")) ids.add("jardin-serre-de-la-madone");
+  if (text.includes("bibliotheque a la plage") || text.includes("beach library")) ids.add("bibliotheque-a-la-plage-menton");
+  if (text.includes("rue saint") || text.includes("surprise")) ids.add("rue-saint-michel-menton");
+  if (text.includes("rondelli") || text.includes("grande roue") || text.includes("ferris wheel")) ids.add("plage-rondelli");
+  if (text.includes("summer village") || text.includes("village d ete")) ids.add("promenade-du-soleil");
+
+  return [...ids].slice(0, 6);
+}
+
 function candidateSummary(candidate: ImportedEventCandidate, reason: string): EventCandidateSummary {
   return {
     id: candidate.id,
@@ -622,7 +671,14 @@ export function prepareEventBatch(input: {
       continue;
     }
 
-    const rawPayload = candidate.rawPayload as { isFree?: boolean | null; priceText?: string; programmeUrl?: string; bookingUrl?: string } | undefined;
+    const rawPayload = candidate.rawPayload as {
+      isFree?: boolean | null;
+      priceText?: string;
+      programmeUrl?: string;
+      bookingUrl?: string;
+      relatedGuideSlugs?: string[];
+      relatedPlaceIds?: string[];
+    } | undefined;
     const image = applyEventImageOverride({
       image: eventImage(candidate, sourceName),
       eventSlug: slugBase,
@@ -661,6 +717,8 @@ export function prepareEventBatch(input: {
       priceText: rawPayload?.priceText,
       programmeUrl: rawPayload?.programmeUrl,
       bookingUrl: rawPayload?.bookingUrl,
+      relatedGuideSlugs: rawPayload?.relatedGuideSlugs,
+      relatedPlaceIds: rawPayload?.relatedPlaceIds,
       accessibilityConfirmed: null,
       image,
       localized: localizedContent(candidate, editorialNote),
@@ -863,6 +921,8 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
       "panoramic-sea-view-studio",
       "beachside-family-apartment",
     ],
+    relatedGuideSlugs: inferRelatedGuideSlugs(event),
+    relatedPlaceIds: inferRelatedPlaceIds(event),
     searchIndexing: "standard",
     lastChecked: event.lastVerifiedAt,
     lastVerifiedAt: event.lastVerifiedAt,

@@ -10,8 +10,17 @@
     "startDate": "2026-06-29",
     "endDate": "2026-08-31",
     "categoryLabel": "Family summer activities",
-    "category": ["family", "seasonal", "food-local"],
-    "tags": ["menton", "summer", "families", "seafront"],
+    "category": [
+      "family",
+      "seasonal",
+      "food-local"
+    ],
+    "tags": [
+      "menton",
+      "summer",
+      "families",
+      "seafront"
+    ],
     "publicSummary": "A summer seafront village with casual food, drinks and family activities on Esplanade Elisée Reclus, useful for guests looking for an easy evening stop in central Menton.",
     "editorialNote": "Good low-friction option for families already walking along the seafront; check the official listing for current hours.",
     "suitability": {
@@ -33,8 +42,17 @@
     "startDate": "2026-06-30",
     "endDate": "2026-08-29",
     "categoryLabel": "Guided visit and tasting",
-    "category": ["food-local", "family", "seasonal"],
-    "tags": ["menton", "lemon", "guided visit", "food"],
+    "category": [
+      "food-local",
+      "family",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "lemon",
+      "guided visit",
+      "food"
+    ],
     "publicSummary": "An English-language guided visit at Maison Gannac with citrus-grove context and a tasting, especially useful for visitors who want a local Menton lemon experience without needing French.",
     "editorialNote": "Strong Menton-specific experience for guests interested in local produce; booking and access should be checked before travel.",
     "suitability": {
@@ -57,8 +75,17 @@
     "startDate": "2026-07-01",
     "endDate": "2026-08-29",
     "categoryLabel": "Night guided garden visit",
-    "category": ["art", "seasonal", "family"],
-    "tags": ["menton", "gardens", "evening", "summer"],
+    "category": [
+      "art",
+      "seasonal",
+      "family"
+    ],
+    "tags": [
+      "menton",
+      "gardens",
+      "evening",
+      "summer"
+    ],
     "publicSummary": "Evening guided visits of Jardin Maria Serena, giving guests a cooler summer way to see one of Menton's most atmospheric gardens after the heat drops.",
     "editorialNote": "Useful for warm summer evenings and Garavan-area stays; confirm exact visit slots and booking with the official source.",
     "suitability": {
@@ -81,8 +108,16 @@
     "startDate": "2026-07-01",
     "endDate": "2026-08-31",
     "categoryLabel": "Garden visit and perfume workshop",
-    "category": ["art", "seasonal"],
-    "tags": ["menton", "gardens", "workshop", "perfume"],
+    "category": [
+      "art",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "gardens",
+      "workshop",
+      "perfume"
+    ],
     "publicSummary": "A guided garden visit paired with a Fragonard perfume workshop at Serre de la Madone, suited to guests who want a more distinctive booked activity in Menton.",
     "editorialNote": "Good premium summer activity; keep booking and accessibility claims tied to the official listing.",
     "suitability": {
@@ -105,8 +140,16 @@
     "startDate": "2026-07-01",
     "endDate": "2026-08-31",
     "categoryLabel": "Beach reading",
-    "category": ["family", "seasonal"],
-    "tags": ["menton", "beach", "family", "books"],
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "beach",
+      "family",
+      "books"
+    ],
     "publicSummary": "A seasonal beach library on Esplanade Francis Palmero with books for adults and children, useful for relaxed beach days and family downtime.",
     "editorialNote": "Practical free summer stop near the seafront; verify opening days on the official page.",
     "suitability": {
@@ -128,8 +171,16 @@
     "startDate": "2026-07-04",
     "endDate": "2026-08-29",
     "categoryLabel": "Theatrical guided old-town visit",
-    "category": ["art", "seasonal"],
-    "tags": ["menton", "old town", "guided visit", "culture"],
+    "category": [
+      "art",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "old town",
+      "guided visit",
+      "culture"
+    ],
     "publicSummary": "A theatrical guided visit starting by Saint-Michel, designed as a different way to discover Menton's old town and heritage during the summer.",
     "editorialNote": "Useful for guests who want a structured old-town walk rather than a self-guided route.",
     "suitability": {
@@ -152,8 +203,16 @@
     "startDate": "2026-08-01",
     "endDate": "2026-09-30",
     "categoryLabel": "Children's garden mystery",
-    "category": ["family", "seasonal"],
-    "tags": ["menton", "kids", "gardens", "family"],
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "kids",
+      "gardens",
+      "family"
+    ],
     "publicSummary": "A self-guided family mystery trail at Serre de la Madone, built for children and adults to explore the garden through clues, statues and small challenges.",
     "editorialNote": "Good family activity when guests want something more structured than another beach session.",
     "suitability": {
@@ -176,8 +235,16 @@
     "startDate": "2026-07-01",
     "endDate": "2026-08-31",
     "categoryLabel": "Summer attraction",
-    "category": ["family", "seasonal"],
-    "tags": ["menton", "family", "seafront", "summer"],
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "family",
+      "seafront",
+      "summer"
+    ],
     "publicSummary": "A summer Ferris wheel at Espace Rondelli, easy to combine with Sablettes, the old town and an evening walk along Menton's seafront.",
     "editorialNote": "Simple visual summer attraction for families and evening walks; check official hours before going.",
     "suitability": {
@@ -199,8 +266,16 @@
     "startDate": "2026-06-01",
     "endDate": "2026-08-31",
     "categoryLabel": "Sightseeing train",
-    "category": ["family", "seasonal"],
-    "tags": ["menton", "sightseeing", "family", "old town"],
+    "category": [
+      "family",
+      "seasonal"
+    ],
+    "tags": [
+      "menton",
+      "sightseeing",
+      "family",
+      "old town"
+    ],
     "publicSummary": "A 45-minute narrated tourist train route from Esplanade Francis Palmero through the old town, seafront and higher viewpoints, useful for a low-effort overview of Menton.",
     "editorialNote": "Good first-day orientation tool, especially for guests travelling with children or limited walking energy.",
     "suitability": {

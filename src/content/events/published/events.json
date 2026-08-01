@@ -64,7 +64,35 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/bibliotheque-a-la-plage-menton-2026-07-01.webp",
+      "imageAlt": {
+        "en": "Beach library in Menton",
+        "fr": "Beach library in Menton",
+        "it": "Beach library in Menton",
+        "uk": "Beach library in Menton"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "bibliotheque-a-la-plage-menton"
+    ],
+    "relatedGuideSlugs": [
+      "bookshops-libraries-menton",
+      "best-beaches-in-menton",
+      "menton-with-kids-family-guide",
+      "stay-cool-in-menton-summer"
+    ]
   },
   {
     "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
@@ -131,7 +159,35 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/grande-roue-de-menton-menton-2026-07-01.webp",
+      "imageAlt": {
+        "en": "Menton Ferris wheel",
+        "fr": "Menton Ferris wheel",
+        "it": "Menton Ferris wheel",
+        "uk": "Menton Ferris wheel"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "plage-rondelli",
+      "plage-sablettes"
+    ],
+    "relatedGuideSlugs": [
+      "menton-with-kids-family-guide",
+      "best-beaches-in-menton",
+      "stay-cool-in-menton-summer"
+    ]
   },
   {
     "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
@@ -341,7 +397,35 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/le-train-touristique-de-menton-menton-2026-06-01.webp",
+      "imageAlt": {
+        "en": "Menton tourist train",
+        "fr": "Menton tourist train",
+        "it": "Menton tourist train",
+        "uk": "Menton tourist train"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "promenade-du-soleil"
+    ],
+    "relatedGuideSlugs": [
+      "menton-with-kids-family-guide",
+      "menton-one-day-itinerary",
+      "menton-without-a-car",
+      "public-transport-in-menton"
+    ]
   },
   {
     "id": "les-visites-surprises-de-menton-menton-2026-07-04-1h6x5ax",
@@ -409,7 +493,34 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/les-visites-surprises-de-menton-menton-2026-07-04.webp",
+      "imageAlt": {
+        "en": "Menton surprise guided visits",
+        "fr": "Menton surprise guided visits",
+        "it": "Menton surprise guided visits",
+        "uk": "Menton surprise guided visits"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "rue-saint-michel-menton"
+    ],
+    "relatedGuideSlugs": [
+      "menton-old-town",
+      "menton-one-day-itinerary",
+      "menton-without-a-car"
+    ]
   },
   {
     "id": "miss-rainette-et-le-mystere-de-la-statue-menton-2026-08-01-8rs8fp",
@@ -477,7 +588,34 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/miss-rainette-et-le-mystere-de-la-statue-menton-2026-08-01.webp",
+      "imageAlt": {
+        "en": "Miss Rainette family garden mystery",
+        "fr": "Miss Rainette family garden mystery",
+        "it": "Miss Rainette family garden mystery",
+        "uk": "Miss Rainette family garden mystery"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "jardin-serre-de-la-madone"
+    ],
+    "relatedGuideSlugs": [
+      "menton-with-kids-family-guide",
+      "menton-without-a-car",
+      "stay-cool-in-menton-summer"
+    ]
   },
   {
     "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
@@ -990,7 +1128,35 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/village-d-ete-menton-2026-06-29.webp",
+      "imageAlt": {
+        "en": "Menton Summer Village",
+        "fr": "Menton Summer Village",
+        "it": "Menton Summer Village",
+        "uk": "Menton Summer Village"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "promenade-du-soleil"
+    ],
+    "relatedGuideSlugs": [
+      "menton-without-a-car",
+      "menton-with-kids-family-guide",
+      "stay-cool-in-menton-summer",
+      "local-food-menton"
+    ]
   },
   {
     "id": "visite-guidee-atelier-parfum-fragonard-menton-2026-07-01-1tv8fua",
@@ -1058,7 +1224,34 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/visite-guidee-atelier-parfum-fragonard-menton-2026-07-01.webp",
+      "imageAlt": {
+        "en": "Fragonard perfume workshop at Serre de la Madone",
+        "fr": "Fragonard perfume workshop at Serre de la Madone",
+        "it": "Fragonard perfume workshop at Serre de la Madone",
+        "uk": "Fragonard perfume workshop at Serre de la Madone"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "jardin-serre-de-la-madone"
+    ],
+    "relatedGuideSlugs": [
+      "menton-without-a-car",
+      "stay-cool-in-menton-summer",
+      "museums-in-menton-nice-monaco"
+    ]
   },
   {
     "id": "visite-guidee-du-domaine-gannac-en-anglais-menton-2026-06-30-p1ao9p",
@@ -1127,7 +1320,34 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/visite-guidee-du-domaine-gannac-en-anglais-menton-2026-06-30.webp",
+      "imageAlt": {
+        "en": "Maison Gannac English guided visit",
+        "fr": "Maison Gannac English guided visit",
+        "it": "Maison Gannac English guided visit",
+        "uk": "Maison Gannac English guided visit"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "maison-gannac-menton"
+    ],
+    "relatedGuideSlugs": [
+      "local-food-menton",
+      "menton-with-kids-family-guide",
+      "menton-without-a-car"
+    ]
   },
   {
     "id": "visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-2026-07-01-8vl73p",
@@ -1196,6 +1416,33 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-2026-07-01.webp",
+      "imageAlt": {
+        "en": "Villa Maria Serena night garden visits",
+        "fr": "Villa Maria Serena night garden visits",
+        "it": "Villa Maria Serena night garden visits",
+        "uk": "Villa Maria Serena night garden visits"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    },
+    "relatedPlaceIds": [
+      "villa-maria-serena"
+    ],
+    "relatedGuideSlugs": [
+      "menton-without-a-car",
+      "stay-cool-in-menton-summer",
+      "quiet-evening-in-menton"
+    ]
   }
 ]

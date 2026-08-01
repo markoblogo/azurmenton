@@ -149,6 +149,9 @@ npm run events:assets -- --published-events --assets-dir /absolute/path/to/asset
 The command writes optimized WebP files, updates `src/content/events/published/events.json` and records durable image decisions in `src/content/events/overrides/image-overrides.json`.
 
 Manual corrections should survive later ingestion. Use `src/content/events/overrides/` for durable owner-approved overrides and do not overwrite published summaries, images or exclusions just because source data changed.
+Use `relatedGuideSlugs` and `relatedPlaceIds` in manual event records when a
+published guide or place card clearly helps the visitor plan the event. The
+workflow adds only conservative defaults; precise venue links should be explicit.
 
 To add a Menton event manually, add a small JSON file to `src/content/events/manual-inbox/`:
 

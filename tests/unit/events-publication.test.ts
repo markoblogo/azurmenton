@@ -152,6 +152,29 @@ describe("events publication workflow", () => {
     expect(batch.queues?.images).toEqual([]);
   });
 
+  it("infers practical guide and place links for obvious Menton event venues", () => {
+    const batch = prepareEventBatch({
+      candidates: [
+        candidate({
+          title: "Beach library in Menton",
+          city: "menton",
+          venue: "Esplanade Francis Palmero",
+          categoryLabel: "family seasonal beach",
+          sourceEventId: "beach-library",
+        }),
+      ],
+    });
+    const record = preparedEventToPublishedRecord(batch.candidates[0]);
+
+    expect(record.relatedGuideSlugs).toEqual(expect.arrayContaining([
+      "menton-with-kids-family-guide",
+      "stay-cool-in-menton-summer",
+      "bookshops-libraries-menton",
+      "best-beaches-in-menton",
+    ]));
+    expect(record.relatedPlaceIds).toContain("bibliotheque-a-la-plage-menton");
+  });
+
   it("consolidates source-fragmented multi-day records into one prepared event", () => {
     const batch = prepareEventBatch({
       id: "20260801T184500Z",

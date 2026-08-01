@@ -71,6 +71,8 @@ async function loadManualInbox(nowIso) {
       if (item.suitability) candidate.editorialSuggestion.suitability = { ...candidate.editorialSuggestion.suitability, ...item.suitability };
       if (Array.isArray(item.warnings)) candidate.editorialSuggestion.warnings = item.warnings;
       else if (item.publicSummary) candidate.editorialSuggestion.warnings = [];
+      if (Array.isArray(item.relatedGuideSlugs)) candidate.rawPayload = { ...(candidate.rawPayload ?? {}), relatedGuideSlugs: item.relatedGuideSlugs };
+      if (Array.isArray(item.relatedPlaceIds)) candidate.rawPayload = { ...(candidate.rawPayload ?? {}), relatedPlaceIds: item.relatedPlaceIds };
       records.push(candidate);
     }
   }

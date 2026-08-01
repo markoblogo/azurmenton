@@ -8,9 +8,11 @@ import { ContextualApartmentRecommendations } from "@/components/content/Context
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
 import { EventImage } from "@/components/events/EventImage";
+import { PlaceCard } from "@/components/guide/PlaceCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { getGuideArticle } from "@/content/guide";
+import { getPlaces } from "@/content/places";
 import { eventApartmentScenarios } from "@/content/contextual-apartment-recommendations";
 import { getEventOccurrencePage } from "@/content/event-occurrences";
 import {
@@ -83,6 +85,7 @@ const copy = {
     evergreenEvent: "Evergreen event page",
     stayGuide: "Where to stay guide",
     eventGuide: "Practical guide",
+    relatedPlaces: "Related places",
   },
   fr: {
     eyebrow: "Guide evenement Riviera",
@@ -127,6 +130,7 @@ const copy = {
     evergreenEvent: "Page evenement permanente",
     stayGuide: "Guide ou sejourner",
     eventGuide: "Guide pratique",
+    relatedPlaces: "Lieux lies",
   },
   it: {
     eyebrow: "Guida eventi Riviera",
@@ -171,6 +175,7 @@ const copy = {
     evergreenEvent: "Pagina evento evergreen",
     stayGuide: "Guida dove soggiornare",
     eventGuide: "Guida pratica",
+    relatedPlaces: "Luoghi correlati",
   },
   uk: {
     eyebrow: "Гід подій Рив'єри",
@@ -215,6 +220,7 @@ const copy = {
     evergreenEvent: "Постійна сторінка події",
     stayGuide: "Гід де зупинитися",
     eventGuide: "Практичний гід",
+    relatedPlaces: "Пов'язані місця",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -293,6 +299,7 @@ export default async function EventArticlePage({ params }: PageProps) {
     occurrence?.relatedApartmentSlugs ??
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
+  const relatedPlaces = getPlaces(event.relatedPlaceIds ?? []).slice(0, 6);
   const apartmentScenario = eventApartmentScenarios[event.slug];
   const relatedStayPage = occurrence?.relatedStaySlug ? stayPages.find((page) => page.slug === occurrence.relatedStaySlug) : undefined;
   const sourceAttribution = {
@@ -560,6 +567,17 @@ export default async function EventArticlePage({ params }: PageProps) {
                         ))}
                       </ul>
                     </div>
+                  </div>
+                </section>
+              ) : null}
+
+              {relatedPlaces.length ? (
+                <section className="border-t border-[#dfd4c1] pt-6">
+                  <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.relatedPlaces}</h2>
+                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                    {relatedPlaces.map((place) => (
+                      <PlaceCard key={place.id} place={place} locale={locale} compact />
+                    ))}
                   </div>
                 </section>
               ) : null}

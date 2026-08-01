@@ -68,6 +68,10 @@ npm run events:review
 npm run seo:priorities
 ```
 
+Event publication keeps owner-approved images local and can attach related
+guides/places through `relatedGuideSlugs` and `relatedPlaceIds`; missing event
+images should stay visible until an owner asset pack is applied.
+
 Additional checks when relevant:
 
 ```bash

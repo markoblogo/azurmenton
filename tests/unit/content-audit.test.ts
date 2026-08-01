@@ -319,6 +319,11 @@ describe("content graph audit", () => {
     expect(failures).toEqual([]);
   });
 
+  it("keeps event place links resolvable", () => {
+    const failures = rivieraEvents.flatMap((event) => unresolved(event.relatedPlaceIds, placeIds).map((id) => `${event.slug} relatedPlaceIds -> ${id}`));
+    expect(failures).toEqual([]);
+  });
+
   it("keeps intent cluster canonical articles linked to their supporting guides", () => {
     const failures: string[] = [];
 
