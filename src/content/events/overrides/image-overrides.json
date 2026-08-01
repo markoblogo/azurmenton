@@ -115,5 +115,57 @@
     "rightsNote": "Owner-approved Azur Menton event illustration.",
     "approvedAt": "2026-08-01T21:46:11.787Z",
     "locked": true
+  },
+  {
+    "eventSlug": "challenge-sanremo-triathlon-sanremo-2026-10-02",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515948",
+    "localPath": "/images/events/challenge-sanremo-triathlon-sanremo-2026-10-02.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Challenge Sanremo",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-01T23:47:59.033Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "fete-de-la-saint-michel-menton-2026-09-26",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/fete-de-la-saint-michel-menton-fr-3051727/",
+    "localPath": "/images/events/fete-de-la-saint-michel-menton-2026-09-26.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Fête de la Saint-Michel in Menton",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-01T23:47:59.227Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949",
+    "localPath": "/images/events/iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Sanremo International Chess Festival",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-01T23:47:59.413Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "urban-downhill-sanremo-sanremo-2026-10-31",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/92475/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838-2515974",
+    "localPath": "/images/events/urban-downhill-sanremo-sanremo-2026-10-31.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Urban Downhill Sanremo",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-01T23:47:59.602Z",
+    "locked": true
   }
 ]

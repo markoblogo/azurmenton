@@ -166,7 +166,7 @@ async function main(args = process.argv.slice(2)) {
     for (const item of matched) {
       await sharp(item.sourcePath)
         .rotate()
-        .resize({ width: 1600, withoutEnlargement: true })
+        .resize({ width: 1200, height: 720, fit: "cover", position: "center" })
         .webp({ quality: 82 })
         .toFile(item.destinationPath);
       const event = events.find((candidate) => candidate.slug === item.eventSlug);
