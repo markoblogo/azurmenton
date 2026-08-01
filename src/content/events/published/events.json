@@ -95,6 +95,161 @@
     ]
   },
   {
+    "id": "challenge-sanremo-triathlon-sanremo-2026-10-02-v21sff",
+    "slug": "challenge-sanremo-triathlon-sanremo-2026-10-02",
+    "title": "Challenge Sanremo",
+    "titleLocalized": {
+      "en": "Challenge Sanremo",
+      "fr": "Challenge Sanremo",
+      "it": "Challenge Sanremo",
+      "uk": "Challenge Sanremo"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-10",
+    "dateLabel": "2026-10-02-2026-10-04",
+    "dateLabelLocalized": {
+      "en": "2026-10-02-2026-10-04",
+      "fr": "2026-10-02-2026-10-04",
+      "it": "2026-10-02-2026-10-04",
+      "uk": "2026-10-02-2026-10-04"
+    },
+    "startDate": "2026-10-02",
+    "endDate": "2026-10-04",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "sport"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "sanremo",
+      "sport",
+      "triathlon",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "A major triathlon weekend in Sanremo, most relevant for sport-focused guests or visitors already planning an Italian Riviera stay or day trip.",
+      "fr": "A major triathlon weekend in Sanremo, most relevant for sport-focused guests or visitors already planning an Italian Riviera stay or day trip.",
+      "it": "A major triathlon weekend in Sanremo, most relevant for sport-focused guests or visitors already planning an Italian Riviera stay or day trip.",
+      "uk": "A major triathlon weekend in Sanremo, most relevant for sport-focused guests or visitors already planning an Italian Riviera stay or day trip."
+    },
+    "whyShowOnSite": {
+      "en": "Destination-worthy sport event; useful for spectators but keep logistics and road-impact notes cautious.",
+      "fr": "Destination-worthy sport event; useful for spectators but keep logistics and road-impact notes cautious.",
+      "it": "Destination-worthy sport event; useful for spectators but keep logistics and road-impact notes cautious.",
+      "uk": "Destination-worthy sport event; useful for spectators but keep logistics and road-impact notes cautious."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515948",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515948",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
+    "id": "fete-de-la-saint-michel-menton-2026-09-26-19ark44",
+    "slug": "fete-de-la-saint-michel-menton-2026-09-26",
+    "title": "Fête de la Saint-Michel in Menton",
+    "titleLocalized": {
+      "en": "Fête de la Saint-Michel in Menton",
+      "fr": "Fête de la Saint-Michel in Menton",
+      "it": "Fête de la Saint-Michel in Menton",
+      "uk": "Fête de la Saint-Michel in Menton"
+    },
+    "location": "Menton",
+    "city": "menton",
+    "monthGroup": "2026-09",
+    "dateLabel": "2026-09-26-2026-09-27",
+    "dateLabelLocalized": {
+      "en": "2026-09-26-2026-09-27",
+      "fr": "2026-09-26-2026-09-27",
+      "it": "2026-09-26-2026-09-27",
+      "uk": "2026-09-26-2026-09-27"
+    },
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-27",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "seasonal",
+      "food-local",
+      "music",
+      "family"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "menton",
+      "old town",
+      "saint michel",
+      "tradition",
+      "gastronomy"
+    ],
+    "shortDescription": {
+      "en": "Menton's traditional Saint-Michel weekend brings mass, procession, music and a paid communal lunch around the old town and the seafront.",
+      "fr": "Menton's traditional Saint-Michel weekend brings mass, procession, music and a paid communal lunch around the old town and the seafront.",
+      "it": "Menton's traditional Saint-Michel weekend brings mass, procession, music and a paid communal lunch around the old town and the seafront.",
+      "uk": "Menton's traditional Saint-Michel weekend brings mass, procession, music and a paid communal lunch around the old town and the seafront."
+    },
+    "whyShowOnSite": {
+      "en": "Useful for guests who want a local Menton tradition rather than a generic Riviera outing; keep programme details tied to the official tourism listing.",
+      "fr": "Useful for guests who want a local Menton tradition rather than a generic Riviera outing; keep programme details tied to the official tourism listing.",
+      "it": "Useful for guests who want a local Menton tradition rather than a generic Riviera outing; keep programme details tied to the official tourism listing.",
+      "uk": "Useful for guests who want a local Menton tradition rather than a generic Riviera outing; keep programme details tied to the official tourism listing."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/fete-de-la-saint-michel-menton-fr-3051727/",
+    "programmeUrl": "https://www.menton-riviera-merveilles.fr/offres/fete-de-la-saint-michel-menton-fr-3051727/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "menton-old-town",
+      "menton-without-a-car",
+      "local-food-menton",
+      "menton-with-kids-family-guide",
+      "stay-cool-in-menton-summer"
+    ],
+    "relatedPlaceIds": [
+      "basilica-saint-michel-archange",
+      "rue-saint-michel-menton"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
     "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
     "slug": "grande-roue-de-menton-menton-2026-07-01",
     "title": "Menton Ferris wheel",
@@ -188,6 +343,81 @@
       "best-beaches-in-menton",
       "stay-cool-in-menton-summer"
     ]
+  },
+  {
+    "id": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16-6rn3zz",
+    "slug": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16",
+    "title": "Sanremo International Chess Festival",
+    "titleLocalized": {
+      "en": "Sanremo International Chess Festival",
+      "fr": "Sanremo International Chess Festival",
+      "it": "Sanremo International Chess Festival",
+      "uk": "Sanremo International Chess Festival"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-10",
+    "dateLabel": "2026-10-16-2026-10-18",
+    "dateLabelLocalized": {
+      "en": "2026-10-16-2026-10-18",
+      "fr": "2026-10-16-2026-10-18",
+      "it": "2026-10-16-2026-10-18",
+      "uk": "2026-10-16-2026-10-18"
+    },
+    "startDate": "2026-10-16",
+    "endDate": "2026-10-18",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "sport"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "sanremo",
+      "chess",
+      "sport",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "A chess festival at the Casinò di Sanremo, useful for guests with a specific interest in chess or a planned autumn Italian Riviera trip.",
+      "fr": "A chess festival at the Casinò di Sanremo, useful for guests with a specific interest in chess or a planned autumn Italian Riviera trip.",
+      "it": "A chess festival at the Casinò di Sanremo, useful for guests with a specific interest in chess or a planned autumn Italian Riviera trip.",
+      "uk": "A chess festival at the Casinò di Sanremo, useful for guests with a specific interest in chess or a planned autumn Italian Riviera trip."
+    },
+    "whyShowOnSite": {
+      "en": "Keep as a specialist destination event; do not over-promote it as a general tourist attraction.",
+      "fr": "Keep as a specialist destination event; do not over-promote it as a general tourist attraction.",
+      "it": "Keep as a specialist destination event; do not over-promote it as a general tourist attraction.",
+      "uk": "Keep as a specialist destination event; do not over-promote it as a general tourist attraction."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton",
+      "casinos-near-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
   },
   {
     "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
@@ -909,6 +1139,359 @@
       "mediaType": "project_illustration",
       "mediaStatus": "available"
     }
+  },
+  {
+    "id": "sanremo-summer-symphony-break-free-sanremo-2026-08-21-1gqq1he",
+    "slug": "sanremo-summer-symphony-break-free-sanremo-2026-08-21",
+    "title": "Sanremo Summer Symphony: Break Free",
+    "titleLocalized": {
+      "en": "Sanremo Summer Symphony: Break Free",
+      "fr": "Sanremo Summer Symphony: Break Free",
+      "it": "Sanremo Summer Symphony: Break Free",
+      "uk": "Sanremo Summer Symphony: Break Free"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-21-2026-08-21",
+    "dateLabelLocalized": {
+      "en": "2026-08-21-2026-08-21",
+      "fr": "2026-08-21-2026-08-21",
+      "it": "2026-08-21-2026-08-21",
+      "uk": "2026-08-21-2026-08-21"
+    },
+    "startDate": "2026-08-21",
+    "endDate": "2026-08-21",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "sanremo",
+      "music",
+      "concert",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "A Queen-themed Sanremo Summer Symphony concert, suitable for visitors who want a recognisable music night on the Italian Riviera.",
+      "fr": "A Queen-themed Sanremo Summer Symphony concert, suitable for visitors who want a recognisable music night on the Italian Riviera.",
+      "it": "A Queen-themed Sanremo Summer Symphony concert, suitable for visitors who want a recognisable music night on the Italian Riviera.",
+      "uk": "A Queen-themed Sanremo Summer Symphony concert, suitable for visitors who want a recognisable music night on the Italian Riviera."
+    },
+    "whyShowOnSite": {
+      "en": "Useful as a destination event rather than a casual local stop; keep transport and ticket expectations cautious.",
+      "fr": "Useful as a destination event rather than a casual local stop; keep transport and ticket expectations cautious.",
+      "it": "Useful as a destination event rather than a casual local stop; keep transport and ticket expectations cautious.",
+      "uk": "Useful as a destination event rather than a casual local stop; keep transport and ticket expectations cautious."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/sanremo-summer-symphony-break-free.webp",
+      "imageAlt": {
+        "en": "Sanremo Summer Symphony: Break Free event near Menton",
+        "fr": "Sanremo Summer Symphony: Break Free près de Menton",
+        "it": "Sanremo Summer Symphony: Break Free vicino a Mentone",
+        "uk": "Sanremo Summer Symphony: Break Free біля Ментона"
+      },
+      "imageCaption": {
+        "en": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "fr": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "it": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "uk": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+      },
+      "mediaType": "official_poster",
+      "mediaStatus": "available",
+      "mediaSourceName": "Comune di Sanremo",
+      "mediaRightsNote": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+    }
+  },
+  {
+    "id": "sanremo-summer-symphony-paola-turci-sanremo-2026-08-18-10motb9",
+    "slug": "sanremo-summer-symphony-paola-turci-sanremo-2026-08-18",
+    "title": "Sanremo Summer Symphony: Paola Turci",
+    "titleLocalized": {
+      "en": "Sanremo Summer Symphony: Paola Turci",
+      "fr": "Sanremo Summer Symphony: Paola Turci",
+      "it": "Sanremo Summer Symphony: Paola Turci",
+      "uk": "Sanremo Summer Symphony: Paola Turci"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-18-2026-08-18",
+    "dateLabelLocalized": {
+      "en": "2026-08-18-2026-08-18",
+      "fr": "2026-08-18-2026-08-18",
+      "it": "2026-08-18-2026-08-18",
+      "uk": "2026-08-18-2026-08-18"
+    },
+    "startDate": "2026-08-18",
+    "endDate": "2026-08-18",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "sanremo",
+      "music",
+      "concert",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "A Sanremo Summer Symphony evening with Paola Turci at Auditorium Franco Alfano, best treated as a planned Italian Riviera night out.",
+      "fr": "A Sanremo Summer Symphony evening with Paola Turci at Auditorium Franco Alfano, best treated as a planned Italian Riviera night out.",
+      "it": "A Sanremo Summer Symphony evening with Paola Turci at Auditorium Franco Alfano, best treated as a planned Italian Riviera night out.",
+      "uk": "A Sanremo Summer Symphony evening with Paola Turci at Auditorium Franco Alfano, best treated as a planned Italian Riviera night out."
+    },
+    "whyShowOnSite": {
+      "en": "Strong enough for guests who actively want a concert evening beyond Menton; remind readers to plan the return transport.",
+      "fr": "Strong enough for guests who actively want a concert evening beyond Menton; remind readers to plan the return transport.",
+      "it": "Strong enough for guests who actively want a concert evening beyond Menton; remind readers to plan the return transport.",
+      "uk": "Strong enough for guests who actively want a concert evening beyond Menton; remind readers to plan the return transport."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513-706516",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513-706516",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/sanremo-summer-symphony-paola-turci.webp",
+      "imageAlt": {
+        "en": "Sanremo Summer Symphony: Paola Turci event near Menton",
+        "fr": "Sanremo Summer Symphony: Paola Turci près de Menton",
+        "it": "Sanremo Summer Symphony: Paola Turci vicino a Mentone",
+        "uk": "Sanremo Summer Symphony: Paola Turci біля Ментона"
+      },
+      "imageCaption": {
+        "en": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "fr": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "it": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "uk": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+      },
+      "mediaType": "official_poster",
+      "mediaStatus": "available",
+      "mediaSourceName": "Comune di Sanremo",
+      "mediaRightsNote": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+    }
+  },
+  {
+    "id": "sanremo-summer-symphony-tra-il-mare-e-le-stelle-sanremo-2026-08-13-yb8khn",
+    "slug": "sanremo-summer-symphony-tra-il-mare-e-le-stelle-sanremo-2026-08-13",
+    "title": "Sanremo Summer Symphony: Tra il mare e le stelle",
+    "titleLocalized": {
+      "en": "Sanremo Summer Symphony: Tra il mare e le stelle",
+      "fr": "Sanremo Summer Symphony: Tra il mare e le stelle",
+      "it": "Sanremo Summer Symphony: Tra il mare e le stelle",
+      "uk": "Sanremo Summer Symphony: Tra il mare e le stelle"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-13-2026-08-13",
+    "dateLabelLocalized": {
+      "en": "2026-08-13-2026-08-13",
+      "fr": "2026-08-13-2026-08-13",
+      "it": "2026-08-13-2026-08-13",
+      "uk": "2026-08-13-2026-08-13"
+    },
+    "startDate": "2026-08-13",
+    "endDate": "2026-08-13",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "sanremo",
+      "music",
+      "concert",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "A Sanremo Summer Symphony concert dedicated to Lucio Dalla, useful for visitors planning a deliberate Italian Riviera evening from Menton.",
+      "fr": "A Sanremo Summer Symphony concert dedicated to Lucio Dalla, useful for visitors planning a deliberate Italian Riviera evening from Menton.",
+      "it": "A Sanremo Summer Symphony concert dedicated to Lucio Dalla, useful for visitors planning a deliberate Italian Riviera evening from Menton.",
+      "uk": "A Sanremo Summer Symphony concert dedicated to Lucio Dalla, useful for visitors planning a deliberate Italian Riviera evening from Menton."
+    },
+    "whyShowOnSite": {
+      "en": "Destination-worthy Sanremo music night; recommend only when guests are comfortable with a late cross-border return plan.",
+      "fr": "Destination-worthy Sanremo music night; recommend only when guests are comfortable with a late cross-border return plan.",
+      "it": "Destination-worthy Sanremo music night; recommend only when guests are comfortable with a late cross-border return plan.",
+      "uk": "Destination-worthy Sanremo music night; recommend only when guests are comfortable with a late cross-border return plan."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/sanremo-summer-symphony-tra-il-mare-e-le-stelle.webp",
+      "imageAlt": {
+        "en": "Sanremo Summer Symphony: Tra il mare e le stelle event near Menton",
+        "fr": "Sanremo Summer Symphony: Tra il mare e le stelle près de Menton",
+        "it": "Sanremo Summer Symphony: Tra il mare e le stelle vicino a Mentone",
+        "uk": "Sanremo Summer Symphony: Tra il mare e le stelle біля Ментона"
+      },
+      "imageCaption": {
+        "en": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "fr": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "it": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained.",
+        "uk": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+      },
+      "mediaType": "official_poster",
+      "mediaStatus": "available",
+      "mediaSourceName": "Comune di Sanremo",
+      "mediaRightsNote": "Official event poster published on the Comune di Sanremo event page; used as first-draft promotional event media with source retained."
+    }
+  },
+  {
+    "id": "urban-downhill-sanremo-sanremo-2026-10-31-1vozy4i",
+    "slug": "urban-downhill-sanremo-sanremo-2026-10-31",
+    "title": "Urban Downhill Sanremo",
+    "titleLocalized": {
+      "en": "Urban Downhill Sanremo",
+      "fr": "Urban Downhill Sanremo",
+      "it": "Urban Downhill Sanremo",
+      "uk": "Urban Downhill Sanremo"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-10",
+    "dateLabel": "2026-10-31-2026-11-01",
+    "dateLabelLocalized": {
+      "en": "2026-10-31-2026-11-01",
+      "fr": "2026-10-31-2026-11-01",
+      "it": "2026-10-31-2026-11-01",
+      "uk": "2026-10-31-2026-11-01"
+    },
+    "startDate": "2026-10-31",
+    "endDate": "2026-11-01",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "sport"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "sanremo",
+      "cycling",
+      "sport",
+      "italian riviera"
+    ],
+    "shortDescription": {
+      "en": "An urban downhill cycling weekend in Sanremo, mainly useful for guests who enjoy spectator sport and are comfortable planning a longer Italian Riviera outing.",
+      "fr": "An urban downhill cycling weekend in Sanremo, mainly useful for guests who enjoy spectator sport and are comfortable planning a longer Italian Riviera outing.",
+      "it": "An urban downhill cycling weekend in Sanremo, mainly useful for guests who enjoy spectator sport and are comfortable planning a longer Italian Riviera outing.",
+      "uk": "An urban downhill cycling weekend in Sanremo, mainly useful for guests who enjoy spectator sport and are comfortable planning a longer Italian Riviera outing."
+    },
+    "whyShowOnSite": {
+      "en": "Good niche sport event; keep as a curated option rather than a broad family recommendation.",
+      "fr": "Good niche sport event; keep as a curated option rather than a broad family recommendation.",
+      "it": "Good niche sport event; keep as a curated option rather than a broad family recommendation.",
+      "uk": "Good niche sport event; keep as a curated option rather than a broad family recommendation."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/92475/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838-2515974",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/events/92475/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838-2515974",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
   },
   {
     "id": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06-1v7n4wz",

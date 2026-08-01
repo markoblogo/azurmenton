@@ -125,6 +125,43 @@ export type EventImageOverride = {
   locked?: boolean;
 };
 
+type EventCandidateImagePayload = {
+  localPath?: string;
+  kind?: EventImageKind;
+  rightsStatus?: EventImageRightsStatus;
+  alt?: string;
+  sourceName?: string;
+  sourceUrl?: string;
+  credit?: string;
+  rightsNote?: string;
+  width?: number;
+  height?: number;
+  fileSize?: number;
+  mimeType?: string;
+  originalUrl?: string;
+  discoveredAt?: string;
+  approvedAt?: string;
+  locked?: boolean;
+};
+
+function isPublishableCandidateImage(
+  image: EventCandidateImagePayload | undefined,
+): image is EventCandidateImagePayload & {
+  localPath: string;
+  kind: Exclude<EventImageKind, "remote-reference" | "missing">;
+  rightsStatus: "approved" | "official-promotional" | "manual-approved";
+} {
+  return Boolean(
+    image?.localPath &&
+      image.kind &&
+      image.kind !== "remote-reference" &&
+      image.kind !== "missing" &&
+      (image.rightsStatus === "approved" ||
+        image.rightsStatus === "official-promotional" ||
+        image.rightsStatus === "manual-approved"),
+  );
+}
+
 export type PreparedEvent = {
   id: string;
   slug: string;
@@ -269,7 +306,8 @@ export type PublishSummary = {
   warnings: string[];
 };
 
-const acceptedDestinationKeywords = /\b(festival|grand prix|exhibition|museum|concert|jazz|opera|marathon|race|championship|yacht|masters|carnival|national|fireworks|major|international)\b/i;
+const acceptedDestinationKeywords =
+  /\b(festival|grand prix|exhibition|museum|concert|symphony|jazz|opera|marathon|triathlon|race|championship|chess|cycling|downhill|yacht|masters|carnival|national|fireworks|major|international)\b/i;
 const localMentonKeywords = /\b(concert|music|market|exhibition|guided|visit|workshop|children|family|wine|food|book|theatre|church|sport|beach|outdoor|festival|local)\b/i;
 
 function slugify(value: string) {
@@ -343,7 +381,36 @@ export function buildGoogleMapsUrl(input: { venue?: string; address?: string; ci
 }
 
 function eventImage(candidate: ImportedEventCandidate, sourceName: string): PreparedEventImage {
-  const raw = candidate.rawPayload as { imageUrl?: string } | undefined;
+  const raw = candidate.rawPayload as { imageUrl?: string; eventImage?: EventCandidateImagePayload } | undefined;
+  const candidateImage = raw?.eventImage;
+  if (isPublishableCandidateImage(candidateImage)) {
+    return {
+      id: `${candidate.id}-candidate-image`,
+      status: candidateImage.rightsStatus === "manual-approved" ? "manual-approved" : "approved-source",
+      kind: candidateImage.kind,
+      rightsStatus: candidateImage.rightsStatus,
+      recommendation: candidateImage.kind === "official-poster" ? "keep-official-poster" : "official-photo-suitable",
+      recommendationReason: "Approved source image supplied by the manual event intake.",
+      originalUrl: candidateImage.originalUrl,
+      localPath: candidateImage.localPath,
+      sourceName: candidateImage.sourceName ?? sourceName,
+      sourceUrl: candidateImage.sourceUrl ?? candidate.sourceUrl,
+      credit: candidateImage.credit,
+      rightsNote: candidateImage.rightsNote,
+      width: candidateImage.width,
+      height: candidateImage.height,
+      aspectRatio: candidateImage.width && candidateImage.height ? candidateImage.width / candidateImage.height : undefined,
+      fileSize: candidateImage.fileSize,
+      mimeType: candidateImage.mimeType,
+      manuallySelected: candidateImage.rightsStatus === "manual-approved",
+      locked: candidateImage.locked ?? false,
+      discoveredAt: candidateImage.discoveredAt ?? candidate.lastVerifiedAt,
+      approvedAt: candidateImage.approvedAt,
+      updatedAt: candidate.lastVerifiedAt,
+      alt: candidateImage.alt ?? `${candidate.title} official event image`,
+    };
+  }
+
   if (raw?.imageUrl) {
     return {
       id: `${candidate.id}-remote-image`,
@@ -380,6 +447,12 @@ export function canPublishEventImage(image: PreparedEventImage) {
   if (!image.localPath) return false;
   if (image.kind === "remote-reference" || image.kind === "missing") return false;
   return ["approved", "official-promotional", "manual-approved"].includes(image.rightsStatus);
+}
+
+function publishedMediaType(image: PreparedEventImage): NonNullable<NonNullable<RivieraEvent["media"]>["mediaType"]> {
+  if (image.kind === "official-poster") return "official_poster";
+  if (image.kind === "official-photo") return "official_photo";
+  return "project_illustration";
 }
 
 export function buildEventQueues(batch: Pick<EventBatch, "candidates">): EventQueues {
@@ -863,6 +936,7 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
   const title = event.localized.en.title;
   const summary = event.localized.en.summary;
   const note = event.localized.en.editorialNote ?? event.relevanceReason;
+  const sourceNeedsVerification = event.warnings.some((warning) => !/image|rights/i.test(warning));
   return {
     id: event.id,
     slug: event.slug,
@@ -909,7 +983,7 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
       it: "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
       uk: "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням.",
     },
-    sourceStatus: event.warnings.length ? "needs_verification" : "verified",
+    sourceStatus: sourceNeedsVerification ? "needs_verification" : "verified",
     sourceUrl: event.sourceUrl,
     programmeUrl: event.programmeUrl ?? event.sourceUrl,
     ticketsUrl: event.bookingUrl,
@@ -941,7 +1015,7 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
             it: event.image.rightsNote ?? "Immagine evento Azur Menton.",
             uk: event.image.rightsNote ?? "Зображення події Azur Menton.",
           },
-          mediaType: "project_illustration",
+          mediaType: publishedMediaType(event.image),
           mediaStatus: event.image.status === "fallback" ? "needs_review" : "available",
           mediaSourceName: event.image.sourceName,
           mediaRightsNote: event.image.rightsNote,

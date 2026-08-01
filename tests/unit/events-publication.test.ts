@@ -103,6 +103,46 @@ describe("events publication workflow", () => {
     expect(preparedEventToPublishedRecord(event).media).toBeUndefined();
   });
 
+  it("publishes first-draft official images from manual intake without owner image locks", () => {
+    const batch = prepareEventBatch({
+      candidates: [
+        candidate({
+          title: "Sanremo Summer Symphony",
+          city: "sanremo",
+          sourceEventId: "sanremo-symphony",
+          rawPayload: {
+            eventImage: {
+              localPath: "/images/events/sanremo-symphony.webp",
+              kind: "official-poster",
+              rightsStatus: "official-promotional",
+              sourceName: "Comune di Sanremo",
+              sourceUrl: "https://www.comune.sanremo.im.it/it/events/sanremo-symphony",
+              rightsNote: "Official event poster from the organiser source.",
+              width: 720,
+              height: 960,
+              mimeType: "image/jpeg",
+              locked: false,
+            },
+          },
+        }),
+      ],
+    });
+    const event = batch.candidates[0];
+
+    expect(canPublishEventImage(event.image)).toBe(true);
+    expect(event.image).toMatchObject({
+      status: "approved-source",
+      kind: "official-poster",
+      locked: false,
+      manuallySelected: false,
+    });
+    expect(preparedEventToPublishedRecord(event).media).toMatchObject({
+      image: "/images/events/sanremo-symphony.webp",
+      mediaType: "official_poster",
+      mediaSourceName: "Comune di Sanremo",
+    });
+  });
+
   it("publishes local approved event images and puts unresolved images into the image queue", () => {
     const batch = prepareEventBatch({ candidates: [candidate({ title: "Menton music evening" })] });
     const event = batch.candidates[0];

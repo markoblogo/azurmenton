@@ -93,7 +93,7 @@ export type RivieraEvent = {
     image?: string;
     imageAlt?: LocalizedText;
     imageCaption?: LocalizedText;
-    mediaType?: "project_illustration";
+    mediaType?: "project_illustration" | "official_poster" | "official_photo";
     gallery?: string[];
     mediaEmbedUrl?: string;
     mediaSourceName?: string;
