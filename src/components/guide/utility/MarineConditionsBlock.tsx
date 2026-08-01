@@ -307,7 +307,7 @@ function MarineMetricGlyph({ kind, state }: { kind: MarineMetricKind; state: Met
   const color = state.color;
   const waveLines = Math.max(1, Math.min(3, state.level + 1));
   return (
-    <svg className="h-12 w-12 shrink-0" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <svg className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" viewBox="0 0 64 64" fill="none" aria-hidden="true">
       {kind === "sea" ? <path d="M32 9c-7 11-16 20-16 31a16 16 0 0 0 32 0C48 29 39 20 32 9Z" stroke={color} strokeWidth="4" /> : null}
       {kind === "wind" ? (
         <g stroke={color} strokeLinecap="round" strokeWidth="4"><path d="M8 22h30c8 0 8-11 0-11-3 0-5 2-6 4" /><path d="M8 33h45" /><path d="M8 44h27c8 0 8 11 0 11-3 0-5-2-6-4" /></g>
@@ -400,37 +400,37 @@ export async function MarineConditionsBlock({ block, locale, forecastDays = 5, c
               </p>
             </div>
 
-            <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <dl className="mt-4 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.sea}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.seaTemperature, "°C")}</dd><MarineMetricGlyph kind="sea" state={states.sea} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{valueWithUnit(marine.seaTemperature, "°C")}</dd><MarineMetricGlyph kind="sea" state={states.sea} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.sea.color }}>{states.sea.label}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.wind}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.windSpeed, " km/h")}</dd><MarineMetricGlyph kind="wind" state={states.wind} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{valueWithUnit(marine.windSpeed, " km/h")}</dd><MarineMetricGlyph kind="wind" state={states.wind} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.wind.color }}>{states.wind.label}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.rain}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{typeof marine.rainChance === "number" ? `${marine.rainChance}%` : "—"}</dd><MarineMetricGlyph kind="rain" state={states.rain} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{typeof marine.rainChance === "number" ? `${marine.rainChance}%` : "—"}</dd><MarineMetricGlyph kind="rain" state={states.rain} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.rain.color }}>{states.rain.label}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.waves}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.waveHeight, " m")}</dd><MarineMetricGlyph kind="waves" state={states.waves} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{valueWithUnit(marine.waveHeight, " m")}</dd><MarineMetricGlyph kind="waves" state={states.waves} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.waves.color }}>{states.waves.label}</p>
                 <p className="mt-1 text-xs text-[#71665b]">{formatDirection(marine.waveDirection)}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.swell}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWaveHeight, " m")}</dd><MarineMetricGlyph kind="swell" state={states.swell} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{valueWithUnit(marine.swellWaveHeight, " m")}</dd><MarineMetricGlyph kind="swell" state={states.swell} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.swell.color }}>{states.swell.label}</p>
                 <p className="mt-1 text-xs text-[#71665b]">{formatDirection(marine.swellWaveDirection)}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.period}</dt>
-                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWavePeriod, " s")}</dd><MarineMetricGlyph kind="period" state={states.period} /></div>
+                <div className="mt-2 flex min-w-0 items-center justify-between gap-2"><dd className="min-w-0 break-words text-xl font-semibold leading-tight text-[#173f36] sm:text-2xl">{valueWithUnit(marine.swellWavePeriod, " s")}</dd><MarineMetricGlyph kind="period" state={states.period} /></div>
                 <p className="mt-1 text-xs font-semibold" style={{ color: states.period.color }}>{states.period.label}</p>
               </div>
             </dl>
