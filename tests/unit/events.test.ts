@@ -25,9 +25,11 @@ describe("event date status", () => {
   });
 
   it("allows Event JSON-LD only for confirmed events with real start dates", () => {
-    expect(canRenderEventJsonLd({ dateStatus: "confirmed", startDate: "2027-02-09" })).toBe(true);
-    expect(canRenderEventJsonLd({ dateStatus: "dates_pending", startDate: undefined })).toBe(false);
-    expect(canRenderEventJsonLd({ dateStatus: "estimated_annual_window", startDate: undefined })).toBe(false);
+    const today = new Date("2026-08-01T12:00:00Z");
+    expect(canRenderEventJsonLd({ dateStatus: "confirmed", startDate: "2027-02-09" }, today)).toBe(true);
+    expect(canRenderEventJsonLd({ dateStatus: "confirmed", startDate: "2026-07-23", endDate: "2026-07-26" }, today)).toBe(false);
+    expect(canRenderEventJsonLd({ dateStatus: "dates_pending", startDate: undefined }, today)).toBe(false);
+    expect(canRenderEventJsonLd({ dateStatus: "estimated_annual_window", startDate: undefined }, today)).toBe(false);
   });
 
   it("resolves occurrence route aliases to the current event object", () => {
@@ -49,6 +51,12 @@ describe("event date status", () => {
     expect(lemonFestival && isIndexableEventDetail(lemonFestival)).toBe(true);
     expect(summer && getEventSearchIndexing(summer)).toBe("noindex");
     expect(summer && isIndexableEventDetail(summer)).toBe(false);
+  });
+
+  it("excludes past confirmed event details from current SEO indexing", () => {
+    const niceJazzFest = getRivieraEvent("nice-jazz-fest");
+    expect(niceJazzFest && getEventSearchIndexing(niceJazzFest, new Date("2026-08-01T12:00:00Z"))).toBe("noindex");
+    expect(niceJazzFest && isIndexableEventDetail(niceJazzFest, new Date("2026-08-01T12:00:00Z"))).toBe(false);
   });
 
   it("keeps past annual editions archived while routing planning links to a pending next occurrence", () => {

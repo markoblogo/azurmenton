@@ -217,7 +217,7 @@ for (const event of allEvents) {
     addReview(event, highPrioritySlugs.has(event.slug) ? "high" : "low", "source_not_verified", "Verify against an official organiser/tourism source or keep the event explicitly pending.");
   }
 
-  if (event.detailPage && event.dateStatus === "confirmed" && !canRenderJsonLd) {
+  if (event.detailPage && event.dateStatus === "confirmed" && !isPast(event) && !canRenderJsonLd) {
     addReview(event, "medium", "confirmed_event_missing_event_json_ld", "Add a real startDate so the detail page can render Event JSON-LD, or mark dates as pending.");
   }
 

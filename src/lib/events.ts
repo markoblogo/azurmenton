@@ -4,7 +4,7 @@ export type EventDateStatus = "upcoming" | "current" | "past" | "dates_pending" 
 export type EventPeriod = "today" | "tomorrow" | "weekend" | "next7" | "next30" | "custom";
 
 type DateLikeEvent = Pick<RivieraEvent, "startDate" | "endDate" | "expectedSeason" | "dateLabel" | "dateStatus">;
-type StructuredEventLike = Pick<RivieraEvent, "dateStatus" | "startDate">;
+type StructuredEventLike = Pick<RivieraEvent, "dateStatus" | "startDate" | "endDate">;
 
 function toDateKey(date: Date) {
   const year = date.getFullYear();
@@ -160,6 +160,8 @@ export function getVisibleEvents(events: RivieraEvent[], today = new Date()) {
   };
 }
 
-export function canRenderEventJsonLd(event: StructuredEventLike) {
-  return event.dateStatus === "confirmed" && Boolean(event.startDate);
+export function canRenderEventJsonLd(event: StructuredEventLike, today = new Date()) {
+  if (event.dateStatus !== "confirmed" || !event.startDate) return false;
+  const todayKey = toDateKey(today);
+  return (event.endDate ?? event.startDate) >= todayKey;
 }

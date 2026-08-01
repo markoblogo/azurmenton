@@ -12,7 +12,7 @@ import { places } from "../../src/content/places";
 import { placeMapExclusions } from "../../src/content/planning/place-map-exclusions";
 import { placeMapPoints } from "../../src/content/planning/place-map-points";
 import { mapPlaceTypes } from "../../src/content/planning/map-taxonomy";
-import { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
+import { eventFreshnessProfiles, getEventSearchIndexing, rivieraEvents, summerOnTheRivieraEvent } from "../../src/content/riviera-events";
 import { stayPages } from "../../src/content/stay-pages";
 import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
 import { airportLiveBoards, getAirportLiveBoards } from "../../src/content/utility/airports";
@@ -359,6 +359,23 @@ describe("content graph audit", () => {
 
       if (event.featured && getEventDateStatus(event) === "past") {
         failures.push(`${event.slug} is expired and still featured`);
+      }
+    }
+
+    expect(failures).toEqual([]);
+  });
+
+  it("keeps public event records source-backed and current-index safe", () => {
+    const allEvents = [...rivieraEvents, summerOnTheRivieraEvent];
+    const failures: string[] = [];
+    const auditDate = new Date("2026-08-01T12:00:00Z");
+
+    for (const event of allEvents) {
+      if (!event.sourceUrl) failures.push(`${event.slug} missing sourceUrl`);
+      if (!event.lastVerifiedAt || !/^\d{4}-\d{2}-\d{2}$/.test(event.lastVerifiedAt)) failures.push(`${event.slug} missing lastVerifiedAt`);
+
+      if (event.dateStatus === "confirmed" && getEventDateStatus(event, auditDate) === "past") {
+        if (getEventSearchIndexing(event, auditDate) !== "noindex") failures.push(`${event.slug} past confirmed event is indexable`);
       }
     }
 

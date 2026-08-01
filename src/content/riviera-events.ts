@@ -56,6 +56,7 @@ export type RivieraEvent = {
   typicalDateWindow?: LocalizedText;
   theme?: LocalizedText;
   lastChecked?: string;
+  lastVerifiedAt?: string;
   programmeUrl?: string;
   ticketsUrl?: string;
   performerName?: string;
@@ -127,6 +128,7 @@ export const eventFreshnessProfiles: EventFreshnessProfile[] = [
   { slug: "printemps-des-arts-monte-carlo", status: "awaiting_official_program", reason: "the 2027 edition is expected in March-April, but the full official programme is not yet published" },
   { slug: "monte-carlo-jazz-festival", status: "awaiting_official_program", reason: "official SBM festival page exists, but the 2026 programme is not yet published" },
   { slug: "new-year-riviera", status: "awaiting_official_program", reason: "New Year town programmes are not yet published" },
+  { slug: "nice-jazz-fest", status: "awaiting_official_program", reason: "Nice Jazz Fest is annual, but the next edition dates and programme are not yet published" },
   { slug: "nice-half-marathon", status: "awaiting_official_program", reason: "Nice half-marathon listings point to April 2027, but official event details should be rechecked before exact planning" },
   { slug: "rock-in-the-casbah-sanremo", status: "awaiting_official_program", reason: "Sanremo old-town music programme needs current edition confirmation" },
   { slug: "sanremo-rally", status: "awaiting_official_program", reason: "Sanremo rally dates should be checked against the official rally organiser" },
@@ -179,7 +181,7 @@ const eventTitleLabels: Record<string, LocalizedText> = {
   ),
   "monaco-energy-boat-challenge-2026": t("Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge", "Monaco Energy Boat Challenge"),
   "meeting-herculis-ebs-2026": t("Meeting Herculis EBS", "Meeting Herculis EBS", "Meeting Herculis EBS", "Meeting Herculis EBS"),
-  "nice-jazz-fest-2026": t("Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest"),
+  "nice-jazz-fest-2027": t("Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest", "Nice Jazz Fest"),
   "menton-music-festival-2026": t(
     "Menton Music Festival",
     "Festival de Musique de Menton",
@@ -294,7 +296,7 @@ const eventDateLabels: Record<string, LocalizedText> = {
   "monte-carlo-summer-festival-2026": t("3 July-15 August 2026", "3 juillet-15 août 2026", "3 luglio-15 agosto 2026", "3 липня-15 серпня 2026"),
   "monaco-energy-boat-challenge-2026": t("8-11 July 2026", "8-11 juillet 2026", "8-11 luglio 2026", "8-11 липня 2026"),
   "meeting-herculis-ebs-2026": t("10 July 2026", "10 juillet 2026", "10 luglio 2026", "10 липня 2026"),
-  "nice-jazz-fest-2026": t("23-26 July 2026", "23-26 juillet 2026", "23-26 luglio 2026", "23-26 липня 2026"),
+  "nice-jazz-fest-2027": t("July 2027; official dates to confirm", "Juillet 2027 ; dates officielles à confirmer", "Luglio 2027; date ufficiali da confermare", "Липень 2027; офіційні дати треба підтвердити"),
   "menton-music-festival-2026": t("25 July-7 August 2026", "25 juillet-7 août 2026", "25 luglio-7 agosto 2026", "25 липня-7 серпня 2026"),
   "la-vuelta-monaco-start-2026": t("22 August 2026", "22 août 2026", "22 agosto 2026", "22 серпня 2026"),
   "tour-de-france-femmes-nice-finish-2026": t("9 August 2026", "9 août 2026", "9 agosto 2026", "9 серпня 2026"),
@@ -627,7 +629,7 @@ const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
   "monte-carlo-summer-festival-2026": eventIllustration("monte-carlo-summer-festival.jpg", "Monte-Carlo Summer Festival"),
   "monaco-energy-boat-challenge-2026": eventIllustration("monaco-energy-boat-challenge.jpg", "Monaco Energy Boat Challenge"),
   "meeting-herculis-ebs-2026": eventIllustration("meeting-herculis-ebs.jpg", "Meeting Herculis EBS"),
-  "nice-jazz-fest-2026": eventIllustration("nice-jazz-fest.jpg", "Nice Jazz Fest"),
+  "nice-jazz-fest-2027": eventIllustration("nice-jazz-fest.jpg", "Nice Jazz Fest"),
   "menton-music-festival-2026": eventIllustration("menton-music-festival.png", "Festival de Musique de Menton"),
   "la-vuelta-monaco-start-2026": eventIllustration("grand-depart-la-vuelta-monaco.jpg", "Grand Depart / start of La Vuelta in Monaco"),
   "tour-de-france-femmes-nice-finish-2026": eventIllustration("tour-de-france-femmes-nice-finish.jpg", "Finish of the women's Tour de France in Nice"),
@@ -1018,14 +1020,16 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceUrl: "https://www.diamondleague.com/calendar/",
   },
   {
-    id: "nice-jazz-fest-2026",
+    id: "nice-jazz-fest-2027",
     slug: "nice-jazz-fest",
     title: "Nice Jazz Fest",
     location: "Nice",
-    monthGroup: "2026-07",
-    dateLabel: "23-26 July 2026",
-    startDate: "2026-07-23",
-    endDate: "2026-07-26",
+    monthGroup: "2027-07",
+    dateLabel: "July 2027; official dates to confirm",
+    expectedSeason: "July 2027",
+    dateStatus: "dates_pending",
+    recurrence: "annual",
+    occurrenceYear: 2027,
     category: ["music"],
     familySuitability: "depends",
     audience: ["music lovers", "couples", "city-break guests"],
@@ -1047,7 +1051,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Soggiorna a Mentone come base piu tranquilla e vai a Nizza per le serate.",
       "Зупиніться в Ментоні як у спокійнішій морській базі та їдьте до Ніцци на вечори фестивалю.",
     ),
-    sourceStatus: "verified",
+    sourceStatus: "official_source_needed",
     sourceUrl: "https://www.nicejazzfestival.fr",
     featured: false,
     detailPage: true,
@@ -1287,6 +1291,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Добре як варіант на дощовий день або день без пляжу.",
     ),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.explorenicecotedazur.com/en/events/major-events/",
   },
   {
     id: "festival-du-livre-mouans-sartoux-2026",
@@ -1353,6 +1358,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Плануйте як культурну денну поїздку та перевіряйте фінальну програму перед виїздом.",
     ),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.biot-tourisme.com/en/agenda/",
     detailPage: true,
     relatedApartmentKeys: relatedAll,
   },
@@ -1739,6 +1745,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Точні дати треба перевірити перед просуванням конкретних вікендів.",
     ),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
   },
   {
     id: "winter-on-the-riviera-2026-2027",
@@ -1771,6 +1778,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Показуйте зиму як спокійнішу альтернативу низького сезону.",
     ),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
   },
   {
     id: "local-menton-winter-events-2026-2027",
@@ -1802,6 +1810,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Запитайте господаря про місцеві поради ближче до дат поїздки.",
     ),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
   },
   {
     id: "menton-lemon-festival-2027",
@@ -2774,6 +2783,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     bookingTip: t("Treat dates as provisional until the current programme is published.", "Considerez les dates comme provisoires jusqu'au programme officiel.", "Considera le date provvisorie fino al programma ufficiale.", "Вважайте дати попередніми до публікації програми."),
     sourceStatus: "official_source_needed",
     dateStatus: "estimated_annual_window",
+    sourceUrl: "https://www.comune.sanremo.im.it/it",
     distanceFromMentonKm: 32,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -2795,6 +2805,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Useful as a refined August evening idea between Nice and Monaco.", "Utile comme idee de soiree d'aout entre Nice et Monaco.", "Utile come idea serale di agosto tra Nizza e Monaco.", "Корисна серпнева вечірня ідея між Ніццою та Монако."),
     bookingTip: t("Check final times and return transport before planning the evening.", "Verifiez horaires finaux et retour avant la soiree.", "Controlla orari finali e rientro prima della serata.", "Перевіряйте фінальний час і повернення перед вечором."),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://www.instagram.com/festivalcrossover/",
     distanceFromMentonKm: 24,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -2816,6 +2827,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Adds late-August sports demand around Nice.", "Ajoute une demande sportive de fin aout autour de Nice.", "Aggiunge domanda sportiva di fine agosto intorno a Nizza.", "Додає спортивний попит наприкінці серпня навколо Ніцци."),
     bookingTip: t("Confirm start logistics before choosing Menton as a base.", "Confirmez la logistique de depart avant de choisir Menton comme base.", "Conferma la logistica della partenza prima di scegliere Mentone.", "Підтверджуйте логістику старту перед вибором Ментона як бази."),
     sourceStatus: "needs_verification",
+    sourceUrl: "https://hauteroute.fr/",
     distanceFromMentonKm: 30,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -2837,6 +2849,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Keeps September Italian Riviera music visible while final dates are checked.", "Garde la musique de septembre en Riviera italienne visible pendant verification.", "Mantiene visibile la musica settembrina in Riviera italiana durante la verifica.", "Показує вересневу музику Італійської Рив'єри, поки дати уточнюються."),
     bookingTip: t("Do not rely on exact dates until the organiser publishes the current edition.", "Ne pas utiliser de dates exactes avant publication de l'edition actuelle.", "Non usare date esatte prima della pubblicazione dell'edizione corrente.", "Не покладайтеся на точні дати до публікації поточного випуску."),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://sanremorock.it/",
     distanceFromMentonKm: 32,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -2858,6 +2871,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Useful for winter planning without inventing exact dates too early.", "Utile pour planifier l'hiver sans inventer de dates trop tot.", "Utile per pianificare l'inverno senza inventare date troppo presto.", "Корисно для зимового планування без вигаданих точних дат."),
     bookingTip: t("Check each town's official programme closer to travel.", "Verifiez le programme officiel de chaque ville plus pres du sejour.", "Controlla i programmi ufficiali delle citta vicino al viaggio.", "Перевіряйте офіційні програми міст ближче до поїздки."),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
     distanceFromMentonKm: 30,
     detailPage: true,
     relatedGuideSlugs: ["menton-with-kids-family-guide", "menton-in-autumn", "day-trips-from-menton", "where-to-stay-in-menton"],
@@ -2880,6 +2894,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Keeps the winter calendar useful while avoiding unverified claims.", "Rend le calendrier d'hiver utile sans affirmations non verifiees.", "Mantiene utile il calendario invernale evitando affermazioni non verificate.", "Робить зимовий календар корисним без неперевірених тверджень."),
     bookingTip: t("Book accommodation first, then verify dinner, transport and town programmes.", "Reservez l'hebergement puis verifiez diner, transport et programmes.", "Prenota l'alloggio, poi verifica cena, trasporti e programmi.", "Спершу бронюйте житло, потім перевіряйте вечерю, транспорт і програми."),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
     distanceFromMentonKm: 30,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -2901,6 +2916,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Adds a practical low-season reason to travel once official dates are known.", "Ajoute une raison pratique de basse saison quand les dates sont connues.", "Aggiunge un motivo pratico di bassa stagione quando le date sono note.", "Додає практичний привід низького сезону після підтвердження дат."),
     bookingTip: t("Treat this as a planning note until official national or local dates are published.", "A traiter comme note de planification jusqu'aux dates officielles.", "Da trattare come nota di pianificazione fino alle date ufficiali.", "Вважайте це планувальною нотаткою до офіційних дат."),
     sourceStatus: "official_source_needed",
+    sourceUrl: "https://www.service-public.fr/particuliers/actualites/A15406?lang=fr",
     distanceFromMentonKm: 30,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
@@ -3045,7 +3061,8 @@ export const rivieraEvents: RivieraEvent[] = rivieraEventsBase.map((event) => ({
   dateStatus: inferredDateStatus(event),
   city: defaultCity(event),
   distanceFromMentonKm: defaultDistanceFromMenton(event),
-  lastChecked: event.lastChecked ?? "2026-07-03",
+  lastChecked: event.lastChecked ?? event.lastVerifiedAt ?? "2026-07-03",
+  lastVerifiedAt: event.lastVerifiedAt ?? event.lastChecked ?? "2026-07-03",
   ...event,
   titleLocalized: eventTitleLabels[event.id] ?? event.titleLocalized,
   dateLabelLocalized: eventDateLabels[event.id] ?? event.dateLabelLocalized,
@@ -3079,16 +3096,24 @@ const priorityEventSlugs = new Set([
   "monaco-e-prix",
 ]);
 
-export function getEventSearchIndexing(event: RivieraEvent): EventSearchIndexing {
+function isConfirmedEventPast(event: RivieraEvent, today = new Date()) {
+  if (event.dateStatus !== "confirmed") return false;
+  const todayKey = today.toISOString().slice(0, 10);
+  const comparableDate = event.endDate ?? event.startDate;
+  return Boolean(comparableDate && comparableDate < todayKey);
+}
+
+export function getEventSearchIndexing(event: RivieraEvent, today = new Date()): EventSearchIndexing {
   if (event.searchIndexing) return event.searchIndexing;
+  if (isConfirmedEventPast(event, today)) return "noindex";
   if (priorityEventSlugs.has(event.slug)) return "priority";
   if (event.recurrence === "seasonal_placeholder") return "noindex";
   if (event.dateStatus !== "confirmed" && event.sourceStatus !== "verified") return "noindex";
   return "standard";
 }
 
-export function isIndexableEventDetail(event: RivieraEvent) {
-  return getEventSearchIndexing(event) !== "noindex";
+export function isIndexableEventDetail(event: RivieraEvent, today = new Date()) {
+  return getEventSearchIndexing(event, today) !== "noindex";
 }
 
 export function getDetailEvents() {
@@ -3112,6 +3137,7 @@ export const summerOnTheRivieraEvent: RivieraEvent = {
   expectedSeason: "July-August 2026",
   distanceFromMentonKm: 45,
   lastChecked: "2026-07-03",
+  lastVerifiedAt: "2026-07-03",
   category: ["seasonal", "music", "family"],
   familySuitability: "depends",
   audience: ["families", "couples", "summer visitors"],
@@ -3134,6 +3160,7 @@ export const summerOnTheRivieraEvent: RivieraEvent = {
     "Надсилайте запит на липень і серпень раніше, особливо якщо потрібне паркування чи простір для сім'ї.",
   ),
   sourceStatus: "official_source_needed",
+  sourceUrl: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
   detailPage: true,
   relatedApartmentKeys: relatedAll,
 };
