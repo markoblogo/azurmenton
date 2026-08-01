@@ -122,7 +122,24 @@
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
       "beachside-family-apartment"
-    ]
+    ],
+    "media": {
+      "image": "/images/events/la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12.webp",
+      "imageAlt": {
+        "en": "La Farandole – Festival International de Folklore de Nice",
+        "fr": "La Farandole – Festival International de Folklore de Nice",
+        "it": "La Farandole – Festival International de Folklore de Nice",
+        "uk": "La Farandole – Festival International de Folklore de Nice"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available"
+    }
   },
   {
     "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
@@ -246,7 +263,24 @@
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
       "beachside-family-apartment"
-    ]
+    ],
+    "media": {
+      "image": "/images/events/nice-classic-festival-nice-2026-07-21.webp",
+      "imageAlt": {
+        "en": "Nice Classic Festival",
+        "fr": "Nice Classic Festival",
+        "it": "Nice Classic Festival",
+        "uk": "Nice Classic Festival"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available"
+    }
   },
   {
     "id": "pina-festival-2026-sanremo-2026-08-06-1ugqw8n",
@@ -381,7 +415,24 @@
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
       "beachside-family-apartment"
-    ]
+    ],
+    "media": {
+      "image": "/images/events/pina-festival-2026-sanremo-2026-08-06.webp",
+      "imageAlt": {
+        "en": "Piña Festival 2026",
+        "fr": "Piña Festival 2026",
+        "it": "Piña Festival 2026",
+        "uk": "Piña Festival 2026"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available"
+    }
   },
   {
     "id": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06-1v7n4wz",
@@ -516,6 +567,23 @@
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
       "beachside-family-apartment"
-    ]
+    ],
+    "media": {
+      "image": "/images/events/vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06.webp",
+      "imageAlt": {
+        "en": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+        "fr": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+        "it": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+        "uk": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available"
+    }
   }
 ]

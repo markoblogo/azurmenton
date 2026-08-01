@@ -28,6 +28,7 @@
     "map:report": "node scripts/map-coverage-report.cjs",
     "events:ingest": "node scripts/events-ingest.cjs",
     "events:prepare": "node scripts/events-prepare.cjs",
+    "events:assets": "node scripts/events-assets.cjs",
     "events:publish": "node scripts/events-publish.cjs",
     "events:review": "node scripts/events-review.cjs",
     "weekly:validate": "node scripts/weekly-validate.cjs",
