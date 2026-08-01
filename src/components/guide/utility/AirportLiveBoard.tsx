@@ -61,6 +61,42 @@ export function AirportLiveBoard({ block, locale, compact = false }: { block: Ai
         ))}
       </div>
 
+      {compact ? (
+        <section id={`${tabId}-${airport.id}`} role="tabpanel" className="mt-5 grid items-start gap-4 border border-[#e6d9c6] bg-white/65 p-4 sm:p-5 lg:grid-cols-[minmax(14rem,0.8fr)_minmax(0,1.6fr)_minmax(14rem,0.8fr)]">
+          <div>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h3 className="text-xl font-semibold text-[#173f36]">{airport.name[locale]}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5c5044]">{airport.summary[locale]}</p>
+              </div>
+              <span className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-[#71665b]">{canEmbed ? copy.supported : copy.externalOnly}</span>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label={airport.name[locale]}>
+              {(["arrivals", "departures"] as const).map((type) => (
+                <button key={type} type="button" onClick={() => selectBoardType(type)} className={`min-h-10 border px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36] ${boardType === type ? "border-[#173f36] bg-[#173f36] text-white" : "border-[#c6a66a] text-[#173f36] hover:bg-[#f3ead7]"}`}>
+                  {copy[type]}
+                </button>
+              ))}
+            </div>
+            {canEmbed ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{copy.privacy}</p> : null}
+          </div>
+
+          {canEmbed ? (
+            <div className="relative h-64 overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] sm:h-72 lg:h-80">
+              <iframe title={`${airport.name[locale]} ${copy[boardType].toLowerCase()}`} src={url} loading="eager" referrerPolicy="strict-origin-when-cross-origin" className="absolute left-0 top-0 h-[125%] w-[125%] origin-top-left scale-[0.8] border-0" onLoad={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardLoaded, props)} onError={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardFailed, props)} />
+            </div>
+          ) : <p className="border border-[#dfd2b8] bg-[#f8f3ea] p-4 text-sm leading-6 text-[#5c5044]">{copy.embedUnavailable}</p>}
+
+          <div>
+            <div className="grid gap-2">
+              <a href={airport.arrivalsUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackBookingFunnelEvent(bookingFunnelEvents.airportArrivalsExternalClick, { ...props, boardType: "arrivals" })} className="inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-3 py-2 text-center text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#173f36] hover:bg-[#f3ead7]">{copy.arrivals}: {copy.external}</a>
+              <a href={airport.departuresUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackBookingFunnelEvent(bookingFunnelEvents.airportDeparturesExternalClick, { ...props, boardType: "departures" })} className="inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-3 py-2 text-center text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#173f36] hover:bg-[#f3ead7]">{copy.departures}: {copy.external}</a>
+              <a href={`/${locale}/guide/how-to-get-to-menton-from-nice-airport`} onClick={openTransportGuide} className="inline-flex min-h-10 items-center justify-center border border-[#173f36] px-3 py-2 text-center text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[#173f36] hover:bg-[#f3ead7]">{copy.transport}</a>
+            </div>
+            <p className="mt-4 text-xs leading-5 text-[#71665b]">{airport.transportNote[locale]} {copy.verify}</p>
+          </div>
+        </section>
+      ) : (
       <section id={`${tabId}-${airport.id}`} role="tabpanel" className="mt-5 border border-[#e6d9c6] bg-white/65 p-4 sm:p-5">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <div>
@@ -94,6 +130,7 @@ export function AirportLiveBoard({ block, locale, compact = false }: { block: Ai
         </div>
         <p className="mt-4 text-xs leading-5 text-[#71665b]">{airport.transportNote[locale]} {copy.verify}</p>
       </section>
+      )}
     </article>
   );
 }

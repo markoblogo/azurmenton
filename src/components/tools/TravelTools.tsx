@@ -115,7 +115,6 @@ const ui = {
     forecastHint: "Scroll for the remaining days",
     weatherToolCta: "Weather",
     seaToolCta: "Sea",
-    beachesToolCta: "Beaches",
     seaOverviewTitle: "The Mediterranean season around Menton",
     seaOverview: "The Mediterranean around Menton is one of the French Riviera’s greatest assets, staying calm and inviting for much of the year thanks to the town’s sheltered location. Sea temperatures typically reach 22–24°C (72–75°F) from June through September, remain pleasantly warm in October at around 20°C (68°F), and begin warming again in May. These conditions make late spring to early autumn ideal for swimming, paddleboarding, kayaking and snorkelling, with the clearest underwater visibility usually found on calm mornings after light winds. Summer often brings gentle seas that are perfect for families and first-time water-sports enthusiasts, while spring and autumn offer fresh breezes that experienced sailors appreciate for comfortable coastal cruising. Whether you’re joining a yacht trip, exploring hidden coves by kayak or simply enjoying a swim in the crystal-clear Mediterranean, Menton offers one of the longest and most enjoyable sea seasons on the Côte d’Azur.",
     wavesNow: "Waves now",
@@ -211,7 +210,6 @@ const ui = {
     forecastHint: "Faites defiler pour voir les autres jours",
     weatherToolCta: "Meteo",
     seaToolCta: "Mer",
-    beachesToolCta: "Plages",
     seaOverviewTitle: "La saison méditerranéenne autour de Menton",
     seaOverview: "La Méditerranée autour de Menton est l’un des grands atouts de la Côte d’Azur. Grâce à la position abritée de la ville, elle reste calme et agréable une grande partie de l’année. La température de l’eau atteint généralement 22–24 °C de juin à septembre, reste agréablement douce en octobre autour de 20 °C et commence déjà à remonter en mai. Ces conditions rendent la fin du printemps et le début de l’automne idéaux pour la baignade, le paddle, le kayak et le snorkeling. La visibilité sous-marine est souvent meilleure les matins calmes après une légère brise. L’été offre fréquemment une mer douce, parfaite pour les familles et les débutants, tandis que le printemps et l’automne apportent les brises appréciées des navigateurs expérimentés. Que vous partiez en bateau, exploriez les criques en kayak ou profitiez simplement d’une baignade, Menton offre l’une des plus longues et agréables saisons marines de la Côte d’Azur.",
     wavesNow: "Vagues",
@@ -307,7 +305,6 @@ const ui = {
     forecastHint: "Scorri per vedere gli altri giorni",
     weatherToolCta: "Meteo",
     seaToolCta: "Mare",
-    beachesToolCta: "Spiagge",
     seaOverviewTitle: "La stagione del Mediterraneo intorno a Mentone",
     seaOverview: "Il Mediterraneo intorno a Mentone è uno dei grandi punti di forza della Costa Azzurra. Grazie alla posizione riparata della città, il mare resta calmo e piacevole per gran parte dell’anno. La temperatura dell’acqua raggiunge generalmente 22–24 °C da giugno a settembre, resta piacevolmente mite in ottobre intorno ai 20 °C e ricomincia a salire già a maggio. Queste condizioni rendono la tarda primavera e l’inizio dell’autunno ideali per nuoto, paddleboard, kayak e snorkeling. La visibilità subacquea è spesso migliore nelle mattine calme dopo venti leggeri. L’estate offre spesso un mare dolce, perfetto per famiglie e principianti, mentre primavera e autunno portano brezze apprezzate dai velisti esperti. Che scegliate un’escursione in barca, le calette in kayak o semplicemente una nuotata, Mentone offre una delle stagioni marine piu lunghe e piacevoli della Costa Azzurra.",
     wavesNow: "Onde",
@@ -403,7 +400,6 @@ const ui = {
     forecastHint: "Прокрутіть, щоб побачити решту днів",
     weatherToolCta: "Погода",
     seaToolCta: "Море",
-    beachesToolCta: "Пляжі",
     seaOverviewTitle: "Середземноморський сезон біля Ментона",
     seaOverview: "Середземне море біля Ментона — одна з головних переваг Лазурового узбережжя. Завдяки захищеному розташуванню міста море залишається спокійним і приємним більшу частину року. Температура води зазвичай сягає 22–24 °C із червня до вересня, у жовтні залишається комфортною — близько 20 °C — і знову починає підвищуватися вже в травні. Такі умови роблять кінець весни та початок осені чудовими для купання, paddleboarding, kayaking і snorkelling. Найкраща підводна видимість часто буває спокійними ранками після легкого вітру. Влітку море часто лагідне, що добре підходить сім’ям і новачкам у водних видах спорту, а навесні та восени свіжий бриз особливо цінують досвідчені яхтсмени. Незалежно від того, чи вирушаєте ви на яхті, досліджуєте бухти на каяку або просто купаєтеся, Ментон пропонує один із найдовших і найприємніших морських сезонів на Лазуровому узбережжі.",
     wavesNow: "Хвилі",
@@ -456,13 +452,15 @@ function TransportPlanningSection({ locale }: { locale: Locale }) {
       <p className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{text.transport}</p>
       <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{text.transportHubTitle}</h2>
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{text.transportHubText}</p>
-      <div className="mt-5 grid items-start gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
+      <div className="mt-5">
         <TransportHelperBlock locale={locale} compact />
-        <AirportLiveBoard
-          locale={locale}
-          compact
-          block={{ type: "airportLiveBoard", airportIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "torino-airport"] }}
-        />
+        <div className="mt-5">
+          <AirportLiveBoard
+            locale={locale}
+            compact
+            block={{ type: "airportLiveBoard", airportIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "torino-airport"] }}
+          />
+        </div>
       </div>
     </section>
   );
@@ -656,8 +654,6 @@ function summarizeMetric(slug: TravelToolSlug, locale: Locale, rightNow: Awaited
     case "sea":
       if (!rightNow.marine) return { label: text.sea, value: travelToolSectionCopy[locale].unavailable, status: "unavailable" as const };
       return { label: text.sea, value: typeof rightNow.marine.seaTemperature === "number" ? `${rightNow.marine.seaTemperature}°C` : travelToolSectionCopy[locale].unavailable, detail: typeof rightNow.marine.waveHeight === "number" ? `${rightNow.marine.waveHeight} m` : undefined, status: "live" as const };
-    case "beaches":
-      return { label: text.waterQuality, value: text.officialChecks, detail: text.officialBathingPortal, status: "external" as const };
     case "currency":
       return { label: "EUR", value: "GBP / USD / CHF / UAH", detail: "Reference-rate conversion", status: "live" as const };
     case "flights":
@@ -726,8 +722,6 @@ async function renderToolContent(locale: Locale, slug: TravelToolSlug, rightNow:
       return <LocalServicesPanel locale={locale} />;
     case "safety":
       return <SafetyPanel locale={locale} />;
-    case "beaches":
-      return <BeachesPanel locale={locale} />;
     default:
       return null;
   }
@@ -1166,7 +1160,6 @@ function UnifiedConditionsPanel({ locale, rightNow, extended = false }: { locale
           <div className="mt-6 flex flex-wrap gap-3 border-t border-white/80 pt-5">
             <Link href={`/${locale}/tools/weather` as Route} className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white hover:bg-[#235246]">{text.weatherToolCta}</Link>
             <Link href={`/${locale}/tools/sea` as Route} className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{text.seaToolCta}</Link>
-            <Link href={`/${locale}/tools/beaches` as Route} className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{text.beachesToolCta}</Link>
           </div>
         </div>
       </div>
@@ -1292,36 +1285,6 @@ function SafetyPanel({ locale }: { locale: Locale }) {
           <p className="mt-2 font-semibold text-[#173f36]">{text.severeWeatherTitle}</p>
           <p className="mt-2 text-sm leading-6 text-[#5c5044]">{text.severeWeatherText}</p>
         </a>
-      </section>
-    </div>
-  );
-}
-
-function BeachesPanel({ locale }: { locale: Locale }) {
-  const text = ui[locale];
-  return (
-    <div className="space-y-4">
-      <section className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-        <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{text.beachesTitle}</h2>
-        <p className="mt-3 text-sm leading-7 text-[#5c5044]">{text.beachesText}</p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <a href="https://baignades.sante.gouv.fr/baignades/editorial/en/accueil.html" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white hover:bg-[#235246]">{text.openWaterMap}</a>
-          <a href="https://baignades.sante.gouv.fr/baignades/navigAccessible.do?annee=null&com=0&idCarte=fra&listeActive=com&objectId=06&site=0&x=28&y=10" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[#173f36] hover:bg-[#f3ead7]">{text.alpesBathingSites}</a>
-        </div>
-      </section>
-      <section className="grid gap-3 md:grid-cols-3">
-        <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-          <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{text.beachFlags}</p>
-          <p className="mt-2 text-sm leading-6 text-[#5c5044]">{text.beachFlagsText}</p>
-        </div>
-        <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-          <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{text.jellyfish}</p>
-          <p className="mt-2 text-sm leading-6 text-[#5c5044]">{text.jellyfishText}</p>
-        </div>
-        <div className="border border-[#dfd2b8] bg-[#fffdf8] p-5">
-          <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#b49353]">{text.tide}</p>
-          <p className="mt-2 text-sm leading-6 text-[#5c5044]">{text.tideText}</p>
-        </div>
       </section>
     </div>
   );
