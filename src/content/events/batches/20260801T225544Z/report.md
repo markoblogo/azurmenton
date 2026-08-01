@@ -140,24 +140,24 @@ Verification queue: 30
    Date: 2026-08-13-2026-08-13
    Venue: Auditorium Franco Alfano
    Scope: destination-worthy
-   Image: approved-source / official-poster / official-promotional
-   Image action: keep-official-poster
+   Image: approved-source / azur-editorial / manual-approved
+   Image action: keep-azur-editorial
    Source: https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513
    Warnings: none
 17. [sanremo] Sanremo Summer Symphony: Paola Turci
    Date: 2026-08-18-2026-08-18
    Venue: Auditorium Franco Alfano
    Scope: destination-worthy
-   Image: approved-source / official-poster / official-promotional
-   Image action: keep-official-poster
+   Image: approved-source / azur-editorial / manual-approved
+   Image action: keep-azur-editorial
    Source: https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513-706516
    Warnings: none
 18. [sanremo] Sanremo Summer Symphony: Break Free
    Date: 2026-08-21-2026-08-21
    Venue: Auditorium Franco Alfano
    Scope: destination-worthy
-   Image: approved-source / official-poster / official-promotional
-   Image action: keep-official-poster
+   Image: approved-source / azur-editorial / manual-approved
+   Image action: keep-azur-editorial
    Source: https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514
    Warnings: none
 19. [sanremo] Challenge Sanremo
