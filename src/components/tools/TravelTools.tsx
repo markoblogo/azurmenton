@@ -107,6 +107,7 @@ const ui = {
     conditionsText: "A single planning layer for air temperature, sea temperature, 16-day outlook, waves, rain, UV, air quality and honest beach-safety context.",
     currentConditions: "Current conditions",
     nextDays: "16-day outlook",
+    forecastHint: "Scroll for the remaining days",
     weatherToolCta: "Weather",
     seaToolCta: "Sea",
     beachesToolCta: "Beaches",
@@ -196,6 +197,7 @@ const ui = {
     conditionsText: "Une seule couche pratique pour temperature de l’air, temperature de la mer, tendance sur 16 jours, vagues, pluie, UV, qualite de l’air et contexte plage honnête.",
     currentConditions: "Conditions actuelles",
     nextDays: "Prevision 16 jours",
+    forecastHint: "Faites defiler pour voir les autres jours",
     weatherToolCta: "Meteo",
     seaToolCta: "Mer",
     beachesToolCta: "Plages",
@@ -285,6 +287,7 @@ const ui = {
     conditionsText: "Un unico livello pratico per temperatura dell’aria, temperatura del mare, prospettiva a 16 giorni, onde, pioggia, UV, qualita dell’aria e contesto spiagge onesto.",
     currentConditions: "Condizioni attuali",
     nextDays: "Prossimi 16 giorni",
+    forecastHint: "Scorri per vedere gli altri giorni",
     weatherToolCta: "Meteo",
     seaToolCta: "Mare",
     beachesToolCta: "Spiagge",
@@ -374,6 +377,7 @@ const ui = {
     conditionsText: "Єдиний практичний шар для температури повітря, температури моря, 16-денного прогнозу, хвиль, опадів, UV, якості повітря та чесного пляжного контексту.",
     currentConditions: "Поточні умови",
     nextDays: "Прогноз на 16 днів",
+    forecastHint: "Прокрутіть, щоб побачити решту днів",
     weatherToolCta: "Погода",
     seaToolCta: "Море",
     beachesToolCta: "Пляжі",
@@ -982,7 +986,7 @@ function UnifiedConditionsPanel({ locale, rightNow, extended = false }: { locale
           <h2 className="mt-3 serif-heading text-4xl leading-none text-[#173f36]">{text.conditionsTitle}</h2>
           <p className="mt-4 max-w-4xl text-sm leading-7 text-[#5c5044]">{text.conditionsText}</p>
 
-          <div className="mt-6 grid gap-5 xl:grid-cols-[0.82fr_1.18fr]">
+          <div className={`mt-6 grid gap-5 ${extended ? "grid-cols-1" : "xl:grid-cols-[0.82fr_1.18fr]"}`}>
             <div className="relative overflow-hidden border border-white/70 bg-white/58 p-6 shadow-[0_18px_50px_rgba(31,105,126,0.12)] backdrop-blur-sm sm:p-8">
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#f7bd3c]/28 blur-2xl" aria-hidden="true" />
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.currentConditions}</p>
@@ -1028,10 +1032,13 @@ function UnifiedConditionsPanel({ locale, rightNow, extended = false }: { locale
               </div>
             </div>
 
-            <div className="flex flex-col justify-between border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5">
+            <div className={`flex flex-col border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5 ${extended ? "" : "justify-between"}`}>
               <div>
-                <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.nextDays}</p>
-                <div className={extended ? "mt-4 flex snap-x gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" : "mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5"}>
+                <div className="flex flex-wrap items-baseline justify-between gap-3">
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.nextDays}</p>
+                  {extended ? <p className="text-xs text-[#71665b]">{text.forecastHint}</p> : null}
+                </div>
+                <div className={extended ? "mt-4 grid auto-cols-[minmax(9.25rem,1fr)] grid-flow-col snap-x gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" : "mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5"}>
                   {forecast.map((day) => (
                     <div
                       key={day.date}
