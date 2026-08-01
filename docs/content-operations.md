@@ -60,8 +60,14 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.
 - Add new events without illustrations as `mediaStatus: "missing"` or leave media empty so the existing placeholder renders until optimized images are supplied.
-- Keep future ingestion source configuration in `src/content/event-sources.ts`; do not add a scraper until an official RSS, iCal, API, JSON-LD or clearly permissible structured source is confirmed.
-- Future ingestion candidates should pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain fuzzy matches must remain review candidates, not silent deletes.
+- Keep ingestion source configuration in `src/content/event-sources.ts`. Each source must document owner, URL, method, language, update cadence, image/description policy, known limitations and whether automation is allowed.
+- Run `npm run events:ingest` to generate local review candidates from enabled automated official sources. Use `-- --source <source-id>` for one source and read `build/events-ingestion/events-ingestion-report.json`.
+- Current automated source adapters are deliberately narrow: `explore-nice-major-events`, `comune-sanremo-events` and `sanremo-live-love`. Menton, Monaco and Ventimiglia remain manual sources until stable public records are confirmed.
+- Imported candidates are not public. They remain `new`, `needs_review`, `duplicate`, `outdated` or similar review states until an editor manually creates or updates typed public events in `src/content/riviera-events.ts`.
+- The protected route `/api/cron/events-ingest` requires `EVENT_INGEST_SECRET` or `CRON_SECRET`. It returns structured diagnostics and review candidate counts; it must never expose secrets or publish events.
+- Ingestion candidates pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain cross-source matches must remain review candidates, not silent deletes.
+- Do not copy long source descriptions or hotlink third-party images. Store factual fields and write original AzurMenton summaries during manual publication.
+- If a source changes date, venue, URL or cancellation state, preserve edited summaries and return the candidate to review rather than overwriting public copy.
 
 ## Images
 

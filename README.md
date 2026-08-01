@@ -59,6 +59,7 @@ Content and SEO checks:
 ```bash
 npm run preflight
 npm run content:report
+npm run events:ingest
 npm run events:review
 npm run seo:priorities
 ```
@@ -97,6 +98,9 @@ BOOKING_REQUEST_BCC_EMAIL=
 WEATHER_PROVIDER=open-meteo
 WEATHER_LATITUDE=43.7745
 WEATHER_LONGITUDE=7.4975
+
+EVENT_INGEST_SECRET=
+CRON_SECRET=
 
 AZUR_ICAL_SEA_VIEW_BALCONY_STUDIO=
 AZUR_ICAL_TERRACE_PARKING_APARTMENT=
@@ -137,6 +141,13 @@ Supported locales: `en`, `fr`, `it`, `uk`.
 
 - Manual request flow: `src/components/booking/`, `src/app/actions/booking-request.ts`, `src/app/api/booking-request/route.ts`
 - Read-only availability layer: `src/lib/availability/`, `src/components/availability/`, `src/app/api/availability/`
+
+### Events
+
+- Public events are typed in `src/content/riviera-events.ts`.
+- Event source metadata lives in `src/content/event-sources.ts`.
+- Official-source ingestion is review-only: `npm run events:ingest` writes diagnostics and candidates under `build/events-ingestion/`.
+- Protected cron/API entrypoint: `/api/cron/events-ingest`, guarded by `EVENT_INGEST_SECRET` or `CRON_SECRET`.
 
 Current booking UX includes:
 
