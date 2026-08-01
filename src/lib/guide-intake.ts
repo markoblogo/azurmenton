@@ -32,24 +32,6 @@ type GuideHeading = {
   lineIndex: number;
 };
 
-const GUIDE_FIELD_LABELS = [
-  "SEO title",
-  "SEO Title",
-  "Meta title",
-  "Meta Title",
-  "Title tag",
-  "Meta description",
-  "Meta Description",
-  "Description",
-  "Suggested slug",
-  "Suggested URL",
-  "Slug",
-  "Guide slug",
-  "Canonical slug",
-  "URL slug",
-  "Cover image",
-];
-
 function normalizeText(value: string) {
   return value.replace(/\r/g, "").trim();
 }
@@ -83,12 +65,17 @@ function toKebabCase(value: string) {
 function extractField(lines: string[], label: string) {
   const pattern = new RegExp(`^${escapeRegExp(label)}\\s*[:\\-]?\\s*(.+)$`, "i");
 
-  for (const line of lines) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
     const normalized = stripMarkdownDecoration(normalizeText(line).replace(/^[-*]\s*/, ""));
     const match = normalized.match(pattern);
-    if (!match) continue;
-    const value = match[1]?.trim();
-    if (value) return value;
+    if (match?.[1]?.trim()) return match[1].trim();
+
+    if (normalized.toLowerCase() !== label.toLowerCase()) continue;
+    for (let next = index + 1; next < lines.length; next += 1) {
+      const value = stripMarkdownDecoration(normalizeText(lines[next]));
+      if (value) return value;
+    }
   }
 
   return undefined;
@@ -211,6 +198,9 @@ function findPrimaryHeadingOffset(headings: GuideHeading[]) {
 }
 
 function extractTitle(lines: string[]) {
+  const explicitTitle = extractFirstField(lines, ["Title"]);
+  if (explicitTitle) return explicitTitle;
+
   const titleLineIndex = findPrimaryTitleLineIndex(lines);
   if (titleLineIndex !== -1) {
     const title = normalizeHeadingText(normalizeText(lines[titleLineIndex]));
@@ -498,7 +488,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
   const lines = raw.replace(/\r/g, "").split("\n");
   const { preambleLines, bodyLines } = splitGuideDraftIntoPreambleAndBody(lines);
   const title = extractTitle(lines);
-  const metadataLines = [...preambleLines, ...bodyLines.filter((line) => GUIDE_FIELD_LABELS.some((label) => stripMarkdownDecoration(normalizeText(line)).toLowerCase().startsWith(label.toLowerCase())))];
+  const metadataLines = [...preambleLines, ...bodyLines];
   const utilityBlockHints = extractUtilityBlockHints(bodyLines);
   const rawSuggestedSlug = extractExplicitGuideSlug(metadataLines);
   const suggestedSlug = rawSuggestedSlug?.replace(/^\/[a-z]{2}\/guide\//i, "").replace(/^\/+/, "");
@@ -506,7 +496,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
   return {
     title,
     slug: suggestedSlug ? toKebabCase(suggestedSlug) : toKebabCase(title),
-    seoTitle: extractFirstField(metadataLines, ["SEO title", "SEO Title", "Title tag"]),
+    seoTitle: extractFirstField(metadataLines, ["SEO title", "SEO Title", "Title tag", "Title"]),
     metaDescription: extractFirstField(metadataLines, ["Meta description", "Meta Description", "Description"]),
     intro: extractIntro(bodyLines),
     coverPathHint: options?.coverPathHint ?? extractCoverPathHint(preambleLines),

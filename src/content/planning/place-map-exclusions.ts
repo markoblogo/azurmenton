@@ -10,6 +10,11 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "laverie-des-jardins-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20des%20Jardins%20Menton" },
+  { placeId: "blanchisserie-pressing-mentonnais", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Blanchisserie%20Pressing%20Mentonnais" },
+  { placeId: "laverie-self-service-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20Self%20Service%20Menton" },
+  { placeId: "laverie-revolution-laundry-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20Revolution%20Laundry%20Port%20Garavan%20Menton" },
+  { placeId: "laverie-revolution-laundry-intermarche-saint-roman-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Laverie%20Revolution%20Laundry%20Intermarche%20Saint-Roman%20Menton" },
   { placeId: "menton-water-sports-bay", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Menton%20water%20sports%20bay" },
   { placeId: "cap-martin-snorkelling-shoreline", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Cap%20Martin%20snorkelling%20shoreline" },
   { placeId: "monaco-water-sports-and-e-foils", reason: "not_a_fixed_venue", checkedOn: "2026-07-30", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Monaco%20water%20sports%20e-foils" },

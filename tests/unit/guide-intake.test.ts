@@ -203,6 +203,37 @@ Short intro.
     expect(intake.title).toBe("Water sports in Menton");
   });
 
+  it("extracts metadata whose labels and values are on separate lines", () => {
+    const raw = `
+# SEO
+
+**Title**
+
+Laundry, Laundromats & Dry Cleaning in Menton (Victoria Beach & Garavan)
+
+**Slug**
+
+\`laundry-laundromats-menton\`
+
+**Meta description**
+
+Looking for a laundromat or dry cleaner in Menton?
+
+## **Laundry near Victoria Beach Apartments**
+
+Guests staying at Victoria Beach can walk to practical laundry options.
+
+### **Laverie des Jardins**
+`;
+
+    const intake = extractGuideIntake(raw);
+
+    expect(intake.title).toBe("Laundry, Laundromats & Dry Cleaning in Menton (Victoria Beach & Garavan)");
+    expect(intake.slug).toBe("laundry-laundromats-menton");
+    expect(intake.seoTitle).toBe("Laundry, Laundromats & Dry Cleaning in Menton (Victoria Beach & Garavan)");
+    expect(intake.metaDescription).toBe("Looking for a laundromat or dry cleaner in Menton?");
+  });
+
   it("treats widget/provider sections as utility hints instead of place candidates", () => {
     const raw = `
 Вот материал для нового гайда - а обложка вот тут: /Users/antonbiletskiy-volokh/Desktop/cover.png.

@@ -82,6 +82,9 @@ export function inferCategory(intake: GuideIntake): GuideCategory {
     ...(intake.utilityBlockHints ?? []).map((hint) => `${hint.type} ${hint.section ?? ""} ${(hint.providerHints ?? []).join(" ")}`),
   ].join(" "));
 
+  if (/\b(laundry|laundromat|laverie|dry cleaning|dry cleaner|pressing|blanchisserie|washing machine|tumble dryer)\b/.test(corpus)) {
+    return "practical";
+  }
   if (/\b(restaurant|restaurants|food|eat|cafe|coffee|tea|bakery|pastry|dessert|pizza|burger|sushi|ramen|indian|vegan|seafood|italian|market|boulangerie|patisserie)\b/.test(corpus)) {
     return "food-markets";
   }

@@ -390,5 +390,12 @@
       "public/images/home/generated/TerraceParkingApartment.avif",
       "public/images/home/generated/TerraceParkingApartment.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/laundry-laundromats-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laundry-laundromats-menton.avif",
+      "public/images/guide/generated/laundry-laundromats-menton.webp"
+    ]
   }
 ]
