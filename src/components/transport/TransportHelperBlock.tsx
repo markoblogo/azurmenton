@@ -10,6 +10,26 @@ const copy = {
   uk: { eyebrow: "Транспортна підказка", title: "Перевірте маршрут перед виїздом", intro: "Відкрийте актуальну інформацію про потяги, автобуси або станцію перед виїздом з Ментона. Ці посилання надійніші за статичний розклад у гіді.", actions: "Корисні посилання", notes: "Нотатки для планування" },
 } satisfies Record<Locale, Record<string, string>>;
 
+const destinationThemes = {
+  monaco: {
+    card: "border-[#d8c28e] bg-[#fff8e7]",
+    icon: "border-[#c6a66a] bg-[#f8ebc8] text-[#956f2d]",
+    action: "border-[#c6a66a] bg-[#fff8e7] text-[#956f2d] shadow-[0_3px_0_#ead9ad] hover:bg-[#956f2d]",
+  },
+  nice: {
+    card: "border-[#a8d6dc] bg-[#f2fbfb]",
+    icon: "border-[#4ea8c0] bg-[#dff3f5] text-[#247d8b]",
+    action: "border-[#4ea8c0] bg-[#effafb] text-[#247d8b] shadow-[0_3px_0_#c5e3e5] hover:bg-[#247d8b]",
+  },
+  ventimiglia: {
+    card: "border-[#c9b0c9] bg-[#fbf4fa]",
+    icon: "border-[#9f739e] bg-[#f1e4f0] text-[#80577e]",
+    action: "border-[#9f739e] bg-[#fbf4fa] text-[#80577e] shadow-[0_3px_0_#dfc9de] hover:bg-[#80577e]",
+  },
+} as const;
+
+type DestinationId = keyof typeof destinationThemes;
+
 export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice", "ventimiglia"], compact = false }: { locale: Locale; destinationIds?: string[]; compact?: boolean }) {
   const labels = copy[locale];
   const items = destinationTransport.filter((item) => destinationIds.includes(item.id));
@@ -27,9 +47,9 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
       ) : null}
       <div className={`grid gap-3 ${compact ? "md:grid-cols-3" : "mt-5 md:grid-cols-3"}`}>
         {items.map((item) => (
-          <article key={item.id} className={`border border-[#dfd2b8] bg-[#f8f3ea] ${compact ? "grid gap-3 p-3" : "p-4"}`}>
+          <article key={item.id} className={`border-2 ${destinationThemes[item.id as DestinationId]?.card ?? "border-[#dfd2b8] bg-[#f8f3ea]"} ${compact ? "grid gap-3 p-3" : "p-4"}`}>
             <div className="flex items-start gap-3">
-              <TransportIcon />
+              <DestinationIcon destinationId={item.id} />
               <div>
                 <h3 className={`serif-heading leading-tight text-[#173f36] ${compact ? "text-xl" : "text-2xl"}`}>{item.destination[locale]}</h3>
                 {compact ? (
@@ -42,14 +62,17 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
               {item.actionLinks.map((action) => (
                 <Link
                   key={action.url}
-                  className={`group grid aspect-square place-items-center rounded-sm border-2 border-[#4ea8c0] bg-[#eaf6f7] text-[#216e78] shadow-[0_3px_0_#c5e3e5] transition hover:-translate-y-0.5 hover:border-[#173f36] hover:bg-[#173f36] hover:text-white hover:shadow-none ${compact ? "w-full" : "h-12 w-12"}`}
+                  className={`group relative grid aspect-square place-items-center rounded-sm border-2 transition hover:-translate-y-0.5 hover:text-white hover:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36] ${destinationThemes[item.id as DestinationId]?.action ?? "border-[#4ea8c0] bg-[#eaf6f7] text-[#216e78] shadow-[0_3px_0_#c5e3e5] hover:border-[#173f36] hover:bg-[#173f36]"} ${compact ? "w-full" : "h-12 w-12"}`}
                   href={action.url as Route}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={action.note[locale]}
+                  title={`${action.label[locale]}: ${action.note[locale]}`}
                 >
                   <TransportActionIcon label={action.label.en} />
                   <span className="sr-only">{action.label[locale]}</span>
+                  <span className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-[calc(100%+0.45rem)] whitespace-nowrap border border-[#173f36] bg-[#173f36] px-2 py-1 text-[0.6rem] font-bold uppercase tracking-[0.08em] text-white opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                    {action.label[locale]}
+                  </span>
                 </Link>
               ))}
             </div>
@@ -74,9 +97,37 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
   );
 }
 
-function TransportIcon() {
+function DestinationIcon({ destinationId }: { destinationId: string }) {
+  const theme = destinationThemes[destinationId as DestinationId] ?? { icon: "border-[#c6a66a] bg-[#fffaf0] text-[#173f36]" };
+
   return (
-    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-sm border-2 border-[#4ea8c0] bg-[#eaf6f7] text-[#216e78]" aria-hidden="true">
+    <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-sm border-2 ${theme.icon}`} aria-hidden="true">
+      {destinationId === "monaco" ? (
+        <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m16 4 2 4 4.5.6-3.2 3.1.8 4.4-4.1-2.1-4.1 2.1.8-4.4-3.2-3.1L14 8l2-4Z" />
+          <path d="M7 27V18h5v9M14 27V14h5v13M21 27V20h5v7M5 27h22" />
+        </svg>
+      ) : null}
+      {destinationId === "nice" ? (
+        <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="16" cy="10" r="4" />
+          <path d="M16 3v2M16 15v2M9 10h2M21 10h2M11 5l1.5 1.5M21 15l-1.5-1.5M6 25c4-4 8-4 12 0s8 4 8 0M7 28h18" />
+        </svg>
+      ) : null}
+      {destinationId === "ventimiglia" ? (
+        <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 27h20M8 27V14l8-5 8 5v13M12 27V17h3v10M17 17h3v10M10 13h12" />
+          <path d="M13 7h6M16 4v3" />
+        </svg>
+      ) : null}
+      {!destinationThemes[destinationId as DestinationId] ? <TransportFallbackIcon /> : null}
+    </span>
+  );
+}
+
+function TransportFallbackIcon() {
+  return (
+    <span aria-hidden="true">
       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 4h12a2 2 0 0 1 2 2v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2Z" />
         <path d="M8 17 6 21" />
