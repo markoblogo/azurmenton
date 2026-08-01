@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { EventImage } from "@/components/events/EventImage";
 import {
@@ -14,60 +15,61 @@ import {
   monthFilterOptions,
   monthLabels,
   sourceStatusLabels,
-  type EventCategory,
-  type EventLocation,
-  type FamilySuitability,
-  type MonthFilter,
   type RivieraEvent,
 } from "@/content/riviera-events";
 import type { Locale } from "@/i18n/locales";
-import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
+import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps, trackBookingFunnelEvent } from "@/lib/analytics";
+import {
+  eventDiscoveryHref,
+  filterDiscoverableEvents,
+  parseEventDiscoveryParams,
+  type EventDiscoveryFilters,
+  type EventDiscoveryLocation,
+  type EventInterest,
+} from "@/lib/event-discovery";
 import { getEventDateStatus, type EventDateStatus } from "@/lib/events";
 
-const locations: Array<"all" | EventLocation> = [
-  "all",
-  "Menton",
-  "Monaco",
-  "Nice",
-  "French Riviera",
-  "Italian Riviera",
+const quickPeriods: Array<{ id: EventDiscoveryFilters["period"]; label: Record<Locale, string> }> = [
+  { id: "today", label: { en: "Today", fr: "Aujourd'hui", it: "Oggi", uk: "Сьогодні" } },
+  { id: "tomorrow", label: { en: "Tomorrow", fr: "Demain", it: "Domani", uk: "Завтра" } },
+  { id: "weekend", label: { en: "This weekend", fr: "Ce week-end", it: "Questo weekend", uk: "Ці вихідні" } },
+  { id: "next7", label: { en: "Next 7 days", fr: "7 prochains jours", it: "Prossimi 7 giorni", uk: "Наступні 7 днів" } },
+  { id: "next30", label: { en: "Next 30 days", fr: "30 prochains jours", it: "Prossimi 30 giorni", uk: "Наступні 30 днів" } },
 ];
 
-const categories: Array<"all" | EventCategory> = [
+const discoveryLocations: EventDiscoveryLocation[] = ["all", "menton", "monaco", "nice", "ventimiglia", "sanremo"];
+const discoveryInterests: EventInterest[] = [
   "all",
+  "festivals",
   "music",
-  "sport",
-  "art",
+  "culture",
   "family",
-  "prestige",
-  "food-local",
-  "maritime",
-  "theatre",
-  "exhibition",
+  "markets",
+  "food-wine",
+  "sports",
+  "outdoors",
+  "nightlife",
+  "free",
+  "family-friendly",
+  "indoor",
+  "outdoor",
+  "rainy-day",
+  "booking-recommended",
 ];
-
-const familyOptions: Array<"all" | FamilySuitability> = [
-  "all",
-  "recommended_with_children",
-  "good_with_older_children",
-  "mostly_adults",
-  "depends",
-];
-
-const statusOptions: Array<"all" | EventDateStatus> = [
-  "all",
-  "current",
-  "upcoming",
-  "dates_pending",
-  "estimated_annual_window",
-  "past",
-];
-
-const radiusOptions = ["all", "30", "60"] as const;
 
 const copy = {
   en: {
     filters: "Find the right dates",
+    whatsOn: "What's happening while you're here?",
+    dateFilters: "Travel dates",
+    chooseDates: "Choose dates",
+    from: "From",
+    to: "To",
+    period: "Period",
+    interest: "Interest",
+    nearby: "Show seasonal highlights",
+    official: "Official website",
+    noResultsHelp: "Clear filters, widen the date range, show nearby cities or browse seasonal highlights below.",
     month: "Month",
     location: "Location",
     category: "Category",
@@ -115,6 +117,16 @@ const copy = {
   },
   fr: {
     filters: "Trouver les bonnes dates",
+    whatsOn: "Que se passe-t-il pendant votre sejour ?",
+    dateFilters: "Dates de voyage",
+    chooseDates: "Choisir dates",
+    from: "Du",
+    to: "Au",
+    period: "Periode",
+    interest: "Interet",
+    nearby: "Afficher les temps forts saisonniers",
+    official: "Site officiel",
+    noResultsHelp: "Effacez les filtres, elargissez les dates, regardez les villes proches ou les temps forts saisonniers.",
     month: "Mois",
     location: "Lieu",
     category: "Categorie",
@@ -162,6 +174,16 @@ const copy = {
   },
   it: {
     filters: "Trova le date giuste",
+    whatsOn: "Cosa succede mentre sei qui?",
+    dateFilters: "Date del viaggio",
+    chooseDates: "Scegli date",
+    from: "Da",
+    to: "A",
+    period: "Periodo",
+    interest: "Interesse",
+    nearby: "Mostra eventi stagionali",
+    official: "Sito ufficiale",
+    noResultsHelp: "Cancella i filtri, allarga le date, guarda le citta vicine o gli eventi stagionali.",
     month: "Mese",
     location: "Localita",
     category: "Categoria",
@@ -209,6 +231,16 @@ const copy = {
   },
   uk: {
     filters: "Знайти правильні дати",
+    whatsOn: "Що відбувається, поки ви тут?",
+    dateFilters: "Дати подорожі",
+    chooseDates: "Обрати дати",
+    from: "З",
+    to: "До",
+    period: "Період",
+    interest: "Інтерес",
+    nearby: "Показати сезонні події",
+    official: "Офіційний сайт",
+    noResultsHelp: "Очистіть фільтри, розширте дати, перегляньте сусідні міста або сезонні події.",
     month: "Місяць",
     location: "Локація",
     category: "Категорія",
@@ -256,7 +288,89 @@ const copy = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-type TimelineGroup = Exclude<MonthFilter, "all">;
+const discoveryLocationLabels: Record<Locale, Record<EventDiscoveryLocation, string>> = {
+  en: { all: "All locations", menton: "Menton", monaco: "Monaco", nice: "Nice", ventimiglia: "Ventimiglia", sanremo: "Sanremo" },
+  fr: { all: "Tous lieux", menton: "Menton", monaco: "Monaco", nice: "Nice", ventimiglia: "Vintimille", sanremo: "Sanremo" },
+  it: { all: "Tutte le localita", menton: "Mentone", monaco: "Monaco", nice: "Nizza", ventimiglia: "Ventimiglia", sanremo: "Sanremo" },
+  uk: { all: "Усі локації", menton: "Ментон", monaco: "Монако", nice: "Ніцца", ventimiglia: "Вентімілья", sanremo: "Санремо" },
+};
+
+const interestLabels: Record<Locale, Record<EventInterest, string>> = {
+  en: {
+    all: "All interests",
+    festivals: "Festivals",
+    music: "Music",
+    culture: "Culture",
+    family: "Family",
+    markets: "Markets",
+    "food-wine": "Food & Wine",
+    sports: "Sports",
+    outdoors: "Outdoors",
+    nightlife: "Nightlife",
+    free: "Free",
+    "family-friendly": "Family-friendly",
+    indoor: "Indoor",
+    outdoor: "Outdoor",
+    "rainy-day": "Rainy-day",
+    "booking-recommended": "Booking recommended",
+  },
+  fr: {
+    all: "Tous interets",
+    festivals: "Festivals",
+    music: "Musique",
+    culture: "Culture",
+    family: "Famille",
+    markets: "Marches",
+    "food-wine": "Cuisine & vin",
+    sports: "Sports",
+    outdoors: "Plein air",
+    nightlife: "Soiree",
+    free: "Gratuit",
+    "family-friendly": "Famille",
+    indoor: "Interieur",
+    outdoor: "Exterieur",
+    "rainy-day": "Jour de pluie",
+    "booking-recommended": "Reservation conseillee",
+  },
+  it: {
+    all: "Tutti interessi",
+    festivals: "Festival",
+    music: "Musica",
+    culture: "Cultura",
+    family: "Famiglia",
+    markets: "Mercati",
+    "food-wine": "Cibo e vino",
+    sports: "Sport",
+    outdoors: "Outdoor",
+    nightlife: "Sera",
+    free: "Gratis",
+    "family-friendly": "Famiglie",
+    indoor: "Al coperto",
+    outdoor: "All'aperto",
+    "rainy-day": "Pioggia",
+    "booking-recommended": "Prenotazione consigliata",
+  },
+  uk: {
+    all: "Усі інтереси",
+    festivals: "Фестивалі",
+    music: "Музика",
+    culture: "Культура",
+    family: "Сім'я",
+    markets: "Ринки",
+    "food-wine": "Їжа й вино",
+    sports: "Спорт",
+    outdoors: "На відкритому повітрі",
+    nightlife: "Вечір",
+    free: "Безкоштовно",
+    "family-friendly": "Для сімей",
+    indoor: "У приміщенні",
+    outdoor: "Надворі",
+    "rainy-day": "На дощ",
+    "booking-recommended": "Бронювання бажане",
+  },
+};
+
+type TimelineGroup = Exclude<(typeof monthFilterOptions)[number], "all">;
 
 const timelineIntro = {
   en: {
@@ -321,26 +435,6 @@ const timelineIntro = {
   },
 } satisfies Record<Locale, Record<TimelineGroup, string>>;
 
-function includesSearch(event: RivieraEvent, locale: Locale, query: string) {
-  if (!query) return true;
-
-  const haystack = [
-    event.title,
-    getEventTitle(event, locale),
-    event.location,
-    event.dateLabel,
-    getEventDateLabel(event, locale),
-    event.shortDescription[locale],
-    event.whyShowOnSite[locale],
-    event.audience.join(" "),
-    event.category.join(" "),
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  return haystack.includes(query.toLowerCase());
-}
-
 function eventHref(locale: Locale, event: RivieraEvent) {
   return `/${locale}/events/${event.slug}` as Route;
 }
@@ -375,6 +469,7 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
   const statusTone = status === "current" ? "dark" : status === "dates_pending" || status === "past" ? "gold" : "blue";
   const title = getEventTitle(event, locale);
   const dateLabel = getEventDateLabel(event, locale);
+  const officialHref = event.programmeUrl ?? event.ticketsUrl ?? event.sourceUrl;
 
   return (
     <article className={`group grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a] ${compact ? "md:grid-cols-[0.34fr_1fr]" : "lg:grid-cols-[0.42fr_1fr]"}`}>
@@ -419,12 +514,25 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
         </div>
         <div className="mt-5 flex flex-col gap-2 sm:flex-row">
           {hasDetail ? (
-            <Link
+            <TrackedLink
+              eventName={bookingFunnelEvents.eventOpened}
               href={eventHref(locale, event)}
+              props={{ locale, eventSlug: event.slug, eventCity: event.city ?? event.location }}
               className="inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
             >
               {copy[locale].eventDetails}
-            </Link>
+            </TrackedLink>
+          ) : null}
+          {officialHref ? (
+            <TrackedLink
+              eventName={bookingFunnelEvents.officialEventLinkClick}
+              href={officialHref}
+              target="_blank"
+              props={{ locale, eventSlug: event.slug, eventCity: event.city ?? event.location }}
+              className="inline-flex min-h-10 items-center justify-center border border-[#dfd4c1] px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]"
+            >
+              {copy[locale].official}
+            </TrackedLink>
           ) : null}
           <TrackedLink
             eventName={bookingFunnelEvents.eventCtaClick}
@@ -458,75 +566,47 @@ type EventsCalendarProps = {
   locale: Locale;
 };
 
-function filterEvents(events: RivieraEvent[], locale: Locale, filters: {
-  month: MonthFilter;
-  location: (typeof locations)[number];
-  city: string;
-  status: (typeof statusOptions)[number];
-  radius: (typeof radiusOptions)[number];
-  category: (typeof categories)[number];
-  family: (typeof familyOptions)[number];
-  query: string;
-}) {
-  return events.filter((event) => {
-    const monthMatch = filters.month === "all" || event.monthGroup === filters.month;
-    const locationMatch = filters.location === "all" || event.location === filters.location;
-    const cityMatch = filters.city === "all" || event.city === filters.city;
-    const statusMatch = filters.status === "all" || getEventDateStatus(event) === filters.status;
-    const radiusMatch = filters.radius === "all" || (event.distanceFromMentonKm ?? 999) <= Number(filters.radius);
-    const categoryMatch = filters.category === "all" || event.category.includes(filters.category);
-    const familyMatch = filters.family === "all" || event.familySuitability === filters.family;
-
-    return (
-      monthMatch &&
-      locationMatch &&
-      cityMatch &&
-      statusMatch &&
-      radiusMatch &&
-      categoryMatch &&
-      familyMatch &&
-      includesSearch(event, locale, filters.query.trim())
-    );
-  });
-}
-
 export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale }: EventsCalendarProps) {
-  const [month, setMonth] = useState<MonthFilter>("all");
-  const [location, setLocation] = useState<(typeof locations)[number]>("all");
-  const [city, setCity] = useState("all");
-  const [status, setStatus] = useState<(typeof statusOptions)[number]>("all");
-  const [radius, setRadius] = useState<(typeof radiusOptions)[number]>("all");
-  const [category, setCategory] = useState<(typeof categories)[number]>("all");
-  const [family, setFamily] = useState<(typeof familyOptions)[number]>("all");
-  const [query, setQuery] = useState("");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
   const [showPast, setShowPast] = useState(false);
   const labels = copy[locale];
-  const selectClass =
-    "min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none transition focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10";
-  const filters = useMemo(
-    () => ({ month, location, city, status, radius, category, family, query }),
-    [category, city, family, location, month, query, radius, status],
-  );
-
-  const cityOptions = useMemo(() => {
-    const cities = [...new Set([...events, ...datesPendingEvents, ...pastEvents].map((event) => event.city).filter(Boolean))] as string[];
-    return ["all", ...cities.sort((left, right) => left.localeCompare(right))];
-  }, [datesPendingEvents, events, pastEvents]);
+  const filterSignature = searchParams.toString();
+  const filters = parseEventDiscoveryParams(new URLSearchParams(searchParams.toString()));
+  const currentHref = eventDiscoveryHref(pathname, filters);
 
   const filtered = useMemo(
-    () => filterEvents(events, locale, filters),
-    [events, filters, locale],
+    () => filterDiscoverableEvents(events, filters),
+    [events, filters],
   );
 
   const filteredDatesPending = useMemo(
-    () => filterEvents(datesPendingEvents, locale, filters),
-    [datesPendingEvents, filters, locale],
+    () =>
+      datesPendingEvents
+        .filter((event) => filters.location === "all" || `${event.city ?? ""} ${event.location}`.toLowerCase().includes(filters.location))
+        .filter((event) => filters.interest === "all" || filterDiscoverableEvents([event], { ...filters, period: "next30" }).length || event.category.join(" ").includes(filters.interest))
+        .slice(0, 12),
+    [datesPendingEvents, filters],
   );
 
   const filteredPast = useMemo(
-    () => (showPast ? filterEvents(pastEvents, locale, filters) : []),
-    [filters, locale, pastEvents, showPast],
+    () => (showPast ? filterDiscoverableEvents(pastEvents, filters) : []),
+    [filters, pastEvents, showPast],
   );
+
+  useEffect(() => {
+    if (!isPending && filtered.length === 0) {
+      trackBookingFunnelEvent(bookingFunnelEvents.noEventResultsShown, {
+        locale,
+        period: filters.period,
+        location: filters.location,
+        interest: filters.interest,
+        query: filters.query,
+      });
+    }
+  }, [filterSignature, filtered.length, filters.interest, filters.location, filters.period, filters.query, isPending, locale]);
 
   const grouped = useMemo(
     () =>
@@ -534,32 +614,31 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
         .filter((item) => item !== "all")
         .map((item) => ({
           id: item,
-          events: filtered.filter((event) => event.monthGroup === item),
+          events: [...filtered, ...filteredDatesPending].filter((event) => event.monthGroup === item),
         }))
         .filter((group) => group.events.length),
-    [filtered],
+    [filtered, filteredDatesPending],
   );
 
   const activeFilters = [
-    month !== "all" ? monthLabels[locale][month] : null,
-    location !== "all" ? location : null,
-    city !== "all" ? city : null,
-    status !== "all" ? statusLabel(locale, status) : null,
-    radius !== "all" ? (radius === "30" ? labels.within30 : labels.within60) : null,
-    category !== "all" ? eventCategoryLabels[locale][category] : null,
-    family !== "all" ? familySuitabilityLabels[locale][family] : null,
-    query.trim() ? query.trim() : null,
+    filters.period !== "next30" ? quickPeriods.find((period) => period.id === filters.period)?.label[locale] : null,
+    filters.from && filters.to ? `${filters.from} - ${filters.to}` : null,
+    filters.location !== "all" ? discoveryLocationLabels[locale][filters.location] : null,
+    filters.interest !== "all" ? interestLabels[locale][filters.interest] : null,
+    filters.query ? filters.query : null,
   ].filter(Boolean) as string[];
 
-  const clearFilters = () => {
-    setMonth("all");
-    setLocation("all");
-    setCity("all");
-    setStatus("all");
-    setRadius("all");
-    setCategory("all");
-    setFamily("all");
-    setQuery("");
+  const setFilters = (next: Partial<EventDiscoveryFilters>) => {
+    const merged = { ...filters, ...next };
+    const href = eventDiscoveryHref(pathname, merged);
+    trackBookingFunnelEvent(bookingFunnelEvents.eventsFilterUsed, {
+      locale,
+      period: merged.period,
+      location: merged.location,
+      interest: merged.interest,
+      customRange: Boolean(merged.from && merged.to),
+    });
+    startTransition(() => router.replace(href, { scroll: false }));
   };
 
   const familyHighlights = [...events, ...datesPendingEvents].filter((event) =>
@@ -585,86 +664,103 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
 
   return (
     <div className="grid gap-9">
-      <section className="border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.06)]" aria-label={labels.filters}>
-        <div className="flex flex-col justify-between gap-3 border-b border-[#dfd4c1] pb-4 md:flex-row md:items-end">
+      <section className="border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.06)] sm:p-5" aria-label={labels.filters}>
+        <div className="grid gap-4 border-b border-[#dfd4c1] pb-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
-            <p className="editorial-label">{labels.filters}</p>
-            <h2 className="serif-heading mt-2 text-3xl text-[#173f36]">{labels.timeline}</h2>
+            <p className="editorial-label">{labels.dateFilters}</p>
+            <h2 className="serif-heading mt-2 text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.whatsOn}</h2>
           </div>
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#5f574c]">
-            {labels.showing} {filtered.length} / {events.length}
-          </p>
+          <div className="flex flex-wrap gap-2 lg:justify-end">
+            {quickPeriods.map((period) => {
+              const selected = filters.period === period.id;
+              return (
+                <button
+                  key={period.id}
+                  type="button"
+                  onClick={() => setFilters({ period: period.id, from: undefined, to: undefined })}
+                  className={`min-h-10 border px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.13em] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f] ${
+                    selected ? "border-[#173f36] bg-[#173f36] text-white" : "border-[#dfd4c1] bg-[#fffaf0] text-[#173f36] hover:border-[#c6a66a]"
+                  }`}
+                  aria-pressed={selected}
+                >
+                  {period.label[locale]}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.month}
-            <select className={selectClass} value={month} onChange={(event) => setMonth(event.target.value as MonthFilter)}>
-              {monthFilterOptions.map((option) => (
-                <option key={option} value={option}>{monthLabels[locale][option]}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+        <div className="mt-4 grid gap-3 lg:grid-cols-[0.75fr_0.75fr_1fr]">
+          <div className="grid grid-cols-2 gap-2">
+            <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+              {labels.from}
+              <input
+                className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+                type="date"
+                value={filters.from ?? ""}
+                onChange={(event) => setFilters({ period: "custom", from: event.target.value || undefined })}
+              />
+            </label>
+            <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+              {labels.to}
+              <input
+                className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+                type="date"
+                value={filters.to ?? ""}
+                onChange={(event) => {
+                  trackBookingFunnelEvent(bookingFunnelEvents.customStayDatesSelected, { locale, from: filters.from ?? "", to: event.target.value });
+                  setFilters({ period: "custom", to: event.target.value || undefined });
+                }}
+              />
+            </label>
+          </div>
+          <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.location}
-            <select className={selectClass} value={location} onChange={(event) => setLocation(event.target.value as typeof location)}>
-              {locations.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : option}</option>
+            <select
+              className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+              value={filters.location}
+              onChange={(event) => setFilters({ location: event.target.value as EventDiscoveryLocation })}
+            >
+              {discoveryLocations.map((option) => (
+                <option key={option} value={option}>{discoveryLocationLabels[locale][option]}</option>
               ))}
             </select>
           </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.city}
-            <select className={selectClass} value={city} onChange={(event) => setCity(event.target.value)}>
-              {cityOptions.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : option}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.status}
-            <select className={selectClass} value={status} onChange={(event) => setStatus(event.target.value as typeof status)}>
-              {statusOptions.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : statusLabel(locale, option)}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.radius}
-            <select className={selectClass} value={radius} onChange={(event) => setRadius(event.target.value as typeof radius)}>
-              {radiusOptions.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : option === "30" ? labels.within30 : labels.within60}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.category}
-            <select className={selectClass} value={category} onChange={(event) => setCategory(event.target.value as typeof category)}>
-              {categories.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : eventCategoryLabels[locale][option]}</option>
-              ))}
-            </select>
-          </label>
-          <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
-            {labels.family}
-            <select className={selectClass} value={family} onChange={(event) => setFamily(event.target.value as typeof family)}>
-              {familyOptions.map((option) => (
-                <option key={option} value={option}>{option === "all" ? labels.all : familySuitabilityLabels[locale][option]}</option>
+          <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+            {labels.interest}
+            <select
+              className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+              value={filters.interest}
+              onChange={(event) => setFilters({ interest: event.target.value as EventInterest })}
+            >
+              {discoveryInterests.map((option) => (
+                <option key={option} value={option}>{interestLabels[locale][option]}</option>
               ))}
             </select>
           </label>
         </div>
-        <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_auto] md:items-center">
           <input
             className="min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            defaultValue={filters.query}
+            onBlur={(event) => setFilters({ query: event.target.value })}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") setFilters({ query: event.currentTarget.value });
+            }}
             placeholder={labels.search}
             type="search"
           />
+          <Link
+            href={currentHref as Route}
+            className="inline-flex min-h-11 items-center justify-center border border-[#dfd4c1] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]"
+            aria-live="polite"
+          >
+            {labels.showing} {filtered.length}
+          </Link>
           <button
             type="button"
-            onClick={clearFilters}
+            onClick={() => setFilters({ period: "next30", from: undefined, to: undefined, location: "all", interest: "all", query: "" })}
+            disabled={isPending}
             className="min-h-11 border border-[#173f36] px-4 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36] transition hover:bg-[#173f36] hover:text-white"
           >
             {labels.clear}
@@ -703,7 +799,10 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             ))}
           </div>
         ) : (
-          <p className="mt-8 border border-[#dfd4c1] bg-[#fffdf8] p-6 text-[#5f574c]">{labels.noUpcoming}</p>
+          <div className="mt-8 border border-[#dfd4c1] bg-[#fffdf8] p-6 text-[#5f574c]">
+            <p className="serif-heading text-3xl leading-none text-[#173f36]">{labels.noResults}</p>
+            <p className="mt-3 text-sm leading-7">{labels.noResultsHelp}</p>
+          </div>
         )}
       </section>
 

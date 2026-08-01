@@ -49,6 +49,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 ## Events
 
 - Create or update event objects in `src/content/riviera-events.ts`.
+- Keep the public `/[locale]/events` page visitor-first: quick periods, custom stay dates, Menton/Monaco/Nice/Ventimiglia/Sanremo, interests and seasonal highlights. Filtering is shareable through URL parameters such as `period`, `from`, `to`, `location`, `interest` and `q`.
 - Use verified official sources where possible.
 - Set `seriesSlug`, `occurrenceYear`, `recurrence` and `dateStatus` so recurring events can be refreshed without rewriting evergreen descriptions.
 - Use `dateStatus: "confirmed"` only with real published dates. Use `dates_pending` or `estimated_annual_window` when dates are annual, provisional or not officially confirmed.
@@ -59,6 +60,8 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.
 - Add new events without illustrations as `mediaStatus: "missing"` or leave media empty so the existing placeholder renders until optimized images are supplied.
+- Keep future ingestion source configuration in `src/content/event-sources.ts`; do not add a scraper until an official RSS, iCal, API, JSON-LD or clearly permissible structured source is confirmed.
+- Future ingestion candidates should pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain fuzzy matches must remain review candidates, not silent deletes.
 
 ## Images
 

@@ -29,17 +29,17 @@ export const revalidate = 86400;
 
 const copy = {
   en: {
-    title: "Events in Menton and nearby",
+    title: "What's happening around Menton",
     subtitle:
-      "Plan your stay around Menton's music festivals, Riviera sporting weekends, Monaco events, Nice exhibitions and family-friendly winter celebrations.",
-    note: "Dates and event details can change. Always check official sources before booking travel.",
+      "Discover concerts, festivals, markets, exhibitions, family activities and seasonal events in Menton, Monaco, Nice and the nearby Italian Riviera.",
+    note: "Schedules, access rules and ticketing can change. Verify final details with the official organiser before booking travel.",
     availability: "Check availability",
     apartments: "View apartments",
     featured: "Featured Riviera dates",
     nowTitle: "Happening now / next 30 days",
     bookAheadTitle: "Book-ahead major events",
     easyTitle: "Easy from Menton this month",
-    heroLabel: "Riviera calendar",
+    heroLabel: "Local events",
     highlightsLabel: "Highlights",
     practicalPlanning: "Practical planning",
     featuredIntro: "A quick scan of the moments most likely to influence where and when guests book.",
@@ -60,7 +60,7 @@ const copy = {
       "Tell us your dates and we'll confirm availability and the best direct offer personally.",
     seoTitle: "Events in Menton and nearby | Azur Menton",
     seoDescription:
-      "Plan your Menton stay around the Lemon Festival, Monaco Grand Prix, Riviera music festivals, Nice exhibitions and family-friendly events.",
+      "Find events happening around Menton, Monaco, Nice, Ventimiglia and Sanremo during your stay, with official sources and seasonal highlights.",
   },
   fr: {
     title: "Evenements a Menton et aux alentours",
@@ -73,7 +73,7 @@ const copy = {
     nowTitle: "En cours / 30 prochains jours",
     bookAheadTitle: "Grands evenements a reserver tot",
     easyTitle: "Facile depuis Menton ce mois-ci",
-    heroLabel: "Calendrier Riviera",
+    heroLabel: "Evenements locaux",
     highlightsLabel: "Temps forts",
     practicalPlanning: "Planification pratique",
     featuredIntro: "Un apercu des moments qui peuvent influencer les reservations.",
@@ -105,7 +105,7 @@ const copy = {
     nowTitle: "In corso / prossimi 30 giorni",
     bookAheadTitle: "Grandi eventi da prenotare prima",
     easyTitle: "Facile da Mentone questo mese",
-    heroLabel: "Calendario Riviera",
+    heroLabel: "Eventi locali",
     highlightsLabel: "In evidenza",
     practicalPlanning: "Pianificazione pratica",
     featuredIntro: "Una selezione dei momenti che possono influenzare le prenotazioni.",
@@ -137,7 +137,7 @@ const copy = {
     nowTitle: "Зараз / наступні 30 днів",
     bookAheadTitle: "Великі події для раннього бронювання",
     easyTitle: "Легко з Ментона цього місяця",
-    heroLabel: "Календар Рив'єри",
+    heroLabel: "Місцеві події",
     highlightsLabel: "Головне",
     practicalPlanning: "Практичне планування",
     featuredIntro: "Швидкий огляд подій, які можуть впливати на бронювання.",

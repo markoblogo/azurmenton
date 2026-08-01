@@ -1,6 +1,7 @@
 import type { RivieraEvent } from "@/content/riviera-events";
 
 export type EventDateStatus = "upcoming" | "current" | "past" | "dates_pending" | "estimated_annual_window";
+export type EventPeriod = "today" | "tomorrow" | "weekend" | "next7" | "next30" | "custom";
 
 type DateLikeEvent = Pick<RivieraEvent, "startDate" | "endDate" | "expectedSeason" | "dateLabel" | "dateStatus">;
 type StructuredEventLike = Pick<RivieraEvent, "dateStatus" | "startDate">;
@@ -11,6 +12,65 @@ function toDateKey(date: Date) {
   const day = String(date.getDate()).padStart(2, "0");
 
   return `${year}-${month}-${day}`;
+}
+
+export function toParisDateKey(date: Date) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Paris",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const value = (type: string) => parts.find((part) => part.type === type)?.value ?? "";
+
+  return `${value("year")}-${value("month")}-${value("day")}`;
+}
+
+export function addDaysToDateKey(dateKey: string, days: number) {
+  const date = new Date(`${dateKey}T12:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return toDateKey(date);
+}
+
+export function getParisDateRange(period: EventPeriod, today = new Date(), custom?: { from?: string; to?: string }) {
+  const todayKey = toParisDateKey(today);
+
+  if (period === "tomorrow") {
+    const tomorrow = addDaysToDateKey(todayKey, 1);
+    return { from: tomorrow, to: tomorrow };
+  }
+
+  if (period === "weekend") {
+    const noon = new Date(`${todayKey}T12:00:00.000Z`);
+    const day = noon.getUTCDay();
+    const daysUntilSaturday = day === 0 ? 0 : (6 - day + 7) % 7;
+    const saturday = addDaysToDateKey(todayKey, daysUntilSaturday);
+    const sunday = addDaysToDateKey(saturday, 1);
+    return { from: saturday, to: sunday };
+  }
+
+  if (period === "next7") {
+    return { from: todayKey, to: addDaysToDateKey(todayKey, 6) };
+  }
+
+  if (period === "next30") {
+    return { from: todayKey, to: addDaysToDateKey(todayKey, 29) };
+  }
+
+  if (period === "custom" && (custom?.from || custom?.to)) {
+    const from = custom.from ?? custom.to!;
+    const to = custom.to ?? custom.from!;
+    return from <= to ? { from, to } : { from: to, to: from };
+  }
+
+  return { from: todayKey, to: todayKey };
+}
+
+export function eventOverlapsDateRange(event: Pick<RivieraEvent, "startDate" | "endDate" | "dateStatus">, range: { from: string; to: string }) {
+  if (event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window" || !event.startDate) return false;
+
+  const endDate = event.endDate ?? event.startDate;
+  return event.startDate <= range.to && endDate >= range.from;
 }
 
 function compareDateKeys(left: string, right: string) {

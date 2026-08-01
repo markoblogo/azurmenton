@@ -197,10 +197,14 @@ Airport boards are either embedded or presented through official external links 
 Main files:
 
 - `src/content/riviera-events.ts`
+- `src/content/event-sources.ts`
 - `src/content/event-occurrences.ts`
 - `src/components/events/EventsCalendar.tsx`
+- `src/lib/event-discovery.ts`
 
-Events use a pragmatic annual-series model with confirmed, pending and estimated states. Keep stale annual events archived for future refresh; do not invent dates.
+Events use a pragmatic annual-series model with confirmed, pending and estimated states. The `/[locale]/events` page is a curated discovery surface with shareable filters for quick periods, custom stay dates, locations and interests. Keep stale annual events archived for future refresh; do not invent dates.
+
+Automated event ingestion is intentionally only a foundation for now: source registry, adapter contracts, deterministic dedupe and review-first candidates. Do not add fragile broad scraping or publish unverified events as live listings.
 
 ### Guide automation
 

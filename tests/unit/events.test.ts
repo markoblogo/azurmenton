@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, isIndexableEventDetail } from "../../src/content/riviera-events";
-import { canRenderEventJsonLd, getEventDateStatus } from "../../src/lib/events";
+import { eventDeduplicationKey, filterDiscoverableEvents, findDuplicateEventCandidates, parseEventDiscoveryParams } from "../../src/lib/event-discovery";
+import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getParisDateRange } from "../../src/lib/events";
 
 const datedEvent = {
   dateLabel: "20 November-4 December 2026",
@@ -59,5 +60,46 @@ describe("event date status", () => {
     expect(e1Planning?.occurrenceSlug).toBe("e1-monaco-2027");
     expect(e1Planning?.dateStatus).toBe("dates_pending");
     expect(e1Planning && canRenderEventJsonLd(e1Planning)).toBe(false);
+  });
+
+  it("calculates visitor quick date ranges in the Europe/Paris timezone", () => {
+    const fridayInParis = new Date("2026-08-14T21:30:00.000Z");
+
+    expect(getParisDateRange("today", fridayInParis)).toEqual({ from: "2026-08-14", to: "2026-08-14" });
+    expect(getParisDateRange("tomorrow", fridayInParis)).toEqual({ from: "2026-08-15", to: "2026-08-15" });
+    expect(getParisDateRange("weekend", fridayInParis)).toEqual({ from: "2026-08-15", to: "2026-08-16" });
+    expect(getParisDateRange("custom", fridayInParis, { from: "2026-08-18", to: "2026-08-16" })).toEqual({ from: "2026-08-16", to: "2026-08-18" });
+  });
+
+  it("keeps multi-day confirmed events visible when a stay overlaps them", () => {
+    expect(eventOverlapsDateRange(datedEvent, { from: "2026-12-01", to: "2026-12-02" })).toBe(true);
+    expect(eventOverlapsDateRange(datedEvent, { from: "2026-12-05", to: "2026-12-06" })).toBe(false);
+    expect(eventOverlapsDateRange({ dateStatus: "dates_pending", startDate: undefined }, { from: "2026-12-01", to: "2026-12-02" })).toBe(false);
+  });
+
+  it("parses shareable discovery parameters and applies combined filters", () => {
+    const params = new URLSearchParams("period=custom&from=2027-06-03&to=2027-06-06&location=monaco&interest=sports&q=grand");
+    const filters = parseEventDiscoveryParams(params);
+    const results = filterDiscoverableEvents([getRivieraEvent("monaco-grand-prix")!], filters, new Date("2026-08-01T10:00:00.000Z"));
+
+    expect(filters).toMatchObject({ period: "custom", location: "monaco", interest: "sports", query: "grand" });
+    expect(results.map((event) => event.slug)).toEqual(["monaco-grand-prix"]);
+  });
+
+  it("builds deterministic dedupe keys for future ingestion candidates", () => {
+    const first = {
+      sourceId: "source",
+      title: "Nice Jazz Fest",
+      normalizedTitle: "nice jazz fest",
+      sourceUrl: "https://example.com/event/",
+      city: "Nice",
+      venue: "Place Massena",
+      startDate: "2026-07-24",
+      reviewRequired: false,
+    };
+    const second = { ...first, sourceUrl: "https://example.com/event" };
+
+    expect(eventDeduplicationKey(first)).toBe(eventDeduplicationKey(second));
+    expect(findDuplicateEventCandidates([first, second])).toHaveLength(1);
   });
 });
