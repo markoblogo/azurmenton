@@ -2,42 +2,83 @@
   "slug": "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
   "mode": "published-guide",
   "strict": false,
-  "missingOnly": false,
+  "missingOnly": true,
   "reportOnly": false,
   "failOnUnmatched": false,
   "operatorSummary": [
     "status: ok",
     "subject: water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
-    "mode: published-guide",
-    "matched: 1",
-    "skipped-covered: 0",
+    "mode: published-guide + missing-only",
+    "matched: 12",
+    "skipped-covered: 9",
     "already-covered: 0",
-    "unmatched: 0",
+    "unmatched: 5",
     "still-missing: 0",
     "report: build/guide-assets-postpublish/water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling.json",
-    "rerun: npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --apply-places-patch-safe"
+    "rerun: npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --apply-places-patch-safe"
   ],
   "counts": {
-    "matched": 1,
-    "unmatched": 0,
+    "matched": 12,
+    "unmatched": 5,
     "alreadyCovered": 0,
-    "skippedCovered": 0,
+    "skippedCovered": 9,
     "stillMissing": 0,
-    "patchReady": 1
+    "patchReady": 12
   },
-  "matchedAssetFiles": [],
-  "unmatchedAssetFiles": [],
+  "matchedAssetFiles": [
+    "ASD Pianeta Blu IMBARCO.png",
+    "Cap-d'Ail water-sports base.png",
+    "Centre Nautique Ville de Menton.png",
+    "Club Sea Nice.png",
+    "Jet Rent Menton.png",
+    "La Base By Riviera Nautic Sport.png",
+    "Larvotto Beach water-sports operators.png",
+    "Mer passion.png",
+    "Nice Diving.png",
+    "Oceanographic Museum partner dive operators.png",
+    "Poseidon Diving Snorkeling Nice.png",
+    "Yacht Club de Monaco sailing programmes.png"
+  ],
+  "unmatchedAssetFiles": [
+    "Blanchisserie Pressing Mentonnais.png",
+    "Laverie Revolution Laundry Intermarche Saint-Roman.png",
+    "Laverie Revolution Laundry.png",
+    "Laverie Self Service.png",
+    "Laverie des Jardins.png"
+  ],
   "alreadyCoveredAssetFiles": [],
   "matchedPlaceIds": [
-    "menton-water-sports-bay"
+    "centre-nautique-ville-de-menton",
+    "jet-rent-menton",
+    "mer-passion-menton",
+    "asd-pianeta-blu-imbarco-menton",
+    "larvotto-beach-water-sports-operators",
+    "yacht-club-de-monaco-sailing-programmes",
+    "oceanographic-museum-partner-dive-operators",
+    "cap-d-ail-water-sports-base",
+    "la-base-riviera-nautic-sport-nice",
+    "nice-diving",
+    "poseidon-diving-snorkeling-nice",
+    "club-sea-nice"
   ],
   "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
-  "bestRerunCommand": "npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --apply-places-patch-safe",
+  "bestRerunCommand": "npm run guide:assets -- --published-guide water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --apply-places-patch-safe",
   "issueCodes": [],
   "postApplyVerify": {
     "verifiedPlaceIds": [
-      "menton-water-sports-bay"
+      "centre-nautique-ville-de-menton",
+      "jet-rent-menton",
+      "mer-passion-menton",
+      "asd-pianeta-blu-imbarco-menton",
+      "larvotto-beach-water-sports-operators",
+      "yacht-club-de-monaco-sailing-programmes",
+      "oceanographic-museum-partner-dive-operators",
+      "cap-d-ail-water-sports-base",
+      "la-base-riviera-nautic-sport-nice",
+      "nice-diving",
+      "poseidon-diving-snorkeling-nice",
+      "club-sea-nice"
     ],
     "failedPlaceIds": []
   }

@@ -1,0 +1,71 @@
+{
+  "slug": "laundry-laundromats-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: laundry-laundromats-menton",
+    "mode: published-guide + missing-only",
+    "matched: 5",
+    "skipped-covered: 0",
+    "already-covered: 0",
+    "unmatched: 12",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/laundry-laundromats-menton.json",
+    "rerun: npm run guide:assets -- --published-guide laundry-laundromats-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 5,
+    "unmatched": 12,
+    "alreadyCovered": 0,
+    "skippedCovered": 0,
+    "stillMissing": 0,
+    "patchReady": 5
+  },
+  "matchedAssetFiles": [
+    "Blanchisserie Pressing Mentonnais.png",
+    "Laverie Revolution Laundry Intermarche Saint-Roman.png",
+    "Laverie Revolution Laundry.png",
+    "Laverie Self Service.png",
+    "Laverie des Jardins.png"
+  ],
+  "unmatchedAssetFiles": [
+    "ASD Pianeta Blu IMBARCO.png",
+    "Cap-d'Ail water-sports base.png",
+    "Centre Nautique Ville de Menton.png",
+    "Club Sea Nice.png",
+    "Jet Rent Menton.png",
+    "La Base By Riviera Nautic Sport.png",
+    "Larvotto Beach water-sports operators.png",
+    "Mer passion.png",
+    "Nice Diving.png",
+    "Oceanographic Museum partner dive operators.png",
+    "Poseidon Diving Snorkeling Nice.png",
+    "Yacht Club de Monaco sailing programmes.png"
+  ],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "laverie-des-jardins-menton",
+    "blanchisserie-pressing-mentonnais",
+    "laverie-self-service-menton",
+    "laverie-revolution-laundry-menton",
+    "laverie-revolution-laundry-intermarche-saint-roman-menton"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide laundry-laundromats-menton --assets-dir /Users/antonbiletskiy-volokh/Desktop/changer --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "laverie-des-jardins-menton",
+      "blanchisserie-pressing-mentonnais",
+      "laverie-self-service-menton",
+      "laverie-revolution-laundry-menton",
+      "laverie-revolution-laundry-intermarche-saint-roman-menton"
+    ],
+    "failedPlaceIds": []
+  }
+}

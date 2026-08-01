@@ -42,6 +42,13 @@
     ]
   },
   {
+    "source": "public/images/guide/asd-pianeta-blu-imbarco-menton.png",
+    "outputs": [
+      "public/images/guide/generated/asd-pianeta-blu-imbarco-menton.avif",
+      "public/images/guide/generated/asd-pianeta-blu-imbarco-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/balzi-rossi-area-ventimiglia.png",
     "outputs": [
       "public/images/guide/generated/balzi-rossi-area-ventimiglia.avif",
@@ -70,6 +77,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cap-d-ail-water-sports-base.png",
+    "outputs": [
+      "public/images/guide/generated/cap-d-ail-water-sports-base.avif",
+      "public/images/guide/generated/cap-d-ail-water-sports-base.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cap-martin-snorkelling-shoreline.png",
     "outputs": [
       "public/images/guide/generated/cap-martin-snorkelling-shoreline.avif",
@@ -84,6 +98,13 @@
     ]
   },
   {
+    "source": "public/images/guide/centre-nautique-ville-de-menton.png",
+    "outputs": [
+      "public/images/guide/generated/centre-nautique-ville-de-menton.avif",
+      "public/images/guide/generated/centre-nautique-ville-de-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cheap-eats-menton-budget-lunch.png",
     "outputs": [
       "public/images/guide/generated/cheap-eats-menton-budget-lunch.avif",
@@ -95,6 +116,13 @@
     "outputs": [
       "public/images/guide/generated/chez-les-grecs-monaco.avif",
       "public/images/guide/generated/chez-les-grecs-monaco.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/club-sea-nice.png",
+    "outputs": [
+      "public/images/guide/generated/club-sea-nice.avif",
+      "public/images/guide/generated/club-sea-nice.webp"
     ]
   },
   {
@@ -137,6 +165,20 @@
     "outputs": [
       "public/images/guide/generated/italian-riviera-paragliding-clubs.avif",
       "public/images/guide/generated/italian-riviera-paragliding-clubs.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/jet-rent-menton.png",
+    "outputs": [
+      "public/images/guide/generated/jet-rent-menton.avif",
+      "public/images/guide/generated/jet-rent-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-base-riviera-nautic-sport-nice.png",
+    "outputs": [
+      "public/images/guide/generated/la-base-riviera-nautic-sport-nice.avif",
+      "public/images/guide/generated/la-base-riviera-nautic-sport-nice.webp"
     ]
   },
   {
@@ -196,6 +238,20 @@
     ]
   },
   {
+    "source": "public/images/guide/larvotto-beach-water-sports-operators.png",
+    "outputs": [
+      "public/images/guide/generated/larvotto-beach-water-sports-operators.avif",
+      "public/images/guide/generated/larvotto-beach-water-sports-operators.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laundry-laundromats-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laundry-laundromats-menton.avif",
+      "public/images/guide/generated/laundry-laundromats-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/le-31-menton.png",
     "outputs": [
       "public/images/guide/generated/le-31-menton.avif",
@@ -252,6 +308,13 @@
     ]
   },
   {
+    "source": "public/images/guide/mer-passion-menton.png",
+    "outputs": [
+      "public/images/guide/generated/mer-passion-menton.avif",
+      "public/images/guide/generated/mer-passion-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/monaco-helicopter-experiences.png",
     "outputs": [
       "public/images/guide/generated/monaco-helicopter-experiences.avif",
@@ -287,10 +350,24 @@
     ]
   },
   {
+    "source": "public/images/guide/nice-diving.png",
+    "outputs": [
+      "public/images/guide/generated/nice-diving.avif",
+      "public/images/guide/generated/nice-diving.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/nice-region-skydiving.png",
     "outputs": [
       "public/images/guide/generated/nice-region-skydiving.avif",
       "public/images/guide/generated/nice-region-skydiving.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/oceanographic-museum-partner-dive-operators.png",
+    "outputs": [
+      "public/images/guide/generated/oceanographic-museum-partner-dive-operators.avif",
+      "public/images/guide/generated/oceanographic-museum-partner-dive-operators.webp"
     ]
   },
   {
@@ -350,6 +427,13 @@
     ]
   },
   {
+    "source": "public/images/guide/poseidon-diving-snorkeling-nice.png",
+    "outputs": [
+      "public/images/guide/generated/poseidon-diving-snorkeling-nice.avif",
+      "public/images/guide/generated/poseidon-diving-snorkeling-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/post-offices-stamps-menton.png",
     "outputs": [
       "public/images/guide/generated/post-offices-stamps-menton.avif",
@@ -368,6 +452,13 @@
     "outputs": [
       "public/images/guide/generated/tatie-cbd-menton.avif",
       "public/images/guide/generated/tatie-cbd-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/yacht-club-de-monaco-sailing-programmes.png",
+    "outputs": [
+      "public/images/guide/generated/yacht-club-de-monaco-sailing-programmes.avif",
+      "public/images/guide/generated/yacht-club-de-monaco-sailing-programmes.webp"
     ]
   },
   {
@@ -392,10 +483,38 @@
     ]
   },
   {
-    "source": "public/images/guide/laundry-laundromats-menton.png",
+    "source": "public/images/guide/laverie-des-jardins-menton.png",
     "outputs": [
-      "public/images/guide/generated/laundry-laundromats-menton.avif",
-      "public/images/guide/generated/laundry-laundromats-menton.webp"
+      "public/images/guide/generated/laverie-des-jardins-menton.avif",
+      "public/images/guide/generated/laverie-des-jardins-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/blanchisserie-pressing-mentonnais.png",
+    "outputs": [
+      "public/images/guide/generated/blanchisserie-pressing-mentonnais.avif",
+      "public/images/guide/generated/blanchisserie-pressing-mentonnais.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-self-service-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-self-service-menton.avif",
+      "public/images/guide/generated/laverie-self-service-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-revolution-laundry-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-revolution-laundry-menton.avif",
+      "public/images/guide/generated/laverie-revolution-laundry-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/laverie-revolution-laundry-intermarche-saint-roman-menton.png",
+    "outputs": [
+      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.avif",
+      "public/images/guide/generated/laverie-revolution-laundry-intermarche-saint-roman-menton.webp"
     ]
   }
 ]
