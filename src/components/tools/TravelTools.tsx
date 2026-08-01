@@ -529,7 +529,7 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
             </>
           ) : isSeaDetail ? (
             <>
-              <MarineConditionsBlock locale={locale} block={{ type: "marineConditions" }} />
+              <MarineConditionsBlock locale={locale} forecastDays={16} block={{ type: "marineConditions" }} />
               <section className="mt-8 border border-[#dfd2b8] bg-[#fffdf8] px-5 py-6 sm:px-8 sm:py-7">
                 <h2 className="serif-heading text-3xl leading-tight text-[#173f36] sm:text-4xl">{text.seaOverviewTitle}</h2>
                 <p className="mt-4 max-w-4xl text-base leading-8 text-[#51483f] sm:text-lg sm:leading-9">{renderClimateOverview(text.seaOverview)}</p>
