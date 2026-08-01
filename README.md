@@ -173,8 +173,24 @@ Main UI:
 - `src/app/[locale]/guide/page.tsx`
 - `src/components/guide/`
 - `src/components/places/UsefulPlacesMap.tsx`
+- `src/components/tools/TravelTools.tsx`
+- `src/components/tools/RadioConsole.tsx`
+- `src/components/guide/utility/AirportLiveBoard.tsx`
 
 The guide portal is not a plain article list. It includes editorial selections, planning clusters, finder/search entry points, compact catalogues, map previews and apartment-aware recommendations.
+
+### Travel Tools
+
+The Travel Tools hub at `/[locale]/tools` is a compact planning surface, not a second editorial section. Its current order is:
+
+1. live weather and marine context;
+2. world clocks and euro reference rates;
+3. transport routes, airport-board links/embeds and the local radio console;
+4. emergency numbers and official safety links.
+
+The detailed `/[locale]/tools/weather` and `/[locale]/tools/sea` pages carry the expanded forecast and marine views. The radio console is hub-only and uses stations with direct `audioStreamUrl` values. Radio guide cards remain the detailed station reference; stations that only expose a web player remain website links rather than being presented as native streams.
+
+Airport boards are either embedded or presented through official external links according to the provider. Embedded providers can show their own cookie or consent UI inside a cross-origin iframe; Azur Menton cannot style or dismiss that provider-owned surface.
 
 ### Events
 

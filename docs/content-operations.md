@@ -79,6 +79,17 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep HLS support dynamically imported so guides without an HLS player do not pay its JavaScript cost.
 - Airport boards require official arrivals/departures URLs and an external fallback for each airport. Embed an airport only after browser testing confirms it is permitted; retain the visible privacy notice, source attribution and the matching `frame-src` allowlist entry.
 
+## Travel Tools Surfaces
+
+The public Travel Tools hub is maintained in `src/components/tools/TravelTools.tsx` and should stay a compact planning surface. Keep the order intentional: conditions, time/rates, transport, then safety.
+
+- Use the shared weather and marine data surfaces for the hub and their expanded detail pages; do not create a second editorial weather article inside the tools page.
+- Keep the transport hub composed of route guidance, official airport-board links/embeds and cautious source notes. It is not a live SNCF, bus or airline API.
+- `RadioConsole` is a hub-only player. It reads the typed Menton station catalog and includes only stations with a direct `audioStreamUrl`; website-only stations remain external links. Do not change the radio guide's per-station cards when polishing the hub.
+- External radio and airport providers can reject, redirect or change their streams. Keep clear unavailable/error states and never claim that an external stream is guaranteed.
+- Cross-origin airport iframes may display provider-owned cookie banners. Do not try to style them from Azur Menton; use an official external-board fallback when embedding is not permitted or usable.
+- When adding a new audio origin, update the CSP media/connect allowlist and its tests. HLS support stays dynamically imported.
+
 ## Internal Linking
 
 - Add existing relevant places to new articles.
