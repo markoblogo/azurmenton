@@ -202,6 +202,39 @@ function valueWithUnit(value: number | undefined, unit: string) {
   return typeof value === "number" ? `${value}${unit}` : "—";
 }
 
+type MarineMetricKind = "sea" | "wind" | "rain" | "waves" | "swell" | "period";
+
+function MarineMetricGlyph({ kind }: { kind: MarineMetricKind }) {
+  return (
+    <svg className="h-12 w-12 shrink-0" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      {kind === "sea" ? <path d="M32 9c-7 11-16 20-16 31a16 16 0 0 0 32 0C48 29 39 20 32 9Z" stroke="#4ea8c0" strokeWidth="4" /> : null}
+      {kind === "wind" ? (
+        <g stroke="#4ea8c0" strokeLinecap="round" strokeWidth="4"><path d="M8 22h30c8 0 8-11 0-11-3 0-5 2-6 4" /><path d="M8 33h45" /><path d="M8 44h27c8 0 8 11 0 11-3 0-5-2-6-4" /></g>
+      ) : null}
+      {kind === "rain" ? (
+        <g stroke="#4ea8c0" strokeLinecap="round" strokeWidth="4"><path d="M18 38h28a10 10 0 0 0-5-19 14 14 0 0 0-26 6 8 8 0 0 0 3 13Z" /><path d="m24 47-3 7M35 47l-3 7M46 47l-3 7" /></g>
+      ) : null}
+      {kind === "waves" || kind === "swell" ? (
+        <g stroke={kind === "waves" ? "#4ea8c0" : "#b49353"} strokeLinecap="round" strokeWidth="4"><path d="M8 23c8-7 16-7 24 0s16 7 24 0" /><path d="M8 35c8-7 16-7 24 0s16 7 24 0" /><path d="M8 47c8-7 16-7 24 0s16 7 24 0" /></g>
+      ) : null}
+      {kind === "period" ? (
+        <g stroke="#b49353" strokeLinecap="round" strokeWidth="4"><circle cx="32" cy="32" r="21" /><path d="M32 19v14l9 6" /></g>
+      ) : null}
+    </svg>
+  );
+}
+
+function ActivityGlyph({ activity }: { activity: FocusActivity }) {
+  const paths = {
+    swimming: "M8 42c8-7 16-7 24 0s16 7 24 0M17 25c5-7 12-8 18-3l6 5M35 18l6-6",
+    snorkelling: "M10 39c8-7 16-7 24 0s16 7 24 0M22 25h18a7 7 0 0 0 0-14h-5M40 18l10 12",
+    paddleboarding: "M8 47h48M28 47l7-30M35 17l8 8M22 29h17",
+    kayaking: "M8 43c10-9 38-9 48 0M17 30l30 0M24 18l-8 25M40 18l8 25",
+    sailing: "M32 10v36M32 13 52 35H32M32 46H14h36",
+  } as const;
+  return <svg className="h-10 w-10 shrink-0" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d={paths[activity]} stroke="#4ea8c0" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" /></svg>;
+}
+
 export async function MarineConditionsBlock({ block, locale }: { block: MarineConditionsUtilityBlock; locale: Locale }) {
   const copy = labels[locale];
   const marine = await getMentonMarineConditions();
@@ -234,29 +267,29 @@ export async function MarineConditionsBlock({ block, locale }: { block: MarineCo
             <dl className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.sea}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.seaTemperature, "°C")}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.seaTemperature, "°C")}</dd><MarineMetricGlyph kind="sea" /></div>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.wind}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.windSpeed, " km/h")}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.windSpeed, " km/h")}</dd><MarineMetricGlyph kind="wind" /></div>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.rain}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{typeof marine.rainChance === "number" ? `${marine.rainChance}%` : "—"}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{typeof marine.rainChance === "number" ? `${marine.rainChance}%` : "—"}</dd><MarineMetricGlyph kind="rain" /></div>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.waves}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.waveHeight, " m")}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.waveHeight, " m")}</dd><MarineMetricGlyph kind="waves" /></div>
                 <p className="mt-1 text-xs text-[#71665b]">{formatDirection(marine.waveDirection)}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.swell}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWaveHeight, " m")}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWaveHeight, " m")}</dd><MarineMetricGlyph kind="swell" /></div>
                 <p className="mt-1 text-xs text-[#71665b]">{formatDirection(marine.swellWaveDirection)}</p>
               </div>
               <div className="border border-[#ede1cf] bg-[#fffdf8] p-3">
                 <dt className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{copy.period}</dt>
-                <dd className="mt-2 text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWavePeriod, " s")}</dd>
+                <div className="mt-2 flex items-center justify-between gap-3"><dd className="text-2xl font-semibold text-[#173f36]">{valueWithUnit(marine.swellWavePeriod, " s")}</dd><MarineMetricGlyph kind="period" /></div>
               </div>
             </dl>
           </section>
@@ -268,7 +301,7 @@ export async function MarineConditionsBlock({ block, locale }: { block: MarineCo
                 const rated = bucketLabel(rateActivity(activity, marine.waveHeight, marine.windSpeed, marine.seaTemperature), copy);
                 return (
                   <div key={activity} className="flex items-center justify-between gap-3 border border-[#ede1cf] bg-[#fffdf8] px-3 py-3">
-                    <span className="text-sm font-semibold text-[#173f36]">{copy[activity]}</span>
+                    <span className="flex items-center gap-3 text-sm font-semibold text-[#173f36]"><ActivityGlyph activity={activity} />{copy[activity]}</span>
                     <span className={`inline-flex min-h-8 items-center border px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] ${rated.tone}`}>{rated.label}</span>
                   </div>
                 );

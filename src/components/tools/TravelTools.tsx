@@ -113,6 +113,8 @@ const ui = {
     weatherToolCta: "Weather",
     seaToolCta: "Sea",
     beachesToolCta: "Beaches",
+    seaOverviewTitle: "The Mediterranean season around Menton",
+    seaOverview: "The Mediterranean around Menton is one of the French Riviera’s greatest assets, staying calm and inviting for much of the year thanks to the town’s sheltered location. Sea temperatures typically reach 22–24°C (72–75°F) from June through September, remain pleasantly warm in October at around 20°C (68°F), and begin warming again in May. These conditions make late spring to early autumn ideal for swimming, paddleboarding, kayaking and snorkelling, with the clearest underwater visibility usually found on calm mornings after light winds. Summer often brings gentle seas that are perfect for families and first-time water-sports enthusiasts, while spring and autumn offer fresh breezes that experienced sailors appreciate for comfortable coastal cruising. Whether you’re joining a yacht trip, exploring hidden coves by kayak or simply enjoying a swim in the crystal-clear Mediterranean, Menton offers one of the longest and most enjoyable sea seasons on the Côte d’Azur.",
     wavesNow: "Waves now",
     swellNow: "Swell",
     wavePeriod: "Wave period",
@@ -205,6 +207,8 @@ const ui = {
     weatherToolCta: "Meteo",
     seaToolCta: "Mer",
     beachesToolCta: "Plages",
+    seaOverviewTitle: "La saison méditerranéenne autour de Menton",
+    seaOverview: "La Méditerranée autour de Menton est l’un des grands atouts de la Côte d’Azur. Grâce à la position abritée de la ville, elle reste calme et agréable une grande partie de l’année. La température de l’eau atteint généralement 22–24 °C de juin à septembre, reste agréablement douce en octobre autour de 20 °C et commence déjà à remonter en mai. Ces conditions rendent la fin du printemps et le début de l’automne idéaux pour la baignade, le paddle, le kayak et le snorkeling. La visibilité sous-marine est souvent meilleure les matins calmes après une légère brise. L’été offre fréquemment une mer douce, parfaite pour les familles et les débutants, tandis que le printemps et l’automne apportent les brises appréciées des navigateurs expérimentés. Que vous partiez en bateau, exploriez les criques en kayak ou profitiez simplement d’une baignade, Menton offre l’une des plus longues et agréables saisons marines de la Côte d’Azur.",
     wavesNow: "Vagues",
     swellNow: "Houle",
     wavePeriod: "Periode",
@@ -297,6 +301,8 @@ const ui = {
     weatherToolCta: "Meteo",
     seaToolCta: "Mare",
     beachesToolCta: "Spiagge",
+    seaOverviewTitle: "La stagione del Mediterraneo intorno a Mentone",
+    seaOverview: "Il Mediterraneo intorno a Mentone è uno dei grandi punti di forza della Costa Azzurra. Grazie alla posizione riparata della città, il mare resta calmo e piacevole per gran parte dell’anno. La temperatura dell’acqua raggiunge generalmente 22–24 °C da giugno a settembre, resta piacevolmente mite in ottobre intorno ai 20 °C e ricomincia a salire già a maggio. Queste condizioni rendono la tarda primavera e l’inizio dell’autunno ideali per nuoto, paddleboard, kayak e snorkeling. La visibilità subacquea è spesso migliore nelle mattine calme dopo venti leggeri. L’estate offre spesso un mare dolce, perfetto per famiglie e principianti, mentre primavera e autunno portano brezze apprezzate dai velisti esperti. Che scegliate un’escursione in barca, le calette in kayak o semplicemente una nuotata, Mentone offre una delle stagioni marine piu lunghe e piacevoli della Costa Azzurra.",
     wavesNow: "Onde",
     swellNow: "Mareggiata",
     wavePeriod: "Periodo",
@@ -389,6 +395,8 @@ const ui = {
     weatherToolCta: "Погода",
     seaToolCta: "Море",
     beachesToolCta: "Пляжі",
+    seaOverviewTitle: "Середземноморський сезон біля Ментона",
+    seaOverview: "Середземне море біля Ментона — одна з головних переваг Лазурового узбережжя. Завдяки захищеному розташуванню міста море залишається спокійним і приємним більшу частину року. Температура води зазвичай сягає 22–24 °C із червня до вересня, у жовтні залишається комфортною — близько 20 °C — і знову починає підвищуватися вже в травні. Такі умови роблять кінець весни та початок осені чудовими для купання, paddleboarding, kayaking і snorkelling. Найкраща підводна видимість часто буває спокійними ранками після легкого вітру. Влітку море часто лагідне, що добре підходить сім’ям і новачкам у водних видах спорту, а навесні та восени свіжий бриз особливо цінують досвідчені яхтсмени. Незалежно від того, чи вирушаєте ви на яхті, досліджуєте бухти на каяку або просто купаєтеся, Ментон пропонує один із найдовших і найприємніших морських сезонів на Лазуровому узбережжі.",
     wavesNow: "Хвилі",
     swellNow: "Свел",
     wavePeriod: "Період хвилі",
@@ -470,6 +478,8 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
   const text = ui[locale];
   const sources = getTravelToolSources(tool.sourceIds);
   const isWeatherDetail = slug === "weather";
+  const isSeaDetail = slug === "sea";
+  const isExpandedDetail = isWeatherDetail || isSeaDetail;
   const rightNow = await getMentonRightNow(isWeatherDetail ? 16 : 5);
   const pageUrl = absoluteUrl(localizedPath(locale, `tools/${tool.slug}`));
 
@@ -484,7 +494,7 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
       />
       <Section className="border-b border-[#dfd2b8] bg-[#f8f3ea] py-12 sm:py-16">
         <Container>
-          <div className={isWeatherDetail ? "grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)]" : ""}>
+          <div className={isExpandedDetail ? "grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)]" : ""}>
             <div>
               <Link href={`/${locale}/tools` as Route} className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#b49353] hover:text-[#173f36]">{copy.title}</Link>
               <h1 className="mt-4 max-w-5xl serif-heading text-5xl leading-[0.96] text-[#173f36] sm:text-6xl">{localizeText(tool.title, locale)}</h1>
@@ -494,9 +504,9 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
                 {sources[0] ? <span className="inline-flex min-h-9 items-center border border-[#dfd2b8] bg-[#fffdf8] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#71665b]">{copy.source}: {sources[0].providerLabel}</span> : null}
               </div>
             </div>
-            {isWeatherDetail ? (
+            {isExpandedDetail ? (
               <div className="relative aspect-[4/3] overflow-hidden border border-[#dfd2b8] bg-[#eaf8fb] shadow-[0_18px_50px_rgba(31,105,126,0.12)]">
-                <Image src="/images/tools/weather.png" alt="Menton weather over the Mediterranean" fill priority sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
+                <Image src={isWeatherDetail ? "/images/tools/weather.png" : "/images/tools/sea.png"} alt={isWeatherDetail ? "Menton weather over the Mediterranean" : "The Mediterranean sea near Menton"} fill priority sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
               </div>
             ) : null}
           </div>
@@ -511,6 +521,18 @@ export async function TravelToolDetailPage({ locale, slug }: { locale: Locale; s
               <section className="mt-8 border border-[#dfd2b8] bg-[#fffdf8] px-5 py-6 sm:px-8 sm:py-7">
                 <h2 className="serif-heading text-3xl leading-tight text-[#173f36] sm:text-4xl">{text.climateOverviewTitle}</h2>
                 <p className="mt-4 max-w-4xl text-base leading-8 text-[#51483f] sm:text-lg sm:leading-9">{renderClimateOverview(text.climateOverview)}</p>
+              </section>
+              <div className="mt-8 grid gap-6 lg:grid-cols-2">
+                <ToolSources label={copy.source} sources={sources} />
+                <ToolGuides label={text.guides} locale={locale} guideSlugs={tool.relatedGuideSlugs} />
+              </div>
+            </>
+          ) : isSeaDetail ? (
+            <>
+              <MarineConditionsBlock locale={locale} block={{ type: "marineConditions" }} />
+              <section className="mt-8 border border-[#dfd2b8] bg-[#fffdf8] px-5 py-6 sm:px-8 sm:py-7">
+                <h2 className="serif-heading text-3xl leading-tight text-[#173f36] sm:text-4xl">{text.seaOverviewTitle}</h2>
+                <p className="mt-4 max-w-4xl text-base leading-8 text-[#51483f] sm:text-lg sm:leading-9">{renderClimateOverview(text.seaOverview)}</p>
               </section>
               <div className="mt-8 grid gap-6 lg:grid-cols-2">
                 <ToolSources label={copy.source} sources={sources} />

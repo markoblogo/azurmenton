@@ -518,6 +518,13 @@
     ]
   },
   {
+    "source": "public/images/tools/sea.png",
+    "outputs": [
+      "public/images/tools/generated/sea.avif",
+      "public/images/tools/generated/sea.webp"
+    ]
+  },
+  {
     "source": "public/images/tools/weather.png",
     "outputs": [
       "public/images/tools/generated/weather.avif",
