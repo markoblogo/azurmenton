@@ -19,7 +19,7 @@ export function UtilityBlockRenderer({ blocks, locale }: { blocks: GuideUtilityB
         }
 
         if (block.type === "marineConditions") {
-          return <MarineConditionsBlock key={`${block.type}-${block.focusActivities?.join(",") ?? "default"}`} block={block} locale={locale} />;
+          return <MarineConditionsBlock key={`${block.type}-${block.focusActivities?.join(",") ?? "default"}`} block={block} locale={locale} compact />;
         }
 
         return null;

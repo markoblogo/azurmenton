@@ -1,6 +1,7 @@
 import type { MarineConditionsUtilityBlock } from "@/content/guide";
 import type { Locale } from "@/i18n/locales";
 import { getMentonMarineConditions, type WeatherForecastDays } from "@/lib/weather";
+import Link from "next/link";
 
 type FocusActivity = NonNullable<MarineConditionsUtilityBlock["focusActivities"]>[number];
 
@@ -29,7 +30,8 @@ const labels: Record<
     | "excellent"
     | "good"
     | "mixed"
-    | "poor",
+    | "poor"
+    | "more",
     string
   >
 > = {
@@ -57,6 +59,7 @@ const labels: Record<
     good: "Good",
     mixed: "Mixed",
     poor: "Poor",
+    more: "More sea details",
   },
   fr: {
     title: "Conditions de mer actuelles",
@@ -82,6 +85,7 @@ const labels: Record<
     good: "Bon",
     mixed: "Mitige",
     poor: "Faible",
+    more: "Plus de details sur la mer",
   },
   it: {
     title: "Condizioni del mare attuali",
@@ -107,6 +111,7 @@ const labels: Record<
     good: "Buono",
     mixed: "Misto",
     poor: "Scarso",
+    more: "Altri dettagli sul mare",
   },
   uk: {
     title: "Поточні морські умови",
@@ -132,6 +137,7 @@ const labels: Record<
     good: "Добре",
     mixed: "Змішано",
     poor: "Слабко",
+    more: "Більше про море",
   },
 };
 
@@ -356,7 +362,7 @@ function ForecastWeatherGlyph({ code }: { code: number }) {
   );
 }
 
-export async function MarineConditionsBlock({ block, locale, forecastDays = 5 }: { block: MarineConditionsUtilityBlock; locale: Locale; forecastDays?: WeatherForecastDays }) {
+export async function MarineConditionsBlock({ block, locale, forecastDays = 5, compact = false }: { block: MarineConditionsUtilityBlock; locale: Locale; forecastDays?: WeatherForecastDays; compact?: boolean }) {
   const copy = labels[locale];
   const marine = await getMentonMarineConditions(forecastDays);
   const title = localizeBlockText(block.title, locale) ?? copy.title;
@@ -380,7 +386,7 @@ export async function MarineConditionsBlock({ block, locale, forecastDays = 5 }:
         <p className="mt-4 text-sm leading-6 text-[#71665b]">{copy.fallback}</p>
       ) : (
         <>
-        <div className="mt-5 grid items-start gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className={`mt-5 grid items-start gap-4 ${compact ? "lg:grid-cols-[minmax(0,1.5fr)_minmax(13rem,0.5fr)]" : "lg:grid-cols-[1.1fr_0.9fr]"}`}>
           <section className="border border-[#e6d9c6] bg-white/65 p-4 sm:p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
@@ -437,8 +443,8 @@ export async function MarineConditionsBlock({ block, locale, forecastDays = 5 }:
                 const rated = bucketLabel(rateActivity(activity, marine.waveHeight, marine.windSpeed, marine.seaTemperature), copy);
                 return (
                   <div key={activity} className="flex items-center justify-between gap-3 border border-[#ede1cf] bg-[#fffdf8] px-3 py-3">
-                    <span className="flex items-center gap-3 text-sm font-semibold text-[#173f36]"><ActivityGlyph activity={activity} />{copy[activity]}</span>
-                    <span className="flex items-center gap-2"><ActivityStatusGlyph score={rateActivity(activity, marine.waveHeight, marine.windSpeed, marine.seaTemperature)} /><span className={`inline-flex min-h-8 items-center border px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] ${rated.tone}`}>{rated.label}</span></span>
+                    <span className="flex items-center gap-3 text-sm font-semibold text-[#173f36]">{compact ? null : <ActivityGlyph activity={activity} />}{copy[activity]}</span>
+                    <span className="flex items-center gap-2" title={rated.label} aria-label={rated.label}><ActivityStatusGlyph score={rateActivity(activity, marine.waveHeight, marine.windSpeed, marine.seaTemperature)} /><span className={compact ? "sr-only" : `inline-flex min-h-8 items-center border px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] ${rated.tone}`}>{rated.label}</span></span>
                   </div>
                 );
               })}
@@ -446,7 +452,7 @@ export async function MarineConditionsBlock({ block, locale, forecastDays = 5 }:
 
           </section>
         </div>
-        {marine.forecast.length ? (
+        {!compact && marine.forecast.length ? (
           <section className="mt-4 border border-[#e6d9c6] bg-white/65 p-4 sm:p-5">
             <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{copy.forecast}</p>
             <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
@@ -459,6 +465,13 @@ export async function MarineConditionsBlock({ block, locale, forecastDays = 5 }:
               ))}
             </div>
           </section>
+        ) : null}
+        {compact ? (
+          <div className="mt-5 flex justify-end">
+            <Link href={`/${locale}/tools/sea`} className="inline-flex items-center border border-[#b49353] bg-[#173f36] px-4 py-3 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#245247]">
+              {copy.more}
+            </Link>
+          </div>
         ) : null}
         </>
       )}
