@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { AirportLiveBoard } from "@/components/guide/utility/AirportLiveBoard";
 import { LocalRadioBlock } from "@/components/guide/utility/LocalRadioBlock";
+import { RadioConsole } from "@/components/tools/RadioConsole";
 import { MarineConditionsBlock } from "@/components/guide/utility/MarineConditionsBlock";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
@@ -460,6 +461,9 @@ function TransportPlanningSection({ locale }: { locale: Locale }) {
             compact
             block={{ type: "airportLiveBoard", airportIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "torino-airport"] }}
           />
+        </div>
+        <div className="mt-5">
+          <RadioConsole locale={locale} />
         </div>
       </div>
     </section>
