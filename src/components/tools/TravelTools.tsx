@@ -456,7 +456,7 @@ function TransportPlanningSection({ locale }: { locale: Locale }) {
       <p className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{text.transport}</p>
       <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{text.transportHubTitle}</h2>
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{text.transportHubText}</p>
-      <div className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
+      <div className="mt-5 grid items-start gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
         <TransportHelperBlock locale={locale} compact />
         <AirportLiveBoard
           locale={locale}
