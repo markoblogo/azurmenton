@@ -383,31 +383,33 @@ async function fetchOpenMeteoMarineSnapshot(latitude: string, longitude: string,
   }
 }
 
-const getCachedOpenMeteoWeather = unstable_cache(
-  async (forecastDays: WeatherForecastDays) => {
-    const weather = await fetchOpenMeteoWeather(forecastDays);
-    if (!weather) {
-      throw new Error("Open-Meteo weather unavailable");
-    }
-    return weather;
-  },
-  ["menton-weather-v2"],
-  { revalidate: weatherRevalidateSeconds },
-);
+const getCachedOpenMeteoWeather = (forecastDays: WeatherForecastDays) =>
+  unstable_cache(
+    async () => {
+      const weather = await fetchOpenMeteoWeather(forecastDays);
+      if (!weather) {
+        throw new Error("Open-Meteo weather unavailable");
+      }
+      return weather;
+    },
+    ["menton-weather-v3", `days-${forecastDays}`],
+    { revalidate: weatherRevalidateSeconds },
+  )();
 
-const getCachedOpenMeteoMarineSnapshot = unstable_cache(
-  async (forecastDays: WeatherForecastDays) => {
-    const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
-    const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
-    const marine = await fetchOpenMeteoMarineSnapshot(latitude, longitude, forecastDays);
-    if (!marine) {
-      throw new Error("Open-Meteo marine snapshot unavailable");
-    }
-    return marine;
-  },
-  ["menton-marine-v1"],
-  { revalidate: weatherRevalidateSeconds },
-);
+const getCachedOpenMeteoMarineSnapshot = (forecastDays: WeatherForecastDays) =>
+  unstable_cache(
+    async () => {
+      const latitude = process.env.WEATHER_LATITUDE || defaultLatitude;
+      const longitude = process.env.WEATHER_LONGITUDE || defaultLongitude;
+      const marine = await fetchOpenMeteoMarineSnapshot(latitude, longitude, forecastDays);
+      if (!marine) {
+        throw new Error("Open-Meteo marine snapshot unavailable");
+      }
+      return marine;
+    },
+    ["menton-marine-v2", `days-${forecastDays}`],
+    { revalidate: weatherRevalidateSeconds },
+  )();
 
 const getCachedOpenMeteoAirQuality = unstable_cache(
   async () => {
