@@ -180,7 +180,7 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
 
   return (
     <Link href={href} className="group grid overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a]">
-      <EventImage event={event} locale={locale} className="min-h-44 border-0 border-b" sizes="(min-width: 1024px) 30vw, 92vw" />
+      <EventImage event={event} locale={locale} className="aspect-[16/9] border-0 border-b" sizes="(min-width: 1024px) 30vw, 92vw" />
       <div className="grid gap-4 p-4">
         <div className="flex flex-wrap gap-2">
           <span className="border border-[#d2a748] bg-[#fff5d8] px-2.5 py-1 text-[0.64rem] font-bold uppercase tracking-[0.12em] text-[#7b5515]">
