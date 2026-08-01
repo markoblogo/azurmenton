@@ -1,1 +1,521 @@
-[]
+[
+  {
+    "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
+    "slug": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12",
+    "title": "La Farandole – Festival International de Folklore de Nice",
+    "titleLocalized": {
+      "en": "La Farandole – Festival International de Folklore de Nice",
+      "fr": "La Farandole – Festival International de Folklore de Nice",
+      "it": "La Farandole – Festival International de Folklore de Nice",
+      "uk": "La Farandole – Festival International de Folklore de Nice"
+    },
+    "location": "Nice",
+    "city": "nice",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-12-2026-08-16",
+    "dateLabelLocalized": {
+      "en": "2026-08-12-2026-08-16",
+      "fr": "2026-08-12-2026-08-16",
+      "it": "2026-08-12-2026-08-16",
+      "uk": "2026-08-12-2026-08-16"
+    },
+    "startDate": "2026-08-12",
+    "endDate": "2026-08-16",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music",
+      "family"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "nice",
+      "festival",
+      "world-culture",
+      "dance",
+      "family"
+    ],
+    "shortDescription": {
+      "en": "An international folklore festival bringing traditional dance, costumes and music to Nice over several days.",
+      "fr": "Un festival international de folklore avec danses traditionnelles, costumes et musiques à Nice pendant plusieurs jours.",
+      "it": "Un festival internazionale del folclore con danze tradizionali, costumi e musica a Nizza per più giorni.",
+      "uk": "Міжнародний фольклорний фестиваль із традиційними танцями, костюмами й музикою в Ніцці протягом кількох днів."
+    },
+    "whyShowOnSite": {
+      "en": "A potentially strong family and cultural day trip from Menton, but the detailed programme should be checked before travelling.",
+      "fr": "Une sortie culturelle et familiale potentiellement forte depuis Menton, mais le programme détaillé doit être vérifié avant le départ.",
+      "it": "Una possibile gita culturale e familiare da Mentone, ma il programma dettagliato va verificato prima di partire.",
+      "uk": "Потенційно сильна сімейна й культурна поїздка з Ментона, але детальну програму треба перевірити перед виїздом."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/",
+    "programmeUrl": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/",
+    "travelNote": {
+      "en": "Plan the train from Menton and check the final official programme before travelling.",
+      "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+      "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+      "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+    },
+    "detailContent": {
+      "overview": [
+        {
+          "en": "The official page lists the festival dates, while detailed times, venues and groups should be checked when the programme is released.",
+          "fr": "La page officielle indique les dates du festival ; les horaires, lieux et groupes doivent être vérifiés quand le programme sera publié.",
+          "it": "La pagina ufficiale indica le date del festival; orari, sedi e gruppi vanno verificati quando uscirà il programma.",
+          "uk": "Офіційна сторінка вказує дати фестивалю; час, локації та учасників треба перевірити після публікації програми."
+        }
+      ],
+      "venues": [
+        {
+          "en": "Various venues in Nice; no precise map pin is used until the programme confirms locations.",
+          "fr": "Plusieurs lieux à Nice ; aucune épingle précise n’est utilisée tant que le programme ne confirme pas les lieux.",
+          "it": "Diverse sedi a Nizza; nessun punto mappa preciso finché il programma non conferma i luoghi.",
+          "uk": "Різні локації в Ніцці; точну карту не додаємо, доки програма не підтвердить місця."
+        }
+      ],
+      "family": {
+        "en": "Likely suitable for families, subject to the final schedule and crowd levels.",
+        "fr": "Probablement adapté aux familles, selon les horaires finaux et l’affluence.",
+        "it": "Probabilmente adatto alle famiglie, secondo programma finale e affluenza.",
+        "uk": "Ймовірно підходить для сімей, залежно від фінального розкладу й кількості людей."
+      },
+      "tickets": [
+        {
+          "en": "Booking and free-admission status are not assumed; check the official programme.",
+          "fr": "Billetterie et gratuité ne sont pas supposées ; vérifiez le programme officiel.",
+          "it": "Biglietti e gratuità non sono presunti; controlla il programma ufficiale.",
+          "uk": "Квитки й безкоштовний вхід не припускаються; перевіряйте офіційну програму."
+        }
+      ],
+      "tips": [
+        {
+          "en": "Wait for the programme before making this the anchor of a Nice day trip.",
+          "fr": "Attendez le programme avant d’en faire l’élément central d’une journée à Nice.",
+          "it": "Aspetta il programma prima di farne il fulcro di una gita a Nizza.",
+          "uk": "Дочекайтеся програми, перш ніж робити це головною метою поїздки до Ніцци."
+        }
+      ],
+      "officialLinks": [
+        {
+          "label": {
+            "en": "Official event page",
+            "fr": "Page officielle de l’événement",
+            "it": "Pagina ufficiale evento",
+            "uk": "Офіційна сторінка події"
+          },
+          "href": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/"
+        }
+      ]
+    },
+    "detailPage": true,
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ]
+  },
+  {
+    "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
+    "slug": "nice-classic-festival-nice-2026-07-21",
+    "title": "Nice Classic Festival",
+    "titleLocalized": {
+      "en": "Nice Classic Festival",
+      "fr": "Nice Classic Festival",
+      "it": "Nice Classic Festival",
+      "uk": "Nice Classic Festival"
+    },
+    "location": "Nice",
+    "city": "nice",
+    "monthGroup": "2026-07",
+    "dateLabel": "2026-07-21-2026-08-09",
+    "dateLabelLocalized": {
+      "en": "2026-07-21-2026-08-09",
+      "fr": "2026-07-21-2026-08-09",
+      "it": "2026-07-21-2026-08-09",
+      "uk": "2026-07-21-2026-08-09"
+    },
+    "startDate": "2026-07-21",
+    "endDate": "2026-08-09",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "nice",
+      "festival",
+      "classical-music",
+      "concerts",
+      "evening"
+    ],
+    "shortDescription": {
+      "en": "A summer programme of chamber music, recitals, orchestral concerts and dance in Nice, with individual performances to choose from across the festival dates.",
+      "fr": "Un programme estival de musique de chambre, récitals, concerts orchestraux et danse à Nice, avec des représentations à choisir selon les dates du festival.",
+      "it": "Un programma estivo di musica da camera, recital, concerti orchestrali e danza a Nizza, con singoli appuntamenti da scegliere nel calendario.",
+      "uk": "Літня програма камерної музики, сольних концертів, оркестрових виступів і танцю в Ніцці з окремими подіями в межах фестивальних дат."
+    },
+    "whyShowOnSite": {
+      "en": "Useful for visitors willing to plan an evening in Nice around a specific performance rather than treating the festival as one continuous event.",
+      "fr": "Utile pour les visiteurs prêts à organiser une soirée à Nice autour d’une représentation précise, plutôt que comme un événement continu.",
+      "it": "Utile per chi vuole pianificare una serata a Nizza intorno a uno spettacolo specifico, non come evento continuo.",
+      "uk": "Корисно для гостей, які готові спланувати вечір у Ніцці під конкретний виступ, а не сприймати фестиваль як безперервну подію."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/",
+    "programmeUrl": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/",
+    "travelNote": {
+      "en": "Plan the train from Menton and check the final official programme before travelling.",
+      "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+      "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+      "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+    },
+    "detailContent": {
+      "overview": [
+        {
+          "en": "This is a multi-performance festival. Choose a specific concert or performance from the official programme before travelling.",
+          "fr": "C’est un festival à plusieurs représentations. Choisissez un concert ou spectacle précis dans le programme officiel avant de partir.",
+          "it": "È un festival con più appuntamenti. Scegli un concerto o spettacolo preciso dal programma ufficiale prima di partire.",
+          "uk": "Це фестиваль із багатьма окремими подіями. Перед поїздкою оберіть конкретний концерт або виступ в офіційній програмі."
+        }
+      ],
+      "venues": [
+        {
+          "en": "Various venues in Nice. Do not rely on one map pin for the whole festival.",
+          "fr": "Plusieurs lieux à Nice. Ne vous fiez pas à une seule épingle de carte pour tout le festival.",
+          "it": "Diverse sedi a Nizza. Non usare un solo punto mappa per tutto il festival.",
+          "uk": "Різні локації в Ніцці. Не покладайтеся на одну точку на карті для всього фестивалю."
+        }
+      ],
+      "family": {
+        "en": "Depends on the selected performance, hour and format.",
+        "fr": "Cela dépend de la représentation, de l’horaire et du format choisis.",
+        "it": "Dipende dallo spettacolo, dall’orario e dal formato scelti.",
+        "uk": "Залежить від конкретного виступу, часу та формату."
+      },
+      "tickets": [
+        {
+          "en": "Use the official programme for venues, times, ticketing and prices.",
+          "fr": "Utilisez le programme officiel pour les lieux, horaires, billets et tarifs.",
+          "it": "Usa il programma ufficiale per sedi, orari, biglietti e prezzi.",
+          "uk": "Користуйтеся офіційною програмою для локацій, часу, квитків і цін."
+        }
+      ],
+      "tips": [
+        {
+          "en": "Check late trains back to Menton before booking an evening performance.",
+          "fr": "Vérifiez les trains tardifs vers Menton avant de réserver une soirée.",
+          "it": "Controlla i treni serali per Mentone prima di prenotare uno spettacolo.",
+          "uk": "Перевірте пізні поїзди до Ментона перед бронюванням вечірнього виступу."
+        }
+      ],
+      "officialLinks": [
+        {
+          "label": {
+            "en": "Official programme source",
+            "fr": "Programme officiel",
+            "it": "Programma ufficiale",
+            "uk": "Офіційна програма"
+          },
+          "href": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/"
+        }
+      ]
+    },
+    "detailPage": true,
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ]
+  },
+  {
+    "id": "pina-festival-2026-sanremo-2026-08-06-1ugqw8n",
+    "slug": "pina-festival-2026-sanremo-2026-08-06",
+    "title": "Piña Festival 2026",
+    "titleLocalized": {
+      "en": "Piña Festival 2026",
+      "fr": "Piña Festival 2026",
+      "it": "Piña Festival 2026",
+      "uk": "Piña Festival 2026"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-06-2026-08-09",
+    "dateLabelLocalized": {
+      "en": "2026-08-06-2026-08-09",
+      "fr": "2026-08-06-2026-08-09",
+      "it": "2026-08-06-2026-08-09",
+      "uk": "2026-08-06-2026-08-09"
+    },
+    "startDate": "2026-08-06",
+    "endDate": "2026-08-09",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "sanremo",
+      "festival",
+      "electronic-music",
+      "nightlife",
+      "italian-riviera"
+    ],
+    "shortDescription": {
+      "en": "A four-day electronic music festival spread across several Sanremo locations, combining free central programming with separately organised parties or ticketed elements.",
+      "fr": "Un festival de musique électronique sur quatre jours, réparti entre plusieurs lieux de Sanremo, avec une programmation centrale gratuite et des soirées ou éléments payants séparés.",
+      "it": "Un festival di musica elettronica di quattro giorni in più luoghi di Sanremo, con programma centrale gratuito e feste o appuntamenti separati anche a pagamento.",
+      "uk": "Чотириденний фестиваль електронної музики в кількох локаціях Санремо з безкоштовною центральною програмою та окремими вечірками чи платними елементами."
+    },
+    "whyShowOnSite": {
+      "en": "A destination-worthy option for younger visitors and electronic-music audiences prepared to travel from Menton to Sanremo.",
+      "fr": "Une option qui peut justifier le trajet depuis Menton pour les jeunes visiteurs et les amateurs de musique électronique.",
+      "it": "Un’opzione che può valere il viaggio da Mentone per visitatori giovani e appassionati di musica elettronica.",
+      "uk": "Вартий окремої поїздки з Ментона для молодших гостей і поціновувачів електронної музики."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810",
+    "ticketsUrl": "https://pinhafestivalsanremo.com/",
+    "travelNote": {
+      "en": "Plan the cross-border train or a late return before committing to an evening in Sanremo.",
+      "fr": "Prévoyez le train transfrontalier ou un retour tardif avant de bloquer une soirée à Sanremo.",
+      "it": "Pianifica il treno transfrontaliero o un rientro tardivo prima di organizzare una serata a Sanremo.",
+      "uk": "Сплануйте транскордонний поїзд або пізнє повернення перед вечором у Санремо."
+    },
+    "detailContent": {
+      "overview": [
+        {
+          "en": "The festival uses several Sanremo locations. Do not treat it as one venue or one timed concert.",
+          "fr": "Le festival utilise plusieurs lieux à Sanremo. Ne le considérez pas comme un seul lieu ou concert horaire.",
+          "it": "Il festival usa più luoghi a Sanremo. Non considerarlo come un unico luogo o concerto con un solo orario.",
+          "uk": "Фестиваль проходить у кількох локаціях Санремо. Не сприймайте його як один майданчик або один концерт із фіксованим часом."
+        }
+      ],
+      "venues": [
+        {
+          "en": "Multiple venues in Sanremo; use the official festival programme for exact locations.",
+          "fr": "Plusieurs lieux à Sanremo ; utilisez le programme officiel pour les adresses exactes.",
+          "it": "Più sedi a Sanremo; usa il programma ufficiale per i luoghi esatti.",
+          "uk": "Кілька локацій у Санремо; точні місця перевіряйте в офіційній програмі."
+        }
+      ],
+      "family": {
+        "en": "Not family-focused; best for adults and younger visitors interested in electronic music and nightlife.",
+        "fr": "Pas centré sur les familles ; plutôt pour adultes et jeunes visiteurs intéressés par musique électronique et vie nocturne.",
+        "it": "Non è pensato per famiglie; meglio per adulti e giovani interessati a musica elettronica e nightlife.",
+        "uk": "Не сімейний формат; найкраще для дорослих і молодших гостей, яким цікаві електронна музика та нічне життя."
+      },
+      "tickets": [
+        {
+          "en": "The official source indicates free main programming on 6, 7 and 8 August, but separate parties or associated events may have their own ticket rules.",
+          "fr": "La source officielle indique une programmation principale gratuite les 6, 7 et 8 août, mais des soirées ou événements associés peuvent avoir leurs propres billets.",
+          "it": "La fonte ufficiale indica programma principale gratuito il 6, 7 e 8 agosto, ma feste o appuntamenti associati possono avere biglietti propri.",
+          "uk": "Офіційне джерело вказує безкоштовну основну програму 6, 7 і 8 серпня, але окремі вечірки чи супутні події можуть мати власні правила квитків."
+        }
+      ],
+      "tips": [
+        {
+          "en": "Check return transport carefully; Sanremo evenings can finish later than practical train connections to Menton.",
+          "fr": "Vérifiez bien le retour ; les soirées à Sanremo peuvent finir après les trains pratiques vers Menton.",
+          "it": "Controlla bene il ritorno; le serate a Sanremo possono finire dopo i treni comodi per Mentone.",
+          "uk": "Уважно перевіряйте повернення; вечори в Санремо можуть завершуватися пізніше, ніж зручні поїзди до Ментона."
+        }
+      ],
+      "officialLinks": [
+        {
+          "label": {
+            "en": "Comune di Sanremo event page",
+            "fr": "Page événement Comune di Sanremo",
+            "it": "Pagina evento Comune di Sanremo",
+            "uk": "Сторінка події Comune di Sanremo"
+          },
+          "href": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810"
+        },
+        {
+          "label": {
+            "en": "Official festival website",
+            "fr": "Site officiel du festival",
+            "it": "Sito ufficiale del festival",
+            "uk": "Офіційний сайт фестивалю"
+          },
+          "href": "https://pinhafestivalsanremo.com/"
+        }
+      ]
+    },
+    "detailPage": true,
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "bookingUrl": "https://pinhafestivalsanremo.com/",
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ]
+  },
+  {
+    "id": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06-1v7n4wz",
+    "slug": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06",
+    "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+    "titleLocalized": {
+      "en": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "fr": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "it": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "uk": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives"
+    },
+    "location": "Nice",
+    "city": "nice",
+    "monthGroup": "2026-02",
+    "dateLabel": "2026-02-06-2026-08-30",
+    "dateLabelLocalized": {
+      "en": "2026-02-06-2026-08-30",
+      "fr": "2026-02-06-2026-08-30",
+      "it": "2026-02-06-2026-08-30",
+      "uk": "2026-02-06-2026-08-30"
+    },
+    "startDate": "2026-02-06",
+    "endDate": "2026-08-30",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "exhibition",
+      "family"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "nice",
+      "exhibition",
+      "history",
+      "family",
+      "indoor",
+      "rainy-day"
+    ],
+    "shortDescription": {
+      "en": "A substantial immersive historical exhibition in central Nice, dedicated to the Viking world and staged at Cités Immersives near the Promenade des Anglais.",
+      "fr": "Une grande exposition historique immersive au centre de Nice, consacrée à l’univers viking et présentée à Cités Immersives près de la Promenade des Anglais.",
+      "it": "Una grande mostra storica immersiva nel centro di Nizza, dedicata al mondo vichingo e allestita a Cités Immersives vicino alla Promenade des Anglais.",
+      "uk": "Велика імерсивна історична виставка в центрі Ніцци, присвячена світу вікінгів і розміщена в Cités Immersives біля Promenade des Anglais."
+    },
+    "whyShowOnSite": {
+      "en": "Worth the train journey from Menton for families, history-curious visitors, and anyone looking for a structured indoor plan during hot or rainy weather.",
+      "fr": "Le trajet en train depuis Menton se justifie pour les familles, les visiteurs curieux d’histoire et ceux qui cherchent une activité couverte par forte chaleur ou pluie.",
+      "it": "Vale il viaggio in treno da Mentone per famiglie, visitatori interessati alla storia e chi cerca un piano al coperto nelle giornate calde o piovose.",
+      "uk": "Варто їхати поїздом із Ментона для сімей, гостей, яким цікава історія, і тих, хто шукає змістовний план у приміщенні під час спеки чи дощу."
+    },
+    "bookingTip": {
+      "en": "Check booking requirements on the official source before planning around this event.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/",
+    "programmeUrl": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/",
+    "travelNote": {
+      "en": "Plan the train from Menton and check the final official programme before travelling.",
+      "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+      "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+      "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+    },
+    "detailContent": {
+      "overview": [
+        {
+          "en": "This is an ongoing immersive exhibition rather than a single timed performance. Treat the date range as the exhibition period and check the venue hours before going.",
+          "fr": "Il s’agit d’une exposition immersive en continu, pas d’une représentation unique. Considérez la période comme la durée de l’exposition et vérifiez les horaires du lieu avant de partir.",
+          "it": "È una mostra immersiva continuativa, non uno spettacolo con un unico orario. Considera le date come periodo della mostra e controlla gli orari della sede prima di partire.",
+          "uk": "Це постійна імерсивна виставка, а не вистава з одним часом початку. Сприймайте дати як період роботи виставки й перевіряйте години роботи перед поїздкою."
+        }
+      ],
+      "venues": [
+        {
+          "en": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+          "fr": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+          "it": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+          "uk": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice."
+        }
+      ],
+      "family": {
+        "en": "A good family option when children enjoy immersive history and large visual displays.",
+        "fr": "Une bonne option en famille si les enfants aiment l’histoire immersive et les grands dispositifs visuels.",
+        "it": "Una buona opzione per famiglie se i bambini amano storia immersiva e grandi installazioni visive.",
+        "uk": "Хороший варіант для сімей, якщо дітям цікаві імерсивна історія та великі візуальні інсталяції."
+      },
+      "tickets": [
+        {
+          "en": "Check the official source for current opening days, times and ticket conditions.",
+          "fr": "Consultez la source officielle pour les jours d’ouverture, horaires et conditions de billets.",
+          "it": "Controlla la fonte ufficiale per giorni di apertura, orari e biglietti.",
+          "uk": "Перевіряйте офіційне джерело щодо днів роботи, годин і квитків."
+        }
+      ],
+      "tips": [
+        {
+          "en": "Combine it with a central Nice walk or a cooler indoor pause during a summer day trip.",
+          "fr": "Associez-la à une promenade dans le centre de Nice ou à une pause au frais pendant une excursion estivale.",
+          "it": "Abbinala a una passeggiata nel centro di Nizza o a una pausa al fresco durante una gita estiva.",
+          "uk": "Поєднайте її з прогулянкою центром Ніцци або прохолодною паузою під час літньої поїздки."
+        }
+      ],
+      "officialLinks": [
+        {
+          "label": {
+            "en": "Official event page",
+            "fr": "Page officielle de l’événement",
+            "it": "Pagina ufficiale evento",
+            "uk": "Офіційна сторінка події"
+          },
+          "href": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/"
+        },
+        {
+          "label": {
+            "en": "Google Maps: Cités Immersives Nice",
+            "fr": "Google Maps : Cités Immersives Nice",
+            "it": "Google Maps: Cités Immersives Nice",
+            "uk": "Google Maps: Cités Immersives Nice"
+          },
+          "href": "https://www.google.com/maps/search/?api=1&query=Cit%C3%A9s%20Immersives%20Nice%2C%201%20rue%20Massenet%2C%2006000%20Nice"
+        }
+      ]
+    },
+    "detailPage": true,
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01",
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ]
+  }
+]

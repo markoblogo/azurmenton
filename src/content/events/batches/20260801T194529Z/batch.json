@@ -1,0 +1,1537 @@
+{
+  "id": "20260801T194529Z",
+  "createdAt": "2026-08-01T19:45:29.905Z",
+  "sourceRuns": [
+    {
+      "sourceId": "explore-nice-major-events",
+      "fetchedAt": "2026-08-01T18:21:25.378Z",
+      "candidateCount": 12
+    },
+    {
+      "sourceId": "comune-sanremo-events",
+      "fetchedAt": "2026-08-01T18:21:25.378Z",
+      "candidateCount": 104
+    }
+  ],
+  "candidates": [
+    {
+      "id": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06-1v7n4wz",
+      "slug": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06",
+      "sourceId": "explore-nice-major-events",
+      "sourceEventId": "7605938",
+      "sourceName": "Explore Nice Cote d'Azur major events",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/",
+      "titleOriginal": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "titleCanonical": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "location": "nice",
+      "startDate": "2026-02-06",
+      "endDate": "2026-08-30",
+      "timezone": "Europe/Paris",
+      "category": [
+        "exhibition",
+        "family"
+      ],
+      "tags": [
+        "nice",
+        "exhibition",
+        "history",
+        "family",
+        "indoor",
+        "rainy-day"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for nice because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": true,
+      "isIndoor": true,
+      "isOutdoor": false,
+      "isRainyDayOption": true,
+      "bookingRecommended": true,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+          "summary": "A substantial immersive historical exhibition in central Nice, dedicated to the Viking world and staged at Cités Immersives near the Promenade des Anglais.",
+          "editorialNote": "Worth the train journey from Menton for families, history-curious visitors, and anyone looking for a structured indoor plan during hot or rainy weather.",
+          "imageAlt": "Immersive historical exhibition in Nice",
+          "seoTitle": "Vikings immersive exhibition in Nice | Azur Menton events",
+          "seoDescription": "A family-friendly immersive Vikings exhibition in Nice from 6 February to 30 August 2026, useful as an indoor day trip from Menton."
+        },
+        "fr": {
+          "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+          "summary": "Une grande exposition historique immersive au centre de Nice, consacrée à l’univers viking et présentée à Cités Immersives près de la Promenade des Anglais.",
+          "editorialNote": "Le trajet en train depuis Menton se justifie pour les familles, les visiteurs curieux d’histoire et ceux qui cherchent une activité couverte par forte chaleur ou pluie.",
+          "imageAlt": "Exposition historique immersive à Nice"
+        },
+        "it": {
+          "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+          "summary": "Una grande mostra storica immersiva nel centro di Nizza, dedicata al mondo vichingo e allestita a Cités Immersives vicino alla Promenade des Anglais.",
+          "editorialNote": "Vale il viaggio in treno da Mentone per famiglie, visitatori interessati alla storia e chi cerca un piano al coperto nelle giornate calde o piovose.",
+          "imageAlt": "Mostra storica immersiva a Nizza"
+        },
+        "uk": {
+          "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+          "summary": "Велика імерсивна історична виставка в центрі Ніцци, присвячена світу вікінгів і розміщена в Cités Immersives біля Promenade des Anglais.",
+          "editorialNote": "Варто їхати поїздом із Ментона для сімей, гостей, яким цікава історія, і тих, хто шукає змістовний план у приміщенні під час спеки чи дощу.",
+          "imageAlt": "Імерсивна історична виставка в Ніцці"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [],
+      "publicationState": "prepared",
+      "venue": "Cités Immersives Nice",
+      "address": "1 rue Massenet, 06000 Nice",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cit%C3%A9s%20Immersives%20Nice%2C%201%20rue%20Massenet%2C%2006000%20Nice",
+      "detailContent": {
+        "overview": [
+          {
+            "en": "This is an ongoing immersive exhibition rather than a single timed performance. Treat the date range as the exhibition period and check the venue hours before going.",
+            "fr": "Il s’agit d’une exposition immersive en continu, pas d’une représentation unique. Considérez la période comme la durée de l’exposition et vérifiez les horaires du lieu avant de partir.",
+            "it": "È una mostra immersiva continuativa, non uno spettacolo con un unico orario. Considera le date come periodo della mostra e controlla gli orari della sede prima di partire.",
+            "uk": "Це постійна імерсивна виставка, а не вистава з одним часом початку. Сприймайте дати як період роботи виставки й перевіряйте години роботи перед поїздкою."
+          }
+        ],
+        "venues": [
+          {
+            "en": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+            "fr": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+            "it": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice.",
+            "uk": "Cités Immersives Nice, 1 rue Massenet, 06000 Nice."
+          }
+        ],
+        "family": {
+          "en": "A good family option when children enjoy immersive history and large visual displays.",
+          "fr": "Une bonne option en famille si les enfants aiment l’histoire immersive et les grands dispositifs visuels.",
+          "it": "Una buona opzione per famiglie se i bambini amano storia immersiva e grandi installazioni visive.",
+          "uk": "Хороший варіант для сімей, якщо дітям цікаві імерсивна історія та великі візуальні інсталяції."
+        },
+        "tickets": [
+          {
+            "en": "Check the official source for current opening days, times and ticket conditions.",
+            "fr": "Consultez la source officielle pour les jours d’ouverture, horaires et conditions de billets.",
+            "it": "Controlla la fonte ufficiale per giorni di apertura, orari e biglietti.",
+            "uk": "Перевіряйте офіційне джерело щодо днів роботи, годин і квитків."
+          }
+        ],
+        "tips": [
+          {
+            "en": "Combine it with a central Nice walk or a cooler indoor pause during a summer day trip.",
+            "fr": "Associez-la à une promenade dans le centre de Nice ou à une pause au frais pendant une excursion estivale.",
+            "it": "Abbinala a una passeggiata nel centro di Nizza o a una pausa al fresco durante una gita estiva.",
+            "uk": "Поєднайте її з прогулянкою центром Ніцци або прохолодною паузою під час літньої поїздки."
+          }
+        ],
+        "officialLinks": [
+          {
+            "label": {
+              "en": "Official event page",
+              "fr": "Page officielle de l’événement",
+              "it": "Pagina ufficiale evento",
+              "uk": "Офіційна сторінка події"
+            },
+            "href": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/"
+          },
+          {
+            "label": {
+              "en": "Google Maps: Cités Immersives Nice",
+              "fr": "Google Maps : Cités Immersives Nice",
+              "it": "Google Maps: Cités Immersives Nice",
+              "uk": "Google Maps: Cités Immersives Nice"
+            },
+            "href": "https://www.google.com/maps/search/?api=1&query=Cit%C3%A9s%20Immersives%20Nice%2C%201%20rue%20Massenet%2C%2006000%20Nice"
+          }
+        ]
+      },
+      "programmeUrl": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/",
+      "travelNote": {
+        "en": "Plan the train from Menton and check the final official programme before travelling.",
+        "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+        "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+        "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+      }
+    },
+    {
+      "id": "henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur-nice-2026-06-17-1vsh8o1",
+      "slug": "henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur-nice-2026-06-17",
+      "sourceId": "explore-nice-major-events",
+      "sourceEventId": "7772179",
+      "sourceName": "Explore Nice Cote d'Azur major events",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+      "titleOriginal": "“Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur”",
+      "titleCanonical": "Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur",
+      "location": "nice",
+      "startDate": "2026-06-17",
+      "endDate": "2026-09-28",
+      "timezone": "Europe/Paris",
+      "category": [
+        "exhibition",
+        "art"
+      ],
+      "tags": [
+        "nice",
+        "exhibition",
+        "art",
+        "fashion",
+        "museum",
+        "rainy-day"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for nice because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": null,
+      "isIndoor": true,
+      "isOutdoor": false,
+      "isRainyDayOption": true,
+      "bookingRecommended": true,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "manual-approved",
+        "localPath": "/images/events/henri-matisse-yves-saint-laurent.png",
+        "rightsNote": "Existing Azur Menton project illustration for this exhibition.",
+        "alt": "Matisse and Yves Saint Laurent exhibition in Nice"
+      },
+      "localized": {
+        "en": {
+          "title": "Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur",
+          "summary": "A major Musée Matisse exhibition exploring the visual relationship between Matisse’s art and Yves Saint Laurent’s approach to colour, form and fashion.",
+          "editorialNote": "One of the strongest cultural reasons to make a dedicated trip from Menton to Nice during summer 2026.",
+          "imageAlt": "Art and fashion exhibition at Musée Matisse Nice",
+          "seoTitle": "Henri Matisse – Yves Saint Laurent in Nice | Azur Menton events",
+          "seoDescription": "A major Musée Matisse exhibition in Nice from 17 June to 28 September 2026, linking Matisse, Yves Saint Laurent, colour and fashion."
+        },
+        "fr": {
+          "title": "Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur",
+          "summary": "Une grande exposition du Musée Matisse sur le dialogue visuel entre l’art de Matisse et l’approche d’Yves Saint Laurent de la couleur, de la forme et de la mode.",
+          "editorialNote": "L’un des meilleurs motifs culturels pour organiser une sortie dédiée à Nice depuis Menton pendant l’été 2026.",
+          "imageAlt": "Exposition art et mode au Musée Matisse Nice"
+        },
+        "it": {
+          "title": "Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur",
+          "summary": "Una grande mostra del Musée Matisse sul rapporto visivo tra l’arte di Matisse e l’approccio di Yves Saint Laurent a colore, forma e moda.",
+          "editorialNote": "Uno dei motivi culturali più forti per organizzare una gita dedicata da Mentone a Nizza nell’estate 2026.",
+          "imageAlt": "Mostra di arte e moda al Musée Matisse Nice"
+        },
+        "uk": {
+          "title": "Henri Matisse – Yves Saint Laurent. Le beau, la mode et le bonheur",
+          "summary": "Велика виставка Musée Matisse про візуальний зв’язок між мистецтвом Матісса та підходом Yves Saint Laurent до кольору, форми й моди.",
+          "editorialNote": "Одна з найсильніших культурних причин поїхати з Ментона до Ніцци влітку 2026 року.",
+          "imageAlt": "Виставка мистецтва й моди в Musée Matisse Nice"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [
+        "Existing static event already covers this occurrence; supplement the existing card instead of publishing a duplicate harvested event."
+      ],
+      "publicationState": "updated",
+      "venue": "Musée Matisse",
+      "address": "164 avenue des Arènes de Cimiez, 06000 Nice",
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e%20Matisse%2C%20164%20avenue%20des%20Ar%C3%A8nes%20de%20Cimiez%2C%2006000%20Nice",
+      "detailContent": {
+        "overview": [
+          {
+            "en": "The exhibition runs through the summer and early autumn; it should be treated as an exhibition period, not a one-day event.",
+            "fr": "L’exposition se tient pendant l’été et le début de l’automne ; il faut la lire comme une période d’exposition, pas comme un événement d’un seul jour.",
+            "it": "La mostra prosegue durante l’estate e l’inizio dell’autunno; va considerata come periodo espositivo, non come evento di un solo giorno.",
+            "uk": "Виставка триває протягом літа й початку осені; це період експозиції, а не одноденна подія."
+          }
+        ],
+        "venues": [
+          {
+            "en": "Musée Matisse, 164 avenue des Arènes de Cimiez, 06000 Nice.",
+            "fr": "Musée Matisse, 164 avenue des Arènes de Cimiez, 06000 Nice.",
+            "it": "Musée Matisse, 164 avenue des Arènes de Cimiez, 06000 Nice.",
+            "uk": "Musée Matisse, 164 avenue des Arènes de Cimiez, 06000 Nice."
+          }
+        ],
+        "family": {
+          "en": "Best for adults and older children interested in art, design or fashion.",
+          "fr": "Surtout adapté aux adultes et aux grands enfants intéressés par l’art, le design ou la mode.",
+          "it": "Ideale per adulti e ragazzi interessati ad arte, design o moda.",
+          "uk": "Найкраще для дорослих і старших дітей, яким цікаві мистецтво, дизайн або мода."
+        },
+        "tickets": [
+          {
+            "en": "Check the museum and official tourism pages for opening days, ticket conditions and any temporary closures.",
+            "fr": "Consultez le musée et l’office de tourisme pour les jours d’ouverture, billets et fermetures temporaires.",
+            "it": "Controlla museo e turismo ufficiale per giorni di apertura, biglietti ed eventuali chiusure.",
+            "uk": "Перевіряйте сайт музею та туристичне джерело щодо днів роботи, квитків і тимчасових закриттів."
+          }
+        ],
+        "tips": [
+          {
+            "en": "The Cimiez area also works well with other museum or garden stops in Nice.",
+            "fr": "Le quartier de Cimiez se combine bien avec d’autres musées ou jardins de Nice.",
+            "it": "La zona di Cimiez si abbina bene ad altri musei o giardini di Nizza.",
+            "uk": "Район Cimiez зручно поєднати з іншими музеями або садами Ніцци."
+          }
+        ],
+        "officialLinks": [
+          {
+            "label": {
+              "en": "Official tourism event page",
+              "fr": "Page officielle de l’événement",
+              "it": "Pagina ufficiale evento",
+              "uk": "Офіційна сторінка події"
+            },
+            "href": "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/"
+          },
+          {
+            "label": {
+              "en": "Google Maps: Musée Matisse",
+              "fr": "Google Maps : Musée Matisse",
+              "it": "Google Maps: Musée Matisse",
+              "uk": "Google Maps: Musée Matisse"
+            },
+            "href": "https://www.google.com/maps/search/?api=1&query=Mus%C3%A9e%20Matisse%2C%20164%20avenue%20des%20Ar%C3%A8nes%20de%20Cimiez%2C%2006000%20Nice"
+          }
+        ]
+      },
+      "programmeUrl": "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+      "travelNote": {
+        "en": "Plan the train from Menton and check the final official programme before travelling.",
+        "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+        "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+        "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+      }
+    },
+    {
+      "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
+      "slug": "nice-classic-festival-nice-2026-07-21",
+      "sourceId": "explore-nice-major-events",
+      "sourceEventId": "6564625",
+      "sourceName": "Explore Nice Cote d'Azur major events",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/",
+      "titleOriginal": "Nice Classic Festival",
+      "titleCanonical": "Nice Classic Festival",
+      "location": "nice",
+      "startDate": "2026-07-21",
+      "endDate": "2026-08-09",
+      "timezone": "Europe/Paris",
+      "category": [
+        "music"
+      ],
+      "tags": [
+        "nice",
+        "festival",
+        "classical-music",
+        "concerts",
+        "evening"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for nice because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": null,
+      "isIndoor": null,
+      "isOutdoor": null,
+      "isRainyDayOption": null,
+      "bookingRecommended": true,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "Nice Classic Festival event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "Nice Classic Festival",
+          "summary": "A summer programme of chamber music, recitals, orchestral concerts and dance in Nice, with individual performances to choose from across the festival dates.",
+          "editorialNote": "Useful for visitors willing to plan an evening in Nice around a specific performance rather than treating the festival as one continuous event.",
+          "imageAlt": "Classical music festival in Nice",
+          "seoTitle": "Nice Classic Festival 2026 | Azur Menton events",
+          "seoDescription": "Nice Classic Festival runs from 21 July to 9 August 2026. Check the official programme and plan a specific evening from Menton."
+        },
+        "fr": {
+          "title": "Nice Classic Festival",
+          "summary": "Un programme estival de musique de chambre, récitals, concerts orchestraux et danse à Nice, avec des représentations à choisir selon les dates du festival.",
+          "editorialNote": "Utile pour les visiteurs prêts à organiser une soirée à Nice autour d’une représentation précise, plutôt que comme un événement continu.",
+          "imageAlt": "Festival de musique classique à Nice"
+        },
+        "it": {
+          "title": "Nice Classic Festival",
+          "summary": "Un programma estivo di musica da camera, recital, concerti orchestrali e danza a Nizza, con singoli appuntamenti da scegliere nel calendario.",
+          "editorialNote": "Utile per chi vuole pianificare una serata a Nizza intorno a uno spettacolo specifico, non come evento continuo.",
+          "imageAlt": "Festival di musica classica a Nizza"
+        },
+        "uk": {
+          "title": "Nice Classic Festival",
+          "summary": "Літня програма камерної музики, сольних концертів, оркестрових виступів і танцю в Ніцці з окремими подіями в межах фестивальних дат.",
+          "editorialNote": "Корисно для гостей, які готові спланувати вечір у Ніцці під конкретний виступ, а не сприймати фестиваль як безперервну подію.",
+          "imageAlt": "Фестиваль класичної музики в Ніцці"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [],
+      "publicationState": "prepared",
+      "venue": "Various venues in Nice",
+      "detailContent": {
+        "overview": [
+          {
+            "en": "This is a multi-performance festival. Choose a specific concert or performance from the official programme before travelling.",
+            "fr": "C’est un festival à plusieurs représentations. Choisissez un concert ou spectacle précis dans le programme officiel avant de partir.",
+            "it": "È un festival con più appuntamenti. Scegli un concerto o spettacolo preciso dal programma ufficiale prima di partire.",
+            "uk": "Це фестиваль із багатьма окремими подіями. Перед поїздкою оберіть конкретний концерт або виступ в офіційній програмі."
+          }
+        ],
+        "venues": [
+          {
+            "en": "Various venues in Nice. Do not rely on one map pin for the whole festival.",
+            "fr": "Plusieurs lieux à Nice. Ne vous fiez pas à une seule épingle de carte pour tout le festival.",
+            "it": "Diverse sedi a Nizza. Non usare un solo punto mappa per tutto il festival.",
+            "uk": "Різні локації в Ніцці. Не покладайтеся на одну точку на карті для всього фестивалю."
+          }
+        ],
+        "family": {
+          "en": "Depends on the selected performance, hour and format.",
+          "fr": "Cela dépend de la représentation, de l’horaire et du format choisis.",
+          "it": "Dipende dallo spettacolo, dall’orario e dal formato scelti.",
+          "uk": "Залежить від конкретного виступу, часу та формату."
+        },
+        "tickets": [
+          {
+            "en": "Use the official programme for venues, times, ticketing and prices.",
+            "fr": "Utilisez le programme officiel pour les lieux, horaires, billets et tarifs.",
+            "it": "Usa il programma ufficiale per sedi, orari, biglietti e prezzi.",
+            "uk": "Користуйтеся офіційною програмою для локацій, часу, квитків і цін."
+          }
+        ],
+        "tips": [
+          {
+            "en": "Check late trains back to Menton before booking an evening performance.",
+            "fr": "Vérifiez les trains tardifs vers Menton avant de réserver une soirée.",
+            "it": "Controlla i treni serali per Mentone prima di prenotare uno spettacolo.",
+            "uk": "Перевірте пізні поїзди до Ментона перед бронюванням вечірнього виступу."
+          }
+        ],
+        "officialLinks": [
+          {
+            "label": {
+              "en": "Official programme source",
+              "fr": "Programme officiel",
+              "it": "Programma ufficiale",
+              "uk": "Офіційна програма"
+            },
+            "href": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/"
+          }
+        ]
+      },
+      "programmeUrl": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/",
+      "travelNote": {
+        "en": "Plan the train from Menton and check the final official programme before travelling.",
+        "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+        "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+        "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+      }
+    },
+    {
+      "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
+      "slug": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12",
+      "sourceId": "explore-nice-major-events",
+      "sourceEventId": "7853600",
+      "sourceName": "Explore Nice Cote d'Azur major events",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/",
+      "titleOriginal": "La Farandole – Festival International de Folklore de Nice",
+      "titleCanonical": "La Farandole – Festival International de Folklore de Nice",
+      "location": "nice",
+      "startDate": "2026-08-12",
+      "endDate": "2026-08-16",
+      "timezone": "Europe/Paris",
+      "category": [
+        "music",
+        "family"
+      ],
+      "tags": [
+        "nice",
+        "festival",
+        "world-culture",
+        "dance",
+        "family"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for nice because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": true,
+      "isIndoor": null,
+      "isOutdoor": null,
+      "isRainyDayOption": null,
+      "bookingRecommended": null,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "La Farandole – Festival International de Folklore de Nice event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "La Farandole – Festival International de Folklore de Nice",
+          "summary": "An international folklore festival bringing traditional dance, costumes and music to Nice over several days.",
+          "editorialNote": "A potentially strong family and cultural day trip from Menton, but the detailed programme should be checked before travelling.",
+          "imageAlt": "Traditional dance and world culture festival in Nice",
+          "seoTitle": "La Farandole folklore festival in Nice | Azur Menton events",
+          "seoDescription": "La Farandole brings traditional dance, costumes and music to Nice from 12 to 16 August 2026. Check the official programme before travelling."
+        },
+        "fr": {
+          "title": "La Farandole – Festival International de Folklore de Nice",
+          "summary": "Un festival international de folklore avec danses traditionnelles, costumes et musiques à Nice pendant plusieurs jours.",
+          "editorialNote": "Une sortie culturelle et familiale potentiellement forte depuis Menton, mais le programme détaillé doit être vérifié avant le départ.",
+          "imageAlt": "Festival de danse traditionnelle et cultures du monde à Nice"
+        },
+        "it": {
+          "title": "La Farandole – Festival International de Folklore de Nice",
+          "summary": "Un festival internazionale del folclore con danze tradizionali, costumi e musica a Nizza per più giorni.",
+          "editorialNote": "Una possibile gita culturale e familiare da Mentone, ma il programma dettagliato va verificato prima di partire.",
+          "imageAlt": "Festival di danza tradizionale e culture del mondo a Nizza"
+        },
+        "uk": {
+          "title": "La Farandole – Festival International de Folklore de Nice",
+          "summary": "Міжнародний фольклорний фестиваль із традиційними танцями, костюмами й музикою в Ніцці протягом кількох днів.",
+          "editorialNote": "Потенційно сильна сімейна й культурна поїздка з Ментона, але детальну програму треба перевірити перед виїздом.",
+          "imageAlt": "Фестиваль традиційного танцю та світових культур у Ніцці"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [],
+      "publicationState": "prepared",
+      "venue": "Various venues in Nice",
+      "detailContent": {
+        "overview": [
+          {
+            "en": "The official page lists the festival dates, while detailed times, venues and groups should be checked when the programme is released.",
+            "fr": "La page officielle indique les dates du festival ; les horaires, lieux et groupes doivent être vérifiés quand le programme sera publié.",
+            "it": "La pagina ufficiale indica le date del festival; orari, sedi e gruppi vanno verificati quando uscirà il programma.",
+            "uk": "Офіційна сторінка вказує дати фестивалю; час, локації та учасників треба перевірити після публікації програми."
+          }
+        ],
+        "venues": [
+          {
+            "en": "Various venues in Nice; no precise map pin is used until the programme confirms locations.",
+            "fr": "Plusieurs lieux à Nice ; aucune épingle précise n’est utilisée tant que le programme ne confirme pas les lieux.",
+            "it": "Diverse sedi a Nizza; nessun punto mappa preciso finché il programma non conferma i luoghi.",
+            "uk": "Різні локації в Ніцці; точну карту не додаємо, доки програма не підтвердить місця."
+          }
+        ],
+        "family": {
+          "en": "Likely suitable for families, subject to the final schedule and crowd levels.",
+          "fr": "Probablement adapté aux familles, selon les horaires finaux et l’affluence.",
+          "it": "Probabilmente adatto alle famiglie, secondo programma finale e affluenza.",
+          "uk": "Ймовірно підходить для сімей, залежно від фінального розкладу й кількості людей."
+        },
+        "tickets": [
+          {
+            "en": "Booking and free-admission status are not assumed; check the official programme.",
+            "fr": "Billetterie et gratuité ne sont pas supposées ; vérifiez le programme officiel.",
+            "it": "Biglietti e gratuità non sono presunti; controlla il programma ufficiale.",
+            "uk": "Квитки й безкоштовний вхід не припускаються; перевіряйте офіційну програму."
+          }
+        ],
+        "tips": [
+          {
+            "en": "Wait for the programme before making this the anchor of a Nice day trip.",
+            "fr": "Attendez le programme avant d’en faire l’élément central d’une journée à Nice.",
+            "it": "Aspetta il programma prima di farne il fulcro di una gita a Nizza.",
+            "uk": "Дочекайтеся програми, перш ніж робити це головною метою поїздки до Ніцци."
+          }
+        ],
+        "officialLinks": [
+          {
+            "label": {
+              "en": "Official event page",
+              "fr": "Page officielle de l’événement",
+              "it": "Pagina ufficiale evento",
+              "uk": "Офіційна сторінка події"
+            },
+            "href": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/"
+          }
+        ]
+      },
+      "programmeUrl": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/",
+      "travelNote": {
+        "en": "Plan the train from Menton and check the final official programme before travelling.",
+        "fr": "Prévoyez le train depuis Menton et vérifiez le programme officiel final avant le départ.",
+        "it": "Pianifica il treno da Mentone e controlla il programma ufficiale finale prima di partire.",
+        "uk": "Сплануйте поїзд із Ментона й перевірте фінальну офіційну програму перед поїздкою."
+      }
+    },
+    {
+      "id": "xii-festival-dei-boschi-sanremo-2026-08-01-1rjfqad",
+      "slug": "xii-festival-dei-boschi-sanremo-2026-08-01",
+      "sourceId": "comune-sanremo-events",
+      "sourceEventId": "46f2f78475dd3366:2026-08-01",
+      "sourceName": "Comune di Sanremo events",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806",
+      "titleOriginal": "XII Festival Dei Boschi",
+      "titleCanonical": "XII Festival Dei Boschi",
+      "location": "sanremo",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-02",
+      "timezone": "Europe/Paris",
+      "category": [
+        "music"
+      ],
+      "tags": [
+        "sanremo",
+        "festival"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": null,
+      "isIndoor": null,
+      "isOutdoor": true,
+      "isRainyDayOption": null,
+      "bookingRecommended": null,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "XII Festival Dei Boschi event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "XII Festival Dei Boschi",
+          "summary": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "XII Festival Dei Boschi event near Menton",
+          "seoTitle": "XII Festival Dei Boschi | Azur Menton events",
+          "seoDescription": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy."
+        },
+        "fr": {
+          "title": "XII Festival Dei Boschi",
+          "summary": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "XII Festival Dei Boschi près de Menton"
+        },
+        "it": {
+          "title": "XII Festival Dei Boschi",
+          "summary": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "XII Festival Dei Boschi vicino a Mentone"
+        },
+        "uk": {
+          "title": "XII Festival Dei Boschi",
+          "summary": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "XII Festival Dei Boschi біля Ментона"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [
+        "Editorial summary must be rewritten before publication.",
+        "Do not assume price, booking requirements or child suitability."
+      ],
+      "publicationState": "prepared"
+    },
+    {
+      "id": "ruins-sanremo-2026-08-01-1eowh7",
+      "slug": "ruins-sanremo-2026-08-01",
+      "sourceId": "comune-sanremo-events",
+      "sourceEventId": "3e52c1b0bf3f09a9:2026-08-01",
+      "sourceName": "Comune di Sanremo events",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2516064",
+      "titleOriginal": "Ruins",
+      "titleCanonical": "Ruins",
+      "location": "sanremo",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-30",
+      "timezone": "Europe/Paris",
+      "category": [
+        "exhibition"
+      ],
+      "tags": [
+        "sanremo"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": null,
+      "isIndoor": null,
+      "isOutdoor": null,
+      "isRainyDayOption": null,
+      "bookingRecommended": null,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "Ruins event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "Ruins",
+          "summary": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "Ruins event near Menton",
+          "seoTitle": "Ruins | Azur Menton events",
+          "seoDescription": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy."
+        },
+        "fr": {
+          "title": "Ruins",
+          "summary": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "Ruins près de Menton"
+        },
+        "it": {
+          "title": "Ruins",
+          "summary": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "Ruins vicino a Mentone"
+        },
+        "uk": {
+          "title": "Ruins",
+          "summary": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "Ruins біля Ментона"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [
+        "Editorial summary must be rewritten before publication.",
+        "Do not assume price, booking requirements or child suitability."
+      ],
+      "publicationState": "prepared"
+    },
+    {
+      "id": "pina-festival-2026-sanremo-2026-08-06-1ugqw8n",
+      "slug": "pina-festival-2026-sanremo-2026-08-06",
+      "sourceId": "comune-sanremo-events",
+      "sourceEventId": "3fd80210d1667e81:2026-08-06",
+      "sourceName": "Comune di Sanremo events",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810",
+      "titleOriginal": "Pina Festival 2026",
+      "titleCanonical": "Piña Festival 2026",
+      "location": "sanremo",
+      "startDate": "2026-08-06",
+      "endDate": "2026-08-09",
+      "timezone": "Europe/Paris",
+      "category": [
+        "music"
+      ],
+      "tags": [
+        "sanremo",
+        "festival",
+        "electronic-music",
+        "nightlife",
+        "italian-riviera"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": false,
+      "isIndoor": null,
+      "isOutdoor": null,
+      "isRainyDayOption": null,
+      "bookingRecommended": true,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "Piña Festival 2026 event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "Piña Festival 2026",
+          "summary": "A four-day electronic music festival spread across several Sanremo locations, combining free central programming with separately organised parties or ticketed elements.",
+          "editorialNote": "A destination-worthy option for younger visitors and electronic-music audiences prepared to travel from Menton to Sanremo.",
+          "imageAlt": "Electronic music festival in Sanremo",
+          "seoTitle": "Piña Festival 2026 in Sanremo | Azur Menton events",
+          "seoDescription": "Piña Festival 2026 runs in Sanremo from 6 to 9 August, with free central programming and separate parties or ticketed elements."
+        },
+        "fr": {
+          "title": "Piña Festival 2026",
+          "summary": "Un festival de musique électronique sur quatre jours, réparti entre plusieurs lieux de Sanremo, avec une programmation centrale gratuite et des soirées ou éléments payants séparés.",
+          "editorialNote": "Une option qui peut justifier le trajet depuis Menton pour les jeunes visiteurs et les amateurs de musique électronique.",
+          "imageAlt": "Festival de musique électronique à Sanremo"
+        },
+        "it": {
+          "title": "Piña Festival 2026",
+          "summary": "Un festival di musica elettronica di quattro giorni in più luoghi di Sanremo, con programma centrale gratuito e feste o appuntamenti separati anche a pagamento.",
+          "editorialNote": "Un’opzione che può valere il viaggio da Mentone per visitatori giovani e appassionati di musica elettronica.",
+          "imageAlt": "Festival di musica elettronica a Sanremo"
+        },
+        "uk": {
+          "title": "Piña Festival 2026",
+          "summary": "Чотириденний фестиваль електронної музики в кількох локаціях Санремо з безкоштовною центральною програмою та окремими вечірками чи платними елементами.",
+          "editorialNote": "Вартий окремої поїздки з Ментона для молодших гостей і поціновувачів електронної музики.",
+          "imageAlt": "Фестиваль електронної музики в Санремо"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [],
+      "publicationState": "prepared",
+      "venue": "Multiple venues in Sanremo",
+      "bookingUrl": "https://pinhafestivalsanremo.com/",
+      "detailContent": {
+        "overview": [
+          {
+            "en": "The festival uses several Sanremo locations. Do not treat it as one venue or one timed concert.",
+            "fr": "Le festival utilise plusieurs lieux à Sanremo. Ne le considérez pas comme un seul lieu ou concert horaire.",
+            "it": "Il festival usa più luoghi a Sanremo. Non considerarlo come un unico luogo o concerto con un solo orario.",
+            "uk": "Фестиваль проходить у кількох локаціях Санремо. Не сприймайте його як один майданчик або один концерт із фіксованим часом."
+          }
+        ],
+        "venues": [
+          {
+            "en": "Multiple venues in Sanremo; use the official festival programme for exact locations.",
+            "fr": "Plusieurs lieux à Sanremo ; utilisez le programme officiel pour les adresses exactes.",
+            "it": "Più sedi a Sanremo; usa il programma ufficiale per i luoghi esatti.",
+            "uk": "Кілька локацій у Санремо; точні місця перевіряйте в офіційній програмі."
+          }
+        ],
+        "family": {
+          "en": "Not family-focused; best for adults and younger visitors interested in electronic music and nightlife.",
+          "fr": "Pas centré sur les familles ; plutôt pour adultes et jeunes visiteurs intéressés par musique électronique et vie nocturne.",
+          "it": "Non è pensato per famiglie; meglio per adulti e giovani interessati a musica elettronica e nightlife.",
+          "uk": "Не сімейний формат; найкраще для дорослих і молодших гостей, яким цікаві електронна музика та нічне життя."
+        },
+        "tickets": [
+          {
+            "en": "The official source indicates free main programming on 6, 7 and 8 August, but separate parties or associated events may have their own ticket rules.",
+            "fr": "La source officielle indique une programmation principale gratuite les 6, 7 et 8 août, mais des soirées ou événements associés peuvent avoir leurs propres billets.",
+            "it": "La fonte ufficiale indica programma principale gratuito il 6, 7 e 8 agosto, ma feste o appuntamenti associati possono avere biglietti propri.",
+            "uk": "Офіційне джерело вказує безкоштовну основну програму 6, 7 і 8 серпня, але окремі вечірки чи супутні події можуть мати власні правила квитків."
+          }
+        ],
+        "tips": [
+          {
+            "en": "Check return transport carefully; Sanremo evenings can finish later than practical train connections to Menton.",
+            "fr": "Vérifiez bien le retour ; les soirées à Sanremo peuvent finir après les trains pratiques vers Menton.",
+            "it": "Controlla bene il ritorno; le serate a Sanremo possono finire dopo i treni comodi per Mentone.",
+            "uk": "Уважно перевіряйте повернення; вечори в Санремо можуть завершуватися пізніше, ніж зручні поїзди до Ментона."
+          }
+        ],
+        "officialLinks": [
+          {
+            "label": {
+              "en": "Comune di Sanremo event page",
+              "fr": "Page événement Comune di Sanremo",
+              "it": "Pagina evento Comune di Sanremo",
+              "uk": "Сторінка події Comune di Sanremo"
+            },
+            "href": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810"
+          },
+          {
+            "label": {
+              "en": "Official festival website",
+              "fr": "Site officiel du festival",
+              "it": "Sito ufficiale del festival",
+              "uk": "Офіційний сайт фестивалю"
+            },
+            "href": "https://pinhafestivalsanremo.com/"
+          }
+        ]
+      },
+      "programmeUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810",
+      "travelNote": {
+        "en": "Plan the cross-border train or a late return before committing to an evening in Sanremo.",
+        "fr": "Prévoyez le train transfrontalier ou un retour tardif avant de bloquer une soirée à Sanremo.",
+        "it": "Pianifica il treno transfrontaliero o un rientro tardivo prima di organizzare una serata a Sanremo.",
+        "uk": "Сплануйте транскордонний поїзд або пізнє повернення перед вечором у Санремо."
+      },
+      "ticketsUrl": "https://pinhafestivalsanremo.com/"
+    },
+    {
+      "id": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16-14lhscu",
+      "slug": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16",
+      "sourceId": "comune-sanremo-events",
+      "sourceEventId": "02091c629409f886:2026-10-16",
+      "sourceName": "Comune di Sanremo events",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949",
+      "titleOriginal": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+      "titleCanonical": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+      "location": "sanremo",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-18",
+      "timezone": "Europe/Paris",
+      "category": [
+        "music"
+      ],
+      "tags": [
+        "sanremo",
+        "festival"
+      ],
+      "editorialScope": "destination-worthy",
+      "relevanceReason": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "relevanceScore": 78,
+      "isFamilyFriendly": null,
+      "isIndoor": null,
+      "isOutdoor": true,
+      "isRainyDayOption": null,
+      "bookingRecommended": null,
+      "accessibilityConfirmed": null,
+      "image": {
+        "status": "missing",
+        "alt": "III Festival Int.le Scacchi \"Città di Sanremo\" event image placeholder",
+        "rightsNote": "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached."
+      },
+      "localized": {
+        "en": {
+          "title": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+          "summary": "III Festival Int.le Scacchi \"Città di Sanremo\" is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "III Festival Int.le Scacchi \"Città di Sanremo\" event near Menton",
+          "seoTitle": "III Festival Int.le Scacchi \"Città di Sanremo\" | Azur Menton events",
+          "seoDescription": "III Festival Int.le Scacchi \"Città di Sanremo\" is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy."
+        },
+        "fr": {
+          "title": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+          "summary": "III Festival Int.le Scacchi \"Città di Sanremo\" is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "III Festival Int.le Scacchi \"Città di Sanremo\" près de Menton"
+        },
+        "it": {
+          "title": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+          "summary": "III Festival Int.le Scacchi \"Città di Sanremo\" is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "III Festival Int.le Scacchi \"Città di Sanremo\" vicino a Mentone"
+        },
+        "uk": {
+          "title": "III Festival Int.le Scacchi \"Città di Sanremo\"",
+          "summary": "III Festival Int.le Scacchi \"Città di Sanremo\" is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+          "editorialNote": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+          "imageAlt": "III Festival Int.le Scacchi \"Città di Sanremo\" біля Ментона"
+        }
+      },
+      "firstSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastSeenAt": "2026-08-01T18:21:25.378Z",
+      "lastVerifiedAt": "2026-08-01",
+      "warnings": [
+        "Editorial summary must be rewritten before publication.",
+        "Do not assume price, booking requirements or child suitability."
+      ],
+      "publicationState": "prepared"
+    }
+  ],
+  "borderline": [
+    {
+      "id": "explore-nice-major-events:7930941",
+      "title": "Soirées estivales 2026",
+      "location": "nice",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
+      "reason": "Borderline for nice because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "explore-nice-major-events:7570425",
+      "title": "Tour de France Femmes",
+      "location": "nice",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/tour-de-france-femmes/",
+      "reason": "Borderline for nice because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:226f986f9b19bcb3:2026-08-13",
+      "title": "Sanremo Summer Symphony: Tra il mare e le stelle",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:f8930c99a981af85:2026-08-14",
+      "title": "Mercatini Artigianato",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/festa-della-musica-2516490-2516491-2516492-2516527-2516528-2516529-2516530",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:a4458ddc97c3b67f:2026-08-18",
+      "title": "Sanremo Summer Symphony: Paola Turci",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513-706516",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:da590bc4c0477542:2026-08-21",
+      "title": "Sanremo Summer Symphony: Break Free",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:ec52faada2eb8fa3:2026-08-24",
+      "title": "A tavola sul portovecchio",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:c8fceb10bad01b29:2026-08-24",
+      "title": "Stile Artigiano è di moda",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515849-2515851",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:c408a602b4fb2f29:2026-08-28",
+      "title": "Mercatini Artigianato",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/festa-della-musica-2516490-2516491-2516492-2516527-2516528-2516531",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis.",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515845",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:471faf6d22d06ca3:2026-09-03",
+      "title": "XVIII Hat Sanremo/Sestriere",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515849",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:f424cfebb499b7b8:2026-09-04",
+      "title": "Mercatini Artigianato",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/festa-della-musica-2516490-2516491-2516492-2516527-2516528-2516529-2516532",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:ece0b001c1fdd1dc:2026-09-09",
+      "title": "49ª Tavola Rotonda Internazionale sul Diritto Umanitario",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515849-2515852",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515849-2515858",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:eacb008d9c738647:2026-09-18",
+      "title": "Finale Unojazz&Blues – Contest 2026",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515034-2515069-2515070-2515071-2515078",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:040475d34e1e2f89:2026-09-20",
+      "title": "Festa dello Sport",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515947",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:126bb663217e6285:2026-10-02",
+      "title": "Challenge Sanremo",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515948",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:4acc54e270b5eebe:2026-10-11",
+      "title": "Fiera di San Romolo",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:1fa20aa140f75619:2026-10-17",
+      "title": "IX Torneo Softball \"Freesby Yup\"-Under 13",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949-2515950",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:d059d7fd59e11834:2026-10-21",
+      "title": "Premio Tenco 2026",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515799-2515842-2515849-2515851-2515970",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:78f8f101cf0b8f39:2026-10-31",
+      "title": "Urban Downhill Sanremo",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838-2515974",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    },
+    {
+      "id": "comune-sanremo-events:16442135e68e173d:2027-01-01",
+      "title": "Cimento Invernale",
+      "location": "sanremo",
+      "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2515976",
+      "reason": "Borderline for sanremo because routine local events outside Menton need stronger tourist value before publication."
+    }
+  ],
+  "excluded": [
+    {
+      "id": "explore-nice-major-events:6571104",
+      "title": "Les Nocturnes de la Villa Ephrussi de Rothschild",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/les-nocturnes-de-la-villa-ephrussi-de-rothschild/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    },
+    {
+      "id": "explore-nice-major-events:7891515",
+      "title": "Les Nuits de la Villa",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/les-nuits-de-la-villa/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    },
+    {
+      "id": "explore-nice-major-events:7919092",
+      "title": "Natura 2000 Exhibition in Haute Tinée",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/natura-2000-exhibition-in-haute-tinee/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    },
+    {
+      "id": "explore-nice-major-events:6420345",
+      "title": "Great Venetian Night",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/great-venetian-night/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    },
+    {
+      "id": "explore-nice-major-events:7664874",
+      "title": "Festival Saint Jazz Cap Ferrat – 14th edition",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/festival-saint-jazz-cap-ferrat-14th-edition/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    },
+    {
+      "id": "explore-nice-major-events:7305231",
+      "title": "Isolienne Trail Challenge",
+      "sourceUrl": "https://www.explorenicecotedazur.com/en/event/isolienne-trail-challenge/",
+      "reason": "Excluded because the event location is missing or outside the supported visitor area."
+    }
+  ],
+  "duplicates": [
+    {
+      "id": "comune-sanremo-events:12034537240822e7:2026-08-02",
+      "duplicateOf": "46f2f78475dd3366:2026-08-01",
+      "title": "XII Festival Dei Boschi"
+    },
+    {
+      "id": "comune-sanremo-events:0bdeb3afd6b0c88a:2026-08-02",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:5a578424047d9457:2026-08-03",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:ea4d15c58dd80c60:2026-08-04",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:0c19269e997a0c01:2026-08-05",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:a5adcbd448a9bde1:2026-08-06",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:a9751d93b3316a41:2026-08-07",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:3ca4544e79aaeed5:2026-08-08",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:fa57e06155ba5193:2026-08-09",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:7b8021c79c784479:2026-08-10",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:8cfa19a454bbeaf2:2026-08-11",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:8186ffc1f4000e73:2026-08-12",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:d9af3bf4e32984fd:2026-08-13",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:06644e43bb2bfde7:2026-08-14",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:8d20c2f5f23934f1:2026-08-15",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:02580e609019fae0:2026-08-16",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:192b64691d9b0529:2026-08-17",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:67a35f0a86d43f7a:2026-08-18",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:0a4307d372e5b179:2026-08-19",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:99bd1608c5d614a2:2026-08-20",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:eeadade24b5a8c4c:2026-08-21",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:e7c372250e3a96ad:2026-08-22",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:fc4e34be7a3d6942:2026-08-23",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:5c80f9682d84a274:2026-08-24",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:a3e33c65bba33bf9:2026-08-25",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:57d28f6b3b626670:2026-08-26",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:f1d636f27fad3d70:2026-08-27",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:37d339ba5c88bf7c:2026-08-28",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:a6a5ebfcf0d29744:2026-08-29",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:f261c04036c83f31:2026-08-30",
+      "duplicateOf": "3e52c1b0bf3f09a9:2026-08-01",
+      "title": "Ruins"
+    },
+    {
+      "id": "comune-sanremo-events:eea7329070e580db:2026-08-07",
+      "duplicateOf": "3fd80210d1667e81:2026-08-06",
+      "title": "Pina Festival 2026"
+    },
+    {
+      "id": "comune-sanremo-events:721a96a837772191:2026-08-08",
+      "duplicateOf": "3fd80210d1667e81:2026-08-06",
+      "title": "Pina Festival 2026"
+    },
+    {
+      "id": "comune-sanremo-events:2baf5b3b8e7bda29:2026-08-09",
+      "duplicateOf": "3fd80210d1667e81:2026-08-06",
+      "title": "Pina Festival 2026"
+    },
+    {
+      "id": "comune-sanremo-events:6a32be75c0c72038:2026-08-15",
+      "duplicateOf": "f8930c99a981af85:2026-08-14",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:bc783b6ec12417c1:2026-08-16",
+      "duplicateOf": "f8930c99a981af85:2026-08-14",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:5e5a8592dec1f730:2026-08-23",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:8cd2f50f2736c787:2026-08-24",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:bab5c7f9470b29b8:2026-08-25",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:11d4e21b0e4d6f57:2026-08-26",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:ff12c9e658613101:2026-08-27",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:7214a73aefcf1a06:2026-08-28",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:31e6cdfe23acb9ea:2026-08-29",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:8341fc3042d3e03c:2026-08-30",
+      "duplicateOf": "ab35a53d4216feaf:2026-08-22",
+      "title": "Voleè Cup"
+    },
+    {
+      "id": "comune-sanremo-events:cace7f43d4896405:2026-08-25",
+      "duplicateOf": "ec52faada2eb8fa3:2026-08-24",
+      "title": "A tavola sul portovecchio"
+    },
+    {
+      "id": "comune-sanremo-events:d755498ce9bb8cd7:2026-08-26",
+      "duplicateOf": "ec52faada2eb8fa3:2026-08-24",
+      "title": "A tavola sul portovecchio"
+    },
+    {
+      "id": "comune-sanremo-events:5f055868f9d8b571:2026-08-25",
+      "duplicateOf": "c8fceb10bad01b29:2026-08-24",
+      "title": "Stile Artigiano è di moda"
+    },
+    {
+      "id": "comune-sanremo-events:4ea37155b7f6cae3:2026-08-26",
+      "duplicateOf": "c8fceb10bad01b29:2026-08-24",
+      "title": "Stile Artigiano è di moda"
+    },
+    {
+      "id": "comune-sanremo-events:da7c1da7ee62470d:2026-08-29",
+      "duplicateOf": "c408a602b4fb2f29:2026-08-28",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:0693734bce6c2907:2026-08-30",
+      "duplicateOf": "c408a602b4fb2f29:2026-08-28",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:88b1d69d78e56324:2026-09-01",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:47252b4fe519fcca:2026-09-02",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:66a568127e161700:2026-09-03",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:dd9e40ecf6b66e58:2026-09-04",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:c2a7ccfd8f9306de:2026-09-05",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:0bc117419ba33976:2026-09-06",
+      "duplicateOf": "df2e6633530698d8:2026-08-31",
+      "title": "Campionati italiani giovanili tennis."
+    },
+    {
+      "id": "comune-sanremo-events:3507c99294d01638:2026-09-04",
+      "duplicateOf": "471faf6d22d06ca3:2026-09-03",
+      "title": "XVIII Hat Sanremo/Sestriere"
+    },
+    {
+      "id": "comune-sanremo-events:99ec9921b21c0a1f:2026-09-05",
+      "duplicateOf": "471faf6d22d06ca3:2026-09-03",
+      "title": "XVIII Hat Sanremo/Sestriere"
+    },
+    {
+      "id": "comune-sanremo-events:ca6567e734cb425c:2026-09-05",
+      "duplicateOf": "f424cfebb499b7b8:2026-09-04",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:fbfe84fb6c3d403c:2026-09-06",
+      "duplicateOf": "f424cfebb499b7b8:2026-09-04",
+      "title": "Mercatini Artigianato"
+    },
+    {
+      "id": "comune-sanremo-events:11572e9092d312b4:2026-09-10",
+      "duplicateOf": "ece0b001c1fdd1dc:2026-09-09",
+      "title": "49ª Tavola Rotonda Internazionale sul Diritto Umanitario"
+    },
+    {
+      "id": "comune-sanremo-events:13fdae8550140b26:2026-09-11",
+      "duplicateOf": "ece0b001c1fdd1dc:2026-09-09",
+      "title": "49ª Tavola Rotonda Internazionale sul Diritto Umanitario"
+    },
+    {
+      "id": "comune-sanremo-events:50b81193b23ee5b3:2026-09-12",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:1e8b20812dec1992:2026-09-13",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:7c78638453af0a0b:2026-09-14",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:e6d0fb497e8cedff:2026-09-15",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:5010389871d6e906:2026-09-16",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:709218d4e4df9da8:2026-09-17",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:9b86ccfcb9843d2e:2026-09-18",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:94b6c0224b5e2273:2026-09-19",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:6cf8843669fc7491:2026-09-20",
+      "duplicateOf": "8634e73635483de7:2026-09-11",
+      "title": "Sanremo Padel Tour"
+    },
+    {
+      "id": "comune-sanremo-events:04ad7d54f097be61:2026-10-03",
+      "duplicateOf": "126bb663217e6285:2026-10-02",
+      "title": "Challenge Sanremo"
+    },
+    {
+      "id": "comune-sanremo-events:7fafb110d9629532:2026-10-04",
+      "duplicateOf": "126bb663217e6285:2026-10-02",
+      "title": "Challenge Sanremo"
+    },
+    {
+      "id": "comune-sanremo-events:d92a1b54b17b18de:2026-10-17",
+      "duplicateOf": "02091c629409f886:2026-10-16",
+      "title": "III Festival Int.le Scacchi \"Città di Sanremo\""
+    },
+    {
+      "id": "comune-sanremo-events:2264e78e79e1a671:2026-10-18",
+      "duplicateOf": "02091c629409f886:2026-10-16",
+      "title": "III Festival Int.le Scacchi \"Città di Sanremo\""
+    },
+    {
+      "id": "comune-sanremo-events:ead085e8627cb6ed:2026-10-18",
+      "duplicateOf": "1fa20aa140f75619:2026-10-17",
+      "title": "IX Torneo Softball \"Freesby Yup\"-Under 13"
+    },
+    {
+      "id": "comune-sanremo-events:c65bbfea907c6c86:2026-10-22",
+      "duplicateOf": "d059d7fd59e11834:2026-10-21",
+      "title": "Premio Tenco 2026"
+    },
+    {
+      "id": "comune-sanremo-events:2f66693848515e31:2026-10-23",
+      "duplicateOf": "d059d7fd59e11834:2026-10-21",
+      "title": "Premio Tenco 2026"
+    },
+    {
+      "id": "comune-sanremo-events:13620de352574521:2026-10-24",
+      "duplicateOf": "d059d7fd59e11834:2026-10-21",
+      "title": "Premio Tenco 2026"
+    },
+    {
+      "id": "comune-sanremo-events:cc092246442817da:2026-11-01",
+      "duplicateOf": "78f8f101cf0b8f39:2026-10-31",
+      "title": "Urban Downhill Sanremo"
+    }
+  ],
+  "warnings": [],
+  "statistics": {
+    "prepared": {
+      "nice": 4,
+      "sanremo": 4
+    },
+    "borderline": {
+      "nice": 2,
+      "sanremo": 21
+    },
+    "excluded": 6,
+    "duplicates": 79,
+    "missingApprovedImage": 8,
+    "requiresFactualVerification": 8,
+    "alreadyPublishedUnchanged": 0,
+    "publishedWithSourceUpdates": 0,
+    "cancelled": 0
+  }
+}

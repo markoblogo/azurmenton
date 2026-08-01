@@ -14,11 +14,16 @@ import {
 } from "../../src/lib/events-publication/workflow";
 import { canRenderEventJsonLd } from "../../src/lib/events";
 
-function candidate(overrides: Partial<Parameters<typeof candidateFromRaw>[0]> = {}, now = "2026-08-01T10:00:00.000Z"): ImportedEventCandidate {
+type CandidateOverrides = Omit<Partial<Parameters<typeof candidateFromRaw>[0]>, "sourceEventId"> & { sourceEventId?: string | null };
+
+function candidate(overrides: CandidateOverrides = {}, now = "2026-08-01T10:00:00.000Z"): ImportedEventCandidate {
+  const rawSourceEventId = Object.prototype.hasOwnProperty.call(overrides, "sourceEventId")
+    ? overrides.sourceEventId ?? undefined
+    : "event-1";
   return candidateFromRaw(
     {
       sourceId: "manual-test",
-      sourceEventId: overrides.sourceEventId ?? "event-1",
+      sourceEventId: rawSourceEventId,
       title: overrides.title ?? "Local concert in Menton",
       sourceUrl: overrides.sourceUrl ?? "https://example.com/event",
       startDate: overrides.startDate ?? "2026-08-20",
@@ -72,6 +77,64 @@ describe("events publication workflow", () => {
     expect(eventBatchReportMarkdown(batch)).toContain("Prepared for publication: 2");
   });
 
+  it("consolidates source-fragmented multi-day records into one prepared event", () => {
+    const batch = prepareEventBatch({
+      id: "20260801T184500Z",
+      createdAt: "2026-08-01T18:45:00.000Z",
+      candidates: [
+        candidate({
+          title: "Pina Festival 2026",
+          city: "sanremo",
+          sourceEventId: "pina-2026",
+          sourceUrl: "https://example.com/pina",
+          startDate: "2026-08-06",
+        }),
+        candidate({
+          title: "Pina Festival 2026",
+          city: "sanremo",
+          sourceEventId: "pina-2026",
+          sourceUrl: "https://example.com/pina",
+          startDate: "2026-08-07",
+        }),
+        candidate({
+          title: "Pina Festival 2026",
+          city: "sanremo",
+          sourceEventId: "pina-2026",
+          sourceUrl: "https://example.com/pina",
+          startDate: "2026-08-08",
+        }),
+      ],
+    });
+
+    expect(batch.candidates).toHaveLength(1);
+    expect(batch.candidates[0]).toMatchObject({
+      startDate: "2026-08-06",
+      endDate: "2026-08-08",
+    });
+    expect(batch.duplicates).toEqual([
+      expect.objectContaining({ duplicateOf: batch.candidates[0].sourceEventId }),
+      expect.objectContaining({ duplicateOf: batch.candidates[0].sourceEventId }),
+    ]);
+  });
+
+  it("consolidates multi-day records even when generated source ids contain dates", () => {
+    const batch = prepareEventBatch({
+      id: "20260801T184500Z",
+      createdAt: "2026-08-01T18:45:00.000Z",
+      candidates: [
+        candidate({ title: "Ruins", city: "sanremo", sourceEventId: null, sourceUrl: "https://example.com/ruins", startDate: "2026-08-01" }),
+        candidate({ title: "Ruins", city: "sanremo", sourceEventId: null, sourceUrl: "https://example.com/ruins", startDate: "2026-08-02" }),
+      ],
+    });
+
+    expect(batch.candidates).toHaveLength(1);
+    expect(batch.candidates[0]).toMatchObject({
+      startDate: "2026-08-01",
+      endDate: "2026-08-02",
+    });
+    expect(batch.duplicates).toHaveLength(1);
+  });
+
   it("does not publish without an explicit selection", async () => {
     const rootDir = await mkdtemp(path.join(os.tmpdir(), "azur-events-publish-"));
     const batch = prepareEventBatch({ candidates: [candidate()] });
@@ -89,6 +152,39 @@ describe("events publication workflow", () => {
       createdAt: "2026-08-01T18:45:00.000Z",
       candidates: [candidate({ title: "Local market evening", sourceEventId: "menton-market" })],
     });
+    batch.candidates[0].programmeUrl = "https://example.com/programme";
+    batch.candidates[0].travelNote = {
+      en: "Travel note.",
+      fr: "Note transport.",
+      it: "Nota trasporto.",
+      uk: "Транспортна нотатка.",
+    };
+    batch.candidates[0].detailContent = {
+      overview: [{
+        en: "Detail intro.",
+        fr: "Introduction detaillee.",
+        it: "Introduzione dettagliata.",
+        uk: "Детальний вступ.",
+      }],
+      venues: [],
+      family: {
+        en: "Family context.",
+        fr: "Contexte famille.",
+        it: "Contesto famiglia.",
+        uk: "Сімейний контекст.",
+      },
+      tickets: [],
+      tips: [],
+      officialLinks: [{
+        label: {
+          en: "Official programme",
+          fr: "Programme officiel",
+          it: "Programma ufficiale",
+          uk: "Офіційна програма",
+        },
+        href: "https://example.com/programme",
+      }],
+    };
     await writePreparedBatch(batch, rootDir);
 
     const dryRun = await publishEventBatch({ batch, rootDir, selection: { all: true, dryRun: true } });
@@ -100,9 +196,13 @@ describe("events publication workflow", () => {
     const records = JSON.parse(raw);
     expect(records[0]).toMatchObject({
       sourceUrl: "https://example.com/event",
+      programmeUrl: "https://example.com/programme",
       dateStatus: "confirmed",
       detailPage: true,
       lastVerifiedAt: "2026-08-01",
+      detailContent: {
+        officialLinks: [{ href: "https://example.com/programme" }],
+      },
     });
     expect(canRenderEventJsonLd(records[0], new Date("2026-08-01T12:00:00Z"))).toBe(true);
   });

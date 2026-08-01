@@ -44,6 +44,7 @@ export type PreparedEvent = {
   sourceEventId?: string;
   sourceName: string;
   sourceUrl: string;
+  programmeUrl?: string;
   bookingUrl?: string;
   titleOriginal: string;
   titleCanonical: string;
@@ -69,6 +70,8 @@ export type PreparedEvent = {
   bookingRecommended?: boolean | null;
   accessibilityConfirmed?: boolean | null;
   priceText?: string;
+  travelNote?: RivieraEvent["travelNote"];
+  detailContent?: RivieraEvent["detailContent"];
   image: PreparedEventImage;
   localized: Record<"en" | "fr" | "it" | "uk", LocalizedEventContent>;
   firstSeenAt: string;
@@ -215,10 +218,9 @@ function eventImage(candidate: ImportedEventCandidate, sourceName: string): Prep
   }
 
   return {
-    status: "fallback",
-    localPath: "/images/events/menton-lemon-festival.jpg",
-    rightsNote: "Azur Menton fallback image; replace manually when a specific approved event image is available.",
-    alt: `${candidate.title} event fallback image`,
+    status: "missing",
+    rightsNote: "No approved event image yet; leave the public card without an image until an owner-approved illustration or source image is attached.",
+    alt: `${candidate.title} event image placeholder`,
   };
 }
 
@@ -276,6 +278,67 @@ function candidateSummary(candidate: ImportedEventCandidate, reason: string): Ev
   };
 }
 
+function multiDayIdentityKey(candidate: ImportedEventCandidate) {
+  if (!candidate.startDate) return undefined;
+  return [
+    candidate.sourceId,
+    candidate.normalizedTitle,
+    candidate.sourceUrl.toLowerCase().replace(/\/$/, ""),
+    candidate.city?.toLowerCase().trim() ?? "",
+    candidate.venue?.toLowerCase().trim() ?? "",
+  ].join("|");
+}
+
+function consolidateSourceFragmentedEvents(candidates: ImportedEventCandidate[]) {
+  const byIdentity = new Map<string, ImportedEventCandidate[]>();
+  const passthrough: ImportedEventCandidate[] = [];
+
+  for (const candidate of candidates) {
+    const key = multiDayIdentityKey(candidate);
+    if (!key) {
+      passthrough.push(candidate);
+      continue;
+    }
+    const group = byIdentity.get(key) ?? [];
+    group.push(candidate);
+    byIdentity.set(key, group);
+  }
+
+  const consolidated: ImportedEventCandidate[] = [];
+  const duplicates: EventBatch["duplicates"] = [];
+
+  for (const group of byIdentity.values()) {
+    const sorted = [...group].sort((left, right) => (left.startDate ?? "").localeCompare(right.startDate ?? ""));
+    const first = sorted[0];
+    if (!first) continue;
+    const dateValues = sorted.flatMap((candidate) => [candidate.startDate, candidate.endDate].filter(Boolean) as string[]);
+    const startDate = dateValues.sort()[0] ?? first.startDate;
+    const endDate = dateValues.sort().at(-1);
+    const merged: ImportedEventCandidate = {
+      ...first,
+      startDate,
+      endDate: endDate && endDate !== startDate ? endDate : first.endDate,
+      firstSeenAt: sorted.map((candidate) => candidate.firstSeenAt).sort()[0] ?? first.firstSeenAt,
+      lastSeenAt: sorted.map((candidate) => candidate.lastSeenAt).sort().at(-1) ?? first.lastSeenAt,
+      lastVerifiedAt: sorted.map((candidate) => candidate.lastVerifiedAt).sort().at(-1) ?? first.lastVerifiedAt,
+      materialChanges: [...new Set(sorted.flatMap((candidate) => candidate.materialChanges))],
+    };
+    consolidated.push(merged);
+    for (const duplicate of sorted.slice(1)) {
+      duplicates.push({
+        id: duplicate.id,
+        duplicateOf: first.sourceEventId ?? first.id,
+        title: duplicate.title,
+      });
+    }
+  }
+
+  return {
+    candidates: [...passthrough, ...consolidated],
+    duplicates,
+  };
+}
+
 export function prepareEventBatch(input: {
   candidates: ImportedEventCandidate[];
   sourceRuns?: EventBatch["sourceRuns"];
@@ -296,13 +359,14 @@ export function prepareEventBatch(input: {
   const prepared: PreparedEvent[] = [];
   const borderline: EventCandidateSummary[] = [];
   const excluded: EventCandidateSummary[] = [];
-  const duplicates: EventBatch["duplicates"] = [];
+  const consolidatedInput = consolidateSourceFragmentedEvents(input.candidates);
+  const duplicates: EventBatch["duplicates"] = [...consolidatedInput.duplicates];
   const warnings: EventBatch["warnings"] = [];
   let alreadyPublishedUnchanged = 0;
   let publishedWithSourceUpdates = 0;
   let cancelled = 0;
 
-  for (const candidate of input.candidates) {
+  for (const candidate of consolidatedInput.candidates) {
     const dedupeKey = `${candidate.normalizedTitle}|${candidate.city ?? ""}|${candidate.venue ?? ""}|${candidate.startDate ?? ""}`;
     const first = seen.get(dedupeKey);
     if (first) {
@@ -529,8 +593,16 @@ export function preparedEventToPublishedRecord(event: PreparedEvent): RivieraEve
     },
     sourceStatus: event.warnings.length ? "needs_verification" : "verified",
     sourceUrl: event.sourceUrl,
+    programmeUrl: event.programmeUrl ?? event.sourceUrl,
     ticketsUrl: event.bookingUrl,
+    travelNote: event.travelNote,
+    detailContent: event.detailContent,
     detailPage: true,
+    relatedApartmentKeys: [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment",
+    ],
     searchIndexing: "standard",
     lastChecked: event.lastVerifiedAt,
     lastVerifiedAt: event.lastVerifiedAt,

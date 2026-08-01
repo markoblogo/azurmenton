@@ -877,6 +877,52 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "verified",
     sourceUrl: "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+    programmeUrl: "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+    lastVerifiedAt: "2026-08-01",
+    travelNote: t(
+      "The museum is in Cimiez, so plan the Nice city trip around the museum visit rather than treating it as a quick station-area stop.",
+      "Le musee se trouve a Cimiez : prevoyez la sortie a Nice autour de la visite plutot que comme un simple arret pres de la gare.",
+      "Il museo si trova a Cimiez: organizza la giornata a Nizza intorno alla visita, non come una breve sosta vicino alla stazione.",
+      "Музей розташований у Сім'є, тож плануйте день у Ніцці навколо візиту, а не як коротку зупинку біля вокзалу.",
+    ),
+    detailContent: {
+      overview: [t(
+        "A confirmed summer exhibition at Musee Matisse connecting Matisse, Yves Saint Laurent, fashion and the Riviera idea of beauty.",
+        "Une exposition estivale confirmee au musee Matisse reliant Matisse, Yves Saint Laurent, la mode et l'idee riviera du bonheur.",
+        "Una mostra estiva confermata al Museo Matisse che collega Matisse, Yves Saint Laurent, moda e idea rivierasca della bellezza.",
+        "Підтверджена літня виставка в Музеї Матісса про Матісса, Іва Сен-Лорана, моду та рив'єрське відчуття краси.",
+      )],
+      venues: [t(
+        "Musee Matisse, 164 avenue des Arenes de Cimiez, Nice.",
+        "Musee Matisse, 164 avenue des Arenes de Cimiez, Nice.",
+        "Museo Matisse, 164 avenue des Arenes de Cimiez, Nizza.",
+        "Музей Матісса, 164 avenue des Arenes de Cimiez, Ніцца.",
+      )],
+      family: t(
+        "Best for art, fashion and museum-focused visitors; families should check the exhibition format before planning with younger children.",
+        "Ideal pour les visiteurs interesses par l'art, la mode et les musees ; les familles devraient verifier le format avec de jeunes enfants.",
+        "Ideale per visitatori interessati ad arte, moda e musei; le famiglie dovrebbero verificare il formato con bambini piccoli.",
+        "Найкраще для гостей, яким цікаві мистецтво, мода й музеї; сім'ям варто перевірити формат перед візитом з малими дітьми.",
+      ),
+      tickets: [t(
+        "Check the museum or official tourism page before visiting for current ticketing and opening details.",
+        "Verifiez la page du musee ou de l'office de tourisme avant la visite pour la billetterie et les horaires.",
+        "Controlla la pagina del museo o del turismo ufficiale prima della visita per biglietti e orari.",
+        "Перед візитом перевірте сайт музею або офіційну туристичну сторінку щодо квитків і годин роботи.",
+      )],
+      tips: [
+        t(
+          "Strong cultural day-trip option from Menton by train plus local transport in Nice.",
+          "Bonne option de sortie culturelle depuis Menton en train puis transports locaux a Nice.",
+          "Buona opzione culturale da Mentone in treno e poi con i trasporti locali a Nizza.",
+          "Сильний варіант культурної поїздки з Ментона потягом і місцевим транспортом у Ніцці.",
+        ),
+      ],
+      officialLinks: [
+        { label: t("Musee Matisse", "Musee Matisse", "Museo Matisse", "Музей Матісса"), href: "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/" },
+        { label: t("Explore Nice Cote d'Azur", "Explore Nice Cote d'Azur", "Explore Nice Cote d'Azur", "Explore Nice Cote d'Azur"), href: "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/" },
+      ],
+    },
     featured: false,
     detailPage: true,
     relatedGuideSlugs: ["stay-cool-in-menton-summer", "menton-without-a-car", "best-beaches-in-menton", "menton-with-kids-family-guide"],
