@@ -24,7 +24,7 @@ function boardUrl(airport: AirportBoard, type: BoardType) {
   return type === "arrivals" ? airport.arrivalsUrl : airport.departuresUrl;
 }
 
-export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUtilityBlock; locale: Locale }) {
+export function AirportLiveBoard({ block, locale, compact = false }: { block: AirportLiveBoardUtilityBlock; locale: Locale; compact?: boolean }) {
   const airports = getAirportLiveBoards(block.airportIds);
   const [airportId, setAirportId] = useState(airports[0]?.id ?? "");
   const [boardType, setBoardType] = useState<BoardType>("arrivals");
@@ -48,9 +48,9 @@ export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUti
   };
 
   return (
-    <article className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+    <article className={`border border-[#dfd2b8] bg-[#fffaf0] ${compact ? "p-4" : "p-5 sm:p-7"}`}>
       <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">{airport.code}</p>
-      <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{localized(block.title, locale) ?? copy.title}</h2>
+      <h2 className={`mt-2 serif-heading leading-none text-[#173f36] ${compact ? "text-2xl" : "text-3xl"}`}>{localized(block.title, locale) ?? copy.title}</h2>
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{localized(block.description, locale) ?? copy.description}</p>
 
       <div role="tablist" aria-label={copy.title} className="mt-5 flex flex-wrap gap-2">
@@ -81,7 +81,7 @@ export function AirportLiveBoard({ block, locale }: { block: AirportLiveBoardUti
         {canEmbed ? <p className="mt-3 text-xs leading-5 text-[#71665b]">{copy.privacy}</p> : null}
 
         {canEmbed ? (
-          <div className="relative mt-4 h-[30rem] overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] sm:h-[38rem] lg:h-[44rem]">
+          <div className={`relative mt-4 overflow-hidden border border-[#dfd2b8] bg-[#f8f3ea] ${compact ? "h-64 sm:h-72 lg:h-80" : "h-[30rem] sm:h-[38rem] lg:h-[44rem]"}`}>
             <iframe title={`${airport.name[locale]} ${copy[boardType].toLowerCase()}`} src={url} loading="eager" referrerPolicy="strict-origin-when-cross-origin" className="absolute left-0 top-0 h-[125%] w-[125%] origin-top-left scale-[0.8] border-0" onLoad={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardLoaded, props)} onError={() => trackBookingFunnelEvent(bookingFunnelEvents.airportBoardFailed, props)} />
           </div>
         ) : null}

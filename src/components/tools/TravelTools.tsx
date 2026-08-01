@@ -25,6 +25,7 @@ import type { Locale } from "@/i18n/locales";
 import { getEuroReferenceRates } from "@/lib/currency";
 import { EuroRatesWidget } from "@/components/tools/EuroRatesWidget";
 import { WorldClocks } from "@/components/tools/WorldClocks";
+import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 import { getMentonRightNow, weatherLabel } from "@/lib/weather";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
@@ -47,6 +48,8 @@ const ui = {
     officialBoards: "Official boards",
     niceAirportFirst: "Nice airport first",
     transport: "Transport",
+    transportHubTitle: "Transport planning from Menton",
+    transportHubText: "Compare the easiest Riviera routes, then check airport options and official live flight information before you travel.",
     trainBusLinks: "Train + bus links",
     routeShortcuts: "Official route shortcuts",
     driving: "Driving",
@@ -141,6 +144,8 @@ const ui = {
     officialBoards: "Tableaux officiels",
     niceAirportFirst: "Nice aeroport d’abord",
     transport: "Transport",
+    transportHubTitle: "Planifier vos transports depuis Menton",
+    transportHubText: "Comparez les trajets les plus simples sur la Riviera, puis verifiez les aeroports et les vols officiels avant de partir.",
     trainBusLinks: "Train + bus",
     routeShortcuts: "Liens officiels utiles",
     driving: "Voiture",
@@ -235,6 +240,8 @@ const ui = {
     officialBoards: "Tabelloni ufficiali",
     niceAirportFirst: "Prima Nizza aeroporto",
     transport: "Trasporti",
+    transportHubTitle: "Pianificare i trasporti da Mentone",
+    transportHubText: "Confronta i percorsi piu semplici sulla Riviera, poi controlla aeroporti e voli ufficiali prima di partire.",
     trainBusLinks: "Treno + bus",
     routeShortcuts: "Link ufficiali utili",
     driving: "Auto",
@@ -329,6 +336,8 @@ const ui = {
     officialBoards: "Офіційні табло",
     niceAirportFirst: "Спершу Ніцца аеропорт",
     transport: "Транспорт",
+    transportHubTitle: "Планування транспорту з Ментона",
+    transportHubText: "Порівняйте найзручніші маршрути Рив’єри, а потім перевірте аеропорти й офіційну інформацію про рейси.",
     trainBusLinks: "Потяг + автобус",
     routeShortcuts: "Офіційні маршрутні лінки",
     driving: "Авто",
@@ -425,6 +434,7 @@ export async function TravelToolPage({ locale }: { locale: Locale }) {
           <div className="space-y-5">
             <WorldClocks locale={locale} />
             <EuroRatesWidget locale={locale} rates={rates} />
+            <TransportPlanningSection locale={locale} />
           </div>
         </Container>
       </Section>
@@ -435,6 +445,26 @@ export async function TravelToolPage({ locale }: { locale: Locale }) {
         </Container>
       </Section>
     </>
+  );
+}
+
+function TransportPlanningSection({ locale }: { locale: Locale }) {
+  const text = ui[locale];
+
+  return (
+    <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
+      <p className="text-[0.64rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{text.transport}</p>
+      <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{text.transportHubTitle}</h2>
+      <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5c5044]">{text.transportHubText}</p>
+      <div className="mt-5 grid gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
+        <TransportHelperBlock locale={locale} compact />
+        <AirportLiveBoard
+          locale={locale}
+          compact
+          block={{ type: "airportLiveBoard", airportIds: ["nice-cote-dazur-airport", "genoa-cristoforo-colombo-airport", "torino-airport"] }}
+        />
+      </div>
+    </section>
   );
 }
 
