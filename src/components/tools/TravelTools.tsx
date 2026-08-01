@@ -1032,17 +1032,17 @@ function UnifiedConditionsPanel({ locale, rightNow, extended = false }: { locale
               </div>
             </div>
 
-            <div className={`flex flex-col border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5 ${extended ? "" : "justify-between"}`}>
+            <div className={`flex min-w-0 flex-col border border-white/60 bg-[#fbf7ef]/72 p-4 shadow-[0_18px_50px_rgba(31,105,126,0.10)] backdrop-blur-sm sm:p-5 ${extended ? "" : "justify-between"}`}>
               <div>
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#b07820]">{text.nextDays}</p>
                   {extended ? <p className="text-xs text-[#71665b]">{text.forecastHint}</p> : null}
                 </div>
-                <div className={extended ? "mt-4 grid auto-cols-[minmax(9.25rem,1fr)] grid-flow-col snap-x gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" : "mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5"}>
+                <div className={extended ? "mt-4 flex min-w-0 snap-x gap-3 overflow-x-auto pb-2 [scrollbar-width:thin]" : "mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5"}>
                   {forecast.map((day) => (
                     <div
                       key={day.date}
-                      className={`${extended ? "min-w-[9.25rem] snap-start" : ""} border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]`}
+                      className={`${extended ? "w-[9.25rem] shrink-0 snap-start" : ""} border border-white/80 bg-white/70 p-3 text-center shadow-[0_10px_24px_rgba(31,105,126,0.08)]`}
                     >
                       <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#6c7169]">{formatToolDay(locale, day.date)}</p>
                       <div className="mt-3 flex justify-center">
