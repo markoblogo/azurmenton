@@ -42,7 +42,7 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
               {item.actionLinks.map((action) => (
                 <Link
                   key={action.url}
-                  className={`group grid aspect-square place-items-center border border-[#173f36] bg-[#fffaf0] text-[#173f36] transition hover:bg-[#173f36] hover:text-white ${compact ? "w-full" : "h-12 w-12"}`}
+                  className={`group grid aspect-square place-items-center rounded-sm border-2 border-[#4ea8c0] bg-[#eaf6f7] text-[#216e78] shadow-[0_3px_0_#c5e3e5] transition hover:-translate-y-0.5 hover:border-[#173f36] hover:bg-[#173f36] hover:text-white hover:shadow-none ${compact ? "w-full" : "h-12 w-12"}`}
                   href={action.url as Route}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -76,8 +76,8 @@ export function TransportHelperBlock({ locale, destinationIds = ["monaco", "nice
 
 function TransportIcon() {
   return (
-    <span className="grid h-10 w-10 shrink-0 place-items-center border border-[#c6a66a] bg-[#fffaf0] text-[#173f36]" aria-hidden="true">
-      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-sm border-2 border-[#4ea8c0] bg-[#eaf6f7] text-[#216e78]" aria-hidden="true">
+      <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 4h12a2 2 0 0 1 2 2v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a2 2 0 0 1 2-2Z" />
         <path d="M8 17 6 21" />
         <path d="m16 17 2 4" />
@@ -92,7 +92,7 @@ function TransportActionIcon({ label }: { label: string }) {
   const normalized = label.toLowerCase();
   if (normalized.includes("bus")) {
     return (
-      <svg className="h-7 w-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="7" y="5" width="18" height="21" rx="3" />
         <path d="M7 16h18M11 10h10M11 21h.01M21 21h.01M10 26l-2 3M22 26l2 3" />
       </svg>
@@ -100,14 +100,14 @@ function TransportActionIcon({ label }: { label: string }) {
   }
   if (normalized.includes("ter") || normalized.includes("station") || normalized.includes("sheet")) {
     return (
-      <svg className="h-7 w-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M8 24h16M10 24V9l6-3 6 3v15M13 13h6M13 17h6M13 21h6" />
         <path d="M6 27h20" />
       </svg>
     );
   }
   return (
-    <svg className="h-7 w-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 21h22M8 21V9h16v12M11 9V6h10v3M11 25h.01M21 25h.01" />
       <path d="M8 15h16" />
     </svg>
