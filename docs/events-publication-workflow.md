@@ -80,6 +80,15 @@ Manual inbox values are kept first; the publication workflow only supplements
 obvious city/category/venue defaults such as Menton family, beach, library,
 garden, transport and Monaco/Nice/Italian Riviera travel links.
 
+Event related content is reciprocal at render time. Event-side
+`relatedGuideSlugs` and `relatedPlaceIds` are canonical signals; guide pages
+combine their own explicit `relatedEvents` with public event links and matching
+rendered place cards. This keeps new events visible on relevant older guides
+without manually editing every article. Keep the event-side links precise:
+concrete venue links such as a beach library, tourist train or Ferris wheel
+produce useful automatic matches, while broad destination links can make guide
+sidebars noisy.
+
 Dry-run:
 
 ```bash

@@ -29,6 +29,7 @@ import { getPlaces } from "@/content/places";
 import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
+import { getGuideRelatedEventSlugs } from "@/lib/event-related-content";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
@@ -86,6 +87,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const isTransportGuide = article.slug === "public-transport-in-menton";
   const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
   const relatedPlaces = getPlaces(relatedPlaceIds);
+  const relatedEventSlugs = getGuideRelatedEventSlugs(article);
   const relatedGuideSlugForPlace = (placeId: string, candidateSlugs: string[]) => (
     candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId)) ?? null
   );
@@ -289,11 +291,11 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   </div>
                 </div>
               ) : null}
-              {article.relatedEvents?.length ? (
+              {relatedEventSlugs.length ? (
                 <div className="border border-[#dfd2b8] bg-[#fffaf0] p-5">
                   <h2 className="serif-heading text-2xl leading-none text-[#173f36]">{copy.relatedEvents}</h2>
                   <div className="mt-4 grid gap-2">
-                    {article.relatedEvents.map((eventSlug) => {
+                    {relatedEventSlugs.map((eventSlug) => {
                       const event = getRivieraEvent(eventSlug);
                       return event ? <Link key={eventSlug} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline" href={`/${locale}/events/${eventSlug}` as Route}>{getEventTitle(event, locale)}</Link> : null;
                     })}

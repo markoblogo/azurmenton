@@ -17,6 +17,7 @@ import { stayPages } from "../../src/content/stay-pages";
 import { getRadioStationsForTenant, radioStations } from "../../src/content/utility/radio";
 import { airportLiveBoards, getAirportLiveBoards } from "../../src/content/utility/airports";
 import { getEventDateStatus } from "../../src/lib/events";
+import { getGuideRelatedEventSlugs } from "../../src/lib/event-related-content";
 
 const publicPathExists = (sitePath: string) => existsSync(join(process.cwd(), "public", sitePath.replace(/^\//, "")));
 const publicPathSize = (sitePath: string) => statSync(join(process.cwd(), "public", sitePath.replace(/^\//, ""))).size;
@@ -322,6 +323,27 @@ describe("content graph audit", () => {
   it("keeps event place links resolvable", () => {
     const failures = rivieraEvents.flatMap((event) => unresolved(event.relatedPlaceIds, placeIds).map((id) => `${event.slug} relatedPlaceIds -> ${id}`));
     expect(failures).toEqual([]);
+  });
+
+  it("surfaces reciprocal event links on related guides", () => {
+    const guidesBySlug = new Map(guideArticles.map((article) => [article.slug, article]));
+
+    const bookGuide = guidesBySlug.get("bookshops-libraries-menton");
+    const familyGuide = guidesBySlug.get("menton-with-kids-family-guide");
+    expect(bookGuide ? getGuideRelatedEventSlugs(bookGuide) : []).toContain("bibliotheque-a-la-plage-menton-2026-07-01");
+    expect(familyGuide ? getGuideRelatedEventSlugs(familyGuide) : []).toEqual(
+      expect.arrayContaining(["grande-roue-de-menton-menton-2026-07-01", "le-train-touristique-de-menton-menton-2026-06-01"]),
+    );
+
+    for (const guide of guideArticles) {
+      const surfacedEvents = getGuideRelatedEventSlugs(guide);
+      expect(surfacedEvents.length).toBeLessThanOrEqual(12);
+      for (const eventSlug of surfacedEvents) {
+        const event = rivieraEvents.find((candidate) => candidate.slug === eventSlug || candidate.occurrenceSlug === eventSlug);
+        expect(event).toBeTruthy();
+        if (event) expect(getEventSearchIndexing(event)).not.toBe("noindex");
+      }
+    }
   });
 
   it("keeps intent cluster canonical articles linked to their supporting guides", () => {

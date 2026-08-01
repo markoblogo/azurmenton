@@ -152,6 +152,11 @@ Manual corrections should survive later ingestion. Use `src/content/events/overr
 Use `relatedGuideSlugs` and `relatedPlaceIds` in manual event records when a
 published guide or place card clearly helps the visitor plan the event. The
 workflow adds only conservative defaults; precise venue links should be explicit.
+Treat these event-guide-place links as reciprocal. A public event linked to a
+guide, or to a place rendered by that guide, can surface automatically in the
+guide sidebar through `getGuideRelatedEventSlugs`. Prefer exact venue/place
+links for family, beach, library, transport and local-seasonal events; avoid
+broad generic links that would make every practical guide look event-heavy.
 
 To add a Menton event manually, add a small JSON file to `src/content/events/manual-inbox/`:
 
