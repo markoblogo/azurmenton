@@ -21,6 +21,7 @@ Product and claim boundaries live in:
 
 - [docs/product-context.md](docs/product-context.md)
 - [docs/ROADMAP.md](docs/ROADMAP.md)
+- [docs/events-publication-workflow.md](docs/events-publication-workflow.md)
 
 ## Stack
 
@@ -60,6 +61,8 @@ Content and SEO checks:
 npm run preflight
 npm run content:report
 npm run events:ingest
+npm run events:prepare -- --latest
+npm run events:publish -- --batch <batch-id> --all --dry-run
 npm run events:review
 npm run seo:priorities
 ```
@@ -146,7 +149,9 @@ Supported locales: `en`, `fr`, `it`, `uk`.
 
 - Public events are typed in `src/content/riviera-events.ts`.
 - Event source metadata lives in `src/content/event-sources.ts`.
-- Official-source ingestion is review-only: `npm run events:ingest` writes diagnostics and candidates under `build/events-ingestion/`.
+- Official-source ingestion is review-first: `npm run events:ingest` writes temporary diagnostics and candidates under `build/events-ingestion/`.
+- Editorial batches are durable repo content under `src/content/events/batches/<batch-id>/`.
+- Approved published events are durable repo content in `src/content/events/published/events.json` and are bridged into the existing `/[locale]/events` UI.
 - Protected cron/API entrypoint: `/api/cron/events-ingest`, guarded by `EVENT_INGEST_SECRET` or `CRON_SECRET`.
 
 Current booking UX includes:
@@ -216,6 +221,17 @@ Main files:
 Events use a pragmatic annual-series model with confirmed, pending and estimated states. The `/[locale]/events` page is a curated discovery surface with shareable filters for quick periods, custom stay dates, locations and interests. Keep stale annual events archived for future refresh; do not invent dates.
 
 Automated event ingestion is intentionally only a foundation for now: source registry, adapter contracts, deterministic dedupe and review-first candidates. Do not add fragile broad scraping or publish unverified events as live listings.
+
+The publication workflow is repository-based and explicit:
+
+```bash
+npm run events:ingest
+npm run events:prepare -- --latest
+npm run events:publish -- --batch <batch-id> --all --dry-run
+npm run events:publish -- --batch <batch-id> --all
+```
+
+Preparation never publishes. Publication requires `--all`, `--city <city>` or `--ids <id,id>`; otherwise it prints a safe no-write summary. Menton uses a broad local usefulness threshold, while Monaco, Nice, Ventimiglia and Sanremo require destination-worthy value from a Menton base.
 
 ### Guide automation
 

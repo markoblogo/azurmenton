@@ -101,7 +101,7 @@ export function candidateFromRaw(raw: RawIngestedEvent, nowIso: string): Importe
     id,
     sourceHash: hashPayload(raw),
     rawTitle: raw.title,
-    rawPayload: raw.rawPayload,
+    rawPayload: raw.rawPayload ?? (raw.imageUrl ? { imageUrl: raw.imageUrl } : undefined),
     dateLabel: raw.dateLabel,
     timezone: "Europe/Paris",
     reviewStatus: raw.status === "cancelled" ? "cancelled" : "new",

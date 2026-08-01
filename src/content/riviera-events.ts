@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locales";
+import { publishedEventRecords } from "@/content/events/published";
 
 export type EventCategory =
   | "music"
@@ -3054,7 +3055,7 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
 ];
 
-export const rivieraEvents: RivieraEvent[] = rivieraEventsBase.map((event) => ({
+export const rivieraEvents: RivieraEvent[] = [...rivieraEventsBase, ...publishedEventRecords].map((event) => ({
   seriesSlug: event.seriesSlug ?? event.slug,
   occurrenceYear: event.occurrenceYear ?? inferredOccurrenceYear(event),
   recurrence: inferredRecurrence(event),

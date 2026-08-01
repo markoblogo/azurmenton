@@ -63,11 +63,95 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep ingestion source configuration in `src/content/event-sources.ts`. Each source must document owner, URL, method, language, update cadence, image/description policy, known limitations and whether automation is allowed.
 - Run `npm run events:ingest` to generate local review candidates from enabled automated official sources. Use `-- --source <source-id>` for one source and read `build/events-ingestion/events-ingestion-report.json`.
 - Current automated source adapters are deliberately narrow: `explore-nice-major-events`, `comune-sanremo-events` and `sanremo-live-love`. Menton, Monaco and Ventimiglia remain manual sources until stable public records are confirmed.
-- Imported candidates are not public. They remain `new`, `needs_review`, `duplicate`, `outdated` or similar review states until an editor manually creates or updates typed public events in `src/content/riviera-events.ts`.
+- Imported candidates are not public. They remain `new`, `needs_review`, `duplicate`, `outdated` or similar review states until an editor prepares and explicitly publishes a batch.
 - The protected route `/api/cron/events-ingest` requires `EVENT_INGEST_SECRET` or `CRON_SECRET`. It returns structured diagnostics and review candidate counts; it must never expose secrets or publish events.
 - Ingestion candidates pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain cross-source matches must remain review candidates, not silent deletes.
 - Do not copy long source descriptions or hotlink third-party images. Store factual fields and write original AzurMenton summaries during manual publication.
 - If a source changes date, venue, URL or cancellation state, preserve edited summaries and return the candidate to review rather than overwriting public copy.
+
+### Event batch workflow
+
+Use this flow for recurring event publication. It is intentionally repository-based; there is no admin panel, CMS, database or automatic publication from ingestion.
+
+The detailed architecture note lives in `docs/events-publication-workflow.md`.
+
+1. Collect:
+
+```bash
+npm run events:ingest
+```
+
+2. Prepare a durable editorial batch:
+
+```bash
+npm run events:prepare -- --latest
+```
+
+The prepared JSON and human report are written to:
+
+```text
+src/content/events/batches/<batch-id>/batch.json
+src/content/events/batches/<batch-id>/report.md
+```
+
+Preparation reads temporary candidates from `build/events-ingestion/events-ingestion-store.json` and optional manual JSON records from `src/content/events/manual-inbox/`. It never publishes public content.
+
+3. Inspect the report. It separates:
+
+- prepared events;
+- borderline events;
+- excluded low-relevance events;
+- probable duplicates;
+- missing approved images;
+- records needing factual verification.
+
+4. Dry-run publication:
+
+```bash
+npm run events:publish -- --batch <batch-id> --all --dry-run
+```
+
+5. Publish only after an explicit editorial instruction:
+
+```bash
+npm run events:publish -- --batch <batch-id> --all
+npm run events:publish -- --batch <batch-id> --city menton
+npm run events:publish -- --batch <batch-id> --ids event-id-1,event-id-2
+```
+
+If no `--all`, `--city` or `--ids` selection is provided, the command exits as a safe no-write dry run. Published records are written to `src/content/events/published/events.json` and are imported into the existing `rivieraEvents` public discovery and detail routes.
+
+Menton and surrounding cities use different relevance thresholds:
+
+- Menton accepts `menton-local` events when a visitor staying in Menton could reasonably walk or make a short local trip and be glad they knew about it.
+- Monaco, Nice, Ventimiglia and Sanremo require `destination-worthy` events: major festivals, notable exhibitions, major sports, distinctive markets or substantial tourist value.
+- `borderline` remains visible in the batch report but is not prepared for default publication.
+- `exclude` is diagnostic only.
+
+Image handling is conservative:
+
+- approved local/project images can be published;
+- remote source images are retained as `remote-reference` for owner review only;
+- fallback images are marked `needs_review`;
+- never hotlink arbitrary posters or social images as event heroes.
+
+Manual corrections should survive later ingestion. Use `src/content/events/overrides/` for durable owner-approved overrides and do not overwrite published summaries, images or exclusions just because source data changed.
+
+To add a Menton event manually, add a small JSON file to `src/content/events/manual-inbox/`:
+
+```json
+[
+  {
+    "title": "Official event title",
+    "sourceUrl": "https://official.example/event",
+    "city": "menton",
+    "startDate": "2026-08-15",
+    "venue": "Venue name"
+  }
+]
+```
+
+Then run `npm run events:prepare -- --latest` and inspect the batch report.
 
 ## Images
 
