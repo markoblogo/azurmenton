@@ -9,6 +9,12 @@ Published from the remaining publish-ready queue:
 - `xii-festival-dei-boschi-sanremo-2026-08-01` - acceptable Sanremo cultural event, current on 2026-08-02.
 - `ruins-sanremo-2026-08-01` - acceptable Sanremo exhibition-style event, current through 2026-08-30.
 
+Published after owner request on 2026-08-02:
+
+- `soirees-estivales-2026-nice-2026-06-26` - official Nice Cote d'Azur programme page confirms 26 June-31 August 2026.
+- `fiera-di-san-romolo-sanremo-2026-10-11` - Comune di Sanremo confirms 11 October 2026, 09:00-18:00, Via Adolfo Rava.
+- `premio-tenco-sanremo` - already published as an existing canonical static event; no duplicate published JSON record was created.
+
 Not published as new event pages:
 
 - `henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur-nice-2026-06-17` - duplicate of the existing canonical static event `matisse-yves-saint-laurent-nice-2026`.
@@ -56,7 +62,4 @@ Do not publish now:
 
 Prepare for possible later publication after owner/source review:
 
-- `Soirees estivales 2026` - useful only as a programme/collection page, not as a single event if dates are diffuse.
-- `Fiera di San Romolo` - potentially useful Sanremo local-culture event if official date/details are clear.
-- `Premio Tenco 2026` - likely strong enough for a Sanremo music/culture page after official programme details are verified.
-
+- None from this batch after the 2026-08-02 owner request pass.

@@ -288,6 +288,82 @@
     }
   },
   {
+    "id": "fiera-di-san-romolo-sanremo-2026-10-11-comune-sanremo",
+    "slug": "fiera-di-san-romolo-sanremo-2026-10-11",
+    "title": "Fiera di San Romolo",
+    "titleLocalized": {
+      "en": "Fiera di San Romolo",
+      "fr": "Fiera di San Romolo",
+      "it": "Fiera di San Romolo",
+      "uk": "Fiera di San Romolo"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-10",
+    "dateLabel": "11 October 2026",
+    "dateLabelLocalized": {
+      "en": "11 October 2026",
+      "fr": "11 octobre 2026",
+      "it": "11 ottobre 2026",
+      "uk": "11 жовтня 2026"
+    },
+    "startDate": "2026-10-11",
+    "endDate": "2026-10-11",
+    "dateStatus": "confirmed",
+    "recurrence": "annual",
+    "occurrenceYear": 2026,
+    "category": [
+      "market",
+      "food"
+    ],
+    "familySuitability": "recommended_with_children",
+    "audience": [
+      "Italian Riviera day-trippers",
+      "market visitors",
+      "families"
+    ],
+    "shortDescription": {
+      "en": "A Sanremo fair day on Via Adolfo Rava, listed by the Comune di Sanremo, with a simple daytime format from morning to early evening.",
+      "fr": "Une journee de foire a Sanremo, Via Adolfo Rava, annoncee par le Comune di Sanremo, avec un format simple de journee jusqu'en debut de soiree.",
+      "it": "Una giornata di fiera a Sanremo in Via Adolfo Rava, indicata dal Comune di Sanremo, con formato diurno dalle 9 alle 18.",
+      "uk": "Ярмарковий день у Санремо на Via Adolfo Rava, опублікований Comune di Sanremo, з денним форматом від ранку до раннього вечора."
+    },
+    "whyShowOnSite": {
+      "en": "A useful small Italian autumn outing from Menton for guests who like markets and local town life.",
+      "fr": "Une petite sortie italienne d'automne utile depuis Menton pour les voyageurs qui aiment les marches et la vie locale.",
+      "it": "Una piccola uscita autunnale italiana da Mentone per chi ama mercati e vita locale.",
+      "uk": "Корисна невелика осіння поїздка з Ментона в Італію для гостей, які люблять ярмарки та місцеве життя."
+    },
+    "bookingTip": {
+      "en": "Use the train to Sanremo where possible and verify final access details on the official municipal page.",
+      "fr": "Prenez le train vers Sanremo si possible et verifiez les derniers details d'acces sur la page municipale officielle.",
+      "it": "Usa il treno per Sanremo se possibile e verifica gli ultimi dettagli sulla pagina ufficiale del Comune.",
+      "uk": "За можливості їдьте поїздом до Санремо та перевіряйте фінальні деталі доступу на офіційній сторінці муніципалітету."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton",
+      "day-trips-from-menton",
+      "where-to-stay-in-menton"
+    ],
+    "relatedPlaceIds": [
+      "sanremo",
+      "teatro-ariston-sanremo"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-02",
+    "lastVerifiedAt": "2026-08-02"
+  },
+  {
     "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
     "slug": "grande-roue-de-menton-menton-2026-07-01",
     "title": "Menton Ferris wheel",
@@ -1543,6 +1619,82 @@
       "mediaSourceName": "AzurMenton",
       "mediaRightsNote": "Custom AzurMenton editorial illustration supplied by the site owner."
     }
+  },
+  {
+    "id": "soirees-estivales-2026-nice-2026-06-26-explore-nice",
+    "slug": "soirees-estivales-2026-nice-2026-06-26",
+    "title": "Soirees estivales 2026",
+    "titleLocalized": {
+      "en": "Soirees estivales 2026",
+      "fr": "Soirees estivales 2026",
+      "it": "Soirees estivales 2026",
+      "uk": "Soirees estivales 2026"
+    },
+    "location": "Nice",
+    "city": "nice",
+    "monthGroup": "2026-06",
+    "dateLabel": "26 June-31 August 2026",
+    "dateLabelLocalized": {
+      "en": "26 June-31 August 2026",
+      "fr": "26 juin-31 aout 2026",
+      "it": "26 giugno-31 agosto 2026",
+      "uk": "26 червня-31 серпня 2026"
+    },
+    "startDate": "2026-06-26",
+    "endDate": "2026-08-31",
+    "dateStatus": "confirmed",
+    "recurrence": "annual",
+    "occurrenceYear": 2026,
+    "category": [
+      "music",
+      "family"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "summer travellers",
+      "music travellers",
+      "families"
+    ],
+    "shortDescription": {
+      "en": "A summer programme of free evening performances across towns in the Nice Cote d'Azur area, with concerts, theatre, comedy, magic and open-air shows.",
+      "fr": "Un programme estival de spectacles gratuits en soiree dans les communes de la metropole Nice Cote d'Azur: concerts, theatre, humour, magie et scenes en plein air.",
+      "it": "Un programma estivo di spettacoli serali gratuiti nei comuni dell'area Nice Cote d'Azur, con concerti, teatro, comicita, magia e spettacoli all'aperto.",
+      "uk": "Літня програма безкоштовних вечірніх виступів у містах зони Nice Cote d'Azur: концерти, театр, комедія, магія та відкриті сцени."
+    },
+    "whyShowOnSite": {
+      "en": "Useful for guests planning a flexible summer evening from Menton toward Nice or nearby villages.",
+      "fr": "Utile pour les voyageurs qui veulent une soiree estivale flexible depuis Menton vers Nice ou les villages voisins.",
+      "it": "Utile per ospiti che cercano una serata estiva flessibile da Mentone verso Nizza o i paesi vicini.",
+      "uk": "Корисно для гостей, які планують гнучкий літній вечір з Ментона у бік Ніцци або сусідніх сіл."
+    },
+    "bookingTip": {
+      "en": "Check the exact commune and return transport before choosing a specific evening.",
+      "fr": "Verifiez la commune exacte et le retour avant de choisir une soiree precise.",
+      "it": "Controlla il comune esatto e il rientro prima di scegliere una serata specifica.",
+      "uk": "Перед вибором конкретного вечора перевірте точне місто проведення та повернення."
+    },
+    "sourceStatus": "verified",
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
+    "programmeUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "day-trips-from-menton",
+      "public-transport-in-menton",
+      "jazz-live-music-near-menton",
+      "where-to-stay-in-menton"
+    ],
+    "relatedPlaceIds": [
+      "nice-ville-station",
+      "nice-old-town"
+    ],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-02",
+    "lastVerifiedAt": "2026-08-02"
   },
   {
     "id": "urban-downhill-sanremo-sanremo-2026-10-31-1vozy4i",
