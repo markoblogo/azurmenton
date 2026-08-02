@@ -1198,6 +1198,74 @@
     }
   },
   {
+    "id": "ruins-sanremo-2026-08-01-1eowh7",
+    "slug": "ruins-sanremo-2026-08-01",
+    "title": "Ruins",
+    "titleLocalized": {
+      "en": "Ruins",
+      "fr": "Ruins",
+      "it": "Ruins",
+      "uk": "Ruins"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-01-2026-08-30",
+    "dateLabelLocalized": {
+      "en": "2026-08-01-2026-08-30",
+      "fr": "2026-08-01-2026-08-30",
+      "it": "2026-08-01-2026-08-30",
+      "uk": "2026-08-01-2026-08-30"
+    },
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-30",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "exhibition"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "sanremo"
+    ],
+    "shortDescription": {
+      "en": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "fr": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "it": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "uk": "Ruins is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy."
+    },
+    "whyShowOnSite": {
+      "en": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "fr": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "it": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "uk": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "needs_verification",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2516064",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2516064",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton"
+    ],
+    "relatedPlaceIds": [],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
+  },
+  {
     "id": "sanremo-summer-symphony-break-free-sanremo-2026-08-21-1gqq1he",
     "slug": "sanremo-summer-symphony-break-free-sanremo-2026-08-21",
     "title": "Sanremo Summer Symphony: Break Free",
@@ -2103,5 +2171,74 @@
       "stay-cool-in-menton-summer",
       "quiet-evening-in-menton"
     ]
+  },
+  {
+    "id": "xii-festival-dei-boschi-sanremo-2026-08-01-1rjfqad",
+    "slug": "xii-festival-dei-boschi-sanremo-2026-08-01",
+    "title": "XII Festival Dei Boschi",
+    "titleLocalized": {
+      "en": "XII Festival Dei Boschi",
+      "fr": "XII Festival Dei Boschi",
+      "it": "XII Festival Dei Boschi",
+      "uk": "XII Festival Dei Boschi"
+    },
+    "location": "Italian Riviera",
+    "city": "sanremo",
+    "monthGroup": "2026-08",
+    "dateLabel": "2026-08-01-2026-08-02",
+    "dateLabelLocalized": {
+      "en": "2026-08-01-2026-08-02",
+      "fr": "2026-08-01-2026-08-02",
+      "it": "2026-08-01-2026-08-02",
+      "uk": "2026-08-01-2026-08-02"
+    },
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "dateStatus": "confirmed",
+    "recurrence": "one_off",
+    "occurrenceYear": 2026,
+    "category": [
+      "music"
+    ],
+    "familySuitability": "depends",
+    "audience": [
+      "sanremo",
+      "festival"
+    ],
+    "shortDescription": {
+      "en": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "fr": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "it": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy.",
+      "uk": "XII Festival Dei Boschi is listed by comune-sanremo-events for sanremo. Verify the official page before publishing AzurMenton copy."
+    },
+    "whyShowOnSite": {
+      "en": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "fr": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "it": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton.",
+      "uk": "Accepted for sanremo because it appears substantial enough to justify a dedicated trip from Menton."
+    },
+    "bookingTip": {
+      "en": "Check the official source close to travel before relying on final details.",
+      "fr": "Verifiez la source officielle pres du sejour avant de vous appuyer sur les details finaux.",
+      "it": "Controlla la fonte ufficiale vicino al viaggio prima di fare affidamento sui dettagli finali.",
+      "uk": "Перевіряйте офіційне джерело ближче до поїздки перед остаточним плануванням."
+    },
+    "sourceStatus": "needs_verification",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806",
+    "programmeUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806",
+    "detailPage": true,
+    "relatedApartmentKeys": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "relatedGuideSlugs": [
+      "italian-riviera-day-trip-from-menton",
+      "public-transport-in-menton"
+    ],
+    "relatedPlaceIds": [],
+    "searchIndexing": "standard",
+    "lastChecked": "2026-08-01",
+    "lastVerifiedAt": "2026-08-01"
   }
 ]

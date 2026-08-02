@@ -39,6 +39,7 @@ const copy = {
     nowTitle: "Happening now / next 30 days",
     bookAheadTitle: "Book-ahead major events",
     easyTitle: "Easy from Menton this month",
+    laterConfirmedTitle: "Upcoming confirmed dates",
     heroLabel: "Local events",
     highlightsLabel: "Highlights",
     practicalPlanning: "Practical planning",
@@ -73,6 +74,7 @@ const copy = {
     nowTitle: "En cours / 30 prochains jours",
     bookAheadTitle: "Grands evenements a reserver tot",
     easyTitle: "Facile depuis Menton ce mois-ci",
+    laterConfirmedTitle: "Dates confirmees a venir",
     heroLabel: "Evenements locaux",
     highlightsLabel: "Temps forts",
     practicalPlanning: "Planification pratique",
@@ -105,6 +107,7 @@ const copy = {
     nowTitle: "In corso / prossimi 30 giorni",
     bookAheadTitle: "Grandi eventi da prenotare prima",
     easyTitle: "Facile da Mentone questo mese",
+    laterConfirmedTitle: "Date confermate in arrivo",
     heroLabel: "Eventi locali",
     highlightsLabel: "In evidenza",
     practicalPlanning: "Pianificazione pratica",
@@ -137,6 +140,7 @@ const copy = {
     nowTitle: "Зараз / наступні 30 днів",
     bookAheadTitle: "Великі події для раннього бронювання",
     easyTitle: "Легко з Ментона цього місяця",
+    laterConfirmedTitle: "Підтверджені майбутні дати",
     heroLabel: "Місцеві події",
     highlightsLabel: "Головне",
     practicalPlanning: "Практичне планування",
@@ -232,7 +236,13 @@ export default async function EventsLandingPage({ params }: PageProps) {
     .filter((event) => (event.distanceFromMentonKm ?? 99) <= 32 || easyCities.some((city) => (event.city ?? event.location).includes(city)))
     .filter((event) => getEventSearchIndexing(event) === "standard" && event.dateStatus === "confirmed")
     .slice(0, 6);
-  const featured = [...nowOrNext30, ...bookAhead, ...easyFromMenton].filter((event, index, events) => events.findIndex((item) => item.slug === event.slug) === index).slice(0, 6);
+  const highlightedSlugs = new Set([...nowOrNext30, ...bookAhead, ...easyFromMenton].map((event) => event.slug));
+  const laterConfirmed = visibleEvents.upcoming
+    .filter((event) => event.startDate && event.startDate > dateKey(thirtyDaysFromNow))
+    .filter((event) => event.dateStatus === "confirmed")
+    .filter((event) => !highlightedSlugs.has(event.slug))
+    .slice(0, 6);
+  const featured = [...nowOrNext30, ...bookAhead, ...easyFromMenton, ...laterConfirmed].filter((event, index, events) => events.findIndex((item) => item.slug === event.slug) === index).slice(0, 6);
   const apartmentsForEvents = apartments.filter((apartment) =>
     ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"].includes(apartment.slug),
   );
@@ -300,6 +310,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
               { title: labels.nowTitle, events: nowOrNext30 },
               { title: labels.bookAheadTitle, events: bookAhead },
               { title: labels.easyTitle, events: easyFromMenton },
+              { title: labels.laterConfirmedTitle, events: laterConfirmed },
             ].map((group) =>
               group.events.length ? (
                 <section key={group.title as string} className="grid gap-4">
