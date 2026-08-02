@@ -44,14 +44,25 @@ function scoreAssetForEvent(assetName, event) {
 }
 
 function eventMediaFor(event, publicPath) {
+  const imageAlt = event.titleLocalized ?? {
+    en: event.title,
+    fr: event.title,
+    it: event.title,
+    uk: event.title,
+  };
+  const fallbackAlt = {
+    en: `${event.title} event near Menton`,
+    fr: `${event.title} pres de Menton`,
+    it: `${event.title} vicino a Mentone`,
+    uk: `${event.title} біля Ментона`,
+  };
+  for (const locale of ["en", "fr", "it", "uk"]) {
+    if (!imageAlt[locale] || imageAlt[locale].trim().length < 8) imageAlt[locale] = fallbackAlt[locale];
+  }
+
   return {
     image: publicPath,
-    imageAlt: event.titleLocalized ?? {
-      en: event.title,
-      fr: event.title,
-      it: event.title,
-      uk: event.title,
-    },
+    imageAlt,
     imageCaption: {
       en: "Azur Menton event illustration.",
       fr: "Illustration d'evenement Azur Menton.",
