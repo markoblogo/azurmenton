@@ -167,5 +167,57 @@
     "rightsNote": "Owner-approved Azur Menton event illustration.",
     "approvedAt": "2026-08-01T23:47:59.602Z",
     "locked": true
+  },
+  {
+    "eventSlug": "fiera-di-san-romolo-sanremo-2026-10-11",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
+    "localPath": "/images/events/fiera-di-san-romolo-sanremo-2026-10-11.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Fiera di San Romolo",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-02T00:43:23.858Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "ruins-sanremo-2026-08-01",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2516064",
+    "localPath": "/images/events/ruins-sanremo-2026-08-01.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Ruins",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-02T00:43:24.060Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "soirees-estivales-2026-nice-2026-06-26",
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
+    "localPath": "/images/events/soirees-estivales-2026-nice-2026-06-26.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Soirees estivales 2026",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-02T00:43:24.241Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "xii-festival-dei-boschi-sanremo-2026-08-01",
+    "sourceUrl": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806",
+    "localPath": "/images/events/xii-festival-dei-boschi-sanremo-2026-08-01.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "XII Festival Dei Boschi",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-08-02T00:43:24.482Z",
+    "locked": true
   }
 ]

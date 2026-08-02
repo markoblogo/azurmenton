@@ -361,7 +361,26 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-02",
-    "lastVerifiedAt": "2026-08-02"
+    "lastVerifiedAt": "2026-08-02",
+    "media": {
+      "image": "/images/events/fiera-di-san-romolo-sanremo-2026-10-11.webp",
+      "imageAlt": {
+        "en": "Fiera di San Romolo",
+        "fr": "Fiera di San Romolo",
+        "it": "Fiera di San Romolo",
+        "uk": "Fiera di San Romolo"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    }
   },
   {
     "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
@@ -1339,7 +1358,26 @@
     "relatedPlaceIds": [],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/ruins-sanremo-2026-08-01.webp",
+      "imageAlt": {
+        "en": "Ruins",
+        "fr": "Ruins",
+        "it": "Ruins",
+        "uk": "Ruins"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    }
   },
   {
     "id": "sanremo-summer-symphony-break-free-sanremo-2026-08-21-1gqq1he",
@@ -1694,7 +1732,26 @@
     ],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-02",
-    "lastVerifiedAt": "2026-08-02"
+    "lastVerifiedAt": "2026-08-02",
+    "media": {
+      "image": "/images/events/soirees-estivales-2026-nice-2026-06-26.webp",
+      "imageAlt": {
+        "en": "Soirees estivales 2026",
+        "fr": "Soirees estivales 2026",
+        "it": "Soirees estivales 2026",
+        "uk": "Soirees estivales 2026"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    }
   },
   {
     "id": "urban-downhill-sanremo-sanremo-2026-10-31-1vozy4i",
@@ -2391,6 +2448,25 @@
     "relatedPlaceIds": [],
     "searchIndexing": "standard",
     "lastChecked": "2026-08-01",
-    "lastVerifiedAt": "2026-08-01"
+    "lastVerifiedAt": "2026-08-01",
+    "media": {
+      "image": "/images/events/xii-festival-dei-boschi-sanremo-2026-08-01.webp",
+      "imageAlt": {
+        "en": "XII Festival Dei Boschi",
+        "fr": "XII Festival Dei Boschi",
+        "it": "XII Festival Dei Boschi",
+        "uk": "XII Festival Dei Boschi"
+      },
+      "imageCaption": {
+        "en": "Azur Menton event illustration.",
+        "fr": "Illustration d'evenement Azur Menton.",
+        "it": "Illustrazione evento Azur Menton.",
+        "uk": "Ілюстрація події Azur Menton."
+      },
+      "mediaType": "project_illustration",
+      "mediaStatus": "available",
+      "mediaSourceName": "Azur Menton",
+      "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+    }
   }
 ]
