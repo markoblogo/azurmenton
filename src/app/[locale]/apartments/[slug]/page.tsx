@@ -678,6 +678,15 @@ const apartmentVideoEmbeds: Partial<
       uk: "Відео студії з балконом і видом на море в Ментоні",
     },
   },
+  "beachside-family-apartment": {
+    youtubeId: "zD70JybOGTs",
+    title: {
+      en: "Video tour of the Beachside Family Apartment in Menton",
+      fr: "Vidéo de la location famille avec terrasse à Menton",
+      it: "Video tour dell'appartamento familiare vicino alla spiaggia a Mentone",
+      uk: "Відео туру апартаментів для сім'ї з терасою в Ментоні",
+    },
+  },
   "panoramic-sea-view-studio": {
     youtubeId: "nk6bMDX9Kjg",
     title: {
