@@ -133,6 +133,13 @@
     ]
   },
   {
+    "source": "public/images/guide/computer-and-phone-repair-in-menton.png",
+    "outputs": [
+      "public/images/guide/generated/computer-and-phone-repair-in-menton.avif",
+      "public/images/guide/generated/computer-and-phone-repair-in-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
@@ -532,10 +539,38 @@
     ]
   },
   {
-    "source": "public/images/guide/computer-and-phone-repair-in-menton.png",
+    "source": "public/images/guide/fix-phones-menton.png",
     "outputs": [
-      "public/images/guide/generated/computer-and-phone-repair-in-menton.avif",
-      "public/images/guide/generated/computer-and-phone-repair-in-menton.webp"
+      "public/images/guide/generated/fix-phones-menton.avif",
+      "public/images/guide/generated/fix-phones-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/iriparo-menton.png",
+    "outputs": [
+      "public/images/guide/generated/iriparo-menton.avif",
+      "public/images/guide/generated/iriparo-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/micrologik-menton.png",
+    "outputs": [
+      "public/images/guide/generated/micrologik-menton.avif",
+      "public/images/guide/generated/micrologik-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/depannage-pc-06-menton.png",
+    "outputs": [
+      "public/images/guide/generated/depannage-pc-06-menton.avif",
+      "public/images/guide/generated/depannage-pc-06-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/azurserviceinfo-menton.png",
+    "outputs": [
+      "public/images/guide/generated/azurserviceinfo-menton.avif",
+      "public/images/guide/generated/azurserviceinfo-menton.webp"
     ]
   }
 ]
