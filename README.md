@@ -10,6 +10,14 @@ Azur Menton is a multilingual direct-booking site for three central Menton apart
 
 Production: [https://azurmenton.com](https://azurmenton.com)
 
+Read first for a fresh coding session:
+
+1. `README.md`
+2. `AGENTS.md`
+3. `docs/product-context.md`
+4. `docs/content-operations.md`
+5. task-specific docs only
+
 ## What matters
 
 - Booking is manual. The site never promises instant confirmation.
@@ -22,6 +30,17 @@ Product and claim boundaries live in:
 - [docs/product-context.md](docs/product-context.md)
 - [docs/ROADMAP.md](docs/ROADMAP.md)
 - [docs/events-publication-workflow.md](docs/events-publication-workflow.md)
+
+## Current operating phase
+
+Azur Menton is currently in normal guide-first publishing and observation mode:
+
+- guide corpus remains the primary product surface for booking intent;
+- event freshness observatory exists and remains review-first;
+- guide freshness / provenance / verification loops exist as editorial maintenance signals;
+- booking attribution baseline is recorded as an observation layer, not a fully automated growth engine;
+- routine publication and image attachment now have bounded operational playbooks;
+- City Engine and broader automation remain intentionally out of scope.
 
 ## Stack
 
