@@ -1189,7 +1189,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "verified",
     sourceUrl: "https://www.festival-musique-menton.fr",
-    featured: true,
+    featured: false,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
   },
