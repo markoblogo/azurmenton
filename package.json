@@ -25,6 +25,7 @@
     "guide:publish": "node scripts/guide-publish.cjs",
     "guide:review": "node scripts/guide-review.cjs",
     "guide:ops": "node scripts/guide-ops.cjs",
+    "guides:health": "node scripts/guides-health.cjs",
     "map:report": "node scripts/map-coverage-report.cjs",
     "events:ingest": "node scripts/events-ingest.cjs",
     "events:prepare": "node scripts/events-prepare.cjs",
