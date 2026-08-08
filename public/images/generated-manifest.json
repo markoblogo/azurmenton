@@ -530,5 +530,12 @@
       "public/images/tools/generated/weather.avif",
       "public/images/tools/generated/weather.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/computer-and-phone-repair-in-menton.png",
+    "outputs": [
+      "public/images/guide/generated/computer-and-phone-repair-in-menton.avif",
+      "public/images/guide/generated/computer-and-phone-repair-in-menton.webp"
+    ]
   }
 ]

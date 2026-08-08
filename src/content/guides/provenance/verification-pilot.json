@@ -45,6 +45,23 @@
       "volatility": "HIGH_VOLATILITY",
       "sources": [{ "id": "carrefour-store-locator", "url": "https://www.carrefour.fr/magasin", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Retailer-owned store locator; individual listing must still be checked", "checkedAt": "2026-08-08" }],
       "claims": [{ "id": "store-hours-and-listings", "kind": "SERVICE_AVAILABILITY", "currentValue": "Store names, locations and Sunday/holiday hours require current checking", "observedValue": "A general retailer locator is available, but this bounded observation did not establish every Menton listing or opening hour", "sourceId": "carrefour-store-locator", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "LOW", "result": "UNVERIFIABLE", "changeDetected": false, "reviewer": "codex", "notes": "Do not classify the guide CURRENT until individual store records are checked." }]
+    },
+    {
+      "guideSlug": "computer-and-phone-repair-in-menton",
+      "selectionReason": "High-volatility practical service guide; checks local repair providers while keeping current availability and turnaround explicitly open.",
+      "volatility": "HIGH_VOLATILITY",
+      "sources": [
+        { "id": "fix-phones-official", "url": "https://fix-phones.fr/", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Repair business website describing phone, tablet and computer services", "checkedAt": "2026-08-08" },
+        { "id": "fix-phones-address", "url": "https://annuaire-entreprises.data.gouv.fr/etablissement/95116941600017", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "French government business directory confirming the Menton address", "checkedAt": "2026-08-08" },
+        { "id": "iriparo-menton-directory", "url": "https://www.pagesjaunes.fr/pros/56472173", "sourceType": "DIRECTORY", "authority": "MEDIUM", "classificationReason": "Current local business directory listing for the Menton address", "checkedAt": "2026-08-08" },
+        { "id": "micrologik-official", "url": "https://www.micrologik.fr/vente-materiel", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Business website showing Micrologik at 16 Rue de la Marne", "checkedAt": "2026-08-08" },
+        { "id": "depannage-pc-06-official", "url": "https://www.depannagepc06.fr/", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Provider website describing Menton coverage and on-site computer assistance", "checkedAt": "2026-08-08" },
+        { "id": "azurserviceinfo-official", "url": "https://www.azurserviceinfo.com/depannage-pc-a-domicile-menton/", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Provider website describing Menton home and remote PC assistance", "checkedAt": "2026-08-08" }
+      ],
+      "claims": [
+        { "id": "local-repair-options", "kind": "SERVICE_AVAILABILITY", "currentValue": "Menton has local phone, tablet, computer and on-site or remote support options", "observedValue": "The checked provider pages and directory listing describe the five named local options and their broad service categories", "sourceId": "fix-phones-official", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" },
+        { "id": "same-day-and-stock-advice", "kind": "EDITORIAL_GUIDANCE", "currentValue": "Visitors should ask about diagnosis, parts in stock and turnaround before relying on a repair", "observedValue": "Provider pages do not establish live stock or a guaranteed same-day turnaround; the guide presents these as questions, not promises", "sourceId": "fix-phones-official", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex", "notes": "Keep live availability, hours and turnaround as visitor verification steps." }
+      ]
     }
   ]
 }

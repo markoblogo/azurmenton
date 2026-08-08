@@ -49,7 +49,8 @@ export type PlaceType =
   | "barbershop"
   | "coworking"
   | "fishing-guide"
-  | "fishing-shop";
+  | "fishing-shop"
+  | "computer-repair";
 
 export type PlaceSourceStatus = "needs_verification" | "verified" | "editorial";
 
@@ -7763,6 +7764,70 @@ const rawPlaces: Place[] = [
     relatedArticleIds: ["laundry-laundromats-menton", "supermarkets-in-menton", "where-to-stay-in-menton"],
     guideCoverageSlugs: ["laundry-laundromats-menton"],
   },
+  {
+    id: "fix-phones-menton",
+    name: "Fix Phones Menton",
+    type: "computer-repair",
+    address: "32 Rue de la République, 06500 Menton",
+    googleMapsUrl: mapsQuery("Fix Phones", "32 Rue de la République Menton"),
+    programmeUrl: "https://fix-phones.fr/",
+    sourceStatus: "needs_verification",
+    shortNote: text("Central repair shop for phones, tablets and computers, with accessories for urgent travel problems.", "Atelier central pour telephones, tablettes et ordinateurs, avec accessoires pour les problemes urgents en voyage.", "Negozio centrale per riparazioni di telefoni, tablet e computer, con accessori per i problemi urgenti in viaggio.", "Центральна майстерня для телефонів, планшетів і комп'ютерів, а також аксесуарів для термінових проблем у подорожі."),
+    bestFor: [text("phone and tablet repairs", "reparations de telephones et tablettes", "riparazioni di telefoni e tablet", "ремонт телефонів і планшетів"), text("travel accessories", "accessoires de voyage", "accessori da viaggio", "аксесуари для подорожі")],
+    relatedArticleIds: ["computer-and-phone-repair-in-menton"],
+    guideCoverageSlugs: ["computer-and-phone-repair-in-menton"],
+  },
+  {
+    id: "iriparo-menton",
+    name: "iRiparo Menton",
+    type: "computer-repair",
+    address: "6 Rue Partouneaux, 06500 Menton",
+    googleMapsUrl: mapsQuery("iRiparo", "6 Rue Partouneaux Menton"),
+    sourceStatus: "needs_verification",
+    shortNote: text("Central mobile-device repair alternative for a quick diagnosis, screen or battery work and a second quote.", "Alternative centrale pour reparer un appareil mobile, obtenir un diagnostic rapide ou un second devis.", "Alternativa centrale per riparazioni di dispositivi mobili, diagnosi rapida o un secondo preventivo.", "Центральна альтернатива для ремонту мобільних пристроїв, швидкої діагностики або другої оцінки."),
+    bestFor: [text("smartphone repairs", "reparations de smartphones", "riparazioni di smartphone", "ремонт смартфонів"), text("second option", "seconde option", "seconda opzione", "другий варіант")],
+    relatedArticleIds: ["computer-and-phone-repair-in-menton"],
+    guideCoverageSlugs: ["computer-and-phone-repair-in-menton"],
+  },
+  {
+    id: "micrologik-menton",
+    name: "Micrologik",
+    type: "computer-repair",
+    address: "16 Rue de la Marne, 06500 Menton",
+    googleMapsUrl: mapsQuery("Micrologik", "16 Rue de la Marne Menton"),
+    programmeUrl: "https://www.micrologik.fr/",
+    sourceStatus: "needs_verification",
+    shortNote: text("Menton computer specialist for laptop, desktop and system problems beyond a typical phone-shop repair.", "Specialiste informatique a Menton pour ordinateurs portables, fixes et problemes systeme au-dela d'une simple reparation de telephone.", "Specialista informatico a Mentone per portatili, desktop e problemi di sistema oltre la normale riparazione di telefoni.", "Комп'ютерний спеціаліст у Ментоні для ноутбуків, стаціонарних ПК і системних проблем, що виходять за межі звичайного ремонту телефону."),
+    bestFor: [text("PC and laptop diagnostics", "diagnostic PC et ordinateur portable", "diagnosi di PC e portatili", "діагностика ПК і ноутбуків"), text("hardware or system issues", "problemes materiels ou systeme", "problemi hardware o di sistema", "апаратні або системні проблеми")],
+    relatedArticleIds: ["computer-and-phone-repair-in-menton"],
+    guideCoverageSlugs: ["computer-and-phone-repair-in-menton"],
+  },
+  {
+    id: "depannage-pc-06-menton",
+    name: "Dépannage PC 06",
+    type: "computer-repair",
+    area: text("Menton and surrounding communes", "Menton et les communes voisines", "Mentone e comuni vicini", "Ментон і сусідні комуни"),
+    googleMapsUrl: mapsQuery("Dépannage PC 06", "Menton"),
+    programmeUrl: "https://www.depannagepc06.fr/",
+    sourceStatus: "needs_verification",
+    shortNote: text("On-site computer assistance in Menton and nearby communes, including software troubleshooting and virus removal.", "Assistance informatique sur site a Menton et dans les communes voisines, notamment pour les problemes logiciels et les virus.", "Assistenza informatica sul posto a Mentone e nei comuni vicini, per problemi software e rimozione di virus.", "Комп'ютерна допомога на місці в Ментоні та сусідніх комунах, зокрема для програмних проблем і видалення вірусів."),
+    bestFor: [text("Windows and on-site help", "Windows et assistance sur place", "Windows e assistenza sul posto", "Windows і допомога на місці"), text("software problems", "problemes logiciels", "problemi software", "програмні проблеми")],
+    relatedArticleIds: ["computer-and-phone-repair-in-menton"],
+    guideCoverageSlugs: ["computer-and-phone-repair-in-menton"],
+  },
+  {
+    id: "azurserviceinfo-menton",
+    name: "AZURSERVICEINFO",
+    type: "computer-repair",
+    area: text("Menton, Roquebrune-Cap-Martin and nearby areas", "Menton, Roquebrune-Cap-Martin et les environs", "Mentone, Roquebrune-Cap-Martin e dintorni", "Ментон, Рокбрюн-Кап-Мартен і околиці"),
+    googleMapsUrl: "https://www.azurserviceinfo.com/",
+    programmeUrl: "https://www.azurserviceinfo.com/",
+    sourceStatus: "needs_verification",
+    shortNote: text("PC/Mac, Wi-Fi, backup, malware and remote or at-home assistance when carrying a computer is inconvenient.", "Assistance PC/Mac, Wi-Fi, sauvegardes, logiciels malveillants et intervention a distance ou a domicile.", "Assistenza PC/Mac, Wi-Fi, backup, malware e interventi a distanza o a domicilio.", "Допомога з PC/Mac, Wi-Fi, резервними копіями, malware, дистанційно або на місці."),
+    bestFor: [text("PC/Mac and Wi-Fi", "PC/Mac et Wi-Fi", "PC/Mac e Wi-Fi", "PC/Mac і Wi-Fi"), text("remote assistance", "assistance a distance", "assistenza da remoto", "дистанційна допомога")],
+    relatedArticleIds: ["computer-and-phone-repair-in-menton"],
+    guideCoverageSlugs: ["computer-and-phone-repair-in-menton"],
+  },
 ];
 
 const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" | "visualTheme">> = {
@@ -10282,6 +10347,7 @@ function visualThemeForPlace(type: PlaceType): GuideVisualTheme {
     coworking: "transport",
     "fishing-guide": "sea",
     "fishing-shop": "transport",
+    "computer-repair": "transport",
   };
   return themes[type];
 }
