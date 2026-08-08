@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   attributionFromSearchParams,
+  apartmentDetailAttributionHref,
   bookingAttributionHref,
+  compactBookingAttributionProps,
   daysBetweenDates,
   getBookingFunnelPageType,
   leadTimeDays,
@@ -49,5 +51,30 @@ describe("booking funnel analytics helpers", () => {
       sourceSlug: "stay-cool-in-menton-summer",
       sourceGuideSlug: "stay-cool-in-menton-summer",
     });
+
+    expect(apartmentDetailAttributionHref("en", "sea-view-balcony-studio", {
+      sourcePageType: "guide",
+      sourceSlug: "stay-cool-in-menton-summer",
+      sourceGuideSlug: "stay-cool-in-menton-summer",
+      utmSource: "newsletter",
+      utmMedium: "email",
+    })).toBe("/en/apartments/sea-view-balcony-studio?sourcePageType=guide&sourceSlug=stay-cool-in-menton-summer&sourceGuideSlug=stay-cool-in-menton-summer&sourceApartmentSlug=sea-view-balcony-studio&utm_source=newsletter&utm_medium=email");
+
+    expect(compactBookingAttributionProps({
+      sourcePageType: "guide",
+      sourceSlug: "guide",
+      utmSource: "newsletter",
+      name: "should-not-appear",
+      email: "person@example.com",
+    } as never)).toEqual({
+      sourcePageType: "guide",
+      sourceSlug: "guide",
+      utm_source: "newsletter",
+    });
+
+    expect(attributionFromSearchParams(
+      new URLSearchParams("utm_source=newsletter&utm_medium=email&utm_campaign=summer"),
+      "/en/check-availability",
+    )).toMatchObject({ utmSource: "newsletter", utmMedium: "email", utmCampaign: "summer" });
   });
 });

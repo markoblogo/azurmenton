@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { ApartmentDetailViewTracker } from "@/components/analytics/ApartmentDetailViewTracker";
 import { ApartmentGallery } from "@/components/apartments/ApartmentGallery";
 import { ApartmentAvailabilityPreview } from "@/components/availability/AvailabilityPanels";
 import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
@@ -16,13 +17,14 @@ import { apartments, getApartment, type Apartment } from "@/content/apartments";
 import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { getPublicApartmentAvailability } from "@/lib/availability/service";
-import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
+import { attributionFromSearchParams, bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { imageObjectPosition } from "@/lib/apartment-images";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { breadcrumbJsonLd, vacationRentalJsonLd } from "@/lib/structured-data";
 
 type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 type ApartmentPageStory = {
@@ -784,8 +786,9 @@ function heroImages(apartment: Apartment) {
   ]);
 }
 
-export default async function ApartmentPage({ params }: PageProps) {
+export default async function ApartmentPage({ params, searchParams }: PageProps) {
   const { locale, slug } = await params;
+  const query = await searchParams;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const apartment = getApartment(slug);
 
@@ -798,11 +801,11 @@ export default async function ApartmentPage({ params }: PageProps) {
   const story = stories[apartment.slug][safeLocale];
   const facts = localizedFacts[apartment.slug][safeLocale];
   const apartmentUrl = absoluteUrl(localizedPath(safeLocale, `apartments/${apartment.slug}`));
-  const sourceAttribution = {
-    sourcePageType: "apartment" as const,
-    sourceSlug: apartment.slug,
-    sourceApartmentSlug: apartment.slug,
-  };
+  const sourceAttribution = attributionFromSearchParams(
+    new URLSearchParams(Object.entries(query).flatMap(([key, value]) => value === undefined ? [] : [[key, Array.isArray(value) ? value[0] : value]])),
+    `/${safeLocale}/apartments/${apartment.slug}`,
+  );
+  sourceAttribution.sourceApartmentSlug = apartment.slug;
   const apartmentCtaProps = {
     locale: safeLocale,
     ...compactBookingAttributionProps(sourceAttribution),
@@ -823,6 +826,7 @@ export default async function ApartmentPage({ params }: PageProps) {
 
   return (
     <>
+      <ApartmentDetailViewTracker locale={safeLocale} />
       <JsonLdScript
         data={vacationRentalJsonLd({
           identifier: `azur-menton-${apartment.slug}`,

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Route } from "next";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { apartments } from "@/content/apartments";
@@ -7,6 +6,7 @@ import type { ContextualApartmentScenario } from "@/content/contextual-apartment
 import type { Locale } from "@/i18n/locales";
 import {
   bookingAttributionHref,
+  apartmentDetailAttributionHref,
   compactBookingAttributionProps,
   type BookingFunnelEvent,
   type BookingSourceAttribution,
@@ -124,12 +124,17 @@ export function ContextualApartmentRecommendations({
                     <dd className="font-semibold text-[#173f36]">{recommendation.keyFeature[locale]}</dd>
                   </div>
                 </dl>
-                <Link
+                <TrackedLink
                   className="mt-auto inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
-                  href={`/${locale}/apartments/${apartment.slug}` as Route}
+                  eventName="apartment_discovery"
+                  href={apartmentDetailAttributionHref(locale, apartment.slug, sourceAttribution) as Route}
+                  props={{
+                    locale,
+                    ...compactBookingAttributionProps({ ...sourceAttribution, sourceApartmentSlug: apartment.slug }),
+                  }}
                 >
                   {copy.view}
-                </Link>
+                </TrackedLink>
               </div>
             </article>
           );

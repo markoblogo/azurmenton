@@ -314,7 +314,9 @@ export function BookingRequestForm({
     }
 
     hasTrackedStart.current = true;
-    trackBookingFunnelEvent(bookingFunnelEvents.bookingFormStart, bookingFunnelProps());
+    const props = { ...bookingFunnelProps(), inquiry_action_type: "form_start" };
+    trackBookingFunnelEvent(bookingFunnelEvents.bookingFormStart, props);
+    trackBookingFunnelEvent(bookingFunnelEvents.inquiryIntent, props);
   }
 
   useEffect(() => {

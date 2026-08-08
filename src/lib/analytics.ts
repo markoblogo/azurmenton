@@ -1,5 +1,7 @@
 export const bookingFunnelEvents = {
   checkAvailabilityView: "check_availability_view",
+  apartmentDiscovery: "apartment_discovery",
+  apartmentDetailView: "apartment_detail_view",
   guideCtaClick: "guide_cta_click",
   eventCtaClick: "event_cta_click",
   eventsFilterUsed: "events_filter_used",
@@ -10,6 +12,7 @@ export const bookingFunnelEvents = {
   apartmentCtaClick: "apartment_cta_click",
   advanceBookingNoticeCtaClick: "advance_booking_notice_cta_click",
   bookingFormStart: "booking_form_start",
+  inquiryIntent: "inquiry_intent",
   bookingRequestSubmitSuccess: "booking_request_submit_success",
   bookingRequestSubmitError: "booking_request_submit_error",
   whatsappClick: "whatsapp_click",
@@ -32,6 +35,9 @@ export type BookingSourceAttribution = {
   sourceGuideSlug?: string;
   sourceEventSlug?: string;
   sourceApartmentSlug?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
 };
 
 type SearchParamsLike = {
@@ -100,8 +106,30 @@ export function bookingAttributionHref(locale: string, attribution?: BookingSour
   if (attribution.sourceGuideSlug) params.set("sourceGuideSlug", attribution.sourceGuideSlug);
   if (attribution.sourceEventSlug) params.set("sourceEventSlug", attribution.sourceEventSlug);
   if (attribution.sourceApartmentSlug) params.set("sourceApartmentSlug", attribution.sourceApartmentSlug);
+  if (attribution.utmSource) params.set("utm_source", attribution.utmSource);
+  if (attribution.utmMedium) params.set("utm_medium", attribution.utmMedium);
+  if (attribution.utmCampaign) params.set("utm_campaign", attribution.utmCampaign);
 
   return `${base}?${params.toString()}`;
+}
+
+export function apartmentDetailAttributionHref(
+  locale: string,
+  apartmentSlug: string,
+  attribution?: BookingSourceAttribution,
+) {
+  const params = new URLSearchParams();
+
+  if (attribution?.sourcePageType) params.set("sourcePageType", attribution.sourcePageType);
+  if (attribution?.sourceSlug) params.set("sourceSlug", attribution.sourceSlug);
+  if (attribution?.sourceGuideSlug) params.set("sourceGuideSlug", attribution.sourceGuideSlug);
+  if (attribution?.sourceEventSlug) params.set("sourceEventSlug", attribution.sourceEventSlug);
+  params.set("sourceApartmentSlug", apartmentSlug);
+  if (attribution?.utmSource) params.set("utm_source", attribution.utmSource);
+  if (attribution?.utmMedium) params.set("utm_medium", attribution.utmMedium);
+  if (attribution?.utmCampaign) params.set("utm_campaign", attribution.utmCampaign);
+
+  return `/${locale}/apartments/${apartmentSlug}?${params.toString()}`;
 }
 
 export function compactBookingAttributionProps(attribution?: Partial<BookingSourceAttribution>) {
@@ -115,6 +143,9 @@ export function compactBookingAttributionProps(attribution?: Partial<BookingSour
     ...(attribution.sourceGuideSlug ? { sourceGuideSlug: attribution.sourceGuideSlug } : {}),
     ...(attribution.sourceEventSlug ? { sourceEventSlug: attribution.sourceEventSlug } : {}),
     ...(attribution.sourceApartmentSlug ? { sourceApartmentSlug: attribution.sourceApartmentSlug } : {}),
+    ...(attribution.utmSource ? { utm_source: attribution.utmSource } : {}),
+    ...(attribution.utmMedium ? { utm_medium: attribution.utmMedium } : {}),
+    ...(attribution.utmCampaign ? { utm_campaign: attribution.utmCampaign } : {}),
   };
 }
 
@@ -130,6 +161,9 @@ export function attributionFromSearchParams(searchParams: SearchParamsLike, path
   const sourceGuideSlug = sourceParam(searchParams, "sourceGuideSlug");
   const sourceEventSlug = sourceParam(searchParams, "sourceEventSlug");
   const sourceApartmentSlug = sourceParam(searchParams, "sourceApartmentSlug");
+  const utmSource = String(searchParams.get("utm_source") ?? "").trim();
+  const utmMedium = String(searchParams.get("utm_medium") ?? "").trim();
+  const utmCampaign = String(searchParams.get("utm_campaign") ?? "").trim();
   const fallbackSlug = sourceSlugFromPathname(pathname);
 
   return {
@@ -140,6 +174,9 @@ export function attributionFromSearchParams(searchParams: SearchParamsLike, path
     ...(sourceGuideSlug ? { sourceGuideSlug } : {}),
     ...(sourceEventSlug ? { sourceEventSlug } : {}),
     ...(sourceApartmentSlug ? { sourceApartmentSlug } : {}),
+    ...(utmSource ? { utmSource } : {}),
+    ...(utmMedium ? { utmMedium } : {}),
+    ...(utmCampaign ? { utmCampaign } : {}),
   };
 }
 

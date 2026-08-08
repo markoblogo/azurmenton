@@ -5,7 +5,10 @@ export const bookingDashboardGoals = [
   bookingFunnelEvents.guideCtaClick,
   bookingFunnelEvents.eventCtaClick,
   bookingFunnelEvents.apartmentCtaClick,
+  bookingFunnelEvents.apartmentDiscovery,
+  bookingFunnelEvents.apartmentDetailView,
   bookingFunnelEvents.bookingFormStart,
+  bookingFunnelEvents.inquiryIntent,
   bookingFunnelEvents.bookingRequestSubmitSuccess,
   bookingFunnelEvents.bookingRequestSubmitError,
   bookingFunnelEvents.whatsappClick,
@@ -17,6 +20,9 @@ export const bookingDashboardBreakdowns = [
   { label: "source page type", dimension: "event:props:sourcePageType" },
   { label: "source", dimension: "event:props:sourceSlug" },
   { label: "apartment preference", dimension: "event:props:apartmentPreference" },
+  { label: "utm source", dimension: "event:props:utm_source" },
+  { label: "utm medium", dimension: "event:props:utm_medium" },
+  { label: "utm campaign", dimension: "event:props:utm_campaign" },
 ] as const;
 
 export type BookingDashboardPeriod = "7d" | "28d" | "30d" | "91d";

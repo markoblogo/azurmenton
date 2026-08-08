@@ -20,6 +20,9 @@ describe("booking dashboard contract", () => {
       "event:props:sourcePageType",
       "event:props:sourceSlug",
       "event:props:apartmentPreference",
+      "event:props:utm_source",
+      "event:props:utm_medium",
+      "event:props:utm_campaign",
     ]);
   });
 
