@@ -31,6 +31,7 @@
     "events:assets": "node scripts/events-assets.cjs",
     "events:publish": "node scripts/events-publish.cjs",
     "events:review": "node scripts/events-review.cjs",
+    "events:health": "node scripts/events-health.cjs",
     "weekly:validate": "node scripts/weekly-validate.cjs",
     "weekly:draft": "node scripts/weekly-draft.cjs",
     "booking:funnel": "node scripts/booking-funnel-report.cjs",
