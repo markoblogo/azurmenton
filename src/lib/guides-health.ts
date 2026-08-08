@@ -1,5 +1,6 @@
 import type { GuideCategory, SourceStatus } from "@/content/guide";
 import { locales, type Locale } from "@/i18n/locales";
+import type { GuideVerificationRecord } from "@/lib/guides-verification";
 
 export type GuideVolatility = "LOW_VOLATILITY" | "MEDIUM_VOLATILITY" | "HIGH_VOLATILITY";
 export type GuideHealthStatus = "CURRENT" | "REVIEW_DUE" | "STALE" | "PROVENANCE_WEAK" | "UNKNOWN";
@@ -67,7 +68,7 @@ function localizationHealth(guide: GuideHealthInput) {
   };
 }
 
-export function classifyGuideHealth(guide: GuideHealthInput, options: { today: string }) {
+export function classifyGuideHealth(guide: GuideHealthInput, options: { today: string; verificationRecords?: GuideVerificationRecord[] }) {
   const volatility = volatilityByCategory[guide.category];
   const contentDate = validDate(guide.publishedOn);
   const evidenceDate = validDate(guide.lastVerifiedAt);
@@ -76,13 +77,21 @@ export function classifyGuideHealth(guide: GuideHealthInput, options: { today: s
   const localization = localizationHealth(guide);
   let status: GuideHealthStatus = "UNKNOWN";
   let reason = "no dated supporting evidence is recorded";
+  const verification = options.verificationRecords?.find((record) => record.guideSlug === guide.slug);
+  const verifiedClaims = verification?.claims.filter((claim) => claim.result === "CONFIRMED" && !claim.changeDetected && claim.confidence === "HIGH").length ?? 0;
+  const hasCurrentPilotEvidence = Boolean(verification && verification.claims.length > 0 && verifiedClaims === verification.claims.length);
 
   if (localization.status === "INCOMPLETE") {
     status = "PROVENANCE_WEAK";
     reason = localization.reason;
   } else if (guide.sourceStatus === "needs_verification") {
-    status = "PROVENANCE_WEAK";
-    reason = "guide is explicitly marked as needing verification";
+    if (hasCurrentPilotEvidence) {
+      status = "CURRENT";
+      reason = `pilot verification confirms ${verifiedClaims} high-confidence claim${verifiedClaims === 1 ? "" : "s"}`;
+    } else {
+      status = "PROVENANCE_WEAK";
+      reason = "guide is explicitly marked as needing verification";
+    }
   } else if (guide.sourceStatus === "verified" && !evidenceDate) {
     status = "PROVENANCE_WEAK";
     reason = "source is marked verified but no verification date is recorded";
@@ -98,8 +107,13 @@ export function classifyGuideHealth(guide: GuideHealthInput, options: { today: s
       reason = "verified guide has recent dated evidence";
     }
   } else if (guide.sourceStatus === "editorial") {
-    status = "UNKNOWN";
-    reason = "editorial content has no source verification metadata";
+    if (hasCurrentPilotEvidence) {
+      status = "CURRENT";
+      reason = `pilot verification confirms ${verifiedClaims} high-confidence claim${verifiedClaims === 1 ? "" : "s"}`;
+    } else {
+      status = "UNKNOWN";
+      reason = "editorial content has no source verification metadata";
+    }
   }
 
   const priority = status === "STALE" || status === "PROVENANCE_WEAK" || (status === "REVIEW_DUE" && volatility !== "LOW_VOLATILITY");
@@ -115,6 +129,7 @@ export function classifyGuideHealth(guide: GuideHealthInput, options: { today: s
     contentModificationSignal: "UNKNOWN_PER_GUIDE",
     evidenceDate,
     evidenceAgeDays,
+    verification: verification ? { claimCount: verification.claims.length, confirmedClaimCount: verifiedClaims } : undefined,
     status,
     priority,
     reason,
@@ -122,7 +137,7 @@ export function classifyGuideHealth(guide: GuideHealthInput, options: { today: s
   };
 }
 
-export function buildGuideHealthReport(guides: GuideHealthInput[], options: { today: string; generatedAt?: string }) {
+export function buildGuideHealthReport(guides: GuideHealthInput[], options: { today: string; generatedAt?: string; verificationRecords?: GuideVerificationRecord[] }) {
   const inventory = guides.map((guide) => classifyGuideHealth(guide, options));
   const priorityReview = inventory
     .filter((item) => item.priority)

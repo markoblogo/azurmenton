@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "v1",
+  "observedDate": "2026-08-08",
+  "mode": "BOUNDED_READ_ONLY_PILOT",
+  "policy": { "autoApply": false, "externalRequestsByDefault": false, "contentMutation": false },
+  "pilotGuides": [
+    {
+      "guideSlug": "useful-numbers-emergency-contacts-menton",
+      "selectionReason": "High-volatility practical safety guide; weak provenance and a multilingual shared emergency-number fact.",
+      "volatility": "HIGH_VOLATILITY",
+      "sources": [{ "id": "service-public-emergency", "url": "https://www.service-public.fr/annuaire/centres-contact", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "French government public-service directory", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "emergency-core-numbers", "kind": "CONTACT", "currentValue": "112 general EU emergency; 15 medical; 17 police; 18 firefighters", "observedValue": "Service-Public lists 112, 15, 17 and 18 as the corresponding emergency numbers", "sourceId": "service-public-emergency", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" }]
+    },
+    {
+      "guideSlug": "public-transport-in-menton",
+      "selectionReason": "High-volatility route and timetable guide; tests a shared transport fact without hard-coding a timetable.",
+      "volatility": "HIGH_VOLATILITY",
+      "sources": [{ "id": "ter-menton-departures", "url": "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/prochains-departs/menton-87756486", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Regional rail operator live station page", "checkedAt": "2026-08-08" }, { "id": "nice-airport-public-transport", "url": "https://www.nice.aeroport.fr/acces/transports-en-commun", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Airport operator public transport page", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "coastal-transport-is-live", "kind": "TRANSPORT", "currentValue": "Routes, timetables and fares can change; check current information before travelling", "observedValue": "Official TER and airport pages expose current departures/routes rather than a fixed evergreen timetable", "sourceId": "ter-menton-departures", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" }]
+    },
+    {
+      "guideSlug": "how-to-get-to-menton-from-nice-airport",
+      "selectionReason": "High-volatility arrival guide; tests airport-to-Menton access and an unresolved fare claim.",
+      "volatility": "HIGH_VOLATILITY",
+      "sources": [{ "id": "nice-airport-rail", "url": "https://groupe.nice.aeroport.fr/acces/trains", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Nice Airport group access page", "checkedAt": "2026-08-08" }, { "id": "nice-airport-bus", "url": "https://www.nice.aeroport.fr/acces/transports-en-commun", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Nice Airport operator public transport page", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "airport-to-menton-options", "kind": "ACCESS", "currentValue": "Train and direct airport bus are practical options to Menton", "observedValue": "Official airport pages show Cannes-Nice-Monaco-Menton rail access and Monaco-Menton bus line 80", "sourceId": "nice-airport-rail", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" }, { "id": "airport-bus-fare", "kind": "ACCESS", "currentValue": "Recent guides often place the adult one-way fare around 20-25 EUR", "observedValue": "The checked official access page confirms the route but did not provide a stable fare for this observation", "sourceId": "nice-airport-bus", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "MEDIUM", "result": "HUMAN_REVIEW_REQUIRED", "changeDetected": true, "reviewer": "codex", "notes": "Keep as an editorial review proposal; do not replace the public guide automatically." }]
+    },
+    {
+      "guideSlug": "best-beaches-in-menton",
+      "selectionReason": "Medium-volatility recommendation guide; checks a stable place taxonomy and seasonal-service caveat.",
+      "volatility": "MEDIUM_VOLATILITY",
+      "sources": [{ "id": "menton-tourism-beaches", "url": "https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/les-plages/", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Menton Riviera & Merveilles tourism office destination page", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "beach-set", "kind": "PLACE_FACT", "currentValue": "Sablettes, Fossan, central promenade beaches and Borrigo are practical beach choices", "observedValue": "The tourism office page lists Sablettes, Fossan, promenade beaches and Borrigo and describes seasonal services", "sourceId": "menton-tourism-beaches", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" }]
+    },
+    {
+      "guideSlug": "menton-old-town",
+      "selectionReason": "Low-volatility descriptive guide; tests that stable historical/place facts are not falsely treated as fresh by age alone.",
+      "volatility": "LOW_VOLATILITY",
+      "sources": [{ "id": "menton-tourism-old-town", "url": "https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/nos-incontournables/vieille-ville-de-menton/", "sourceType": "OFFICIAL_PRIMARY", "authority": "HIGH", "classificationReason": "Menton Riviera & Merveilles tourism office heritage page", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "old-town-landmarks", "kind": "PLACE_FACT", "currentValue": "Old town route includes Saint-Michel basilica, white penitents chapel and Vieux-Château viewpoint", "observedValue": "The tourism office describes the basilica, chapel, old town and Vieux-Château route", "sourceId": "menton-tourism-old-town", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "HIGH", "result": "CONFIRMED", "changeDetected": false, "reviewer": "codex" }]
+    },
+    {
+      "guideSlug": "supermarkets-in-menton",
+      "selectionReason": "High-volatility service guide; tests first-party availability evidence and a known listing-risk case.",
+      "volatility": "HIGH_VOLATILITY",
+      "sources": [{ "id": "carrefour-store-locator", "url": "https://www.carrefour.fr/magasin", "sourceType": "FIRST_PARTY", "authority": "HIGH", "classificationReason": "Retailer-owned store locator; individual listing must still be checked", "checkedAt": "2026-08-08" }],
+      "claims": [{ "id": "store-hours-and-listings", "kind": "SERVICE_AVAILABILITY", "currentValue": "Store names, locations and Sunday/holiday hours require current checking", "observedValue": "A general retailer locator is available, but this bounded observation did not establish every Menton listing or opening hour", "sourceId": "carrefour-store-locator", "locales": ["en", "fr", "it", "uk"], "verifiedAt": "2026-08-08", "verificationMethod": "MANUAL_READ_ONLY", "confidence": "LOW", "result": "UNVERIFIABLE", "changeDetected": false, "reviewer": "codex", "notes": "Do not classify the guide CURRENT until individual store records are checked." }]
+    }
+  ]
+}

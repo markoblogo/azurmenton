@@ -10,6 +10,7 @@ registerTypescriptContent(root);
 
 const { guideArticles } = require("../src/content/guide.ts");
 const { buildGuideHealthReport } = require("../src/lib/guides-health.ts");
+const verificationDossier = require("../src/content/guides/provenance/verification-pilot.json");
 
 function readArg(name) {
   const index = process.argv.indexOf(name);
@@ -35,7 +36,7 @@ function mapGuide(guide) {
 }
 
 function main() {
-  const report = buildGuideHealthReport(guideArticles.map(mapGuide), { today: todayKey() });
+  const report = buildGuideHealthReport(guideArticles.map(mapGuide), { today: todayKey(), verificationRecords: verificationDossier.pilotGuides });
   const output = readArg("--out") ?? path.join(root, "build/guides-health/guides-health.json");
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, `${JSON.stringify(report, null, 2)}\n`);
