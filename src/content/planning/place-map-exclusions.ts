@@ -11,6 +11,13 @@ export type PlaceMapExclusion = {
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
   { placeId: "centre-nautique-ville-de-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Centre%20Nautique%20Ville%20de%20Menton" },
+  { placeId: "radical-storage-menton-train-station", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://radicalstorage.com/luggage-storage/menton/menton-train-station/luggage-storage-menton-train-station" },
+  { placeId: "radical-storage-plage-du-marche-menton", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://provence-alpes-cotedazur.com/en/plan-your-stay/useful-information/all-practical-services/luggage-storage-plage-du-marche-menton-en-5870334/" },
+  { placeId: "radical-storage-monaco-monte-carlo-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://radicalstorage.com/luggage-storage/monaco/monaco-monte-carlo-station/luggage-storage-monaco-monte-carlo" },
+  { placeId: "bagmobile-nice-ville-station", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://www.garesetconnexions.sncf/en/stations-services/nice/services-shops/consignes-bag-mobile" },
+  { placeId: "radical-storage-nice-ville-train-station", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://radicalstorage.com/luggage-storage/nice/gare-de-nice-ville/luggage-storage-nice-ville-train-station" },
+  { placeId: "bagmobile-lockers-central-nice", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://www.explorenicecotedazur.com/en/service/bagmobile-consigne-a-bagages/" },
+  { placeId: "city-locker-garibaldi-port-lympia", reason: "coordinate_unverified", checkedOn: "2026-08-10", sourceUrl: "https://www.explorenicecotedazur.com/en/service/city-locker-garibaldi-port-lympia/" },
   { placeId: "jet-rent-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Jet%20Rent%20Menton%20Port%20Garavan" },
   { placeId: "mer-passion-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mer%20passion%20Menton%20boat%20rental" },
   { placeId: "asd-pianeta-blu-imbarco-menton", reason: "coordinate_unverified", checkedOn: "2026-08-01", sourceUrl: "https://www.google.com/maps/search/?api=1&query=ASD%20Pianeta%20Blu%20IMBARCO%20Menton" },

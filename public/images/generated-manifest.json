@@ -49,6 +49,13 @@
     ]
   },
   {
+    "source": "public/images/guide/azurserviceinfo-menton.png",
+    "outputs": [
+      "public/images/guide/generated/azurserviceinfo-menton.avif",
+      "public/images/guide/generated/azurserviceinfo-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/balzi-rossi-area-ventimiglia.png",
     "outputs": [
       "public/images/guide/generated/balzi-rossi-area-ventimiglia.avif",
@@ -140,6 +147,20 @@
     ]
   },
   {
+    "source": "public/images/guide/depannage-pc-06-menton.png",
+    "outputs": [
+      "public/images/guide/generated/depannage-pc-06-menton.avif",
+      "public/images/guide/generated/depannage-pc-06-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/fix-phones-menton.png",
+    "outputs": [
+      "public/images/guide/generated/fix-phones-menton.avif",
+      "public/images/guide/generated/fix-phones-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
@@ -165,6 +186,13 @@
     "outputs": [
       "public/images/guide/generated/il-ristorante-hotel-napoleon-menton.avif",
       "public/images/guide/generated/il-ristorante-hotel-napoleon-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/iriparo-menton.png",
+    "outputs": [
+      "public/images/guide/generated/iriparo-menton.avif",
+      "public/images/guide/generated/iriparo-menton.webp"
     ]
   },
   {
@@ -357,6 +385,13 @@
     ]
   },
   {
+    "source": "public/images/guide/micrologik-menton.png",
+    "outputs": [
+      "public/images/guide/generated/micrologik-menton.avif",
+      "public/images/guide/generated/micrologik-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/monaco-helicopter-experiences.png",
     "outputs": [
       "public/images/guide/generated/monaco-helicopter-experiences.avif",
@@ -539,38 +574,10 @@
     ]
   },
   {
-    "source": "public/images/guide/fix-phones-menton.png",
+    "source": "public/images/guide/luggage-storage-in-menton-monaco-and-nice.png",
     "outputs": [
-      "public/images/guide/generated/fix-phones-menton.avif",
-      "public/images/guide/generated/fix-phones-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/iriparo-menton.png",
-    "outputs": [
-      "public/images/guide/generated/iriparo-menton.avif",
-      "public/images/guide/generated/iriparo-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/micrologik-menton.png",
-    "outputs": [
-      "public/images/guide/generated/micrologik-menton.avif",
-      "public/images/guide/generated/micrologik-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/depannage-pc-06-menton.png",
-    "outputs": [
-      "public/images/guide/generated/depannage-pc-06-menton.avif",
-      "public/images/guide/generated/depannage-pc-06-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/azurserviceinfo-menton.png",
-    "outputs": [
-      "public/images/guide/generated/azurserviceinfo-menton.avif",
-      "public/images/guide/generated/azurserviceinfo-menton.webp"
+      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.avif",
+      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.webp"
     ]
   }
 ]
