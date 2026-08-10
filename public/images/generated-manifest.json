@@ -336,6 +336,13 @@
     ]
   },
   {
+    "source": "public/images/guide/luggage-storage-in-menton-monaco-and-nice.png",
+    "outputs": [
+      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.avif",
+      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/magiarge-bordighera.png",
     "outputs": [
       "public/images/guide/generated/magiarge-bordighera.avif",
@@ -574,10 +581,52 @@
     ]
   },
   {
-    "source": "public/images/guide/luggage-storage-in-menton-monaco-and-nice.png",
+    "source": "public/images/guide/radical-storage-menton-train-station.png",
     "outputs": [
-      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.avif",
-      "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.webp"
+      "public/images/guide/generated/radical-storage-menton-train-station.avif",
+      "public/images/guide/generated/radical-storage-menton-train-station.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/radical-storage-plage-du-marche-menton.png",
+    "outputs": [
+      "public/images/guide/generated/radical-storage-plage-du-marche-menton.avif",
+      "public/images/guide/generated/radical-storage-plage-du-marche-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/radical-storage-monaco-monte-carlo-beausoleil.png",
+    "outputs": [
+      "public/images/guide/generated/radical-storage-monaco-monte-carlo-beausoleil.avif",
+      "public/images/guide/generated/radical-storage-monaco-monte-carlo-beausoleil.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/bagmobile-nice-ville-station.png",
+    "outputs": [
+      "public/images/guide/generated/bagmobile-nice-ville-station.avif",
+      "public/images/guide/generated/bagmobile-nice-ville-station.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/radical-storage-nice-ville-train-station.png",
+    "outputs": [
+      "public/images/guide/generated/radical-storage-nice-ville-train-station.avif",
+      "public/images/guide/generated/radical-storage-nice-ville-train-station.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/bagmobile-lockers-central-nice.png",
+    "outputs": [
+      "public/images/guide/generated/bagmobile-lockers-central-nice.avif",
+      "public/images/guide/generated/bagmobile-lockers-central-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/city-locker-garibaldi-port-lympia.png",
+    "outputs": [
+      "public/images/guide/generated/city-locker-garibaldi-port-lympia.avif",
+      "public/images/guide/generated/city-locker-garibaldi-port-lympia.webp"
     ]
   }
 ]
