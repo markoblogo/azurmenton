@@ -697,6 +697,7 @@ const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
   "meeting-herculis-ebs-2026": eventIllustration("meeting-herculis-ebs.jpg", "Meeting Herculis EBS"),
   "nice-jazz-fest-2027": eventIllustration("nice-jazz-fest.jpg", "Nice Jazz Fest"),
   "menton-music-festival-2026": eventIllustration("menton-music-festival.png", "Festival de Musique de Menton"),
+  "menton-music-festival-2027": eventIllustration("menton-music-festival.png", "Festival de Musique de Menton"),
   "la-vuelta-monaco-start-2026": eventIllustration("grand-depart-la-vuelta-monaco.jpg", "Grand Depart / start of La Vuelta in Monaco"),
   "tour-de-france-femmes-nice-finish-2026": eventIllustration("tour-de-france-femmes-nice-finish.jpg", "Finish of the women's Tour de France in Nice"),
   "art3f-monaco-2026": eventIllustration("art3f-monaco.png", "ART3F Monaco"),
