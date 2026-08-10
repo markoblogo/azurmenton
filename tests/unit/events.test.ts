@@ -70,6 +70,17 @@ describe("event date status", () => {
     expect(e1Planning && canRenderEventJsonLd(e1Planning)).toBe(false);
   });
 
+  it("archives the ended 2026 Menton Music Festival edition while keeping a 2027 planning record live", () => {
+    const archive = getRivieraEvent("menton-music-festival-2026");
+    const planning = getRivieraEvent("menton-music-festival");
+
+    expect(archive?.detailPage).toBe(false);
+    expect(archive?.searchIndexing).toBe("noindex");
+    expect(planning?.occurrenceSlug).toBe("menton-music-festival-2027");
+    expect(planning?.dateStatus).toBe("dates_pending");
+    expect(planning && canRenderEventJsonLd(planning)).toBe(false);
+  });
+
   it("calculates visitor quick date ranges in the Europe/Paris timezone", () => {
     const fridayInParis = new Date("2026-08-14T21:30:00.000Z");
 

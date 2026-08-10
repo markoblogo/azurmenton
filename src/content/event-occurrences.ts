@@ -105,6 +105,22 @@ export const eventOccurrencePages: EventOccurrencePage[] = [
     relatedStaySlug: "lemon-festival-menton",
     relatedApartmentSlugs: ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"],
   },
+  {
+    slug: "menton-music-festival-2027",
+    eventSlug: "menton-music-festival",
+    year: 2027,
+    title: t("Menton Music Festival 2027 from Menton", "Festival de Musique de Menton 2027 depuis Menton", "Festival di Musica di Mentone 2027 da Mentone", "Фестиваль музики Ментона 2027 з Ментона"),
+    seoTitle: t("Menton Music Festival 2027 from Menton | Planning page"),
+    metaDescription: t("Plan a Menton Music Festival stay from a central Menton apartment. Official 2027 dates are still pending, so use this page for timing and apartment fit."),
+    summary: t("A planning page for guests who want to stay in Menton around its signature classical music festival without assuming current edition dates too early."),
+    dateNote: t("Late July-early August 2027 is the usual window, but official dates are still pending."),
+    whyStayInMenton: t("For this festival, staying in central Menton matters: evening walks, old-town access and a short return after concerts are part of the experience."),
+    transportNote: t("Plan around evening finishes, old-town steps and any local access changes once the official programme is published."),
+    bookingAdvice: t("Use this page to plan apartment fit and timing, then confirm exact concert dates and ticketing on the official festival website."),
+    relatedGuideSlug: "theatre-opera-performing-arts-near-menton",
+    relatedStaySlug: "menton-without-a-car",
+    relatedApartmentSlugs: allApartments,
+  },
 ];
 
 export const eventOccurrenceSlugs = eventOccurrencePages.map((page) => page.slug);
