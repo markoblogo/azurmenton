@@ -10754,23 +10754,48 @@ export const guideArticles: GuideArticle[] = [
   shortArticle({
       id: "best-markets-near-menton-market-days-in-france-and-italy",
       slug: "best-markets-near-menton-market-days-in-france-and-italy",
-      title: t("Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
-      seoTitle: t("Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
-      seoDescription: t("One of the advantages of staying in Menton is that several very different Riviera markets are within an easy train ride.", "TODO FR", "TODO IT", "TODO UK"),
-      excerpt: t("One of the advantages of staying in Menton is that several very different Riviera markets are within an easy train ride. You can buy fish and vegetables five minutes from Menton’s old town in the morning, cross into Italy for one of the region’s biggest street markets on Friday, browse Bordighera’s seafront stalls on Thursday, or turn a market visit into a half-day in Nice or Monaco.", "TODO FR", "TODO IT", "TODO UK"),
+      title: t(
+        "Best markets near Menton: market days in France and Italy",
+        "Meilleurs marchés près de Menton : jours de marché en France et en Italie",
+        "I migliori mercati vicino a Mentone: giorni di mercato in Francia e Italia",
+        "Найкращі ринки біля Ментона: ринкові дні у Франції та Італії"
+      ),
+      seoTitle: t(
+        "Best markets near Menton: market days in France and Italy",
+        "Meilleurs marchés près de Menton : jours de marché en France et en Italie",
+        "I migliori mercati vicino a Mentone: giorni di mercato in Francia e Italia",
+        "Найкращі ринки біля Ментона: ринкові дні у Франції та Італії"
+      ),
+      seoDescription: t(
+        "Plan a practical Riviera market day from Menton with clear options in Menton, Ventimiglia, Bordighera, Nice and Monaco.",
+        "Planifiez une journée de marché pratique depuis Menton avec des options claires à Menton, Ventimiglia, Bordighera, Nice et Monaco.",
+        "Pianifica una giornata pratica sui mercati da Mentone con opzioni chiare a Mentone, Ventimiglia, Bordighera, Nizza e Monaco.",
+        "Сплануйте практичний день на ринках з базою в Ментоні: чіткі варіанти в Ментоні, Вінтимільї, Борджігері, Ніцці та Монако."
+      ),
+      excerpt: t(
+        "You do not need a full city-hopping itinerary to experience the best local markets of the Côte d’Azur. From Menton’s Les Halles to Friday in Ventimiglia, Thursday in Bordighera and the major morning markets in Nice and Monaco, this guide helps you pick the right market by day, budget and mood.",
+        "Vous n'avez pas besoin d'un itinéraire complet de la Riviera pour découvrir les meilleurs marchés locaux. Des Halles de Menton au vendredi a Ventimiglia, du jeudi à Bordighera et des marchés matinaux de Nice et Monaco, ce guide vous aide à choisir le bon marché selon le jour, le budget et l'humeur.",
+        "Non serve un itinerario completo di city-hopping per scoprire i migliori mercati locali della Costa Azzurra. Dalle Halles de Mentone al venerdi a Ventimiglia, dal giovedi a Bordighera e dai mercati mattutini di Nizza e Monaco, questa guida ti aiuta a scegliere il mercato giusto per giorno, budget e umore.",
+        "Щоб відчути найкращі локальні ринки Лазурного берега, не потрібен маршрут з усіх міст. Від Les Halles у Ментоні до п’ятниці у Вінтимільї, четверга в Борджігері та головних ранкових ринків Ніцці й Монако — цей гайд допоможе обрати правильний ринок за днем, бюджетом і настроєм."
+      ),
       category: "food-markets",
       tags: [
-        t("TODO primary tag", "TODO FR", "TODO IT", "TODO UK"),
-        t("TODO secondary tag", "TODO FR", "TODO IT", "TODO UK")
+        t("Markets", "Marchés", "Mercati", "Ринки"),
+        t("Local food", "Cuisine locale", "Cibo locale", "Локальна їжа")
       ],
       bestFor: [
         guideBestForOptions[0].label,
-        guideBestForOptions[3].label
+        guideBestForOptions[3].label,
       ],
-      duration: "1-2 hours",
+      duration: "half-day",
       locationTags: ["menton-centre"],
       coverImage: "/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
-      coverImageAlt: t("Illustration for Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
+      coverImageAlt: t(
+        "Market stalls and produce near Menton and nearby Riviera towns",
+        "Tentes de marchés et produits frais à Menton et dans les villes voisines de la Riviera",
+        "Banchi del mercato e prodotti freschi vicino a Mentone e nelle cittadine della Riviera",
+        "Ринкові ятки й свіжі продукти біля Ментона та сусідніх міст Лазурного берега"
+      ),
       visualTheme: "food",
       visualStatus: "project_illustration",
       publishedOn: "2026-08-16",
@@ -10783,231 +10808,230 @@ export const guideArticles: GuideArticle[] = [
         "marche-de-la-condamine-monaco"
       ],
       relatedArticles: [
-        "ramen-near-menton",
+        "cheap-eats-menton-budget-lunch",
         "best-pastries-desserts-cakes-menton",
         "best-seafood-restaurants-menton",
-        "ukrainian-slavic-restaurants-menton-nice-monaco",
-        "cheap-eats-menton-budget-lunch",
+        "best-ice-cream-menton",
         "best-bakeries-in-menton",
-        "best-ice-cream-menton"
+        "ramen-near-menton",
+        "local-food-menton",
       ],
-      relatedApartments: [],
+      relatedApartments: allApartments,
       sections: [
         {
-          heading: t("Market days at a glance", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Choose by weekday and travel tempo",
+            "Choisir selon le jour de la semaine et le rythme",
+            "Scegliere per giorno della settimana e ritmo",
+            "Оберіть за днем тижня та ритмом подорожі"
+          ),
+          image: "/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+          imageAlt: t(
+            "Markets map around Menton",
+            "Carte des marchés autour de Menton",
+            "Mappa dei mercati intorno a Mentone",
+            "Карта ринків навколо Ментона"
+          ),
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t(
+              "This guide works best as a practical route planner, not as a complete shopping diary. Pick one weekday profile and one transport window, then keep either one near-market stop or one balanced round trip.",
+              "Ce guide fonctionne mieux comme un plan de parcours pratique que comme un journal de shopping complet. Choisissez un profil de journée et une fenêtre de transport, puis limitez-vous à un seul marché proche ou à un aller-retour raisonnable.",
+              "Questa guida funziona meglio come planner pratico che come diario completo. Scegli un giorno della settimana e una fascia di trasporto, poi prendi un solo mercato vicino o un viaggio di andata e ritorno equilibrato.",
+              "Цей гід краще використовувати як практичний план маршруту, а не як повний список покупок. Оберіть день і вікно транспорту, потім плануйте або один локальний ринок, або один збалансований тур."
+            ),
+            t(
+              "For most stays in Menton, the cleanest pattern is: Menton base market + one optional city market (Nice or Monaco) if you already use transport that day.",
+              "Pour la plupart des séjours à Menton, le schéma le plus simple est : le marché de base à Menton + un marché secondaire (Nice ou Monaco) si le transport est déjà prévu.",
+              "Per la maggior parte dei soggiorni a Mentone, lo schema più semplice è: mercato base a Mentone + un secondo mercato (Nizza o Monaco) se il trasporto è già previsto quel giorno.",
+              "Для більшості перебувань у Ментоні найзручніше: ринок у Ментоні + ще один ринок (Ніцца або Монако), якщо транспорт на цей день уже в плані."
+            ),
+          ],
+          relatedPlaceIds: ["menton-station", "nice-ville-station", "monaco-monte-carlo-station"],
         },
         {
-          heading: t("Menton: Les Halles", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Menton base: Les Halles",
+            "Base Menton : Les Halles",
+            "Base Mentone: Les Halles",
+            "База в Ментоні: Les Halles"
+          ),
+          image: "/images/guide/halles-du-marche-place.jpg",
+          imageAlt: t(
+            "Fresh market rows in Les Halles Menton",
+            "Rues de marché animées aux Halles de Menton",
+            "File di stand nei mercati delle Halles di Mentone",
+            "Ряди свіжих продуктів на Les Halles в Ментоні"
+          ),
+          visualTheme: "food",
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t("Start here if your apartment is in Menton old town or nearby: short walks, clear structure, and a strong chance of fish, cheese, bread, vegetables and quick breakfast essentials.",
+              "Commencez ici si votre logement est dans le centre historique de Menton ou à proximité : marche courte, structure simple, et bonne chance de poissons, fromages, pain, légumes et produits pour le petit-déjeuner.",
+              "Inizia qui se il tuo alloggio è nel centro storico di Mentone o nei dintorni: camminata breve, struttura semplice e buona probabilità di pesce, formaggi, pane, verdure ed essenziali per colazione.",
+              "Почніть тут, якщо ви проживаєте у центрі або поруч: коротка прогулянка, простіше планування і найкращі шанси взяти рибу, сир, хліб, овочі та базові страви."
+            ),
+            t("Open the same place before 11:00 when stand variety is highest. After that, browsing is calmer and often better for quality-focused picking.",
+              "Passez avant 11h00 quand la variété des stands est plus large. Ensuite l'ambiance ralentit, ce qui est parfois mieux pour choisir avec précision.",
+              "Fai la visita prima delle 11:00, quando la varietà degli stand è maggiore. Dopo, il ritmo cala ed è spesso più comodo scegliere con calma.",
+              "Зайдіть до 11:00, коли асортимент найбільший. Після цього ринок стає спокійнішим, що добре для свідомого підходу до вибору."
+            ),
+          ],
+          relatedPlaceIds: ["halles-du-marche"],
         },
         {
-          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Ventimiglia: Friday family-friendly practical window",
+            "Ventimiglia : rythme du vendredi, adapté à la famille",
+            "Ventimiglia: venerdì con approccio pratico per la famiglia",
+            "Вінтимілья: п’ятниця з практичним сімейним акцентом"
+          ),
+          image: "/images/guide/ventimiglia.jpg",
+          imageAlt: t(
+            "Ventimiglia market streets",
+            "Rues du marché de Ventimiglia",
+            "Strade del mercato di Ventimiglia",
+            "Вулиці ринків Вінтимільї"
+          ),
+          visualTheme: "food",
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t("This is usually the best option when you need a larger shopping loop: more stalls, more produce variety and easier for packing.",
+              "C'est souvent la meilleure option si vous voulez faire un tour plus large : plus d'étals, plus de variété et une préparation plus flexible pour les sacs.",
+              "È spesso la miglior opzione se vuoi fare una spesa più ampia: piu banchi, piu varietà e preparazione più flessibile dei sacchetti.",
+              "Це зазвичай найкращий вибір, коли потрібна більша закупка: більше ларків, більше різноманіття, зручніше для збірки покупок."
+            ),
+            t("If crossing the border, keep passport and tickets ready and move early for the return window to Menton.",
+              "Si vous franchissez la frontière, gardez passeport et billets prêts et partez tôt pour profiter du créneau de retour.",
+              "Se attraversi il confine, tieni pronti passaporto e biglietti e parti presto per la finestra di ritorno.",
+              "За потреби перетину кордону тримайте документи та квитки під рукою й виїжджайте рано, щоб не губити вікно на повернення."
+            ),
+          ],
+          relatedPlaceIds: ["ventimiglia", "menton-garavan-station"],
         },
         {
-          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Bordighera: Thursday coastal market rhythm",
+            "Bordighera : rythme du jeudi au bord de la côte",
+            "Bordighera: ritmo del giovedì sulla costa",
+            "Борджігера: четверговий ритм біля моря"
+          ),
+          image: "/images/guide/magiarge-bordighera.png",
+          imageAlt: t(
+            "Bordighera market by the coast",
+            "Marché côtier à Bordighera",
+            "Mercato costiero a Bordighera",
+            "Прибережний ринок Борджігери"
+          ),
+          visualTheme: "food",
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t("Thursday is a practical fallback when larger markets are busy: shorter queues, easier transport recovery, and a reliable lunch side trip.",
+              "Le jeudi est une bonne solution de repli : files plus courtes, récupération de transport plus simple et repas de midi facile après.",
+              "Il giovedi è un buon piano B: file piu corte, recupero del trasporto piu semplice e pausa pranzo più pratica dopo la spesa.",
+              "Четвер добре працює як резерв, коли великі ринки перевантажені: коротші черги, легше повернутися і влаштувати обід."
+            ),
+            t(
+              "Use this as a short two-hour block rather than a full-day program if you are already planning a coastal day around Menton.",
+              "Utilisez cette option comme un bloc de deux heures, pas comme un programme toute la journée, si vous avez déjà prévu une journée côtière autour de Menton.",
+              "Usala come blocco di due ore, non come programma giornaliero, se hai già una giornata costiera pianificata intorno a Mentone.",
+              "Використовуйте це як двогодинний блок, а не повний день, якщо ви вже маєте морську/берегову програму біля Ментона."
+            ),
+          ],
+          relatedPlaceIds: ["bordighera"],
         },
         {
-          heading: t("Cash", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Nice + Monaco: two practical route profiles",
+            "Nice et Monaco : deux profils de parcours pratiques",
+            "Nizza e Monaco: due profili pratici",
+            "Ніцца + Монако: два практичні профілі маршруту"
+          ),
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t(
+              "Nice is strongest when the day already includes city walking. Cours Saleya and nearby spots in old town can be covered in one compact stretch with cafés for breaks.",
+              "Nice est la plus logique quand la journée inclut déjà une marche en ville. Cours Saleya et le vieux centre peuvent se faire dans un bloc compact avec cafés pour les pauses.",
+              "Nizza è ideale quando la giornata prevede già una passeggiata cittadina: Cours Saleya e il centro storico possono essere coperti in un percorso compatto con pause nei caffè.",
+              "Ніцца краще бере, якщо в день уже закладена прогулянка центром: Cours Saleya та старе місто вкладаються в компактний маршрут із кавовими перервами."
+            ),
+            t(
+              "Monaco is most convenient as a planned segment: markets + one lunch point + short post-market walk toward the harbour area. Add it only if transport is already part of your day.",
+              "Monaco est le plus pratique comme segment prévu : marché + un endroit pour déjeuner + courte marche après le marché vers le front de mer. Ajoutez-le seulement si le transport est déjà dans votre programme.",
+              "Monaco è piu comodo se inserito come segmento pianificato: mercato + posto per pranzo + breve camminata verso il lungomare. Inseriscilo solo se il trasporto è già previsto.",
+              "Монако доцільніше планувати як окремий сегмент: ринок + ланч + коротка прогулянка до причалу. Додавайте тільки якщо транспорт до Монако і так у плані."
+            ),
+            t(
+              "Choose one of these profiles: Menton + Nice, or Menton + Monaco, then return with a realistic transport buffer.",
+              "Choisissez un de ces profils : Menton + Nice, ou Menton + Monaco, puis prévoyez un tampon de transport réaliste.",
+              "Scegli uno di questi schemi: Mentone + Nizza o Mentone + Monaco, poi tieni un margine di trasporto realistico.",
+              "Обирайте один профіль: Ментон + Ніцца або Ментон + Монако, і закладайте реалістичний буфер на повернення."
+            ),
+          ],
+          relatedPlaceIds: ["cours-saleya-nice", "nice-old-town", "marche-de-la-condamine-monaco", "monaco-monte-carlo", "menton-station", "nice-ville-station", "monaco-monte-carlo-station"],
         },
         {
-          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+          heading: t(
+            "Practice route examples",
+            "Exemples de parcours pratiques",
+            "Esempi di percorsi pratici",
+            "Приклади практичних маршрутів"
+          ),
+          body: [],
+          bullets: [
+            t(
+              "1 market in Menton + optional Nice loop",
+              "1 marché à Menton + boucle optionnelle à Nice",
+              "1 mercato a Mentone + giro opzionale a Nizza",
+              "1 ринок у Ментоні + опційний короткий тур у Ніццу"
+            ),
+            t(
+              "Menton base + Ventimiglia round trip (Friday)",
+              "Base Menton + aller-retour à Ventimiglia (vendredi)",
+              "Base Mentone + andata e ritorno a Ventimiglia (venerdi)",
+              "База в Ментоні + поїздка в Вінтимілью (п’ятниця)"
+            ),
+            t(
+              "Menton + Bordighera short coastal stop (Thursday)",
+              "Menton + arrêt côtier court à Bordighera (jeudi)",
+              "Menton + breve tappa costiera a Bordighera (giovedi)",
+              "Ментон + коротка зупинка в Борджігері (четвер)"
+            ),
+          ],
+          relatedPlaceIds: ["halles-du-marche", "ventimiglia", "bordighera", "cours-saleya-nice", "marche-de-la-condamine-monaco"],
         },
         {
-          heading: t("Ventimiglia: the big Friday market", "TODO FR", "TODO IT", "TODO UK"),
+          heading: t(
+            "Packing and transport checks",
+            "Checklist logistique",
+            "Checklist logistica",
+            "Логістична контролька"
+          ),
           body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Getting there from Menton", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Food versus clothing", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Ventimiglia: Mercato Coperto", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Best combination", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Bordighera: Thursday market", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Getting there", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Nice: Cours Saleya", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Getting there from Menton", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Nice: Marché de la Libération", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Cours Saleya or Libération?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Monaco: Marché de la Condamine", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("What to expect", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Which market should you choose?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Which market is best when it rains?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Cash or card?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Returning to Menton with your shopping", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Can I bring Italian food back into France?", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
-        },
-        {
-          heading: t("Check before leaving", "TODO FR", "TODO IT", "TODO UK"),
-          body: [
-            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
-          ]
+            t(
+              "Keep shopping bags lightweight and split fish from dairy when possible. Small reusable totes plus one larger tote keep baggage simple and avoid carrying too much through train transfers.",
+              "Gardez les sacs légers et, si possible, séparez poisson et produits laitiers. Une petite tote réutilisable plus un sac plus grand simplifient les transitions en train.",
+              "Mantieni le borse leggere e, se possibile, separa pesce e latticini. Una tote riutilizzabile piccola e una piu grande semplificano i cambi in treno.",
+              "Тримайте сумки невеликими, якщо можна, розділяйте рибу і молочку. Невелика багаторазова сумка + одна більша значно спрощує пересадку на поїздах."
+            ),
+            t(
+              "If your day has transport back and forth, check latest service times before leaving the first market, not only opening hours.",
+              "Si votre journée comporte retour et départ, vérifiez les horaires de dernier départ avant de quitter le premier marché, pas seulement les heures d'ouverture.",
+              "Se la giornata prevede andata e ritorno, controlla gli orari di ultima partenza prima di lasciare il primo mercato, non solo gli orari di apertura.",
+              "Якщо день передбачає зворотний транспорт, перевіряйте часи відправлення заздалегідь, а не лише години відкриття."
+            ),
+          ],
+          guideLinkSlug: "menton-without-a-car",
+          guideLinkLabel: t(
+            "Plan without a car from Menton",
+            "Préparer sans voiture depuis Menton",
+            "Pianificare senza auto da Mentone",
+            "План без авто з Ментона"
+          ),
+          relatedPlaceIds: ["menton-station", "nice-ville-station", "monaco-monte-carlo-station"],
         }
       ],
       practicalTips: [
-        t("TODO: add one to three practical tips from the draft.", "TODO FR", "TODO IT", "TODO UK")
+        t("Carry a reusable tote and split heavy food bags; return on the earliest comfortable train with time buffer.", "Emportez un sac reutlisable et partagez les charges lourdes; revenez avec le premier train confortable possible avec marges.", "Porta un contenitore riutilizzabile e dividi le borse pesanti; torna con il primo treno confortevole con margine.", "Візьміть багаторазову торбу і розділіть важкі покупки; поверніться найближчим комфортним потягом з буфером часу."),
+        t("If crossing the border, keep tickets and documents ready to avoid delays.", "Si vous traversez la frontiere, gardez billets et papiers prêts pour éviter les ralentissements.", "Se attraversi la frontiera, tieni a portata di mano biglietti e documenti per evitare ritardi.", "За перетин кордону тримайте під рукою квитки та документи, щоб уникнути затримок."),
+        t("Start from Menton if you are staying there: local planning is usually shorter and easier to adjust.", "Commencez depuis Menton si vous y logez: la planification locale est presque toujours plus courte et flexible.", "Inizia da Mentone se ci soggiorni: la pianificazione locale e quasi sempre piu corta e facile da adattare.", "Якщо ви перебуваєте в Ментоні, починайте звідси: локальне планування зазвичай коротше й гнучкіше."),
       ],
-    })
+    }),
 ];
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
