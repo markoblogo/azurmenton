@@ -10803,8 +10803,10 @@ export const guideArticles: GuideArticle[] = [
       relatedPlaces: [
         "halles-du-marche",
         "ventimiglia",
+        "mercato-coperto-ventimiglia",
         "bordighera",
         "cours-saleya-nice",
+        "cours-saleya-antiques",
         "marche-de-la-condamine-monaco"
       ],
       relatedArticles: [
@@ -10850,6 +10852,39 @@ export const guideArticles: GuideArticle[] = [
         },
         {
           heading: t(
+            "Markets at a glance",
+            "Les marchés en bref",
+            "I mercati in una riga",
+            "Ринки в одному погляді"
+          ),
+          image: "/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+          imageAlt: t(
+            "Market summary for Menton region",
+            "Résumé des marchés autour de Menton",
+            "Riepilogo rapido dei mercati intorno a Mentone",
+            "Короткий огляд ринків навколо Ментона"
+          ),
+          visualTheme: "food",
+          body: [
+            t(
+              "Use this quick overview to match your rhythm for the day and travel constraints.",
+              "Utilisez ce bref aperçu pour aligner votre journée avec votre rythme et vos contraintes de déplacement.",
+              "Usa questo riepilogo veloce per adattare la giornata a ritmo personale e limiti di trasporto.",
+              "Короткий довідник, щоб зв’язати ритм дня з реальними обмеженнями транспорту."
+            ),
+          ],
+          bullets: [
+            t("Les Halles de Menton — daily morning market (strongly practical local anchor).", "Les Halles de Menton — marché du matin quotidien (ancrage local très pratique).", "Le Halles de Mentone — mercato mattutino giornaliero (ponte pratico locale).", "Les Halles у Ментоні — щоденний ранковий ринок як надійна базова зупинка."),
+            t("Ventimiglia Friday Market — large Friday market and practical cross-border day base.", "Marché du vendredi à Vintimille — grand choix le vendredi, bon point pour une journée transfrontalière.", "Mercato del venerdì di Ventimiglia — ampia offerta il venerdì, utile per una giornata oltre confine.", "Вінтимілья, п’ятниця — широкий вибір і практична база для трансграничної поїздки."),
+            t("Mercato Coperto Ventimiglia — Mon–Sat mornings; useful indoor alternative for weather resilience.", "Mercato Coperto de Vintimille — du lundi au samedi matin ; alternative couverte utile selon la météo.", "Mercato Coperto Ventimiglia — dal lunedì al sabato al mattino; alternativa coperta utile con condizioni meteo variabili.", "Mercato Coperto Вінтимільї — пн–сб зранку; зручна закрита альтернатива для дощової/спекотної погоди."),
+            t("Bordighera Market — Thursday mornings; simple coastal stop with lower peak crowd.", "Marché de Bordighera — jeudi matin ; arrêt côtier simple avec moins d’affluence de pointe.", "Mercato di Bordighera — giovedì mattina; sosta costiera semplice con meno folla in alta.", "Борджігерра, четвер — спокійна прибережна зупинка без пікових натовпів."),
+            t("Cours Saleya, Nice — Tue–Sun mornings for food, flowers, and atmosphere.", "Cours Saleya, Nice — du mardi au dimanche matin pour alimentation, fleurs et ambiance locale.", "Cours Saleya, Nizza — da martedì a domenica mattina per cibo, fiori e atmosfera cittadina.", "Cours Saleya, Ніцца — вт–нд вранці, для їжі, квітів і міської атмосфери."),
+            t("Cours Saleya antiques — Monday market for antiques and vintage.", "Cours Saleya antiques — lundi, antiquités et objets vintage.", "Cours Saleya antiques — lunedì per antiquariato e oggetti vintage.", "Cours Saleya antiques — понеділок, антикваріат і вінтаж."),
+            t("Marché de la Condamine, Monaco — daily, strongest for local food and quick lunch rhythm.", "Marché de la Condamine à Monaco — quotidien, fort en produits locaux et pauses déjeuner faciles.", "Marché de la Condamine a Monaco — giornaliero, forte per cibo locale e pausa pranzo veloce.", "Marché de la Condamine у Монако — щоденно, сильний на локальні продукти та швидкий ланч."),
+          ],
+        },
+        {
+          heading: t(
             "Menton base: Les Halles",
             "Base Menton : Les Halles",
             "Base Mentone: Les Halles",
@@ -10879,10 +10914,10 @@ export const guideArticles: GuideArticle[] = [
         },
         {
           heading: t(
-            "Ventimiglia: Friday family-friendly practical window",
-            "Ventimiglia : rythme du vendredi, adapté à la famille",
-            "Ventimiglia: venerdì con approccio pratico per la famiglia",
-            "Вінтимілья: п’ятниця з практичним сімейним акцентом"
+            "Ventimiglia Friday market",
+            "Le marché du vendredi à Vintimille",
+            "Mercato del venerdì a Vintimiglia",
+            "Вінтимілья, п’ятниця"
           ),
           image: "/images/guide/ventimiglia.jpg",
           imageAlt: t(
@@ -10898,6 +10933,11 @@ export const guideArticles: GuideArticle[] = [
               "È spesso la miglior opzione se vuoi fare una spesa più ampia: piu banchi, piu varietà e preparazione più flessibile dei sacchetti.",
               "Це зазвичай найкращий вибір, коли потрібна більша закупка: більше ларків, більше різноманіття, зручніше для збірки покупок."
             ),
+            t("Best profile: families with more time, guests packing for several days, or people who want a strong food stop in one place.",
+              "Profil le plus adapté : familles avec plus de temps, voyageurs qui font des courses longues, ou ceux qui veulent un bon arrêt alimentaire en un seul point.",
+              "Profilo piu adatto: famiglie con tempo, viaggiatori con più giorni di spesa o chi vuole un forte punto food in una sola tappa.",
+              "Найкращий профіль: сім’ї з часом, гості, які роблять запас на кілька днів, або хто хоче зручний один великий зупинковий ринок."
+            ),
             t("If crossing the border, keep passport and tickets ready and move early for the return window to Menton.",
               "Si vous franchissez la frontière, gardez passeport et billets prêts et partez tôt pour profiter du créneau de retour.",
               "Se attraversi il confine, tieni pronti passaporto e biglietti e parti presto per la finestra di ritorno.",
@@ -10905,6 +10945,35 @@ export const guideArticles: GuideArticle[] = [
             ),
           ],
           relatedPlaceIds: ["ventimiglia", "menton-garavan-station"],
+        },
+        {
+          heading: t(
+            "Ventimiglia covered option: Mercato Coperto",
+            "Option couverte : Mercato Coperto",
+            "Opzione coperta: Mercato Coperto",
+            "Закрита альтернатива: Mercato Coperto"
+          ),
+          image: "/images/guide/ventimiglia.jpg",
+          imageAlt: t(
+            "Mercato Coperto in Ventimiglia",
+            "Mercato coperto de Vintimille",
+            "Mercato Coperto a Vintimiglia",
+            "Закритий ринок Mercato Coperto у Вінтимільї"
+          ),
+          visualTheme: "food",
+          body: [
+            t("Use this when weather is unstable or you want a shorter, tighter market pass through Ventimiglia.",
+              "Utilisez-le quand la météo est instable ou si vous voulez un passage plus court et plus compact à Vintimille.",
+              "Usalo quando il tempo cambia o vuoi un passaggio più breve e concentrato a Vintimiglia.",
+              "Використовуйте цю опцію, якщо погода мінлива або вам потрібен короткий, компактний візит у Вінтимілью."
+            ),
+            t("Mon–Sat mornings are the strongest window; Saturdays are often busier with cross-border shoppers.",
+              "Le lundi au samedi matin est la fenêtre la plus pratique ; le samedi est souvent plus chargé avec les voyageurs transfrontaliers.",
+              "Da lunedì a sabato mattina la finestra più utile; il sabato è spesso più affollato per i viaggiatori transfrontalieri.",
+              "Найкращий час — понеділок–субота вранці; субота часто більш натовпна через прикордонні потоки."
+            ),
+          ],
+          relatedPlaceIds: ["mercato-coperto-ventimiglia", "ventimiglia"],
         },
         {
           heading: t(
@@ -10962,8 +11031,43 @@ export const guideArticles: GuideArticle[] = [
               "Scegli uno di questi schemi: Mentone + Nizza o Mentone + Monaco, poi tieni un margine di trasporto realistico.",
               "Обирайте один профіль: Ментон + Ніцца або Ментон + Монако, і закладайте реалістичний буфер на повернення."
             ),
+            t(
+              "For collectors and design lovers, use the Cours Saleya antiques timing instead of the normal food-heavy Sunday/Monday flow.",
+              "Pour les collectionneurs, utilisez le créneau Cours Saleya antiques plutôt que le flux alimentaire habituel.",
+              "Per i collezionisti, usa il timing di Cours Saleya antiques invece del flusso alimentare più comune.",
+              "Для колекціонерів краще брати слот Cours Saleya antiques, а не загальний потік food-ринків."
+            ),
           ],
           relatedPlaceIds: ["cours-saleya-nice", "nice-old-town", "marche-de-la-condamine-monaco", "monaco-monte-carlo", "menton-station", "nice-ville-station", "monaco-monte-carlo-station"],
+        },
+        {
+          heading: t(
+            "Nice antiques market: Cours Saleya antiques",
+            "Marché d'antiquités à Cours Saleya",
+            "Antiquariato a Cours Saleya",
+            "Антикварний сегмент Cours Saleya"
+          ),
+          image: "/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+          imageAlt: t(
+            "Antique and design stalls on Cours Saleya",
+            "Bancs d'antiquités et design à Cours Saleya",
+            "Banchi d'antiquariato e design a Cours Saleya",
+            "Лотки антикваріату та дизайну на Cours Saleya"
+          ),
+          visualTheme: "food",
+          body: [
+            t("This is the dedicated Monday window if you came for souvenirs, vintage objects, posters, ceramics, or small decor pieces.",
+              "Ceci est le créneau dédié du lundi si vous cherchez souvenirs, objets vintage, affiches, céramiques ou déco.",
+              "Questo è il momento dedicato del lunedì se cerchi souvenir, vintage, poster, ceramiche o piccoli pezzi di decò.",
+              "Це цільовий понеділковий слот, якщо вам потрібні сувеніри, vintage-товари, плакати, кераміка або маленькі предмети декору."
+            ),
+            t("It pairs well with a short Nice old-town walk; add it only if you have a clear morning or late-morning time window.",
+              "Il complète bien une courte marche dans la vieille ville ; intégrez-le seulement si vous avez une fenêtre matinale claire.",
+              "Si sposa bene a una breve passeggiata nel centro storico; inserirlo solo se hai una buona finestra al mattino.",
+              "Добре комбінується з короткою прогулянкою центром Ніцци; додавати в план варто за наявності зрозумілого вікна зранку."
+            ),
+          ],
+          relatedPlaceIds: ["cours-saleya-antiques", "cours-saleya-nice", "nice-old-town"],
         },
         {
           heading: t(
@@ -10991,6 +11095,30 @@ export const guideArticles: GuideArticle[] = [
               "Menton + arrêt côtier court à Bordighera (jeudi)",
               "Menton + breve tappa costiera a Bordighera (giovedi)",
               "Ментон + коротка зупинка в Борджігері (четвер)"
+            ),
+            t(
+              "Menton base + Mercato Coperto Ventimiglia (Mon–Sat morning weather-safe plan)",
+              "Base Menton + Mercato Coperto de Vintimille (plan météo sûr du lun-sam)",
+              "Base Mentone + Mercato Coperto (piano coperto lun-sab)",
+              "База в Ментоні + Mercato Coperto (закритий план понеділок–субота)"
+            ),
+            t(
+              "Menton + Cours Saleya antique browse (Monday) + Nice old town",
+              "Menton + détour aux antiquités de Cours Saleya (lundi) + vieille ville",
+              "Menton + passaggio ai negozi d'antiquariato di Cours Saleya (lunedì) + centro storico",
+              "Ментон + антикварний сегмент Cours Saleya (понеділок) + старе місто"
+            ),
+            t(
+              "Menton + Cours Saleya (Tue–Sun) + optional Monaco lunch rhythm",
+              "Menton + Cours Saleya (mar-dim) + pause déjeuner au Monaco si prévu",
+              "Menton + Cours Saleya (mar-domenica) + pausa pranzo a Monaco se già previsto",
+              "Ментон + Cours Saleya (вівторок–неділя) + за бажанням обід у Монако"
+            ),
+            t(
+              "Menton + Monaco Condamine for a full-day family loop",
+              "Menton + Condamine à Monaco pour une journée famille équilibrée",
+              "Menton + Condamine a Monaco per un loop familiare completo",
+              "Ментон + Condamine (Монако) для повного сімейного дня"
             ),
           ],
           relatedPlaceIds: ["halles-du-marche", "ventimiglia", "bordighera", "cours-saleya-nice", "marche-de-la-condamine-monaco"],
