@@ -322,6 +322,7 @@ const rawPlaces: Place[] = [
     ],
     guideCoverageSlugs: [
       "best-markets-near-menton-market-days-in-france-and-italy",
+      "cheap-eats-menton-budget-lunch",
     ],
   },
   {
@@ -4015,6 +4016,7 @@ const rawPlaces: Place[] = [
     ],
     guideCoverageSlugs: [
       "best-markets-near-menton-market-days-in-france-and-italy",
+      "cheap-eats-menton-budget-lunch",
     ],
   },
   {

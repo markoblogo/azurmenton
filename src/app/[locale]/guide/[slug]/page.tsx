@@ -91,6 +91,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedGuideSlugForPlace = (placeId: string, candidateSlugs: string[]) => (
     candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId)) ?? null
   );
+  const isMarketsGuide = article.slug === "best-markets-near-menton-market-days-in-france-and-italy";
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const apartmentScenario = guideApartmentScenarios[article.slug];
   const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
@@ -175,15 +176,15 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                     <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{section.heading}</h2>
                     {section.image ? (
-                      <GuideVisual
-                        image={section.image}
-                        imageAlt={section.imageAlt}
-                        locale={locale}
-                        theme={section.visualTheme ?? localized.visualTheme ?? "sea"}
-                        label={section.heading}
-                        className="mt-5 aspect-[4/1.55]"
-                        expandable
-                      />
+                    <GuideVisual
+                      image={section.image}
+                      imageAlt={section.imageAlt}
+                      locale={locale}
+                      theme={section.visualTheme ?? localized.visualTheme ?? "sea"}
+                      label={section.heading}
+                      className={isMarketsGuide ? "mt-5 aspect-[4/1.9]" : "mt-5 aspect-[4/1.55]"}
+                      expandable
+                    />
                     ) : null}
                     <div className="mt-4 space-y-3 text-base leading-8 text-[#5c5044]">
                       {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -233,8 +234,21 @@ export default async function GuideArticlePage({ params }: PageProps) {
                       </div>
                     ) : null}
                     {sectionPlaces.length ? (
-                      <div className="mt-5 grid gap-3 md:grid-cols-2">
-                        {sectionPlaces.map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} compact />)}
+                      <div
+                        className={`mt-5 grid items-stretch gap-4 ${
+                          isMarketsGuide ? "md:grid-cols-2" : "gap-3 md:grid-cols-2"
+                        }`}
+                      >
+                        {sectionPlaces.map((place) => (
+                          <PlaceCard
+                            key={place.id}
+                            place={place}
+                            locale={locale}
+                            currentGuideId={article.id}
+                            relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)}
+                            compact={article.slug !== "best-markets-near-menton-market-days-in-france-and-italy"}
+                          />
+                        ))}
                       </div>
                     ) : null}
                     </section>

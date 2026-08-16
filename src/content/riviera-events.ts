@@ -1061,7 +1061,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "verified",
     sourceUrl: "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival",
-    featured: true,
+    featured: false,
     detailPage: true,
     relatedGuideSlugs: ["day-trips-from-menton", "public-transport-in-menton", "where-to-stay-in-menton", "menton-without-a-car"],
     relatedApartmentKeys: relatedAll,
