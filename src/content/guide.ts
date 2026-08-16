@@ -10751,6 +10751,263 @@ export const guideArticles: GuideArticle[] = [
       t("Check the collection deadline as carefully as the drop-off time.", "Vérifiez l'heure limite de reprise aussi attentivement que l'heure de dépôt.", "Controlla l'orario limite di ritiro con la stessa attenzione dell'orario di deposito.", "Перевіряйте дедлайн отримання так само уважно, як і час здачі."),
     ],
   }),
+  shortArticle({
+      id: "best-markets-near-menton-market-days-in-france-and-italy",
+      slug: "best-markets-near-menton-market-days-in-france-and-italy",
+      title: t("Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
+      seoTitle: t("Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
+      seoDescription: t("One of the advantages of staying in Menton is that several very different Riviera markets are within an easy train ride.", "TODO FR", "TODO IT", "TODO UK"),
+      excerpt: t("One of the advantages of staying in Menton is that several very different Riviera markets are within an easy train ride. You can buy fish and vegetables five minutes from Menton’s old town in the morning, cross into Italy for one of the region’s biggest street markets on Friday, browse Bordighera’s seafront stalls on Thursday, or turn a market visit into a half-day in Nice or Monaco.", "TODO FR", "TODO IT", "TODO UK"),
+      category: "food-markets",
+      tags: [
+        t("TODO primary tag", "TODO FR", "TODO IT", "TODO UK"),
+        t("TODO secondary tag", "TODO FR", "TODO IT", "TODO UK")
+      ],
+      bestFor: [
+        guideBestForOptions[0].label,
+        guideBestForOptions[3].label
+      ],
+      duration: "1-2 hours",
+      locationTags: ["menton-centre"],
+      coverImage: "/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+      coverImageAlt: t("Illustration for Best markets near Menton: market days in France and Italy", "TODO FR", "TODO IT", "TODO UK"),
+      visualTheme: "food",
+      visualStatus: "project_illustration",
+      publishedOn: "2026-08-16",
+      sourceStatus: "needs_verification",
+      relatedPlaces: [
+        "halles-du-marche",
+        "ventimiglia",
+        "bordighera",
+        "cours-saleya-nice",
+        "marche-de-la-condamine-monaco"
+      ],
+      relatedArticles: [
+        "ramen-near-menton",
+        "best-pastries-desserts-cakes-menton",
+        "best-seafood-restaurants-menton",
+        "ukrainian-slavic-restaurants-menton-nice-monaco",
+        "cheap-eats-menton-budget-lunch",
+        "best-bakeries-in-menton",
+        "best-ice-cream-menton"
+      ],
+      relatedApartments: [],
+      sections: [
+        {
+          heading: t("Market days at a glance", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Menton: Les Halles", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Cash", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Ventimiglia: the big Friday market", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Getting there from Menton", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Food versus clothing", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Ventimiglia: Mercato Coperto", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Best combination", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Bordighera: Thursday market", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Getting there", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Nice: Cours Saleya", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Getting there from Menton", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Nice: Marché de la Libération", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Best for", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Cours Saleya or Libération?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Monaco: Marché de la Condamine", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("What to expect", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("How much time?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("AzurMenton tip", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Which market should you choose?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Which market is best when it rains?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Cash or card?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Returning to Menton with your shopping", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Can I bring Italian food back into France?", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        },
+        {
+          heading: t("Check before leaving", "TODO FR", "TODO IT", "TODO UK"),
+          body: [
+            t("TODO: add localized section body from the draft.", "TODO FR", "TODO IT", "TODO UK")
+          ]
+        }
+      ],
+      practicalTips: [
+        t("TODO: add one to three practical tips from the draft.", "TODO FR", "TODO IT", "TODO UK")
+      ],
+    })
 ];
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
