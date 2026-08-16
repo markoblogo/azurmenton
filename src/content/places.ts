@@ -10193,6 +10193,26 @@ const placeVisuals: Record<string, Pick<Place, "image" | "images" | "imageAlt" |
     imageAlt: text("Illustration of Cours Saleya Market in Nice", "Illustration du marche du Cours Saleya a Nice", "Illustrazione del mercato di Cours Saleya a Nizza", "Ілюстрація ринку Cours Saleya у Ніцці"),
     visualTheme: "market",
   },
+  "cours-saleya-antiques": {
+    image: "/images/guide/cours-saleya-antiques.png",
+    imageAlt: text(
+      "Illustration of Cours Saleya antiques in Nice",
+      "Illustration des antiquites du Cours Saleya a Nice",
+      "Illustrazione degli oggetti antichi di Cours Saleya a Nizza",
+      "Ілюстрація антикварного сектора Cours Saleya у Ніцці",
+    ),
+    visualTheme: "market",
+  },
+  "mercato-coperto-ventimiglia": {
+    image: "/images/guide/mercato-coperto-ventimiglia.png",
+    imageAlt: text(
+      "Illustration of Mercato Coperto Ventimiglia",
+      "Illustration du Mercato Coperto de Vintimille",
+      "Illustrazione del Mercato Coperto di Vintimiglia",
+      "Ілюстрація Mercato Coperto у Вентімільї",
+    ),
+    visualTheme: "market",
+  },
   "villefranche-sur-mer": {
     image: "/images/guide/villefranche-sur-mer.jpg",
     imageAlt: text("Illustration of Villefranche-sur-Mer", "Illustration de Villefranche-sur-Mer", "Illustrazione di Villefranche-sur-Mer", "Ілюстрація Villefranche-sur-Mer"),
