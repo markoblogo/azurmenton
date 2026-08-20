@@ -55,6 +55,22 @@ describe("validateBookingRequest", () => {
     });
   });
 
+  it("requires a parking choice when the apartment can have parking", () => {
+    expect(validateBookingRequest(validPayload({ parking: "" }))).toMatchObject({
+      ok: false,
+      error: "Please choose a valid parking option.",
+    });
+  });
+
+  it("accepts panoramic studio requests without a parking field", () => {
+    expect(
+      validateBookingRequest(validPayload({ apartment: "panoramic-sea-view-studio", parking: "" })),
+    ).toMatchObject({
+      ok: true,
+      payload: expect.objectContaining({ parking: "no" }),
+    });
+  });
+
   it("accepts event intent and date flexibility categories", () => {
     expect(
       validateBookingRequest(
