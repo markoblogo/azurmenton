@@ -28,7 +28,6 @@ const requiredFields: Array<keyof BookingRequestPayload> = [
   "checkOut",
   "adults",
   "children",
-  "parking",
   "preferredLanguage",
   "name",
   "privacyAcknowledgement",
@@ -39,6 +38,10 @@ const validApartments = new Set([
   "beachside-family-apartment",
   "panoramic-sea-view-studio",
   "not-sure",
+]);
+
+const apartmentsWithoutParking = new Set([
+  "panoramic-sea-view-studio",
 ]);
 
 const validParking = new Set(["yes", "no", "not-sure"]);
@@ -57,6 +60,18 @@ const validDateFlexibility = new Set(["fixed", "one-two-days", "same-week", "fle
 const validLanguages = new Set(["en", "fr", "it", "uk"]);
 const honeypotFields = ["website", "company", "url", "homepage"];
 
+export function apartmentSupportsParking(apartment: string) {
+  return !apartmentsWithoutParking.has(apartment);
+}
+
+function normalizeParking(apartment: string, parking: string) {
+  if (!apartmentSupportsParking(apartment)) {
+    return "no";
+  }
+
+  return parking;
+}
+
 export function isHoneypotTriggeredFromFormData(formData: FormData) {
   return honeypotFields.some((field) => String(formData.get(field) ?? "").trim().length > 0);
 }
@@ -72,13 +87,15 @@ export function isHoneypotTriggeredFromUnknown(input: unknown) {
 }
 
 export function formDataToBookingPayload(formData: FormData): BookingRequestPayload {
+  const apartment = String(formData.get("apartment") ?? "").trim();
+
   return {
-    apartment: String(formData.get("apartment") ?? "").trim(),
+    apartment,
     checkIn: String(formData.get("checkIn") ?? "").trim(),
     checkOut: String(formData.get("checkOut") ?? "").trim(),
     adults: String(formData.get("adults") ?? "").trim(),
     children: String(formData.get("children") ?? "").trim(),
-    parking: String(formData.get("parking") ?? "").trim(),
+    parking: normalizeParking(apartment, String(formData.get("parking") ?? "").trim()),
     visitingForEvent: String(formData.get("visitingForEvent") ?? "not-sure").trim() || "not-sure",
     dateFlexibility: String(formData.get("dateFlexibility") ?? "fixed").trim() || "fixed",
     preferredLanguage: String(formData.get("preferredLanguage") ?? "").trim(),
@@ -97,14 +114,15 @@ export function unknownToBookingPayload(input: unknown): BookingRequestPayload |
   }
 
   const record = input as Record<string, unknown>;
+  const apartment = String(record.apartment ?? "").trim();
 
   return {
-    apartment: String(record.apartment ?? "").trim(),
+    apartment,
     checkIn: String(record.checkIn ?? "").trim(),
     checkOut: String(record.checkOut ?? "").trim(),
     adults: String(record.adults ?? "").trim(),
     children: String(record.children ?? "").trim(),
-    parking: String(record.parking ?? "").trim(),
+    parking: normalizeParking(apartment, String(record.parking ?? "").trim()),
     visitingForEvent: String(record.visitingForEvent ?? "not-sure").trim() || "not-sure",
     dateFlexibility: String(record.dateFlexibility ?? "fixed").trim() || "fixed",
     preferredLanguage: String(record.preferredLanguage ?? "").trim(),
@@ -167,7 +185,13 @@ export function validateBookingRequest(payload: BookingRequestPayload): BookingR
     return { ok: false, error: "Please choose a valid apartment option." };
   }
 
-  if (!validParking.has(payload.parking)) {
+  const normalizedParking = normalizeParking(payload.apartment, payload.parking);
+
+  if (apartmentSupportsParking(payload.apartment) && !normalizedParking) {
+    return { ok: false, error: "Please choose a valid parking option." };
+  }
+
+  if (!validParking.has(normalizedParking)) {
     return { ok: false, error: "Please choose a valid parking option." };
   }
 
@@ -228,7 +252,13 @@ export function validateBookingRequest(payload: BookingRequestPayload): BookingR
     };
   }
 
-  return { ok: true, payload };
+  return {
+    ok: true,
+    payload: {
+      ...payload,
+      parking: normalizedParking,
+    },
+  };
 }
 
 export function createBookingRequestLog(payload: BookingRequestPayload) {
@@ -242,7 +272,7 @@ export function createBookingRequestLog(payload: BookingRequestPayload) {
       checkOut: payload.checkOut,
       adults: payload.adults,
       children: payload.children,
-      parking: payload.parking,
+      parking: normalizeParking(payload.apartment, payload.parking),
       visitingForEvent: payload.visitingForEvent,
       dateFlexibility: payload.dateFlexibility,
       preferredLanguage: payload.preferredLanguage,
