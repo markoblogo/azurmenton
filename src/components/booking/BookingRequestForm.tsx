@@ -3,10 +3,11 @@
 import Link from "next/link";
 import type { Route } from "next";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useActionState, useCallback, useEffect, useMemo, useRef } from "react";
+import { useActionState, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { submitBookingRequest, type BookingRequestState } from "@/app/actions/booking-request";
 import type { DateInterval } from "@/lib/availability/types";
 import { buildAvailabilityPrefillHref, clearAvailabilityPrefillParams, getAvailabilityPrefillFromSearchParams } from "@/lib/availability/prefill";
+import { apartmentSupportsParking } from "@/lib/booking-request";
 import { advanceBookingNoticeCopy } from "@/components/content/AdvanceBookingNotice";
 import { Button } from "@/components/ui/Button";
 import type { Apartment } from "@/content/apartments";
@@ -274,6 +275,8 @@ export function BookingRequestForm({
   const overrideRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const prefill = useMemo(() => getAvailabilityPrefillFromSearchParams(searchParams), [searchParams]);
+  const [selectedApartmentSlug, setSelectedApartmentSlug] = useState(prefill?.apartment ?? "");
+  const selectedApartmentHasParking = apartmentSupportsParking(selectedApartmentSlug || "not-sure");
 
   const bookingFunnelProps = useCallback((): BookingFunnelProps => {
     const form = formRef.current;
@@ -341,6 +344,7 @@ export function BookingRequestForm({
 
     if (apartmentField instanceof HTMLSelectElement) {
       apartmentField.value = prefill.apartment ?? "";
+      setSelectedApartmentSlug(prefill.apartment ?? "");
     }
 
     if (prefill.checkIn && checkInField instanceof HTMLInputElement) {
@@ -409,7 +413,7 @@ export function BookingRequestForm({
         <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.stayDetails}</legend>
         <label className="grid gap-2 text-base font-semibold text-[#17313a]">
           {labels.apartment}
-          <select className="field" name="apartment" defaultValue="" required>
+          <select className="field" name="apartment" defaultValue="" required onChange={(event) => setSelectedApartmentSlug(event.target.value)}>
             <option value="" disabled>
               {labels.selectApartment}
             </option>
@@ -452,16 +456,20 @@ export function BookingRequestForm({
 
       <fieldset className="grid gap-4 border-t border-[#dfd4c1] pt-5">
         <legend className="serif-heading text-3xl leading-tight text-[#173f36]">{labels.preferences}</legend>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <label className="grid gap-2 text-base font-semibold text-[#17313a]">
-            {labels.parking}
-            <select className="field" name="parking" defaultValue="not-sure" required>
-              <option value="yes">{labels.yes}</option>
-              <option value="no">{labels.no}</option>
-              <option value="not-sure">{labels.notSureShort}</option>
-            </select>
-            <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.parkingHelp}</span>
-          </label>
+        <div className={`grid gap-4 ${selectedApartmentHasParking ? "sm:grid-cols-2" : ""}`}>
+          {selectedApartmentHasParking ? (
+            <label className="grid gap-2 text-base font-semibold text-[#17313a]">
+              {labels.parking}
+              <select className="field" name="parking" defaultValue="not-sure" required>
+                <option value="yes">{labels.yes}</option>
+                <option value="no">{labels.no}</option>
+                <option value="not-sure">{labels.notSureShort}</option>
+              </select>
+              <span className="text-[0.98rem] font-normal leading-7 text-[#756a5d]">{labels.parkingHelp}</span>
+            </label>
+          ) : (
+            <input name="parking" type="hidden" value="no" />
+          )}
           <label className="grid gap-2 text-base font-semibold text-[#17313a]">
             {labels.language}
             <select className="field" name="preferredLanguage" defaultValue={locale} required>
