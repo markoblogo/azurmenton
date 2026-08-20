@@ -11076,7 +11076,14 @@ export const guideArticles: GuideArticle[] = [
             "Esempi di percorsi pratici",
             "Приклади практичних маршрутів"
           ),
-          body: [],
+          body: [
+            t(
+              "Use these sample route shapes as planning templates rather than a checklist. In most cases, one strong market plus one nearby walk, lunch stop, or practical errand is enough for a comfortable half-day from Menton.",
+              "Utilisez ces exemples comme modèles d'organisation, pas comme une checklist. Dans la plupart des cas, un bon marché plus une promenade proche, un déjeuner ou une course pratique suffisent pour une demi-journée confortable depuis Menton.",
+              "Usa questi esempi come modelli pratici, non come checklist rigida. Nella maggior parte dei casi basta un buon mercato più una passeggiata vicina, una pausa pranzo o una commissione per costruire una mezza giornata comoda da Mentone.",
+              "Сприймайте ці приклади як шаблони маршруту, а не як жорсткий чекліст. У більшості випадків одного сильного ринку плюс короткої прогулянки, обіду або практичної зупинки достатньо для комфортної південної програми з Ментона."
+            ),
+          ],
           bullets: [
             t(
               "1 market in Menton + optional Nice loop",
