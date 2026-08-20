@@ -1,4 +1,4 @@
-import type { BookingRequestPayload } from "@/lib/booking-request";
+import { apartmentSupportsParking, type BookingRequestPayload } from "@/lib/booking-request";
 
 type ResendResult = {
   attempted: boolean;
@@ -76,14 +76,14 @@ function htmlEscape(value: string) {
     .replace(/"/g, "&quot;");
 }
 
-function buildEmailHtml(payload: BookingRequestPayload) {
-  const rows = [
+function buildBookingRows(payload: BookingRequestPayload): Array<[string, string]> {
+  return [
     ["Apartment", apartmentLabel(payload.apartment)],
     ["Check-in", payload.checkIn],
     ["Check-out", payload.checkOut],
     ["Adults", payload.adults],
     ["Children", payload.children],
-    ["Need parking", parkingLabel(payload.parking)],
+    ...(apartmentSupportsParking(payload.apartment) ? [["Need parking", parkingLabel(payload.parking)] as [string, string]] : []),
     ["Visiting for event", eventLabel(payload.visitingForEvent)],
     ["Date flexibility", dateFlexibilityLabel(payload.dateFlexibility)],
     ["Preferred language", languageLabel(payload.preferredLanguage)],
@@ -93,6 +93,10 @@ function buildEmailHtml(payload: BookingRequestPayload) {
     ["Message", payload.message || "No message"],
     ["Privacy acknowledgement", payload.privacyAcknowledgement === "accepted" ? "Accepted" : "Missing"],
   ];
+}
+
+function buildEmailHtml(payload: BookingRequestPayload) {
+  const rows = buildBookingRows(payload);
 
   return `
     <div style="font-family: Arial, sans-serif; color: #17313a; line-height: 1.5;">
@@ -115,22 +119,7 @@ function buildEmailHtml(payload: BookingRequestPayload) {
 }
 
 function buildEmailText(payload: BookingRequestPayload) {
-  const rows = [
-    ["Apartment", apartmentLabel(payload.apartment)],
-    ["Check-in", payload.checkIn],
-    ["Check-out", payload.checkOut],
-    ["Adults", payload.adults],
-    ["Children", payload.children],
-    ["Need parking", parkingLabel(payload.parking)],
-    ["Visiting for event", eventLabel(payload.visitingForEvent)],
-    ["Date flexibility", dateFlexibilityLabel(payload.dateFlexibility)],
-    ["Preferred language", languageLabel(payload.preferredLanguage)],
-    ["Name", payload.name],
-    ["Email", payload.email || "Not provided"],
-    ["Phone / WhatsApp", payload.phone || "Not provided"],
-    ["Message", payload.message || "No message"],
-    ["Privacy acknowledgement", payload.privacyAcknowledgement === "accepted" ? "Accepted" : "Missing"],
-  ];
+  const rows = buildBookingRows(payload);
 
   return [
     "New Azur Menton booking request",
