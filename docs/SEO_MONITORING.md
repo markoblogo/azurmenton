@@ -24,6 +24,8 @@ Use the baseline date printed by `npm run seo:priorities`, then review after 21-
 
 Compare trends, not a single day. Search Console data can lag after publication and indexing changes.
 
+The first measured review is recorded in [`MEASURED_BASELINE_2026-09-13.md`](./MEASURED_BASELINE_2026-09-13.md): 369 clicks, 18,800 impressions, 2.0% CTR, and 8.9 average position over the preceding 28 days. The next comparable review is due on or after 11 October 2026.
+
 ## Rules For New Content
 
 - Every published guide, stay page and event must keep localized SEO title and description, canonical routing and hreflang coverage. Content lint and live SEO validation already enforce these contracts.
