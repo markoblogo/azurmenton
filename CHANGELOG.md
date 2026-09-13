@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 - 2026-09-13
+
+- Rechecked the priority event backlog against official sources, corrected three 2027 schedules, refreshed verified records, and explicitly archived ended annual listings without published next dates.
+- Reduced the event review gate from 19 high-risk findings to zero.
+- Recorded the first measured Search Console and Plausible baseline and configured the canonical Plausible booking goals.
+
 ## 0.2.0 - 2026-09-13
 
 - Updated Next.js, React, media, image, test, and styling dependencies; production audit now reports no known vulnerabilities.

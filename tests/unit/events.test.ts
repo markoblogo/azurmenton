@@ -81,6 +81,33 @@ describe("event date status", () => {
     expect(planning && canRenderEventJsonLd(planning)).toBe(false);
   });
 
+  it("uses the latest official dates for priority 2027 events", () => {
+    expect(getRivieraEvent("menton-lemon-festival")).toMatchObject({
+      dateStatus: "confirmed",
+      startDate: "2027-02-13",
+      endDate: "2027-02-28",
+    });
+    expect(getRivieraEvent("rallye-automobile-monte-carlo")).toMatchObject({
+      startDate: "2027-01-21",
+      endDate: "2027-01-24",
+    });
+    expect(getRivieraEvent("monaco-e-prix")).toMatchObject({
+      startDate: "2027-05-01",
+      endDate: "2027-05-02",
+    });
+  });
+
+  it("keeps ended annual summer records as explicit archives until official next dates exist", () => {
+    for (const slug of [
+      "monte-carlo-summer-festival",
+      "french-flyair-menton",
+      "cannes-pyrotechnic-art-festival",
+      "soirees-estivales-2026-nice-2026-06-26",
+    ]) {
+      expect(getRivieraEvent(slug)).toMatchObject({ detailPage: false, searchIndexing: "noindex" });
+    }
+  });
+
   it("calculates visitor quick date ranges in the Europe/Paris timezone", () => {
     const fridayInParis = new Date("2026-08-14T21:30:00.000Z");
 

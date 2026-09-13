@@ -52,7 +52,7 @@ export const seoMonitoring = {
       kind: "event",
       slug: "menton-lemon-festival",
       canonicalPath: "/en/events/fete-du-citron-2027",
-      rationale: "Priority annual event occurrence with an honest pending-date status.",
+      rationale: "Priority annual event occurrence with confirmed official 2027 dates.",
     },
     {
       id: "monaco-grand-prix-2027",

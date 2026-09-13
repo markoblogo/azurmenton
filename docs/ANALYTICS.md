@@ -54,8 +54,10 @@ Run `npm run booking:funnel` to print the current event/property contract.
 
 The script is deliberately local and read-only: do not put the Stats API key in public browser variables or Vercel runtime variables. Use `npm run booking:dashboard -- --period=91d` for a wider review window. It does not create a guest database, retrieve raw events, or query PII.
 
-In Plausible, create goals for the canonical funnel events and use its goal-funnel view for visitor-level step analysis. The CLI report complements that view with the approved source-attribution breakdowns.
+The canonical booking goals were configured in Plausible on 13 September 2026. Plausible's visitor-level funnel report requires the Business plan on the current account; the CLI report remains the aggregate alternative and adds the approved source-attribution breakdowns.
 
 ## Observation period
 
 After deployment, observe the baseline before adding a new provider or dashboard. Compare content-view/pageview volume, apartment discovery-to-detail continuity, inquiry intent, and accepted-request events by locale/source/UTM. Keep the observation period read-only and aggregate; do not infer confirmed revenue without an external confirmed-booking source.
+
+The current measured baseline is recorded in [`MEASURED_BASELINE_2026-09-13.md`](./MEASURED_BASELINE_2026-09-13.md). Repeat the same 28-day comparison on or after 11 October 2026.

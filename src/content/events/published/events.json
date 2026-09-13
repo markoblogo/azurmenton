@@ -1712,9 +1712,9 @@
       "uk": "Перед вибором конкретного вечора перевірте точне місто проведення та повернення."
     },
     "sourceStatus": "verified",
-    "sourceUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
-    "programmeUrl": "https://www.explorenicecotedazur.com/en/event/soirees-estivales-2026/",
-    "detailPage": true,
+    "sourceUrl": "https://www.explorenicecotedazur.com/en/events/all-events/",
+    "programmeUrl": "https://www.explorenicecotedazur.com/en/events/all-events/",
+    "detailPage": false,
     "relatedApartmentKeys": [
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
@@ -1730,9 +1730,9 @@
       "nice-ville-station",
       "nice-old-town"
     ],
-    "searchIndexing": "standard",
-    "lastChecked": "2026-08-02",
-    "lastVerifiedAt": "2026-08-02",
+    "searchIndexing": "noindex",
+    "lastChecked": "2026-09-13",
+    "lastVerifiedAt": "2026-09-13",
     "media": {
       "image": "/images/events/soirees-estivales-2026-nice-2026-06-26.webp",
       "imageAlt": {
