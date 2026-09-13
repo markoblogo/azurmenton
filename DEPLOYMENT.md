@@ -34,16 +34,19 @@ TURNSTILE_SECRET_KEY=
 RESEND_API_KEY=
 BOOKING_REQUEST_TO_EMAIL=
 BOOKING_REQUEST_FROM_EMAIL=
+BOOKING_REQUEST_BCC_EMAIL=
 ```
 
 `RESEND_API_KEY` must be configured in Vercel for booking requests to be delivered by email. Without it, the form will show an error and ask guests to contact by email or WhatsApp instead of silently dropping the request.
 
-Weather variables are reserved for a future weather widget and may remain blank if that feature is not enabled:
+`BOOKING_REQUEST_BCC_EMAIL` is optional and has no code-level default. Set it explicitly only when an approved operational mailbox should receive a copy of each request.
+
+The weather widget uses Open-Meteo defaults for Menton. Override these only when the production location or provider changes:
 
 ```bash
-WEATHER_PROVIDER=
-WEATHER_LATITUDE=
-WEATHER_LONGITUDE=
+WEATHER_PROVIDER=open-meteo
+WEATHER_LATITUDE=43.7745
+WEATHER_LONGITUDE=7.4975
 ```
 
 ## Cloudflare DNS

@@ -27,10 +27,10 @@ afterEach(() => {
 });
 
 describe("sendBookingRequestEmail", () => {
-  it("sends a hidden operational copy with an Azur Menton subject", async () => {
+  it("sends a configured operational copy with an Azur Menton subject", async () => {
     process.env.RESEND_API_KEY = "test-key";
     process.env.BOOKING_REQUEST_TO_EMAIL = "petraetpaul@gmail.com";
-    delete process.env.BOOKING_REQUEST_BCC_EMAIL;
+    process.env.BOOKING_REQUEST_BCC_EMAIL = "operations@example.com";
     const fetchMock = vi.fn().mockResolvedValue(new Response("{}", { status: 200 }));
     vi.stubGlobal("fetch", fetchMock);
 
@@ -40,9 +40,23 @@ describe("sendBookingRequestEmail", () => {
     const email = JSON.parse(String(request.body));
     expect(email).toMatchObject({
       to: "petraetpaul@gmail.com",
-      bcc: "a.biletskiy@gmail.com",
+      bcc: "operations@example.com",
       subject: "[Azur Menton] Booking request: Sea View Balcony Studio (2026-08-21 to 2026-08-25)",
     });
+  });
+
+  it("does not send an undeclared operational copy", async () => {
+    process.env.RESEND_API_KEY = "test-key";
+    process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";
+    delete process.env.BOOKING_REQUEST_BCC_EMAIL;
+    const fetchMock = vi.fn().mockResolvedValue(new Response("{}", { status: 200 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(sendBookingRequestEmail(payload)).resolves.toEqual({ attempted: true, ok: true });
+
+    const request = fetchMock.mock.calls[0]?.[1] as RequestInit;
+    const email = JSON.parse(String(request.body));
+    expect(email).not.toHaveProperty("bcc");
   });
 
   it("omits the parking row for apartments without parking", async () => {

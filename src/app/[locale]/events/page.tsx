@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { Route } from "next";
+import { Suspense } from "react";
 import { EventsCalendar } from "@/components/events/EventsCalendar";
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -43,6 +44,7 @@ const copy = {
     heroLabel: "Local events",
     highlightsLabel: "Highlights",
     practicalPlanning: "Practical planning",
+    loadingCalendar: "Loading event filters…",
     featuredIntro: "A quick scan of the moments most likely to influence where and when guests book.",
     details: "View details",
     tipsTitle: "Booking tips for event dates",
@@ -51,7 +53,7 @@ const copy = {
       "Check access and parking rules during festivals, parades and race weekends.",
       "Consider arriving by train during busy event days.",
       "Ask the host about parking and access if travelling by car.",
-      "Direct requests are manually confirmed; no instant availability is shown.",
+      "Availability previews are planning guidance; direct requests are confirmed manually.",
     ],
     stayTitle: "Where to stay for events",
     stayIntro:
@@ -78,6 +80,7 @@ const copy = {
     heroLabel: "Evenements locaux",
     highlightsLabel: "Temps forts",
     practicalPlanning: "Planification pratique",
+    loadingCalendar: "Chargement des filtres d’événements…",
     featuredIntro: "Un apercu des moments qui peuvent influencer les reservations.",
     details: "Voir details",
     tipsTitle: "Conseils pour reserver pendant les evenements",
@@ -86,7 +89,7 @@ const copy = {
       "Verifiez acces et parking pendant festivals, defiles et week-ends de course.",
       "Envisagez le train les jours tres frequentes.",
       "Demandez conseil a l'hote si vous venez en voiture.",
-      "Les demandes directes sont confirmees manuellement; pas de fausse disponibilite instantanee.",
+      "Les aperçus de disponibilité servent à planifier ; les demandes directes sont confirmées manuellement.",
     ],
     stayTitle: "Ou loger pour les evenements",
     stayIntro: "Choisissez selon votre style de voyage: vue, famille pratique ou studio compact en bord de mer.",
@@ -111,6 +114,7 @@ const copy = {
     heroLabel: "Eventi locali",
     highlightsLabel: "In evidenza",
     practicalPlanning: "Pianificazione pratica",
+    loadingCalendar: "Caricamento dei filtri eventi…",
     featuredIntro: "Una selezione dei momenti che possono influenzare le prenotazioni.",
     details: "Dettagli",
     tipsTitle: "Consigli per prenotare durante eventi",
@@ -119,7 +123,7 @@ const copy = {
       "Verifica accesso e parcheggio durante festival, sfilate e weekend di gara.",
       "Considera il treno nei giorni piu affollati.",
       "Chiedi all'host consigli su accesso e parcheggio se arrivi in auto.",
-      "Le richieste dirette sono confermate manualmente; non mostriamo falsa disponibilita.",
+      "Le anteprime di disponibilità servono per pianificare; le richieste dirette sono confermate manualmente.",
     ],
     stayTitle: "Dove soggiornare per gli eventi",
     stayIntro: "Scegli in base al viaggio: vista, famiglia pratica o studio compatto sul mare.",
@@ -144,6 +148,7 @@ const copy = {
     heroLabel: "Місцеві події",
     highlightsLabel: "Головне",
     practicalPlanning: "Практичне планування",
+    loadingCalendar: "Завантаження фільтрів подій…",
     featuredIntro: "Швидкий огляд подій, які можуть впливати на бронювання.",
     details: "Деталі",
     tipsTitle: "Поради для бронювання на дати подій",
@@ -152,7 +157,7 @@ const copy = {
       "Перевіряйте доступ і паркування під час фестивалів, парадів і перегонів.",
       "Розгляньте поїзд у дуже завантажені дні.",
       "Запитайте господаря про доступ і паркування, якщо їдете авто.",
-      "Прямі запити підтверджуються вручну; ми не показуємо фальшиву доступність.",
+      "Попередній перегляд доступності допомагає планувати; прямі запити підтверджуються вручну.",
     ],
     stayTitle: "Де зупинитися на час подій",
     stayIntro: "Оберіть під стиль поїздки: вид, сімейна практичність або компактна студія біля моря.",
@@ -329,12 +334,20 @@ export default async function EventsLandingPage({ params }: PageProps) {
 
       <section className="bg-[#f6efe3] py-10 sm:py-14">
         <Container>
-          <EventsCalendar
-            events={visibleEvents.upcoming}
-            datesPendingEvents={visibleEvents.datesPending}
-            pastEvents={visibleEvents.past}
-            locale={safeLocale}
-          />
+          <Suspense
+            fallback={
+              <div className="border border-[#dfd4c1] bg-[#fffdf8] p-6 text-sm text-[#5f574c]" role="status">
+                {labels.loadingCalendar}
+              </div>
+            }
+          >
+            <EventsCalendar
+              events={visibleEvents.upcoming}
+              datesPendingEvents={visibleEvents.datesPending}
+              pastEvents={visibleEvents.past}
+              locale={safeLocale}
+            />
+          </Suspense>
         </Container>
       </section>
 

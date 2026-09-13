@@ -33,7 +33,7 @@
 - [x] Resend sender/domain is configured in Vercel Production if Resend is used.
 - [x] Booking API returns the expected success response for honeypot submissions without sending a real request.
 - [x] Booking API returns the expected validation error for incomplete payloads.
-- [ ] No fake prices, ratings, reviews or availability are displayed.
+- [ ] Read-only availability previews are labelled as planning guidance and manual confirmation remains explicit.
 
 ## Legal And Content
 
@@ -61,6 +61,6 @@
 - [ ] Sitemap is submitted in Google Search Console.
 - [ ] Indexing coverage, hreflang issues, mobile usability and Core Web Vitals are reviewed after launch.
 - [ ] Analytics is added only if needed and only with cookie compliance.
-- [x] Dependency audit has no production vulnerabilities as of 2026-05-27.
+- [x] Dependency audit has no production vulnerabilities as of 2026-09-13.
 - [x] Public images have no files above 1.5 MB as of 2026-05-27.
 - [x] Next.js 16 image priority usage was updated to `preload` / `fetchPriority` for hero imagery.

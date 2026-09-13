@@ -1292,7 +1292,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "verified",
     sourceUrl: "https://www.lavuelta.es/en/news/2025/la-vuelta-26-will-start-with-an-individual-time-trial-in-monaco/51013",
-    featured: true,
+    featured: false,
   },
   {
     id: "tour-de-france-femmes-nice-finish-2026",

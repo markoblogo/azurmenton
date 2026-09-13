@@ -13,7 +13,7 @@ import { Section } from "@/components/ui/Section";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
 import { apartments } from "@/content/apartments";
 import { guidePages } from "@/content/guide";
-import { faqItems, homeCopy } from "@/content/pages";
+import { getHomepageFaqItems, homeCopy } from "@/content/pages";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -214,6 +214,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function LocaleHome({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
+  const faqItems = getHomepageFaqItems(safeLocale);
   const copy = homeCopy[safeLocale];
   const labels = t[safeLocale];
   const sections = sectionCopy[safeLocale];

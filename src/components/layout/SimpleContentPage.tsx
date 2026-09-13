@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { siteConfig } from "@/config/site";
-import { events, faqItems, guidePages, pageCopy } from "@/content/pages";
+import { events, getHomepageFaqItems, guidePages, pageCopy } from "@/content/pages";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { createMetadata } from "@/lib/seo";
 import { faqPageJsonLd } from "@/lib/structured-data";
@@ -61,6 +61,8 @@ function EventsBody() {
 }
 
 function FaqBody({ locale }: { locale: Locale }) {
+  const faqItems = getHomepageFaqItems(locale);
+
   return (
     <>
       <div className="grid gap-4">
@@ -157,6 +159,7 @@ export function SimpleContentPage(pageKey: SimplePageKey) {
     const { locale } = await params;
     const safeLocale: Locale = isLocale(locale) ? locale : "en";
     const copy = pageCopy[pageKey][safeLocale];
+    const faqItems = getHomepageFaqItems(safeLocale);
 
     return (
       <>

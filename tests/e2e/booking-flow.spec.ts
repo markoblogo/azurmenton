@@ -45,3 +45,25 @@ test("localized route renders the booking form", async ({ page }) => {
   await expect(page.getByRole("form", { name: /formulaire de demande directe/i })).toBeVisible();
   await expect(page.getByRole("button", { name: /envoyer la demande/i })).toBeVisible();
 });
+
+test("localized homepage keeps its FAQ in the selected language", async ({ page }) => {
+  await page.goto("/fr");
+
+  await expect(page.getByRole("heading", { name: "Est-ce une réservation instantanée ?" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Is this instant booking?" })).toHaveCount(0);
+});
+
+test("events filters render inside the production suspense boundary", async ({ page }) => {
+  await page.goto("/en/events");
+
+  await expect(page.getByRole("region", { name: "Find the right dates" })).toBeVisible();
+});
+
+test("llms.txt uses real line breaks", async ({ request }) => {
+  const response = await request.get("/llms.txt");
+  const body = await response.text();
+
+  expect(response.ok()).toBe(true);
+  expect(body).not.toContain("\\n");
+  expect(body.split("\n").length).toBeGreaterThan(20);
+});

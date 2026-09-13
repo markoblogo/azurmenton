@@ -1,14 +1,24 @@
 # Azur Menton
 
 [![CI](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml)
-![Next.js](https://img.shields.io/badge/Next.js-16.2-black?logo=nextdotjs)
+![Next.js](https://img.shields.io/badge/Next.js-16.3-black?logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)
 
 Azur Menton is a multilingual direct-booking site for three central Menton apartments. The public surface combines apartment pages, a practical local guide, Riviera events, stay-planning pages, a useful-places map, and a manual booking funnel.
 
-Production: [https://azurmenton.com](https://azurmenton.com)
+**[View the live site](https://azurmenton.com)** · [Check availability](https://azurmenton.com/en/check-availability) · [Explore the Menton guide](https://azurmenton.com/en/guide)
+
+![Azur Menton apartment terrace](public/images/home/TerraceParkingApartment.jpg)
+
+## Product at a glance
+
+- **Direct booking:** read-only availability guidance followed by a personally confirmed request.
+- **Three distinct stays:** two sea-view studios and one larger terrace apartment with parking.
+- **Four languages:** English, French, Italian, and Ukrainian routes with canonical and hreflang metadata.
+- **Local utility:** 90 maintained guides, 532 mapped places, Riviera events, weather, marine conditions, transport, and travel tools.
+- **Privacy-first operations:** server-only calendar feeds, non-PII analytics, Turnstile, rate limiting, and nonce-based CSP.
 
 Read first for a fresh coding session:
 
@@ -56,8 +66,10 @@ Azur Menton is currently in normal guide-first publishing and observation mode:
 
 ## Local development
 
+Requirements: Node.js 20.9+ (Node.js 22 is used in CI).
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -354,6 +366,14 @@ docs/               Operational docs
 - Keep partner/perk content separate from core booking paths.
 - Prefer structured content updates over hardcoded page copy.
 - Use the docs before making content, SEO or booking-flow changes.
+
+## Contributing and license
+
+Focused fixes and source-backed content corrections are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and report vulnerabilities through [SECURITY.md](SECURITY.md).
+
+Release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
+
+Application code, tests, scripts, and technical documentation are available under the [MIT license](LICENSE). Apartment content, editorial material, media, guest data, and Azur Menton branding are excluded unless stated otherwise; see [NOTICE.md](NOTICE.md).
 
 ## Primary docs
 

@@ -92,28 +92,73 @@ export const events = [
   },
 ];
 
-export const faqItems = [
+const homepageFaqItems = [
   {
-    question: "Is this instant booking?",
-    answer:
-      "No. The website sends a booking request only. Azur Menton confirms availability and the best direct offer manually.",
+    question: {
+      en: "Is this instant booking?",
+      fr: "Est-ce une réservation instantanée ?",
+      it: "È una prenotazione istantanea?",
+      uk: "Це миттєве бронювання?",
+    },
+    answer: {
+      en: "No. The website sends a booking request only. Azur Menton confirms availability and the best direct offer manually.",
+      fr: "Non. Le site envoie uniquement une demande de réservation. Azur Menton confirme ensuite manuellement la disponibilité et la meilleure offre directe.",
+      it: "No. Il sito invia solo una richiesta di prenotazione. Azur Menton conferma poi manualmente la disponibilità e la migliore offerta diretta.",
+      uk: "Ні. Сайт лише надсилає запит на бронювання. Azur Menton вручну підтверджує доступність і найкращу пряму пропозицію.",
+    },
   },
   {
-    question: "Are prices shown on the website?",
-    answer:
-      "No prices are shown until direct pricing rules are confirmed. Guests can request dates and receive a direct offer.",
+    question: {
+      en: "Are prices shown on the website?",
+      fr: "Les prix sont-ils affichés sur le site ?",
+      it: "I prezzi sono mostrati sul sito?",
+      uk: "Чи показані ціни на сайті?",
+    },
+    answer: {
+      en: "Prices are confirmed for your dates, apartment and length of stay. Send a request to receive a clear direct offer.",
+      fr: "Les prix sont confirmés selon vos dates, l’appartement et la durée du séjour. Envoyez une demande pour recevoir une offre directe claire.",
+      it: "I prezzi vengono confermati in base alle date, all’appartamento e alla durata del soggiorno. Invia una richiesta per ricevere un’offerta diretta chiara.",
+      uk: "Ціна підтверджується з урахуванням дат, апартаментів і тривалості перебування. Надішліть запит, щоб отримати чітку пряму пропозицію.",
+    },
   },
   {
-    question: "Is there a live availability calendar?",
-    answer:
-      "No. A real booking engine or channel manager may be connected later, but the current website avoids showing fake availability.",
+    question: {
+      en: "Can I see availability before requesting?",
+      fr: "Puis-je voir les disponibilités avant d’envoyer une demande ?",
+      it: "Posso vedere la disponibilità prima di inviare una richiesta?",
+      uk: "Чи можна побачити доступність до надсилання запиту?",
+    },
+    answer: {
+      en: "Yes. Apartment pages and the availability page can show read-only planning windows from external calendar feeds. They are guidance only; we confirm availability manually.",
+      fr: "Oui. Les pages des appartements et la page de disponibilité peuvent afficher des périodes indicatives en lecture seule issues de calendriers externes. Elles servent à planifier ; nous confirmons toujours la disponibilité manuellement.",
+      it: "Sì. Le pagine degli appartamenti e la pagina disponibilità possono mostrare periodi indicativi in sola lettura da calendari esterni. Servono per pianificare; confermiamo sempre la disponibilità manualmente.",
+      uk: "Так. На сторінках апартаментів і доступності можуть відображатися орієнтовні вікна з зовнішніх календарів у режимі лише для читання. Вони допомагають планувати; доступність ми завжди підтверджуємо вручну.",
+    },
   },
   {
-    question: "Which apartment is best for families?",
-    answer:
-      "The Beachside Apartment with Terrace & Parking is positioned for families or longer stays, with a full kitchen, terrace, and parking.",
+    question: {
+      en: "Which apartment is best for families?",
+      fr: "Quel appartement convient le mieux aux familles ?",
+      it: "Quale appartamento è più adatto alle famiglie?",
+      uk: "Які апартаменти найкраще підходять для сімей?",
+    },
+    answer: {
+      en: "The Beachside Apartment with Terrace & Parking is usually the most practical choice for families or longer stays, with a full kitchen, terrace and parking.",
+      fr: "L’appartement près de la plage avec terrasse et parking est généralement le choix le plus pratique pour les familles ou les séjours plus longs, avec cuisine complète, terrasse et parking.",
+      it: "L’appartamento vicino alla spiaggia con terrazza e parcheggio è di solito la scelta più pratica per famiglie o soggiorni più lunghi, con cucina completa, terrazza e parcheggio.",
+      uk: "Апартаменти біля пляжу з терасою та паркінгом зазвичай найзручніші для сімей або тривалішого перебування: є повноцінна кухня, тераса й паркінг.",
+    },
   },
 ];
+
+export function getHomepageFaqItems(locale: Locale) {
+  return homepageFaqItems.map((item) => ({
+    question: item.question[locale],
+    answer: item.answer[locale],
+  }));
+}
+
+export const faqItems = getHomepageFaqItems("en");
 
 export const pageCopy: Record<
   string,

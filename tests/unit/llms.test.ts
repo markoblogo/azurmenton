@@ -15,6 +15,9 @@ describe("llms.txt", () => {
     expect(text).toContain("Monaco event weekends from Menton");
     expect(text).toContain("Availability and prices are confirmed manually");
     expect(text).not.toMatch(/@|WhatsApp|secret|token|internal/i);
+    expect(text).not.toContain("\\n");
+    expect(text.split("\n").length).toBeGreaterThan(20);
     expect(text.split("\n").length).toBeLessThan(40);
+    expect(text.endsWith("\n")).toBe(true);
   });
 });

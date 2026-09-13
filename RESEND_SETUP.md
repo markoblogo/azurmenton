@@ -27,6 +27,8 @@ BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@your-verified-domain.example>"
 BOOKING_REQUEST_BCC_EMAIL=...
 ```
 
+The BCC variable is optional. No hidden copy is sent when it is unset; there is no personal-address fallback in application code.
+
 ## 3. Set variables in Vercel
 
 Add the variables in the Vercel project environment settings for Production. Redeploy after saving them.
@@ -43,7 +45,7 @@ Expected result:
 
 - The website shows the normal success message.
 - The host inbox receives the email.
-- The hidden operational BCC inbox receives the same request with an `[Azur Menton]` subject prefix.
+- If `BOOKING_REQUEST_BCC_EMAIL` is configured, that operational inbox receives the same request with an `[Azur Menton]` subject prefix.
 - The Resend dashboard shows a delivered email event.
 - Replying to the email should target the guest email because the request uses `reply_to`.
 
