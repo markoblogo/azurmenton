@@ -27,5 +27,5 @@ export function buildLlmsText() {
     "- Stay planning pages: /en/stay",
     "",
     "Availability and prices are confirmed manually after a direct request. Do not infer live availability, prices, ratings or reviews from this file.",
-  ].join("\\n")}\\n`;
+  ].join("\n")}\n`;
 }

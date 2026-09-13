@@ -1,0 +1,33 @@
+name: Bug report
+description: Report a reproducible site, content, or booking-flow problem.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the page, locale, and expected result.
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: dropdown
+    id: locale
+    attributes:
+      label: Language
+      options: [English, French, Italian, Ukrainian, All languages, Not applicable]
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Browser or device
