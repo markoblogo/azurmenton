@@ -28,6 +28,7 @@ import {
   type EventInterest,
 } from "@/lib/event-discovery";
 import { getEventDateStatus, type EventDateStatus } from "@/lib/events";
+import { isSportsPrestigeHighlight } from "@/lib/event-highlights";
 
 const quickPeriods: Array<{ id: EventDiscoveryFilters["period"]; label: Record<Locale, string> }> = [
   { id: "today", label: { en: "Today", fr: "Aujourd'hui", it: "Oggi", uk: "Сьогодні" } },
@@ -645,22 +646,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
     ["menton-lemon-festival-2027", "nice-carnival-2027", "menton-music-festival-2026", "monaco-grand-prix-2027"].includes(event.id),
   );
 
-  const sportsPrestige = [...events, ...datesPendingEvents].filter((event) =>
-    [
-      "monaco-grand-prix-2027",
-      "rolex-monte-carlo-masters-2027",
-      "monaco-e-prix-2027",
-      "monaco-run-2027",
-      "nice-half-marathon-2027",
-      "new-vision-nice-open-2026",
-      "jumping-international-monte-carlo-2026",
-      "meeting-herculis-ebs-2026",
-      "la-vuelta-monaco-start-2026",
-      "tour-de-france-femmes-nice-finish-2026",
-      "nice-cannes-marathon-2026",
-      "monaco-yacht-show-2026",
-    ].includes(event.id),
-  );
+  const sportsPrestige = [...events, ...datesPendingEvents].filter(isSportsPrestigeHighlight);
 
   return (
     <div className="grid gap-9">
