@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Native dependency metadata
+        run: node scripts/check-native-lockfile.mjs
+
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
@@ -77,3 +80,19 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7
+
+  production-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install production dependencies only
+        run: npm ci --omit=dev --ignore-scripts
+      - name: Check native metadata and process an image
+        run: |
+          node scripts/check-native-lockfile.mjs
+          node --input-type=module -e 'import assert from "node:assert/strict"; import sharp from "sharp"; const image = await sharp({create:{width:2,height:2,channels:3,background:"red"}}).resize(1,1).png().toBuffer({resolveWithObject:true}); assert.equal(image.info.width,1); assert.equal(image.info.height,1); assert.ok(image.data.length > 0); console.log("Production Sharp image processing passed");'

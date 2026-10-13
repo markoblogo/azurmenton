@@ -11,6 +11,19 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
+  it("routes Yacht Show planning links to the confirmed 2027 edition and preserves the 2026 archive", () => {
+    const archive = getRivieraEvent("monaco-yacht-show-2026");
+    const next = getRivieraEvent("monaco-yacht-show");
+    expect(archive).toMatchObject({ startDate: "2026-09-23", endDate: "2026-09-26", detailPage: false, searchIndexing: "noindex" });
+    expect(next).toMatchObject({ occurrenceSlug: "monaco-yacht-show-2027", dateStatus: "confirmed", startDate: "2027-09-22", endDate: "2027-09-25", detailPage: true });
+    expect(getRivieraEvent("monaco-yacht-show-2027")).toBe(next);
+    expect(getCanonicalEventDetailSlug("monaco-yacht-show")).toBe("monaco-yacht-show-2027");
+    expect(next && isIndexableEventDetail(next, new Date("2026-10-13T12:00:00Z"))).toBe(true);
+    expect(eventDetailSlugs).toContain("monaco-yacht-show-2027");
+    expect(eventDetailSlugs).not.toContain("monaco-yacht-show-2026");
+    expect(next?.relatedApartmentKeys).toEqual(archive?.relatedApartmentKeys);
+  });
+
   it("keeps an event visible through its end date, then moves it to the archive", () => {
     expect(getEventDateStatus(datedEvent, new Date("2026-12-04T12:00:00Z"))).toBe("current");
     expect(getEventDateStatus(datedEvent, new Date("2026-12-05T12:00:00Z"))).toBe("past");
