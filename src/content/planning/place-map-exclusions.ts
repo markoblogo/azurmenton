@@ -45,7 +45,7 @@ export const placeMapExclusions: PlaceMapExclusion[] = [
   { placeId: "nice-region-skydiving", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Nice%20region%20skydiving" },
   { placeId: "cannes-frejus-skydiving", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Cannes%20Frejus%20skydiving" },
   { placeId: "italian-riviera-paragliding-clubs", reason: "not_a_fixed_venue", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Italian%20Riviera%20paragliding" },
-  { placeId: "mont-gout-menton", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Mont%20Go%C3%BBt%20Menton" },
+  { placeId: "mont-gout-menton", reason: "coordinate_unverified", checkedOn: "2026-10-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/restaurant-mon-gout-menton-fr-5072583/" },
   { placeId: "marche-de-la-condamine-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.visitmonaco.com/en/enjoy/shopping-in-monaco/la-condamine-authentic-and-commercial-charm" },
   { placeId: "maison-des-pates-condamine-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Maison%20des%20P%C3%A2tes%20Condamine%20Monaco" },
   { placeId: "chez-les-grecs-monaco", reason: "coordinate_unverified", checkedOn: "2026-07-29", sourceUrl: "https://www.google.com/maps/search/?api=1&query=Chez%20Les%20Grecs%20Monaco" },

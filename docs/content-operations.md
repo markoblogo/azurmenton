@@ -30,6 +30,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Create or update place objects in `src/content/places.ts`.
 - Add localized `shortNote`, `bestFor`, image alt text and source status.
 - Add image paths only after optimized assets are present under `public/images/`.
+- New places may be published without an image. At the end of the task, list every newly added place without an illustration by name, link to the guide(s) where it appears, and explicitly request the missing illustrations from the owner. Also report other discovered missing place illustrations with their guide links. Never substitute an unrelated image to hide a gap.
 - Add `googleMapsUrl`, `googleMapsSearchUrl` or `programmeUrl` when available and useful.
 - Keep `relatedArticleIds` aligned with guide references.
 - Do not add backlinks only because a place card appears in a section; add them when the article is a real editorial match.
@@ -60,6 +61,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.
 - Add new events without illustrations as `mediaStatus: "missing"` or leave media empty so the existing placeholder renders until optimized images are supplied.
+- Whenever new events lack illustrations, list their names and event-page links in the handoff and explicitly request illustrations from the owner.
 - Keep ingestion source configuration in `src/content/event-sources.ts`. Each source must document owner, URL, method, language, update cadence, image/description policy, known limitations and whether automation is allowed.
 - Run `npm run events:ingest` to generate local review candidates from enabled automated official sources. Use `-- --source <source-id>` for one source and read `build/events-ingestion/events-ingestion-report.json`.
 - Current automated source adapters are deliberately narrow: `explore-nice-major-events`, `comune-sanremo-events` and `sanremo-live-love`. Menton, Monaco and Ventimiglia remain manual sources until stable public records are confirmed.
@@ -68,7 +70,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Ingestion candidates pass through `src/lib/event-discovery.ts` primitives for normalization, deterministic dedupe and review-required output. Uncertain cross-source matches must remain review candidates, not silent deletes.
 - Do not copy long source descriptions or hotlink third-party images. Store factual fields and write original AzurMenton summaries during manual publication.
 - If a source changes date, venue, URL or cancellation state, preserve edited summaries and return the candidate to review rather than overwriting public copy.
-- Do not reuse existing images for new events. If no owner-approved event illustration exists, publish without media so the missing image remains visible in the image queue.
+- Do not reuse unrelated existing images for new events. A later edition of the same annual series may inherit an eligible prior project illustration under the guarded rule in `docs/events-publication-workflow.md`. Otherwise, publish without media so the missing image remains visible in the image queue, and request an illustration from the owner.
 - Owner-approved event image choices belong in `src/content/events/overrides/image-overrides.json`; later preparation passes use that file as a durable lock.
 
 ### Event batch workflow

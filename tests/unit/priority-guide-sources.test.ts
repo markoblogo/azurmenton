@@ -20,6 +20,11 @@ describe("priority guide source references", () => {
     ["airports-near-menton-live-flights", "https://www.nice.aeroport.fr/en/flights/departures"],
     ["monaco-events-from-menton", "https://www.sncf-connect.com/en-en/train/timetables/menton/monaco"],
     ["where-to-stay-in-menton", "https://www.menton-riviera-merveilles.fr/offres/plage-rondelli-menton-fr-3051231/"],
+    ["best-souvenir-shops-menton-monaco-nice", "https://www.menton-riviera-merveilles.fr/aventures-merveilleuses/citrons-et-merveilles/"],
+    ["cheap-eats-menton-budget-lunch", "https://www.menton-riviera-merveilles.fr/offres/restaurant-mon-gout-menton-fr-5072583/"],
+    ["best-seafood-restaurants-menton", "https://www.menton-riviera-merveilles.fr/offres/restaurant-le-cabanon-roquebrune-cap-martin-fr-3051195/"],
+    ["best-coffee-menton", "https://www.menton-riviera-merveilles.fr/offres/coffee-shop-edwige-coffee-menton-fr-3051528/"],
+    ["best-pizzerias-menton", "https://www.menton-riviera-merveilles.fr/offres/restaurant-pecora-negra-menton-fr-3051694/"],
   ])("keeps %s linked to its claim source", (slug, source) => {
     const article = getGuideArticle(slug);
     const section = article?.sections.find((item) => item.officialLinks?.some((link) => link.url === source));
@@ -48,5 +53,18 @@ describe("priority guide source references", () => {
     expect(section?.body[1].en).toContain("Sea View Balcony Studio");
     expect(section?.body[1].en).toContain("Beachside Family Apartment");
     expect(section?.body[1].en).not.toContain("sea-view studios");
+  });
+
+  it("distinguishes citrus boutiques from producer domains", () => {
+    expect(getPlace("au-pays-du-citron-menton")?.address).toContain("22 Rue Saint-Michel");
+    expect(getPlace("maison-gannac-menton")?.address).toContain("10 Rue Saint-Michel");
+    expect(getPlace("maison-gannac-menton")?.address).toContain("2970 Route de Super-Garavan");
+  });
+
+  it("records the sourced Le Cabanon closure as dated rather than permanent", () => {
+    const place = getPlace("le-cabanon-plage-du-buse");
+    for (const locale of locales) expect(place?.openingHoursLabel?.[locale]).toContain("2026");
+    expect(place?.openingHoursLabel?.en).toContain("confirm before visiting");
+    expect(place?.sourceStatus).toBe("needs_verification");
   });
 });
