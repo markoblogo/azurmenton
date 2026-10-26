@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, isIndexableEventDetail } from "../../src/content/riviera-events";
+import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, inheritAnnualEventIllustrations, isIndexableEventDetail } from "../../src/content/riviera-events";
 import { eventDeduplicationKey, filterDiscoverableEvents, findDuplicateEventCandidates, parseEventDiscoveryParams } from "../../src/lib/event-discovery";
 import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getParisDateRange } from "../../src/lib/events";
 
@@ -24,6 +24,21 @@ describe("event date status", () => {
     expect(eventDetailSlugs).toContain("monaco-yacht-show-2027");
     expect(eventDetailSlugs).not.toContain("monaco-yacht-show-2026");
     expect(next?.relatedApartmentKeys).toEqual(archive?.relatedApartmentKeys);
+  });
+
+  it("inherits reusable past illustrations only when an annual edition has no own image", () => {
+    const previous = getRivieraEvent("monaco-yacht-show-2026")!;
+    const current = getRivieraEvent("monaco-yacht-show-2027")!;
+    const withoutCover = { ...current, media: undefined };
+    const [inherited] = inheritAnnualEventIllustrations([withoutCover, previous]);
+    expect(inherited.media).toMatchObject({ image: "/images/events/monaco-yacht-show.jpg", inheritedFromEventId: previous.id });
+    expect(inheritAnnualEventIllustrations([current, previous])[0].media?.image).toBe("/images/events/monaco-yacht-show-2027.webp");
+    const poster = { ...previous, media: { ...previous.media, mediaType: "official_poster" as const } };
+    expect(inheritAnnualEventIllustrations([withoutCover, poster])[0].media?.image).toBeUndefined();
+    const yearSpecific = { ...previous, media: { ...previous.media, image: "/images/events/yacht-show-2026.webp" } };
+    expect(inheritAnnualEventIllustrations([withoutCover, yearSpecific])[0].media?.image).toBeUndefined();
+    expect(inheritAnnualEventIllustrations([{ ...withoutCover, recurrence: "one_off" }, previous])[0].media?.image).toBeUndefined();
+    expect(inheritAnnualEventIllustrations([previous, current])[0].media?.image).toBe(previous.media?.image);
   });
 
   it("keeps an event visible through its end date, then moves it to the archive", () => {

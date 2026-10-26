@@ -837,7 +837,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             <div key={group.id} className="relative grid gap-4 border-l border-[#dfd4c1] pb-7 pl-5 last:pb-0 md:grid-cols-[0.28fr_1fr] md:pl-7">
               <span className="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-[#b07820]" aria-hidden="true" />
               <div className="md:pr-8">
-                <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[#b07820]">
+                <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-[#805918]">
                   {monthLabels[locale][group.id]}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-[#5f574c]">{timelineIntro[locale][group.id]}</p>
@@ -851,7 +851,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
                   >
                     <EventImage event={event} locale={locale} className="min-h-28 border-0 border-b sm:border-b-0 sm:border-r" sizes="140px" />
                     <span className="grid gap-1.5 p-3">
-                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{getEventDateLabel(event, locale)}</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#805918]">{getEventDateLabel(event, locale)}</span>
                       <span className="serif-heading text-2xl leading-none text-[#173f36]">{getEventTitle(event, locale)}</span>
                       <span className="line-clamp-2 text-sm leading-6 text-[#5f574c]">{event.shortDescription[locale]}</span>
                     </span>
@@ -866,7 +866,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
 
       <section className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="border border-[#d9bf81] bg-[#fff3df] p-5">
-          <p className="editorial-label text-[#d9b66b]">{labels.families}</p>
+          <p className="editorial-label">{labels.families}</p>
           <h2 className="serif-heading mt-3 text-3xl text-[#173f36]">{labels.familyTitle}</h2>
           <p className="mt-4 text-sm leading-7 text-[#5f574c]">{labels.familyText}</p>
           <div className="mt-5 grid gap-3">
@@ -878,7 +878,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
               >
                 <EventImage event={event} locale={locale} className="min-h-24 border-0 border-b sm:border-b-0 sm:border-r" sizes="120px" />
                 <span className="grid gap-1 p-3">
-                  <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#b07820]">
+                  <span className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#805918]">
                     {familySuitabilityLabels[locale][event.familySuitability]}
                   </span>
                   <span className="serif-heading break-words text-2xl leading-none text-[#173f36]">{getEventTitle(event, locale)}</span>
@@ -889,7 +889,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
           </div>
         </div>
         <div className="border border-[#dfd4c1] bg-[#173f36] p-5 text-white">
-          <p className="editorial-label">{labels.rivieraCalendar}</p>
+          <p className="editorial-label editorial-label--inverse">{labels.rivieraCalendar}</p>
           <h2 className="serif-heading mt-3 text-3xl">{labels.sportsTitle}</h2>
           <p className="mt-4 text-sm leading-7 text-white/75">{labels.sportsText}</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">

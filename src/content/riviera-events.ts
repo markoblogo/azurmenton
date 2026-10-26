@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/locales";
 import { publishedEventRecords } from "@/content/events/published";
+import legacyEventImages from "@/content/events/overrides/legacy-event-images.json";
 
 export type EventCategory =
   | "music"
@@ -99,6 +100,7 @@ export type RivieraEvent = {
     mediaSourceName?: string;
     mediaRightsNote?: string;
     mediaStatus?: "available" | "missing" | "needs_review";
+    inheritedFromEventId?: string;
   };
 };
 
@@ -3302,7 +3304,7 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
 ];
 
-export const rivieraEvents: RivieraEvent[] = [...rivieraEventsBase, ...publishedEventRecords].map((event) => ({
+const eventsWithExplicitMedia: RivieraEvent[] = [...rivieraEventsBase, ...publishedEventRecords].map((event) => ({
   seriesSlug: event.seriesSlug ?? event.slug,
   occurrenceYear: event.occurrenceYear ?? inferredOccurrenceYear(event),
   recurrence: inferredRecurrence(event),
@@ -3316,8 +3318,20 @@ export const rivieraEvents: RivieraEvent[] = [...rivieraEventsBase, ...published
   dateLabelLocalized: eventDateLabels[event.id] ?? event.dateLabelLocalized,
   relatedGuideSlugs: defaultRelatedGuideSlugs(event),
   relatedPlaceIds: defaultRelatedPlaceIds(event),
-  media: eventIllustrations[event.id] ?? event.media ?? missingEventMedia,
+  media: eventIllustrations[event.id] ?? (legacyEventImages as Record<string, RivieraEvent["media"]>)[event.id] ?? event.media ?? missingEventMedia,
 }));
+
+export function inheritAnnualEventIllustrations(events: RivieraEvent[]): RivieraEvent[] {
+  return events.map((event) => {
+    if (event.media?.image || event.recurrence !== "annual" || !event.seriesSlug || !event.occurrenceYear) return event;
+    const previous = events
+      .filter((candidate) => candidate.id !== event.id && candidate.seriesSlug === event.seriesSlug && candidate.occurrenceYear && candidate.occurrenceYear < event.occurrenceYear! && candidate.media?.image && candidate.media.mediaType === "project_illustration" && candidate.media.mediaStatus === "available" && !/(?:^|[^0-9])20\d{2}(?:[^0-9]|$)/.test(candidate.media.image))
+      .sort((a, b) => b.occurrenceYear! - a.occurrenceYear!)[0];
+    return previous ? { ...event, media: { ...previous.media, inheritedFromEventId: previous.id } } : event;
+  });
+}
+
+export const rivieraEvents = inheritAnnualEventIllustrations(eventsWithExplicitMedia);
 
 export const eventDetailSlugs = [
   ...rivieraEvents

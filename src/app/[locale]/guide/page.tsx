@@ -274,7 +274,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.78fr] lg:items-end">
             <div>
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#b49353]">Azur Menton guide</p>
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[#806034]">Azur Menton guide</p>
               <h1 className="mt-5 max-w-4xl serif-heading text-5xl leading-[0.95] text-[#173f36] sm:text-6xl lg:text-7xl">{copy.title}</h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-[#5c5044]">{copy.intro}</p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -282,7 +282,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
                 <Link className="inline-flex min-h-11 items-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${safeLocale}/check-availability` as Route}>{copy.cta.secondaryLabel}</Link>
               </div>
               <aside className="mt-8 border-y border-[#dfd2b8] py-5" aria-label={local.hostTitle}>
-                <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.hostEyebrow}</p>
+                <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#806034]">{local.hostEyebrow}</p>
                 <div className="mt-3 grid gap-3 sm:grid-cols-4">
                   {guideStats.map((stat) => (
                     <div key={stat.label}>
@@ -341,7 +341,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
         <Container>
           <div className="mb-4 grid gap-4 md:grid-cols-[0.42fr_1fr] md:items-end">
             <div>
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.collectionsEyebrow}</p>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#806034]">{local.collectionsEyebrow}</p>
               <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.collectionsTitle}</h2>
             </div>
             <p className="max-w-3xl text-sm leading-6 text-[#5c5044]">{local.collectionsIntro}</p>
@@ -368,7 +368,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
         <Container>
           <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{local.transportTitle}</p>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[#806034]">{local.transportTitle}</p>
               <h2 className="mt-2 serif-heading text-3xl leading-none text-[#173f36]">{local.transportText}</h2>
             </div>
           </div>
@@ -397,7 +397,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
             <h2 className="serif-heading text-4xl leading-none text-[#173f36]">{local.apartmentsTitle}</h2>
             <p className="mt-4 text-sm leading-7 text-[#5c5044]">{local.apartmentsText}</p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="guide-apartments grid gap-4 lg:grid-cols-3">
             {apartments.map((apartment) => <ApartmentCard key={apartment.slug} apartment={apartment} locale={safeLocale} compact />)}
           </div>
         </Container>

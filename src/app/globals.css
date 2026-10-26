@@ -145,6 +145,24 @@ label:has(.field:user-invalid) {
   color: var(--azur-sand);
 }
 
+.booking-page .editorial-label,
+.events-page .editorial-label,
+.guide-apartments .editorial-label {
+  color: #806034;
+}
+
+.events-page .editorial-label--inverse {
+  color: #e7ca91;
+}
+
+.events-page .inverse-button {
+  color: #fff;
+}
+
+.events-page .inverse-button:hover {
+  color: #173f36;
+}
+
 .serif-heading {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 600;

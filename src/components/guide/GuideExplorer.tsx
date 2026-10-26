@@ -156,7 +156,7 @@ export function GuideExplorer({ locale, articles, initialCollection, filterOptio
               <div className="mt-5 flex justify-center">
                 <button
                   type="button"
-                  className="inline-flex min-h-11 items-center border border-[#b49353] bg-[#b49353] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#fff8e8] transition hover:bg-[#a27f49] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
+                  className="inline-flex min-h-11 items-center border border-[#173f36] bg-[#173f36] px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#102f28] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"
                   onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
                 >
                   {local.showMore}

@@ -21,8 +21,9 @@ export function LocaleSwitcher({ locale }: { locale: Locale }) {
           <Link
             key={item}
             href={href as Route}
-            className={item === locale ? "text-[#0b6f8f]" : "hover:text-[#0b6f8f]"}
-            aria-label={localeLabels[item]}
+            className={`inline-flex min-h-8 min-w-8 items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f] ${item === locale ? "text-[#0b6f8f]" : "hover:text-[#0b6f8f]"}`}
+            aria-label={`${item.toUpperCase()} - ${localeLabels[item]}`}
+            aria-current={item === locale ? "page" : undefined}
             hrefLang={item}
           >
             {item.toUpperCase()}

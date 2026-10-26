@@ -51,7 +51,7 @@ export function GuideCollections({ locale, collections }: { locale: Locale; coll
               <p className="mt-1.5 overflow-hidden text-xs leading-5 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">{collection.description}</p>
             </div>
             <div className="mt-auto flex items-end justify-between gap-3 pt-2 text-[0.56rem] font-bold uppercase tracking-[0.12em]">
-              <span className="text-[#b49353]">{collection.guideCount} {copy.guides}</span>
+              <span className="text-[#806034]">{collection.guideCount} {copy.guides}</span>
               <span className="text-[#173f36]">{copy.browse}</span>
             </div>
           </article>

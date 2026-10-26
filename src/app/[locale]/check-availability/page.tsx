@@ -168,6 +168,7 @@ export default async function CheckAvailabilityPage({ params, searchParams }: Pa
           locale: safeLocale,
         })}
       />
+      <div className="booking-page">
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
           <div className="max-w-4xl py-12 lg:py-14">
@@ -206,7 +207,7 @@ export default async function CheckAvailabilityPage({ params, searchParams }: Pa
                 <div className="mt-5 grid gap-5">
                   {steps.map((step) => (
                     <div key={step.number} className="grid grid-cols-[3.2rem_minmax(0,1fr)] gap-4 border-t border-[#eadfce] pt-5 first:border-t-0 first:pt-0">
-                      <span className="font-serif-display text-[2.55rem] leading-none text-[#c6a66a]">{step.number}</span>
+                      <span className="font-serif-display text-[2.55rem] leading-none text-[#8a682f]">{step.number}</span>
                       <div>
                         <h2 className="text-[1.22rem] font-semibold leading-[1.35] text-[#173f36] sm:text-[1.26rem]">{step.title[safeLocale]}</h2>
                         <p className="mt-1.5 text-[1.1rem] leading-8 text-[#5f574c] sm:text-[1.12rem]">{step.body[safeLocale]}</p>
@@ -301,6 +302,7 @@ export default async function CheckAvailabilityPage({ params, searchParams }: Pa
           </div>
         </Container>
       </section>
+      </div>
     </>
   );
 }

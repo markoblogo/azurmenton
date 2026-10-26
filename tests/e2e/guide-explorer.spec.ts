@@ -22,6 +22,8 @@ for (const [locale, beaches, all] of [["en", "Beaches", "All"], ["fr", "Plages",
   test(`guide mini-map preserves markers, popups and category filters in ${locale}`, async ({ page }) => {
     await page.goto(`/${locale}/guide`);
     const map = page.locator(".leaflet-container");
+    await expect(map).toHaveCount(0);
+    await page.getByRole("button", { name: beaches, exact: true }).scrollIntoViewIfNeeded();
     await expect(map).toBeVisible();
     const markers = map.locator(".leaflet-marker-icon");
     await expect(markers).toHaveCount(17);

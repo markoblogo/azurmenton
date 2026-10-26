@@ -146,7 +146,7 @@ export function AvailabilityOverviewSection({
           return (
             <article key={item.apartmentSlug} className="flex h-full flex-col overflow-hidden border border-[#dfd4c1] bg-white">
               <div className="relative aspect-[4/2.35] overflow-hidden bg-[#efe4d1]">
-                <Image src={apartment.cardImage} alt={apartment.shortName[locale]} fill sizes="(min-width: 1280px) 24vw, (min-width: 768px) 46vw, 100vw" className="object-cover" />
+                <Image src={apartment.cardImage} alt={apartment.shortName[locale]} fill sizes="(min-width: 1152px) 336px, (min-width: 768px) calc((100vw - 128px) / 3), (min-width: 640px) calc(100vw - 96px), calc(100vw - 80px)" className="object-cover" />
               </div>
               <div className="flex h-full flex-col p-4 sm:p-5">
                 <h3 className="serif-heading text-[1.9rem] leading-tight text-[#173f36]">{apartment.shortName[locale]}</h3>

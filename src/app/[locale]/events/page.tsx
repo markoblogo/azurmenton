@@ -204,7 +204,7 @@ function FeaturedEvent({ event, locale }: { event: RivieraEvent; locale: Locale 
           {event.whyShowOnSite[locale]}
         </p>
         <div className="flex flex-wrap items-center gap-3 border-t border-[#dfd4c1] pt-4">
-          <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#b07820]">
+          <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#805918]">
             {eventCategoryLabels[locale][event.category[0]]}
           </span>
           <span className="text-xs text-[#5f574c]">
@@ -270,6 +270,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
             })),
         })}
       />
+      <div className="events-page">
       <section className="border-b border-[#dfd4c1] bg-[#f6efe3]">
         <Container>
           <div className="grid gap-8 py-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:py-14">
@@ -361,7 +362,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
             <div className="grid border-y border-[#dfd4c1] md:grid-cols-2">
               {(labels.tips as string[]).map((tip, index) => (
                 <p key={tip} className="border-b border-[#dfd4c1] py-4 text-sm font-semibold leading-6 text-[#173f36] md:border-r md:px-4 md:[&:nth-child(even)]:border-r-0">
-                  <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-[#b07820]">
+                  <span className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-[#805918]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {tip}
@@ -400,11 +401,12 @@ export default async function EventsLandingPage({ params }: PageProps) {
             <p className="mt-4 text-sm leading-6 text-white/72">{labels.finalText}</p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
               <Button href={`/${safeLocale}/check-availability`}>{labels.availability}</Button>
-              <Button href={`/${safeLocale}/apartments`} variant="secondary">{labels.apartments}</Button>
+              <Button href={`/${safeLocale}/apartments`} variant="secondary" className="inverse-button">{labels.apartments}</Button>
             </div>
           </div>
         </Container>
       </section>
+      </div>
     </>
   );
 }

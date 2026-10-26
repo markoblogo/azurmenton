@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { Route } from "next";
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Locale } from "@/i18n/locales";
 import { miniMapCategories } from "@/content/planning/map-taxonomy";
 import type { ApartmentMarker, MapPlace } from "@/components/places/LeafletPlacesMap";
@@ -24,6 +24,24 @@ const LeafletMiniMap = dynamic(() => import("./LeafletPlacesMap").then((module) 
 
 export function UsefulPlacesMiniMapPreview({ locale, places, apartmentMarkers }: { locale: Locale; places: MapPlace[]; apartmentMarkers: ApartmentMarker[] }) {
   const [activeCategory, setActiveCategory] = useState("");
+  const [mapVisible, setMapVisible] = useState(false);
+  const mapContainer = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = mapContainer.current;
+    if (!element) return;
+    if (typeof IntersectionObserver === "undefined") {
+      const timer = window.setTimeout(() => setMapVisible(true), 0);
+      return () => window.clearTimeout(timer);
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setMapVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "300px" });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   const labels = copy[locale];
   const filtered = useMemo(() => {
     const category = categories.find((item) => item.id === activeCategory);
@@ -42,7 +60,8 @@ export function UsefulPlacesMiniMapPreview({ locale, places, apartmentMarkers }:
           {labels.detail}
         </Link>
       </div>
-      <div className="overflow-hidden">
+      <div ref={mapContainer} className="overflow-hidden">
+        {mapVisible ? (
         <LeafletMiniMap
           center={[43.776, 7.503]}
           places={filtered}
@@ -55,6 +74,7 @@ export function UsefulPlacesMiniMapPreview({ locale, places, apartmentMarkers }:
           className="h-[17rem] w-full"
           zoom={13}
         />
+        ) : <div className="h-[17rem] bg-[#efe6d5]" />}
       </div>
     </div>
   );

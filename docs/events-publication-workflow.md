@@ -114,6 +114,16 @@ npm run events:assets -- --published-events --assets-dir /absolute/path/to/asset
 
 This optimizes matched images into `public/images/events/`, crops them to the shared `1200x720` event-card format, updates published event media and records the decision in `src/content/events/overrides/image-overrides.json`.
 
+The asset pass includes both the JSON publication catalogue and legacy events in `riviera-events.ts`. Legacy image assignments are stored by event ID in `src/content/events/overrides/legacy-event-images.json`. Existing images are not replaced in `--missing-only` mode. Include the edition year in the filename: an ambiguous name is left unmatched rather than assigned to a different year. For one image with a non-descriptive filename, select its exact event ID explicitly:
+
+```bash
+npm run events:assets -- --published-events --assets-dir /absolute/path/to/one-image --event-id monaco-yacht-show-2027 --missing-only --report-only --fail-on-unmatched
+```
+
+Review the report before using `--apply` in place of `--report-only`. Existing destination files are never overwritten. The explicit ID does not authorize replacing a covered event in `--missing-only` mode.
+
+Annual editions with no image inherit the most recent earlier available project illustration in the same series, provided its filename does not contain a year. An edition's own image always takes precedence. Official posters and photos are not inherited; dates and event facts are never inherited by this rule. Filename checks cannot detect dates printed inside an image, so visually review inherited illustrations when preparing an edition. To install a new image on an edition using an inherited one, use one file, its exact `--event-id`, and `--replace-inherited`; run `--report-only` first. This does not replace an explicitly assigned image or modify the previous edition.
+
 Validate:
 
 ```bash
