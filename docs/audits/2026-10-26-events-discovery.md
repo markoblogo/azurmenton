@@ -1,6 +1,6 @@
 # Event discovery and guide-link review: 26 October 2026
 
-Review only. These are candidates, not published events. Check the live source again before publication; do not infer blanket admission or showtimes for a festival.
+Initial review was proposal-only. On 26 October the owner approved all six candidates below for publication. Check the live source again before travel; do not infer blanket admission or showtimes for a festival.
 
 ## Existing events
 
@@ -13,7 +13,7 @@ Review only. These are candidates, not published events. Check the live source a
 
 ## Candidate queue
 
-An exact-name search of repository content found no matching entries for these names; this is not a complete semantic duplicate audit. Proposed links and locations need editorial review before publication. No new illustration has been assigned.
+An exact-name search and review of the existing calendar found no duplicate entries. All six were subsequently added as distinct one-off events. Jardins Bioves and Le Lavoir Theatre are linked to existing places; the other venues are not assigned speculative place links. No new illustration has been assigned.
 
 1. **Menton fete Halloween**, 30 October 2026, Jardins Bioves, 13:30-16:00. Free family event; [Menton tourist office](https://www.menton-riviera-merveilles.fr/offres/menton-fete-halloween-menton-fr-6063164/). Distinct from Halloween in Eze.
 2. **St Johns Jazz**, 6 November 2026, 18:30, St John Anglican Church, Menton. The [tourist office](https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/) lists a concert with Manu LePrince and prices. Potential relationship: jazz guide and existing church location, subject to identity verification.

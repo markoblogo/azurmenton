@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, inheritAnnualEventIllustrations, isIndexableEventDetail } from "../../src/content/riviera-events";
 import { eventDeduplicationKey, filterDiscoverableEvents, findDuplicateEventCandidates, parseEventDiscoveryParams } from "../../src/lib/event-discovery";
 import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getParisDateRange } from "../../src/lib/events";
+import { getGuideRelatedEventSlugs } from "../../src/lib/event-related-content";
+import { getGuideArticle } from "../../src/content/guide";
 
 const datedEvent = {
   dateLabel: "20 November-4 December 2026",
@@ -11,6 +13,24 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
+  it("publishes the six reviewed local events with sources, missing media and relevant guide links", () => {
+    const cases = [
+      ["menton-fete-halloween-2026", "menton-with-kids-family-guide", "jardins-bioves"],
+      ["st-johns-jazz-menton-2026-11-06", "jazz-live-music-near-menton", null],
+      ["cest-pas-classique-riviera-2026", "menton-in-autumn", null],
+      ["halloween-beausoleil-2026", "monaco-events-from-menton", null],
+      ["christmas-parade-beausoleil-2026", "monaco-events-from-menton", null],
+      ["en-finir-avec-la-peur-menton-2026", "theatre-opera-performing-arts-near-menton", "le-lavoir-theatre-menton"],
+    ] as const;
+    for (const [slug, guideSlug, placeId] of cases) {
+      const event = getRivieraEvent(slug)!;
+      expect(event).toMatchObject({ dateStatus: "confirmed", sourceStatus: "verified", detailPage: true });
+      expect(event.sourceUrl).toMatch(/^https:\/\//);
+      expect(event.media?.image).toBeUndefined();
+      if (placeId) expect(event.relatedPlaceIds).toContain(placeId);
+      expect(getGuideRelatedEventSlugs(getGuideArticle(guideSlug)!)).toContain(slug);
+    }
+  });
   it("routes Yacht Show planning links to the confirmed 2027 edition and preserves the 2026 archive", () => {
     const archive = getRivieraEvent("monaco-yacht-show-2026");
     const next = getRivieraEvent("monaco-yacht-show");
