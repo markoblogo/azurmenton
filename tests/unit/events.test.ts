@@ -50,6 +50,14 @@ describe("event date status", () => {
     expect(getEventDateStatus({ dateLabel: "Dates pending", dateStatus: "dates_pending" })).toBe("dates_pending");
   });
 
+  it("keeps the Riviera Christmas overview pending while reporting Nice's sourced dates", () => {
+    const event = getRivieraEvent("christmas-markets-riviera")!;
+    expect(event.dateStatus).toBe("dates_pending");
+    expect(event.sourceUrl).toBe("https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/");
+    expect(event.shortDescription.en).toContain("27 November 2026 to 3 January 2027");
+    expect(canRenderEventJsonLd(event)).toBe(false);
+  });
+
   it("keeps disputed events unconfirmed and archives them after their planned dates", () => {
     for (const slug of ["halloween-eze", "monaco-international-triathlon"]) {
       const event = getRivieraEvent(slug)!;
