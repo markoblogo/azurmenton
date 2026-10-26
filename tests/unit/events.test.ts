@@ -86,7 +86,9 @@ describe("event date status", () => {
     expect(event.sourceUrl).toBe("https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/");
     expect(event.shortDescription.en).toContain("27 November 2026 to 3 January 2027");
     expect(event.shortDescription.en).toContain("Monaco lists 4 December to 3 January");
+    expect(event.shortDescription.en).toContain("Menton's municipal call proposes 4 December to 3 January");
     expect(getEventDetail(event.slug)?.detailContent?.officialLinks?.map((link) => link.href)).toContain("https://mairie.mc/le-village-de-noel");
+    expect(getEventDetail(event.slug)?.detailContent?.officialLinks?.map((link) => link.href)).toContain("https://www.menton.fr/Appels-d-Offres-et-Marches-Publics.html");
     expect(canRenderEventJsonLd(event)).toBe(false);
   });
 

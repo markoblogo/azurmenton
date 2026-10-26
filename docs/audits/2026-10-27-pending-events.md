@@ -15,3 +15,5 @@ Reviewed the 11 report items with pending or estimated dates. A seasonal overvie
 | Monte-Carlo Jazz Festival | [Organiser page](https://www.montecarlosbm.com/en/shows-monaco/monte-carlo-jazz-festival) returned 403 during this review; search results disagree on the range. Keep pending rather than copying a third-party date. |
 | New Year's Eve | [Tourism agenda](https://www.menton-riviera-merveilles.fr/sorganiser/agenda/) does not establish a combined local programme. Keep pending. |
 | Winter on the Riviera | Seasonal overview, not a single event; individual official programmes are separate. Keep estimated rather than inventing exact dates. |
+
+Follow-up: Menton's [municipal call for applications](https://www.menton.fr/Appels-d-Offres-et-Marches-Publics.html) proposes a Christmas village on Esplanade Elisee Reclus from 4 December 2026 to 3 January 2027. This is a proposed event in a vendor call, not a complete public programme or final confirmation. The overview links the notice and preserves its pending status.
