@@ -202,7 +202,7 @@ for (const event of [...rivieraEvents, summerOnTheRivieraEvent]) {
   if (!isFilledText(event.dateLabel)) fail(`${owner}.dateLabel missing`);
   if (event.dateLabelLocalized) checkLocalizedText(owner, "dateLabelLocalized", event.dateLabelLocalized, 3);
   if (event.dateStatus === "confirmed" && !event.startDate && !event.endDate) fail(`${owner} is confirmed but has no startDate or endDate`);
-  if ((event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window") && (event.startDate || event.endDate)) {
+  if ((event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window") && (event.startDate || event.endDate) && !(event.dateStatus === "dates_pending" && event.dateStatusConflict === true && event.startDate && event.endDate)) {
     fail(`${owner} has pending/estimated status but also has concrete dates`);
   }
   checkLocalizedText(owner, "shortDescription", event.shortDescription, 20);

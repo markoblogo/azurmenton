@@ -50,6 +50,18 @@ describe("event date status", () => {
     expect(getEventDateStatus({ dateLabel: "Dates pending", dateStatus: "dates_pending" })).toBe("dates_pending");
   });
 
+  it("keeps disputed events unconfirmed and archives them after their planned dates", () => {
+    for (const slug of ["halloween-eze", "monaco-international-triathlon"]) {
+      const event = getRivieraEvent(slug)!;
+      expect(event.dateStatus).toBe("dates_pending");
+      expect(event.sourceStatus).toBe("needs_verification");
+      expect(canRenderEventJsonLd(event, new Date("2026-10-26T12:00:00Z"))).toBe(false);
+      expect(getEventDateStatus(event, new Date("2026-11-10T12:00:00Z"))).toBe("past");
+      for (const locale of ["en", "fr", "it", "uk"] as const) expect(event.shortDescription[locale]).toBeTruthy();
+    }
+    expect(getRivieraEvent("menton-lemon-festival")?.dateStatus).toBe("confirmed");
+  });
+
   it("keeps estimated annual windows separate from confirmed dates", () => {
     expect(getEventDateStatus({ dateLabel: "Late July", dateStatus: "estimated_annual_window" })).toBe("estimated_annual_window");
   });

@@ -47,6 +47,7 @@ export type RivieraEvent = {
   occurrenceYear?: number;
   recurrence?: EventRecurrence;
   dateStatus?: EventDateStatus;
+  dateStatusConflict?: boolean;
   location: EventLocation;
   city?: string;
   monthGroup: string;
@@ -1738,6 +1739,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   {
     id: "halloween-eze-2026",
     slug: "halloween-eze",
+    dateStatus: "dates_pending",
+    dateStatusConflict: true,
     title: "Halloween in Eze",
     location: "French Riviera",
     monthGroup: "2026-10",
@@ -1748,10 +1751,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     familySuitability: "recommended_with_children",
     audience: ["families", "children", "village day-trip guests"],
     shortDescription: t(
-      "A Halloween village outing in Eze with seasonal family atmosphere and a dramatic hilltop setting.",
-      "Une sortie Halloween a Eze, avec ambiance familiale de saison et cadre perche spectaculaire.",
-      "Una gita di Halloween a Eze, con atmosfera familiare stagionale e scenario panoramico.",
-      "Halloween у селі Eze з сімейною сезонною атмосферою та ефектною локацією на пагорбі.",
+      "The municipality lists Halloween on 31 October, but another listing reports a cancellation. Confirm with the town before travelling.",
+      "La mairie annonce Halloween le 31 octobre, mais un autre agenda indique une annulation. Confirmez aupres de la mairie avant de vous deplacer.",
+      "Il comune indica Halloween il 31 ottobre, ma un altro calendario segnala una cancellazione. Confermate con il comune prima di partire.",
+      "Мерія вказує Halloween 31 жовтня, але інший афішний сайт повідомляє про скасування. Уточніть у мерії перед поїздкою.",
     ),
     whyShowOnSite: t(
       "A family-friendly October idea close enough to combine with a Menton stay.",
@@ -1765,7 +1768,7 @@ const rivieraEventsBase: RivieraEvent[] = [
       "Organizza bene il trasporto; arrivare al borgo di Eze puo essere piu lento dei treni costieri.",
       "Ретельно плануйте транспорт: до села Eze добиратися довше, ніж просто їхати узбережжям поїздом.",
     ),
-    sourceStatus: "verified",
+    sourceStatus: "needs_verification",
     sourceUrl: "https://ville-eze.fr/evenements/halloween-3/",
     featured: true,
     detailPage: true,
@@ -2538,7 +2541,8 @@ const rivieraEventsBase: RivieraEvent[] = [
     seriesSlug: "monaco-international-triathlon",
     occurrenceYear: 2026,
     recurrence: "annual",
-    dateStatus: "confirmed",
+    dateStatus: "dates_pending",
+    dateStatusConflict: true,
     location: "Monaco",
     city: "Monaco",
     monthGroup: "2026-11",
@@ -2549,7 +2553,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     category: ["sport"],
     familySuitability: "depends",
     audience: ["triathletes", "supporters", "sports travellers"],
-    shortDescription: t("A late-autumn triathlon weekend around Monaco and Larvotto.", "Un week-end triathlon de fin d'automne autour de Monaco et du Larvotto.", "Un weekend triathlon di fine autunno tra Monaco e Larvotto.", "Пізньоосінній тріатлон-вікенд навколо Монако та Larvotto."),
+    shortDescription: t("The organiser lists 6-8 November, but the federation calendar indicates cancellation. Confirm the event with the organiser before travelling.", "L'organisateur annonce les 6-8 novembre, mais le calendrier federal indique une annulation. Confirmez aupres de l'organisateur avant de vous deplacer.", "L'organizzatore indica il 6-8 novembre, ma il calendario federale segnala una cancellazione. Confermate con l'organizzatore prima di partire.", "Організатор вказує 6–8 листопада, але календар федерації повідомляє про скасування. Уточніть статус у організатора перед поїздкою."),
     whyShowOnSite: t("Extends the sports calendar beyond the main summer season.", "Prolonge le calendrier sportif au-dela de l'ete.", "Estende il calendario sportivo oltre l'estate.", "Продовжує спортивний календар після літнього сезону."),
     bookingTip: t("Check race-day access and consider the train from Menton.", "Verifiez les acces le jour de course et envisagez le train depuis Menton.", "Controlla accessi il giorno gara e valuta il treno da Mentone.", "Перевіряйте доступ у день перегонів і розгляньте поїзд із Ментона."),
     sourceStatus: "needs_verification",

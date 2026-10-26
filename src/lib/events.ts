@@ -84,6 +84,10 @@ function getComparableToday(today: Date) {
 export function getEventDateStatus(event: DateLikeEvent, today = new Date()): EventDateStatus {
   const todayKey = getComparableToday(today);
 
+  if (event.dateStatus === "dates_pending" && event.endDate && compareDateKeys(event.endDate, todayKey) < 0) {
+    return "past";
+  }
+
   if (event.dateStatus === "dates_pending" || event.dateStatus === "estimated_annual_window") {
     return event.dateStatus;
   }
