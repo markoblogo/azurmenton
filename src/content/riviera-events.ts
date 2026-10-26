@@ -2553,7 +2553,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("Extends the sports calendar beyond the main summer season.", "Prolonge le calendrier sportif au-dela de l'ete.", "Estende il calendario sportivo oltre l'estate.", "Продовжує спортивний календар після літнього сезону."),
     bookingTip: t("Check race-day access and consider the train from Menton.", "Verifiez les acces le jour de course et envisagez le train depuis Menton.", "Controlla accessi il giorno gara e valuta il treno da Mentone.", "Перевіряйте доступ у день перегонів і розгляньте поїзд із Ментона."),
     sourceStatus: "needs_verification",
-    sourceUrl: "https://fr.milesrepublic.com/en/event/monaco-international-triathlon-16956",
+    sourceUrl: "https://monaco-international-triathlon.com/programme-2/",
     distanceFromMentonKm: 11,
     lastChecked: "2026-07-03",
     detailPage: true,

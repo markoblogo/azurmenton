@@ -57,6 +57,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Keep major annual detail pages pointed at the next useful occurrence, not a stale past date.
 - Use selected occurrence aliases for high-booking pages, for example `/events/monaco-grand-prix-2027`, while keeping the stable series slug.
 - Run `npm run events:review` when changing events or guide-event links; treat high-risk items as blockers unless they are explicitly intentional.
+- For the weekly editorial review, inspect upcoming events and review warnings, then check dates, venue, access and cancellation against the organiser or public authority. A source timestamp or matching date alone does not confirm that an event still goes ahead. Flag contradictory sources for manual resolution; do not automatically update or publish events. Record the checked date, URLs, evidence, uncertainty and proposed action. See `docs/audits/2026-10-26-events-editorial-review.md` for the first review.
 - Mark annual events awaiting official dates with an explicit freshness profile instead of deleting them.
 - Keep expired annual events archived when they are useful for next-year refreshes.
 - Add apartment links for event detail pages when the event can drive accommodation demand.
