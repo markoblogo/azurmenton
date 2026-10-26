@@ -371,6 +371,11 @@ export default async function EventArticlePage({ params }: PageProps) {
                 {title}
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-7 text-[#5f574c]">{description}</p>
+              {event.dateStatusConflict && event.sourceUrl ? (
+                <a href={event.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-sm font-semibold text-[#0b6f8f] underline underline-offset-4">
+                  {{ en: "Official source", fr: "Source officielle", it: "Fonte ufficiale", uk: "Офіційне джерело" }[locale]}
+                </a>
+              ) : null}
               <div className="mt-5 flex flex-wrap gap-2">
                 {event.category.map((category) => (
                   <span key={category} className="border border-[#dfd4c1] bg-[#fffdf8] px-2.5 py-1 text-[0.66rem] font-bold uppercase tracking-[0.12em] text-[#4f5b57]">

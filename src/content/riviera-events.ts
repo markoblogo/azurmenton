@@ -1751,10 +1751,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     familySuitability: "recommended_with_children",
     audience: ["families", "children", "village day-trip guests"],
     shortDescription: t(
-      "The municipality lists Halloween on 31 October, but another listing reports a cancellation. Confirm with the town before travelling.",
-      "La mairie annonce Halloween le 31 octobre, mais un autre agenda indique une annulation. Confirmez aupres de la mairie avant de vous deplacer.",
-      "Il comune indica Halloween il 31 ottobre, ma un altro calendario segnala una cancellazione. Confermate con il comune prima di partire.",
-      "Мерія вказує Halloween 31 жовтня, але інший афішний сайт повідомляє про скасування. Уточніть у мерії перед поїздкою.",
+      "The municipality lists Halloween in Eze Village for 31 October 2026.",
+      "La mairie annonce Halloween a Eze Village le 31 octobre 2026.",
+      "Il comune indica Halloween a Eze Village il 31 ottobre 2026.",
+      "Мерія анонсує Halloween у селищі Ез 31 жовтня 2026 року.",
     ),
     whyShowOnSite: t(
       "A family-friendly October idea close enough to combine with a Menton stay.",
@@ -2553,7 +2553,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     category: ["sport"],
     familySuitability: "depends",
     audience: ["triathletes", "supporters", "sports travellers"],
-    shortDescription: t("The organiser lists 6-8 November, but the federation calendar indicates cancellation. Confirm the event with the organiser before travelling.", "L'organisateur annonce les 6-8 novembre, mais le calendrier federal indique une annulation. Confirmez aupres de l'organisateur avant de vous deplacer.", "L'organizzatore indica il 6-8 novembre, ma il calendario federale segnala una cancellazione. Confermate con l'organizzatore prima di partire.", "Організатор вказує 6–8 листопада, але календар федерації повідомляє про скасування. Уточніть статус у організатора перед поїздкою."),
+    shortDescription: t("The organiser lists the Monaco International Triathlon for 6-8 November 2026.", "L'organisateur annonce le Monaco International Triathlon du 6 au 8 novembre 2026.", "L'organizzatore indica il Monaco International Triathlon dal 6 all'8 novembre 2026.", "Організатор анонсує Monaco International Triathlon на 6–8 листопада 2026 року."),
     whyShowOnSite: t("Extends the sports calendar beyond the main summer season.", "Prolonge le calendrier sportif au-dela de l'ete.", "Estende il calendario sportivo oltre l'estate.", "Продовжує спортивний календар після літнього сезону."),
     bookingTip: t("Check race-day access and consider the train from Menton.", "Verifiez les acces le jour de course et envisagez le train depuis Menton.", "Controlla accessi il giorno gara e valuta il treno da Mentone.", "Перевіряйте доступ у день перегонів і розгляньте поїзд із Ментона."),
     sourceStatus: "needs_verification",
