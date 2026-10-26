@@ -701,6 +701,7 @@ const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
   "tour-de-france-femmes-nice-finish-2026": eventIllustration("tour-de-france-femmes-nice-finish.jpg", "Finish of the women's Tour de France in Nice"),
   "art3f-monaco-2026": eventIllustration("art3f-monaco.png", "ART3F Monaco"),
   "monaco-yacht-show-2026": eventIllustration("monaco-yacht-show.jpg", "Monaco Yacht Show"),
+  "monaco-yacht-show-2027": eventIllustration("monaco-yacht-show-2027.webp", "Monaco Yacht Show"),
   "matisse-yves-saint-laurent-autumn-2026": eventIllustration("henri-matisse-yves-saint-laurent.png", "Henri Matisse - Yves Saint Laurent"),
   "immersive-exhibitions-nice-2026": eventIllustration("ongoing-exhibitions-nice.png", "Ongoing exhibitions in Nice"),
   "nice-cannes-marathon-2026": eventIllustration("nice-cannes-marathon.jpg", "Alpes-Maritimes Nice-Cannes Marathon"),

@@ -15,6 +15,11 @@ describe("priority guide source references", () => {
     ["best-ice-cream-menton", "https://glacierdemontis.fr/contact/"],
     ["best-ice-cream-menton", "https://www.menton-riviera-merveilles.fr/offres/puro-piacere-glacier-menton-fr-3776123/"],
     ["car-rental-menton-nice-airport-convertibles", "https://www.nice.aeroport.fr/services/location-de-voiture"],
+    ["airports-near-menton-live-flights", "https://www.nice.aeroport.fr/en/directions/train"],
+    ["airports-near-menton-live-flights", "https://www.nice.aeroport.fr/en/flights/arrivals"],
+    ["airports-near-menton-live-flights", "https://www.nice.aeroport.fr/en/flights/departures"],
+    ["monaco-events-from-menton", "https://www.sncf-connect.com/en-en/train/timetables/menton/monaco"],
+    ["where-to-stay-in-menton", "https://www.menton-riviera-merveilles.fr/offres/plage-rondelli-menton-fr-3051231/"],
   ])("keeps %s linked to its claim source", (slug, source) => {
     const article = getGuideArticle(slug);
     const section = article?.sections.find((item) => item.officialLinks?.some((link) => link.url === source));
@@ -35,5 +40,13 @@ describe("priority guide source references", () => {
     const section = article?.sections.find((item) => item.relatedPlaceIds?.includes("public-toilets-place-darmes-menton"));
     expect(section?.body[0].en).toContain("western side, Place d'Armes");
     expect(section?.body[0].en).not.toContain("Garavan and the eastern seafront, Place d'Armes");
+  });
+
+  it("distinguishes the Victoria Beach studio from the family apartment", () => {
+    const article = getGuideArticle("where-to-stay-in-menton");
+    const section = article?.sections.find((item) => item.heading.en === "Central beachfront: Victoria Beach area");
+    expect(section?.body[1].en).toContain("Sea View Balcony Studio");
+    expect(section?.body[1].en).toContain("Beachside Family Apartment");
+    expect(section?.body[1].en).not.toContain("sea-view studios");
   });
 });

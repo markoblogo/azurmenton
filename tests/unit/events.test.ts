@@ -17,6 +17,8 @@ describe("event date status", () => {
     expect(archive).toMatchObject({ startDate: "2026-09-23", endDate: "2026-09-26", detailPage: false, searchIndexing: "noindex" });
     expect(next).toMatchObject({ occurrenceSlug: "monaco-yacht-show-2027", dateStatus: "confirmed", startDate: "2027-09-22", endDate: "2027-09-25", detailPage: true });
     expect(getRivieraEvent("monaco-yacht-show-2027")).toBe(next);
+    expect(next?.media?.image).toBe("/images/events/monaco-yacht-show-2027.webp");
+    expect(archive?.media?.image).toBe("/images/events/monaco-yacht-show.jpg");
     expect(getCanonicalEventDetailSlug("monaco-yacht-show")).toBe("monaco-yacht-show-2027");
     expect(next && isIndexableEventDetail(next, new Date("2026-10-13T12:00:00Z"))).toBe(true);
     expect(eventDetailSlugs).toContain("monaco-yacht-show-2027");
