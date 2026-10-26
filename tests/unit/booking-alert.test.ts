@@ -38,3 +38,22 @@ it("isolates Telegram failures and never logs the secret-bearing exception", asy
   expect(JSON.stringify(log.mock.calls)).not.toContain("test-secret");
   expect(JSON.stringify(log.mock.calls)).not.toContain("private guest message");
 });
+
+it.each([400, 401, 403, 429, 500])("records Telegram HTTP %s without logging the response body", async (status) => {
+  vi.stubEnv("BOOKING_ALERT_TELEGRAM_BOT_TOKEN", "test-secret");
+  vi.stubEnv("BOOKING_ALERT_TELEGRAM_CHAT_ID", "test-chat");
+  const log = vi.spyOn(console, "error").mockImplementation(() => {});
+  vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ ok: false, description: "private provider response" }, { status })));
+  await notifyBookingOutcome("request", "provider_accepted", "private guest message");
+  expect(log).toHaveBeenCalledWith("booking_alert", { requestId: "request", state: "provider_rejected", status });
+  expect(JSON.stringify(log.mock.calls)).not.toContain("private");
+});
+
+it("distinguishes a timeout without logging the exception", async () => {
+  vi.stubEnv("BOOKING_ALERT_TELEGRAM_BOT_TOKEN", "test-secret");
+  vi.stubEnv("BOOKING_ALERT_TELEGRAM_CHAT_ID", "test-chat");
+  const log = vi.spyOn(console, "error").mockImplementation(() => {});
+  vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new DOMException("timeout", "TimeoutError")));
+  await notifyBookingOutcome("request", "provider_accepted", "private guest message");
+  expect(log).toHaveBeenCalledWith("booking_alert", { requestId: "request", state: "timeout" });
+});

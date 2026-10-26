@@ -18,11 +18,15 @@ export async function notifyBookingOutcome(requestId: string, state: BookingEmai
         link_preview_options: { is_disabled: true },
       }),
     });
-    const data = await response.json();
-    if (!response.ok || data?.ok !== true) throw new Error("Alert rejected");
+    const data: unknown = await response.json().catch(() => null);
+    if (!response.ok || !data || typeof data !== "object" || !("ok" in data) || data.ok !== true) {
+      console.error("booking_alert", { requestId, state: "provider_rejected", status: response.status });
+      return;
+    }
     console.info("booking_alert", { requestId, state: "accepted" });
-  } catch {
+  } catch (error) {
     // Exceptions can contain the bot token in the URL. Never log them.
-    console.error("booking_alert", { requestId, state: "failed_or_unknown" });
+    const timedOut = error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name);
+    console.error("booking_alert", { requestId, state: timedOut ? "timeout" : "network_failure" });
   }
 }
