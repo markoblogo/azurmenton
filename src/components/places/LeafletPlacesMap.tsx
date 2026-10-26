@@ -7,7 +7,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
 import type { Locale } from "@/i18n/locales";
 import type { Apartment } from "@/content/apartments";
-import type { UsefulPlaceWithMapPoint } from "@/components/places/UsefulPlacesMap";
+import type { Place } from "@/content/places";
 
 const markerIcon = L.divIcon({
   className: "azur-place-marker",
@@ -25,11 +25,16 @@ const apartmentIcon = L.divIcon({
   popupAnchor: [0, -14],
 });
 
-type ApartmentMarker = {
+export type MapPlace = Pick<Place, "id" | "name" | "type" | "googleMapsSearchUrl" | "googleMapsUrl" | "relatedArticleIds"> & {
+  shortNote: Partial<Record<Locale, string>>;
+  mapPoint: { lat: number; lng: number };
+};
+
+export type ApartmentMarker = {
   apartmentSlug: string;
   lat: number;
   lng: number;
-  apartment: Apartment;
+  apartment: { shortName: Partial<Apartment["shortName"]>; name: Partial<Apartment["name"]> };
 };
 
 export function LeafletPlacesMap({
@@ -45,7 +50,7 @@ export function LeafletPlacesMap({
   zoom = 12,
 }: {
   center: [number, number];
-  places: UsefulPlaceWithMapPoint[];
+  places: MapPlace[];
   apartments: ApartmentMarker[];
   locale: Locale;
   openLabel: string;

@@ -14,6 +14,7 @@ import { apartments } from "@/content/apartments";
 import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
 import { getLatestLandingGuideSlug, guideArticles, guideLanding, localizeGuideArticle, guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
 import { placeMapPoints } from "@/content/planning/place-map-points";
+import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
 import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -204,9 +205,22 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
   ])
     .map((place) => {
       const mapPoint = mapPointByPlaceId.get(place.id);
-      return mapPoint ? { ...place, mapPoint } : null;
+      return mapPoint ? {
+        id: place.id, name: place.name, type: place.type,
+        googleMapsSearchUrl: place.googleMapsSearchUrl, googleMapsUrl: place.googleMapsUrl,
+        relatedArticleIds: place.relatedArticleIds.slice(0, 1),
+        shortNote: { [safeLocale]: place.shortNote[safeLocale] },
+        mapPoint: { lat: mapPoint.lat, lng: mapPoint.lng },
+      } : null;
     })
     .filter((place): place is NonNullable<typeof place> => Boolean(place));
+  const apartmentMarkers = apartmentMapPoints.flatMap(({ apartmentSlug, lat, lng }) => {
+    const apartment = apartments.find((item) => item.slug === apartmentSlug);
+    return apartment ? [{ apartmentSlug, lat, lng, apartment: {
+      shortName: { [safeLocale]: apartment.shortName[safeLocale] },
+      name: { [safeLocale]: apartment.name[safeLocale] },
+    } }] : [];
+  });
   const featuredPriority = seasonalGuideSlugs();
   const featuredArticles = guideArticles
     .filter((article) => featuredPriority.includes(article.slug) || article.featured)
@@ -345,7 +359,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
               <p className="mt-3 max-w-xl text-sm leading-6 text-[#e8dcc9]">{local.mapText}</p>
               <Link className="mt-4 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white hover:bg-white/10" href={`/${safeLocale}/map` as Route}>{local.mapCta}</Link>
             </div>
-            <UsefulPlacesMiniMapPreview locale={safeLocale} places={mapPreviewPlaces} />
+            <UsefulPlacesMiniMapPreview locale={safeLocale} places={mapPreviewPlaces} apartmentMarkers={apartmentMarkers} />
           </div>
         </Container>
       </Section>

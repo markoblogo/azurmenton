@@ -17,3 +17,21 @@ for (const locale of ["en", "fr", "it", "uk"]) {
     await expect(cards).toHaveCount(12);
   });
 }
+
+for (const [locale, beaches, all] of [["en", "Beaches", "All"], ["fr", "Plages", "Tout"], ["it", "Spiagge", "Tutto"], ["uk", "Пляжі", "Усі"]]) {
+  test(`guide mini-map preserves markers, popups and category filters in ${locale}`, async ({ page }) => {
+    await page.goto(`/${locale}/guide`);
+    const map = page.locator(".leaflet-container");
+    await expect(map).toBeVisible();
+    const markers = map.locator(".leaflet-marker-icon");
+    await expect(markers).toHaveCount(17);
+    await markers.nth(2).click();
+    await expect(map.locator(".leaflet-popup a[href*='/apartments/']")).toBeVisible();
+    await page.getByRole("button", { name: beaches, exact: true }).click();
+    await expect(markers).toHaveCount(9);
+    await page.getByRole("button", { name: all, exact: true }).click();
+    await expect(markers).toHaveCount(17);
+    await markers.nth(3).dispatchEvent("click");
+    await expect(map.locator(".leaflet-popup").filter({ hasText: "Plage des Sablettes" })).toBeVisible();
+  });
+}

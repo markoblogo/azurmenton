@@ -5,12 +5,8 @@ import type { Route } from "next";
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locales";
-import { apartments } from "@/content/apartments";
-import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
 import { miniMapCategories } from "@/content/planning/map-taxonomy";
-import type { UsefulPlaceWithMapPoint } from "@/components/places/UsefulPlacesMap";
-
-type MiniMapPlace = UsefulPlaceWithMapPoint;
+import type { ApartmentMarker, MapPlace } from "@/components/places/LeafletPlacesMap";
 
 const copy = {
   en: { all: "All", detail: "More", open: "Open in Google Maps", guide: "Related guide", apartment: "Apartment" },
@@ -26,20 +22,13 @@ const LeafletMiniMap = dynamic(() => import("./LeafletPlacesMap").then((module) 
   loading: () => <div className="grid h-[17rem] place-items-center bg-[#efe6d5] text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#173f36]">Loading map</div>,
 });
 
-export function UsefulPlacesMiniMapPreview({ locale, places }: { locale: Locale; places: MiniMapPlace[] }) {
+export function UsefulPlacesMiniMapPreview({ locale, places, apartmentMarkers }: { locale: Locale; places: MapPlace[]; apartmentMarkers: ApartmentMarker[] }) {
   const [activeCategory, setActiveCategory] = useState("");
   const labels = copy[locale];
   const filtered = useMemo(() => {
     const category = categories.find((item) => item.id === activeCategory);
     return category ? places.filter((place) => category.placeTypes.includes(place.type)) : places;
   }, [activeCategory, places]);
-  const apartmentMarkers = apartmentMapPoints
-    .map((point) => {
-      const apartment = apartments.find((item) => item.slug === point.apartmentSlug);
-      return apartment ? { ...point, apartment } : null;
-    })
-    .filter((item): item is NonNullable<typeof item> => Boolean(item));
-
   return (
     <div className="border border-[#c6a66a] bg-[#f8f3ea] text-[#173f36]">
       <div className="flex flex-wrap gap-1.5 border-b border-[#c6a66a] p-2">

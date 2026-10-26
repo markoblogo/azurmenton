@@ -108,6 +108,67 @@ Raw local artifacts: /tmp/menton-lighthouse-booking.json,
 These checks cover representative claims relevant to 12 priority guides and
 nearby events; they do NOT complete a fact-by-fact review of those guides.
 
+### Follow-up: claim-level checks
+
+- Halles du Marche: Menton town lists the covered market every day,
+  07:30–13:00. Updated the guide's hours and removed the implication that the
+  hall continues after lunch. Individual stall and holiday hours remain
+  unverified. Source: https://www.menton.fr/Marche-des-Halles-Municipales.html
+- Nice Airport arrival: the airport lists seven minutes on foot from T1 exit
+  A0 to Nice Saint-Augustin, plus a free tram connection from T2 to Grand
+  Arenas. Added the source and a luggage/walking buffer; journey duration,
+  taxi estimates and airport-bus fares were not reverified here.
+  Source: https://www.nice.aeroport.fr/en/directions/train
+- Airport bus 80: airport lists T2 bay 1, T1 Shuttle Parking, online tickets
+  and on-board contactless bank-card payment. ZOU's September 2026 timetable
+  page lists line 80. Added both direct source links and retained a current-
+  conditions caveat. Sources: https://www.nice.aeroport.fr/en/directions/public-transport
+  and https://zou.maregionsud.fr/fiches-horaires-des-bus-zou/alpes-maritimes
+- Public transport: SNCF lists a full interruption on the Nice–Monaco–
+  Ventimiglia / Nice–Tende routes on 10–11 November 2026, with limited road
+  replacement. Added a dated warning with the official works link. Recheck and
+  remove or archive the dated notice after the disruption.
+  Source: https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/info-trafic/travaux
+- Luggage storage: the airport's specific storage page still lists daily
+  08:00–21:00, €19 per bag and €21 for oversized items. A broader service-
+  centre page lists different general hours; do not assume those are storage
+  hours. No editorial change needed on this claim.
+  Source: https://www.nice.aeroport.fr/en/services/pratical-services/luggage-storage
+
+These checks cover selected claims in four guides, not whole-guide verification.
+The guides retain their existing verification status.
+
+### Priority-guide follow-up: 26 October 2026
+
+- Fete du Citron practical guide: organiser confirms 13–28 February 2027;
+  under-six and eligible disability-card visitors still need an admission
+  ticket, and animals are excluded from the exhibition, parade route and
+  Palais de l'Europe. Added a dated, localized access note and direct source.
+  https://www.fete-du-citron.com/?lang=en
+- Supermarkets: Carrefour's own directory lists four Menton stores, but its
+  directory and store pages report conflicting hours for some locations.
+  Added a direct directory link and a warning to check the individual store;
+  other chains and holiday hours remain unverified.
+  https://www.carrefour.fr/magasin/ville/menton-06083
+- Beaches / family / summer: tourism office confirms Rondelli is accessible
+  from Menton Garavan station and the dog beach is unsupervised. This does not
+  verify current flags, seasonal supervision or every listed beach.
+  https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/les-plages/
+- Old town / one-day / three-day itineraries: tourism office lists the old
+  cemetery as free, normally 07:00–17:00. No individual route or exceptional
+  closure is confirmed by this check.
+  https://www.menton-riviera-merveilles.fr/offres/cimetiere-du-vieux-chateau-menton-fr-3051918/
+- Italian Riviera / day trips / car-free: SNCF shows direct TER trips from
+  Menton Garavan to Ventimiglia for the checked date. This is not a guarantee
+  of frequency, service or travel time on other dates.
+  https://www.sncf-connect.com/train/horaires/menton/vintimille
+
+These are specific checks, not full reviews of the linked guides or all 20
+authority profiles. The remaining guide claims, including ice-cream venues,
+public toilets, car rental, accommodation-area and airport-board details,
+still require individual primary-source checks. No global review date was
+advanced and existing provenance statuses remain unchanged.
+
 ## Open gates
 
 1. Real email: one owner-authorized TEST API attempt returned 400 anti-spam.
@@ -177,3 +238,16 @@ nearby events; they do NOT complete a fact-by-fact review of those guides.
 See [email operations](../booking-email-operations.md) for remaining delivery
 coverage limits. This follow-up does not close the full 90-guide fact audit,
 Plausible access or field Core Web Vitals measurement gates above.
+
+## Local catalogue payload follow-up
+
+The guide landing mini-map now receives only the place and apartment fields
+needed to render its markers, in the selected language. The full map retains
+its existing data. On the same local production server, uncompressed HTML was
+436,268 to 412,083 bytes for `/en/guide` and 503,907 to 480,864 bytes for
+`/uk/guide`. These are byte measurements, not Lighthouse or field LCP results;
+the release and live measurements must be checked separately.
+
+Two apartment markers at the same building overlap at the mini-map's initial
+zoom. The optimization preserves their positions and does not resolve that
+pre-existing interaction limitation.
