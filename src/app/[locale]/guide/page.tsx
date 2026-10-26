@@ -12,7 +12,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
 import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
-import { getLatestLandingGuideSlug, guideArticles, guideLanding, localizeGuideArticle } from "@/content/guide";
+import { getLatestLandingGuideSlug, guideArticles, guideLanding, localizeGuideArticle, guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
@@ -311,6 +311,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
       <Section className="!py-2 bg-[#f8f3ea] sm:!py-3">
         <Container>
           <GuideExplorer
+            filterOptions={{ guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions }}
             key={selectedCollection?.id ?? "all-guides"}
             locale={safeLocale}
             articles={orderedArticles}

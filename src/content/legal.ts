@@ -204,7 +204,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Les donnees sont destinees a Azur Menton / l'equipe hote et aux prestataires techniques strictement necessaires, le cas echeant.",
             "Les donnees sont conservees uniquement pendant la duree necessaire aux echanges, aux reservations confirmees, aux obligations comptables et au support.",
-            "Si de nouveaux outils email, notification, CRM ou equivalents sont ajoutes, les informations relatives aux prestataires et transferts seront mises a jour.",
+            "Les demandes sont transmises par email via Resend. Une copie contenant les coordonnees, les details du sejour et le message est egalement envoyee dans un chat Telegram prive du proprietaire pour le suivi des demandes. Evitez les donnees sensibles dans le champ libre. Les copies sont concernees par les memes demandes d'effacement et regles de conservation.",
           ],
         },
         {
@@ -244,7 +244,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Data may be accessed by Azur Menton / the host team and necessary technical providers. It is kept only as long as needed for enquiries, confirmed stays, accounting duties and guest support.",
             "Users may request access, rectification, deletion, restriction, objection and portability where applicable, and may complain to CNIL.",
-            "Azur Menton does not sell personal data. If additional non-EU tools are added later, the privacy information will be updated.",
+            "Booking requests are emailed via Resend. A copy containing contact details, stay details and the message is also sent to the owner's private Telegram chat for enquiry handling. Please avoid sensitive information in the free-text field. These copies are covered by the same deletion requests and retention rules. Azur Menton does not sell personal data.",
           ],
         },
       ],
@@ -270,6 +270,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
             "Le basi giuridiche possono includere misure precontrattuali, contratto, interesse legittimo e consenso dove richiesto.",
             "I dati sono accessibili solo al team host e ai fornitori tecnici necessari, e vengono conservati per il tempo necessario a richieste, prenotazioni confermate, obblighi contabili e supporto.",
             "Gli utenti hanno diritti GDPR applicabili e possono presentare reclamo alla CNIL. Azur Menton non vende dati personali.",
+            "Le richieste vengono inviate via email tramite Resend. Una copia con contatti, dettagli del soggiorno e messaggio viene inviata anche alla chat Telegram privata del proprietario per gestire le richieste. Evitate dati sensibili nel campo libero. Le stesse regole di conservazione e richieste di cancellazione si applicano alle copie.",
           ],
         },
       ],
@@ -293,6 +294,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Права та зберігання",
           body: [
             "Правові підстави можуть включати переддоговірні заходи, договір, законний інтерес і згоду, якщо вона потрібна.",
+            "Запити надсилаються електронною поштою через Resend. Копія з контактними даними, деталями проживання та повідомленням також надсилається у приватний Telegram-чат власника для опрацювання запитів. Не додавайте чутливі дані у вільне поле. До копій застосовуються ті самі правила зберігання та запити на видалення.",
             "Дані доступні лише команді хоста та необхідним технічним провайдерам і зберігаються стільки, скільки потрібно для запитів, підтверджених бронювань, бухгалтерських обов'язків і підтримки гостей.",
             "Користувачі мають застосовні права GDPR і можуть подати скаргу до CNIL. Azur Menton не продає персональні дані.",
           ],

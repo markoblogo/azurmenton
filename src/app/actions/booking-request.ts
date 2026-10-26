@@ -2,7 +2,6 @@
 
 import { headers } from "next/headers";
 import {
-  createBookingRequestLog,
   formDataToBookingPayload,
   isHoneypotTriggeredFromFormData,
   validateBookingRequest,
@@ -216,16 +215,9 @@ export async function submitBookingRequest(
     }
   }
 
-  console.info("Azur Menton booking request received", createBookingRequestLog(payload));
-
   const emailResult = await sendBookingRequestEmail(payload);
 
   if (!emailResult.ok) {
-    console.error("Azur Menton booking request email failed", {
-      attempted: emailResult.attempted,
-      error: emailResult.error,
-    });
-
     return {
       status: "error",
       message: messages[locale].failed,

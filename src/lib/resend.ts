@@ -1,9 +1,12 @@
+import { randomUUID } from "node:crypto";
+import { notifyBookingOutcome, type BookingEmailState } from "@/lib/booking-alert";
 import { apartmentSupportsParking, type BookingRequestPayload } from "@/lib/booking-request";
 
 type ResendResult = {
   attempted: boolean;
   ok: boolean;
   error?: string;
+  providerMessageId?: string;
 };
 
 const resendApiUrl = "https://api.resend.com/emails";
@@ -130,8 +133,9 @@ function buildEmailText(payload: BookingRequestPayload) {
   ].join("\n");
 }
 
-export async function sendBookingRequestEmail(
+async function sendToProvider(
   payload: BookingRequestPayload,
+  requestId: string,
 ): Promise<ResendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.BOOKING_REQUEST_TO_EMAIL;
@@ -162,6 +166,8 @@ export async function sendBookingRequestEmail(
         html: buildEmailHtml(payload),
         text: buildEmailText(payload),
         reply_to: payload.email || undefined,
+        headers: { "X-Azur-Request-ID": requestId },
+        tags: [{ name: "request_id", value: requestId }],
       }),
     });
 
@@ -173,10 +179,31 @@ export async function sendBookingRequestEmail(
       };
     }
 
-    return { attempted: true, ok: true };
+    const body: unknown = await response.json().catch(() => null);
+    const id = body && typeof body === "object" && "id" in body ? body.id : undefined;
+    const providerMessageId = typeof id === "string" && /^[a-f0-9-]{36}$/i.test(id) ? id : undefined;
+    return { attempted: true, ok: true, ...(providerMessageId ? { providerMessageId } : {}) };
   } catch (error) {
     // Delivery can be ambiguous after a timeout; do not retry and risk duplicates.
     const timedOut = error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name);
     return { attempted: true, ok: false, error: timedOut ? "Email provider timed out." : "Email provider network failure." };
   }
+}
+
+export async function sendBookingRequestEmail(payload: BookingRequestPayload): Promise<ResendResult> {
+  const requestId = randomUUID();
+  const startedAt = Date.now();
+  console.info("booking_email", { requestId, state: "attempt_started" });
+  const result = await sendToProvider(payload, requestId);
+  const state: BookingEmailState = result.ok ? "provider_accepted" : !result.attempted ? "not_configured"
+    : result.error?.includes("timed out") || result.error?.includes("network failure") ? "delivery_unknown" : "provider_rejected";
+  const record = { requestId, state, providerMessageId: result.providerMessageId,
+    durationMs: Date.now() - startedAt, ...(result.error ? { error: result.error } : {}) };
+  // Provider acceptance is not inbox delivery. Never log the payload or recipients.
+  if (result.ok) console.info("booking_email", record);
+  else {
+    console.error("booking_email", record);
+  }
+  await notifyBookingOutcome(requestId, state, buildEmailText(payload));
+  return result;
 }

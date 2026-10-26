@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { useMemo, useState } from "react";
 import type { GuideCategory, GuideDuration } from "@/content/guide";
-import { guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
+import type * as GuideContent from "@/content/guide";
 import { GuideVisual, type GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { Locale } from "@/i18n/locales";
 
@@ -31,6 +31,7 @@ type GuideCardItem = {
 type GuideExplorerProps = {
   locale: Locale;
   articles: GuideCardItem[];
+  filterOptions: Pick<typeof GuideContent, "guideBestForOptions" | "guideCategoryLabels" | "guideDurationLabels" | "guideFilterLabels" | "guideLocationOptions">;
   initialCollection?: { title: string; articleSlugs: string[] };
 };
 
@@ -43,7 +44,8 @@ const filters = {
 
 const PAGE_SIZE = 12;
 
-export function GuideExplorer({ locale, articles, initialCollection }: GuideExplorerProps) {
+export function GuideExplorer({ locale, articles, initialCollection, filterOptions }: GuideExplorerProps) {
+  const { guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } = filterOptions;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [bestFor, setBestFor] = useState("");
@@ -148,7 +150,7 @@ export function GuideExplorer({ locale, articles, initialCollection }: GuideExpl
         {filtered.length ? (
           <>
             <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-              {visibleArticles.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} />)}
+              {visibleArticles.map((article) => <GuideArticleCard key={article.slug} article={article} locale={locale} readLabel={copy.read[locale]} />)}
             </div>
             {hasMore ? (
               <div className="mt-5 flex justify-center">
@@ -182,7 +184,7 @@ function Select({ value, onChange, label, options, allLabel }: { value: string; 
   );
 }
 
-function GuideArticleCard({ article, locale, priority = false }: { article: GuideCardItem; locale: Locale; priority?: boolean }) {
+function GuideArticleCard({ article, locale, readLabel, priority = false }: { article: GuideCardItem; locale: Locale; readLabel: string; priority?: boolean }) {
   return (
     <Link
       className={`group relative block h-full cursor-pointer border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#c6a66a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c6a66a] ${priority ? "md:col-span-1" : ""}`}
@@ -214,7 +216,7 @@ function GuideArticleCard({ article, locale, priority = false }: { article: Guid
             {article.bestFor.slice(0, 3).map((item) => <span key={item} className="border border-[#dfd2b8] px-2 py-1 text-[0.62rem] text-[#71665b]">{item}</span>)}
           </div>
           <span aria-hidden="true" className="mt-4 inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors group-hover:bg-[#f3ead7]">
-            {guideFilterLabels.read[locale]}
+            {readLabel}
           </span>
         </div>
       </article>

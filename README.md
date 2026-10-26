@@ -115,6 +115,8 @@ npm run preflight:postbuild
 
 ## Environment
 
+Booking email tracing and read-only delivery checks: [operations runbook](docs/booking-email-operations.md).
+
 Use `.env.local` from `.env.example` when needed.
 
 Key variables:

@@ -117,14 +117,17 @@ nearby events; they do NOT complete a fact-by-fact review of those guides.
    this exact AUDIT-20261026 message in Resend with Delivered to
    petraetpaul@gmail.com at 16:52 and the owner address in Reply-To. This rules
    out the silent honeypot branch for this submission. Primary delivery is
-   provider-confirmed; owner-copy delivery remains UNCONFIRMED. Reply-To is not
+   provider-confirmed; owner-copy delivery was initially UNCONFIRMED. Reply-To is not
    BCC. The owner reports that copies arrived previously. Git history confirms
    commit 3f18569 removed the fallback recipient introduced by 4dfd490. The
-   fallback is restored locally; the actual production BCC override remains
-   unverified, so confirm recipients and delivery after deployment.
+   fallback was restored and deployed in 9da5a65. A subsequent owner test was
+   found in the owner's Gmail Inbox at 16:13:34 UTC (17:13 Paris). This confirms
+   that test's copy delivery, not guaranteed delivery of every future request.
    Resend also flags a missing/invalid DMARC record, but this alone does not
    establish the cause of the missing copy. Vercel runtime-log access returned 403 and environment
-   metadata access returned 404; production BCC and delivery events are unverified.
+   metadata access returned 404 during the initial investigation.
+   Follow-up: public DNS now resolves `_dmarc.azurmenton.com` to
+   `v=DMARC1; p=none`. This is non-enforcing and has no aggregate-report mailbox.
    Test marker: AUDIT-20261026. Do not disable Turnstile or repeat submissions.
 2. Plausible: configure read-only Stats access or use the owner's dashboard.
 3. Full 90-guide verification: enumerate claims, compare against primary sources,
@@ -147,3 +150,30 @@ nearby events; they do NOT complete a fact-by-fact review of those guides.
 - Retried against the successful production build: all 12 booking-flow browser
   tests passed, including overflow checks in all four locales. This build
   preceded the final BCC-default restoration; it validates layout, not delivery.
+
+## Follow-up: delivery operations
+
+- Redacted request correlation, Resend message IDs and explicit accepted /
+  rejected / unknown outcomes replace payload-derived operational logs.
+- Added a read-only message-status command and bounded optional Telegram
+  copies for validated enquiries, including email failures. Owner explicitly
+  approved guest enquiry copies to a private chat; localized privacy notices
+  were updated. Bot/chat Production secrets are configured; live delivery
+  still needs a post-deployment test.
+- Removed the client catalogue's runtime import of the full guide content
+  module. Filter labels now arrive as props. No measured performance gain is
+  claimed until a successful build and route-level browser measurement.
+- 227 unit tests across 40 files passed; typecheck, lint (including new files)
+  and preflight passed. Public
+  DMARC lookup confirmed `v=DMARC1; p=none`.
+- Turbopack build was blocked by local process/port restrictions, including
+  the retry. The alternative `npm run build -- --webpack` passed, generating
+  800 static pages. Default Turbopack and a deployed release are not verified
+  by that alternative build.
+- All 16 browser regressions passed against the final local Webpack
+  production build, including booking/mobile layout and four-locale guide
+  search (search, no results, reset).
+
+See [email operations](../booking-email-operations.md) for remaining delivery
+coverage limits. This follow-up does not close the full 90-guide fact audit,
+Plausible access or field Core Web Vitals measurement gates above.

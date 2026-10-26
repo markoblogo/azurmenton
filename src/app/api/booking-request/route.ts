@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import {
-  createBookingRequestLog,
   isHoneypotTriggeredFromUnknown,
   unknownToBookingPayload,
   validateBookingRequest,
@@ -95,16 +94,9 @@ export async function POST(request: Request) {
     }
   }
 
-  console.info("Azur Menton booking request API received", createBookingRequestLog(payload));
-
   const emailResult = await sendBookingRequestEmail(payload);
 
   if (!emailResult.ok) {
-    console.error("Azur Menton booking request API email failed", {
-      attempted: emailResult.attempted,
-      error: emailResult.error,
-    });
-
     return jsonResponse(
       { error: "Email delivery is not configured or failed. Please contact the host directly by email or WhatsApp." },
       { status: 502 },
