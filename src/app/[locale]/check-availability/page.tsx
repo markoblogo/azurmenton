@@ -199,13 +199,13 @@ export default async function CheckAvailabilityPage({ params, searchParams }: Pa
 
       <section className="pb-10 sm:pb-14">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.68fr_1.32fr] lg:items-start">
-            <aside className="grid gap-5 lg:sticky lg:top-28">
+          <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] lg:items-start">
+            <aside className="grid min-w-0 gap-5 lg:sticky lg:top-28">
               <Card className="p-6 sm:p-7">
                 <p className="editorial-label">{copy.stepsTitle[safeLocale]}</p>
                 <div className="mt-5 grid gap-5">
                   {steps.map((step) => (
-                    <div key={step.number} className="grid grid-cols-[3.2rem_1fr] gap-4 border-t border-[#eadfce] pt-5 first:border-t-0 first:pt-0">
+                    <div key={step.number} className="grid grid-cols-[3.2rem_minmax(0,1fr)] gap-4 border-t border-[#eadfce] pt-5 first:border-t-0 first:pt-0">
                       <span className="font-serif-display text-[2.55rem] leading-none text-[#c6a66a]">{step.number}</span>
                       <div>
                         <h2 className="text-[1.22rem] font-semibold leading-[1.35] text-[#173f36] sm:text-[1.26rem]">{step.title[safeLocale]}</h2>
@@ -226,7 +226,7 @@ export default async function CheckAvailabilityPage({ params, searchParams }: Pa
                     <Link
                       key={apartment.slug}
                       href={localPath(safeLocale, `/apartments/${apartment.slug}`)}
-                      className="group grid grid-cols-[5.8rem_1fr] gap-4 border-t border-[#eadfce] p-4 transition hover:bg-[#fbf7ef]"
+                      className="group grid grid-cols-[5.8rem_minmax(0,1fr)] gap-4 border-t border-[#eadfce] p-4 transition hover:bg-[#fbf7ef]"
                     >
                       <div className="relative aspect-[4/3] overflow-hidden bg-[#efe4d1]">
                         <Image

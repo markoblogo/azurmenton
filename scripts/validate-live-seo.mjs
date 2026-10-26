@@ -50,8 +50,8 @@ const pages = [
   {
     path: "/en/events/fete-du-citron-2027",
     localizedPath: "events/fete-du-citron-2027",
-    requiredJsonLdTypes: ["Article", "BreadcrumbList"],
-    validateJsonLd: validatePendingEvent,
+    requiredJsonLdTypes: ["Article", "BreadcrumbList", "Event"],
+    validateJsonLd: validateConfirmedEvent,
   },
 ];
 
@@ -173,11 +173,6 @@ function validateConfirmedEvent(jsonLd, path) {
   if (!event?.organizer?.url) throw new Error(`${path} confirmed Event JSON-LD missing organizer.url`);
   if (event.offers && !event.offers.url) throw new Error(`${path} Event JSON-LD offers missing url`);
   if (event.performer && !event.performer.name) throw new Error(`${path} Event JSON-LD performer missing name`);
-}
-
-function validatePendingEvent(jsonLd, path) {
-  const event = findJsonLd(jsonLd, "Event");
-  if (event) throw new Error(`${path} pending event page outputs Event JSON-LD`);
 }
 
 for (const page of pages) {

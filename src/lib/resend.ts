@@ -7,6 +7,8 @@ type ResendResult = {
 };
 
 const resendApiUrl = "https://api.resend.com/emails";
+// Owner-approved operational copy; keep it when deployments omit the override.
+const defaultBookingRequestBcc = "a.biletskiy@gmail.com";
 
 function apartmentLabel(value: string) {
   const labels: Record<string, string> = {
@@ -133,7 +135,7 @@ export async function sendBookingRequestEmail(
 ): Promise<ResendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.BOOKING_REQUEST_TO_EMAIL;
-  const bcc = process.env.BOOKING_REQUEST_BCC_EMAIL?.trim();
+  const bcc = process.env.BOOKING_REQUEST_BCC_EMAIL?.trim() || defaultBookingRequestBcc;
   const from = process.env.BOOKING_REQUEST_FROM_EMAIL ?? "Azur Menton <onboarding@resend.dev>";
 
   if (!apiKey || !to) {
@@ -144,31 +146,37 @@ export async function sendBookingRequestEmail(
     };
   }
 
-  const response = await fetch(resendApiUrl, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      ...(bcc ? { bcc } : {}),
-      subject: `[Azur Menton] Booking request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
-      html: buildEmailHtml(payload),
-      text: buildEmailText(payload),
-      reply_to: payload.email || undefined,
-    }),
-  });
+  try {
+    const response = await fetch(resendApiUrl, {
+      signal: AbortSignal.timeout(10_000),
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        ...(bcc ? { bcc } : {}),
+        subject: `[Azur Menton] Booking request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
+        html: buildEmailHtml(payload),
+        text: buildEmailText(payload),
+        reply_to: payload.email || undefined,
+      }),
+    });
 
-  if (!response.ok) {
-    const errorBody = await response.text().catch(() => "");
-    return {
-      attempted: true,
-      ok: false,
-      error: `Resend returned ${response.status}: ${errorBody.slice(0, 300)}`,
-    };
+    if (!response.ok) {
+      return {
+        attempted: true,
+        ok: false,
+        error: `Resend returned ${response.status}`,
+      };
+    }
+
+    return { attempted: true, ok: true };
+  } catch (error) {
+    // Delivery can be ambiguous after a timeout; do not retry and risk duplicates.
+    const timedOut = error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name);
+    return { attempted: true, ok: false, error: timedOut ? "Email provider timed out." : "Email provider network failure." };
   }
-
-  return { attempted: true, ok: true };
 }

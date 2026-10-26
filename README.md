@@ -132,6 +132,7 @@ TURNSTILE_SECRET_KEY=
 RESEND_API_KEY=
 BOOKING_REQUEST_TO_EMAIL=
 BOOKING_REQUEST_FROM_EMAIL=
+# Optional override; omitted/blank keeps the owner-approved copy to a.biletskiy@gmail.com.
 BOOKING_REQUEST_BCC_EMAIL=
 
 WEATHER_PROVIDER=open-meteo

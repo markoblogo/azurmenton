@@ -1,5 +1,14 @@
 import { expect, test } from "@playwright/test";
 
+for (const locale of ["en", "fr", "it", "uk"]) {
+  test(`booking layout fits mobile screens in ${locale}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/${locale}/check-availability`);
+    await expect(page.locator("form")).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  });
+}
+
 test("homepage links to the direct booking form", async ({ page }) => {
   await page.goto("/en");
   await page.getByRole("link", { name: /check availability/i }).first().click();

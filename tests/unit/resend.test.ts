@@ -27,6 +27,22 @@ afterEach(() => {
 });
 
 describe("sendBookingRequestEmail", () => {
+  it.each([new TypeError("fetch failed"), new DOMException("timeout", "TimeoutError")])("handles provider network failures without throwing or retrying", async (error) => {
+    process.env.RESEND_API_KEY = "test-key";
+    process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";
+    const fetchMock = vi.fn().mockRejectedValue(error);
+    vi.stubGlobal("fetch", fetchMock);
+    await expect(sendBookingRequestEmail(payload)).resolves.toMatchObject({ attempted: true, ok: false });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
+  });
+
+  it("does not include provider response bodies in operational errors", async () => {
+    process.env.RESEND_API_KEY = "test-key";
+    process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("private provider detail", { status: 503 })));
+    await expect(sendBookingRequestEmail(payload)).resolves.toEqual({ attempted: true, ok: false, error: "Resend returned 503" });
+  });
   it("sends a configured operational copy with an Azur Menton subject", async () => {
     process.env.RESEND_API_KEY = "test-key";
     process.env.BOOKING_REQUEST_TO_EMAIL = "petraetpaul@gmail.com";
@@ -45,10 +61,11 @@ describe("sendBookingRequestEmail", () => {
     });
   });
 
-  it("does not send an undeclared operational copy", async () => {
+  it.each([undefined, "", "   "])("preserves the owner-approved copy when the override is %s", async (override) => {
     process.env.RESEND_API_KEY = "test-key";
     process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";
-    delete process.env.BOOKING_REQUEST_BCC_EMAIL;
+    if (override === undefined) delete process.env.BOOKING_REQUEST_BCC_EMAIL;
+    else process.env.BOOKING_REQUEST_BCC_EMAIL = override;
     const fetchMock = vi.fn().mockResolvedValue(new Response("{}", { status: 200 }));
     vi.stubGlobal("fetch", fetchMock);
 
@@ -56,7 +73,7 @@ describe("sendBookingRequestEmail", () => {
 
     const request = fetchMock.mock.calls[0]?.[1] as RequestInit;
     const email = JSON.parse(String(request.body));
-    expect(email).not.toHaveProperty("bcc");
+    expect(email.bcc).toBe("a.biletskiy@gmail.com");
   });
 
   it("omits the parking row for apartments without parking", async () => {
