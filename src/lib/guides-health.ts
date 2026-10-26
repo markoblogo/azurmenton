@@ -49,6 +49,12 @@ const statusOrder: Record<GuideHealthStatus, number> = {
   CURRENT: 4,
 };
 
+const volatilityOrder: Record<GuideVolatility, number> = {
+  HIGH_VOLATILITY: 0,
+  MEDIUM_VOLATILITY: 1,
+  LOW_VOLATILITY: 2,
+};
+
 function validDate(value?: string) {
   return value && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : undefined;
 }
@@ -141,7 +147,7 @@ export function buildGuideHealthReport(guides: GuideHealthInput[], options: { to
   const inventory = guides.map((guide) => classifyGuideHealth(guide, options));
   const priorityReview = inventory
     .filter((item) => item.priority)
-    .sort((left, right) => statusOrder[left.status] - statusOrder[right.status] || right.volatility.localeCompare(left.volatility) || left.slug.localeCompare(right.slug));
+    .sort((left, right) => statusOrder[left.status] - statusOrder[right.status] || volatilityOrder[left.volatility] - volatilityOrder[right.volatility] || left.slug.localeCompare(right.slug));
   const statuses = Object.fromEntries(["CURRENT", "REVIEW_DUE", "STALE", "PROVENANCE_WEAK", "UNKNOWN"].map((status) => [status, inventory.filter((item) => item.status === status).length]));
 
   return {

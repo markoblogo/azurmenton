@@ -51,4 +51,13 @@ describe("guide freshness observatory", () => {
     expect(report.priorityReview[0].slug).toBe("high");
     expect(report.inventory[0].contentModificationSignal).toBe("UNKNOWN_PER_GUIDE");
   });
+
+  it("prioritizes high-volatility guides before medium and low within the same status", () => {
+    const report = buildGuideHealthReport([
+      guide({ slug: "low", category: "walks-views", sourceStatus: "needs_verification" }),
+      guide({ slug: "medium", category: "beaches", sourceStatus: "needs_verification" }),
+      guide({ slug: "high", category: "practical", sourceStatus: "needs_verification" }),
+    ], { today: "2026-10-27" });
+    expect(report.priorityReview.map((item) => item.slug)).toEqual(["high", "medium", "low"]);
+  });
 });
