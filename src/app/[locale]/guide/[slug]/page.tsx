@@ -25,10 +25,12 @@ import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
 import { getGuideAuthorityProfile } from "@/content/guide-authority";
 import { guideApartmentScenarios } from "@/content/contextual-apartment-recommendations";
+import { guideApartmentPaths } from "@/content/guide-apartment-paths";
+import { getApartment } from "@/content/apartments";
 import { getPlaces } from "@/content/places";
 import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
-import { bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
+import { apartmentDetailAttributionHref, bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { getGuideRelatedEventSlugs } from "@/lib/event-related-content";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
@@ -94,6 +96,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const isMarketsGuide = article.slug === "best-markets-near-menton-market-days-in-france-and-italy";
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
   const apartmentScenario = guideApartmentScenarios[article.slug];
+  const apartmentPath = guideApartmentPaths[article.slug];
   const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
   const transportHelperAfterSectionIndex = article.transportHelperAfterSectionIndex;
   const pageUrl = absoluteUrl(localizedPath(locale, `guide/${article.slug}`));
@@ -252,6 +255,19 @@ export default async function GuideArticlePage({ params }: PageProps) {
                       </div>
                     ) : null}
                     </section>
+                    {apartmentPath?.afterSectionIndex === sectionIndex ? (
+                      <section aria-labelledby="guide-apartment-path" className="border-l-4 border-[#0b6f8f] bg-[#edf5f3] px-5 py-5 sm:px-7">
+                        <h2 id="guide-apartment-path" className="serif-heading text-2xl leading-tight text-[#173f36]">{apartmentPath.title[locale]}</h2>
+                        <p className="mt-2 text-base leading-7 text-[#40554f]">{apartmentPath.text[locale]}</p>
+                        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+                          {apartmentPath.apartments.map((slug) => {
+                            const apartment = getApartment(slug);
+                            if (!apartment) return null;
+                            return <TrackedLink key={slug} className="inline-flex min-h-11 items-center font-semibold text-[#0b5e78] underline underline-offset-4 hover:text-[#173f36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b6f8f]" eventName={bookingFunnelEvents.guideCtaClick} href={apartmentDetailAttributionHref(locale, slug, sourceAttribution)} props={{ ...guideCtaProps, sourceApartmentSlug: slug, ctaPlacement: "guide_inline" }}>{apartment.shortName[locale]}</TrackedLink>;
+                          })}
+                        </div>
+                      </section>
+                    ) : null}
                     {utilityBlocksAfterSectionIndex === sectionIndex ? utilityBlockSection : null}
                     {transportHelperAfterSectionIndex === sectionIndex ? transportHelperSection : null}
                   </Fragment>
