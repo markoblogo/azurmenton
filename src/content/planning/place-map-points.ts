@@ -110,7 +110,7 @@ export const placeMapPoints: PlaceMapPoint[] = [
   { placeId: "gelateria-sofia-menton", lat: 43.7763, lng: 7.5066 },
   { placeId: "demontis-gelateria-menton", lat: 43.7756, lng: 7.5035 },
   { placeId: "tutti-frutti-menton", lat: 43.7759, lng: 7.5039 },
-  { placeId: "puro-piacere-menton", lat: 43.7757, lng: 7.5032 },
+  { placeId: "puro-piacere-menton", lat: 43.773209, lng: 7.498808, review: { source: "official_address", precision: "area", checkedOn: "2026-10-26", sourceUrl: "https://data.geopf.fr/geocodage/search?q=2%20avenue%20boyer%2006500%20menton&limit=1" } },
   { placeId: "la-fabrique-givree-menton", lat: 43.7758, lng: 7.5038 },
   { placeId: "le-tropic-menton", lat: 43.7757, lng: 7.5047 },
   { placeId: "ami-glace-menton", lat: 43.7759, lng: 7.5055 },
