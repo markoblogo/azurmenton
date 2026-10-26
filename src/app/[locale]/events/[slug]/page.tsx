@@ -299,7 +299,7 @@ export default async function EventArticlePage({ params }: PageProps) {
     occurrence?.relatedApartmentSlugs ??
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
-  const relatedPlaces = getPlaces(event.relatedPlaceIds ?? []).slice(0, 6);
+  const relatedPlaces = getPlaces(event.relatedPlaceIds ?? []).slice(0, event.placeDisplayLimit ?? 6);
   const apartmentScenario = eventApartmentScenarios[event.slug];
   const relatedStayPage = occurrence?.relatedStaySlug ? stayPages.find((page) => page.slug === occurrence.relatedStaySlug) : undefined;
   const sourceAttribution = {

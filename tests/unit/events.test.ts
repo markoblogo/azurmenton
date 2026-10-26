@@ -4,6 +4,7 @@ import { eventDeduplicationKey, filterDiscoverableEvents, findDuplicateEventCand
 import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getParisDateRange } from "../../src/lib/events";
 import { getGuideRelatedEventSlugs } from "../../src/lib/event-related-content";
 import { getGuideArticle } from "../../src/content/guide";
+import { getPlaces } from "../../src/content/places";
 
 const datedEvent = {
   dateLabel: "20 November-4 December 2026",
@@ -16,10 +17,10 @@ describe("event date status", () => {
   it("publishes the six reviewed local events with sources, missing media and relevant guide links", () => {
     const cases = [
       ["menton-fete-halloween-2026", "menton-with-kids-family-guide", "jardins-bioves"],
-      ["st-johns-jazz-menton-2026-11-06", "jazz-live-music-near-menton", null],
+      ["st-johns-jazz-menton-2026-11-06", "jazz-live-music-near-menton", "st-john-anglican-church-menton"],
       ["cest-pas-classique-riviera-2026", "menton-in-autumn", null],
-      ["halloween-beausoleil-2026", "monaco-events-from-menton", null],
-      ["christmas-parade-beausoleil-2026", "monaco-events-from-menton", null],
+      ["halloween-beausoleil-2026", "monaco-events-from-menton", "centre-culturel-prince-hereditaire-jacques-beausoleil"],
+      ["christmas-parade-beausoleil-2026", "monaco-events-from-menton", "boulevard-de-la-republique-beausoleil"],
       ["en-finir-avec-la-peur-menton-2026", "theatre-opera-performing-arts-near-menton", "le-lavoir-theatre-menton"],
     ] as const;
     for (const [slug, guideSlug, placeId] of cases) {
@@ -30,6 +31,14 @@ describe("event date status", () => {
       if (placeId) expect(event.relatedPlaceIds).toContain(placeId);
       expect(getGuideRelatedEventSlugs(getGuideArticle(guideSlug)!)).toContain(slug);
     }
+  });
+
+  it("keeps one verified festival venue per programme city and retains all 14 cards", () => {
+    const event = getRivieraEvent("cest-pas-classique-riviera-2026")!;
+    expect(event.placeDisplayLimit).toBe(14);
+    expect(event.relatedPlaceIds).toHaveLength(14);
+    expect(new Set(event.relatedPlaceIds).size).toBe(14);
+    expect(getPlaces(event.relatedPlaceIds)).toHaveLength(14);
   });
   it("routes Yacht Show planning links to the confirmed 2027 edition and preserves the 2026 archive", () => {
     const archive = getRivieraEvent("monaco-yacht-show-2026");

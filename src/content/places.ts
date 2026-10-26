@@ -274,7 +274,50 @@ const mapReviewRequiredPlaceIds = new Set([
   "sauna-nordique-tende",
 ]);
 
+const festivalProgrammeUrl = "https://www.departement06.fr/publications/programmation-cest-pas-classique-2026";
+const festivalVenues = [
+  ["theatre-anthea-antibes", "Théâtre Anthéa", "260 avenue Jules Grec, 06600 Antibes"],
+  ["theatre-les-funambules-cap-dail", "Théâtre Les Funambules", "5 rue du Docteur Lyons, 06320 Cap-d'Ail"],
+  ["theatre-de-grasse", "Théâtre de Grasse", "2 avenue Maximin Isnard, 06130 Grasse"],
+  ["la-stella-la-trinite", "La Stella", "1 place Jean Moulin, 06340 La Trinité"],
+  ["espace-leonard-de-vinci-mandelieu", "Espace Léonard de Vinci", "809 boulevard des Écureuils, 06210 Mandelieu-la-Napoule"],
+  ["salle-charlie-chaplin-saint-jean-cap-ferrat", "Salle Charlie Chaplin", "Quai Lindbergh, 06230 Saint-Jean-Cap-Ferrat"],
+  ["salle-du-belvedere-berre-les-alpes", "Salle du Belvédère", "Avenue Paul Granet, 06390 Berre-les-Alpes"],
+  ["eglise-notre-dame-assomption-puget-theniers", "Église Notre-Dame-de-l'Assomption", "1 place du Général de Gaulle, 06260 Puget-Théniers"],
+  ["espace-jean-grinda-saint-martin-vesubie", "Espace Jean Grinda", "Place de la Gare, 06450 Saint-Martin-Vésubie"],
+  ["musee-departemental-des-merveilles-tende", "Musée départemental des Merveilles", "Avenue du 16 septembre 1947, 06430 Tende"],
+  ["salle-des-fetes-tourrette-levens", "Salle des fêtes de Tourrette-Levens", "1 chemin du Docteur Arthur Mauran, 06690 Tourrette-Levens"],
+  ["cinema-casino-cineode-vence", "Cinéma Casino Cinéode", "30 avenue Henri Isnard, 06140 Vence"],
+] as const;
+
 const rawPlaces: Place[] = [
+  ...festivalVenues.map(([id, name, address]): Place => ({
+    id, name, type: "civic", address, googleMapsUrl: mapsQuery(name, address), programmeUrl: festivalProgrammeUrl,
+    requiresMapReview: true, sourceStatus: "verified",
+    shortNote: text("A venue listed in the official C'est pas classique 2026 programme. Check the programme for the specific performance.", "Lieu indique dans le programme officiel C'est pas classique 2026. Verifiez le spectacle concerne dans le programme.", "Sede indicata nel programma ufficiale C'est pas classique 2026. Controlla il programma per lo spettacolo specifico.", "Майданчик в офіційній програмі C'est pas classique 2026. Перевірте програму конкретної вистави."),
+    bestFor: [text("Festival programme", "Programme du festival", "Programma del festival", "Програма фестивалю")], relatedArticleIds: [],
+  })),
+  {
+    id: "st-john-anglican-church-menton", name: "St John's Anglican Church", type: "civic",
+    address: "31 Avenue Carnot, 06500 Menton", googleMapsUrl: mapsQuery("St John's Anglican Church", "31 Avenue Carnot", "Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/", requiresMapReview: true, sourceStatus: "verified",
+    shortNote: text("Anglican church on Avenue Carnot, listed as the venue for St Johns Jazz.", "Eglise anglicane avenue Carnot, indiquee comme lieu de St Johns Jazz.", "Chiesa anglicana in Avenue Carnot, indicata come sede di St Johns Jazz.", "Англіканська церква на Avenue Carnot, вказана місцем проведення St Johns Jazz."),
+    bestFor: [text("Live music", "Musique live", "Musica dal vivo", "Жива музика")], relatedArticleIds: [],
+  },
+  {
+    id: "centre-culturel-prince-hereditaire-jacques-beausoleil", name: "Centre Culturel Prince Héréditaire Jacques", type: "civic",
+    address: "6-8 avenue du Général de Gaulle, 06240 Beausoleil", googleMapsUrl: mapsQuery("Centre Culturel Prince Héréditaire Jacques", "6 avenue du Général de Gaulle", "Beausoleil"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/", requiresMapReview: true, sourceStatus: "verified",
+    shortNote: text("A cultural centre in Beausoleil, listed as the venue for the Halloween programme.", "Centre culturel a Beausoleil, indique comme lieu du programme Halloween.", "Centro culturale a Beausoleil, indicato come sede del programma Halloween.", "Культурний центр у Босолеї, вказаний місцем проведення програми Halloween."),
+    bestFor: [text("Local events", "Evenements locaux", "Eventi locali", "Місцеві події")], relatedArticleIds: [],
+  },
+  {
+    id: "boulevard-de-la-republique-beausoleil", name: "Boulevard de la République, Beausoleil", type: "walk",
+    address: "Boulevard de la République, 06240 Beausoleil", googleMapsUrl: mapsQuery("Boulevard de la République", "Beausoleil"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/", sourceStatus: "verified",
+    shortNote: text("A boulevard in Beausoleil listed as the setting for the Christmas parade; check the event route before visiting.", "Boulevard de Beausoleil indique comme lieu de la parade de Noel ; verifiez le parcours avant votre visite.", "Viale di Beausoleil indicato come luogo della parata natalizia; verifica il percorso prima della visita.", "Бульвар у Босолеї, вказаний місцем різдвяного параду; перед відвідуванням перевірте маршрут."),
+    bestFor: [text("Local events", "Evenements locaux", "Eventi locali", "Місцеві події")], relatedArticleIds: [],
+  },
   {
     id: "halles-du-marche",
     name: "Halles du Marché",

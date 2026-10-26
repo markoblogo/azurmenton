@@ -80,6 +80,7 @@ export type RivieraEvent = {
   relatedApartmentKeys?: string[];
   relatedGuideSlugs?: string[];
   relatedPlaceIds?: string[];
+  placeDisplayLimit?: number;
   detailContent?: {
     overview: LocalizedText[];
     venues: LocalizedText[];
@@ -684,7 +685,7 @@ function defaultRelatedPlaceIds(event: RivieraEvent) {
   if (text.includes("rondelli") || text.includes("grande roue") || text.includes("ferris wheel")) ids.add("plage-rondelli");
   if (text.includes("summer village") || text.includes("village d'ete") || text.includes("village d ete")) ids.add("promenade-du-soleil");
 
-  return [...ids].slice(0, 6);
+  return [...ids].slice(0, event.placeDisplayLimit ?? 6);
 }
 
 const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
@@ -780,7 +781,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("A local live-music evening in Menton.", "Une soiree de musique live a Menton.", "Una serata di musica dal vivo a Mentone.", "Вечір живої музики в Ментоні."),
     bookingTip: t("Check current ticket availability and details with the organiser.", "Verifiez les billets et les details aupres de l'organisateur.", "Verifica biglietti e dettagli con l'organizzatore.", "Уточніть наявність квитків і деталі в організатора."),
     sourceStatus: "verified", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/", lastChecked: "2026-10-26", lastVerifiedAt: "2026-10-26", detailPage: true,
-    relatedGuideSlugs: ["jazz-live-music-near-menton", "menton-in-autumn"], relatedApartmentKeys: relatedAll,
+    relatedGuideSlugs: ["jazz-live-music-near-menton", "menton-in-autumn"], relatedPlaceIds: ["st-john-anglican-church-menton"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "cest-pas-classique-riviera-2026", slug: "cest-pas-classique-riviera-2026",
@@ -792,7 +793,8 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("A programme of music across the Riviera for different tastes.", "Un programme musical varie sur la Riviera.", "Un programma musicale vario sulla Riviera.", "Різноманітна музична програма на Рив'єрі."),
     bookingTip: t("Check the official programme for each concert's city, venue, time and reservation.", "Verifiez ville, lieu, horaire et reservation de chaque concert dans le programme officiel.", "Controlla citta, sede, orario e prenotazione di ogni concerto nel programma ufficiale.", "Перевіряйте місто, місце, час і запис на кожен концерт в офіційній програмі."),
     sourceStatus: "verified", sourceUrl: "https://www.explorenicecotedazur.com/evenement/cest-pas-classique-2026/", lastChecked: "2026-10-26", lastVerifiedAt: "2026-10-26", detailPage: true,
-    relatedGuideSlugs: ["menton-in-autumn", "day-trips-from-menton"], relatedApartmentKeys: relatedAll,
+    relatedGuideSlugs: ["menton-in-autumn", "day-trips-from-menton"], placeDisplayLimit: 14,
+    relatedPlaceIds: ["palais-de-leurope-menton", "palais-lascaris-nice", "theatre-anthea-antibes", "theatre-les-funambules-cap-dail", "theatre-de-grasse", "la-stella-la-trinite", "espace-leonard-de-vinci-mandelieu", "salle-charlie-chaplin-saint-jean-cap-ferrat", "salle-du-belvedere-berre-les-alpes", "eglise-notre-dame-assomption-puget-theniers", "espace-jean-grinda-saint-martin-vesubie", "musee-departemental-des-merveilles-tende", "salle-des-fetes-tourrette-levens", "cinema-casino-cineode-vence"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "halloween-beausoleil-2026", slug: "halloween-beausoleil-2026",
@@ -804,7 +806,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("A family option near Monaco.", "Une idee familiale pres de Monaco.", "Un'idea per famiglie vicino a Monaco.", "Сімейний варіант поблизу Монако."),
     bookingTip: t("The buffet requires registration; check the official programme for details.", "Inscription necessaire pour le buffet ; consultez le programme officiel.", "Il buffet richiede iscrizione; consulta il programma ufficiale.", "Для буфету потрібна реєстрація; перевірте офіційну програму."),
     sourceStatus: "verified", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/", lastChecked: "2026-10-26", lastVerifiedAt: "2026-10-26", detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "monaco-events-from-menton"], relatedApartmentKeys: relatedAll,
+    relatedGuideSlugs: ["menton-with-kids-family-guide", "monaco-events-from-menton"], relatedPlaceIds: ["centre-culturel-prince-hereditaire-jacques-beausoleil"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "christmas-parade-beausoleil-2026", slug: "christmas-parade-beausoleil-2026",
@@ -816,7 +818,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("A seasonal family outing near Monaco.", "Une sortie familiale de saison pres de Monaco.", "Un'uscita stagionale per famiglie vicino a Monaco.", "Сезонна сімейна подія поблизу Монако."),
     bookingTip: t("Check the official listing for any programme changes.", "Verifiez la fiche officielle pour tout changement de programme.", "Controlla la scheda ufficiale per eventuali variazioni.", "Перевірте офіційну афішу на можливі зміни програми."),
     sourceStatus: "verified", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/", lastChecked: "2026-10-26", lastVerifiedAt: "2026-10-26", detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "monaco-events-from-menton"], relatedApartmentKeys: relatedAll,
+    relatedGuideSlugs: ["menton-with-kids-family-guide", "monaco-events-from-menton"], relatedPlaceIds: ["boulevard-de-la-republique-beausoleil"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "en-finir-avec-la-peur-menton-2026", slug: "en-finir-avec-la-peur-menton-2026",
