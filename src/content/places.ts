@@ -292,13 +292,15 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   ...festivalVenues.map(([id, name, address]): Place => ({
-    id, name, type: "civic", address, googleMapsUrl: mapsQuery(name, address), programmeUrl: festivalProgrammeUrl,
+    id, name, type: "civic", address, image: `/images/guide/${id}.webp`, imageAlt: text(`Illustration of ${name}`, `Illustration de ${name}`, `Illustrazione di ${name}`, `Ілюстрація ${name}`), googleMapsUrl: mapsQuery(name, address), programmeUrl: festivalProgrammeUrl,
     requiresMapReview: true, sourceStatus: "verified",
     shortNote: text("A venue listed in the official C'est pas classique 2026 programme. Check the programme for the specific performance.", "Lieu indique dans le programme officiel C'est pas classique 2026. Verifiez le spectacle concerne dans le programme.", "Sede indicata nel programma ufficiale C'est pas classique 2026. Controlla il programma per lo spettacolo specifico.", "Майданчик в офіційній програмі C'est pas classique 2026. Перевірте програму конкретної вистави."),
     bestFor: [text("Festival programme", "Programme du festival", "Programma del festival", "Програма фестивалю")], relatedArticleIds: [],
   })),
   {
     id: "st-john-anglican-church-menton", name: "St John's Anglican Church", type: "civic",
+    image: "/images/guide/st-john-anglican-church-menton.webp",
+    imageAlt: text("Illustration of St John's Anglican Church in Menton", "Illustration de l'eglise anglicane St John a Menton", "Illustrazione della chiesa anglicana St John a Mentone", "Ілюстрація англіканської церкви St John у Ментоні"),
     address: "31 Avenue Carnot, 06500 Menton", googleMapsUrl: mapsQuery("St John's Anglican Church", "31 Avenue Carnot", "Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/", requiresMapReview: true, sourceStatus: "verified",
     shortNote: text("Anglican church on Avenue Carnot, listed as the venue for St Johns Jazz.", "Eglise anglicane avenue Carnot, indiquee comme lieu de St Johns Jazz.", "Chiesa anglicana in Avenue Carnot, indicata come sede di St Johns Jazz.", "Англіканська церква на Avenue Carnot, вказана місцем проведення St Johns Jazz."),
@@ -306,6 +308,8 @@ const rawPlaces: Place[] = [
   },
   {
     id: "centre-culturel-prince-hereditaire-jacques-beausoleil", name: "Centre Culturel Prince Héréditaire Jacques", type: "civic",
+    image: "/images/guide/centre-culturel-prince-hereditaire-jacques-beausoleil.webp",
+    imageAlt: text("Illustration of the Centre Culturel Prince Hereditaire Jacques in Beausoleil", "Illustration du Centre Culturel Prince Hereditaire Jacques a Beausoleil", "Illustrazione del Centre Culturel Prince Hereditaire Jacques a Beausoleil", "Ілюстрація культурного центру Prince Hereditaire Jacques у Босолеї"),
     address: "6-8 avenue du Général de Gaulle, 06240 Beausoleil", googleMapsUrl: mapsQuery("Centre Culturel Prince Héréditaire Jacques", "6 avenue du Général de Gaulle", "Beausoleil"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/", requiresMapReview: true, sourceStatus: "verified",
     shortNote: text("A cultural centre in Beausoleil, listed as the venue for the Halloween programme.", "Centre culturel a Beausoleil, indique comme lieu du programme Halloween.", "Centro culturale a Beausoleil, indicato come sede del programma Halloween.", "Культурний центр у Босолеї, вказаний місцем проведення програми Halloween."),
@@ -313,6 +317,8 @@ const rawPlaces: Place[] = [
   },
   {
     id: "boulevard-de-la-republique-beausoleil", name: "Boulevard de la République, Beausoleil", type: "walk",
+    image: "/images/guide/boulevard-de-la-republique-beausoleil.webp",
+    imageAlt: text("Illustration of Boulevard de la Republique in Beausoleil", "Illustration du boulevard de la Republique a Beausoleil", "Illustrazione del Boulevard de la Republique a Beausoleil", "Ілюстрація Boulevard de la Republique у Босолеї"),
     address: "Boulevard de la République, 06240 Beausoleil", googleMapsUrl: mapsQuery("Boulevard de la République", "Beausoleil"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/", sourceStatus: "verified",
     shortNote: text("A boulevard in Beausoleil listed as the setting for the Christmas parade; check the event route before visiting.", "Boulevard de Beausoleil indique comme lieu de la parade de Noel ; verifiez le parcours avant votre visite.", "Viale di Beausoleil indicato come luogo della parata natalizia; verifica il percorso prima della visita.", "Бульвар у Босолеї, вказаний місцем різдвяного параду; перед відвідуванням перевірте маршрут."),

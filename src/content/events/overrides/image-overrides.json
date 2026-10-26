@@ -219,5 +219,83 @@
     "rightsNote": "Owner-approved Azur Menton event illustration.",
     "approvedAt": "2026-08-02T00:43:24.482Z",
     "locked": true
+  },
+  {
+    "eventSlug": "cest-pas-classique-riviera-2026",
+    "sourceUrl": "https://www.explorenicecotedazur.com/evenement/cest-pas-classique-2026/",
+    "localPath": "/images/events/cest-pas-classique-riviera-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "C'est pas classique 2026",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:33.231Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "christmas-parade-beausoleil-2026",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/",
+    "localPath": "/images/events/christmas-parade-beausoleil-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Christmas parade in Beausoleil",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:33.507Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "en-finir-avec-la-peur-menton-2026",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/lavoir-theatre-en-finir-avec-la-peur-menton-fr-6764778/",
+    "localPath": "/images/events/en-finir-avec-la-peur-menton-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "En finir avec la peur at Lavoir Theatre",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:33.681Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "halloween-beausoleil-2026",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/",
+    "localPath": "/images/events/halloween-beausoleil-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Halloween in Beausoleil",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:33.884Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "menton-fete-halloween-2026",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/menton-fete-halloween-menton-fr-6063164/",
+    "localPath": "/images/events/menton-fete-halloween-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Menton celebrates Halloween",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:34.128Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "st-johns-jazz-menton-2026-11-06",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/",
+    "localPath": "/images/events/st-johns-jazz-menton-2026-11-06.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "St Johns Jazz: Manu LePrince",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-26T22:58:34.358Z",
+    "locked": true
   }
 ]

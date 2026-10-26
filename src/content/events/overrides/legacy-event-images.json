@@ -1,1 +1,116 @@
-{}
+{
+  "cest-pas-classique-riviera-2026": {
+    "image": "/images/events/cest-pas-classique-riviera-2026.webp",
+    "imageAlt": {
+      "en": "C'est pas classique 2026",
+      "fr": "C'est pas classique 2026",
+      "it": "C'est pas classique 2026",
+      "uk": "C'est pas classique 2026"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "christmas-parade-beausoleil-2026": {
+    "image": "/images/events/christmas-parade-beausoleil-2026.webp",
+    "imageAlt": {
+      "en": "Christmas parade in Beausoleil",
+      "fr": "Parade de Noel a Beausoleil",
+      "it": "Parata di Natale a Beausoleil",
+      "uk": "Різдвяний парад у Босолеї"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "en-finir-avec-la-peur-menton-2026": {
+    "image": "/images/events/en-finir-avec-la-peur-menton-2026.webp",
+    "imageAlt": {
+      "en": "En finir avec la peur at Lavoir Theatre",
+      "fr": "En finir avec la peur au Lavoir Theatre",
+      "it": "En finir avec la peur al Lavoir Theatre",
+      "uk": "En finir avec la peur у театрі Lavoir"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "halloween-beausoleil-2026": {
+    "image": "/images/events/halloween-beausoleil-2026.webp",
+    "imageAlt": {
+      "en": "Halloween in Beausoleil",
+      "fr": "Halloween a Beausoleil",
+      "it": "Halloween a Beausoleil",
+      "uk": "Halloween у Босолеї"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "menton-fete-halloween-2026": {
+    "image": "/images/events/menton-fete-halloween-2026.webp",
+    "imageAlt": {
+      "en": "Menton celebrates Halloween",
+      "fr": "Menton fete Halloween",
+      "it": "Halloween a Mentone",
+      "uk": "Halloween у Ментоні"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "st-johns-jazz-menton-2026-11-06": {
+    "image": "/images/events/st-johns-jazz-menton-2026-11-06.webp",
+    "imageAlt": {
+      "en": "St Johns Jazz: Manu LePrince",
+      "fr": "St Johns Jazz : Manu LePrince",
+      "it": "St Johns Jazz: Manu LePrince",
+      "uk": "St Johns Jazz: Manu LePrince"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  }
+}

@@ -14,7 +14,7 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
-  it("publishes the six reviewed local events with sources, missing media and relevant guide links", () => {
+  it("publishes the six reviewed local events with sources, illustrations and relevant guide links", () => {
     const cases = [
       ["menton-fete-halloween-2026", "menton-with-kids-family-guide", "jardins-bioves"],
       ["st-johns-jazz-menton-2026-11-06", "jazz-live-music-near-menton", "st-john-anglican-church-menton"],
@@ -27,7 +27,7 @@ describe("event date status", () => {
       const event = getRivieraEvent(slug)!;
       expect(event).toMatchObject({ dateStatus: "confirmed", sourceStatus: "verified", detailPage: true });
       expect(event.sourceUrl).toMatch(/^https:\/\//);
-      expect(event.media?.image).toBeUndefined();
+      expect(event.media?.image).toMatch(/^\/images\/events\//);
       if (placeId) expect(event.relatedPlaceIds).toContain(placeId);
       expect(getGuideRelatedEventSlugs(getGuideArticle(guideSlug)!)).toContain(slug);
     }
@@ -39,6 +39,7 @@ describe("event date status", () => {
     expect(event.relatedPlaceIds).toHaveLength(14);
     expect(new Set(event.relatedPlaceIds).size).toBe(14);
     expect(getPlaces(event.relatedPlaceIds)).toHaveLength(14);
+    expect(getPlaces(event.relatedPlaceIds).every((place) => Boolean(place.image))).toBe(true);
   });
   it("routes Yacht Show planning links to the confirmed 2027 edition and preserves the 2026 archive", () => {
     const archive = getRivieraEvent("monaco-yacht-show-2026");
