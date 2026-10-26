@@ -72,6 +72,16 @@ describe("event date status", () => {
     expect(niceJazzFest && isIndexableEventDetail(niceJazzFest, new Date("2026-08-01T12:00:00Z"))).toBe(false);
   });
 
+  it("does not let a legacy standard indexing flag keep an ended event indexable", () => {
+    const endedStandardEvent = {
+      ...getRivieraEvent("fiera-di-san-romolo-sanremo-2026-10-11")!,
+      searchIndexing: "standard" as const,
+    };
+
+    expect(getEventSearchIndexing(endedStandardEvent, new Date("2026-10-26T12:00:00Z"))).toBe("noindex");
+    expect(isIndexableEventDetail(endedStandardEvent, new Date("2026-10-26T12:00:00Z"))).toBe(false);
+  });
+
   it("keeps past annual editions archived while routing planning links to a pending next occurrence", () => {
     const e1Archive = getRivieraEvent("e1-monaco-2026");
     const e1Planning = getRivieraEvent("e1-monaco");

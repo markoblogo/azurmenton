@@ -325,15 +325,16 @@ describe("content graph audit", () => {
     expect(failures).toEqual([]);
   });
 
-  it("surfaces reciprocal event links on related guides", () => {
+  it("keeps reciprocal event links current for related guides", () => {
     const guidesBySlug = new Map(guideArticles.map((article) => [article.slug, article]));
 
     const bookGuide = guidesBySlug.get("bookshops-libraries-menton");
     const familyGuide = guidesBySlug.get("menton-with-kids-family-guide");
-    expect(bookGuide ? getGuideRelatedEventSlugs(bookGuide) : []).toContain("bibliotheque-a-la-plage-menton-2026-07-01");
-    expect(familyGuide ? getGuideRelatedEventSlugs(familyGuide) : []).toEqual(
-      expect.arrayContaining(["grande-roue-de-menton-menton-2026-07-01", "le-train-touristique-de-menton-menton-2026-06-01"]),
-    );
+    expect(bookGuide).toBeTruthy();
+    expect(familyGuide).toBeTruthy();
+    expect(bookGuide ? getGuideRelatedEventSlugs(bookGuide) : []).not.toContain("bibliotheque-a-la-plage-menton-2026-07-01");
+    expect(familyGuide ? getGuideRelatedEventSlugs(familyGuide) : []).not.toContain("grande-roue-de-menton-menton-2026-07-01");
+    expect(familyGuide ? getGuideRelatedEventSlugs(familyGuide) : []).not.toContain("le-train-touristique-de-menton-menton-2026-06-01");
 
     for (const guide of guideArticles) {
       const surfacedEvents = getGuideRelatedEventSlugs(guide);

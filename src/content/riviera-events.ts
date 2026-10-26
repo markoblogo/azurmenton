@@ -1261,7 +1261,8 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.festival-musique-menton.fr",
     programmeUrl: "https://www.festival-musique-menton.fr",
-    lastChecked: "2026-09-13",
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
     detailPage: true,
     relatedApartmentKeys: relatedAll,
     relatedGuideSlugs: ["menton-without-a-car", "jazz-live-music-near-menton", "theatre-opera-performing-arts-near-menton"],
@@ -1400,7 +1401,8 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.monacoyachtshow.com/en",
     featured: false,
-    lastChecked: "2026-09-13",
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
     detailPage: false,
     searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
@@ -1546,7 +1548,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "verified",
     sourceUrl: "https://www.lefestivaldulivre.fr/",
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -1616,7 +1621,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.rocazur.com/en/",
     featured: false,
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -2420,8 +2428,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://nice.utmb.world/",
     distanceFromMentonKm: 30,
-    lastChecked: "2026-07-03",
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -2447,10 +2457,12 @@ const rivieraEventsBase: RivieraEvent[] = [
     whyShowOnSite: t("A good reason to plan museum and villa visits beyond beach time.", "Une bonne raison de prevoir musees et villas en plus de la plage.", "Un buon motivo per pianificare musei e ville oltre alla spiaggia.", "Добрий привід планувати музеї та вілли окрім пляжу."),
     bookingTip: t("Programmes vary by town; choose one or two sites and verify booking requirements.", "Les programmes varient selon les villes ; choisissez un ou deux sites et verifiez les reservations.", "I programmi variano per citta; scegli uno o due siti e verifica prenotazioni.", "Програми різняться за містами; оберіть 1-2 місця й перевірте бронювання."),
     sourceStatus: "verified",
-    sourceUrl: "https://www.france.fr/en/event/European-Heritage-Days/",
+    sourceUrl: "https://journeesdupatrimoine.culture.gouv.fr/espace-organisateurs",
     distanceFromMentonKm: 30,
-    lastChecked: "2026-07-03",
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -2478,8 +2490,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "needs_verification",
     sourceUrl: "https://rivieradeifiori.travel/en/event/rallye-storico-di-sanremo/",
     distanceFromMentonKm: 32,
-    lastChecked: "2026-07-03",
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -2507,8 +2521,10 @@ const rivieraEventsBase: RivieraEvent[] = [
     sourceStatus: "verified",
     sourceUrl: "https://www.clubtenco.it/",
     distanceFromMentonKm: 32,
-    lastChecked: "2026-07-03",
-    detailPage: true,
+    lastChecked: "2026-10-26",
+    lastVerifiedAt: "2026-10-26",
+    detailPage: false,
+    searchIndexing: "noindex",
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -3337,8 +3353,9 @@ function isConfirmedEventPast(event: RivieraEvent, today = new Date()) {
 }
 
 export function getEventSearchIndexing(event: RivieraEvent, today = new Date()): EventSearchIndexing {
-  if (event.searchIndexing) return event.searchIndexing;
+  if (event.searchIndexing === "noindex") return "noindex";
   if (isConfirmedEventPast(event, today)) return "noindex";
+  if (event.searchIndexing) return event.searchIndexing;
   if (priorityEventSlugs.has(event.slug)) return "priority";
   if (event.recurrence === "seasonal_placeholder") return "noindex";
   if (event.dateStatus !== "confirmed" && event.sourceStatus !== "verified") return "noindex";

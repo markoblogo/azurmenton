@@ -343,7 +343,7 @@
     "sourceStatus": "verified",
     "sourceUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
     "programmeUrl": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
-    "detailPage": true,
+    "detailPage": false,
     "relatedApartmentKeys": [
       "sea-view-balcony-studio",
       "panoramic-sea-view-studio",
@@ -359,9 +359,9 @@
       "sanremo",
       "teatro-ariston-sanremo"
     ],
-    "searchIndexing": "standard",
-    "lastChecked": "2026-08-02",
-    "lastVerifiedAt": "2026-08-02",
+    "searchIndexing": "noindex",
+    "lastChecked": "2026-10-26",
+    "lastVerifiedAt": "2026-10-26",
     "media": {
       "image": "/images/events/fiera-di-san-romolo-sanremo-2026-10-11.webp",
       "imageAlt": {
