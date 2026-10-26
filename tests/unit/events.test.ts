@@ -85,7 +85,16 @@ describe("event date status", () => {
     expect(event.dateStatus).toBe("dates_pending");
     expect(event.sourceUrl).toBe("https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/");
     expect(event.shortDescription.en).toContain("27 November 2026 to 3 January 2027");
+    expect(event.shortDescription.en).toContain("Monaco lists 4 December to 3 January");
+    expect(getEventDetail(event.slug)?.detailContent?.officialLinks?.map((link) => link.href)).toContain("https://mairie.mc/le-village-de-noel");
     expect(canRenderEventJsonLd(event)).toBe(false);
+  });
+
+  it("uses verified organiser dates for Monaco Run and Milano-Sanremo", () => {
+    const run = getEventDetail("monaco-run")!;
+    const race = getEventDetail("milano-sanremo-cycling-race")!;
+    expect(run).toMatchObject({ dateStatus: "confirmed", startDate: "2027-02-13", endDate: "2027-02-14", sourceStatus: "verified" });
+    expect(race).toMatchObject({ dateStatus: "confirmed", startDate: "2027-03-20", endDate: "2027-03-20", sourceStatus: "verified" });
   });
 
   it("keeps disputed events unconfirmed and archives them after their planned dates", () => {
