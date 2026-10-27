@@ -1449,7 +1449,7 @@ const rawPlaces: Place[] = [
     type: "shopping-centre",
     area: text("La Condamine, Monaco", "La Condamine, Monaco", "La Condamine, Monaco", "La Condamine, Monaco"),
     googleMapsUrl: mapsSearch("Automobile Club de Monaco boutique", "Monaco"),
-    programmeUrl: "https://www.visitmonaco.com/en/enjoy/shopping-in-monaco/la-condamine-authentic-and-commercial-charm",
+    programmeUrl: "https://www.mairie.mc/le-marche-de-la-condamine",
     openingHoursLabel: checkHours,
     sourceStatus: "needs_verification",
     shortNote: text(
@@ -4095,10 +4095,10 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     requiresMapReview: true,
     shortNote: text(
-      "The most useful Monaco food-market stop for affordable lunches, takeaway counters and everyday local dining.",
-      "Le marche alimentaire monegasque le plus utile pour des dejeuners abordables, des comptoirs a emporter et une vraie vie locale.",
-      "Il mercato gastronomico monegasco piu utile per pranzi convenienti, banchi d'asporto e vita locale quotidiana.",
-      "Найкорисніша food-market точка в Монако для доступних обідів, takeaway-формату і реального місцевого ритму.",
+      "Food traders are temporarily on Place d'Armes while the indoor hall is renovated; completion is planned for February 2027. Check current arrangements before visiting.",
+      "Les commerçants sont temporairement sur la place d'Armes pendant la rénovation de la halle ; fin prévue en février 2027. Vérifiez avant la visite.",
+      "I commercianti sono temporaneamente in Place d'Armes durante la ristrutturazione della sala; conclusione prevista a febbraio 2027. Verifica prima della visita.",
+      "Під час реконструкції критої зали торговці тимчасово працюють на Place d'Armes; завершення заплановане на лютий 2027 року. Перед візитом перевірте поточну інформацію.",
     ),
     bestFor: [text("Monaco budget lunch", "dejeuner abordable a Monaco", "pranzo conveniente a Monaco", "доступний обід у Монако"), text("market dining", "repas de marche", "pranzo al mercato", "їжа на ринку")],
     relatedArticleIds: [
@@ -6612,11 +6612,12 @@ const rawPlaces: Place[] = [
     type: "market",
     area: text("Ventimiglia, Italy", "Vintimille, Italie", "Vintimiglia, Italia", "Вінтимілья, Італія"),
     googleMapsUrl: mapsSearch("Mercato Coperto Ventimiglia", "Ventimiglia"),
+    programmeUrl: "https://comune.ventimiglia.im.it/it-it/novita/avvisi/2024/ordinanze/ordinanza-di-riapertura-del-mercato-coperto-da-lunedi-18-11-24-335402-1-8e9b8c6419768b7a533423d08a9e89ed",
     openingHoursLabel: text(
-      "Mon-Sat mornings (weather-resilient indoor alternative)",
-      "Lun-sam matin (alternative couverte adaptée à la météo)",
-      "Lun-sab mattina (alternativa al coperto resistente al meteo)",
-      "Пн–сб зранку (закрита альтернатива, стійкіша до погоди)",
+      "Monday–Saturday; hours vary by stall. Check before visiting.",
+      "Lundi–samedi ; horaires variables selon les stands. Vérifiez avant la visite.",
+      "Lunedì–sabato; gli orari variano per banco. Verifica prima della visita.",
+      "Понеділок–субота; години яток різняться. Перевірте перед візитом.",
     ),
     sourceStatus: "needs_verification",
     shortNote: text(
@@ -6667,11 +6668,12 @@ const rawPlaces: Place[] = [
     type: "market",
     area: text("Nice", "Nice", "Nizza", "Ніцца"),
     googleMapsUrl: mapsSearch("Cours Saleya antiques", "Nice"),
+    programmeUrl: "https://www.explorenicecotedazur.com/evenement/marche-a-la-brocante-saleya/",
     openingHoursLabel: text(
-      "Monday mornings",
-      "Lundis matin",
-      "Lunedì mattina",
-      "Понеділок зранку",
+      "Monday 07:00–18:00; check current hours.",
+      "Lundi 7 h–18 h ; vérifiez les horaires.",
+      "Lunedì 07:00–18:00; verifica gli orari.",
+      "Понеділок 07:00–18:00; перевірте актуальні години.",
     ),
     sourceStatus: "needs_verification",
     shortNote: text(

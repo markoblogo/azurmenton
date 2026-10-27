@@ -10932,13 +10932,21 @@ export const guideArticles: GuideArticle[] = [
             ),
           ],
           bullets: [
-            t("Les Halles de Menton — daily morning market (strongly practical local anchor).", "Les Halles de Menton — marché du matin quotidien (ancrage local très pratique).", "Le Halles de Mentone — mercato mattutino giornaliero (ponte pratico locale).", "Les Halles у Ментоні — щоденний ранковий ринок як надійна базова зупинка."),
+            t("Les Halles de Menton — daily until 13:00; fewer traders on Mondays.", "Les Halles de Menton — tous les jours jusqu'à 13 h ; moins de commerçants le lundi.", "Les Halles di Mentone — ogni giorno fino alle 13; meno venditori il lunedì.", "Les Halles у Ментоні — щодня до 13:00; у понеділок продавців менше."),
             t("Ventimiglia Friday Market — large Friday market and practical cross-border day base.", "Marché du vendredi à Vintimille — grand choix le vendredi, bon point pour une journée transfrontalière.", "Mercato del venerdì di Ventimiglia — ampia offerta il venerdì, utile per una giornata oltre confine.", "Вінтимілья, п’ятниця — широкий вибір і практична база для трансграничної поїздки."),
-            t("Mercato Coperto Ventimiglia — Mon–Sat mornings; useful indoor alternative for weather resilience.", "Mercato Coperto de Vintimille — du lundi au samedi matin ; alternative couverte utile selon la météo.", "Mercato Coperto Ventimiglia — dal lunedì al sabato al mattino; alternativa coperta utile con condizioni meteo variabili.", "Mercato Coperto Вінтимільї — пн–сб зранку; зручна закрита альтернатива для дощової/спекотної погоди."),
+            t("Mercato Coperto Ventimiglia — Monday–Saturday; food stalls and opening hours vary, so check before travelling.", "Mercato Coperto de Vintimille — du lundi au samedi ; les horaires des stands varient, vérifiez avant de partir.", "Mercato Coperto di Ventimiglia — dal lunedì al sabato; orari e banchi variano, verifica prima di partire.", "Mercato Coperto у Вінтимільї — понеділок–субота; години та робота яток різняться, перевірте перед поїздкою."),
             t("Bordighera Market — Thursday mornings; simple coastal stop with lower peak crowd.", "Marché de Bordighera — jeudi matin ; arrêt côtier simple avec moins d’affluence de pointe.", "Mercato di Bordighera — giovedì mattina; sosta costiera semplice con meno folla in alta.", "Борджігерра, четвер — спокійна прибережна зупинка без пікових натовпів."),
             t("Cours Saleya, Nice — Tue–Sun mornings for food, flowers, and atmosphere.", "Cours Saleya, Nice — du mardi au dimanche matin pour alimentation, fleurs et ambiance locale.", "Cours Saleya, Nizza — da martedì a domenica mattina per cibo, fiori e atmosfera cittadina.", "Cours Saleya, Ніцца — вт–нд вранці, для їжі, квітів і міської атмосфери."),
-            t("Cours Saleya antiques — Monday market for antiques and vintage.", "Cours Saleya antiques — lundi, antiquités et objets vintage.", "Cours Saleya antiques — lunedì per antiquariato e oggetti vintage.", "Cours Saleya antiques — понеділок, антикваріат і вінтаж."),
-            t("Marché de la Condamine, Monaco — daily, strongest for local food and quick lunch rhythm.", "Marché de la Condamine à Monaco — quotidien, fort en produits locaux et pauses déjeuner faciles.", "Marché de la Condamine a Monaco — giornaliero, forte per cibo locale e pausa pranzo veloce.", "Marché de la Condamine у Монако — щоденно, сильний на локальні продукти та швидкий ланч."),
+            t("Cours Saleya antiques — Monday, 07:00–18:00, for antiques and vintage.", "Brocante du Cours Saleya — lundi de 7 h à 18 h.", "Antiquariato al Cours Saleya — lunedì, 7:00–18:00.", "Антикварний Cours Saleya — понеділок, 07:00–18:00."),
+            t("Marché de la Condamine, Monaco — daily on Place d'Armes; the indoor hall is being renovated, with completion planned for February 2027.", "Marché de la Condamine à Monaco — tous les jours place d'Armes ; la halle est en rénovation, fin prévue en février 2027.", "Marché de la Condamine a Monaco — ogni giorno in Place d'Armes; la sala è in ristrutturazione, con fine prevista a febbraio 2027.", "Marché de la Condamine у Монако — щодня на Place d'Armes; криту залу реконструюють, завершення заплановане на лютий 2027 року."),
+          ],
+          officialLinks: [
+            { label: t("Menton market hours", "Horaires du marché de Menton", "Orari del mercato di Mentone", "Години ринку Ментона"), url: "https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/nos-incontournables/marche-des-halles/" },
+            { label: t("Ventimiglia markets", "Marchés de Vintimille", "Mercati di Ventimiglia", "Ринки Вінтимільї"), url: "https://ventimiglia.it/esplora/gusto-e-shopping/mercati/" },
+            { label: t("Bordighera Thursday market", "Marché du jeudi à Bordighera", "Mercato del giovedì a Bordighera", "Четверговий ринок Бордігери"), url: "https://visitbordighera.com/eventi/mercato-settimanale-del-giovedi/" },
+            { label: t("Nice food market hours", "Horaires du marché alimentaire de Nice", "Orari del mercato alimentare di Nizza", "Години продуктового ринку Ніцци"), url: "https://www.explorenicecotedazur.com/evenement/marche-aux-fruits-legumes-et-maree-du-cours-saleya/" },
+            { label: t("Nice antiques market", "Brocante de Nice", "Mercato dell'antiquariato di Nizza", "Антикварний ринок Ніцци"), url: "https://www.explorenicecotedazur.com/evenement/marche-a-la-brocante-saleya/" },
+            { label: t("Monaco market and works", "Marché et travaux à Monaco", "Mercato e lavori a Monaco", "Ринок і реконструкція в Монако"), url: "https://www.mairie.mc/le-marche-de-la-condamine" },
           ],
         },
         {
@@ -10986,15 +10994,15 @@ export const guideArticles: GuideArticle[] = [
           ),
           visualTheme: "food",
           body: [
-            t("This is usually the best option when you need a larger shopping loop: more stalls, more produce variety and easier for packing.",
-              "C'est souvent la meilleure option si vous voulez faire un tour plus large : plus d'étals, plus de variété et une préparation plus flexible pour les sacs.",
-              "È spesso la miglior opzione se vuoi fare una spesa più ampia: piu banchi, piu varietà e preparazione più flessibile dei sacchetti.",
-              "Це зазвичай найкращий вибір, коли потрібна більша закупка: більше ларків, більше різноманіття, зручніше для збірки покупок."
+            t("The Friday open-air market runs along the seafront and is known for clothing, leather goods, shoes and household items. For fresh food, visit the separate covered market on Via della Repubblica.",
+              "Le marché en plein air du vendredi longe le front de mer et propose vêtements, maroquinerie, chaussures et articles pour la maison. Pour les produits frais, rejoignez le marché couvert distinct de la Via della Repubblica.",
+              "Il mercato all'aperto del venerdì si snoda sul lungomare ed è noto per abbigliamento, pelletteria, scarpe e articoli per la casa. Per i prodotti freschi visita il mercato coperto separato in Via della Repubblica.",
+              "П'ятничний ринок просто неба тягнеться вздовж моря: тут продають одяг, шкіряні вироби, взуття й товари для дому. За свіжими продуктами завітайте до окремого критого ринку на Via della Repubblica."
             ),
-            t("Best profile: families with more time, guests packing for several days, or people who want a strong food stop in one place.",
-              "Profil le plus adapté : familles avec plus de temps, voyageurs qui font des courses longues, ou ceux qui veulent un bon arrêt alimentaire en un seul point.",
-              "Profilo piu adatto: famiglie con tempo, viaggiatori con più giorni di spesa o chi vuole un forte punto food in una sola tappa.",
-              "Найкращий профіль: сім’ї з часом, гості, які роблять запас на кілька днів, або хто хоче зручний один великий зупинковий ринок."
+            t("Allow time to browse, then check the return train timetable before leaving Menton; service times can change.",
+              "Prévoyez du temps pour flâner et vérifiez les horaires du train retour avant de quitter Menton.",
+              "Prevedi tempo per curiosare e controlla gli orari del treno di ritorno prima di lasciare Mentone.",
+              "Залиште час на покупки й перевірте розклад зворотного потяга до виїзду з Ментона."
             ),
             t("If crossing the border, keep passport and tickets ready and move early for the return window to Menton.",
               "Si vous franchissez la frontière, gardez passeport et billets prêts et partez tôt pour profiter du créneau de retour.",
@@ -11025,12 +11033,13 @@ export const guideArticles: GuideArticle[] = [
               "Usalo quando il tempo cambia o vuoi un passaggio più breve e concentrato a Vintimiglia.",
               "Використовуйте цю опцію, якщо погода мінлива або вам потрібен короткий, компактний візит у Вінтимілью."
             ),
-            t("Mon–Sat mornings are the strongest window; Saturdays are often busier with cross-border shoppers.",
-              "Le lundi au samedi matin est la fenêtre la plus pratique ; le samedi est souvent plus chargé avec les voyageurs transfrontaliers.",
-              "Da lunedì a sabato mattina la finestra più utile; il sabato è spesso più affollato per i viaggiatori transfrontalieri.",
-              "Найкращий час — понеділок–субота вранці; субота часто більш натовпна через прикордонні потоки."
+            t("The municipality's reopening order lists Monday–Thursday 07:00–14:00 and Friday–Saturday 07:00–17:00. Individual stalls may keep shorter hours; check locally before setting out.",
+              "L'arrêté municipal de réouverture indique lundi–jeudi 7 h–14 h et vendredi–samedi 7 h–17 h. Les horaires des stands peuvent être plus courts ; vérifiez avant de partir.",
+              "L'ordinanza comunale di riapertura indica lunedì–giovedì 7:00–14:00 e venerdì–sabato 7:00–17:00. I singoli banchi possono avere orari più brevi; verifica prima di partire.",
+              "У рішенні муніципалітету про відкриття вказано понеділок–четвер 07:00–14:00 і п'ятницю–суботу 07:00–17:00. Окремі ятки можуть працювати менше; перевірте перед поїздкою."
             ),
           ],
+          officialLinks: [{ label: t("Municipal reopening order", "Arrêté municipal de réouverture", "Ordinanza comunale di riapertura", "Рішення муніципалітету про відкриття"), url: "https://comune.ventimiglia.im.it/it-it/novita/avvisi/2024/ordinanze/ordinanza-di-riapertura-del-mercato-coperto-da-lunedi-18-11-24-335402-1-8e9b8c6419768b7a533423d08a9e89ed" }],
           relatedPlaceIds: ["mercato-coperto-ventimiglia", "ventimiglia"],
         },
         {
@@ -11119,10 +11128,10 @@ export const guideArticles: GuideArticle[] = [
               "Questo è il momento dedicato del lunedì se cerchi souvenir, vintage, poster, ceramiche o piccoli pezzi di decò.",
               "Це цільовий понеділковий слот, якщо вам потрібні сувеніри, vintage-товари, плакати, кераміка або маленькі предмети декору."
             ),
-            t("It pairs well with a short Nice old-town walk; add it only if you have a clear morning or late-morning time window.",
-              "Il complète bien une courte marche dans la vieille ville ; intégrez-le seulement si vous avez une fenêtre matinale claire.",
-              "Si sposa bene a una breve passeggiata nel centro storico; inserirlo solo se hai una buona finestra al mattino.",
-              "Добре комбінується з короткою прогулянкою центром Ніцци; додавати в план варто за наявності зрозумілого вікна зранку."
+            t("The tourist office lists Monday 07:00–18:00, making it possible to combine browsing with a walk in Nice old town. Check for changes before travelling.",
+              "L'office de tourisme indique le lundi de 7 h à 18 h : combinez la brocante avec une promenade dans le Vieux-Nice. Vérifiez avant de partir.",
+              "L'ufficio turistico indica il lunedì dalle 7:00 alle 18:00: abbina il mercato a una passeggiata nella vecchia Nizza. Verifica prima di partire.",
+              "Туристичний офіс вказує понеділок 07:00–18:00: поєднайте ринок із прогулянкою старою Ніццою. Перевірте години перед поїздкою."
             ),
           ],
           relatedPlaceIds: ["cours-saleya-antiques", "cours-saleya-nice", "nice-old-town"],
