@@ -77,6 +77,13 @@
     ]
   },
   {
+    "source": "public/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+    "outputs": [
+      "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.avif",
+      "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/blanchisserie-pressing-mentonnais.png",
     "outputs": [
       "public/images/guide/generated/blanchisserie-pressing-mentonnais.avif",
@@ -630,10 +637,10 @@
     ]
   },
   {
-    "source": "public/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
+    "source": "public/images/guide/menton-in-winter.png",
     "outputs": [
-      "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.avif",
-      "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.webp"
+      "public/images/guide/generated/menton-in-winter.avif",
+      "public/images/guide/generated/menton-in-winter.webp"
     ]
   }
 ]
