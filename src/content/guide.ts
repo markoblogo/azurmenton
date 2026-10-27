@@ -1669,7 +1669,7 @@ export const guideArticles: GuideArticle[] = [
     featured: true,
     sourceStatus: "editorial",
     relatedPlaces: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "promenade-du-soleil", "plage-sablettes", "monaco-monte-carlo", "nice-old-town"],
-    relatedArticles: ["mountains-snow-skiing-near-menton", "fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-in-winter", "mountains-snow-skiing-near-menton", "fete-du-citron-menton-practical-guide", "best-beaches-in-menton", "best-walks-and-hikes-around-menton", "museums-in-menton-nice-monaco", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "menton-old-town", "where-to-stay-in-menton"],
     relatedEvents: ["monte-carlo-jazz-festival", "nice-cannes-marathon", "mipcom-cannes", "mapic-cannes", "igtm-cannes", "maredimoda-cannes"],
     relatedApartments: seaViewApartments,
     sections: [
@@ -2156,7 +2156,7 @@ export const guideArticles: GuideArticle[] = [
       "saint-martin-vesubie",
       "valdeblore",
     ],
-    relatedArticles: ["cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["menton-in-winter", "cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -4262,6 +4262,7 @@ export const guideArticles: GuideArticle[] = [
     ],
     relatedArticles: [
       "zoos-aquariums-animal-parks-near-menton",
+      "menton-in-winter",
       "fete-du-citron-menton-practical-guide",
       "tennis-padel-courts-menton",
       "skateparks-near-menton",
@@ -11294,6 +11295,55 @@ export const guideArticles: GuideArticle[] = [
       },
     ],
     practicalTips: [t("Check the current hours and stock before travelling.", "Verifiez horaires et disponibilite avant de partir.", "Controlla orari e disponibilita prima di partire.", "Перед поїздкою перевірте години та наявність."), t("Ask a pharmacist or doctor for advice relevant to your situation.", "Demandez conseil a un pharmacien ou un medecin selon votre situation.", "Chiedi consiglio a farmacista o medico per la tua situazione.", "Зверніться до фармацевта або лікаря за порадою для вашої ситуації.")],
+  }),
+  shortArticle({
+    id: "menton-in-winter",
+    slug: "menton-in-winter",
+    title: t("Menton in winter: sea views, mountain snow and cosy days", "Menton en hiver : mer, neige et journées douillettes", "Mentone in inverno: mare, neve e giornate accoglienti", "Ментон узимку: море, сніг у горах і затишні дні"),
+    seoTitle: t("Menton in Winter: What to Do, Snow and Family Days", "Menton en hiver : activités, neige et sorties en famille", "Mentone in inverno: cosa fare, neve e attività in famiglia", "Ментон узимку: що робити, сніг і сімейний відпочинок"),
+    seoDescription: t("Plan a winter stay in Menton: coastal walks, family activities, mountain snow, warm cafés and seasonal events, with practical links for changing weather.", "Préparez votre séjour hivernal à Menton : promenades, famille, neige, cafés et événements, avec des conseils selon la météo.", "Organizza un soggiorno invernale a Mentone tra passeggiate, famiglia, neve, caffè ed eventi, con consigli per ogni tempo.", "Сплануйте зимову подорож до Ментона: прогулянки, сімейні розваги, сніг у горах, затишні кав'ярні та сезонні події."),
+    excerpt: t("Winter in Menton can be a coastal walk, a museum day, a warm café or a carefully planned trip to the snow. Use this guide to choose a comfortable plan for the weather.", "En hiver à Menton : balade au bord de mer, musée, café chaleureux ou sortie préparée à la neige. Choisissez selon la météo.", "L'inverno a Mentone può essere una passeggiata sul mare, un museo, un caffè o una gita sulla neve ben organizzata. Scegli in base al tempo.", "Зима в Ментоні — це прогулянка біля моря, музей, затишна кав'ярня або ретельно спланована поїздка до снігу. Обирайте план за погодою."),
+    category: "practical",
+    tags: [t("winter", "hiver", "inverno", "зима"), t("family", "famille", "famiglia", "сім'я"), t("snow", "neige", "neve", "сніг")],
+    bestFor: [guideBestForOptions[0].label, guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "seafront"],
+    publishedOn: "2026-10-27",
+    visualTheme: "itinerary",
+    visualStatus: "editorial_placeholder",
+    sourceStatus: "needs_verification",
+    relatedArticles: ["menton-in-autumn", "mountains-snow-skiing-near-menton", "menton-with-kids-family-guide", "saunas-spas-menton", "tea-rooms-afternoon-tea-near-menton", "best-coffee-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "fete-du-citron-menton-practical-guide", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Choose your day by the weather", "Choisir sa journée selon la météo", "Scegli la giornata in base al meteo", "Оберіть день за погодою"),
+        body: [t("On a clear day, combine the old town, the seafront and lunch outside when conditions allow. For rain or a cooler afternoon, choose a museum, cinema or café. Keep opening hours and the return journey flexible: winter weather and daylight can change your plans.", "Par beau temps, associez vieille ville, bord de mer et déjeuner en terrasse si les conditions le permettent. En cas de pluie ou de fraîcheur, choisissez musée, cinéma ou café. Vérifiez horaires et retour : la météo et la lumière peuvent changer vos plans.", "Con il bel tempo unisci centro storico, lungomare e pranzo all'aperto se le condizioni lo permettono. Per pioggia o freddo scegli museo, cinema o caffè. Controlla orari e ritorno: meteo e luce possono cambiare i programmi.", "У ясний день поєднайте старе місто, набережну та обід надворі, якщо дозволяє погода. У дощ або прохолодний день оберіть музей, кіно чи кав'ярню. Перевіряйте години роботи й зворотну дорогу: погода та тривалість дня можуть змінити плани.")],
+      },
+      {
+        heading: t("Sea and snow: plan a mountain day", "Mer et neige : préparer une journée en montagne", "Mare e neve: organizzare una giornata in montagna", "Море і сніг: сплануйте день у горах"),
+        body: [t("Menton can be a coastal base for a separate mountain excursion. Turini Camp d'Argent and Castérino offer different family-oriented snow activities; the mountain guide also covers larger ski areas. Snow, lifts, roads and equipment hire are not guaranteed: check the operator and road conditions immediately before leaving, and allow for a long return journey.", "Menton peut servir de base côtière pour une excursion séparée en montagne. Turini Camp d'Argent et Castérino proposent différentes activités familiales ; notre guide présente aussi les grandes stations. Neige, remontées, routes et location ne sont pas garanties : vérifiez avant de partir et prévoyez le retour.", "Mentone può essere una base sul mare per una gita separata in montagna. Turini Camp d'Argent e Castérino offrono diverse attività familiari; la guida presenta anche stazioni più grandi. Neve, impianti, strade e noleggio non sono garantiti: verifica prima di partire e considera il ritorno.", "Ментон може стати приморською базою для окремої поїздки в гори. Turini Camp d'Argent і Castérino пропонують різні сімейні снігові заняття; у гірському гіді є й більші курорти. Сніг, підйомники, дороги та прокат не гарантовані: перевіряйте їх перед виїздом і закладайте час на повернення.")],
+        officialLinks: [{ label: t("Regional winter activities", "Activités hivernales de la région", "Attività invernali nella regione", "Зимові заняття в регіоні"), url: "https://www.menton-riviera-merveilles.fr/sinspirer/destination-4-saisons/" }],
+      },
+      {
+        heading: t("Winter with children", "L'hiver avec des enfants", "Inverno con i bambini", "Зима з дітьми"),
+        body: [t("Keep the day manageable: a short seafront walk and a warm lunch can be paired with a museum or indoor activity. Our family guide includes rainy-day alternatives and longer trips to Monaco and Nice; check age suitability, holiday closures and transport for your date.", "Prévoyez un rythme simple : courte promenade en bord de mer et déjeuner au chaud, puis musée ou activité intérieure. Le guide famille propose des solutions pour la pluie et des sorties à Monaco ou Nice ; vérifiez âge, fermetures et transport.", "Mantieni un ritmo semplice: una breve passeggiata sul mare e un pranzo al caldo, poi un museo o un'attività al coperto. La guida famiglia propone alternative per la pioggia e gite a Monaco e Nizza; verifica età, chiusure e trasporti.", "Плануйте неспішно: коротку прогулянку набережною та теплий обід можна поєднати з музеєм або заняттям у приміщенні. Сімейний гід містить варіанти на дощ і поїздки до Монако та Ніцци; перевіряйте вікові обмеження, святкові години й транспорт.")],
+      },
+      {
+        heading: t("Warm cafés, tea rooms and spa time", "Cafés, salons de thé et spas", "Caffè, sale da tè e spa", "Кав'ярні, чайні та спа"),
+        body: [t("A coffee, tea or hot chocolate is an easy pause between walks. For a longer indoor break, compare the existing tea-room, coffee and spa guides; check menus, opening hours, booking and access conditions directly with each venue. Warm drinks and spa access are not assumed to be available at every address.", "Un café, un thé ou un chocolat chaud offre une pause entre deux promenades. Pour une pause plus longue, consultez nos guides des cafés, salons de thé et spas ; vérifiez menus, horaires, réservation et accès auprès de chaque établissement.", "Un caffè, un tè o una cioccolata calda sono una pausa tra le passeggiate. Per una sosta più lunga consulta le guide di caffè, sale da tè e spa; verifica menu, orari, prenotazione e accesso con ogni locale.", "Кава, чай або гарячий шоколад — зручна пауза між прогулянками. Для довшого відпочинку перегляньте гіди по кав'ярнях, чайних і спа; перевірте меню, години, бронювання та умови доступу безпосередньо в закладі.")],
+      },
+      {
+        heading: t("Festive drinks and seasonal events", "Boissons festives et événements saisonniers", "Bevande festive ed eventi stagionali", "Святкові напої та сезонні події"),
+        body: [t("Vin chaud and other festive drinks may appear at winter markets, but stalls, menus and dates change each year. Menton's earlier Christmas programme listed mulled wine and hot chocolate at the Biovès food stands; this does not confirm what will be offered this season. Consult the current programme before making a special trip.", "Le vin chaud et d'autres boissons festives peuvent être proposés aux marchés d'hiver, mais stands, menus et dates changent chaque année. Un ancien programme de Noël mentionnait vin chaud et chocolat aux jardins Biovès ; cela ne confirme pas l'offre de cette saison. Consultez le programme actuel avant de vous déplacer.", "Vin chaud e altre bevande festive possono comparire nei mercatini invernali, ma banchi, menu e date cambiano ogni anno. Un precedente programma natalizio indicava vin chaud e cioccolata ai giardini Biovès; non conferma l'offerta di questa stagione. Consulta il programma attuale prima di partire.", "Глінтвейн та інші святкові напої можуть з'являтися на зимових ярмарках, але продавці, меню й дати щороку змінюються. У попередній різдвяній програмі глінтвейн і гарячий шоколад зазначалися на точках у садах Biovès; це не підтверджує пропозицію цього сезону. Перед поїздкою перевірте актуальну програму.")],
+        officialLinks: [{ label: t("Menton Christmas programme", "Programme de Noël à Menton", "Programma natalizio di Mentone", "Різдвяна програма Ментона"), url: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/grands-evenements/la-magie-des-fetes-de-fin-dannee/" }],
+      },
+      {
+        heading: t("Citrus season and the Lemon Festival", "Agrumes et Fête du Citron", "Agrumi e Festa del Limone", "Сезон цитрусових і Свято лимона"),
+        body: [t("Winter is a good time to explore local citrus and look for producer visits by appointment. In February, the Lemon Festival brings exhibitions and parades; use the dedicated guide and official programme for the current edition, ticketing and access, rather than assuming every activity runs every day.", "L'hiver est propice à la découverte des agrumes et des producteurs sur rendez-vous. En février, la Fête du Citron propose expositions et corsos ; consultez notre guide et le programme officiel pour les dates, billets et accès de l'édition en cours.", "L'inverno è un buon momento per scoprire gli agrumi locali e le visite ai produttori su appuntamento. A febbraio la Festa del Limone propone mostre e sfilate; consulta la guida e il programma ufficiale per date, biglietti e accessi.", "Узимку можна познайомитися з місцевими цитрусовими й відвідати виробників за попереднім записом. У лютому Свято лимона пропонує виставки та паради; дати, квитки й умови доступу перевіряйте в окремому гіді та офіційній програмі.")],
+        officialLinks: [{ label: t("Lemon Festival programme", "Programme de la Fête du Citron", "Programma della Festa del Limone", "Програма Свята лимона"), url: "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/agenda-fete-du-citron/" }],
+      },
+    ],
+    practicalTips: [t("Check current opening times, transport and weather before travelling.", "Vérifiez horaires, transports et météo avant de partir.", "Controlla orari, trasporti e meteo prima di partire.", "Перевіряйте години роботи, транспорт і погоду перед поїздкою."), t("Reserve seasonal activities and spa access when required.", "Réservez les activités saisonnières et les spas si nécessaire.", "Prenota attività stagionali e spa quando necessario.", "За потреби бронюйте сезонні заняття та відвідування спа.")],
   }),
 ];
 
