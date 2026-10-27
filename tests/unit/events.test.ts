@@ -14,6 +14,22 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
+  it("links the reviewed small events to their venues and retains the existing festival", () => {
+    for (const [slug, place] of [
+      ["vivaldi-gloria-menton-2026-10-31", "st-john-anglican-church-menton"],
+      ["jimmy-gnecco-ours-monaco-2026-11-05", "grimaldi-forum-monaco"],
+      ["note-damare-bordighera-2026-11-08", "teatro-giancarlo-golzi-bordighera"],
+      ["stand-up-monaco-2026-11-09", "grimaldi-forum-monaco"],
+    ] as const) {
+      const event = getRivieraEvent(slug)!;
+      expect(event).toMatchObject({ dateStatus: "confirmed", sourceStatus: "verified", detailPage: true });
+      expect(event.sourceUrl).toMatch(/^https:\/\//);
+      expect(event.relatedPlaceIds).toContain(place);
+    }
+    const festival = getRivieraEvent("cest-pas-classique-riviera-2026")!;
+    expect(festival.relatedPlaceIds).toContain("musee-departemental-des-merveilles-tende");
+    expect(festival.additionalOfficialLinks?.some((link) => link.href.includes("projection-et-performance-musicale-tende"))).toBe(true);
+  });
   it("publishes the six reviewed local events with sources, illustrations and relevant guide links", () => {
     const cases = [
       ["menton-fete-halloween-2026", "menton-with-kids-family-guide", "jardins-bioves"],

@@ -291,6 +291,13 @@ const festivalVenues = [
 ] as const;
 
 const rawPlaces: Place[] = [
+  {
+    id: "teatro-giancarlo-golzi-bordighera", name: "Teatro Giancarlo Golzi", type: "civic",
+    address: "Palazzo del Parco, Via Umorismo, 18012 Bordighera", googleMapsUrl: mapsQuery("Teatro Giancarlo Golzi", "Via Umorismo", "Bordighera"),
+    programmeUrl: "https://www.comune.bordighera.im.it/Vivere-il-comune/Luoghi/Palazzo-del-Parco-Teatro-Giancarlo-Golzi", requiresMapReview: true, sourceStatus: "verified",
+    shortNote: text("Bordighera's municipal theatre at Palazzo del Parco.", "Theatre municipal de Bordighera au Palazzo del Parco.", "Teatro comunale di Bordighera nel Palazzo del Parco.", "Міський театр Бордігери в Palazzo del Parco."),
+    bestFor: [text("Concerts and theatre", "Concerts et theatre", "Concerti e teatro", "Концерти та театр")], relatedArticleIds: [],
+  },
   ...festivalVenues.map(([id, name, address]): Place => ({
     id, name, type: "civic", address, image: `/images/guide/${id}.webp`, imageAlt: text(`Illustration of ${name}`, `Illustration de ${name}`, `Illustrazione di ${name}`, `Ілюстрація ${name}`), googleMapsUrl: mapsQuery(name, address), programmeUrl: festivalProgrammeUrl,
     requiresMapReview: true, sourceStatus: "verified",
