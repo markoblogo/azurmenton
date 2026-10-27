@@ -1697,6 +1697,8 @@ const rawPlaces: Place[] = [
   {
     id: "pharmacie-riviera-menton-station",
     name: "Pharmacie Riviera",
+    image: "/images/guide/pharmacie-riviera-menton-station.jpg",
+    imageAlt: text("Illustration of Pharmacie Riviera in Menton", "Illustration de Pharmacie Riviera a Menton", "Illustrazione della Pharmacie Riviera a Mentone", "Ілюстрація аптеки Pharmacie Riviera у Ментоні"),
     type: "pharmacy",
     address: "7-7 bis Avenue de Sospel, 06500 Menton",
     googleMapsUrl: mapsQuery("Pharmacie Riviera", "7 Avenue de Sospel", "06500 Menton"),
@@ -1710,6 +1712,8 @@ const rawPlaces: Place[] = [
   {
     id: "pharmacie-garavan-menton",
     name: "Pharmacie Garavan",
+    image: "/images/guide/pharmacie-garavan-menton.jpg",
+    imageAlt: text("Illustration of Pharmacie Garavan in Menton", "Illustration de Pharmacie Garavan a Menton", "Illustrazione della Pharmacie Garavan a Mentone", "Ілюстрація аптеки Pharmacie Garavan у Ментоні"),
     type: "pharmacy",
     address: "15 Porte de France, 06500 Menton",
     googleMapsUrl: mapsQuery("Pharmacie Garavan", "15 Porte de France", "06500 Menton"),
@@ -1723,6 +1727,8 @@ const rawPlaces: Place[] = [
   {
     id: "pharmacie-nice-airport-terminal-2",
     name: "Nice Airport Pharmacy - Terminal 2",
+    image: "/images/guide/pharmacie-nice-airport-terminal-2.jpg",
+    imageAlt: text("Illustration of the Nice Airport pharmacy", "Illustration de la pharmacie de l'aeroport de Nice", "Illustrazione della farmacia dell'aeroporto di Nizza", "Ілюстрація аптеки аеропорту Ніцци"),
     type: "pharmacy",
     address: "Terminal 2, departures level, near D2, Nice Côte d'Azur Airport, 06200 Nice",
     googleMapsUrl: mapsSearch("Nice Airport Pharmacy Terminal 2 D2"),
