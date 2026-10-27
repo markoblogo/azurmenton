@@ -4547,7 +4547,7 @@ export const guideArticles: GuideArticle[] = [
       "mairie-menton",
       "office-tourisme-menton-riviera-merveilles",
     ],
-    relatedArticles: ["menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "computer-and-phone-repair-in-menton", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
+    relatedArticles: ["pharmacies-in-menton-and-nice-airport", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "computer-and-phone-repair-in-menton", "stay-cool-in-menton-summer", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "supermarkets-in-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -6149,6 +6149,7 @@ export const guideArticles: GuideArticle[] = [
       "fete-du-citron-menton-practical-guide",
       "public-transport-in-menton",
       "how-to-get-to-menton-from-nice-airport",
+      "pharmacies-in-menton-and-nice-airport",
       "airports-near-menton-live-flights",
       "electric-car-charging-menton",
       "petrol-stations-menton",
@@ -6470,7 +6471,7 @@ export const guideArticles: GuideArticle[] = [
     bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
     duration: "flexible",
     locationTags: ["nice", "menton-centre"],
-    relatedArticles: ["car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "petrol-stations-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["pharmacies-in-menton-and-nice-airport", "car-rental-menton-nice-airport-convertibles", "electric-car-charging-menton", "petrol-stations-menton", "menton-with-kids-family-guide", "useful-apps-websites-menton-monaco-italian-riviera", "public-transport-in-menton", "menton-without-a-car", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedPlaces: ["nice-cote-dazur-airport", "nice-saint-augustin-station", "nice-ville-station", "menton-station", "menton-garavan-station", "parking-gare-sncf-menton", "parking-saint-roch-menton", "monaco-monte-carlo-station"],
     relatedApartments: allApartments,
     sections: [
@@ -11224,6 +11225,65 @@ export const guideArticles: GuideArticle[] = [
         t("Start from Menton if you are staying there: local planning is usually shorter and easier to adjust.", "Commencez depuis Menton si vous y logez: la planification locale est presque toujours plus courte et flexible.", "Inizia da Mentone se ci soggiorni: la pianificazione locale e quasi sempre piu corta e facile da adattare.", "Якщо ви перебуваєте в Ментоні, починайте звідси: локальне планування зазвичай коротше й гнучкіше."),
       ],
     }),
+  shortArticle({
+    id: "pharmacies-in-menton-and-nice-airport",
+    slug: "pharmacies-in-menton-and-nice-airport",
+    title: t("Pharmacies in Menton and Nice Airport: a practical guide for travellers", "Pharmacies a Menton et a l'aeroport de Nice : guide pratique", "Farmacie a Mentone e all'aeroporto di Nizza: guida pratica", "Аптеки в Ментоні та аеропорту Ніцци: практичний гід"),
+    seoTitle: t("Pharmacies in Menton, Near the Station and Nice Airport", "Pharmacies a Menton, pres de la gare et a l'aeroport de Nice", "Farmacie a Mentone, vicino alla stazione e all'aeroporto di Nizza", "Аптеки Ментона: біля вокзалу та в аеропорту Ніцци"),
+    seoDescription: t("Find pharmacies in central Menton, Garavan, near the station and at Nice Airport, plus official guidance for urgent out-of-hours needs.", "Trouvez des pharmacies au centre de Menton, a Garavan, pres de la gare et a l'aeroport de Nice, et des conseils pour les urgences hors horaires.", "Trova farmacie nel centro di Mentone, a Garavan, vicino alla stazione e all'aeroporto di Nizza, con indicazioni per le urgenze fuori orario.", "Аптеки в центрі Ментона, Garavan, біля вокзалу та в аеропорту Ніцци; офіційні джерела для термінових потреб поза робочими годинами."),
+    excerpt: t("A practical starting point for finding a pharmacy during your stay or journey, with current hours and on-duty information to check before visiting.", "Un point de depart pratique pour trouver une pharmacie pendant votre sejour ou voyage : verifiez horaires et garde avant de partir.", "Un punto di partenza pratico per trovare una farmacia durante il soggiorno o il viaggio: controlla orari e turni prima di andare.", "Практичний орієнтир для пошуку аптеки під час перебування чи подорожі: перед візитом перевірте години та чергування."),
+    category: "practical",
+    tags: [t("pharmacies", "pharmacies", "farmacie", "аптеки"), t("travel essentials", "essentiels du voyage", "essenziali di viaggio", "потреби в подорожі"), t("airport", "aeroport", "aeroporto", "аеропорт")],
+    bestFor: [guideBestForOptions[3].label, guideBestForOptions[4].label],
+    duration: "reference",
+    locationTags: ["menton-centre", "garavan", "nice"],
+    publishedOn: "2026-10-27",
+    visualTheme: "transport",
+    visualStatus: "editorial_placeholder",
+    sourceStatus: "needs_verification",
+    relatedPlaces: ["pharmacie-riviera-menton-station", "pharmacie-lafayette-des-jardins", "pharmacie-victoria-menton", "pharmacie-calvin-menton", "grande-pharmacie-mentonnaise", "pharmacie-garavan-menton", "pharmacie-nice-airport-terminal-2"],
+    relatedArticles: ["useful-numbers-emergency-contacts-menton", "how-to-get-to-menton-from-nice-airport", "public-transport-in-menton", "menton-with-kids-family-guide", "where-to-stay-in-menton", "luggage-storage-in-menton-monaco-and-nice"],
+    relatedApartments: allApartments,
+    sections: [
+      {
+        heading: t("Start with the nearest open pharmacy", "Commencez par une pharmacie ouverte", "Inizia dalla farmacia aperta piu vicina", "Почніть із найближчої відкритої аптеки"),
+        body: [t("In France, a pharmacist can help you understand available options and advise when to seek medical care. Hours, stock and language availability change: contact the pharmacy or check its current listing before travelling. For serious or life-threatening symptoms, call 15 or 112 instead of relying on a pharmacy visit.", "En France, le pharmacien peut vous renseigner et vous orienter vers un professionnel de sante si necessaire. Horaires, stocks et langues varient : verifiez avant de vous deplacer. En cas d'urgence grave ou vitale, appelez le 15 ou le 112.", "In Francia il farmacista puo aiutarti a capire le opzioni e indirizzarti a un professionista sanitario. Orari, disponibilita e lingue possono cambiare: verifica prima di andare. In caso di emergenza grave o pericolo di vita chiama il 15 o il 112.", "У Франції фармацевт може допомогти зорієнтуватися та порадити, коли звернутися до медичного фахівця. Години, наявність і мови спілкування змінюються: перевірте перед поїздкою. За серйозних чи загрозливих симптомів телефонуйте 15 або 112, а не покладайтеся на візит до аптеки.")],
+        officialLinks: [{ label: t("French emergency numbers", "Numeros d'urgence en France", "Numeri di emergenza in Francia", "Екстрені номери Франції"), url: "https://www.service-public.fr/particuliers/vosdroits/F33954" }],
+      },
+      {
+        heading: t("Near Menton station and the town centre", "Pres de la gare et au centre de Menton", "Vicino alla stazione e nel centro di Mentone", "Біля вокзалу й у центрі Ментона"),
+        body: [t("Pharmacie Riviera is on Avenue de Sospel near the bus-station area. Pharmacie Lafayette des Jardins is near the Biovès gardens, while Pharmacie Calvin, Grande Pharmacie Mentonnaise and Pharmacie Victoria offer other central options. Their hours differ and none should be assumed to be on duty without checking.", "Pharmacie Riviera se trouve avenue de Sospel pres de la gare routiere. Pharmacie Lafayette des Jardins est pres des jardins Bioves ; Calvin, Grande Pharmacie Mentonnaise et Victoria sont d'autres options centrales. Leurs horaires different : verifiez la garde avant de partir.", "Pharmacie Riviera si trova in Avenue de Sospel vicino alla stazione autobus. Pharmacie Lafayette des Jardins e presso i giardini Bioves; Calvin, Grande Pharmacie Mentonnaise e Victoria sono altre opzioni centrali. Gli orari variano: non presumere che siano di turno.", "Pharmacie Riviera розташована на Avenue de Sospel біля автостанції. Pharmacie Lafayette des Jardins — біля садів Biovès; Calvin, Grande Pharmacie Mentonnaise та Victoria — інші варіанти в центрі. Їхні години різняться: перевіряйте, яка аптека чергує.")],
+        relatedPlaceIds: ["pharmacie-riviera-menton-station", "pharmacie-lafayette-des-jardins", "pharmacie-calvin-menton", "grande-pharmacie-mentonnaise", "pharmacie-victoria-menton"],
+        officialLinks: [{ label: t("Pharmacie Riviera: business register", "Pharmacie Riviera : registre des entreprises", "Pharmacie Riviera: registro imprese", "Pharmacie Riviera: державний реєстр"), url: "https://annuaire-entreprises.data.gouv.fr/entreprise/825245640" }, { label: t("Pharmacie Lafayette des Jardins", "Pharmacie Lafayette des Jardins", "Pharmacie Lafayette des Jardins", "Pharmacie Lafayette des Jardins"), url: "https://www.pharmacielafayette.com/enseigne/pharmacies/menton" }],
+      },
+      {
+        heading: t("Garavan and the eastern seafront", "Garavan et le front de mer est", "Garavan e il lungomare est", "Garavan і східна набережна"),
+        body: [t("Pharmacie Garavan is listed at 15 Porte de France. Check its current opening hours before leaving; distance from your accommodation depends on its exact address.", "Pharmacie Garavan est indiquee au 15 Porte de France. Verifiez ses horaires ; la distance depend de l'adresse exacte de votre logement.", "Pharmacie Garavan e indicata al 15 Porte de France. Controlla gli orari; la distanza dipende dall'indirizzo esatto dell'alloggio.", "Pharmacie Garavan зазначена за адресою 15 Porte de France. Перевірте актуальні години; відстань залежить від точної адреси вашого житла.")],
+        relatedPlaceIds: ["pharmacie-garavan-menton"],
+        officialLinks: [{ label: t("Pharmacie Garavan: business register", "Pharmacie Garavan : registre des entreprises", "Pharmacie Garavan: registro imprese", "Pharmacie Garavan: державний реєстр"), url: "https://annuaire-entreprises.data.gouv.fr/entreprise/925248205" }],
+      },
+      {
+        heading: t("Nice Airport: before or after a flight", "Aeroport de Nice : avant ou apres un vol", "Aeroporto di Nizza: prima o dopo un volo", "Аеропорт Ніцци: до або після рейсу"),
+        body: [t("Nice Airport lists a pharmacy in Terminal 2, departures level, near gate D2, before security. It is accessible without a flight ticket. The airport publishes hours, including weekends, but it is not a 24-hour service; check before relying on it for a late arrival. From Terminal 1, allow time for the terminal transfer.", "L'aeroport indique une pharmacie au Terminal 2, niveau departs, pres de D2, avant les controles. Elle est accessible sans billet d'avion. L'aeroport publie ses horaires, y compris le week-end, mais elle n'est pas ouverte 24h/24 ; verifiez pour une arrivee tardive. Depuis le Terminal 1, prevoyez le transfert.", "L'aeroporto indica una farmacia al Terminal 2, livello partenze, vicino a D2, prima dei controlli. E accessibile senza biglietto aereo. L'aeroporto pubblica gli orari, anche nel weekend, ma non e aperta 24 ore; verifica per gli arrivi tardivi. Dal Terminal 1 considera il trasferimento.", "Аеропорт зазначає аптеку в терміналі 2 на рівні вильотів біля D2, до контролю безпеки. Вона доступна без авіаквитка. Аеропорт публікує години, зокрема на вихідних, але аптека не працює цілодобово; перевірте їх перед пізнім прибуттям. Із термінала 1 закладіть час на перехід.")],
+        relatedPlaceIds: ["pharmacie-nice-airport-terminal-2"],
+        officialLinks: [{ label: t("Nice Airport pharmacy and hours", "Pharmacie de l'aeroport et horaires", "Farmacia dell'aeroporto e orari", "Аптека аеропорту та години роботи"), url: "https://www.nice.aeroport.fr/en/services/shops/pharmacy" }],
+        guideLinkSlug: "how-to-get-to-menton-from-nice-airport",
+        guideLinkLabel: t("Plan your airport transfer", "Preparer le transfert depuis l'aeroport", "Pianifica il trasferimento dall'aeroporto", "Спланувати трансфер з аеропорту"),
+      },
+      {
+        heading: t("Evenings, Sundays and urgent needs", "Soirs, dimanches et besoins urgents", "Sera, domenica e necessita urgenti", "Вечір, неділя та термінові потреби"),
+        body: [t("An on-duty pharmacy responds to urgent needs outside ordinary opening hours; the location and access procedure change. Try the French health insurance directory for current instructions. A Menton pharmacy also lists 3237 for on-duty information; check call charges. Night access may require an additional procedure. For a medical emergency call 15 or 112.", "La pharmacie de garde repond aux besoins urgents hors horaires habituels ; l'adresse et la procedure d'acces changent. Consultez l'annuaire de l'Assurance Maladie. Une pharmacie de Menton indique aussi le 3237 pour la garde ; verifiez le cout de l'appel. La nuit, une procedure supplementaire peut etre necessaire. En cas d'urgence medicale, appelez le 15 ou le 112.", "La farmacia di turno risponde alle necessita urgenti fuori dagli orari ordinari; indirizzo e accesso cambiano. Consulta l'elenco dell'Assurance Maladie. Una farmacia di Mentone indica anche il 3237 per i turni; verifica il costo della chiamata. Di notte puo servire una procedura aggiuntiva. Per un'emergenza medica chiama il 15 o il 112.", "Чергова аптека допомагає з терміновими потребами поза звичайними годинами; адреса та порядок доступу змінюються. Спробуйте довідник Assurance Maladie. Одна з аптек Ментона також зазначає номер 3237 для чергових аптек; уточніть вартість дзвінка. Уночі може бути потрібна додаткова процедура. За медичної невідкладної ситуації телефонуйте 15 або 112.")],
+        officialLinks: [{ label: t("Find an on-duty pharmacy", "Trouver une pharmacie de garde", "Trova una farmacia di turno", "Знайти чергову аптеку"), url: "https://pharmacie-de-garde.ameli.fr/" }, { label: t("Menton pharmacy: on-duty information", "Pharmacie de Menton : information de garde", "Farmacia di Mentone: informazioni sui turni", "Аптека Ментона: інформація про чергування"), url: "https://pharmaciementon.wixsite.com/pharmacie" }],
+        guideLinkSlug: "useful-numbers-emergency-contacts-menton",
+        guideLinkLabel: t("Emergency and useful numbers", "Numeros d'urgence et utiles", "Numeri di emergenza e utili", "Екстрені та корисні номери"),
+      },
+      {
+        heading: t("Prescriptions and parapharmacy", "Ordonnances et parapharmacie", "Ricette e parafarmacia", "Рецепти та парафармація"),
+        body: [t("Bring your prescription and relevant medication information; ask the pharmacist about dispensing, availability and the documents needed for your situation. Parapharmacies sell health and personal-care products but are not a substitute for a pharmacy when a prescription medicine or pharmacist's advice is needed.", "Apportez votre ordonnance et les informations utiles sur vos traitements ; demandez au pharmacien les conditions et documents adaptes a votre situation. Une parapharmacie vend des produits de soin mais ne remplace pas une pharmacie pour un medicament sur ordonnance ou un conseil pharmaceutique.", "Porta la ricetta e le informazioni utili sui farmaci; chiedi al farmacista disponibilita, condizioni e documenti necessari. Una parafarmacia vende prodotti per la cura personale ma non sostituisce la farmacia per medicinali soggetti a ricetta o consigli del farmacista.", "Візьміть рецепт та інформацію про ліки; уточніть у фармацевта наявність, порядок відпуску й необхідні документи. Парафармація продає засоби догляду, але не замінює аптеку, коли потрібні рецептурні ліки чи порада фармацевта.")],
+      },
+    ],
+    practicalTips: [t("Check the current hours and stock before travelling.", "Verifiez horaires et disponibilite avant de partir.", "Controlla orari e disponibilita prima di partire.", "Перед поїздкою перевірте години та наявність."), t("Ask a pharmacist or doctor for advice relevant to your situation.", "Demandez conseil a un pharmacien ou un medecin selon votre situation.", "Chiedi consiglio a farmacista o medico per la tua situazione.", "Зверніться до фармацевта або лікаря за порадою для вашої ситуації.")],
+  }),
 ];
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);

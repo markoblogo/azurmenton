@@ -10,6 +10,9 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "pharmacie-riviera-menton-station", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/825245640" },
+  { placeId: "pharmacie-garavan-menton", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/925248205" },
+  { placeId: "pharmacie-nice-airport-terminal-2", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://www.nice.aeroport.fr/en/services/shops/pharmacy" },
   ...["theatre-anthea-antibes", "theatre-les-funambules-cap-dail", "theatre-de-grasse", "la-stella-la-trinite", "espace-leonard-de-vinci-mandelieu", "salle-charlie-chaplin-saint-jean-cap-ferrat", "salle-du-belvedere-berre-les-alpes", "eglise-notre-dame-assomption-puget-theniers", "espace-jean-grinda-saint-martin-vesubie", "musee-departemental-des-merveilles-tende", "salle-des-fetes-tourrette-levens", "cinema-casino-cineode-vence"].map((placeId): PlaceMapExclusion => ({ placeId, reason: "coordinate_unverified", checkedOn: "2026-10-26", sourceUrl: "https://www.departement06.fr/publications/programmation-cest-pas-classique-2026" })),
   { placeId: "st-john-anglican-church-menton", reason: "coordinate_unverified", checkedOn: "2026-10-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/" },
   { placeId: "centre-culturel-prince-hereditaire-jacques-beausoleil", reason: "coordinate_unverified", checkedOn: "2026-10-26", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/" },
