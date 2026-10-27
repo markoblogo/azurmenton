@@ -293,6 +293,8 @@ const festivalVenues = [
 const rawPlaces: Place[] = [
   {
     id: "teatro-giancarlo-golzi-bordighera", name: "Teatro Giancarlo Golzi", type: "civic",
+    image: "/images/guide/teatro-giancarlo-golzi-bordighera.webp",
+    imageAlt: text("Illustration of Teatro Giancarlo Golzi in Bordighera", "Illustration du Teatro Giancarlo Golzi a Bordighera", "Illustrazione del Teatro Giancarlo Golzi a Bordighera", "Ілюстрація театру Giancarlo Golzi в Бордігері"),
     address: "Palazzo del Parco, Via Umorismo, 18012 Bordighera", googleMapsUrl: mapsQuery("Teatro Giancarlo Golzi", "Via Umorismo", "Bordighera"),
     programmeUrl: "https://www.comune.bordighera.im.it/Vivere-il-comune/Luoghi/Palazzo-del-Parco-Teatro-Giancarlo-Golzi", requiresMapReview: true, sourceStatus: "verified",
     shortNote: text("Bordighera's municipal theatre at Palazzo del Parco.", "Theatre municipal de Bordighera au Palazzo del Parco.", "Teatro comunale di Bordighera nel Palazzo del Parco.", "Міський театр Бордігери в Palazzo del Parco."),

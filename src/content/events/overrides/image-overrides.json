@@ -297,5 +297,57 @@
     "rightsNote": "Owner-approved Azur Menton event illustration.",
     "approvedAt": "2026-10-26T22:58:34.358Z",
     "locked": true
+  },
+  {
+    "eventSlug": "jimmy-gnecco-ours-monaco-2026-11-05",
+    "sourceUrl": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-jimmy-gnecco-ours",
+    "localPath": "/images/events/jimmy-gnecco-ours-monaco-2026-11-05.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Jimmy Gnecco / OURS: Thursday Live Sessions",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-27T17:39:01.346Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "note-damare-bordighera-2026-11-08",
+    "sourceUrl": "https://www.visitbordighera.it/en/events/note-damare-final-concert",
+    "localPath": "/images/events/note-damare-bordighera-2026-11-08.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Note d'aMare: final concert",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-27T17:39:01.680Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "stand-up-monaco-2026-11-09",
+    "sourceUrl": "https://www.grimaldiforum.com/fr/bienvenue-au-grimaldi-forum",
+    "localPath": "/images/events/stand-up-monaco-2026-11-09.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Stand Up Monaco",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-27T17:39:02.507Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "vivaldi-gloria-menton-2026-10-31",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/vivaldi-gloria-menton-fr-6754351/",
+    "localPath": "/images/events/vivaldi-gloria-menton-2026-10-31.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Vivaldi Gloria",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-27T17:39:02.827Z",
+    "locked": true
   }
 ]

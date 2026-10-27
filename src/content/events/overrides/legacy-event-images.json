@@ -112,5 +112,81 @@
     "mediaStatus": "available",
     "mediaSourceName": "Azur Menton",
     "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "jimmy-gnecco-ours-monaco-2026-11-05": {
+    "image": "/images/events/jimmy-gnecco-ours-monaco-2026-11-05.webp",
+    "imageAlt": {
+      "en": "Jimmy Gnecco / OURS: Thursday Live Sessions",
+      "fr": "Jimmy Gnecco / OURS: Thursday Live Sessions",
+      "it": "Jimmy Gnecco / OURS: Thursday Live Sessions",
+      "uk": "Jimmy Gnecco / OURS: Thursday Live Sessions"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "note-damare-bordighera-2026-11-08": {
+    "image": "/images/events/note-damare-bordighera-2026-11-08.webp",
+    "imageAlt": {
+      "en": "Note d'aMare: final concert",
+      "fr": "Note d'aMare: final concert",
+      "it": "Note d'aMare: final concert",
+      "uk": "Note d'aMare: final concert"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "stand-up-monaco-2026-11-09": {
+    "image": "/images/events/stand-up-monaco-2026-11-09.webp",
+    "imageAlt": {
+      "en": "Stand Up Monaco",
+      "fr": "Stand Up Monaco",
+      "it": "Stand Up Monaco",
+      "uk": "Stand Up Monaco"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "vivaldi-gloria-menton-2026-10-31": {
+    "image": "/images/events/vivaldi-gloria-menton-2026-10-31.webp",
+    "imageAlt": {
+      "en": "Vivaldi Gloria",
+      "fr": "Vivaldi Gloria",
+      "it": "Vivaldi Gloria",
+      "uk": "Vivaldi Gloria"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
   }
 }
