@@ -18,6 +18,9 @@ import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { lodgingBusinessJsonLd, websiteJsonLd } from "@/lib/structured-data";
+import { homeSeason, homeSeasonGuideSlugs } from "@/lib/home-season";
+
+export const revalidate = 3600;
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -219,10 +222,7 @@ export default async function LocaleHome({ params }: PageProps) {
   const labels = t[safeLocale];
   const sections = sectionCopy[safeLocale];
   const guideTeasers = [
-    guidePages[safeLocale].find((page) => page.slug === "stay-cool-in-menton-summer"),
-    guidePages[safeLocale].find((page) => page.slug === "best-beaches-in-menton"),
-    guidePages[safeLocale].find((page) => page.slug === "menton-old-town"),
-    guidePages[safeLocale].find((page) => page.slug === "day-trips-from-menton"),
+    ...homeSeasonGuideSlugs[homeSeason(new Date())].map((slug) => guidePages[safeLocale].find((page) => page.slug === slug)),
     {
       slug: "../events",
       title: safeLocale === "en" ? "Events" : safeLocale === "fr" ? "Evenements" : safeLocale === "it" ? "Eventi" : "Події",

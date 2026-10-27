@@ -267,6 +267,8 @@ npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/pa
 
 This mode reads the real place cards already rendered by the published guide, skips places that already have images, reports any still-missing places, and can fail on leftover files with `--fail-on-unmatched`.
 
+For a published guide without a cover, a uniquely named `cover` or guide-slug image is recognised and copied. Add `--apply-cover-patch-safe` to also update the guide metadata with localized alt text and visual status. This requires one matching id and slug, a placeholder, and an unused destination; it never replaces an existing cover. A filename omitting a terminal number is matched only when it identifies one place unambiguously. Ambiguous files require an explicit `--place` mapping.
+
 `--apply-places-patch-safe` is the narrow auto-merge path for already-published guides: after matching copied assets, it validates the target `id:` anchors in `src/content/places.ts`, updates only the corresponding `image:` fields, and then runs a short verify pass by `placeId` so the handoff shows what was actually confirmed. Use `--report-only` when you want the report without mutating `places.ts`.
 
 After the manual merge, use `build/guide-intake/<slug>/review/owner-checklist.md` as the required visual handoff instead of an ad hoc spot-check.

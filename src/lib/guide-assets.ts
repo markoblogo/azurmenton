@@ -261,7 +261,6 @@ export function resolveGuideAssetPlan(input: {
   const skippedAlreadyCoveredPlaces: GuideAssetResolutionPlan["skippedAlreadyCoveredPlaces"] = [];
   const alreadyCoveredAssetFiles = new Set<string>();
   const availableFiles = input.availableAssetFiles ?? [];
-  const normalizedAvailable = new Map(availableFiles.map((file) => [normalizeName(file), file]));
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
   const matchedAssetFiles = new Set<string>();
   const expectedAssetPlaceIds = new Set<string>();
@@ -298,14 +297,30 @@ export function resolveGuideAssetPlan(input: {
     candidatePlaceIds.add(placeId);
   }
 
-  const expectedCoverAsset = shouldRequireFreshCoverSource(input);
-
   const findAssetFromDirectory = (candidates: string[]) => {
     for (const candidate of candidates) {
-      const match = normalizedAvailable.get(normalizeName(candidate));
-      if (match) return match;
+      const name = normalizeName(candidate);
+      if (!name) continue;
+      const matches = availableFiles.filter((file) => !matchedAssetFiles.has(file) && normalizeName(file) === name);
+      if (matches.length === 1) return matches[0];
     }
     return undefined;
+  };
+
+  const publishedCoverMatch = input.publishedGuide && !input.publishedGuide.coverImage && input.assetsDirectory
+    ? findAssetFromDirectory(["cover", outputSlug])
+    : undefined;
+  const expectedCoverAsset = shouldRequireFreshCoverSource(input) || Boolean(publishedCoverMatch);
+
+  const findPlaceAsset = (place: GuideAssetCandidatePlace, placeId: string) => {
+    const exact = findAssetFromDirectory([place.draftName, placeId]);
+    if (exact) return exact;
+    const alias = normalizeName(place.draftName).replace(/\s+terminal\s+\d+$/, "");
+    if (alias === normalizeName(place.draftName)) return undefined;
+    const owners = new Set(candidatePlaces.filter((candidate) =>
+      normalizeName(candidate.draftName).replace(/\s+terminal\s+\d+$/, "") === alias,
+    ).map((candidate) => candidate.existingPlaceId ?? candidate.newPlaceId));
+    return owners.size === 1 ? findAssetFromDirectory([alias]) : undefined;
   };
 
   const useLegacyCoverPathHint =
@@ -323,7 +338,7 @@ export function resolveGuideAssetPlan(input: {
       return `${input.assetsDirectory}/${input.coverAssetFileName}`;
     }
     if (input.assetsDirectory) {
-      const match = findAssetFromDirectory(["cover", input.slug, input.intakeTitle ?? ""]);
+      const match = publishedCoverMatch ?? findAssetFromDirectory(["cover", outputSlug, input.slug, input.intakeTitle ?? ""]);
       if (match) {
         matchedAssetFiles.add(match);
         return `${input.assetsDirectory}/${match}`;
@@ -357,7 +372,7 @@ export function resolveGuideAssetPlan(input: {
 
     if (input.missingOnly && existingImage) {
       if (input.assetsDirectory) {
-        const alreadyCoveredMatch = findAssetFromDirectory([plannedPlace.draftName, placeId]);
+        const alreadyCoveredMatch = findPlaceAsset(plannedPlace, placeId);
         if (alreadyCoveredMatch) {
           matchedAssetFiles.add(alreadyCoveredMatch);
           alreadyCoveredAssetFiles.add(alreadyCoveredMatch);
@@ -409,7 +424,7 @@ export function resolveGuideAssetPlan(input: {
     }
 
     if (input.assetsDirectory) {
-      const match = findAssetFromDirectory([plannedPlace.draftName, placeId]);
+      const match = findPlaceAsset(plannedPlace, placeId);
       if (match) {
         matchedAssetFiles.add(match);
         placeAssets.push({ placeId, sourcePath: `${input.assetsDirectory}/${match}` });

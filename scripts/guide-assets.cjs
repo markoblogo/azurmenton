@@ -5,6 +5,7 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
 const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
+const { applyGuideCover } = require("./lib/guide-cover-patch.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -87,8 +88,9 @@ async function main(args = process.argv.slice(2)) {
   const reportOnly = args.includes("--report-only");
   const failOnUnmatched = args.includes("--fail-on-unmatched");
   const applyPlacesPatchSafe = args.includes("--apply-places-patch-safe");
+  const applyCoverPatchSafe = args.includes("--apply-cover-patch-safe");
   if (!slug && !publishedGuideSlug) {
-    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--report-only] [--fail-on-unmatched] [--apply-places-patch-safe] [--strict]");
+    console.log("Usage: npm run guide:assets -- (--slug <slug> | --published-guide <guide-slug>) [--assets-dir /abs/dir] [--cover /abs/path] [--place place-id=/abs/path] [--missing-only] [--report-only] [--fail-on-unmatched] [--apply-places-patch-safe] [--apply-cover-patch-safe] [--strict]");
     process.exitCode = 1;
     return;
   }
@@ -97,6 +99,9 @@ async function main(args = process.argv.slice(2)) {
   }
   if (applyPlacesPatchSafe && reportOnly) {
     throw new Error("--apply-places-patch-safe cannot be combined with --report-only.");
+  }
+  if (applyCoverPatchSafe && (!publishedGuideSlug || reportOnly)) {
+    throw new Error("--apply-cover-patch-safe requires --published-guide and cannot be combined with --report-only.");
   }
   const workingSlug = publishedGuideSlug ?? slug;
   const intakePath = slug ? path.join(root, "build", "guide-intake", slug, "intake.json") : null;
@@ -198,6 +203,17 @@ async function main(args = process.argv.slice(2)) {
     operations.push(operation);
   }
 
+  let coverPatch;
+  if (applyCoverPatchSafe) {
+    const cover = operations.find((operation) => operation.kind === "cover");
+    if (!cover) throw new Error("No new cover to apply; existing covers are never replaced.");
+    if (await fileExists(path.join(root, cover.destinationPath))) throw new Error("Cover destination already exists; refusing to overwrite.");
+    const guidePath = path.join(root, "src", "content", "guide.ts");
+    const source = await fs.readFile(guidePath, "utf8");
+    const guide = guideArticles.find((article) => article.slug === publishedGuideSlug);
+    coverPatch = { guidePath, source, updated: applyGuideCover(source, publishedGuideSlug, cover.publicPath, guide.title) };
+  }
+
   if (strict && resolution.unmatchedAssetFiles.length) {
     issues.push({
       severity: "error",
@@ -220,6 +236,9 @@ async function main(args = process.argv.slice(2)) {
       code: "strict-expected-assets-missing",
       message: "Strict mode requires every expected cover/place asset to resolve.",
     });
+  }
+  if (applyCoverPatchSafe && issues.some((issue) => issue.severity === "error")) {
+    throw new Error("Cover update aborted because the asset plan contains errors.");
   }
 
   const report = {
@@ -422,6 +441,11 @@ async function main(args = process.argv.slice(2)) {
   }
   await fs.writeFile(`${manifestPath}.tmp`, `${JSON.stringify(manifestEntries, null, 2)}\n`);
   await fs.writeFile(manifestPath, `${JSON.stringify(manifestEntries, null, 2)}\n`);
+  if (coverPatch) {
+    if (await fs.readFile(coverPatch.guidePath, "utf8") !== coverPatch.source) throw new Error("Guide source changed during asset processing; refusing cover update.");
+    await fs.writeFile(coverPatch.guidePath, coverPatch.updated);
+    console.log(`- applied cover metadata safely: ${publishedGuideSlug}`);
+  }
   if (applyPlacesPatchSafe && placeImagePatchBundle) {
     const placesPath = path.join(root, "src", "content", "places.ts");
     const placesSource = await fs.readFile(placesPath, "utf8");

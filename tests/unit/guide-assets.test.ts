@@ -186,6 +186,34 @@ describe("guide assets", () => {
     ]);
   });
 
+  it("matches a published guide cover and a uniquely shortened terminal name", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "pharmacies-in-menton-and-nice-airport",
+      assetsDirectory: "/tmp/assets",
+      availableAssetFiles: ["pharmacies-in-menton-and-nice-airport.png", "Nice Airport Pharmacy.png"],
+      publishedGuide: { slug: "pharmacies-in-menton-and-nice-airport", intakeTitle: "Pharmacies in Menton", places: [{ placeId: "pharmacie-nice-airport-terminal-2", draftName: "Nice Airport Pharmacy - Terminal 2" }] },
+      missingOnly: true,
+    });
+    expect(plan.operations.map((item) => item.kind)).toEqual(["cover", "place"]);
+    expect(plan.matchedPlaces[0]?.placeId).toBe("pharmacie-nice-airport-terminal-2");
+    expect(plan.unmatchedAssetFiles).toEqual([]);
+  });
+
+  it("does not guess when a shortened terminal name matches multiple places", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "airport",
+      assetsDirectory: "/tmp/assets",
+      availableAssetFiles: ["Nice Airport Pharmacy.png"],
+      publishedGuide: { slug: "airport", intakeTitle: "Airport", places: [
+        { placeId: "terminal-1", draftName: "Nice Airport Pharmacy - Terminal 1" },
+        { placeId: "terminal-2", draftName: "Nice Airport Pharmacy - Terminal 2" },
+      ] },
+      missingOnly: true,
+    });
+    expect(plan.matchedPlaces).toEqual([]);
+    expect(plan.unmatchedAssetFiles).toEqual(["Nice Airport Pharmacy.png"]);
+  });
+
   it("supports published-guide mode, blocks duplicate cover creation and reports remaining missing place images", () => {
     const plan = resolveGuideAssetPlan({
       slug: "cheap-eats-intake-slug",
