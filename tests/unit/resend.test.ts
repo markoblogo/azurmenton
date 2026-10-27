@@ -28,6 +28,21 @@ afterEach(() => {
 });
 
 describe("sendBookingRequestEmail", () => {
+  it.each(["en", "fr", "it", "uk"])("includes an unsent, incomplete reply draft in %s", async (preferredLanguage) => {
+    process.env.RESEND_API_KEY = "test-key";
+    process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";
+    const fetchMock = vi.fn().mockResolvedValue(Response.json({}));
+    vi.stubGlobal("fetch", fetchMock);
+    await sendBookingRequestEmail({ ...payload, preferredLanguage, name: "<Guest>" });
+    const email = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(email.html).toContain("Reply draft");
+    expect(email.html).toContain("&lt;Guest&gt;");
+    expect(email.html).not.toContain("<Guest>");
+    expect(email.text).toContain("2026-08-21");
+    expect(email.text).toContain("2026-08-25");
+    expect(email.text).toContain("nothing is sent automatically");
+    expect(email.reply_to).toBe(payload.email);
+  });
   it.each([200, 503])("duplicates validated enquiries to Telegram after email HTTP %s", async (status) => {
     process.env.RESEND_API_KEY = "test-key";
     process.env.BOOKING_REQUEST_TO_EMAIL = "host@example.com";

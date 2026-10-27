@@ -4,6 +4,8 @@ import type { Locale } from "@/i18n/locales";
 import type { Place } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { bookingFunnelEvents } from "@/lib/analytics";
 
 const labels = {
   en: { map: "Open in Google Maps", programme: "View current programme", website: "Website", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
@@ -11,6 +13,7 @@ const labels = {
   it: { map: "Apri in Google Maps", programme: "Vedi il programma attuale", website: "Sito web", hours: "Orari", price: "Prezzo", note: "Controlla gli orari aggiornati prima della visita", related: "Guida correlata" },
   uk: { map: "Відкрити в Google Maps", programme: "Переглянути актуальну програму", website: "Вебсайт", hours: "Години", price: "Ціни", note: "Перед візитом перевірте актуальні години роботи", related: "Пов'язаний гід" },
 };
+const businessLabels: Record<Locale, string> = { en: "Represent this place? Contact us", fr: "Vous représentez ce lieu ? Contactez-nous", it: "Rappresenti questo luogo? Contattaci", uk: "Представляєте цей заклад? Напишіть нам" };
 
 export function PlaceCard({ place, locale, compact = false, currentGuideId, relatedGuideSlug }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null }) {
   const copy = labels[locale];
@@ -62,14 +65,14 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
             </Link>
           ) : null}
           {place.programmeUrl ? (
-            <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl as Route} target="_blank" rel="noopener noreferrer">
+            <TrackedLink eventName={bookingFunnelEvents.placeWebsiteClick} props={{ locale, placeId: place.id, ...(currentGuideId ? { guideSlug: currentGuideId } : {}) }} className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={place.programmeUrl} target="_blank" rel="noopener noreferrer">
               {externalLinkLabel}
-            </Link>
+            </TrackedLink>
           ) : null}
           {mapsHref ? (
-            <Link className="inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref as Route} target="_blank" rel="noopener noreferrer">
+            <TrackedLink eventName={bookingFunnelEvents.placeMapClick} props={{ locale, placeId: place.id, ...(currentGuideId ? { guideSlug: currentGuideId } : {}) }} className="inline-flex border border-[#c6a66a] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={mapsHref} target="_blank" rel="noopener noreferrer">
               {copy.map}
-            </Link>
+            </TrackedLink>
           ) : null}
           {!compact && relatedHref ? (
             <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={relatedHref}>
@@ -77,6 +80,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
             </Link>
           ) : null}
         </div>
+        {!compact ? <Link href={`/${locale}/partners` as Route} className="mt-4 inline-block text-xs text-[#665c50] underline underline-offset-2">{businessLabels[locale]}</Link> : null}
       </div>
     </article>
   );

@@ -99,6 +99,19 @@ function buildBookingRows(payload: BookingRequestPayload): Array<[string, string
   ];
 }
 
+function buildReplyDraft(payload: BookingRequestPayload) {
+  const guests: Record<string, string> = { en: "adults / children", fr: "adultes / enfants", it: "adulti / bambini", uk: "дорослих / дітей" };
+  const apartment = payload.apartment === "not-sure" ? { en: "Apartment to be confirmed", fr: "Appartement à confirmer", it: "Appartamento da confermare", uk: "Апартаменти уточнюються" }[payload.preferredLanguage] ?? "Apartment to be confirmed" : apartmentLabel(payload.apartment);
+  const detail = `${apartment} | ${payload.checkIn} – ${payload.checkOut} | ${payload.adults} / ${payload.children} ${guests[payload.preferredLanguage] ?? guests.en}`;
+  const drafts: Record<string, string> = {
+    en: `Hello ${payload.name},\n\nThank you for your enquiry.\n${detail}\n\nAvailability: [confirm manually]\nTotal price and included charges: [enter amount and details]\nPayment and cancellation terms: [enter terms]\n\n[Add any questions or alternative dates.]\n\nPlease reply if you would like to proceed.\nAzur Menton`,
+    fr: `Bonjour ${payload.name},\n\nMerci pour votre demande.\n${detail}\n\nDisponibilité : [confirmer manuellement]\nPrix total et frais inclus : [préciser]\nConditions de paiement et d'annulation : [préciser]\n\n[Ajouter vos questions ou des dates alternatives.]\n\nMerci de nous répondre si vous souhaitez poursuivre.\nAzur Menton`,
+    it: `Buongiorno ${payload.name},\n\nGrazie per la richiesta.\n${detail}\n\nDisponibilità: [confermare manualmente]\nPrezzo totale e spese incluse: [specificare]\nPagamento e cancellazione: [specificare le condizioni]\n\n[Aggiungere domande o date alternative.]\n\nRispondi se desideri procedere.\nAzur Menton`,
+    uk: `Вітаємо, ${payload.name}!\n\nДякуємо за ваш запит.\n${detail}\n\nНаявність: [підтвердити вручну]\nЗагальна вартість і включені збори: [вказати]\nУмови оплати та скасування: [вказати]\n\n[Додайте запитання або альтернативні дати.]\n\nБудь ласка, відповідайте, якщо бажаєте продовжити.\nAzur Menton`,
+  };
+  return drafts[payload.preferredLanguage] ?? drafts.en;
+}
+
 function buildEmailHtml(payload: BookingRequestPayload) {
   const rows = buildBookingRows(payload);
 
@@ -118,6 +131,9 @@ function buildEmailHtml(payload: BookingRequestPayload) {
           )
           .join("")}
       </table>
+      <h2 style="font-size: 18px; margin-top: 28px;">Reply draft — review and complete before sending</h2>
+      <p>Internal draft only. Confirm availability, price and terms; nothing is sent automatically.</p>
+      <div style="white-space: pre-wrap; border: 1px solid #eadfce; padding: 16px;">${htmlEscape(buildReplyDraft(payload))}</div>
     </div>
   `;
 }
@@ -164,7 +180,7 @@ async function sendToProvider(
         ...(bcc ? { bcc } : {}),
         subject: `[Azur Menton] Booking request: ${apartmentLabel(payload.apartment)} (${payload.checkIn} to ${payload.checkOut})`,
         html: buildEmailHtml(payload),
-        text: buildEmailText(payload),
+        text: `${buildEmailText(payload)}\n\nReply draft — review and complete before sending\nInternal draft only. Confirm availability, price and terms; nothing is sent automatically.\n\n${buildReplyDraft(payload)}`,
         reply_to: payload.email || undefined,
         headers: { "X-Azur-Request-ID": requestId },
         tags: [{ name: "request_id", value: requestId }],

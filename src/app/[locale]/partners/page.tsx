@@ -22,32 +22,40 @@ const copy = {
   title: t("For local partners", "Partenaires locaux", "Per partner locali", "Для локальних партнерів"),
   seoTitle: t("For local partners", "Partenaires locaux", "Per partner locali", "Для локальних партнерів"),
   description: t(
-    "Information for local Menton businesses interested in discreet guest samples, vouchers or small welcome perks with Azur Menton.",
-    "Informations pour les entreprises locales de Menton interessees par des echantillons, bons ou petites attentions pour les voyageurs Azur Menton.",
-    "Informazioni per attivita locali di Mentone interessate a campioni, voucher o piccoli omaggi per gli ospiti Azur Menton.",
-    "Інформація для локальних бізнесів Ментона щодо невеликих зразків, ваучерів або подарунків для гостей Azur Menton.",
+    "Contact Azur Menton about a local place, an editorial correction or a possible partnership.",
+    "Contactez Azur Menton au sujet d'un lieu, d'une correction ou d'un partenariat éventuel.",
+    "Contatta Azur Menton per un luogo, una correzione o una possibile collaborazione.",
+    "Зв'яжіться з Azur Menton щодо закладу, виправлення інформації або можливої співпраці.",
   ),
   intro: t(
-    "Azur Menton hosts short-stay guests in central Menton. From time to time, we may include selected local samples, vouchers or small guest gifts in a welcome setting.",
-    "Azur Menton accueille des voyageurs de court sejour dans le centre de Menton. De temps en temps, nous pouvons inclure des echantillons locaux, bons ou petites attentions selectionnes dans l'accueil des voyageurs.",
-    "Azur Menton ospita soggiorni brevi nel centro di Mentone. Di tanto in tanto possiamo includere campioni locali selezionati, voucher o piccoli omaggi di benvenuto.",
-    "Azur Menton приймає гостей на короткі перебування в центрі Ментона. Час від часу ми можемо додавати вибрані локальні зразки, ваучери або невеликі подарунки до welcome-набору.",
+    "Azur Menton combines local guides with family-run holiday apartments. If you represent a local business, venue or event, you can contact us to correct information or discuss an idea.",
+    "Azur Menton associe des guides locaux à des appartements familiaux. Vous représentez un commerce, un lieu ou un événement ? Contactez-nous pour corriger une information ou proposer une idée.",
+    "Azur Menton unisce guide locali e appartamenti a gestione familiare. Rappresenti un'attività, un luogo o un evento? Contattaci per correggere informazioni o proporre un'idea.",
+    "Azur Menton поєднує місцеві гіди й сімейні апартаменти. Представляєте бізнес, заклад або подію? Напишіть нам, щоб виправити інформацію чи обговорити ідею.",
   ),
   samplingTitle: t("What free sampling means", "Ce que signifie l'echantillonnage gratuit", "Cosa significa campionatura gratuita", "Що означає безкоштовне семплування"),
   fitTitle: t("What usually fits best", "Ce qui convient le mieux", "Cosa funziona meglio", "Що зазвичай підходить найкраще"),
   careTitle: t("Practical limits", "Limites pratiques", "Limiti pratici", "Практичні обмеження"),
   sponsoredTitle: t("Sponsored visibility", "Visibilite sponsorisee", "Visibilita sponsorizzata", "Спонсорована видимість"),
-  ctaTitle: t("Interested in a small guest sample?", "Vous souhaitez proposer un echantillon ?", "Vuoi proporre un piccolo omaggio?", "Хочете запропонувати невеликий зразок?"),
+  ctaTitle: t("Contact the team", "Contacter l'équipe", "Contatta il team", "Зв'яжіться з командою"),
   ctaText: t(
-    "Send a short note with the item, storage needs, suggested guest use and monthly quantity available.",
-    "Envoyez une courte note avec l'article, les besoins de stockage, l'usage propose pour les voyageurs et la quantite mensuelle disponible.",
-    "Invia una breve nota con il prodotto, le esigenze di conservazione, l'uso previsto per gli ospiti e la quantita mensile disponibile.",
-    "Надішліть короткий опис товару, умови зберігання, користь для гостей і доступну місячну кількість.",
+    "Tell us the name of your place, its website or guide link, and what you would like to correct or discuss.",
+    "Indiquez le nom de votre lieu, son site ou le lien du guide, et votre correction ou proposition.",
+    "Indica il nome del luogo, il sito o il link alla guida e la correzione o proposta.",
+    "Вкажіть назву закладу, його сайт або посилання на гід і що ви хочете виправити чи обговорити.",
   ),
   email: t("Email Azur Menton", "Envoyer un email", "Scrivi ad Azur Menton", "Написати Azur Menton"),
 };
 
 const sections = [
+  {
+    title: t("Places and editorial corrections", "Lieux et corrections éditoriales", "Luoghi e correzioni editoriali", "Заклади та виправлення"),
+    items: [
+      t("Send updated hours, a changed website or a closure for an existing listing.", "Signalez des horaires, un site modifié ou une fermeture.", "Segnala nuovi orari, un sito modificato o una chiusura.", "Повідомте про нові години, зміну сайту або закриття."),
+      t("You can suggest a place for editorial review; inclusion and recommendations are independent and not guaranteed.", "Proposez un lieu à la rédaction ; l'inclusion et les recommandations restent indépendantes et ne sont pas garanties.", "Proponi un luogo alla redazione; inclusione e raccomandazioni sono indipendenti e non garantite.", "Запропонуйте заклад редакції; включення та рекомендації незалежні й не гарантовані."),
+      t("Corrections to factual information are free. Any paid visibility is separate and clearly disclosed.", "Les corrections factuelles sont gratuites. Toute visibilité payante est distincte et clairement signalée.", "Le correzioni fattuali sono gratuite. La visibilità a pagamento è separata e chiaramente segnalata.", "Виправлення фактів безкоштовні. Платна видимість є окремою та чітко позначається."),
+    ],
+  },
   {
     title: copy.samplingTitle,
     items: [
@@ -146,8 +154,8 @@ export default async function PartnersPage({ params }: PageProps) {
               </div>
               <TrackedLink
                 className="inline-flex min-h-11 items-center justify-center border border-[#c6a66a] px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-white/10"
-                eventName={bookingFunnelEvents.emailClick}
-                href={`mailto:${siteConfig.email}?subject=Local%20partner%20sample%20for%20Azur%20Menton`}
+                eventName={bookingFunnelEvents.partnerContactClick}
+                href={`mailto:${siteConfig.email}?subject=Azur%20Menton%20%E2%80%94%20local%20place%20or%20partnership`}
                 props={{ locale: safeLocale, sourcePageType: "other", sourceSlug: "partners" }}
               >
                 {copy.email[safeLocale]}

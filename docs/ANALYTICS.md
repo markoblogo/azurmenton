@@ -2,6 +2,8 @@
 
 Azur Menton uses Plausible for lightweight booking funnel events and Vercel Analytics for Web Vitals. Events must remain locale-agnostic and must not include personal data.
 
+Place-card links emit `place_website_click` or `place_map_click` with locale, placeId and, when available, guideSlug. The partners-page email action emits `partner_contact_click`; it counts opening the email client, not messages sent or partnerships. These events require matching custom goals in Plausible before they appear as goals; deployment does not configure the Plausible dashboard. They measure link clicks, not visits, revenue, or confirmed bookings. Do not attach destination URLs, email addresses or free-text messages as event properties.
+
 ## Event Names
 
 - `check_availability_view`

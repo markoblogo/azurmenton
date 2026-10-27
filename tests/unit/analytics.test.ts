@@ -1,5 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
+  bookingFunnelEvents,
+  trackBookingFunnelEvent,
   attributionFromSearchParams,
   apartmentDetailAttributionHref,
   bookingAttributionHref,
@@ -10,7 +12,18 @@ import {
   sourcePageTypeFromPathname,
 } from "../../src/lib/analytics";
 
+afterEach(() => vi.unstubAllGlobals());
+
 describe("booking funnel analytics helpers", () => {
+  it("sends distinct place and partner click events without destination URLs", () => {
+    const plausible = vi.fn();
+    vi.stubGlobal("window", { plausible });
+    trackBookingFunnelEvent(bookingFunnelEvents.placeWebsiteClick, { locale: "en", placeId: "example-place", guideSlug: "example-guide" });
+    trackBookingFunnelEvent(bookingFunnelEvents.placeMapClick, { locale: "en", placeId: "example-place" });
+    trackBookingFunnelEvent(bookingFunnelEvents.partnerContactClick, { locale: "en", sourceSlug: "partners" });
+    expect(plausible.mock.calls.map(([name]) => name)).toEqual(["place_website_click", "place_map_click", "partner_contact_click"]);
+    expect(JSON.stringify(plausible.mock.calls)).not.toMatch(/https?:|@/);
+  });
   it("classifies localized page paths by booking funnel page type", () => {
     expect(getBookingFunnelPageType("/en")).toBe("home");
     expect(getBookingFunnelPageType("/fr/apartments")).toBe("apartments");
