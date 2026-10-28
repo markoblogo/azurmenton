@@ -10,6 +10,7 @@ import { buildAvailabilityPrefillHref, clearAvailabilityPrefillParams, getAvaila
 import { apartmentSupportsParking } from "@/lib/booking-request";
 import { advanceBookingNoticeCopy } from "@/components/content/AdvanceBookingNotice";
 import { Button } from "@/components/ui/Button";
+import { TripBookingPrefill } from "@/components/booking/TripBookingPrefill";
 import type { Apartment } from "@/content/apartments";
 import { localeLabels, locales, type Locale } from "@/i18n/locales";
 import {
@@ -276,6 +277,7 @@ export function BookingRequestForm({
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const prefill = useMemo(() => getAvailabilityPrefillFromSearchParams(searchParams), [searchParams]);
   const [selectedApartmentSlug, setSelectedApartmentSlug] = useState(prefill?.apartment ?? "");
+  const [tripPrefillApplied, setTripPrefillApplied] = useState(false);
   const selectedApartmentHasParking = apartmentSupportsParking(selectedApartmentSlug || "not-sure");
 
   const bookingFunnelProps = useCallback((): BookingFunnelProps => {
@@ -336,6 +338,7 @@ export function BookingRequestForm({
     const form = formRef.current;
 
     if (!prefill || !form) return;
+    setTripPrefillApplied(false);
 
     const apartmentField = form.elements.namedItem("apartment");
     const checkInField = form.elements.namedItem("checkIn");
@@ -376,8 +379,9 @@ export function BookingRequestForm({
   }
 
   const selectedApartment = prefill?.apartment ? apartments.find((apartment) => apartment.slug === prefill.apartment) : undefined;
-  const selectedStayLabel = selectedApartment && prefill?.hasSelection
-    ? `${selectedApartment.shortName[locale]}, ${formatSelectedStay(locale, prefill.checkIn, prefill.checkOut, prefill.openEnded)}`
+  const hasSelectedStay = prefill?.hasSelection && !tripPrefillApplied;
+  const selectedStayLabel = selectedApartment && hasSelectedStay
+    ? `${selectedApartment.shortName[locale]}, ${formatSelectedStay(locale, prefill?.checkIn, prefill?.checkOut, prefill?.openEnded)}`
     : "";
 
   return (
@@ -389,14 +393,15 @@ export function BookingRequestForm({
         </label>
       </div>
       <input ref={overrideRef} name="availabilityOverride" type="hidden" defaultValue="" />
+      <TripBookingPrefill locale={locale} formRef={formRef} onApplied={() => { setTripPrefillApplied(true); if (overrideRef.current) overrideRef.current.value = ""; }} />
 
-      {selectedApartment && prefill?.hasSelection ? (
+      {selectedApartment && hasSelectedStay ? (
         <div className="border border-[#dfd4c1] bg-[#f8f2e7] p-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <p className="editorial-label">{labels.selectedStay}</p>
               <p className="mt-2 text-[1.08rem] font-semibold leading-7 text-[#173f36]">{selectedStayLabel}</p>
-              {prefill.openEnded ? <p className="mt-1 text-[0.98rem] leading-6 text-[#6b5f50]">{labels.chooseCheckout}</p> : null}
+              {prefill?.openEnded ? <p className="mt-1 text-[0.98rem] leading-6 text-[#6b5f50]">{labels.chooseCheckout}</p> : null}
             </div>
             <button
               type="button"
@@ -604,7 +609,7 @@ export function BookingRequestForm({
         </button>
       ) : null}
 
-      <Button type="submit" disabled={pending}>{pending ? labels.sending : prefill?.hasSelection ? labels.sendSelected : labels.send}</Button>
+      <Button type="submit" disabled={pending}>{pending ? labels.sending : hasSelectedStay ? labels.sendSelected : labels.send}</Button>
     </form>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { AdvanceBookingNotice } from "@/components/content/AdvanceBookingNotice";
+import { EventImage } from "@/components/events/EventImage";
 import { HeroImageSlides } from "@/components/home/HeroImageSlides";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
@@ -13,12 +14,14 @@ import { Section } from "@/components/ui/Section";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
 import { apartments } from "@/content/apartments";
 import { guidePages } from "@/content/guide";
+import { getEventDateLabel, getEventTitle, rivieraEvents } from "@/content/riviera-events";
 import { getHomepageFaqItems, homeCopy } from "@/content/pages";
 import { t } from "@/content/translations";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { lodgingBusinessJsonLd, websiteJsonLd } from "@/lib/structured-data";
-import { homeSeason, homeSeasonGuideSlugs } from "@/lib/home-season";
+import { getHomeGuideSlugs } from "@/lib/home-season";
+import { getHomeEvents } from "@/lib/home-events";
 
 export const revalidate = 3600;
 
@@ -40,9 +43,9 @@ const sectionCopy = {
     guideTitle: "Plan your stay in Menton",
     guideIntro: "A practical guide to beaches, old town walks, day trips and event periods.",
     guideCta: "Explore the Menton guide",
-    eventsTitle: "Visiting for Lemon Festival or a Riviera weekend?",
+    eventsTitle: "What's happening on the Riviera",
     eventsIntro:
-      "Menton's Lemon Festival, summer evenings and major Riviera weekends can make beachside apartments especially attractive. Check your dates early.",
+      "Discover upcoming events in Menton and nearby, from local evenings to Riviera festivals. Check the official programme before you go.",
     eventsCta: "View events",
     faqTitle: "Questions before you request?",
     faqIntro: "A few practical answers before you send dates.",
@@ -64,9 +67,9 @@ const sectionCopy = {
     guideTitle: "Preparer votre sejour a Menton",
     guideIntro: "Un guide pratique des plages, de la vieille ville, des excursions et des periodes d'evenements.",
     guideCta: "Explorer le guide de Menton",
-    eventsTitle: "Vous venez pour la Fete du Citron ou un week-end Riviera ?",
+    eventsTitle: "Les prochains rendez-vous sur la Riviera",
     eventsIntro:
-      "La Fete du Citron, les soirees d'ete et les grands week-ends de la Riviera rendent les appartements proches de la mer particulierement recherches. Demandez vos dates tot.",
+      "Découvrez les prochaines sorties à Menton et dans les environs, des soirées locales aux festivals de la Riviera. Vérifiez le programme officiel avant votre visite.",
     eventsCta: "Voir les evenements",
     faqTitle: "Des questions avant de demander ?",
     faqIntro: "Quelques reponses pratiques avant d'envoyer vos dates.",
@@ -88,9 +91,9 @@ const sectionCopy = {
     guideTitle: "Organizza il tuo soggiorno a Mentone",
     guideIntro: "Una guida pratica a spiagge, centro storico, gite ed eventi stagionali.",
     guideCta: "Esplora la guida di Mentone",
-    eventsTitle: "Arrivi per la Festa dei Limoni o un weekend in Riviera?",
+    eventsTitle: "I prossimi eventi in Riviera",
     eventsIntro:
-      "La Festa dei Limoni, le serate estive e i grandi weekend della Riviera rendono gli appartamenti vicino al mare particolarmente richiesti. Controlla le date in anticipo.",
+      "Scopri i prossimi eventi a Mentone e dintorni, dalle serate locali ai festival della Riviera. Verifica il programma ufficiale prima della visita.",
     eventsCta: "Vedi eventi",
     faqTitle: "Domande prima della richiesta?",
     faqIntro: "Alcune risposte pratiche prima di inviare le date.",
@@ -112,9 +115,9 @@ const sectionCopy = {
     guideTitle: "Сплануйте перебування в Ментоні",
     guideIntro: "Практичний гід пляжами, старим містом, денними поїздками та подіями.",
     guideCta: "Відкрити гід Ментона",
-    eventsTitle: "Приїжджаєте на Фестиваль лимонів або вікенд на Рив'єрі?",
+    eventsTitle: "Найближчі події на Рив'єрі",
     eventsIntro:
-      "Фестиваль лимонів, літні вечори та великі події Рив'єри роблять апартаменти біля моря особливо бажаними. Запитуйте дати заздалегідь.",
+      "Відкрийте для себе найближчі події в Ментоні та околицях: від місцевих вечорів до фестивалів Рив'єри. Перед відвідуванням перевірте офіційну програму.",
     eventsCta: "Переглянути події",
     faqTitle: "Є питання перед запитом?",
     faqIntro: "Кілька практичних відповідей перед тим, як надіслати дати.",
@@ -131,28 +134,24 @@ const guideTeaserLabels: Record<Locale, Record<string, string>> = {
     "best-beaches-in-menton": "Beaches",
     "menton-old-town": "Old town",
     "day-trips-from-menton": "Day trips",
-    "../events": "Riviera calendar",
   },
   fr: {
     "stay-cool-in-menton-summer": "Guide saisonnier",
     "best-beaches-in-menton": "Plages",
     "menton-old-town": "Vieille ville",
     "day-trips-from-menton": "Excursions",
-    "../events": "Calendrier Riviera",
   },
   it: {
     "stay-cool-in-menton-summer": "Guida stagionale",
     "best-beaches-in-menton": "Spiagge",
     "menton-old-town": "Centro storico",
     "day-trips-from-menton": "Gite",
-    "../events": "Calendario Riviera",
   },
   uk: {
     "stay-cool-in-menton-summer": "Сезонний гід",
     "best-beaches-in-menton": "Пляжі",
     "menton-old-town": "Старе місто",
     "day-trips-from-menton": "Поїздки",
-    "../events": "Календар Рив'єри",
   },
 };
 
@@ -172,10 +171,6 @@ const guideTeaserImages: Record<string, { src: string; alt: string }> = {
   "day-trips-from-menton": {
     src: "/images/guide/day-trips-from-menton.jpg",
     alt: "Illustration of Riviera day trips from Menton",
-  },
-  "../events": {
-    src: "/images/events/menton-lemon-festival.jpg",
-    alt: "Illustration of Menton Lemon Festival and Riviera events",
   },
 };
 
@@ -221,17 +216,12 @@ export default async function LocaleHome({ params }: PageProps) {
   const copy = homeCopy[safeLocale];
   const labels = t[safeLocale];
   const sections = sectionCopy[safeLocale];
-  const guideTeasers = [
-    ...homeSeasonGuideSlugs[homeSeason(new Date())].map((slug) => guidePages[safeLocale].find((page) => page.slug === slug)),
-    {
-      slug: "../events",
-      title: safeLocale === "en" ? "Events" : safeLocale === "fr" ? "Evenements" : safeLocale === "it" ? "Eventi" : "Події",
-      intro: String(sections.eventsIntro),
-      coverImage: guideTeaserImages["../events"].src,
-      coverImageAlt: guideTeaserImages["../events"].alt,
-      categoryLabel: guideTeaserLabels[safeLocale]["../events"],
-    },
-  ].flatMap((item) => (item ? [item] : []));
+  const now = new Date();
+  const guideTeasers = getHomeGuideSlugs(now).flatMap((slug) => {
+    const guide = guidePages[safeLocale].find((page) => page.slug === slug);
+    return guide ? [guide] : [];
+  });
+  const homeEvents = getHomeEvents(rivieraEvents, now);
   const homeCardImages: Record<string, { src: string; alt: string }> = {
     "sea-view-balcony-studio": {
       src: "/images/home/SeaViewBalconyStudio.jpg",
@@ -365,7 +355,7 @@ export default async function LocaleHome({ params }: PageProps) {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {guideTeasers.map((item) => {
                   const visual = guideTeaserImages[item.slug] ?? (item.coverImage ? { src: item.coverImage, alt: item.coverImageAlt ?? item.title } : undefined);
-                  const href = item.slug === "../events" ? `/${safeLocale}/events` : `/${safeLocale}/guide/${item.slug}`;
+                  const href = `/${safeLocale}/guide/${item.slug}`;
 
                   return (
                     <Link
@@ -421,17 +411,20 @@ export default async function LocaleHome({ params }: PageProps) {
                 </Button>
               </div>
             </div>
-            <div className="relative overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] p-3">
-              <Image
-                src="/images/events/menton-lemon-festival.jpg"
-                alt="Illustration of Menton Lemon Festival and Riviera events"
-                width={1270}
-                height={900}
-                quality={90}
-                sizes="(min-width: 1024px) 42vw, 100vw"
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </div>
+            {homeEvents.length ? (
+              <div className="grid gap-3">
+                {homeEvents.map((event) => (
+                  <Link key={event.id} href={`/${safeLocale}/events/${event.occurrenceSlug ?? event.slug}` as Route} className="group grid grid-cols-[7rem_minmax(0,1fr)] overflow-hidden border border-[#dfd4c1] bg-[#fffdf8] transition hover:border-[#c6a66a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#173f36] sm:grid-cols-[9rem_minmax(0,1fr)]">
+                    <EventImage event={event} locale={safeLocale} className="min-h-28 border-0" sizes="144px" />
+                    <div className="min-w-0 p-4">
+                      <p className="text-sm font-semibold text-[#806127]">{getEventDateLabel(event, safeLocale)}</p>
+                      <h3 className="serif-heading mt-1 text-xl leading-tight text-[#173f36] group-hover:underline">{getEventTitle(event, safeLocale)}</h3>
+                      <p className="mt-1 text-sm text-[#5f574c]">{event.city ?? event.location}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
           </div>
         </Container>
       </Section>

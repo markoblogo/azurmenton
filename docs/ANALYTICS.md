@@ -23,6 +23,9 @@ Place-card links emit `place_website_click` or `place_map_click` with locale, pl
 - `airport_arrivals_external_click`
 - `airport_departures_external_click`
 - `airport_transport_guide_click`
+- `favourite_added`
+- `favourite_removed`
+- `trip_prefill_used`
 
 ## Safe Props
 
@@ -41,6 +44,10 @@ Place-card links emit `place_website_click` or `place_map_click` with locale, pl
 - aggregate form context: `parking`, `preferred_language`, `has_dates`, `has_email`, `has_phone`, `has_message`, `guests`, `stay_nights`, `lead_time_days`
 
 ## Privacy Notes
+
+Favourites emit `locale`, `contentType` (`guide`, `event`, `place`) and canonical `contentId` only after a successful device-storage write. Trip prefill emits locale only. Never send saved travel dates, party details, interests, or shared-collection fragments as event properties. Saved state itself is not uploaded.
+
+On 28 October 2026, the three trip/favourites custom-event goals were created and verified in the azurmenton.com Plausible settings. The current subscription displays an upgrade gate on Custom properties: aggregate goal counts are available, but per-content property reporting is not enabled. No subscription or payment changes were made. Local browser QA stubs analytics; end-to-end production receipt remains a post-release check.
 
 Never send names, email addresses, phone numbers or free-text message content to analytics. Contact fields may only be represented as booleans such as `has_email` or `has_phone`. Airport-board events describe only the airport, arrivals/departures view and embed mode; they do not collect travel identity or itinerary details.
 

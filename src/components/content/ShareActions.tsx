@@ -17,7 +17,7 @@ const labels: Record<Locale, { title: string; native: string; copy: string; copi
   uk: { title: "Поділитися", native: "Поділитися", copy: "Копіювати", copied: "Скопійовано", whatsapp: "WhatsApp", email: "Email" },
 };
 
-export function ShareActions({ locale, title, url }: { locale: Locale; title: string; url: string }) {
+export function ShareActions({ locale, title, url, compact = false }: { locale: Locale; title: string; url: string; compact?: boolean }) {
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
   const copy = labels[locale];
@@ -53,6 +53,8 @@ export function ShareActions({ locale, title, url }: { locale: Locale; title: st
       setCopied(false);
     }
   }
+
+  if (compact) return <button type="button" onClick={() => { void shareNative(); }} aria-label={copied ? copy.copied : copy.native} title={copied ? copy.copied : copy.native} className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[#c6a66a] bg-[#fffdf8] text-2xl text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]">{copied ? "✓" : "↗"}</button>;
 
   return (
     <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">

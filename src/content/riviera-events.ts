@@ -3440,7 +3440,7 @@ const eventsWithExplicitMedia: RivieraEvent[] = [...rivieraEventsBase, ...publis
   lastVerifiedAt: event.lastVerifiedAt ?? event.lastChecked ?? "2026-07-03",
   ...event,
   titleLocalized: eventTitleLabels[event.id] ?? event.titleLocalized,
-  dateLabelLocalized: eventDateLabels[event.id] ?? event.dateLabelLocalized,
+  dateLabelLocalized: event.dateLabelLocalized ?? eventDateLabels[event.id],
   relatedGuideSlugs: defaultRelatedGuideSlugs(event),
   relatedPlaceIds: defaultRelatedPlaceIds(event),
   media: eventIllustrations[event.id] ?? (legacyEventImages as Record<string, RivieraEvent["media"]>)[event.id] ?? event.media ?? missingEventMedia,

@@ -1,6 +1,6 @@
 # Product Context
 
-Last reviewed: 2026-09-13
+Last reviewed: 2026-10-28
 
 ## Product
 
@@ -24,6 +24,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - Homepage and FAQ copy must describe those previews consistently in every supported locale; do not claim that the site has no availability view.
 - Events, hours, prices, routes, and official programmes need current source support. Annual-series pages may use cautious windows when exact dates are not confirmed.
 - Analytics uses aggregate booking-funnel context only. Never put names, email addresses, phone numbers, or message text into analytics.
+- The local trip/favourites release batch keeps saved preferences on the visitor's device. Shared collection links contain content IDs, not trip dates or party details. Booking prefill is explicitly user-triggered and never sends a request automatically. See `docs/TRIP_FEATURES.md` for implementation and release status.
 - Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.
 
 ## Language And Claim Boundaries

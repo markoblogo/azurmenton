@@ -314,6 +314,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "A ce stade, le site n'utilise pas de cookies non essentiels connus pour l'analyse marketing ou publicitaire.",
             "Des cookies strictement necessaires peuvent etre utilises par l'hebergement ou le fonctionnement technique du site.",
+            "Les favoris et les paramètres de Mon séjour sont enregistrés dans le stockage local de votre navigateur, sans compte. Les dates et la composition du groupe ne sont pas envoyées par ces fonctions à notre serveur ni à l'outil d'analyse. Vous pouvez effacer le séjour sur sa page et supprimer les favoris individuellement ou via les données du navigateur.",
+            "Un lien de sélection partagée contient les identifiants des guides, lieux et événements choisis, mais pas les paramètres du séjour. Toute personne disposant de ce lien peut consulter cette sélection. Effacer votre liste locale ne révoque pas les liens déjà partagés.",
           ],
         },
         {
@@ -342,6 +344,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "The website does not currently use known non-essential marketing or analytics cookies.",
             "Strictly necessary cookies may be used by hosting or core technical services.",
+            "Favourites and My trip settings use your browser's local storage, without an account. These features do not send travel dates or party details to our server or analytics. You can clear the trip on its page and remove favourites individually or through your browser's site data settings.",
+            "A shared collection link contains the IDs of chosen guides, places and events, not trip settings. Anyone with the link can view that collection. Clearing your local list does not revoke previously shared links.",
           ],
         },
         {
@@ -365,6 +369,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il sito non usa attualmente cookie non essenziali noti per marketing o analytics.",
             "Cookie strettamente necessari possono essere usati dall'hosting o da servizi tecnici.",
+            "Preferiti e impostazioni del viaggio sono salvati nella memoria locale del browser, senza account. Queste funzioni non inviano date o composizione del gruppo al nostro server o all'analisi. Puoi cancellare il viaggio dalla sua pagina e rimuovere i preferiti singolarmente o tramite i dati del sito nel browser.",
+            "Il link di una raccolta condivisa contiene gli identificativi di guide, luoghi ed eventi scelti, non le impostazioni del viaggio. Chiunque abbia il link può vedere la raccolta. Cancellare la lista locale non revoca i link già condivisi.",
             "Eventuali embed terzi visibili agli utenti dovranno essere documentati qui se aggiunti in futuro.",
             "Se in futuro saranno attivati cookie non essenziali o embed terzi, verra fornito un meccanismo di consenso e revoca.",
           ],
@@ -382,6 +388,8 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Сайт наразі не використовує відомі необов'язкові маркетингові або аналітичні cookies.",
             "Технічно необхідні cookies можуть використовуватися хостингом або базовими технічними сервісами.",
+            "Обране та параметри поїздки зберігаються локально у браузері, без облікового запису. Ці функції не надсилають дати чи склад групи на наш сервер або в аналітику. Поїздку можна очистити на її сторінці, а обрані матеріали — видалити окремо або через налаштування даних сайту у браузері.",
+            "Посилання на спільну добірку містить ідентифікатори вибраних гідів, місць і подій, а не параметри поїздки. Кожен, хто має посилання, може переглянути добірку. Очищення локального списку не відкликає раніше надіслані посилання.",
             "Якщо пізніше буде додано сторонні вбудовані елементи або необов'язкові cookies, ця сторінка буде оновлена, а механізм згоди буде наданий там, де це потрібно.",
           ],
         },

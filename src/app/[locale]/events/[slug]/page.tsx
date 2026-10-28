@@ -7,6 +7,8 @@ import { BookingCTA } from "@/components/content/BookingCTA";
 import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
+import { FavouriteButton } from "@/components/content/FavouriteButton";
+import { placeAnchorId } from "@/lib/search-place-targets";
 import { EventImage } from "@/components/events/EventImage";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -416,7 +418,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                 <p className="mt-3 text-xs leading-5 text-[#6b5f50]">{event.media.imageCaption[locale]}</p>
               ) : null}
               <div className="mt-4">
-                <ShareActions locale={locale} title={title} url={pageUrl} />
+                <div className="flex items-start gap-3"><ShareActions locale={locale} title={title} url={pageUrl} /><FavouriteButton locale={locale} item={{ type: "event", id: event.occurrenceSlug ?? event.slug }} /></div>
               </div>
             </div>
           </div>
@@ -581,7 +583,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.relatedPlaces}</h2>
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
                     {relatedPlaces.map((place) => (
-                      <PlaceCard key={place.id} place={place} locale={locale} compact />
+                      <PlaceCard key={place.id} place={place} locale={locale} compact anchorId={placeAnchorId(place.id)} />
                     ))}
                   </div>
                 </section>

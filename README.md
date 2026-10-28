@@ -1,7 +1,7 @@
 # Azur Menton
 
 [![CI](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml)
-![Next.js](https://img.shields.io/badge/Next.js-16.3-black?logo=nextdotjs)
+![Next.js](https://img.shields.io/badge/Next.js-16.4-black?logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)
@@ -17,8 +17,10 @@ Azur Menton is a multilingual direct-booking site for three central Menton apart
 - **Direct booking:** read-only availability guidance followed by a personally confirmed request.
 - **Three distinct stays:** two sea-view studios and one larger terrace apartment with parking.
 - **Four languages:** English, French, Italian, and Ukrainian routes with canonical and hreflang metadata.
-- **Local utility:** 90 maintained guides, 532 mapped places, Riviera events, weather, marine conditions, transport, and travel tools.
+- **Local utility:** maintained guides and places, Riviera events, weather, marine conditions, transport, and travel tools.
 - **Privacy-first operations:** server-only calendar feeds, non-PII analytics, Turnstile, rate limiting, and nonce-based CSP.
+
+Trip planning: `/[locale]/my-trip` stores a device-only trip profile and recommends guides/events, while `/[locale]/favourites` keeps saved guides, events and places and can share a read-only snapshot. Booking prefill requires an explicit click; it never submits a request. See [docs/TRIP_FEATURES.md](docs/TRIP_FEATURES.md) for verification and analytics limitations.
 
 Read first for a fresh coding session:
 

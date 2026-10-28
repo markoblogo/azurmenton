@@ -69,6 +69,8 @@ export function Footer({ locale }: { locale: Locale }) {
           </p>
         </div>
         <nav aria-label="Footer" className="grid grid-cols-2 gap-x-8 gap-y-1 self-start text-sm leading-5 text-white/70">
+          <Link href={`/${locale}/my-trip` as Route} className="hover:text-white">{{ en: "My trip", fr: "Mon séjour", it: "Il mio viaggio", uk: "Моя поїздка" }[locale]}</Link>
+          <Link href={`/${locale}/favourites` as Route} className="hover:text-white">{{ en: "Favourites", fr: "Favoris", it: "Preferiti", uk: "Обране" }[locale]}</Link>
           {[
             ["apartments", "/apartments"],
             ["availability", "/check-availability"],

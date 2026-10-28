@@ -3,6 +3,10 @@ import type { Route } from "next";
 import type { Locale } from "@/i18n/locales";
 import type { Place } from "@/content/places";
 import { GuideVisual } from "@/components/guide/GuideVisual";
+import { FavouriteButton } from "@/components/content/FavouriteButton";
+import { ShareActions } from "@/components/content/ShareActions";
+import { placeSharePath } from "@/lib/place-share-target";
+import { siteConfig } from "@/config/site";
 import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { bookingFunnelEvents } from "@/lib/analytics";
@@ -26,6 +30,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
   const externalLinkLabel = place.type === "cinema" || place.type === "theatre" ? copy.programme : copy.website;
   const visualLabel = place.type.replaceAll("-", " ");
   const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
+  const sharePath = placeSharePath(place.id, locale);
 
   return (
     <article id={anchorId} className="group relative scroll-mt-28 overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">
@@ -44,9 +49,13 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
       )}
       <div className="p-5">
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0">
             <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{visualLabel}</p>
-            <h3 className="mt-2 serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
+            <h3 className="mt-2 break-words serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
+          </div>
+          <div className="flex shrink-0 gap-2">
+            {sharePath ? <ShareActions locale={locale} title={place.name} url={`${siteConfig.url}${sharePath}`} compact /> : null}
+            <FavouriteButton locale={locale} item={{ type: "place", id: place.id }} />
           </div>
         </div>
         <p className="mt-3 overflow-hidden text-sm leading-6 text-[#5c5044] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">{place.shortNote[locale]}</p>
