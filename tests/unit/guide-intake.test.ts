@@ -1,8 +1,25 @@
 import { describe, expect, it } from "vitest";
 
-import { extractGuideIntake } from "../../src/lib/guide-intake";
+import { extractGuideIntake, normalizePlainTextGuide } from "../../src/lib/guide-intake";
 
 describe("guide intake extraction", () => {
+  it("does not invent venues from editorial planning subheadings", () => {
+    const intake = extractGuideIntake('# Christmas\n\nIntro.\n\n## Monaco\n### Best plan\nPlan.\n### How to get there\nTrain.\n### Is it suitable for children?\nCheck.\n### Grimaldi Forum\nVenue.');
+    expect(intake.placeCandidates.map((place) => place.name)).toEqual(['Grimaldi Forum']);
+  });
+  it("recognises an explicitly identified plain-text Word export without discarding table text", () => {
+    const raw = "Christmas near Menton: a practical guide\nSEO title: Christmas Near Menton\nMeta description: Festive plans.\nSuggested URL: /en/guide/christmas-menton\nCategory: Seasonal Guides / Christmas\nBest for: Families\n\nIntroduction.\n1. Choosing an outing\nDestination\nMenton\n2. Getting home\nCheck the train.";
+    const normalized = normalizePlainTextGuide(raw);
+    const intake = extractGuideIntake(raw);
+    expect(intake.title).toBe("Christmas near Menton: a practical guide");
+    expect(intake.slug).toBe("christmas-menton");
+    expect(intake.intro).toBe("Introduction.");
+    expect(intake.categoryHint).toBe("practical");
+    expect(intake.sectionHeadings).toContain("Choosing an outing");
+    expect(intake.sectionHeadings).toContain("Getting home");
+    expect(normalized).toContain("Destination\nMenton");
+    expect(normalizePlainTextGuide("A note\n1. not a heading")).toBe("A note\n1. not a heading");
+  });
   it("extracts guide metadata, section headings, place candidates and related guides from a draft", () => {
     const raw = `
 SEO title: Burgers in Menton: Local Burger Restaurants and Fast Food Chains

@@ -291,6 +291,19 @@ const festivalVenues = [
 ] as const;
 
 const rawPlaces: Place[] = [
+  ...[
+    ["port-hercule-christmas-monaco", "Port Hercule — Quai Albert Ier", "Quai Albert Ier, Monaco", "https://mairie.mc/le-village-de-noel"],
+    ["jardin-albert-premier-christmas-nice", "Jardin Albert Ier — Christmas Village", "Jardin Albert Ier, 06000 Nice", "https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/"],
+    ["marche-carnoles-saint-nicolas", "Marché de Carnolès", "Marché de Carnolès, 06190 Roquebrune-Cap-Martin", "https://www.menton-riviera-merveilles.fr/offres/les-villages-saint-nicolas-roquebrune-cap-martin-fr-6862934/"],
+    ["place-garibaldi-sospel", "Place Garibaldi, Sospel", "Place Garibaldi, 06380 Sospel", "https://cotedazurfrance.fr/offres/marche-de-noel-sospel-fr-3389256/"],
+    ["place-clemenceau-castellar", "Place Georges Clemenceau, Castellar", "1 place Georges Clemenceau, 06500 Castellar", "https://www.menton-riviera-merveilles.fr/offres/journee-de-noel-a-castellar-castellar-fr-6868786/"],
+  ].map(([id, name, address, programmeUrl]): Place => ({
+    id, name, address, programmeUrl, type: "civic", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery(name, address),
+    shortNote: text("A venue for the published Christmas programme. Check dates and access with the organiser.", "Lieu du programme de Noël publié. Vérifiez dates et accès auprès de l’organisateur.", "Sede del programma natalizio pubblicato. Verifica date e accesso con l’organizzatore.", "Місце опублікованої різдвяної програми. Перевірте дати й умови доступу в організатора."),
+    bestFor: [text("Seasonal events", "Événements saisonniers", "Eventi stagionali", "Сезонні події")],
+    relatedArticleIds: ["christmas-french-riviera-from-menton"],
+  })),
   {
     id: "teatro-giancarlo-golzi-bordighera", name: "Teatro Giancarlo Golzi", type: "civic",
     image: "/images/guide/teatro-giancarlo-golzi-bordighera.webp",
@@ -5523,7 +5536,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Central gardens used for the Lemon Festival citrus sculpture displays and an easy town-centre walk.", "Jardins centraux utilises pour les sculptures d'agrumes de la Fete du Citron et une promenade simple en centre-ville.", "Giardini centrali usati per le sculture di agrumi della Festa del Limone e per una passeggiata facile in centro.", "Центральні сади для цитрусових скульптур Фестивалю лимонів і простої прогулянки центром."),
     bestFor: [text("Lemon Festival displays", "decors Fete du Citron", "installazioni Festa del Limone", "інсталяції Фестивалю лимонів"), text("central walks", "balades centrales", "passeggiate centrali", "прогулянки центром")],
-    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton", "coworking-remote-work-menton"],
+    relatedArticleIds: ["christmas-french-riviera-from-menton", "menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton", "coworking-remote-work-menton"],
   },
   {
     id: "palais-de-leurope-menton",

@@ -36,6 +36,21 @@ function normalizeText(value: string) {
   return value.replace(/\r/g, "").trim();
 }
 
+// Word plain-text exports lose heading styles. Only infer a title when an
+// explicit SEO field immediately follows it; leave unrecognised drafts intact.
+export function normalizePlainTextGuide(raw: string): string {
+  const lines = raw.replace(/\r/g, "").split("\n");
+  if (lines.some((line) => /^\s*#{1,6}\s+/.test(line))) return raw;
+  const first = lines.findIndex((line) => line.trim());
+  if (first < 0 || !lines[first + 1]?.trim().match(/^(?:SEO title|Meta title|Title tag)\s*:/i)) return raw;
+  lines[first] = `# ${lines[first].trim()}`;
+  for (let index = first + 2; index < lines.length; index += 1) {
+    const line = lines[index].trim();
+    if (/^\d{1,2}\.\s+[^\n]{3,120}$/.test(line)) lines[index] = `## ${line}`;
+  }
+  return lines.join("\n");
+}
+
 function stripMarkdownDecoration(value: string) {
   return value
     .replace(/^#+\s*/, "")
@@ -127,7 +142,7 @@ function isPreambleHeading(text: string) {
 
 function isGuideFieldLine(value: string) {
   const normalized = stripMarkdownDecoration(normalizeText(value).replace(/^[-*]\s*/, ""));
-  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image)/i.test(normalized);
+  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image|Category|Best for|Season covered|Programme last checked)\s*[:\-]/i.test(normalized);
 }
 
 function isWidgetSectionHeading(text: string) {
@@ -248,6 +263,10 @@ function isSuppressedHeading(text: string) {
 
 function isBroadLocalityHeading(text: string) {
   return /^(menton|monaco|nice|sanremo|ventimiglia|bordighera|beausoleil|roquebrune|cap martin|italy|france|french riviera|italian riviera)$/i.test(text.trim());
+}
+
+function isEditorialPlaceHeading(text: string) {
+  return /\?$/.test(text) || /^(?:our quick recommendations|best (?:for|plan)|how to |where to |getting (?:there|home)|hours and |children's highlights|walking considerations|travel considerations|evening [a-z]:|the (?:nice|monaco) festive afternoon|engineering works|christmas eve:|christmas day:|new year's eve:|frequently asked questions|official sources|final thoughts)/i.test(text);
 }
 
 function findNearestAncestor(headings: GuideHeading[], index: number, maxLevel: number) {
@@ -382,6 +401,7 @@ function extractPlaceCandidates(lines: string[]) {
 
   headings.forEach((heading, index) => {
     if (index === 0 || isSuppressedHeading(heading.text)) return;
+    if (isEditorialPlaceHeading(heading.text)) return;
     if (heading.text === title) return;
     if (sitsUnderWidgetAncestor(headings, index) || isWidgetSectionHeading(heading.text)) return;
 
@@ -485,7 +505,7 @@ function extractRelatedGuideTitles(lines: string[]) {
 }
 
 export function extractGuideIntake(raw: string, options?: { coverPathHint?: string }): GuideIntake {
-  const lines = raw.replace(/\r/g, "").split("\n");
+  const lines = normalizePlainTextGuide(raw).replace(/\r/g, "").split("\n");
   const { preambleLines, bodyLines } = splitGuideDraftIntoPreambleAndBody(lines);
   const title = extractTitle(lines);
   const metadataLines = [...preambleLines, ...bodyLines];
@@ -500,6 +520,7 @@ export function extractGuideIntake(raw: string, options?: { coverPathHint?: stri
     metaDescription: extractFirstField(metadataLines, ["Meta description", "Meta Description", "Description"]),
     intro: extractIntro(bodyLines),
     coverPathHint: options?.coverPathHint ?? extractCoverPathHint(preambleLines),
+    categoryHint: /^seasonal guides?\b/i.test(extractFirstField(metadataLines, ["Category"]) ?? "") ? "practical" : undefined,
     sectionHeadings: extractSectionHeadings(bodyLines),
     placeCandidates: extractPlaceCandidates(bodyLines),
     utilityBlockHints,

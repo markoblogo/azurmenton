@@ -3249,7 +3249,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ],
     distanceFromMentonKm: 30,
     detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "menton-in-autumn", "day-trips-from-menton", "where-to-stay-in-menton"],
+    relatedGuideSlugs: ["christmas-french-riviera-from-menton", "menton-with-kids-family-guide", "menton-in-autumn", "day-trips-from-menton", "where-to-stay-in-menton"],
     relatedApartmentKeys: relatedAll,
   },
   {

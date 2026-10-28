@@ -2,6 +2,7 @@ import type { Locale } from "@/i18n/locales";
 import { locales } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { PlaceType } from "@/content/places";
+import { christmasGuide } from "@/content/christmas-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -67,6 +68,7 @@ export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "im
 };
 
 export type GuideSection = {
+  tables?: { headers: string[]; rows: string[][] }[];
   heading: string;
   body: string[];
   bullets?: string[];
@@ -96,6 +98,7 @@ export type LocalizedGuideSectionOfficialLink = {
 };
 
 export type LocalizedGuideSection = {
+  tables?: Record<Locale, { headers: string[]; rows: string[][] }[]>;
   heading: LocalizedText;
   body: LocalizedText[];
   bullets?: LocalizedText[];
@@ -11314,7 +11317,7 @@ export const guideArticles: GuideArticle[] = [
     coverImageAlt: t("Illustration: Menton in winter: sea views, mountain snow and cosy days", "Illustration : Menton en hiver : mer, neige et journées douillettes", "Illustrazione: Mentone in inverno: mare, neve e giornate accoglienti", "Ілюстрація: Ментон узимку: море, сніг у горах і затишні дні"),
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
-    relatedArticles: ["menton-in-autumn", "mountains-snow-skiing-near-menton", "menton-with-kids-family-guide", "saunas-spas-menton", "tea-rooms-afternoon-tea-near-menton", "best-coffee-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "fete-du-citron-menton-practical-guide", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticles: ["christmas-french-riviera-from-menton", "menton-in-autumn", "mountains-snow-skiing-near-menton", "menton-with-kids-family-guide", "saunas-spas-menton", "tea-rooms-afternoon-tea-near-menton", "best-coffee-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "fete-du-citron-menton-practical-guide", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -11349,6 +11352,8 @@ export const guideArticles: GuideArticle[] = [
   }),
 ];
 
+guideArticles.push(christmasGuide);
+
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
 
 export function getGuideArticle(slug: string) {
@@ -11370,6 +11375,7 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
     sections: article.sections.map((section) => ({
       ...section,
       heading: section.heading[locale],
+      tables: section.tables?.[locale],
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),
       imageAlt: section.imageAlt?.[locale],

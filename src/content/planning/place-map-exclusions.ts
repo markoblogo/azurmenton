@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  ...[
+    ["port-hercule-christmas-monaco", "https://mairie.mc/le-village-de-noel"],
+    ["jardin-albert-premier-christmas-nice", "https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/"],
+    ["marche-carnoles-saint-nicolas", "https://www.menton-riviera-merveilles.fr/offres/les-villages-saint-nicolas-roquebrune-cap-martin-fr-6862934/"],
+    ["place-garibaldi-sospel", "https://cotedazurfrance.fr/offres/marche-de-noel-sospel-fr-3389256/"],
+    ["place-clemenceau-castellar", "https://www.menton-riviera-merveilles.fr/offres/journee-de-noel-a-castellar-castellar-fr-6868786/"],
+  ].map(([placeId, sourceUrl]): PlaceMapExclusion => ({ placeId, sourceUrl, checkedOn: "2026-10-28", reason: "coordinate_unverified" })),
   { placeId: "teatro-giancarlo-golzi-bordighera", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://www.comune.bordighera.im.it/Vivere-il-comune/Luoghi/Palazzo-del-Parco-Teatro-Giancarlo-Golzi" },
   { placeId: "pharmacie-riviera-menton-station", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/825245640" },
   { placeId: "pharmacie-garavan-menton", reason: "coordinate_unverified", checkedOn: "2026-10-27", sourceUrl: "https://annuaire-entreprises.data.gouv.fr/entreprise/925248205" },

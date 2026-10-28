@@ -3,12 +3,14 @@
 
 const fs = require("node:fs/promises");
 const path = require("node:path");
+const { execFile } = require("node:child_process");
+const { promisify } = require("node:util");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
-const { extractGuideIntake } = require("../src/lib/guide-intake.ts");
+const { extractGuideIntake, normalizePlainTextGuide } = require("../src/lib/guide-intake.ts");
 const { splitGuideDraftIntoPreambleAndBody } = require("../src/lib/guide-intake.ts");
 const { extractGuideStructure } = require("../src/lib/guide-structure.ts");
 const { buildSeededPublicationPlan, seedGuideIntake } = require("../src/lib/guide-plan-seeding.ts");
@@ -96,7 +98,10 @@ async function main(args = process.argv.slice(2)) {
   }
 
   const absoluteInput = path.resolve(fromPath);
-  const raw = await fs.readFile(absoluteInput, "utf8");
+  const original = path.extname(absoluteInput).toLowerCase() === ".docx"
+    ? (await promisify(execFile)("python3", [path.join(root, "scripts/lib/docx-to-markdown.py"), absoluteInput], { maxBuffer: 20_000_000 })).stdout
+    : await fs.readFile(absoluteInput, "utf8");
+  const raw = normalizePlainTextGuide(original);
   const draftParts = splitGuideDraftIntoPreambleAndBody(raw.replace(/\r/g, "").split("\n"));
   const intake = seedGuideIntake(extractGuideIntake(raw, { coverPathHint: coverPath ? path.resolve(coverPath) : undefined }));
   const historicalMatchMemory = buildGuideMatchMemory(await loadGuideMatchMemory(root, intake.slug));
@@ -120,6 +125,7 @@ async function main(args = process.argv.slice(2)) {
   await fs.mkdir(outputDir, { recursive: true });
 
   await Promise.all([
+    fs.writeFile(path.join(outputDir, "draft-original.txt"), original),
     fs.writeFile(path.join(outputDir, "draft.md"), raw),
     fs.writeFile(path.join(outputDir, "draft-body.md"), `${draftParts.bodyLines.join("\n")}\n`),
     fs.writeFile(

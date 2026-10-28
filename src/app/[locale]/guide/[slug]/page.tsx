@@ -151,7 +151,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
       <Section className="bg-[#f8f3ea] py-6 sm:py-8">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
-            <article className="space-y-5">
+            <article className="min-w-0 space-y-5">
               {isWalkingGuide ? <WalkingDistanceGuide locale={locale} /> : null}
               {isTransportGuide ? <PublicTransportGuide locale={locale} /> : null}
               {transportHelperAfterSectionIndex === undefined ? transportHelperSection : null}
@@ -190,8 +190,17 @@ export default async function GuideArticlePage({ params }: PageProps) {
                     />
                     ) : null}
                     <div className="mt-4 space-y-3 text-base leading-8 text-[#5c5044]">
-                      {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                      {section.body.map((paragraph) => <p className="whitespace-pre-line" key={paragraph}>{paragraph}</p>)}
                     </div>
+                    {section.tables?.map((table, tableIndex) => (
+                      <div key={tableIndex} className="mt-5 overflow-x-auto" role="region" aria-label={section.heading} tabIndex={0}>
+                        <table className="w-full min-w-[600px] border-collapse text-left text-base leading-7">
+                          <caption className="sr-only">{section.heading}</caption>
+                          <thead><tr>{table.headers.map((header, index) => <th key={index} scope="col" className="border-b border-[#c6a66a] p-3 font-semibold">{header}</th>)}</tr></thead>
+                          <tbody>{table.rows.map((row, index) => <tr key={index}>{row.map((cell, cellIndex) => <td key={cellIndex} className="border-b border-[#dfd4c4] p-3 align-top">{cell}</td>)}</tr>)}</tbody>
+                        </table>
+                      </div>
+                    ))}
                     {section.guideLinkSlug && section.guideLinkLabel ? (
                       <Link
                         className="mt-5 inline-flex min-h-10 items-center justify-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"

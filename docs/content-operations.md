@@ -254,6 +254,19 @@ npm run images:check
 npm run preflight
 ```
 
+`guide:new` also accepts `.docx` directly (requires Python 3, standard library only).
+The importer reads paragraph heading styles, list items, tables and HTTP(S)
+hyperlinks without launching Word or executing document content. It writes the
+extracted original to `draft-original.txt` and normalized Markdown to `draft.md`.
+Review merged cells, numbered-list numbering and unsupported embedded content
+manually; these are not a lossless Word rendering. Importer regression check:
+`python3 tests/docx-import-test.py`.
+
+The Christmas Riviera guide keeps reviewed EN/FR/IT/UK source text in
+`src/content/guide-data/christmas-*.md`. After editing these sources, run
+`node scripts/compile-christmas-guide.cjs` to regenerate its imported JSON.
+This compiler does not translate, verify dates or publish content.
+
 For the guide automation chain, see `docs/guide-automation.md`.
 
 Use `guide:assets -- --strict` once the owner has supplied the full final image package and the pass should fail on unused files or unresolved expected cover/place assets.
