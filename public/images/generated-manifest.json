@@ -637,6 +637,13 @@
     ]
   },
   {
+    "source": "public/images/guide/roya-valley-day-trip-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/roya-valley-day-trip-from-menton.avif",
+      "public/images/guide/generated/roya-valley-day-trip-from-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/tatie-cbd-menton.png",
     "outputs": [
       "public/images/guide/generated/tatie-cbd-menton.avif",
@@ -686,10 +693,45 @@
     ]
   },
   {
-    "source": "public/images/guide/roya-valley-day-trip-from-menton.png",
+    "source": "public/images/guide/santa-maria-in-albis-breil.png",
     "outputs": [
-      "public/images/guide/generated/roya-valley-day-trip-from-menton.avif",
-      "public/images/guide/generated/roya-valley-day-trip-from-menton.webp"
+      "public/images/guide/generated/santa-maria-in-albis-breil.avif",
+      "public/images/guide/generated/santa-maria-in-albis-breil.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/ecomusee-transports-breil.png",
+    "outputs": [
+      "public/images/guide/generated/ecomusee-transports-breil.avif",
+      "public/images/guide/generated/ecomusee-transports-breil.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/saorge.png",
+    "outputs": [
+      "public/images/guide/generated/saorge.avif",
+      "public/images/guide/generated/saorge.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/monastere-saorge.png",
+    "outputs": [
+      "public/images/guide/generated/monastere-saorge.avif",
+      "public/images/guide/generated/monastere-saorge.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/notre-dame-fontaines-la-brigue.png",
+    "outputs": [
+      "public/images/guide/generated/notre-dame-fontaines-la-brigue.avif",
+      "public/images/guide/generated/notre-dame-fontaines-la-brigue.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/fontan.png",
+    "outputs": [
+      "public/images/guide/generated/fontan.avif",
+      "public/images/guide/generated/fontan.webp"
     ]
   }
 ]

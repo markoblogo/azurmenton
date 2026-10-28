@@ -294,6 +294,7 @@ const rawPlaces: Place[] = [
   {
     id: "saorge", name: "Saorge", type: "mountain",
     address: "Saorge, 06540", googleMapsUrl: mapsQuery("Saorge", "Saorge, 06540"),
+    image: "/images/guide/saorge.png",
     programmeUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/nos-suggestions-ditineraires/un-jour-un-village/saorge/", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("A steep pedestrian village; confirm local connections from Fontan-Saorge station.", "Village piéton escarpé ; confirmez la correspondance depuis la gare Fontan-Saorge.", "Borgo pedonale ripido; conferma i collegamenti dalla stazione Fontan-Saorge.", "Круте пішохідне село; перевірте пересадку від станції Fontan-Saorge."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],
@@ -303,6 +304,7 @@ const rawPlaces: Place[] = [
   {
     id: "fontan", name: "Fontan", type: "mountain",
     address: "Fontan, 06540", googleMapsUrl: mapsQuery("Fontan", "Fontan, 06540"),
+    image: "/images/guide/fontan.png",
     programmeUrl: "https://www.menton-riviera-merveilles.fr/mercantour-roya-bevera/vallee-de-la-roya/fontan/", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("A quiet riverside village, distinct from Saorge and the station's name.", "Village tranquille au bord de la Roya, à distinguer de Saorge et du nom de la gare.", "Paese tranquillo sul fiume, distinto da Saorge e dal nome della stazione.", "Тихе село біля Рої; не плутайте із Саоржем і назвою станції."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],
@@ -312,6 +314,7 @@ const rawPlaces: Place[] = [
   {
     id: "monastere-saorge", name: "Monastère de Saorge", type: "civic",
     address: "Montée du Couvent, 06540 Saorge", googleMapsUrl: mapsQuery("Monastère de Saorge", "Montée du Couvent, 06540 Saorge"),
+    image: "/images/guide/monastere-saorge.png",
     programmeUrl: "https://www.monastere-saorge.fr/visiter/informations-pratiques", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Franciscan monastery and terraced garden; winter closure 1 November–31 January.", "Monastère franciscain et jardin en terrasses ; fermeture du 1er novembre au 31 janvier.", "Monastero francescano e giardino terrazzato; chiusura 1 novembre–31 gennaio.", "Францисканський монастир і терасовий сад; закриття 1 листопада–31 січня."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],
@@ -320,6 +323,7 @@ const rawPlaces: Place[] = [
   {
     id: "notre-dame-fontaines-la-brigue", name: "Notre-Dame-des-Fontaines", type: "civic",
     address: "Notre-Dame-des-Fontaines, 06430 La Brigue", googleMapsUrl: mapsQuery("Notre-Dame-des-Fontaines", "Notre-Dame-des-Fontaines, 06430 La Brigue"),
+    image: "/images/guide/notre-dame-fontaines-la-brigue.png",
     programmeUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lart-dans-les-chapelles-et-eglises/notre-dame-des-fontaines/", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Frescoed chapel outside La Brigue; confirm the visit and the separate journey before travelling.", "Chapelle à fresques hors du village ; confirmez visite et trajet avant de partir.", "Cappella affrescata fuori dal paese; conferma visita e spostamento prima di partire.", "Каплиця з фресками за межами села; заздалегідь підтвердьте візит і окремий доїзд."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],
@@ -328,6 +332,7 @@ const rawPlaces: Place[] = [
   {
     id: "santa-maria-in-albis-breil", name: "Santa Maria in Albis", type: "civic",
     address: "Centre historique, 06540 Breil-sur-Roya", googleMapsUrl: mapsQuery("Santa Maria in Albis", "Centre historique, 06540 Breil-sur-Roya"),
+    image: "/images/guide/santa-maria-in-albis-breil.png",
     programmeUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/nos-suggestions-ditineraires/un-jour-un-village/breil-sur-roya/", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Baroque church in Breil's historic centre; visit the interior only when open.", "Église baroque du centre historique de Breil ; intérieur à visiter si ouvert.", "Chiesa barocca nel centro storico di Breil; interno visitabile quando aperto.", "Барокова церква історичного центру Брея; інтер'єр можна оглянути, коли відчинено."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],
@@ -336,6 +341,7 @@ const rawPlaces: Place[] = [
   {
     id: "ecomusee-transports-breil", name: "Écomusée du Train des Merveilles", type: "museum",
     address: "Plateau de la gare, 06540 Breil-sur-Roya", googleMapsUrl: mapsQuery("Écomusée du Train des Merveilles", "Plateau de la gare, 06540 Breil-sur-Roya"),
+    image: "/images/guide/ecomusee-transports-breil.png",
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/ecomusee-du-train-des-merveilles-breil-sur-roya-fr-3051704/", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Railway heritage beside Breil station; confirm the exact seasonal opening before planning around it.", "Patrimoine ferroviaire près de la gare de Breil ; confirmez l'ouverture saisonnière exacte.", "Patrimonio ferroviario presso la stazione di Breil; conferma l'apertura stagionale precisa.", "Залізнична спадщина біля станції Брея; підтвердьте точні сезонні години."),
     bestFor: [text("Roya Valley heritage", "Patrimoine de la Roya", "Patrimonio della Roya", "Спадщина долини Роя")],

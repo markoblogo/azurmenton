@@ -4,60 +4,47 @@
   "strict": false,
   "missingOnly": true,
   "reportOnly": true,
-  "failOnUnmatched": false,
+  "failOnUnmatched": true,
   "operatorSummary": [
     "status: ok",
     "subject: roya-valley-day-trip-from-menton",
     "mode: published-guide + missing-only + report-only",
     "matched: 0",
-    "skipped-covered: 7",
-    "already-covered: 0",
+    "skipped-covered: 13",
+    "already-covered: 6",
     "unmatched: 0",
-    "still-missing: 6",
+    "still-missing: 0",
     "report: build/guide-assets-postpublish/roya-valley-day-trip-from-menton.json",
-    "rerun: npm run guide:assets -- --published-guide roya-valley-day-trip-from-menton --missing-only --report-only"
+    "rerun: npm run guide:assets -- --published-guide roya-valley-day-trip-from-menton --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --report-only --fail-on-unmatched"
   ],
   "counts": {
     "matched": 0,
     "unmatched": 0,
-    "alreadyCovered": 0,
-    "skippedCovered": 7,
-    "stillMissing": 6,
+    "alreadyCovered": 6,
+    "skippedCovered": 13,
+    "stillMissing": 0,
     "patchReady": 0
   },
-  "matchedAssetFiles": [],
-  "unmatchedAssetFiles": [],
-  "alreadyCoveredAssetFiles": [],
-  "matchedPlaceIds": [],
-  "publishedGuidePlacesWithoutImage": [
-    {
-      "placeId": "santa-maria-in-albis-breil",
-      "draftName": "Santa Maria in Albis"
-    },
-    {
-      "placeId": "ecomusee-transports-breil",
-      "draftName": "Écomusée du Train des Merveilles"
-    },
-    {
-      "placeId": "saorge",
-      "draftName": "Saorge"
-    },
-    {
-      "placeId": "monastere-saorge",
-      "draftName": "Monastère de Saorge"
-    },
-    {
-      "placeId": "notre-dame-fontaines-la-brigue",
-      "draftName": "Notre-Dame-des-Fontaines"
-    },
-    {
-      "placeId": "fontan",
-      "draftName": "Fontan"
-    }
+  "matchedAssetFiles": [
+    "ecomusee-transports-breil.png",
+    "fontan.png",
+    "monastere-saorge.png",
+    "notre-dame-fontaines-la-brigue.png",
+    "santa-maria-in-albis-breil.png",
+    "saorge.png"
   ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [
+    "ecomusee-transports-breil.png",
+    "fontan.png",
+    "monastere-saorge.png",
+    "notre-dame-fontaines-la-brigue.png",
+    "santa-maria-in-albis-breil.png",
+    "saorge.png"
+  ],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
-  "bestRerunCommand": "npm run guide:assets -- --published-guide roya-valley-day-trip-from-menton --missing-only --report-only",
-  "issueCodes": [
-    "pending-place-asset"
-  ]
+  "bestRerunCommand": "npm run guide:assets -- --published-guide roya-valley-day-trip-from-menton --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --report-only --fail-on-unmatched",
+  "issueCodes": []
 }

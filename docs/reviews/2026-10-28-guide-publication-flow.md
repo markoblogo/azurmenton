@@ -59,5 +59,15 @@ certify a translation. It does not auto-publish or infer live road conditions.
 
 This pass reduces repeated scaffolding and false candidates. No before/after
 wall-clock benchmark or model-cost ledger was recorded, so no percentage saving
-or monetary saving is claimed. The Roya second-stage image pass remains untested
-until the owner supplies the six new illustrations.
+or monetary saving is claimed.
+
+## Roya illustration trial completed
+
+The owner supplied all six illustrations named by stable place ID. Report-only
+matched all six without explicit mappings and found no unused files. Safe apply
+copied the six sources, generated AVIF/WebP derivatives, updated the six explicit
+place records and verified each image field. Existing illustrated places were
+left unchanged. The post-apply rerun copied nothing and reported all six package
+files as already covered, with no unmatched files or missing images. Guide review
+returned zero errors and zero warnings. Run review only after the apply command exits,
+otherwise a report can read the pre-apply state.
