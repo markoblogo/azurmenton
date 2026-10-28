@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import type { Route } from "next";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState, useTransition } from "react";
@@ -30,6 +31,7 @@ import {
 import { getEventDateStatus, type EventDateStatus } from "@/lib/events";
 import { isSportsPrestigeHighlight } from "@/lib/event-highlights";
 
+const EventsMonth = dynamic(() => import("@/components/events/EventsMonth"), { ssr: false });
 const quickPeriods: Array<{ id: EventDiscoveryFilters["period"]; label: Record<Locale, string> }> = [
   { id: "today", label: { en: "Today", fr: "Aujourd'hui", it: "Oggi", uk: "Сьогодні" } },
   { id: "tomorrow", label: { en: "Tomorrow", fr: "Demain", it: "Domani", uk: "Завтра" } },
@@ -573,6 +575,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [showPast, setShowPast] = useState(false);
+  const [view, setView] = useState<"list" | "month">("list");
   const labels = copy[locale];
   const filterSignature = searchParams.toString();
   const filters = parseEventDiscoveryParams(new URLSearchParams(searchParams.toString()));
@@ -771,14 +774,17 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
         ) : null}
       </section>
 
-      <section aria-label={labels.results}>
+      <section aria-label={labels.results} className="min-w-0">
+        <div className="mb-4 flex gap-2" role="group" aria-label={labels.calendarSelection}>
+          {(["list", "month"] as const).map(mode => <button key={mode} type="button" aria-pressed={view === mode} onClick={() => setView(mode)} className={`min-h-11 border px-4 py-2 ${view === mode ? "bg-[#173f36] text-white" : "bg-white text-[#173f36]"}`}>{mode === "month" ? labels.month : { en: "List", fr: "Liste", it: "Elenco", uk: "Список" }[locale]}</button>)}
+        </div>
         <div className="flex flex-col gap-3 border-b border-[#dfd4c1] pb-5 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="editorial-label">{labels.calendarSelection}</p>
             <h2 className="serif-heading mt-2 text-3xl text-[#173f36]">{filtered.length} {labels.results}</h2>
           </div>
         </div>
-        {filtered.length ? (
+        {view === "month" ? <EventsMonth key={`${filters.from ?? ""}:${filters.to ?? ""}`} events={filtered} locale={locale} initialDate={filters.from ?? new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Paris" }).format(new Date())} /> : filtered.length ? (
           <div className="mt-5 grid gap-4 xl:grid-cols-2">
             {filtered.map((event) => (
               <EventCard key={event.id} event={event} locale={locale} status={getEventDateStatus(event)} compact />

@@ -1,0 +1,1770 @@
+{
+  "checkedAt": "2026-10-28T22:24:59.423Z",
+  "total": 110,
+  "counts": {
+    "date_range_requires_programme": 60,
+    "time_requires_review": 15,
+    "structured_time": 8,
+    "dates_unconfirmed": 26,
+    "structured_sessions": 1
+  },
+  "note": "Source retrieval and same-date JSON-LD candidates are NOT editorial verification. No automatic content updates. Missing JSON-LD does not establish that no times are published. Past occurrences must not supply next year's times.",
+  "results": [
+    {
+      "id": "vikings-l-odyssee-jusqu-aux-confins-du-monde-cites-immersives-nice-2026-02-06-1v7n4wz",
+      "title": "Vikings : L’Odyssée jusqu’aux confins du monde – Cités Immersives",
+      "startDate": "2026-02-06",
+      "endDate": "2026-08-30",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/en/event/vikings-lodyssee-jusquaux-confins-du-monde-cites-immersives/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-02-06-2026-08-30",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "le-train-touristique-de-menton-menton-2026-06-01-1q3nypc",
+      "title": "Menton tourist train",
+      "startDate": "2026-06-01",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/le-train-touristique-de-menton-menton-fr-6331813/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-06-01-2026-08-31",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "commedia-dell-arte-nice-2026",
+      "title": "Festival International de Commedia Dell'Arte",
+      "startDate": "2026-06-05",
+      "endDate": "2026-06-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.commedia-nice.com/festivaldecommedianice",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "5-18 June 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "new-vision-nice-open-2026",
+      "title": "New Vision Nice Open",
+      "startDate": "2026-06-08",
+      "endDate": "2026-06-14",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/evenement/new-vision-nice-open/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "8-14 June 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "matisse-yves-saint-laurent-nice-2026",
+      "title": "Henri Matisse - Yves Saint Laurent",
+      "startDate": "2026-06-17",
+      "endDate": "2026-09-28",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/en/event/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "17 June-28 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "soirees-estivales-2026-nice-2026-06-26-explore-nice",
+      "title": "Soirees estivales 2026",
+      "startDate": "2026-06-26",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/en/events/all-events/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "26 June-31 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "village-d-ete-menton-2026-06-29-gt97zc",
+      "title": "Menton Summer Village",
+      "startDate": "2026-06-29",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/village-dete-menton-fr-6632896/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-06-29-2026-08-31",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "visite-guidee-du-domaine-gannac-en-anglais-menton-2026-06-30-p1ao9p",
+      "title": "Maison Gannac English guided visit",
+      "startDate": "2026-06-30",
+      "endDate": "2026-08-29",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-du-domaine-gannac-en-anglais-menton-fr-6568973/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-06-30-2026-08-29",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "bibliotheque-a-la-plage-menton-2026-07-01-1hwqyb4",
+      "title": "Beach library in Menton",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/bibliotheque-a-la-plage-menton-fr-5003608/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-01-2026-08-31",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "grande-roue-de-menton-menton-2026-07-01-70xpe2",
+      "title": "Menton Ferris wheel",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/grande-roue-de-menton-menton-fr-5813862/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-01-2026-08-31",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-automobile-exhibition-2026",
+      "title": "Monaco and the Automobile: from 1893 to nowadays",
+      "startDate": "2026-07-01",
+      "endDate": "2026-09-06",
+      "dateStatus": "confirmed",
+      "source": "https://www.grimaldiforum.com/en/events-schedule-monaco/monaco-and-the-automobile-from-1893-to-nowadays",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "1 July-6 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "visite-guidee-atelier-parfum-fragonard-menton-2026-07-01-1tv8fua",
+      "title": "Fragonard perfume workshop at Serre de la Madone",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-atelier-parfum-fragonard-menton-fr-6630577/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-01-2026-08-31",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-2026-07-01-8vl73p",
+      "title": "Villa Maria Serena night garden visits",
+      "startDate": "2026-07-01",
+      "endDate": "2026-08-29",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/visites-guidees-nocturnes-jardin-de-la-villa-maria-serena-menton-fr-5822606/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-01-2026-08-29",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "jumping-international-monte-carlo-2026",
+      "title": "Jumping International de Monte-Carlo",
+      "startDate": "2026-07-02",
+      "endDate": "2026-07-04",
+      "dateStatus": "confirmed",
+      "source": "https://www.jumping-monaco.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2-4 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monte-carlo-summer-festival-2026",
+      "title": "Monte-Carlo Summer Festival",
+      "startDate": "2026-07-03",
+      "endDate": "2026-08-15",
+      "dateStatus": "confirmed",
+      "source": "https://www.montecarlosbm.com/en/shows/monte-carlo-summer-festival",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "3 July-15 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "cannes-pyrotechnic-art-festival-2026",
+      "title": "Cannes Pyrotechnic Art Festival",
+      "startDate": "2026-07-04",
+      "endDate": "2026-08-24",
+      "dateStatus": "confirmed",
+      "source": "https://www.festival-pyrotechnique-cannes.com/en/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "4 July-24 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "les-visites-surprises-de-menton-menton-2026-07-04-1h6x5ax",
+      "title": "Menton surprise guided visits",
+      "startDate": "2026-07-04",
+      "endDate": "2026-08-29",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/les-visites-surprises-de-menton-menton-fr-6587775/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-04-2026-08-29",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-energy-boat-challenge-2026",
+      "title": "Monaco Energy Boat Challenge",
+      "startDate": "2026-07-08",
+      "endDate": "2026-07-11",
+      "dateStatus": "confirmed",
+      "source": "https://monacoenergyboatchallenge.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "8-11 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "jazz-a-juan-2026",
+      "title": "Jazz a Juan (2026 edition)",
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-19",
+      "dateStatus": "confirmed",
+      "source": "https://www.antibesjuanlespins.com/en/must-see-must-do/going-out/diary-all-the-events/65e-jazz-a-juan-3469075",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "9-19 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nuits-du-sud-vence-2026",
+      "title": "Nuits du Sud",
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.nuitsdusud.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "9-18 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "meeting-herculis-ebs-2026",
+      "title": "Meeting Herculis EBS",
+      "startDate": "2026-07-10",
+      "endDate": "2026-07-10",
+      "dateStatus": "confirmed",
+      "source": "https://www.diamondleague.com/calendar/",
+      "coverage": "time_requires_review",
+      "publishedLabel": "10 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "e1-monaco-2026",
+      "title": "E1 Monaco (2026 edition)",
+      "startDate": "2026-07-17",
+      "endDate": "2026-07-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.e1series.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "17-18 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-red-cross-gala-2026",
+      "title": "Monaco Red Cross Gala (2026 edition)",
+      "startDate": "2026-07-18",
+      "endDate": "2026-07-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.montecarlosbm.com/en/agenda/monaco-red-cross-gala",
+      "coverage": "time_requires_review",
+      "publishedLabel": "18 July 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-classic-festival-nice-2026-07-21-1g5hamd",
+      "title": "Nice Classic Festival",
+      "startDate": "2026-07-21",
+      "endDate": "2026-08-09",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/en/event/nice-classic-festival/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-07-21-2026-08-09",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "menton-music-festival-2026",
+      "title": "Festival de Musique de Menton (2026 edition)",
+      "startDate": "2026-07-25",
+      "endDate": "2026-08-07",
+      "dateStatus": "confirmed",
+      "source": "https://www.festival-musique-menton.fr",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "25 July-7 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "miss-rainette-et-le-mystere-de-la-statue-menton-2026-08-01-8rs8fp",
+      "title": "Miss Rainette family garden mystery",
+      "startDate": "2026-08-01",
+      "endDate": "2026-09-30",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/miss-rainette-et-le-mystere-de-la-statue-menton-fr-6702200/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-08-01-2026-09-30",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "ruins-sanremo-2026-08-01-1eowh7",
+      "title": "Ruins",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-30",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810-2516064",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-08-01-2026-08-30",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "xii-festival-dei-boschi-sanremo-2026-08-01-1rjfqad",
+      "title": "XII Festival Dei Boschi",
+      "startDate": "2026-08-01",
+      "endDate": "2026-08-02",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-08-01-2026-08-02",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "pina-festival-2026-sanremo-2026-08-06-1ugqw8n",
+      "title": "Piña Festival 2026",
+      "startDate": "2026-08-06",
+      "endDate": "2026-08-09",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515258-2515803-2515806-2515807-2515810",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-08-06-2026-08-09",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "tour-de-france-femmes-nice-finish-2026",
+      "title": "Finish of the women's Tour de France in Nice",
+      "startDate": "2026-08-09",
+      "endDate": "2026-08-09",
+      "dateStatus": "confirmed",
+      "source": "https://www.letourfemmes.fr/en/stage-9",
+      "coverage": "time_requires_review",
+      "publishedLabel": "9 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "la-farandole-festival-international-de-folklore-de-nice-nice-2026-08-12-1w8g0e8",
+      "title": "La Farandole – Festival International de Folklore de Nice",
+      "startDate": "2026-08-12",
+      "endDate": "2026-08-16",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/en/event/la-farandole-festival-international-de-folklore-de-nice/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-08-12-2026-08-16",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-summer-symphony-tra-il-mare-e-le-stelle-sanremo-2026-08-13-yb8khn",
+      "title": "Sanremo Summer Symphony: Tra il mare e le stelle",
+      "startDate": "2026-08-13",
+      "endDate": "2026-08-13",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513",
+      "coverage": "time_requires_review",
+      "publishedLabel": "2026-08-13-2026-08-13",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-summer-symphony-paola-turci-sanremo-2026-08-18-10motb9",
+      "title": "Sanremo Summer Symphony: Paola Turci",
+      "startDate": "2026-08-18",
+      "endDate": "2026-08-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706506-706511-706513-706516",
+      "coverage": "time_requires_review",
+      "publishedLabel": "2026-08-18-2026-08-18",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "crossover-summer-saint-jean-cap-ferrat-2026",
+      "title": "Crossover Summer",
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "dateStatus": "confirmed",
+      "source": "https://www.instagram.com/festivalcrossover/",
+      "coverage": "time_requires_review",
+      "publishedLabel": "21 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-summer-symphony-break-free-sanremo-2026-08-21-1gqq1he",
+      "title": "Sanremo Summer Symphony: Break Free",
+      "startDate": "2026-08-21",
+      "endDate": "2026-08-21",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/eventi/93809/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514",
+      "coverage": "time_requires_review",
+      "publishedLabel": "2026-08-21-2026-08-21",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "la-vuelta-monaco-start-2026",
+      "title": "Grand Depart / start of La Vuelta in Monaco",
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-22",
+      "dateStatus": "confirmed",
+      "source": "https://www.lavuelta.es/en/news/2025/la-vuelta-26-will-start-with-an-individual-time-trial-in-monaco/51013",
+      "coverage": "time_requires_review",
+      "publishedLabel": "22 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "haute-route-alps-nice-2026",
+      "title": "Haute Route Alps",
+      "startDate": "2026-08-23",
+      "endDate": "2026-08-29",
+      "dateStatus": "confirmed",
+      "source": "https://hauteroute.fr/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "23-29 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "french-flyair-menton-2026",
+      "title": "French FlyAir",
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-30",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.co.uk/offers/french-flyair-menton-en-6627497/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "28-30 August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "art3f-monaco-2026",
+      "title": "ART3F Monaco",
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-13",
+      "dateStatus": "confirmed",
+      "source": "https://www.art3f.fr/en/monaco",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "11-13 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "ironman-703-world-championship-nice-2026",
+      "title": "IRONMAN 70.3 World Championship",
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-13",
+      "dateStatus": "confirmed",
+      "source": "https://www.ironman.com/races/im703-world-championship-2026",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "12-13 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": [
+          {
+            "name": "IRONMAN 70.3 World Championship",
+            "startDate": "2026-09-12T00:00:00+0000",
+            "endDate": "2026-09-13T00:00:00+0000",
+            "location": "IRONMAN 70.3 World Championship"
+          }
+        ]
+      },
+      "matchingDateCandidates": [
+        {
+          "name": "IRONMAN 70.3 World Championship",
+          "startDate": "2026-09-12T00:00:00+0000",
+          "endDate": "2026-09-13T00:00:00+0000",
+          "location": "IRONMAN 70.3 World Championship"
+        }
+      ]
+    },
+    {
+      "id": "european-heritage-days-riviera-2026",
+      "title": "European Heritage Days on the Riviera",
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-20",
+      "dateStatus": "confirmed",
+      "source": "https://journeesdupatrimoine.culture.gouv.fr/espace-organisateurs",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "19-20 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-yacht-show-2026",
+      "title": "Monaco Yacht Show",
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-26",
+      "dateStatus": "confirmed",
+      "source": "https://www.monacoyachtshow.com/en",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "23-26 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-cote-dazur-by-utmb-2026",
+      "title": "Nice Cote d'Azur by UTMB",
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-27",
+      "dateStatus": "confirmed",
+      "source": "https://nice.utmb.world/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "24-27 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "fete-de-la-saint-michel-menton-2026-09-26-19ark44",
+      "title": "Fête de la Saint-Michel in Menton",
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-27",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/fete-de-la-saint-michel-menton-fr-3051727/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-09-26-2026-09-27",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "challenge-sanremo-triathlon-sanremo-2026-10-02-v21sff",
+      "title": "Challenge Sanremo",
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/events/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515948",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-10-02-2026-10-04",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "festival-du-livre-mouans-sartoux-2026",
+      "title": "Mouans-Sartoux Book Festival",
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "dateStatus": "confirmed",
+      "source": "https://www.lefestivaldulivre.fr/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2-4 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "roc-d-azur-2026",
+      "title": "Roc d'Azur",
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-11",
+      "dateStatus": "confirmed",
+      "source": "https://www.rocazur.com/en/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "7-11 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "fiera-di-san-romolo-sanremo-2026-10-11-comune-sanremo",
+      "title": "Fiera di San Romolo",
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743",
+      "coverage": "time_requires_review",
+      "publishedLabel": "11 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "mipcom-cannes-2026",
+      "title": "MIPCOM Cannes",
+      "startDate": "2026-10-12",
+      "endDate": "2026-10-15",
+      "dateStatus": "confirmed",
+      "source": "https://www.mipcom.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "12-15 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-rally-2026",
+      "title": "Sanremo Rally and Historic Rally",
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-18",
+      "dateStatus": "confirmed",
+      "source": "https://rivieradeifiori.travel/en/event/rallye-storico-di-sanremo/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "15-18 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": [
+          {
+            "name": "Sanremo Historic Rally",
+            "startDate": "2026-10-16T00:00:00+02:00",
+            "endDate": "2026-10-17T23:59:59+02:00",
+            "location": "Sanremo"
+          }
+        ]
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "iii-festival-int-le-scacchi-citta-di-sanremo-sanremo-2026-10-16-6rn3zz",
+      "title": "Sanremo International Chess Festival",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-18",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/eventi/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515254-2515801-2515949",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-10-16-2026-10-18",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "igtm-cannes-2026",
+      "title": "IGTM Cannes",
+      "startDate": "2026-10-19",
+      "endDate": "2026-10-22",
+      "dateStatus": "confirmed",
+      "source": "https://www.igtmarket.com/en-gb.html",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "19-22 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "premio-tenco-sanremo-2026",
+      "title": "Premio Tenco / Festival Tenco",
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-24",
+      "dateStatus": "confirmed",
+      "source": "https://www.clubtenco.it/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "21-24 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "maredimoda-cannes-2026",
+      "title": "MarediModa Cannes",
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-29",
+      "dateStatus": "confirmed",
+      "source": "https://maredimoda.com/en/home-en/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "27-29 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "menton-fete-halloween-2026",
+      "title": "Menton fête Halloween",
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/menton-fete-halloween-menton-fr-6063164/",
+      "coverage": "structured_time",
+      "publishedLabel": "30 October 2026, 13:30-16:00",
+      "venue": "Jardins Bioves",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "halloween-beausoleil-2026",
+      "title": "Halloween in Beausoleil",
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/",
+      "coverage": "structured_time",
+      "publishedLabel": "31 October 2026, 14:00-22:00",
+      "venue": "Centre Culturel Prince Hereditaire Jacques",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "halloween-eze-2026",
+      "title": "Halloween in Eze",
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "dateStatus": "dates_pending",
+      "source": "https://ville-eze.fr/evenements/halloween-3/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "31 October 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "urban-downhill-sanremo-sanremo-2026-10-31-1vozy4i",
+      "title": "Urban Downhill Sanremo",
+      "startDate": "2026-10-31",
+      "endDate": "2026-11-01",
+      "dateStatus": "confirmed",
+      "source": "https://www.comune.sanremo.im.it/it/events/92475/forum-bandiera-arancione-705887-705980-706281-706311-706312-706314-706325-706340-706443-706446-706457-706476-706480-706493-706514-2514288-2514742-2514743-2514782-2514807-2515033-2515250-2515260-2515261-2515798-2515838-2515974",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "2026-10-31-2026-11-01",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "vivaldi-gloria-menton-2026-10-31",
+      "title": "Vivaldi Gloria",
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/vivaldi-gloria-menton-fr-6754351/",
+      "coverage": "structured_time",
+      "publishedLabel": "31 October 2026, 18:30",
+      "venue": "Eglise Anglicane St John",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "mapic-cannes-2026",
+      "title": "MAPIC Cannes",
+      "startDate": "2026-11-03",
+      "endDate": "2026-11-04",
+      "dateStatus": "confirmed",
+      "source": "https://www.mapic.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "3-4 November 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "jimmy-gnecco-ours-monaco-2026-11-05",
+      "title": "Jimmy Gnecco / OURS: Thursday Live Sessions",
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "dateStatus": "confirmed",
+      "source": "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-jimmy-gnecco-ours",
+      "coverage": "structured_time",
+      "publishedLabel": "5 November 2026, 18:30; live 20:30",
+      "venue": "Espace Indigo - Grimaldi Forum Monaco",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": [
+          {
+            "name": "THURSDAY LIVE SESSIONS - JIMMY GNECCO - OURS",
+            "startDate": "2026-11-05T18:30:00+01:00",
+            "location": "Grimaldi Forum Monaco"
+          }
+        ]
+      },
+      "matchingDateCandidates": [
+        {
+          "name": "THURSDAY LIVE SESSIONS - JIMMY GNECCO - OURS",
+          "startDate": "2026-11-05T18:30:00+01:00",
+          "location": "Grimaldi Forum Monaco"
+        }
+      ]
+    },
+    {
+      "id": "monaco-international-triathlon-2026",
+      "title": "Monaco International Triathlon",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-08",
+      "dateStatus": "dates_pending",
+      "source": "https://monaco-international-triathlon.com/programme-2/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "6-8 November 2026; race day 8 November",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "st-johns-jazz-menton-2026-11-06",
+      "title": "St Johns Jazz: Manu LePrince",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/",
+      "coverage": "structured_time",
+      "publishedLabel": "6 November 2026, 18:30",
+      "venue": "Eglise Anglicane St John",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "cest-pas-classique-riviera-2026",
+      "title": "C'est pas classique 2026",
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-22",
+      "dateStatus": "confirmed",
+      "source": "https://www.explorenicecotedazur.com/evenement/cest-pas-classique-2026/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "7-22 November 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-cannes-marathon-2026",
+      "title": "Alpes-Maritimes Nice-Cannes Marathon",
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "dateStatus": "confirmed",
+      "source": "https://www.marathon06.com/2026/dl/MAM2026_reglement-individuel.pdf",
+      "coverage": "structured_time",
+      "publishedLabel": "8 November 2026: wheelchair start 07:57; elite 08:00; mass start from 08:03",
+      "venue": "Promenade des Anglais - race start opposite Theatre de Verdure",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "note-damare-bordighera-2026-11-08",
+      "title": "Note d'aMare: final concert",
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "dateStatus": "confirmed",
+      "source": "https://www.visitbordighera.it/en/events/note-damare-final-concert",
+      "coverage": "time_requires_review",
+      "publishedLabel": "8 November 2026, 17:00",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "stand-up-monaco-2026-11-09",
+      "title": "Stand Up Monaco",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-09",
+      "dateStatus": "confirmed",
+      "source": "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026",
+      "coverage": "structured_sessions",
+      "publishedLabel": "9 November 2026, 19:00 and 21:00",
+      "venue": "Espace Indigo - Grimaldi Forum Monaco",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": [
+          {
+            "name": "STAND UP MONACO - 9 NOVEMBRE 2026",
+            "startDate": "2026-11-09T19:00:00+01:00",
+            "location": "Grimaldi Forum Monaco"
+          }
+        ]
+      },
+      "matchingDateCandidates": [
+        {
+          "name": "STAND UP MONACO - 9 NOVEMBRE 2026",
+          "startDate": "2026-11-09T19:00:00+01:00",
+          "location": "Grimaldi Forum Monaco"
+        }
+      ]
+    },
+    {
+      "id": "beaujolais-nouveau-celebration-2026",
+      "title": "Beaujolais Nouveau Celebration",
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "dateStatus": "confirmed",
+      "source": "https://tasteoffrancemag.com/drink/france-food-and-drink-festivals-2026-full-calendar-of-events-by-month/",
+      "coverage": "time_requires_review",
+      "publishedLabel": "19 November 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "en-finir-avec-la-peur-menton-2026",
+      "title": "En finir avec la peur at Lavoir Theatre",
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/lavoir-theatre-en-finir-avec-la-peur-menton-fr-6764778/",
+      "coverage": "structured_time",
+      "publishedLabel": "29 November 2026, 15:30-16:30",
+      "venue": "Le Lavoir Theatre",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "christmas-parade-beausoleil-2026",
+      "title": "Christmas parade in Beausoleil",
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/",
+      "coverage": "structured_time",
+      "publishedLabel": "4 December 2026, 18:00-19:15",
+      "venue": "Boulevard de la Republique",
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "rallye-automobile-monte-carlo-2027",
+      "title": "Rallye Automobile Monte-Carlo",
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-24",
+      "dateStatus": "confirmed",
+      "source": "https://acm.mc/en/epreuves/rallye-automobile-monte-carlo/event/itinerary/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "21-24 January 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monte-carlo-circus-festival-2027",
+      "title": "Festival International du Cirque de Monte-Carlo",
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-31",
+      "dateStatus": "confirmed",
+      "source": "https://www.montecarlofestival.mc/en/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "22-31 January 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "rallye-monte-carlo-historique-2027",
+      "title": "Rallye Monte-Carlo Historique",
+      "startDate": "2027-01-27",
+      "endDate": "2027-02-03",
+      "dateStatus": "confirmed",
+      "source": "https://acm.mc/en/epreuves/rallye-monte-carlo-historique/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "27 January-3 February 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-carnival-2027",
+      "title": "Nice Carnival",
+      "startDate": "2027-02-09",
+      "endDate": "2027-02-28",
+      "dateStatus": "confirmed",
+      "source": "https://www.nice.fr/le-carnaval-de-nice/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "9-28 February 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "menton-lemon-festival-2027",
+      "title": "Fete du Citron / Menton Lemon Festival",
+      "startDate": "2027-02-13",
+      "endDate": "2027-02-28",
+      "dateStatus": "confirmed",
+      "source": "https://www.fete-du-citron.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "13-28 February 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-run-2027",
+      "title": "Monaco Run",
+      "startDate": "2027-02-13",
+      "endDate": "2027-02-14",
+      "dateStatus": "confirmed",
+      "source": "https://www.monacorun.com/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "13-14 February 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-music-festival-2027",
+      "title": "Sanremo Music Festival",
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-20",
+      "dateStatus": "confirmed",
+      "source": "https://www.report.rai.it/programmi/sanremo/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "16-20 February 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "milano-sanremo-cycling-race-2027",
+      "title": "Milano-Sanremo cycling race",
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-20",
+      "dateStatus": "confirmed",
+      "source": "https://www.milanosanremo.it/en/",
+      "coverage": "time_requires_review",
+      "publishedLabel": "20 March 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "rolex-monte-carlo-masters-2027",
+      "title": "Rolex Monte-Carlo Masters",
+      "startDate": "2027-04-03",
+      "endDate": "2027-04-11",
+      "dateStatus": "confirmed",
+      "source": "https://montecarlotennismasters.com/en/dates-and-tickets-2027/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "3-11 April 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-e-prix-2027",
+      "title": "Monaco E-Prix",
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-02",
+      "dateStatus": "confirmed",
+      "source": "https://acm.mc/en/monaco-e-prix-looking-ahead-to-2031/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "1-2 May 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-grand-prix-2027",
+      "title": "Formula 1 Monaco Grand Prix",
+      "startDate": "2027-06-03",
+      "endDate": "2027-06-06",
+      "dateStatus": "confirmed",
+      "source": "https://acm.mc/en/epreuves/formula-1-grand-prix-de-monaco/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "3-6 June 2027; subject to FIA approval",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "fete-nationale-riviera-2027",
+      "title": "Fête nationale / Bastille Day on the Riviera",
+      "startDate": "2027-07-14",
+      "endDate": "2027-07-14",
+      "dateStatus": "confirmed",
+      "source": "https://www.menton.fr/Actualites-Menton.html",
+      "coverage": "time_requires_review",
+      "publishedLabel": "14 July 2027; local programmes to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "assumption-day-riviera-2027",
+      "title": "Assumption Day / 15 August on the Riviera",
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "dateStatus": "confirmed",
+      "source": "https://www.service-public.fr/particuliers/actualites/A15406?lang=fr",
+      "coverage": "time_requires_review",
+      "publishedLabel": "15 August 2027; local programmes to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-yacht-show-2027",
+      "title": "Monaco Yacht Show",
+      "startDate": "2027-09-22",
+      "endDate": "2027-09-25",
+      "dateStatus": "confirmed",
+      "source": "https://www.monacoyachtshow.com/en/organise-your-stay",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "22-25 September 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-national-day-2027",
+      "title": "Monaco National Day",
+      "startDate": "2027-11-19",
+      "endDate": "2027-11-19",
+      "dateStatus": "confirmed",
+      "source": "https://www.visitmonaco.com/en",
+      "coverage": "time_requires_review",
+      "publishedLabel": "19 November 2027; ceremony programme to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "amusement-park-monaco-2026",
+      "title": "Monaco Attractions Fair",
+      "dateStatus": "dates_pending",
+      "source": "https://www.mairie.mc/agenda",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "October-November 2026; official dates to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "choir-festival-biot-2026",
+      "title": "Choir Festival in Biot",
+      "dateStatus": "dates_pending",
+      "source": "https://www.biot-tourisme.com/en/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "October 2026; official dates to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "christmas-markets-riviera-2026",
+      "title": "Christmas markets in Menton, Monaco and Nice",
+      "dateStatus": "dates_pending",
+      "source": "https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Late November 2026-January 2027; local dates vary",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "e1-monaco-2027",
+      "title": "E1 Monaco",
+      "dateStatus": "dates_pending",
+      "source": "https://www.e1series.com/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "July 2027; official dates pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "immersive-exhibitions-nice-2026",
+      "title": "Ongoing exhibitions in Nice",
+      "dateStatus": "dates_pending",
+      "source": "https://www.explorenicecotedazur.com/en/events/major-events/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Seasonal / dates to verify",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "january-sales-riviera-2027",
+      "title": "January sales on the Riviera",
+      "dateStatus": "dates_pending",
+      "source": "https://www.service-public.fr/particuliers/actualites/A15406?lang=fr",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "January 2027; official sale period pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "jazz-a-juan-2027",
+      "title": "Jazz a Juan",
+      "dateStatus": "dates_pending",
+      "source": "https://www.antibesjuanlespins.com/en/must-see-must-do/going-out/diary-all-the-events/65e-jazz-a-juan-3469075",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "July 2027; official dates pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "local-menton-winter-events-2026-2027",
+      "title": "Local winter events in Menton and nearby villages",
+      "dateStatus": "dates_pending",
+      "source": "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Winter calendar coming soon",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "major-sports-weekends-nice-autumn-2026",
+      "title": "Major sports weekends in Nice",
+      "dateStatus": "dates_pending",
+      "source": "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Autumn 2026; dates to verify",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "matisse-yves-saint-laurent-autumn-2026",
+      "title": "Henri Matisse - Yves Saint Laurent, final weeks",
+      "endDate": "2026-09-28",
+      "dateStatus": "confirmed",
+      "source": "https://www.musee-matisse-nice.org/fr/exposition/henri-matisse-yves-saint-laurent-le-beau-la-mode-et-le-bonheur/",
+      "coverage": "date_range_requires_programme",
+      "publishedLabel": "Until 28 September 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "menton-music-festival-2027",
+      "title": "Festival de Musique de Menton",
+      "dateStatus": "dates_pending",
+      "source": "https://www.festival-musique-menton.fr",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Late July-early August 2027; official dates pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monaco-red-cross-gala-2027",
+      "title": "Monaco Red Cross Gala",
+      "dateStatus": "dates_pending",
+      "source": "https://www.montecarlosbm.com/en/agenda/monaco-red-cross-gala",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "July 2027; official date pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monte-carlo-jazz-festival-2026",
+      "title": "Monte-Carlo Jazz Festival",
+      "dateStatus": "dates_pending",
+      "source": "https://www.montecarlosbm.com/en/shows-monaco/monte-carlo-jazz-festival",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Late November-early December 2026; official dates to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "monte-carlo-television-festival-2027",
+      "title": "Monte-Carlo Television Festival",
+      "dateStatus": "dates_pending",
+      "source": "https://www.tvfestival.com/en",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "June 2027; official dates pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "new-year-riviera-2026-2027",
+      "title": "New Year's Eve on the Riviera",
+      "dateStatus": "dates_pending",
+      "source": "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "31 December 2026-1 January 2027; programmes pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-half-marathon-2027",
+      "title": "Nice International Half Marathon",
+      "dateStatus": "dates_pending",
+      "source": "https://www.nicesemimarathon.com/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "April 2027; official race date to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "nice-jazz-fest-2027",
+      "title": "Nice Jazz Fest",
+      "dateStatus": "dates_pending",
+      "source": "https://www.nicejazzfestival.fr",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "July 2027; official dates to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "access_failed",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "printemps-des-arts-monte-carlo-2027",
+      "title": "Printemps des Arts de Monte-Carlo",
+      "dateStatus": "dates_pending",
+      "source": "https://www.printempsdesarts.mc/en/home/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "March-April 2027; programme pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "rock-in-the-casbah-sanremo-2026",
+      "title": "Rock in the Casbah",
+      "dateStatus": "estimated_annual_window",
+      "source": "https://www.comune.sanremo.im.it/it",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Late July 2026; dates to verify",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "saint-pierre-menton-2027",
+      "title": "Fete de la Saint-Pierre",
+      "dateStatus": "dates_pending",
+      "source": "https://www.menton-riviera-merveilles.co.uk/offers/saint-peters-day-menton-en-5000504/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Early July 2027; official dates pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "http_404",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-in-fiore-2027",
+      "title": "Sanremo in Fiore / Corso Fiorito",
+      "dateStatus": "dates_pending",
+      "source": "https://www.sanremoinfiore.it/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "Spring 2027; official date pending",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "sanremo-rock-trend-festival-2026",
+      "title": "Sanremo Rock & Trend Festival",
+      "dateStatus": "estimated_annual_window",
+      "source": "https://sanremorock.it/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "September 2026; dates to verify",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "summer-on-the-riviera",
+      "title": "Summer on the Riviera",
+      "dateStatus": "estimated_annual_window",
+      "source": "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "July-August 2026",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "top-marques-monaco-2027",
+      "title": "Top Marques Monaco",
+      "dateStatus": "dates_pending",
+      "source": "https://www.topmarquesmonaco.com/en/tickets/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "May 2027; official organiser dates to confirm",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    },
+    {
+      "id": "winter-on-the-riviera-2026-2027",
+      "title": "Winter on the Riviera",
+      "dateStatus": "estimated_annual_window",
+      "source": "https://www.menton-riviera-merveilles.fr/sorganiser/agenda/",
+      "coverage": "dates_unconfirmed",
+      "publishedLabel": "December 2026-January 2027",
+      "venue": null,
+      "sourceProbe": {
+        "state": "retrieved",
+        "candidates": []
+      },
+      "matchingDateCandidates": []
+    }
+  ]
+}

@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { Route } from "next";
 import { Suspense } from "react";
 import { EventsCalendar } from "@/components/events/EventsCalendar";
+import { EditorialForm } from "@/components/events/EditorialForm";
+import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
 import { EventImage } from "@/components/events/EventImage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
@@ -349,6 +351,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
               locale={safeLocale}
             />
           </Suspense>
+          <EditorialForm locale={safeLocale}><TurnstileWidget /></EditorialForm>
         </Container>
       </section>
 

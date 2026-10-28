@@ -53,7 +53,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
             <p className="text-[0.66rem] font-bold uppercase tracking-[0.18em] text-[#b49353]">{visualLabel}</p>
             <h3 className="mt-2 break-words serif-heading text-xl leading-tight text-[#173f36]">{place.name}</h3>
           </div>
-          <div className="flex shrink-0 gap-2">
+          <div className="absolute right-2 top-2 z-10 flex shrink-0 gap-2">
             {sharePath ? <ShareActions locale={locale} title={place.name} url={`${siteConfig.url}${sharePath}`} compact /> : null}
             <FavouriteButton locale={locale} item={{ type: "place", id: place.id }} />
           </div>

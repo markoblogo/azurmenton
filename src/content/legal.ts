@@ -189,6 +189,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Le formulaire de demande de reservation peut collecter: nom, email, telephone ou WhatsApp, langue preferee, appartement demande, dates d'arrivee et de depart, nombre de voyageurs, demande de parking et message libre.",
             "Aucune donnee de paiement n'est collectee par le site actuellement.",
+            "Le formulaire editorial recueille nom, email, message et informations proposees sur un evenement ou une correction, avec votre accord, pour examen manuel et reponse. Il est transmis a l'equipe par Resend, sans publication automatique ni copie Telegram, et conserve seulement le temps necessaire au traitement. Les memes droits d'acces et d'effacement s'appliquent.",
           ],
         },
         {
@@ -234,6 +235,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           title: "Data, purpose and legal basis",
           body: [
             "The booking request form may collect name, email, phone/WhatsApp, preferred language, requested apartment, check-in/check-out dates, guest numbers, parking request and message.",
+            "With your consent, the editorial form collects your name, email, message and suggested event/correction details for manual review and response. It is emailed to the team via Resend, not published automatically or copied to Telegram, and retained only as needed to handle the submission. The same access and deletion rights apply.",
             "This data is used to respond to booking requests, manage pre-contractual communication, manage confirmed reservations where applicable and provide customer support.",
             "Azur Menton may also read aggregated external calendar intervals from connected booking-platform iCal exports in read-only mode to display potential stay windows. These intervals are used only for availability guidance and do not include guest names, booking notes or other personal booking content.",
             "Legal bases may include pre-contractual steps requested by the user, contract where applicable, legitimate interest for operational communication and consent where required.",
@@ -260,6 +262,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Il titolare del trattamento e SCI Petra et Paul, societe civile immobiliere registrata 983 423 898 R.C.S. Nice, sede legale: 13 Avenue Porte de France, 06500 Menton, Francia.",
             "Il modulo puo raccogliere nome, email, telefono/WhatsApp, lingua, appartamento, date, numero ospiti, richiesta parcheggio e messaggio.",
+            "Con il consenso, il modulo editoriale raccoglie nome, email, messaggio e dettagli dell'evento o della correzione per revisione manuale e risposta. Viene inviato al team tramite Resend, senza pubblicazione automatica o copia Telegram, e conservato solo per il tempo necessario. Si applicano gli stessi diritti di accesso e cancellazione.",
             "I dati servono per rispondere alla richiesta, gestire comunicazioni precontrattuali, eventuali prenotazioni confermate e supporto.",
             "Azur Menton puo anche leggere in sola lettura intervalli aggregati di calendario provenienti da export iCal di piattaforme di prenotazione per mostrare finestre di soggiorno potenziali. Questi intervalli servono solo come guida alla disponibilita e non includono nomi degli ospiti, note di prenotazione o altri dati personali di prenotazione.",
           ],
@@ -286,6 +289,7 @@ export const legalPages: Record<LegalPageKey, Record<Locale, LegalPageContent>> 
           body: [
             "Контролер даних: SCI Petra et Paul, societe civile immobiliere, зареєстрована як 983 423 898 R.C.S. Nice, юридична адреса: 13 Avenue Porte de France, 06500 Menton, France.",
             "Форма може збирати ім'я, email, телефон/WhatsApp, бажану мову, апартаменти, дати, кількість гостей, запит щодо паркування та повідомлення.",
+            "За вашою згодою редакційна форма збирає ім'я, email, повідомлення й відомості про запропоновану подію або виправлення для ручної перевірки та відповіді. Дані надсилаються команді через Resend, без автоматичної публікації та копії в Telegram, і зберігаються лише протягом необхідного для опрацювання часу. Діють ті самі права доступу та видалення.",
             "Дані використовуються для відповіді на запити бронювання, переддоговірної комунікації, підтверджених бронювань, якщо застосовно, та підтримки гостей.",
             "Azur Menton також може в режимі лише читання зчитувати агреговані календарні інтервали з підключених iCal-експортів booking-платформ, щоб показувати потенційні вікна проживання. Такі інтервали використовуються тільки для орієнтовної доступності й не містять імен гостей, нотаток бронювання чи інших персональних даних бронювання.",
           ],

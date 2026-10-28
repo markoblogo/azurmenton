@@ -42,6 +42,8 @@ Product and claim boundaries live in:
 - [docs/product-context.md](docs/product-context.md)
 - [docs/ROADMAP.md](docs/ROADMAP.md)
 - [docs/events-publication-workflow.md](docs/events-publication-workflow.md)
+- [docs/EVENT_CALENDAR.md](docs/EVENT_CALENDAR.md): confirmed-event calendar exports, verified time/venue fields and date-only safeguards.
+- [docs/EVENT_DISCOVERY_AND_INTAKE.md](docs/EVENT_DISCOVERY_AND_INTAKE.md): month view, manually moderated suggestions/corrections and full event-time coverage report.
 
 ## Current operating phase
 

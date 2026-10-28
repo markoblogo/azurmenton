@@ -295,3 +295,17 @@ label:has(.field:user-invalid) {
     animation: none;
   }
 }
+
+.events-month { --fc-border-color: #dfd4c1; --fc-button-bg-color: #173f36; --fc-button-border-color: #173f36; --fc-event-bg-color: #0b6f8f; --fc-event-border-color: #0b6f8f; --fc-today-bg-color: #e8f2ed; }
+.events-month .fc-toolbar-title { font-size: 1.2rem; }
+.events-month .fc-daygrid-event { white-space: normal; font-size: 0.8rem; }
+.events-month .fc-event-title { overflow-wrap: anywhere; }
+.events-month .fc-button { min-height: 44px; }
+.events-month .fc-scrollgrid { min-width: 0; }
+@media (max-width: 600px) {
+  .events-month .fc-header-toolbar { flex-wrap: wrap; gap: 10px; }
+  .events-month .fc-toolbar-title { font-size: 1rem; }
+  .events-month .fc-col-header-cell-cushion { padding: 3px 0; font-size: 0.7rem; }
+  .events-month .fc-daygrid-event { font-size: 0.65rem; line-height: 1.3; margin-inline: 1px; }
+  .events-month .fc-event-title { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+}

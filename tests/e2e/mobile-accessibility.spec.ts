@@ -5,7 +5,7 @@ for (const width of [320, 390]) test(`mobile language links remain accessible at
   await page.goto("/en/check-availability");
   const links = page.locator('header a[hreflang]');
   await expect(links).toHaveCount(4);
-  const search = page.getByRole("navigation", { name: "Mobile primary" }).getByRole("link", { name: "Search" });
+  const search = page.getByRole("navigation", { name: "Primary", exact: true }).getByRole("link", { name: "Search" });
   await expect(search).toBeVisible();
   const searchBox = await search.boundingBox();
   expect(searchBox && searchBox.x >= 0 && searchBox.x + searchBox.width <= width).toBe(true);

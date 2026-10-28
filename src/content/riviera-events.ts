@@ -55,6 +55,16 @@ export type RivieraEvent = {
   dateLabelLocalized?: LocalizedText;
   startDate?: string;
   endDate?: string;
+  /** Verified occurrence-specific wall times; never copy these to next year's occurrence. */
+  schedule?: {
+    timeZone: "Europe/Paris";
+    startTime: string;
+    endTime?: string;
+    sourceUrl: string;
+    lastVerifiedAt: string;
+  };
+  venue?: { name: string; address?: string; placeId?: string; sourceUrl: string };
+  sessions?: Array<NonNullable<RivieraEvent["schedule"]> & { id: string; date: string; endDate?: string }>;
   expectedSeason?: string;
   typicalDateWindow?: LocalizedText;
   theme?: LocalizedText;
@@ -760,6 +770,8 @@ const eventIllustrations: Record<string, NonNullable<RivieraEvent["media"]>> = {
 const rivieraEventsBase: RivieraEvent[] = [
   {
     id: "vivaldi-gloria-menton-2026-10-31", slug: "vivaldi-gloria-menton-2026-10-31", title: "Vivaldi Gloria", location: "Menton", city: "Menton", monthGroup: "2026-10",
+    schedule: { timeZone: "Europe/Paris", startTime: "18:30", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/vivaldi-gloria-menton-fr-6754351/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Eglise Anglicane St John", address: "31 avenue Carnot, 06500 Menton", placeId: "st-john-anglican-church-menton", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/vivaldi-gloria-menton-fr-6754351/" },
     dateLabel: "31 October 2026, 18:30", dateLabelLocalized: t("31 October 2026, 18:30", "31 octobre 2026, 18h30", "31 ottobre 2026, 18:30", "31 жовтня 2026, 18:30"), startDate: "2026-10-31", endDate: "2026-10-31", dateStatus: "confirmed", recurrence: "one_off",
     category: ["music"], familySuitability: "depends", audience: ["music lovers"],
     shortDescription: t("The Ensemble Gabriel Faure performs Vivaldi's Gloria and other choral works at St John's Anglican Church. Tickets: EUR 20.", "L'Ensemble Gabriel Faure interprete le Gloria de Vivaldi et d'autres oeuvres chorales a l'eglise anglicane St John. Billet : 20 EUR.", "L'Ensemble Gabriel Faure esegue il Gloria di Vivaldi e altre opere corali nella chiesa anglicana St John. Biglietto: 20 EUR.", "Ансамбль Gabriel Faure виконує Gloria Вівальді та інші хорові твори в англіканській церкві St John. Квиток: 20 євро."),
@@ -769,6 +781,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "jimmy-gnecco-ours-monaco-2026-11-05", slug: "jimmy-gnecco-ours-monaco-2026-11-05", title: "Jimmy Gnecco / OURS: Thursday Live Sessions", location: "Monaco", city: "Monaco", monthGroup: "2026-11",
+    schedule: { timeZone: "Europe/Paris", startTime: "18:30", sourceUrl: "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-jimmy-gnecco-ours", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Espace Indigo - Grimaldi Forum Monaco", address: "10 avenue Princesse Grace, 98000 Monaco", placeId: "grimaldi-forum-monaco", sourceUrl: "https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-jimmy-gnecco-ours" },
     dateLabel: "5 November 2026, 18:30; live 20:30", dateLabelLocalized: t("5 November 2026, 18:30; live 20:30", "5 novembre 2026, 18h30 ; concert 20h30", "5 novembre 2026, 18:30; concerto 20:30", "5 листопада 2026, 18:30; концерт о 20:30"), startDate: "2026-11-05", endDate: "2026-11-05", dateStatus: "confirmed", recurrence: "one_off",
     category: ["music"], familySuitability: "depends", audience: ["music lovers", "evening visitors"],
     shortDescription: t("A live rock evening at Espace Indigo, Grimaldi Forum. Free entry; table reservation required.", "Une soiree rock live a l'Espace Indigo, Grimaldi Forum. Entree gratuite ; reservation de table obligatoire.", "Una serata rock dal vivo all'Espace Indigo, Grimaldi Forum. Ingresso gratuito; prenotazione del tavolo obbligatoria.", "Вечір живої рок-музики в Espace Indigo, Grimaldi Forum. Вхід безкоштовний; бронювання столика обов'язкове."),
@@ -787,6 +801,12 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "stand-up-monaco-2026-11-09", slug: "stand-up-monaco-2026-11-09", title: "Stand Up Monaco", location: "Monaco", city: "Monaco", monthGroup: "2026-11",
+    sessions: [
+      { id: "1900", date: "2026-11-09", startTime: "19:00", timeZone: "Europe/Paris", sourceUrl: "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026", lastVerifiedAt: "2026-10-28" },
+      { id: "2100", date: "2026-11-09", startTime: "21:00", timeZone: "Europe/Paris", sourceUrl: "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026", lastVerifiedAt: "2026-10-28" },
+    ],
+    venue: { name: "Espace Indigo - Grimaldi Forum Monaco", address: "10 avenue Princesse Grace, 98000 Monaco", placeId: "grimaldi-forum-monaco", sourceUrl: "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026" },
+    programmeUrl: "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026",
     dateLabel: "9 November 2026, 19:00 and 21:00", dateLabelLocalized: t("9 November 2026, 19:00 and 21:00", "9 novembre 2026, 19h et 21h", "9 novembre 2026, 19:00 e 21:00", "9 листопада 2026, 19:00 та 21:00"), startDate: "2026-11-09", endDate: "2026-11-09", dateStatus: "confirmed", recurrence: "one_off",
     category: ["theatre"], familySuitability: "depends", audience: ["comedy", "evening visitors"],
     shortDescription: t("Two comedy shows at Espace Indigo, Grimaldi Forum. The advertised ticket price is EUR 35.", "Deux spectacles d'humour a l'Espace Indigo, Grimaldi Forum. Tarif annonce : 35 EUR.", "Due spettacoli comici all'Espace Indigo, Grimaldi Forum. Prezzo indicato: 35 EUR.", "Два стендап-виступи в Espace Indigo, Grimaldi Forum. Заявлена ціна квитка: 35 євро."),
@@ -796,6 +816,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "menton-fete-halloween-2026", slug: "menton-fete-halloween-2026",
+    schedule: { timeZone: "Europe/Paris", startTime: "13:30", endTime: "16:00", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/menton-fete-halloween-menton-fr-6063164/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Jardins Bioves", address: "06500 Menton", placeId: "jardins-bioves", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/menton-fete-halloween-menton-fr-6063164/" },
     title: "Menton fête Halloween", titleLocalized: t("Menton celebrates Halloween", "Menton fete Halloween", "Halloween a Mentone", "Halloween у Ментоні"), location: "Menton", city: "Menton", monthGroup: "2026-10",
     dateLabel: "30 October 2026, 13:30-16:00", startDate: "2026-10-30", endDate: "2026-10-30", dateStatus: "confirmed", recurrence: "one_off",
     dateLabelLocalized: t("30 October 2026, 13:30-16:00", "30 octobre 2026, 13h30-16h", "30 ottobre 2026, 13:30-16:00", "30 жовтня 2026, 13:30-16:00"),
@@ -808,6 +830,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "st-johns-jazz-menton-2026-11-06", slug: "st-johns-jazz-menton-2026-11-06",
+    schedule: { timeZone: "Europe/Paris", startTime: "18:30", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Eglise Anglicane St John", address: "31 avenue Carnot, 06500 Menton", placeId: "st-john-anglican-church-menton", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/st-johns-jazz-menton-fr-6856620/" },
     title: "St Johns Jazz: Manu LePrince", titleLocalized: t("St Johns Jazz: Manu LePrince", "St Johns Jazz : Manu LePrince", "St Johns Jazz: Manu LePrince", "St Johns Jazz: Manu LePrince"), location: "Menton", city: "Menton", monthGroup: "2026-11",
     dateLabel: "6 November 2026, 18:30", startDate: "2026-11-06", endDate: "2026-11-06", dateStatus: "confirmed", recurrence: "one_off",
     dateLabelLocalized: t("6 November 2026, 18:30", "6 novembre 2026, 18h30", "6 novembre 2026, 18:30", "6 листопада 2026, 18:30"),
@@ -834,6 +858,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "halloween-beausoleil-2026", slug: "halloween-beausoleil-2026",
+    schedule: { timeZone: "Europe/Paris", startTime: "14:00", endTime: "22:00", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Centre Culturel Prince Hereditaire Jacques", address: "6/8 avenue du General de Gaulle, 06240 Beausoleil", placeId: "centre-culturel-prince-hereditaire-jacques-beausoleil", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/" },
     title: "Halloween in Beausoleil", titleLocalized: t("Halloween in Beausoleil", "Halloween a Beausoleil", "Halloween a Beausoleil", "Halloween у Босолеї"), location: "French Riviera", city: "Beausoleil", monthGroup: "2026-10", distanceFromMentonKm: 11,
     dateLabel: "31 October 2026, 14:00-22:00", startDate: "2026-10-31", endDate: "2026-10-31", dateStatus: "confirmed", recurrence: "one_off",
     dateLabelLocalized: t("31 October 2026, 14:00-22:00", "31 octobre 2026, 14h-22h", "31 ottobre 2026, 14:00-22:00", "31 жовтня 2026, 14:00-22:00"),
@@ -846,6 +872,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "christmas-parade-beausoleil-2026", slug: "christmas-parade-beausoleil-2026",
+    schedule: { timeZone: "Europe/Paris", startTime: "18:00", endTime: "19:15", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Boulevard de la Republique", address: "06240 Beausoleil", placeId: "boulevard-de-la-republique-beausoleil", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/parade-de-noel-beausoleil-fr-6851950/" },
     title: "Christmas parade in Beausoleil", titleLocalized: t("Christmas parade in Beausoleil", "Parade de Noel a Beausoleil", "Parata di Natale a Beausoleil", "Різдвяний парад у Босолеї"), location: "French Riviera", city: "Beausoleil", monthGroup: "2026-12", distanceFromMentonKm: 11,
     dateLabel: "4 December 2026, 18:00-19:15", startDate: "2026-12-04", endDate: "2026-12-04", dateStatus: "confirmed", recurrence: "one_off",
     dateLabelLocalized: t("4 December 2026, 18:00-19:15", "4 decembre 2026, 18h-19h15", "4 dicembre 2026, 18:00-19:15", "4 грудня 2026, 18:00-19:15"),
@@ -858,6 +886,8 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "en-finir-avec-la-peur-menton-2026", slug: "en-finir-avec-la-peur-menton-2026",
+    schedule: { timeZone: "Europe/Paris", startTime: "15:30", endTime: "16:30", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/lavoir-theatre-en-finir-avec-la-peur-menton-fr-6764778/", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Le Lavoir Theatre", address: "63 boulevard du Fossan, 06500 Menton", placeId: "le-lavoir-theatre-menton", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/lavoir-theatre-en-finir-avec-la-peur-menton-fr-6764778/" },
     title: "En finir avec la peur at Lavoir Theatre", titleLocalized: t("En finir avec la peur at Lavoir Theatre", "En finir avec la peur au Lavoir Theatre", "En finir avec la peur al Lavoir Theatre", "En finir avec la peur у театрі Lavoir"), location: "Menton", city: "Menton", monthGroup: "2026-11",
     dateLabel: "29 November 2026, 15:30-16:30", startDate: "2026-11-29", endDate: "2026-11-29", dateStatus: "confirmed", recurrence: "one_off",
     dateLabelLocalized: t("29 November 2026, 15:30-16:30", "29 novembre 2026, 15h30-16h30", "29 novembre 2026, 15:30-16:30", "29 листопада 2026, 15:30-16:30"),
@@ -1886,11 +1916,15 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "nice-cannes-marathon-2026",
+    schedule: { timeZone: "Europe/Paris", startTime: "07:57", sourceUrl: "https://www.marathon06.com/2026/dl/MAM2026_reglement-individuel.pdf", lastVerifiedAt: "2026-10-28" },
+    venue: { name: "Promenade des Anglais - race start opposite Theatre de Verdure", address: "Nice", sourceUrl: "https://www.marathon06.com/2026/dl/MAM2026_reglement-individuel.pdf" },
+    programmeUrl: "https://www.marathon06.com/2026/dl/MAM2026_reglement-individuel.pdf",
     slug: "nice-cannes-marathon",
     title: "Alpes-Maritimes Nice-Cannes Marathon",
     location: "Nice",
     monthGroup: "2026-11",
-    dateLabel: "8 November 2026",
+    dateLabel: "8 November 2026: wheelchair start 07:57; elite 08:00; mass start from 08:03",
+    dateLabelLocalized: t("8 November 2026: wheelchair start 07:57; elite 08:00; mass start from 08:03", "8 novembre 2026 : handisport 7h57 ; elites 8h ; peloton a partir de 8h03", "8 novembre 2026: partenza handisport 07:57; elite 08:00; gruppo dalle 08:03", "8 листопада 2026: старт учасників на кріслах колісних о 07:57; еліти о 08:00; основної групи з 08:03"),
     startDate: "2026-11-08",
     endDate: "2026-11-08",
     category: ["sport"],

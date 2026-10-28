@@ -10,6 +10,8 @@ import { ShareActions } from "@/components/content/ShareActions";
 import { FavouriteButton } from "@/components/content/FavouriteButton";
 import { placeAnchorId } from "@/lib/search-place-targets";
 import { EventImage } from "@/components/events/EventImage";
+import { AddToCalendar } from "@/components/events/AddToCalendar";
+import { getCalendarData } from "@/lib/event-calendar";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
@@ -283,6 +285,7 @@ export default async function EventArticlePage({ params }: PageProps) {
   const description = occurrence?.summary[locale] ?? event.shortDescription[locale];
   const dateLabel = occurrence?.dateNote[locale] ?? getEventDateLabel(event, locale);
   const pageUrl = absoluteUrl(localizedPath(locale, `events/${slug}`));
+  const calendarData = getCalendarData(event, locale);
   const eventStatus = getEventDateStatus(event);
   const occurrenceGuide = occurrence?.relatedGuideSlug ? [occurrence.relatedGuideSlug] : [];
   const relatedGuides = [...new Set([...occurrenceGuide, ...(event.relatedGuideSlugs ?? ["menton-without-a-car", "public-transport-in-menton"])])]
@@ -351,9 +354,11 @@ export default async function EventArticlePage({ params }: PageProps) {
             name: title,
             description,
             url: pageUrl,
-            startDate: event.startDate!,
-            endDate: event.endDate,
-            locationName: event.city ?? event.location,
+            startDate: calendarData?.timed ? calendarData.start.toISO()! : event.startDate!,
+            endDate: calendarData?.timed ? calendarData.end?.toISO() ?? undefined : event.endDate,
+            locationName: event.venue?.name ?? event.city ?? event.location,
+            locationCity: event.city ?? event.location,
+            locationAddress: event.venue?.address,
             image: event.media?.image ? absoluteUrl(event.media.image) : undefined,
             eventStatus: eventStatus === "past" ? "completed" : "scheduled",
             organizerUrl: event.programmeUrl ?? event.sourceUrl,
@@ -418,7 +423,8 @@ export default async function EventArticlePage({ params }: PageProps) {
                 <p className="mt-3 text-xs leading-5 text-[#6b5f50]">{event.media.imageCaption[locale]}</p>
               ) : null}
               <div className="mt-4">
-                <div className="flex items-start gap-3"><ShareActions locale={locale} title={title} url={pageUrl} /><FavouriteButton locale={locale} item={{ type: "event", id: event.occurrenceSlug ?? event.slug }} /></div>
+                <ShareActions locale={locale} title={title} url={pageUrl}><FavouriteButton locale={locale} item={{ type: "event", id: event.occurrenceSlug ?? event.slug }} /></ShareActions>
+                <AddToCalendar event={event} locale={locale} />
               </div>
             </div>
           </div>

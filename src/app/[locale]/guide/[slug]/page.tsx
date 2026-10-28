@@ -329,7 +329,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   <Link className="inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={`/${locale}/apartments` as Route}>{copy.apartments}</Link>
                 </div>
                 <div className="mt-4">
-                  <div className="flex items-start gap-3"><ShareActions locale={locale} title={localized.title} url={pageUrl} /><FavouriteButton locale={locale} item={{ type: "guide", id: article.slug }} /></div>
+                  <ShareActions locale={locale} title={localized.title} url={pageUrl}><FavouriteButton locale={locale} item={{ type: "guide", id: article.slug }} /></ShareActions>
                 </div>
               </div>
               {authorityProfile ? <GuideAuthorityPanel profile={authorityProfile} locale={locale} labels={{ author: copy.authorityAuthor, checked: copy.authorityChecked, sources: copy.authoritySources }} /> : null}

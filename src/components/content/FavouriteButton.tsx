@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Heart } from "lucide-react";
 import type { Locale } from "@/i18n/locales";
 import { bookingFunnelEvents, trackBookingFunnelEvent } from "@/lib/analytics";
 import { FAVOURITES_CHANGED, FAVOURITES_KEY, readFavourites, setFavourite, type Favourite } from "@/lib/favourites";
@@ -41,5 +42,5 @@ export function FavouriteButton({ item, locale }: { item: Favourite; locale: Loc
   }
 
   const label = selected ? labels[locale].remove : labels[locale].add;
-  return <span className="inline-flex flex-col items-end gap-1"><button type="button" disabled={!ready} onClick={toggle} aria-label={label} aria-pressed={selected} title={label} data-content-type={item.type} data-content-id={item.id} className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[#c6a66a] bg-[#fffdf8] text-2xl leading-none text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]">{selected ? "♥" : "♡"}</button>{error ? <span role="status" className="max-w-44 text-xs text-red-800">{labels[locale].error}</span> : null}</span>;
+  return <span className="inline-flex flex-col items-end gap-1"><button type="button" disabled={!ready} onClick={toggle} aria-label={label} aria-pressed={selected} title={label} data-content-type={item.type} data-content-id={item.id} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fffdf8]/95 text-[#173f36] shadow-sm ring-1 ring-[#173f36]/10 hover:bg-[#e7f1ed] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]"><Heart aria-hidden size={20} strokeWidth={1.7} fill={selected ? "currentColor" : "none"} /></button>{error ? <span role="status" className="max-w-44 text-xs text-red-800">{labels[locale].error}</span> : null}</span>;
 }

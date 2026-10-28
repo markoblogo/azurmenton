@@ -87,6 +87,7 @@ export function Footer({ locale }: { locale: Locale }) {
               {labels[key]}
             </Link>
           ))}
+          <Link href={`/${locale}/events#suggest-event` as Route} className="hover:text-white">{{ en: "Suggest an event / report an error", fr: "Proposer un événement / signaler une erreur", it: "Proponi un evento / segnala un errore", uk: "Запропонувати подію / повідомити про помилку" }[locale]}</Link>
         </nav>
         <div className="self-start text-sm leading-6 text-white/70">
           <p className="editorial-label">{copy.directContact}</p>

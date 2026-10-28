@@ -270,6 +270,8 @@ export function eventJsonLd(input: {
   startDate: string;
   endDate?: string;
   locationName: string;
+  locationCity?: string;
+  locationAddress?: string;
   image?: string;
   eventStatus?: "scheduled" | "completed";
   organizerUrl?: string;
@@ -293,7 +295,8 @@ export function eventJsonLd(input: {
       name: input.locationName,
       address: {
         "@type": "PostalAddress",
-        addressLocality: input.locationName,
+        addressLocality: input.locationCity ?? input.locationName,
+        streetAddress: input.locationAddress,
         addressRegion: "French Riviera",
       },
     },

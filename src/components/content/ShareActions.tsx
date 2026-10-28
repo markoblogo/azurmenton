@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import { Check, Share2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import type { Locale } from "@/i18n/locales";
 import {
@@ -17,7 +18,7 @@ const labels: Record<Locale, { title: string; native: string; copy: string; copi
   uk: { title: "Поділитися", native: "Поділитися", copy: "Копіювати", copied: "Скопійовано", whatsapp: "WhatsApp", email: "Email" },
 };
 
-export function ShareActions({ locale, title, url, compact = false }: { locale: Locale; title: string; url: string; compact?: boolean }) {
+export function ShareActions({ locale, title, url, compact = false, children }: { locale: Locale; title: string; url: string; compact?: boolean; children?: ReactNode }) {
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
   const copy = labels[locale];
@@ -54,7 +55,7 @@ export function ShareActions({ locale, title, url, compact = false }: { locale: 
     }
   }
 
-  if (compact) return <button type="button" onClick={() => { void shareNative(); }} aria-label={copied ? copy.copied : copy.native} title={copied ? copy.copied : copy.native} className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-[#c6a66a] bg-[#fffdf8] text-2xl text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]">{copied ? "✓" : "↗"}</button>;
+  if (compact) return <button type="button" onClick={() => { void shareNative(); }} aria-label={copied ? copy.copied : copy.native} title={copied ? copy.copied : copy.native} className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#fffdf8]/95 text-[#173f36] shadow-sm ring-1 ring-[#173f36]/10 hover:bg-[#e7f1ed] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173f36]">{copied ? <Check size={20} aria-hidden /> : <Share2 size={20} strokeWidth={1.7} aria-hidden />}</button>;
 
   return (
     <div className="border border-[#dfd2b8] bg-[#fffaf0] p-4">
@@ -94,6 +95,7 @@ export function ShareActions({ locale, title, url, compact = false }: { locale: 
         >
           {copy.email}
         </a>
+        {children}
       </div>
     </div>
   );
