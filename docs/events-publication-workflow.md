@@ -2,6 +2,12 @@
 
 Azur Menton events use a repository-based editorial workflow. There is no admin panel, CMS, database or automatic publication from ingestion.
 
+## Visitor Suggestions And Time Data
+
+The public suggestion/correction form sends an unverified proposal by email for manual review. It does not create a repository batch or a published record. The email inbox is distinct from `src/content/events/manual-inbox/`; an editor must review sources, duplicates and relevance before preparing repository content. Delivery configuration and privacy safeguards are in [EVENT_DISCOVERY_AND_INTAKE.md](EVENT_DISCOVERY_AND_INTAKE.md).
+
+Before publishing or refreshing an occurrence, check whether exact hours and a primary venue are officially published. Store verified `schedule` or separate `sessions`, plus `venue` provenance, following [EVENT_CALENDAR.md](EVENT_CALENDAR.md). Never infer an end from an approximate duration, flatten several performances into one interval, or copy last year's hours automatically. Calendar exports are saved copies, not subscriptions. Run `npm run events:timing -- --fetch-sources` to inventory coverage; its candidates never authorize automatic changes.
+
 ## Storage
 
 - Temporary ingestion state: `build/events-ingestion/`

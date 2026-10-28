@@ -17,10 +17,12 @@ Azur Menton is a multilingual direct-booking site for three central Menton apart
 - **Direct booking:** read-only availability guidance followed by a personally confirmed request.
 - **Three distinct stays:** two sea-view studios and one larger terrace apartment with parking.
 - **Four languages:** English, French, Italian, and Ukrainian routes with canonical and hreflang metadata.
-- **Local utility:** maintained guides and places, Riviera events, weather, marine conditions, transport, and travel tools.
+- **Local utility:** maintained guides and places, a filterable Riviera event list/month calendar, weather, marine conditions, transport, and travel tools.
 - **Privacy-first operations:** server-only calendar feeds, non-PII analytics, Turnstile, rate limiting, and nonce-based CSP.
 
 Trip planning: `/[locale]/my-trip` stores a device-only trip profile and recommends guides/events, while `/[locale]/favourites` keeps saved guides, events and places and can share a read-only snapshot. Booking prefill requires an explicit click; it never submits a request. See [docs/TRIP_FEATURES.md](docs/TRIP_FEATURES.md) for verification and analytics limitations.
+
+Confirmed events offer calendar exports, including explicit performance selection when sessions are known. The editorial form accepts event suggestions and corrections for manual email review, never automatic publication. A downloaded calendar entry is a snapshot, not an updating subscription.
 
 Read first for a fresh coding session:
 
@@ -47,14 +49,7 @@ Product and claim boundaries live in:
 
 ## Current operating phase
 
-Azur Menton is currently in normal guide-first publishing and observation mode:
-
-- guide corpus remains the primary product surface for booking intent;
-- event freshness observatory exists and remains review-first;
-- guide freshness / provenance / verification loops exist as editorial maintenance signals;
-- booking attribution baseline is recorded as an observation layer, not a fully automated growth engine;
-- routine publication and image attachment now have bounded operational playbooks;
-- City Engine and broader automation remain intentionally out of scope.
+Guides, events and travel planning support manually confirmed direct bookings. Publishing and freshness reviews remain editorially controlled; analytics measures interactions and attribution, not proven booking uplift. See the operational docs for publication and image workflows rather than treating report output as publication approval.
 
 ## Stack
 
@@ -62,8 +57,9 @@ Azur Menton is currently in normal guide-first publishing and observation mode:
 - React 19
 - strict TypeScript
 - Tailwind CSS 4
-- Vitest + optional Playwright
-- Resend for booking-request email delivery
+- Vitest + Playwright (both run in CI)
+- Resend for booking requests and manually moderated editorial submissions
+- FullCalendar Standard 6 (MIT) for month view; ICS and Luxon for calendar exports and timezone validation
 - Cloudflare Turnstile, honeypot, rate limiting, CSP
 - Plausible + Vercel Analytics
 - Sharp-based image derivative pipeline
@@ -103,6 +99,8 @@ npm run events:review
 npm run seo:priorities
 ```
 
+Optional source-backed time-coverage audit: `npm run events:timing -- --fetch-sources`. This updates a local report, not published event data; retrieved pages and candidate timestamps still require editorial verification.
+
 Event publication keeps owner-approved images local and can attach related
 guides/places through `relatedGuideSlugs` and `relatedPlaceIds`; missing event
 images should stay visible until an owner asset pack is applied.
@@ -140,6 +138,8 @@ BOOKING_REQUEST_TO_EMAIL=
 BOOKING_REQUEST_FROM_EMAIL=
 # Optional override; omitted/blank keeps the owner-approved copy to a.biletskiy@gmail.com.
 BOOKING_REQUEST_BCC_EMAIL=
+# Optional editorial recipient; falls back to BOOKING_REQUEST_TO_EMAIL.
+EDITORIAL_TO_EMAIL=
 
 WEATHER_PROVIDER=open-meteo
 WEATHER_LATITUDE=43.7745
@@ -176,6 +176,10 @@ Supported locales: `en`, `fr`, `it`, `uk`.
 - `/[locale]/events`
 - `/[locale]/events/[slug]`
 - `/[locale]/events/this-week`
+- `/[locale]/my-trip`
+- `/[locale]/favourites`
+- `/[locale]/search`
+- `/[locale]/tools` and `/[locale]/tools/[slug]`
 - `/[locale]/map`
 - `/[locale]/partners`
 - `/[locale]/faq`
@@ -256,6 +260,8 @@ Main files:
 - `src/lib/event-discovery.ts`
 
 Events use a pragmatic annual-series model with confirmed, pending and estimated states. The `/[locale]/events` page is a curated discovery surface with shareable filters for quick periods, custom stay dates, locations and interests. Keep stale annual events archived for future refresh; do not invent dates.
+
+List and Month share these filters. Only confirmed, verified, non-conflicting dates enter the month grid; bars indicate dates rather than all-day opening hours. Optional verified `schedule`, `sessions` and `venue` fields drive calendar exports and detail metadata. See [calendar rules](docs/EVENT_CALENDAR.md) and [editorial intake operations](docs/EVENT_DISCOVERY_AND_INTAKE.md) for API, moderation and delivery limits.
 
 Automated event ingestion is intentionally only a foundation for now: source registry, adapter contracts, deterministic dedupe and review-first candidates. Do not add fragile broad scraping or publish unverified events as live listings.
 

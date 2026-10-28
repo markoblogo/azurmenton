@@ -61,6 +61,9 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Create or update event objects in `src/content/riviera-events.ts`.
 - Keep the public `/[locale]/events` page visitor-first: quick periods, custom stay dates, Menton/Monaco/Nice/Ventimiglia/Sanremo, interests and seasonal highlights. Filtering is shareable through URL parameters such as `period`, `from`, `to`, `location`, `interest` and `q`.
 - Use verified official sources where possible.
+- Review exact hours and venue alongside dates. Use verified `schedule` / `sessions` / `venue` fields; do not copy occurrence-specific times into a new year. Unknown hours remain unknown. See [EVENT_CALENDAR.md](EVENT_CALENDAR.md).
+- List and Month use the same discovery filters. Keep pending or conflicting dates out of the month grid; calendar bars are date ranges, not opening-hour guarantees.
+- Public event suggestions/corrections arrive by email for manual moderation, not directly in the repository inbox or on the website. Check their source and duplicates before entering the existing publication workflow. See [EVENT_DISCOVERY_AND_INTAKE.md](EVENT_DISCOVERY_AND_INTAKE.md).
 - Set `seriesSlug`, `occurrenceYear`, `recurrence` and `dateStatus` so recurring events can be refreshed without rewriting evergreen descriptions.
 - Use `dateStatus: "confirmed"` only with real published dates. Use `dates_pending` or `estimated_annual_window` when dates are annual, provisional or not officially confirmed.
 - Keep major annual detail pages pointed at the next useful occurrence, not a stale past date.

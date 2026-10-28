@@ -1,6 +1,6 @@
 # Trip Features Delivery
 
-Status: implementation locally verified; owner approved the combined release with homepage rotation on 28 October 2026. Provider deployment and public-route verification are required after push.
+Status: the original trip/favourites release (`660ee02`) was deployed and its public routes verified on 28 October 2026. The navigation/card refinements and event features were subsequently pushed in `538dd02`; that push alone is not proof of a successful CI run or production deployment.
 
 ## Delivery Gates
 
@@ -15,12 +15,12 @@ Status: implementation locally verified; owner approved the combined release wit
 - `/[locale]/favourites` resolves saved IDs to published content and stable place anchors, including a rendered event-venue fallback when no guide contains the place.
 - Shared snapshots use the URL fragment and never replace the recipient's local list automatically.
 - `favourite_added` / `favourite_removed` emit only after a successful local write; props are locale, contentType and contentId. No trip details or guest identifiers.
-- Favourites and trip links are available in site navigation/footer; place sharing resolves to a rendered guide card.
+- Favourites and trip links are available in the primary navigation row below the brand/languages. Favourites is a text menu entry. Place actions use small outlined icons over the preview; guide/event detail save controls are integrated into the sharing panel. Place sharing resolves to a rendered card.
 - My trip saves/clears a validated device-only profile in four locales, with date-overlapping confirmed events. Departure day is excluded, matching the overnight stay window.
 - Guide ranking uses explicit editorial profiles, interests, travelling with children, seasonal/month relevance and car-free alternatives. It is not a guarantee of opening hours, transport or slope conditions.
 - Booking prefill requires an explicit click and transfers only dates and adult/child counts. Existing apartment, parking, contact and message fields are not overwritten. Expired dates or party sizes unsupported by the form are not applied. Applying different dates hides the old selected-stay summary and resets the prior availability override.
 - The three Plausible goals (`favourite_added`, `favourite_removed`, `trip_prefill_used`) were saved and verified on 28 October 2026. Custom-property reporting is subscription-gated; per-place breakdown remains unavailable without a separate decision. No paid upgrade was performed.
-- Local verification on 28 October 2026: 342 unit tests passed, six browser tests passed on a production build, including four locales and 320/390/1024/1280/1536px layouts. Lint and content preflight passed. The Webpack production build passed. Owner approved commit, push and publication; public rollout verification follows deployment. Real production analytics receipt remains a post-release check, not something the local stubbed tests prove.
+- Verification for `538dd02` on 28 October 2026: 356 unit tests and eight targeted production-build browser scenarios passed, including trip/favourites regression, calendar/session downloads, month filters, editorial intake and mobile navigation. TypeScript, lint, content preflight and the Webpack build passed. Real production analytics receipt and editorial email delivery are separate checks; local stubbed tests do not prove either.
 
 ## Measurement Boundary
 

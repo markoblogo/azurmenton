@@ -1,5 +1,13 @@
 # Changelog
 
+## Repository Update - 2026-10-28
+
+- Added verified event time/venue fields, calendar downloads and separate performance selection.
+- Added a filtered month calendar and a localized event suggestion/correction form with manual email moderation; no automatic publication.
+- Restored the two-row primary navigation and integrated favourite/share controls into cards and detail actions.
+- Added a report-only time-coverage audit for the full event inventory and refreshed confirmed schedules from official sources.
+- Updated privacy disclosures, configuration examples and operating documentation. Code pushed in `538dd02`; CI, deployment and real email delivery must be verified separately.
+
 ## 0.2.1 - 2026-09-13
 
 - Rechecked the priority event backlog against official sources, corrected three 2027 schedules, refreshed verified records, and explicitly archived ended annual listings without published next dates.
