@@ -1,0 +1,48 @@
+{
+  "slug": "christmas-french-riviera-from-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": true,
+  "operatorSummary": [
+    "status: ok",
+    "subject: christmas-french-riviera-from-menton",
+    "mode: published-guide + missing-only",
+    "matched: 0",
+    "skipped-covered: 6",
+    "already-covered: 5",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/christmas-french-riviera-from-menton.json",
+    "rerun: npm run guide:assets -- --published-guide christmas-french-riviera-from-menton --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 0,
+    "unmatched": 0,
+    "alreadyCovered": 5,
+    "skippedCovered": 6,
+    "stillMissing": 0,
+    "patchReady": 0
+  },
+  "matchedAssetFiles": [
+    "Jardin Albert Ier — Christmas Village.png",
+    "Marché de Carnolès.png",
+    "Place Garibaldi.png",
+    "Place Georges Clemenceau.png",
+    "Port Hercule.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [
+    "Jardin Albert Ier — Christmas Village.png",
+    "Marché de Carnolès.png",
+    "Place Garibaldi.png",
+    "Place Georges Clemenceau.png",
+    "Port Hercule.png"
+  ],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide christmas-french-riviera-from-menton --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": []
+}

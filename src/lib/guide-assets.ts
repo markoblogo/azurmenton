@@ -263,6 +263,9 @@ export function resolveGuideAssetPlan(input: {
   const availableFiles = input.availableAssetFiles ?? [];
   const overrideByPlaceId = new Map((input.placeAssetOverrides ?? []).map((asset) => [asset.placeId, asset.sourcePath]));
   const matchedAssetFiles = new Set<string>();
+  const packageFileForSource = (sourcePath: string | null | undefined) => input.assetsDirectory && sourcePath
+    ? availableFiles.find((file) => `${input.assetsDirectory!.replace(/\/$/, "")}/${file}` === sourcePath)
+    : undefined;
   const expectedAssetPlaceIds = new Set<string>();
   const missingExpectedAssetPlaceIds = new Set<string>();
   const outputSlug = input.outputSlug ?? input.publishedGuide?.slug ?? input.slug;
@@ -372,7 +375,7 @@ export function resolveGuideAssetPlan(input: {
 
     if (input.missingOnly && existingImage) {
       if (input.assetsDirectory) {
-        const alreadyCoveredMatch = findPlaceAsset(plannedPlace, placeId);
+        const alreadyCoveredMatch = packageFileForSource(overrideByPlaceId.get(placeId) ?? plannedPlace.assetPath) ?? findPlaceAsset(plannedPlace, placeId);
         if (alreadyCoveredMatch) {
           matchedAssetFiles.add(alreadyCoveredMatch);
           alreadyCoveredAssetFiles.add(alreadyCoveredMatch);
@@ -387,6 +390,8 @@ export function resolveGuideAssetPlan(input: {
 
     const override = overrideByPlaceId.get(placeId);
     if (override) {
+      const packageFile = packageFileForSource(override);
+      if (packageFile) matchedAssetFiles.add(packageFile);
       placeAssets.push({ placeId, sourcePath: override });
       matchedPlaces.push({
         placeId,
@@ -399,6 +404,8 @@ export function resolveGuideAssetPlan(input: {
     }
 
     if (plannedPlace.assetPath) {
+      const packageFile = packageFileForSource(plannedPlace.assetPath);
+      if (packageFile) matchedAssetFiles.add(packageFile);
       placeAssets.push({ placeId, sourcePath: plannedPlace.assetPath });
       matchedPlaces.push({
         placeId,

@@ -186,6 +186,31 @@ describe("guide assets", () => {
     ]);
   });
 
+  it("counts explicit package mappings as used, including missing-only reruns", () => {
+    for (const image of [undefined, "/images/guide/port-hercule.png"]) {
+      const plan = resolveGuideAssetPlan({
+        slug: "christmas", assetsDirectory: "/tmp/assets",
+        availableAssetFiles: ["Port Hercule.png", "unused.png"],
+        publishedGuide: { slug: "christmas", places: [{ placeId: "port-hercule", draftName: "Port Hercule — Quai Albert Ier", image }] },
+        placeAssetOverrides: [{ placeId: "port-hercule", sourcePath: "/tmp/assets/Port Hercule.png" }],
+        missingOnly: true,
+      });
+      expect(plan.unmatchedAssetFiles).toEqual(["unused.png"]);
+      expect(plan.matchedAssetFiles).toContain("Port Hercule.png");
+      expect(plan.alreadyCoveredAssetFiles).toEqual(image ? ["Port Hercule.png"] : []);
+      expect(plan.operations).toHaveLength(image ? 0 : 1);
+    }
+  });
+
+  it("does not mark a same-named file as used when the override is outside the package", () => {
+    const plan = resolveGuideAssetPlan({
+      slug: "christmas", assetsDirectory: "/tmp/assets",
+      availableAssetFiles: ["Port Hercule.png"],
+      placeAssetOverrides: [{ placeId: "port-hercule", sourcePath: "/tmp/other/Port Hercule.png" }],
+    });
+    expect(plan.unmatchedAssetFiles).toEqual(["Port Hercule.png"]);
+  });
+
   it("matches a published guide cover and a uniquely shortened terminal name", () => {
     const plan = resolveGuideAssetPlan({
       slug: "pharmacies-in-menton-and-nice-airport",

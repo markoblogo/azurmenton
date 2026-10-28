@@ -154,6 +154,13 @@
     ]
   },
   {
+    "source": "public/images/guide/christmas-french-riviera-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/christmas-french-riviera-from-menton.avif",
+      "public/images/guide/generated/christmas-french-riviera-from-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/city-locker-garibaldi-port-lympia.png",
     "outputs": [
       "public/images/guide/generated/city-locker-garibaldi-port-lympia.avif",
@@ -644,10 +651,38 @@
     ]
   },
   {
-    "source": "public/images/guide/christmas-french-riviera-from-menton.png",
+    "source": "public/images/guide/port-hercule-christmas-monaco.png",
     "outputs": [
-      "public/images/guide/generated/christmas-french-riviera-from-menton.avif",
-      "public/images/guide/generated/christmas-french-riviera-from-menton.webp"
+      "public/images/guide/generated/port-hercule-christmas-monaco.avif",
+      "public/images/guide/generated/port-hercule-christmas-monaco.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/jardin-albert-premier-christmas-nice.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-albert-premier-christmas-nice.avif",
+      "public/images/guide/generated/jardin-albert-premier-christmas-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/marche-carnoles-saint-nicolas.png",
+    "outputs": [
+      "public/images/guide/generated/marche-carnoles-saint-nicolas.avif",
+      "public/images/guide/generated/marche-carnoles-saint-nicolas.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/place-garibaldi-sospel.png",
+    "outputs": [
+      "public/images/guide/generated/place-garibaldi-sospel.avif",
+      "public/images/guide/generated/place-garibaldi-sospel.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/place-clemenceau-castellar.png",
+    "outputs": [
+      "public/images/guide/generated/place-clemenceau-castellar.avif",
+      "public/images/guide/generated/place-clemenceau-castellar.webp"
     ]
   }
 ]
