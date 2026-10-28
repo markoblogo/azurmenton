@@ -29,7 +29,7 @@ export function Navigation({ locale }: { locale: Locale }) {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href={`/${locale}/search` as Route} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline">{searchLabel}</Link>
+          <Link href={`/${locale}/search` as Route} className="hidden text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline lg:inline">{searchLabel}</Link>
           <Link
             href={`/${locale}/check-availability` as Route}
             className="hidden border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#102f28] md:inline-flex"
@@ -43,6 +43,7 @@ export function Navigation({ locale }: { locale: Locale }) {
         aria-label="Mobile primary"
         className="mx-auto flex w-full max-w-6xl gap-5 overflow-x-auto border-t border-[#eadfce] px-5 py-3 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-[#5f675f] sm:px-6 lg:hidden lg:px-8"
       >
+        <Link href={`/${locale}/search` as Route} className="shrink-0 hover:text-[#0a6678]">{searchLabel}</Link>
         {navItems.slice(0, 5).map((item) => (
           <Link
             key={item.key}
