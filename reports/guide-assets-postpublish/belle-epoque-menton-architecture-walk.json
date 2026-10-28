@@ -4,60 +4,47 @@
   "strict": false,
   "missingOnly": true,
   "reportOnly": true,
-  "failOnUnmatched": false,
+  "failOnUnmatched": true,
   "operatorSummary": [
     "status: ok",
     "subject: belle-epoque-menton-architecture-walk",
     "mode: published-guide + missing-only + report-only",
     "matched: 0",
-    "skipped-covered: 4",
-    "already-covered: 0",
+    "skipped-covered: 10",
+    "already-covered: 6",
     "unmatched: 0",
-    "still-missing: 6",
+    "still-missing: 0",
     "report: build/guide-assets-postpublish/belle-epoque-menton-architecture-walk.json",
-    "rerun: npm run guide:assets -- --published-guide belle-epoque-menton-architecture-walk --missing-only --report-only"
+    "rerun: npm run guide:assets -- --published-guide belle-epoque-menton-architecture-walk --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --report-only --fail-on-unmatched"
   ],
   "counts": {
     "matched": 0,
     "unmatched": 0,
-    "alreadyCovered": 0,
-    "skippedCovered": 4,
-    "stillMissing": 6,
+    "alreadyCovered": 6,
+    "skippedCovered": 10,
+    "stillMissing": 0,
     "patchReady": 0
   },
-  "matchedAssetFiles": [],
-  "unmatchedAssetFiles": [],
-  "alreadyCoveredAssetFiles": [],
-  "matchedPlaceIds": [],
-  "publishedGuidePlacesWithoutImage": [
-    {
-      "placeId": "le-majestic-menton",
-      "draftName": "Le Majestic"
-    },
-    {
-      "placeId": "ancien-hotel-louvre-menton",
-      "draftName": "Ancien Hôtel du Louvre"
-    },
-    {
-      "placeId": "royal-westminster-menton",
-      "draftName": "Royal Westminster"
-    },
-    {
-      "placeId": "le-balmoral-menton",
-      "draftName": "Le Balmoral"
-    },
-    {
-      "placeId": "winter-palace-menton",
-      "draftName": "Winter Palace"
-    },
-    {
-      "placeId": "riviera-palace-menton",
-      "draftName": "Riviera Palace, Menton"
-    }
+  "matchedAssetFiles": [
+    "ancien-hotel-louvre-menton.png",
+    "le-balmoral-menton.png",
+    "le-majestic-menton.png",
+    "riviera-palace-menton.png",
+    "royal-westminster-menton.png",
+    "winter-palace-menton.png"
   ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [
+    "ancien-hotel-louvre-menton.png",
+    "le-balmoral-menton.png",
+    "le-majestic-menton.png",
+    "riviera-palace-menton.png",
+    "royal-westminster-menton.png",
+    "winter-palace-menton.png"
+  ],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
-  "bestRerunCommand": "npm run guide:assets -- --published-guide belle-epoque-menton-architecture-walk --missing-only --report-only",
-  "issueCodes": [
-    "pending-place-asset"
-  ]
+  "bestRerunCommand": "npm run guide:assets -- --published-guide belle-epoque-menton-architecture-walk --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --report-only --fail-on-unmatched",
+  "issueCodes": []
 }

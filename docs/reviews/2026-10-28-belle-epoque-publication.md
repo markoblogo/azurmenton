@@ -61,3 +61,11 @@ a substitute illustration. Four existing place illustrations remain unchanged.
 No paid translation service was added. Structural checks do not certify language
 quality, access rights, historical accuracy or actual walking gradients. There is
 no comparable cost/time baseline, so no percentage or monetary saving is claimed.
+
+## Illustration pass
+
+The six owner-supplied stable-ID PNGs matched automatically without overrides or
+unused files. Safe apply copied the six assets, generated AVIF/WebP derivatives
+and verified all six place image fields. The existing cover and four illustrated
+places were not replaced. The normal published-guide workflow was reused without
+new code or manual insertion of image fields.

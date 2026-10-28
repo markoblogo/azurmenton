@@ -294,6 +294,7 @@ const rawPlaces: Place[] = [
   {
     id: "le-majestic-menton", name: "Le Majestic", type: "civic",
     address: "1 Rue Partouneaux, 06500 Menton", googleMapsUrl: mapsQuery("Le Majestic", "1 Rue Partouneaux, 06500 Menton"),
+    image: "/images/guide/le-majestic-menton.png",
     programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Former palace hotel, now a private property. Admire the façade from the public street only.", "Ancien palace, aujourd'hui propriété privée. Observez la façade depuis la voie publique.", "Ex palace oggi proprietà privata. Ammirate la facciata dalla strada pubblica.", "Колишній готель-палац, нині приватна будівля. Оглядайте фасад із громадської вулиці."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
@@ -302,6 +303,7 @@ const rawPlaces: Place[] = [
   {
     id: "ancien-hotel-louvre-menton", name: "Ancien Hôtel du Louvre", type: "civic",
     address: "11 Rue du Louvre, 06500 Menton", googleMapsUrl: mapsQuery("Ancien Hôtel du Louvre", "11 Rue du Louvre, 06500 Menton"),
+    image: "/images/guide/ancien-hotel-louvre-menton.png",
     programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Former grand hotel in central Menton; exterior heritage stop, not a public interior visit.", "Ancien grand hôtel du centre ; étape extérieure, pas une visite libre des intérieurs.", "Ex grande albergo del centro; tappa esterna, non visita libera degli interni.", "Колишній гранд-готель у центрі; зовнішня зупинка, не вільний доступ до інтер'єрів."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
@@ -310,6 +312,7 @@ const rawPlaces: Place[] = [
   {
     id: "royal-westminster-menton", name: "Royal Westminster", type: "civic",
     address: "28 Avenue Félix Faure, 06500 Menton", googleMapsUrl: mapsQuery("Royal Westminster", "28 Avenue Félix Faure, 06500 Menton"),
+    image: "/images/guide/royal-westminster-menton.png",
     programmeUrl: "https://www.hotel-royal-westminster.com/fr/infos-pratiques", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Historic seafront hotel still operating. Interior, garden and restaurant access follows the hotel's customer policies.", "Hôtel historique en activité face à la mer. Intérieurs, jardin et restaurant selon les règles de l'établissement.", "Hotel storico sul mare ancora attivo. Interni, giardino e ristorante secondo le regole per i clienti.", "Історичний готель біля моря, що працює досі. Інтер'єри, сад і ресторан — за правилами закладу."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
@@ -318,6 +321,7 @@ const rawPlaces: Place[] = [
   {
     id: "le-balmoral-menton", name: "Le Balmoral", type: "civic",
     address: "38 bis Avenue Félix Faure, 06500 Menton", googleMapsUrl: mapsQuery("Le Balmoral", "38 bis Avenue Félix Faure, 06500 Menton"),
+    image: "/images/guide/le-balmoral-menton.png",
     programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Operating historic hotel. View the façade from public space; do not assume unrestricted access to rooms or gardens.", "Hôtel historique en activité. Façade visible depuis l'espace public ; pas d'accès libre présumé aux salles ou jardins.", "Hotel storico attivo. Facciata osservabile dallo spazio pubblico; non presumere libero accesso a sale o giardini.", "Чинний історичний готель. Фасад видно з громадських місць; вільного входу до залів і садів не слід припускати."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
@@ -326,6 +330,7 @@ const rawPlaces: Place[] = [
   {
     id: "winter-palace-menton", name: "Winter Palace", type: "civic",
     address: "20B Avenue Riviera, 06500 Menton", googleMapsUrl: mapsQuery("Winter Palace", "20B Avenue Riviera, 06500 Menton"),
+    image: "/images/guide/winter-palace-menton.png",
     programmeUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-winter-palace-ancien", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Former palace hotel converted into private apartments. Uphill exterior stop; interiors and gardens require permission.", "Ancien palace transformé en appartements privés. Étape en montée ; intérieurs et jardins sur autorisation.", "Ex palace trasformato in appartamenti privati. Tappa in salita; interni e giardini richiedono permesso.", "Колишній готель-палац із приватними квартирами. Потрібен підйом; інтер'єри й сади — лише з дозволу."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
@@ -334,6 +339,7 @@ const rawPlaces: Place[] = [
   {
     id: "riviera-palace-menton", name: "Riviera Palace, Menton", type: "civic",
     address: "28 Avenue Riviera, 06500 Menton", googleMapsUrl: mapsQuery("Riviera Palace, Menton", "28 Avenue Riviera, 06500 Menton"),
+    image: "/images/guide/riviera-palace-menton.png",
     programmeUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-riviera-palace-ancien", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Menton's former Riviera Palace, not the similarly named Beausoleil property. Private apartments; view from public areas.", "Ancien Riviera Palace de Menton, distinct de celui de Beausoleil. Appartements privés ; observation depuis l'espace public.", "Ex Riviera Palace di Mentone, distinto da quello di Beausoleil. Appartamenti privati; osservazione dalle aree pubbliche.", "Колишній Riviera Palace у Ментоні, не однойменна будівля в Босолеї. Приватні квартири; огляд із громадських зон."),
     bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],

@@ -77,6 +77,13 @@
     ]
   },
   {
+    "source": "public/images/guide/belle-epoque-menton-architecture-walk.png",
+    "outputs": [
+      "public/images/guide/generated/belle-epoque-menton-architecture-walk.avif",
+      "public/images/guide/generated/belle-epoque-menton-architecture-walk.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
     "outputs": [
       "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.avif",
@@ -735,10 +742,45 @@
     ]
   },
   {
-    "source": "public/images/guide/belle-epoque-menton-architecture-walk.png",
+    "source": "public/images/guide/le-majestic-menton.png",
     "outputs": [
-      "public/images/guide/generated/belle-epoque-menton-architecture-walk.avif",
-      "public/images/guide/generated/belle-epoque-menton-architecture-walk.webp"
+      "public/images/guide/generated/le-majestic-menton.avif",
+      "public/images/guide/generated/le-majestic-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/ancien-hotel-louvre-menton.png",
+    "outputs": [
+      "public/images/guide/generated/ancien-hotel-louvre-menton.avif",
+      "public/images/guide/generated/ancien-hotel-louvre-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/royal-westminster-menton.png",
+    "outputs": [
+      "public/images/guide/generated/royal-westminster-menton.avif",
+      "public/images/guide/generated/royal-westminster-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-balmoral-menton.png",
+    "outputs": [
+      "public/images/guide/generated/le-balmoral-menton.avif",
+      "public/images/guide/generated/le-balmoral-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/winter-palace-menton.png",
+    "outputs": [
+      "public/images/guide/generated/winter-palace-menton.avif",
+      "public/images/guide/generated/winter-palace-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/riviera-palace-menton.png",
+    "outputs": [
+      "public/images/guide/generated/riviera-palace-menton.avif",
+      "public/images/guide/generated/riviera-palace-menton.webp"
     ]
   }
 ]
