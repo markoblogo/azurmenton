@@ -1,9 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { compileGuideMarkdown, markdownGuideSections, parseGuideMarkdownBlock } from "../../src/lib/guide-markdown";
 
-const en = "# Valley\n\nSEO title: hidden\n\nRecommended duration: one day\n\nA proper introduction.\n\n## 1. Travel\n\nCheck [operator](https://example.org/).\n\n| Place | Time |\n| --- | --- |\n| Village | One hour |";
+const en = "# Valley\n\nSEO title: hidden\n\nRecommended duration: one day\nDuration: two hours\nLast researched: 28 October 2026\n\nA proper introduction.\n\n## 1. Travel\n\nCheck [operator](https://example.org/).\n\n| Place | Time |\n| --- | --- |\n| Village | One hour |";
 const sources = { en, fr: en, it: en, uk: en };
 describe("reviewed multilingual guide compilation", () => {
+  it("strips service fields only before the editorial body, not route durations later in the article", () => {
+    const text = "# Architecture\nDuration: metadata\nLast researched: metadata\n\nEditorial introduction.\n\n## 1. Route\nDuration: 60–90 minutes.\nLast researched: an editorial note.";
+    const records = compileGuideMarkdown({ en: text, fr: text, it: text, uk: text });
+    expect(records[0].en).not.toContain("metadata");
+    expect(records[1].en).toContain("Duration: 60–90 minutes.");
+    expect(records[1].en).toContain("Last researched: an editorial note.");
+  });
   it("preserves paragraphs, tables and source links while stripping service metadata", () => {
     const records = compileGuideMarkdown(sources);
     expect(records).toHaveLength(2);

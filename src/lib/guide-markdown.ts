@@ -2,11 +2,17 @@ import type { LocalizedGuideSection, LocalizedText } from "@/content/guide";
 
 const locales = ["en", "fr", "it", "uk"] as const;
 export type GuideMarkdownRecord = Record<typeof locales[number], string>;
-const field = /^(?:SEO title|Meta title|Meta description|Suggested URL|Category|Best for|Recommended duration|Season covered|Programme last checked|Last transport and access check):/i;
+const field = /^(?:SEO title|Meta title|Meta description|Suggested URL|Category|Best for|Duration|Recommended duration|Season covered|Programme last checked|Last researched|Last transport and access check):/i;
 
 export function compileGuideMarkdown(sources: GuideMarkdownRecord): GuideMarkdownRecord[] {
-  const split = (source: string) => source.replace(/\r/g, "").split("\n")
-    .filter(line => !field.test(line)).join("\n").split(/(?=^## )/m).map(block => block.trim()).filter(Boolean);
+  const split = (source: string) => {
+    let preamble = true;
+    return source.replace(/\r/g, "").split("\n").filter(line => {
+      if (preamble && field.test(line)) return false;
+      if (line.trim() && !/^# /.test(line)) preamble = false;
+      return true;
+    }).join("\n").split(/(?=^## )/m).map(block => block.trim()).filter(Boolean);
+  };
   const blocks = Object.fromEntries(locales.map(locale => [locale, split(sources[locale])])) as Record<typeof locales[number], string[]>;
   if (!blocks.en.length || !blocks.en[0].startsWith("# ")) throw new Error("English source must begin with an H1");
   for (const locale of locales) {

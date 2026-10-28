@@ -19,7 +19,7 @@ describe("Roya guide publication", () => {
     expect(royaGuide.sections[1].officialLinks?.some(link => link.url.includes("nice-monaco-vintimille-nice-breil-tende"))).toBe(true);
   });
   it("wires the cover, latest slot, apartment choices and reciprocal places", () => {
-    expect(getLatestLandingGuideSlug()).toBe(royaGuide.slug);
+    expect(getLatestLandingGuideSlug([royaGuide])).toBe(royaGuide.slug);
     expect(existsSync(`public${royaGuide.coverImage}`)).toBe(true);
     expect(royaGuide.relatedApartments).toHaveLength(3);
     for (const id of royaGuide.sections.flatMap(section => section.relatedPlaceIds ?? [])) {

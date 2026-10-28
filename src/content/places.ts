@@ -292,6 +292,54 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "le-majestic-menton", name: "Le Majestic", type: "civic",
+    address: "1 Rue Partouneaux, 06500 Menton", googleMapsUrl: mapsQuery("Le Majestic", "1 Rue Partouneaux, 06500 Menton"),
+    programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Former palace hotel, now a private property. Admire the façade from the public street only.", "Ancien palace, aujourd'hui propriété privée. Observez la façade depuis la voie publique.", "Ex palace oggi proprietà privata. Ammirate la facciata dalla strada pubblica.", "Колишній готель-палац, нині приватна будівля. Оглядайте фасад із громадської вулиці."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk"],
+  },
+  {
+    id: "ancien-hotel-louvre-menton", name: "Ancien Hôtel du Louvre", type: "civic",
+    address: "11 Rue du Louvre, 06500 Menton", googleMapsUrl: mapsQuery("Ancien Hôtel du Louvre", "11 Rue du Louvre, 06500 Menton"),
+    programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Former grand hotel in central Menton; exterior heritage stop, not a public interior visit.", "Ancien grand hôtel du centre ; étape extérieure, pas une visite libre des intérieurs.", "Ex grande albergo del centro; tappa esterna, non visita libera degli interni.", "Колишній гранд-готель у центрі; зовнішня зупинка, не вільний доступ до інтер'єрів."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk"],
+  },
+  {
+    id: "royal-westminster-menton", name: "Royal Westminster", type: "civic",
+    address: "28 Avenue Félix Faure, 06500 Menton", googleMapsUrl: mapsQuery("Royal Westminster", "28 Avenue Félix Faure, 06500 Menton"),
+    programmeUrl: "https://www.hotel-royal-westminster.com/fr/infos-pratiques", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Historic seafront hotel still operating. Interior, garden and restaurant access follows the hotel's customer policies.", "Hôtel historique en activité face à la mer. Intérieurs, jardin et restaurant selon les règles de l'établissement.", "Hotel storico sul mare ancora attivo. Interni, giardino e ristorante secondo le regole per i clienti.", "Історичний готель біля моря, що працює досі. Інтер'єри, сад і ресторан — за правилами закладу."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk"],
+  },
+  {
+    id: "le-balmoral-menton", name: "Le Balmoral", type: "civic",
+    address: "38 bis Avenue Félix Faure, 06500 Menton", googleMapsUrl: mapsQuery("Le Balmoral", "38 bis Avenue Félix Faure, 06500 Menton"),
+    programmeUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Operating historic hotel. View the façade from public space; do not assume unrestricted access to rooms or gardens.", "Hôtel historique en activité. Façade visible depuis l'espace public ; pas d'accès libre présumé aux salles ou jardins.", "Hotel storico attivo. Facciata osservabile dallo spazio pubblico; non presumere libero accesso a sale o giardini.", "Чинний історичний готель. Фасад видно з громадських місць; вільного входу до залів і садів не слід припускати."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk"],
+  },
+  {
+    id: "winter-palace-menton", name: "Winter Palace", type: "civic",
+    address: "20B Avenue Riviera, 06500 Menton", googleMapsUrl: mapsQuery("Winter Palace", "20B Avenue Riviera, 06500 Menton"),
+    programmeUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-winter-palace-ancien", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Former palace hotel converted into private apartments. Uphill exterior stop; interiors and gardens require permission.", "Ancien palace transformé en appartements privés. Étape en montée ; intérieurs et jardins sur autorisation.", "Ex palace trasformato in appartamenti privati. Tappa in salita; interni e giardini richiedono permesso.", "Колишній готель-палац із приватними квартирами. Потрібен підйом; інтер'єри й сади — лише з дозволу."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "best-walks-and-hikes-around-menton"],
+  },
+  {
+    id: "riviera-palace-menton", name: "Riviera Palace, Menton", type: "civic",
+    address: "28 Avenue Riviera, 06500 Menton", googleMapsUrl: mapsQuery("Riviera Palace, Menton", "28 Avenue Riviera, 06500 Menton"),
+    programmeUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-riviera-palace-ancien", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Menton's former Riviera Palace, not the similarly named Beausoleil property. Private apartments; view from public areas.", "Ancien Riviera Palace de Menton, distinct de celui de Beausoleil. Appartements privés ; observation depuis l'espace public.", "Ex Riviera Palace di Mentone, distinto da quello di Beausoleil. Appartamenti privati; osservazione dalle aree pubbliche.", "Колишній Riviera Palace у Ментоні, не однойменна будівля в Босолеї. Приватні квартири; огляд із громадських зон."),
+    bestFor: [text("Belle Époque architecture", "Architecture Belle Époque", "Architettura Belle Époque", "Архітектура Прекрасної епохи")],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "best-walks-and-hikes-around-menton"],
+  },
+  {
     id: "saorge", name: "Saorge", type: "mountain",
     address: "Saorge, 06540", googleMapsUrl: mapsQuery("Saorge", "Saorge, 06540"),
     image: "/images/guide/saorge.png",
@@ -1240,7 +1288,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "needs_verification",
     shortNote: text("A historic Garavan villa and garden used as a filming location; access depends on municipal arrangements, tours or events.", "Une villa et un jardin historiques de Garavan, utilises comme lieu de tournage; l'acces depend des dispositions municipales, visites ou evenements.", "Una villa e un giardino storici di Garavan, usati come location; l'accesso dipende da disposizioni comunali, visite o eventi.", "Історична вілла й сад у Garavan, використані як кінолокація; доступ залежить від муніципальних умов, екскурсій або подій."),
     bestFor: [text("Riviera villas", "villas Riviera", "ville della Riviera", "вілли Рив'єри"), text("film-location context", "contexte de tournage", "contesto cinematografico", "контекст кінолокації")],
-    relatedArticleIds: ["films-shot-in-menton", "best-photo-spots-menton", "menton-three-day-itinerary"],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "films-shot-in-menton", "best-photo-spots-menton", "menton-three-day-itinerary"],
   },
   {
     id: "palais-carnoles-menton",
@@ -5629,7 +5677,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Central gardens used for the Lemon Festival citrus sculpture displays and an easy town-centre walk.", "Jardins centraux utilises pour les sculptures d'agrumes de la Fete du Citron et une promenade simple en centre-ville.", "Giardini centrali usati per le sculture di agrumi della Festa del Limone e per una passeggiata facile in centro.", "Центральні сади для цитрусових скульптур Фестивалю лимонів і простої прогулянки центром."),
     bestFor: [text("Lemon Festival displays", "decors Fete du Citron", "installazioni Festa del Limone", "інсталяції Фестивалю лимонів"), text("central walks", "balades centrales", "passeggiate centrali", "прогулянки центром")],
-    relatedArticleIds: ["christmas-french-riviera-from-menton", "menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton", "coworking-remote-work-menton"],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "christmas-french-riviera-from-menton", "menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "fete-du-citron-menton-practical-guide", "menton-one-day-itinerary", "menton-without-a-car", "bookshops-libraries-menton", "coworking-remote-work-menton"],
   },
   {
     id: "palais-de-leurope-menton",
@@ -5641,7 +5689,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A central Menton venue for exhibitions, touring performances, concerts and festival events rather than a dedicated theatre.", "Un lieu central de Menton pour expositions, spectacles en tournee, concerts et evenements de festival plutot qu'un theatre dedie.", "Una sede centrale di Mentone per mostre, spettacoli in tournee, concerti ed eventi di festival piu che un teatro dedicato.", "Центральний майданчик Ментона для виставок, гастрольних вистав, концертів і фестивальних подій, а не окремий театр."),
     bestFor: [text("touring shows", "spectacles en tournee", "spettacoli in tournee", "гастрольні вистави"), text("festival centre", "centre festival", "centro festival", "центр фестивалю")],
-    relatedArticleIds: ["music-videos-filmed-in-menton", "best-souvenir-shops-menton-monaco-nice", "fete-du-citron-menton-practical-guide", "theatre-opera-performing-arts-near-menton", "menton-without-a-car", "jazz-live-music-near-menton", "billiards-pool-menton", "bookshops-libraries-menton"],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "music-videos-filmed-in-menton", "best-souvenir-shops-menton-monaco-nice", "fete-du-citron-menton-practical-guide", "theatre-opera-performing-arts-near-menton", "menton-without-a-car", "jazz-live-music-near-menton", "billiards-pool-menton", "bookshops-libraries-menton"],
   },
   {
     id: "basilica-saint-michel-archange",
@@ -7231,7 +7279,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "verified",
     shortNote: text("A central hotel wellness area with a relaxation pool, sauna, hammam and treatment rooms. Ask directly about access for non-resident guests.", "Espace bien-etre hotelier central avec bassin de relaxation, sauna, hammam et cabines de soins. Demandez directement les conditions d'acces pour les visiteurs non residents.", "Area benessere alberghiera centrale con piscina relax, sauna, hammam e cabine trattamenti. Chiedi direttamente l'accesso per ospiti non residenti.", "Центральна готельна wellness-зона з басейном для відпочинку, сауною, хаммамом і кабінетами процедур. Напряму уточнюйте доступ для гостей, які не проживають у готелі."),
     bestFor: [text("hotel spa afternoon", "apres-midi spa d'hotel", "pomeriggio in spa d'hotel", "день у готельному спа"), text("sauna and hammam", "sauna et hammam", "sauna e hammam", "сауна й хаммам")],
-    relatedArticleIds: ["saunas-spas-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
+    relatedArticleIds: ["belle-epoque-menton-architecture-walk", "saunas-spas-menton", "yoga-in-menton", "stay-cool-in-menton-summer", "where-to-stay-in-menton"],
   },
   {
     id: "hotel-riva-art-spa",

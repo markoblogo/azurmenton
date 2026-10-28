@@ -9,7 +9,7 @@ const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs"
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
 
-const { buildGuideReviewReport } = require("../src/lib/guide-review.ts");
+const { buildGuideReviewReport, syncGuideReviewPlan } = require("../src/lib/guide-review.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 const { placeMapPoints } = require("../src/content/planning/place-map-points.ts");
@@ -22,7 +22,7 @@ function readArg(name) {
 }
 
 function usage() {
-  console.log("Usage: npm run guide:review -- --slug <slug>");
+  console.log("Usage: npm run guide:review -- --slug <slug> [--sync-plan-from-published]");
 }
 
 async function readJson(targetPath) {
@@ -171,7 +171,19 @@ async function main() {
     return;
   }
 
-  const publicationPlan = await readJson(path.join(intakeDir, "publication-plan.json"));
+  let publicationPlan = await readJson(path.join(intakeDir, "publication-plan.json"));
+  if (process.argv.includes("--sync-plan-from-published")) {
+    const synced = syncGuideReviewPlan({ slug, plan: publicationPlan, guide: guideArticles.find(guide => guide.slug === slug), places, mapPoints: placeMapPoints, mapExclusions: placeMapExclusions });
+    const backup = path.join(intakeDir, "publication-plan.before-sync.json");
+    try {
+      await fs.writeFile(backup, `${JSON.stringify(publicationPlan, null, 2)}\n`, { flag: "wx" });
+    } catch (error) {
+      if (error.code !== "EEXIST") throw error;
+    }
+    await fs.writeFile(path.join(intakeDir, "publication-plan.json"), `${JSON.stringify(synced, null, 2)}\n`);
+    publicationPlan = synced;
+    console.log(`Synced plan from ${slug}; original plan retained in publication-plan.before-sync.json. Public content unchanged.`);
+  }
   const reviewDir = path.join(intakeDir, "review");
   const report = buildGuideReviewReport({
     slug,

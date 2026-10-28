@@ -4,6 +4,7 @@ import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { PlaceType } from "@/content/places";
 import { christmasGuide } from "@/content/christmas-guide";
 import { royaGuide } from "@/content/roya-guide";
+import { belleEpoqueGuide } from "@/content/belle-epoque-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -1945,7 +1946,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
     relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "sainte-agnes", "promenade-du-soleil", "port-de-garavan"],
-    relatedArticles: ["cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticles: ["belle-epoque-menton-architecture-walk", "cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -1953,6 +1954,13 @@ export const guideArticles: GuideArticle[] = [
         body: [
           t("Most visitors come for beaches and the colourful old town, then discover that Menton is also one of the Riviera's most convenient walking bases. Within minutes of the seafront, routes climb into olive groves, pine slopes, cliffs and viewpoints over France, Monaco and Italy.", "La plupart des visiteurs viennent pour les plages et la vieille ville coloree, puis decouvrent que Menton est aussi l'une des bases les plus pratiques pour marcher sur la Riviera. En quelques minutes depuis le front de mer, les itineraires montent vers oliveraies, pins, falaises et vues sur France, Monaco et Italie.", "Molti visitatori arrivano per spiagge e centro storico colorato, poi scoprono che Mentone e anche una delle basi piu comode per camminare in Riviera. In pochi minuti dal lungomare, i percorsi salgono tra ulivi, pini, scogliere e viste su Francia, Monaco e Italia.", "Більшість гостей приїздить за пляжами й кольоровим старим містом, а потім відкриває, що Ментон ще й одна з найзручніших баз для прогулянок на Рив'єрі. За кілька хвилин від моря маршрути піднімаються до оливкових гаїв, соснових схилів, скель і видів на Францію, Монако та Італію."),
         ],
+      },
+      {
+        heading: t("Town option: a Belle Époque architecture walk", "En ville : une promenade Belle Époque", "In città: passeggiata Belle Époque", "У місті: прогулянка архітектурою Прекрасної епохи"),
+        body: [t("For an urban alternative, allow roughly 60–90 minutes for central façades and gardens, or 2–3 hours including the uphill Winter Palace and Riviera Palace extension. These are editorial estimates, not measured accessibility times. Former palace residences are private: view them from public streets only.", "Pour une alternative urbaine, comptez environ 60–90 minutes au centre ou 2–3 heures avec la montée aux Winter Palace et Riviera Palace. Estimations éditoriales, pas un relevé d'accessibilité. Les anciennes résidences sont privées : restez sur la voie publique.", "Per un'alternativa urbana, circa 60–90 minuti in centro o 2–3 ore includendo la salita a Winter Palace e Riviera Palace. Stime editoriali, non rilievi di accessibilità. Le residenze sono private: osservatele dalla strada pubblica.", "Для міської альтернативи передбачте приблизно 60–90 хвилин у центрі або 2–3 години з підйомом до Winter Palace й Riviera Palace. Це редакційні оцінки, не вимірювання доступності. Резиденції приватні: оглядайте їх із громадських вулиць.")],
+        guideLinkSlug: "belle-epoque-menton-architecture-walk",
+        guideLinkLabel: t("Follow the architectural walk", "Suivre la promenade architecturale", "Seguire la passeggiata architettonica", "Переглянути архітектурний маршрут"),
+        relatedPlaceIds: ["winter-palace-menton", "riviera-palace-menton"],
       },
       {
         heading: t("Sentier des Douaniers: the coastal border walk", "Sentier des Douaniers: balade cotiere vers la frontiere", "Sentier des Douaniers: passeggiata costiera verso il confine", "Sentier des Douaniers: прибережна стежка до кордону"),
@@ -6059,7 +6067,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "salle-des-mariages-jean-cocteau", "musee-prehistoire-regionale-menton", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes", "plage-casino", "casino-barriere-menton"],
-    relatedArticles: ["menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["belle-epoque-menton-architecture-walk", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -11320,7 +11328,7 @@ export const guideArticles: GuideArticle[] = [
     coverImageAlt: t("Illustration: Menton in winter: sea views, mountain snow and cosy days", "Illustration : Menton en hiver : mer, neige et journées douillettes", "Illustrazione: Mentone in inverno: mare, neve e giornate accoglienti", "Ілюстрація: Ментон узимку: море, сніг у горах і затишні дні"),
     visualStatus: "project_illustration",
     sourceStatus: "needs_verification",
-    relatedArticles: ["christmas-french-riviera-from-menton", "menton-in-autumn", "mountains-snow-skiing-near-menton", "menton-with-kids-family-guide", "saunas-spas-menton", "tea-rooms-afternoon-tea-near-menton", "best-coffee-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "fete-du-citron-menton-practical-guide", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
+    relatedArticles: ["belle-epoque-menton-architecture-walk", "christmas-french-riviera-from-menton", "menton-in-autumn", "mountains-snow-skiing-near-menton", "menton-with-kids-family-guide", "saunas-spas-menton", "tea-rooms-afternoon-tea-near-menton", "best-coffee-menton", "museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "fete-du-citron-menton-practical-guide", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -11357,6 +11365,7 @@ export const guideArticles: GuideArticle[] = [
 
 guideArticles.push(christmasGuide);
 guideArticles.push(royaGuide);
+guideArticles.push(belleEpoqueGuide);
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
 

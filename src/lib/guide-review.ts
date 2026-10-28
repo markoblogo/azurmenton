@@ -1,6 +1,49 @@
 import type { GuidePublicationPlan } from "@/lib/guide-check";
 import { buildGuideOperatorSummary } from "@/lib/guide-operator-summary";
 
+// Explicit post-insert snapshot only: never edits public content or infers facts.
+export function syncGuideReviewPlan(input: {
+  slug: string;
+  plan: GuidePublicationPlan;
+  guide: GuideReviewGuideReference | undefined;
+  places: Array<GuideReviewPlaceReference & { name: string }>;
+  mapPoints: GuideReviewMapPointReference[];
+  mapExclusions: GuideReviewMapExclusionReference[];
+}): GuidePublicationPlan {
+  const { guide, plan } = input;
+  if (!guide || guide.slug !== input.slug || plan.slug !== input.slug) throw new Error("Plan sync requires the same existing guide and slug");
+  const ids = [...new Set([...(guide.relatedPlaces ?? []), ...guide.sections.flatMap(section => section.relatedPlaceIds ?? [])])];
+  const plannedPlaces = ids.map(id => {
+    const place = input.places.find(candidate => candidate.id === id);
+    if (!place) throw new Error(`Cannot sync unknown rendered place: ${id}`);
+    const previous = plan.plannedPlaces?.find(candidate => candidate.existingPlaceId === id || candidate.newPlaceId === id);
+    return {
+      ...previous,
+      draftName: place.name,
+      existingPlaceId: previous?.newPlaceId === id ? null : id,
+      newPlaceId: previous?.newPlaceId === id ? id : null,
+      imageStatus: place.image ? "existing" as const : "pending" as const,
+      requiresMapReview: Boolean(place.requiresMapReview),
+      mapAction: input.mapPoints.some(point => point.placeId === id) ? "point" as const
+        : input.mapExclusions.some(exclusion => exclusion.placeId === id) ? "exclude" as const
+        : place.requiresMapReview ? null : "not_needed" as const,
+      coverageGuideSlug: place.guideCoverageSlugs?.[0] ?? null,
+    };
+  });
+  return {
+    ...plan,
+    publishedOn: guide.publishedOn ?? plan.publishedOn,
+    category: (guide.category ?? plan.category) as GuidePublicationPlan["category"],
+    coverImageStatus: guide.coverImage ? "existing" : "pending",
+    coverAssetPath: null,
+    coverAssetFileName: null,
+    relatedPlaceIds: ids,
+    relatedArticleSlugs: [...(guide.relatedArticles ?? [])],
+    relatedApartmentSlugs: [...(guide.relatedApartments ?? [])],
+    plannedPlaces,
+  };
+}
+
 export type GuideReviewGuideReference = {
   slug: string;
   publishedOn?: string;

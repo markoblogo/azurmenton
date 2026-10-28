@@ -10,6 +10,12 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "le-majestic-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html" },
+  { placeId: "ancien-hotel-louvre-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html" },
+  { placeId: "royal-westminster-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.hotel-royal-westminster.com/fr/infos-pratiques" },
+  { placeId: "le-balmoral-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html" },
+  { placeId: "winter-palace-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-winter-palace-ancien" },
+  { placeId: "riviera-palace-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.culture.gouv.fr/regions/drac-provence-alpes-cote-d-azur/politique-et-actions-culturelles/architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/le-label-architecture-contemporaine-remarquable-en-provence-alpes-cote-d-azur/label-acr-alpes-maritimes/menton/menton-hotel-riviera-palace-ancien" },
   { placeId: "saorge", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/nos-suggestions-ditineraires/un-jour-un-village/saorge/" },
   { placeId: "fontan", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/mercantour-roya-bevera/vallee-de-la-roya/fontan/" },
   { placeId: "monastere-saorge", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.monastere-saorge.fr/visiter/informations-pratiques" },

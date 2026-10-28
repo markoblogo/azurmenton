@@ -197,6 +197,14 @@ If `relatedArticleSlugs` or `relatedApartmentSlugs` are still empty, it also aut
 
 ### `guide:review`
 
+After reviewed content has been inserted, add `--sync-plan-from-published` to
+replace stale intake references with the actual repository guide/place graph.
+The original plan is retained as `publication-plan.before-sync.json`. This is an
+explicit local-plan mutation, not publication: it never edits public content and
+does not verify that the guide is deployed. Unknown rendered place IDs are rejected;
+map obligations without a point or exclusion remain unresolved. Without the flag,
+the command retains its existing report-only behavior.
+
 - verifies the repo after the manual merge has actually happened
 - checks only the touched content graph for the intake:
   - guide present in `src/content/guide.ts`

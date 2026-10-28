@@ -142,7 +142,7 @@ function isPreambleHeading(text: string) {
 
 function isGuideFieldLine(value: string) {
   const normalized = stripMarkdownDecoration(normalizeText(value).replace(/^[-*]\s*/, ""));
-  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image|Category|Best for|Recommended duration|Season covered|Programme last checked|Last transport and access check)\s*[:\-]/i.test(normalized);
+  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image|Category|Best for|Duration|Recommended duration|Season covered|Programme last checked|Last researched|Last transport and access check)\s*[:\-]/i.test(normalized);
 }
 
 function isWidgetSectionHeading(text: string) {
@@ -266,6 +266,7 @@ function isBroadLocalityHeading(text: string) {
 }
 
 function isEditorialPlaceHeading(text: string) {
+  if (/^(?:(?:current )?access|what to look for|other (?:former hotels|historic villas)|the story (?:of|behind) .+|a race to .+|the (?:easy central|complete architectural) walk|the architecture and gardens experience|(?:generally|conditionally) accessible|normally private|published information for \d{4})$/i.test(text)) return true;
   if (/^(?:spring|summer|autumn|winter|admission and opening|visiting arrangements|walking difficulty|seasonal transport|discover local food|explore the historic village|a simple rule|a realistic .+ day|a critical .+ warning|road conditions can change quickly)$/i.test(text)) return true;
   if (/^(?:plan [a-z]:|option [a-z]:|if (?:your|road|a museum|you)|getting to (?:the|a) )/i.test(text)) return true;
   return /\?$/.test(text) || /^(?:our quick recommendations|best (?:for|plan)|how to |where to |getting (?:there|home)|hours and |children's highlights|walking considerations|travel considerations|evening [a-z]:|the (?:nice|monaco) festive afternoon|engineering works|christmas eve:|christmas day:|new year's eve:|frequently asked questions|official sources|final thoughts)/i.test(text);

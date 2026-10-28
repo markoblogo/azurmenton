@@ -294,6 +294,10 @@ Detailed usage:
 
 This pipeline prepares and validates guide/place/link/image work. It does not blindly auto-publish.
 
+After insertion, `guide:review -- --slug <slug> --sync-plan-from-published` can
+reconcile the local intake plan with the actual content graph, preserving a backup;
+it does not modify public content or verify a live deployment.
+
 `guide:new` accepts DOCX directly. `guide:compile` validates reviewed EN/FR/IT/UK
 Markdown section/table alignment and generates JSON for the shared content adapter;
 it does not translate or publish. Supply second-stage illustrations as

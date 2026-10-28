@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { extractGuideIntake, normalizePlainTextGuide } from "../../src/lib/guide-intake";
 
 describe("guide intake extraction", () => {
+  it("recognises architecture venues without turning access and route advice into places", () => {
+    const intake = extractGuideIntake('# Belle Époque\n\nDuration: 2–3 hours\nLast researched: 28 October 2026\n\nLook up while walking.\n\n## Central hotels\n### What to look for\nWindows.\n### Le Majestic\nHotel.\n### Access\nPrivate.\n### Royal Westminster\nHotel.\n### Current access\nCheck.\n### The easy central walk\nPlan.\n### Normally private\nRespect gates.\n### Published information for 2026\nCheck.');
+    expect(intake.intro).toBe('Look up while walking.');
+    expect(intake.placeCandidates.map(place => place.name)).toEqual(['Le Majestic', 'Royal Westminster']);
+  });
   it("separates trip metadata and editorial advice from real heritage venues", () => {
     const intake = extractGuideIntake('# Roya\n\nSEO title: Roya trip\nRecommended duration: One day\nLast transport and access check: 28 October 2026\n\nA real introduction.\n\n## Saorge\n### Walking difficulty\nSteps.\n### Visit the Monastery of Saorge\nVisit.\n### Admission and opening\nCheck.\n### Notre-Dame-des-Fontaines\nChapel.\n### Option A: Zest bus line 25\nBus.\n### Spring\nFlowers.\n### Plan A: Breil\nPlan.');
     expect(intake.intro).toBe('A real introduction.');
