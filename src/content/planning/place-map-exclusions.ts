@@ -10,6 +10,20 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  {"placeId":"ramdam-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/shop/ramdam-bar/"},
+  {"placeId":"le-swing-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
+  {"placeId":"coco-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
+  {"placeId":"rainbow-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/structure/rainbow-bar/"},
+  {"placeId":"le-couloir-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/structure/le-couloir/"},
+  {"placeId":"le-glam-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/structure/le-glam/"},
+  {"placeId":"omega-club-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
+  {"placeId":"le-six-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
+  {"placeId":"le-klubber-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
+  {"placeId":"coco-beach-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/"},
+  {"placeId":"castel-public-beach-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/"},
+  {"placeId":"saint-laurent-eze-coastal-area","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/"},
+  {"placeId":"pissarelles-beach-cap-dail","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/nature/pissarelles-beach/"},
+  {"placeId":"centre-lgbtqia-cote-azur-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.centrelgbt06.fr/"},
   { placeId: "le-majestic-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html" },
   { placeId: "ancien-hotel-louvre-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton.fr/Les-Palaces-de-Menton.html" },
   { placeId: "royal-westminster-menton", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.hotel-royal-westminster.com/fr/infos-pratiques" },

@@ -796,5 +796,12 @@
       "public/images/guide/generated/a-week-in-menton-book-walking-route.avif",
       "public/images/guide/generated/a-week-in-menton-book-walking-route.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/lgbtq-menton-nice-monaco-french-riviera.png",
+    "outputs": [
+      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.avif",
+      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.webp"
+    ]
   }
 ]

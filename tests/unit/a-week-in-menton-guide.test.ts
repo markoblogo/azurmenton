@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { aWeekInMentonGuide as guide } from "../../src/content/a-week-in-menton-guide";
-import { getLatestLandingGuideSlug, guideArticles } from "../../src/content/guide";
+import { getLatestLandingGuideSlug } from "../../src/content/guide";
 
 describe("A Week in Menton literary route", () => {
   it("keeps the seven real places, separate Villefranche stop and the book images", () => {
@@ -11,7 +11,7 @@ describe("A Week in Menton literary route", () => {
     expect(guide.sections[0].imageLayout).toBe("portrait");
     expect(guide.sections[0].image).toContain("book-cover");
     expect(guide.sections[1].image).toContain("book-walking-route");
-    expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
+    expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
   });
   it("links to the confirmed formats and contains substantial text in every locale", () => {
     const body = guide.sections[1].body.map((paragraph) => paragraph.en).join("\n");

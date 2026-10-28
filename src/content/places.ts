@@ -292,6 +292,90 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "ramdam-bar-nice", name: "Ramdam Bar", type: "bar", address: "3 rue Lascaris, 06300 Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/shop/ramdam-bar/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Ramdam Bar", "3 rue Lascaris, Nice"),
+    shortNote: text("LGBTQIA+ bar, shop, exhibition and music concept. Check the current programme and opening hours.", "Bar, boutique, expositions et musique LGBTQIA+. Vérifiez le programme et les horaires actuels.", "Bar, negozio, mostre e musica LGBTQIA+. Verifica programma e orari attuali.", "ЛГБТКІА+ бар, крамниця, виставки й музика. Перевірте актуальну програму та години."),
+    bestFor: [text("Art and drinks", "Art et apéritif", "Arte e aperitivo", "Мистецтво й напої")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "le-swing-nice", name: "Le Swing", type: "bar", address: "10 rue Defly, Nice", programmeUrl: "https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Le Swing", "10 rue Defly, Nice"),
+    shortNote: text("Bar with cabaret, karaoke and dinner-show programming in the Nice Rainbow directory. Check the night's event.", "Bar avec cabaret, karaoké et dîners-spectacles référencé Nice Rainbow. Vérifiez la soirée.", "Bar con cabaret, karaoke e cene-spettacolo nell'annuario Nice Rainbow. Controlla la serata.", "Бар із кабаре, караоке та вечерями-шоу в каталозі Nice Rainbow. Перевірте програму вечора."),
+    bestFor: [text("Cabaret evenings", "Soirées cabaret", "Serate cabaret", "Вечори кабаре")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "coco-bar-nice", name: "Coco Bar", type: "bar", address: "3 rue Droite, Nice", programmeUrl: "https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Coco Bar", "3 rue Droite, Nice"),
+    shortNote: text("LGBTQ+-friendly bar in Old Nice, convenient for a drink before another venue. Check current opening.", "Bar LGBTQ+-friendly du Vieux-Nice pour un verre avant une autre sortie. Vérifiez l'ouverture.", "Bar LGBTQ+-friendly nel centro storico, comodo per un primo drink. Verifica l'apertura.", "ЛГБТК+-дружній бар Старої Ніцци для напою перед подальшою прогулянкою. Уточніть години."),
+    bestFor: [text("Old Town drinks", "Verre dans le Vieux-Nice", "Drink nel centro storico", "Напої у Старій Ніцці")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "rainbow-bar-nice", name: "Rainbow Bar", type: "bar", address: "9 rue Bonaparte, Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/structure/rainbow-bar/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Rainbow Bar", "9 rue Bonaparte, Nice"),
+    shortNote: text("Nice Rainbow-listed restaurant and tapas bar near the port. Check current food and entertainment options.", "Restaurant et bar à tapas référencé Nice Rainbow près du port. Vérifiez restauration et animations.", "Ristorante e tapas bar Nice Rainbow vicino al porto. Verifica cucina e programma.", "Ресторан і тапас-бар Nice Rainbow біля порту. Перевірте меню та розважальну програму."),
+    bestFor: [text("Tapas near the port", "Tapas près du port", "Tapas vicino al porto", "Тапас біля порту")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "le-couloir-nice", name: "Le Couloir", type: "bar", address: "1 rue Alberti, Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/structure/le-couloir/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Le Couloir", "1 rue Alberti, Nice"),
+    shortNote: text("Longstanding gay bar near Place Massena, listed in Nice Rainbow. Check the current evening programme.", "Bar gay historique près de Masséna, référencé Nice Rainbow. Vérifiez la programmation.", "Storico bar gay vicino a Masséna, nell'annuario Nice Rainbow. Controlla il programma.", "Давній гей-бар біля Masséna, представлений у Nice Rainbow. Перевірте програму вечора."),
+    bestFor: [text("Central Nice nightlife", "Sorties dans le centre de Nice", "Vita notturna in centro", "Вечірнє життя центру Ніцци")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "le-glam-nice", name: "Le Glam", type: "bar", address: "6 rue Eugene Emanuel, Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/structure/le-glam/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Le Glam", "6 rue Eugene Emanuel, Nice"),
+    shortNote: text("Gay and LGBTQ+-friendly dance club with DJs and shows. Check the chosen night's admission and programme.", "Club gay et LGBTQ+-friendly avec DJ et spectacles. Vérifiez l'entrée et le programme du soir.", "Club gay e LGBTQ+-friendly con DJ e spettacoli. Controlla ingresso e programma della serata.", "Гей- та ЛГБТК+-дружній танцювальний клуб із діджеями й шоу. Уточніть програму та вхід."),
+    bestFor: [text("Dancing and shows", "Danse et spectacles", "Ballo e spettacoli", "Танці й шоу")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "omega-club-nice", name: "L'Oméga Club", type: "bar", address: "8 passage Emile Negrin, Nice", programmeUrl: "https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("L'Omega Club", "8 passage Emile Negrin, Nice"),
+    shortNote: text("LGBTQ+-oriented club associated with electronic music and themed nights. Confirm the actual event and opening.", "Club LGBTQ+ associé à l'électro et aux soirées à thème. Confirmez programme et ouverture.", "Club LGBTQ+ legato all'elettronica e alle feste a tema. Conferma evento e apertura.", "ЛГБТК+ клуб з електронною музикою й тематичними вечірками. Підтвердьте подію та години."),
+    bestFor: [text("Electronic music", "Musique électronique", "Musica elettronica", "Електронна музика")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "le-six-nice", name: "Le Six / Club le 6", type: "bar", address: "6 rue Raoul Bosio, Nice", programmeUrl: "https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Le Six", "6 rue Raoul Bosio, Nice"),
+    shortNote: text("Old Nice gay night bar and club. Check the current DJ, karaoke or themed-night programme.", "Bar de nuit et club gay du Vieux-Nice. Vérifiez DJ, karaoké et soirées du moment.", "Bar notturno e club gay nel centro storico. Controlla DJ, karaoke e serate attuali.", "Гей-бар і нічний клуб Старої Ніцци. Перевірте актуальні діджей-сети, караоке чи вечірки."),
+    bestFor: [text("Late-night dancing", "Danse nocturne", "Ballo notturno", "Нічні танці")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "le-klubber-nice", name: "Le Klubber", type: "bar", address: "14 rue Benoit Bunico, Nice", programmeUrl: "https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Le Klubber", "14 rue Benoit Bunico, Nice"),
+    shortNote: text("After-hours club listed in the Nice Rainbow brochure. Verify current sessions, access and closing times.", "Club after-hours dans la brochure Nice Rainbow. Vérifiez séances, accès et horaires actuels.", "Club after-hours nella guida Nice Rainbow. Verifica eventi, ingresso e orari attuali.", "Клуб після основних нічних вечірок із каталогу Nice Rainbow. Перевірте сеанси, вхід та години."),
+    bestFor: [text("After-hours nightlife", "Sorties after-hours", "Serate after-hours", "Пізні нічні вечірки")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "coco-beach-nice", name: "Coco Beach", type: "beach", address: "Cap de Nice, Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/", sourceStatus: "editorial", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Coco Beach", "Nice"),
+    shortNote: text("Rocky bathing area east of Nice port. Mixed public space, not an exclusive LGBTQ+ beach; avoid rough seas.", "Baignade rocheuse à l'est du port. Espace mixte, pas une plage exclusivement LGBTQ+ ; évitez la mer agitée.", "Zona balneare rocciosa a est del porto. Spazio misto, non spiaggia esclusiva LGBTQ+; evita mare agitato.", "Скеляста зона купання на схід від порту. Спільний пляж, не виключно ЛГБТК+; уникайте хвилювання моря."),
+    bestFor: [text("Calm-sea swimming", "Baignade par mer calme", "Nuoto con mare calmo", "Купання у спокійному морі")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "castel-public-beach-nice", name: "Castel public beach area", type: "beach", address: "Quai des Etats-Unis, Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/", sourceStatus: "editorial", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Plage publique Castel", "Nice"),
+    shortNote: text("Public beach below Castle Hill, beside the private Castel Plage business. Mixed access; private services are separate.", "Plage publique sous la colline du Château, à côté de Castel Plage privé. Accès mixte ; services privés distincts.", "Spiaggia pubblica sotto la collina del Castello, accanto a Castel Plage privato. Accesso misto e servizi separati.", "Громадський пляж під Замковою горою, поруч із приватним Castel Plage. Спільний доступ; приватні послуги окремі."),
+    bestFor: [text("Old Nice beach break", "Pause plage au Vieux-Nice", "Spiaggia vicino al centro storico", "Пляж біля Старої Ніцци")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "saint-laurent-eze-coastal-area", name: "Saint-Laurent-d'Èze coastal area", type: "beach", address: "Saint-Laurent-d'Eze, Eze", programmeUrl: "https://www.explorenicecotedazur.com/en/your-stay/your-gay-friendly-holiday/", sourceStatus: "editorial", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Plage Saint Laurent d'Eze", "Eze"),
+    shortNote: text("Rocky coastal area mentioned in gay/naturist directories. Current naturism authorisation is unverified; check access and local rules.", "Secteur rocheux cité par des annuaires gays/naturistes. Autorisation actuelle non vérifiée : contrôlez accès et règles.", "Tratto roccioso citato da annuari gay/naturisti. Autorizzazione attuale non verificata: controlla accessi e norme.", "Скеляста прибережна зона з гей- і натуристських каталогів. Чинний дозвіл не підтверджено; перевірте доступ і правила."),
+    bestFor: [text("Experienced coastal visitors", "Habitués du littoral", "Visitatori esperti della costa", "Досвідчені відвідувачі узбережжя")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "pissarelles-beach-cap-dail", name: "Plage Les Pissarelles", type: "beach", address: "Les Pissarelles, Cap-d'Ail", programmeUrl: "https://www.explorenicecotedazur.com/en/nature/pissarelles-beach/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Plage Les Pissarelles", "Cap-d'Ail"),
+    shortNote: text("Rocky shore with difficult access from the Basse Corniche. Naturist reputation is not proof of current legal authorisation.", "Rivage rocheux d'accès difficile depuis la Basse Corniche. La réputation naturiste n'établit pas une autorisation actuelle.", "Costa rocciosa con accesso difficile dalla Basse Corniche. La fama naturista non prova un'autorizzazione attuale.", "Скелястий берег зі складним доступом із Basse Corniche. Натуристська репутація не доводить чинного дозволу."),
+    bestFor: [text("Confident coastal walkers", "Marcheurs côtiers expérimentés", "Escursionisti costieri esperti", "Досвідчені мандрівники узбережжям")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
+    id: "centre-lgbtqia-cote-azur-nice", name: "Centre LGBTQIA+ Côte d'Azur", type: "civic", address: "123 rue de Roquebilliere / rue Cathy Richeux, Nice", programmeUrl: "https://www.centrelgbt06.fr/", sourceStatus: "verified", requiresMapReview: true,
+    googleMapsUrl: mapsQuery("Centre LGBTQIA+ Cote d'Azur", "Nice"),
+    shortNote: text("Regional community organisation with cultural activities, support and a community bar. Services have different hours; check before visiting.", "Pôle associatif avec culture, soutien et bar communautaire. Les services ont des horaires différents ; vérifiez avant de venir.", "Centro associativo con cultura, supporto e bar comunitario. Servizi con orari differenti: verifica prima di arrivare.", "Громадський центр із культурними заходами, підтримкою й баром спільноти. Служби мають різні години; перевірте перед візитом."),
+    bestFor: [text("Community and culture", "Vie associative et culture", "Comunità e cultura", "Спільнота й культура")], relatedArticleIds: ["lgbtq-menton-nice-monaco-french-riviera"], guideCoverageSlugs: ["lgbtq-menton-nice-monaco-french-riviera"],
+  },
+  {
     id: "le-majestic-menton", name: "Le Majestic", type: "civic",
     address: "1 Rue Partouneaux, 06500 Menton", googleMapsUrl: mapsQuery("Le Majestic", "1 Rue Partouneaux, 06500 Menton"),
     image: "/images/guide/le-majestic-menton.png",
@@ -10830,6 +10914,9 @@ export const places: Place[] = rawPlaces.map((place) => {
   return {
     ...place,
     ...visual,
+    relatedArticleIds: ["plage-sablettes", "promenade-du-soleil", "halles-du-marche"].includes(place.id)
+      ? [...new Set([...place.relatedArticleIds, "lgbtq-menton-nice-monaco-french-riviera"])]
+      : place.relatedArticleIds,
     requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
     visualTheme: place.visualTheme ?? visual?.visualTheme ?? visualThemeForPlace(place.type),
     googleMapsSearchUrl:

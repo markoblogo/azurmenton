@@ -6,6 +6,7 @@ import { christmasGuide } from "@/content/christmas-guide";
 import { royaGuide } from "@/content/roya-guide";
 import { belleEpoqueGuide } from "@/content/belle-epoque-guide";
 import { aWeekInMentonGuide } from "@/content/a-week-in-menton-guide";
+import { lgbtqRivieraGuide } from "@/content/lgbtq-riviera-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11372,6 +11373,11 @@ guideArticles.push(christmasGuide);
 guideArticles.push(royaGuide);
 guideArticles.push(belleEpoqueGuide);
 guideArticles.push(aWeekInMentonGuide);
+guideArticles.push(lgbtqRivieraGuide);
+for (const slug of ["nightlife-in-menton", "best-beaches-in-menton", "monaco-events-from-menton"]) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(lgbtqRivieraGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), lgbtqRivieraGuide.slug];
+}
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
 

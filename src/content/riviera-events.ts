@@ -2276,7 +2276,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     featured: true,
     lastChecked: "2026-09-13",
     detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "public-transport-in-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedGuideSlugs: ["menton-with-kids-family-guide", "public-transport-in-menton", "menton-in-autumn", "day-trips-from-menton", "lgbtq-menton-nice-monaco-french-riviera"],
     relatedApartmentKeys: relatedAll,
   },
   {
