@@ -188,7 +188,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
                       locale={locale}
                       theme={section.visualTheme ?? localized.visualTheme ?? "sea"}
                       label={section.heading}
-                      className={isMarketsGuide ? "mt-5 aspect-[4/1.9]" : "mt-5 aspect-[4/1.55]"}
+                      className={section.imageLayout === "portrait" ? "mt-5 aspect-[2/3] w-full max-w-72" : isMarketsGuide ? "mt-5 aspect-[4/1.9]" : "mt-5 aspect-[4/1.55]"}
+                      showLabel={section.imageLayout !== "portrait"}
                       expandable
                     />
                     ) : null}

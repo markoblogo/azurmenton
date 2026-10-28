@@ -537,6 +537,7 @@ const rawPlaces: Place[] = [
       "cheap-eats-menton-budget-lunch",
       "italian-restaurants-in-menton-beyond-pizza",
       "best-markets-near-menton-market-days-in-france-and-italy",
+      "a-week-in-menton-book-walking-route",
     ],
     guideCoverageSlugs: [
       "best-markets-near-menton-market-days-in-france-and-italy",
@@ -570,6 +571,7 @@ const rawPlaces: Place[] = [
       "best-pastries-desserts-cakes-menton",
       "best-bakeries-in-menton",
       "kebab-shawarma-falafel-menton",
+      "a-week-in-menton-book-walking-route",
     ],
   },
   {
@@ -5672,6 +5674,7 @@ const rawPlaces: Place[] = [
       "saunas-spas-menton",
       "pastis-in-menton",
       "menton-hand-drawn-postcards",
+      "a-week-in-menton-book-walking-route",
     ],
   },
   {
@@ -5706,7 +5709,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("Menton's old-town landmark above the sea, useful for classic views, music-video mood and visual walks.", "Le repere de la vieille ville au-dessus de la mer, utile pour les vues classiques, l'ambiance de clip et les balades visuelles.", "Il simbolo del centro storico sopra il mare, utile per viste classiche, atmosfera da videoclip e passeggiate visive.", "Символ старого міста над морем, корисний для класичних видів, настрою музичного відео й візуальних прогулянок."),
     bestFor: [text("old-town views", "vues vieille ville", "viste centro storico", "види старого міста"), text("visual walks", "balades visuelles", "passeggiate visive", "візуальні прогулянки")],
-    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticleIds: ["menton-hand-drawn-postcards", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "menton-old-town", "best-photo-spots-menton", "fete-du-citron-menton-practical-guide", "menton-three-day-itinerary", "where-to-stay-in-menton", "a-week-in-menton-book-walking-route"],
   },
   {
     id: "gorbio",
@@ -5772,7 +5775,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A quiet high viewpoint for panoramic Menton views; visit respectfully.", "Un belvedere calme en hauteur pour des vues panoramiques; a visiter avec respect.", "Un punto panoramico tranquillo in alto; da visitare con rispetto.", "Тиха висока точка з панорамою Ментона; відвідуйте з повагою."),
     bestFor: [text("panoramic views", "vues panoramiques", "vista panoramica", "панорамні краєвиди"), text("photography", "photo", "fotografia", "фото")],
-    relatedArticleIds: ["famous-paintings-of-menton", "films-shot-in-menton", "fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton"],
+    relatedArticleIds: ["famous-paintings-of-menton", "films-shot-in-menton", "fete-du-citron-menton-practical-guide", "stay-cool-in-menton-summer", "best-photo-spots-menton", "quiet-evening-in-menton", "menton-old-town", "best-walks-and-hikes-around-menton", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "a-week-in-menton-book-walking-route"],
   },
   {
     id: "jardin-serre-de-la-madone",
@@ -5831,6 +5834,7 @@ const rawPlaces: Place[] = [
       "fishing-in-menton",
       "best-bakeries-in-menton",
       "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling",
+      "a-week-in-menton-book-walking-route",
     ],
   },
   {
@@ -6762,7 +6766,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A slower coastal stop for a sheltered bay, old streets and a softer Riviera pace outside peak season.", "Une halte cotiere plus lente pour une baie abritee, des ruelles et un rythme Riviera plus doux hors saison.", "Una tappa costiera piu lenta per baia riparata, vie antiche e ritmo Riviera piu morbido fuori stagione.", "Повільніша прибережна зупинка з захищеною бухтою, старими вулицями й м'якшим ритмом Рив'єри поза піком сезону."),
     bestFor: [text("coastal walks", "balades cotieres", "passeggiate costiere", "прибережні прогулянки"), text("day trips", "excursions", "gite", "поїздки")],
-    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "best-walks-and-hikes-around-menton"],
+    relatedArticleIds: ["menton-in-autumn", "day-trips-from-menton", "best-walks-and-hikes-around-menton", "a-week-in-menton-book-walking-route"],
   },
   {
     id: "eze-village",

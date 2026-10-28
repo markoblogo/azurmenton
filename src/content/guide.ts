@@ -5,6 +5,7 @@ import type { PlaceType } from "@/content/places";
 import { christmasGuide } from "@/content/christmas-guide";
 import { royaGuide } from "@/content/roya-guide";
 import { belleEpoqueGuide } from "@/content/belle-epoque-guide";
+import { aWeekInMentonGuide } from "@/content/a-week-in-menton-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -76,6 +77,7 @@ export type GuideSection = {
   bullets?: string[];
   image?: string;
   imageAlt?: string;
+  imageLayout?: "portrait";
   visualTheme?: GuideVisualTheme;
   guideLinkSlug?: string;
   guideLinkLabel?: string;
@@ -106,6 +108,7 @@ export type LocalizedGuideSection = {
   bullets?: LocalizedText[];
   image?: string;
   imageAlt?: LocalizedText;
+  imageLayout?: "portrait";
   visualTheme?: GuideVisualTheme;
   guideLinkSlug?: string;
   guideLinkLabel?: LocalizedText;
@@ -1117,7 +1120,7 @@ const articles: GuideArticle[] = [
       t("Bring a reusable bag for picnic and apartment ingredients.", "Prenez un sac reutilisable pour le pique-nique et les achats a l'appartement.", "Porta una borsa riutilizzabile per picnic e spesa da appartamento.", "Візьміть багаторазову сумку для пікніка й продуктів в апартаменти."),
     ],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "sini-menton", "rue-saint-michel-menton", "maison-herbin-menton", "rampes-saint-michel", "plage-sablettes"],
-    relatedArticles: ["best-seafood-restaurants-menton", "best-pizzerias-menton", "best-souvenir-shops-menton-monaco-nice", "best-pastries-desserts-cakes-menton", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "cheap-eats-menton-budget-lunch", "local-food-menton", "italian-riviera-day-trip-from-menton", "menton-one-day-itinerary", "quiet-evening-in-menton"],
+    relatedArticles: ["best-seafood-restaurants-menton", "best-pizzerias-menton", "best-souvenir-shops-menton-monaco-nice", "best-pastries-desserts-cakes-menton", "best-ice-cream-menton", "wine-tasting-near-menton", "supermarkets-in-menton", "cheap-eats-menton-budget-lunch", "local-food-menton", "italian-riviera-day-trip-from-menton", "menton-one-day-itinerary", "quiet-evening-in-menton", "a-week-in-menton-book-walking-route"],
     relatedApartments: allApartments,
   },
   {
@@ -1946,7 +1949,7 @@ export const guideArticles: GuideArticle[] = [
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
     relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "sainte-agnes", "promenade-du-soleil", "port-de-garavan"],
-    relatedArticles: ["belle-epoque-menton-architecture-walk", "cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton"],
+    relatedArticles: ["belle-epoque-menton-architecture-walk", "cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton", "a-week-in-menton-book-walking-route"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -6067,7 +6070,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["old-town", "menton-centre"],
     relatedPlaces: ["halles-du-marche", "chez-mimi-menton", "maison-herbin-menton", "rue-saint-michel-menton", "rampes-saint-michel", "basilica-saint-michel-archange", "cimetiere-vieux-chateau", "musee-jean-cocteau-bastion", "salle-des-mariages-jean-cocteau", "musee-prehistoire-regionale-menton", "quai-bonaparte-menton", "promenade-du-soleil", "plage-sablettes", "plage-casino", "casino-barriere-menton"],
-    relatedArticles: ["belle-epoque-menton-architecture-walk", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton"],
+    relatedArticles: ["belle-epoque-menton-architecture-walk", "menton-one-day-itinerary", "menton-three-day-itinerary", "where-to-stay-in-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "films-shot-in-menton", "best-ice-cream-menton", "theatre-opera-performing-arts-near-menton", "stay-cool-in-menton-summer", "museums-in-menton-nice-monaco", "local-food-menton", "halles-du-marche-menton", "quiet-evening-in-menton", "best-photo-spots-menton", "a-week-in-menton-book-walking-route"],
     relatedApartments: seaViewApartments,
     sections: [
       {
@@ -11366,6 +11369,7 @@ export const guideArticles: GuideArticle[] = [
 guideArticles.push(christmasGuide);
 guideArticles.push(royaGuide);
 guideArticles.push(belleEpoqueGuide);
+guideArticles.push(aWeekInMentonGuide);
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
 
@@ -11392,6 +11396,7 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),
       imageAlt: section.imageAlt?.[locale],
+      imageLayout: section.imageLayout,
       guideLinkLabel: section.guideLinkLabel?.[locale],
       ctaLabel: section.ctaLabel?.[locale],
       videoEmbeds: section.videoEmbeds?.map((video) => ({

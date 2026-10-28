@@ -782,5 +782,19 @@
       "public/images/guide/generated/riviera-palace-menton.avif",
       "public/images/guide/generated/riviera-palace-menton.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/a-week-in-menton-book-cover.jpeg",
+    "outputs": [
+      "public/images/guide/generated/a-week-in-menton-book-cover.avif",
+      "public/images/guide/generated/a-week-in-menton-book-cover.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/a-week-in-menton-book-walking-route.png",
+    "outputs": [
+      "public/images/guide/generated/a-week-in-menton-book-walking-route.avif",
+      "public/images/guide/generated/a-week-in-menton-book-walking-route.webp"
+    ]
   }
 ]
