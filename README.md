@@ -226,6 +226,8 @@ Main UI:
 
 The guide portal is not a plain article list. It includes editorial selections, planning clusters, finder/search entry points, compact catalogues, map previews and apartment-aware recommendations.
 
+Site search at `/[locale]/search` uses a Pagefind index generated from the published guide, place and upcoming event data whenever `npm run dev` or `npm run build` runs. Results link to the first rendered place card; places without a rendered guide card are excluded. Dated events are filtered again in the browser after their end date. The generated `public/pagefind/` bundle is not tracked; rebuild to pick up content changes. Search is language-specific and does not yet correct spelling mistakes.
+
 ### Travel Tools
 
 The Travel Tools hub at `/[locale]/tools` is a compact planning surface, not a second editorial section. Its current order is:

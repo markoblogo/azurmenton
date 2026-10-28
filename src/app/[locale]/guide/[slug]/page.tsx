@@ -32,6 +32,8 @@ import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { apartmentDetailAttributionHref, bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
 import { getGuideRelatedEventSlugs } from "@/lib/event-related-content";
+import { firstPlaceSectionIndices } from "@/lib/guide-place-anchors";
+import { placeAnchorId } from "@/lib/search-place-targets";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
@@ -89,6 +91,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const isTransportGuide = article.slug === "public-transport-in-menton";
   const relatedPlaceIds = Array.from(new Set([...(article.relatedPlaces ?? []), ...article.sections.flatMap((section) => section.relatedPlaceIds ?? [])]));
   const relatedPlaces = getPlaces(relatedPlaceIds);
+  const firstPlaceSections = firstPlaceSectionIndices(article.sections);
   const relatedEventSlugs = getGuideRelatedEventSlugs(article);
   const relatedGuideSlugForPlace = (placeId: string, candidateSlugs: string[]) => (
     candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId)) ?? null
@@ -251,10 +254,11 @@ export default async function GuideArticlePage({ params }: PageProps) {
                           isMarketsGuide ? "md:grid-cols-2" : "gap-3 md:grid-cols-2"
                         }`}
                       >
-                        {sectionPlaces.map((place) => (
+                        {sectionPlaces.map((place, placeIndex) => (
                           <PlaceCard
                             key={place.id}
                             place={place}
+                            anchorId={firstPlaceSections.get(place.id) === sectionIndex && sectionPlaces.findIndex((item) => item.id === place.id) === placeIndex ? placeAnchorId(place.id) : undefined}
                             locale={locale}
                             currentGuideId={article.id}
                             relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)}
@@ -356,7 +360,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           <Container>
             <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} anchorId={firstPlaceSections.has(place.id) ? undefined : placeAnchorId(place.id)} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
             </div>
           </Container>
         </Section>

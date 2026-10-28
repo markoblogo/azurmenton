@@ -41,6 +41,14 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - For every newly added local place that fits a map category, set `requiresMapReview: true` on the place or add it to the map-review required set. It must then have either a reviewed entry in `src/content/planning/place-map-points.ts` or an explicit, dated exclusion in `src/content/planning/place-map-exclusions.ts`. Never substitute an approximate point for an unresolved address. `npm run content:lint` fails when required coverage is missing; run `npm run map:report` to track both the active batch and the historic backlog.
 - Apartment markers may use the public building address at `building` precision when the host confirms it. Never publish an apartment or unit number; retain `host_verified` provenance in `src/content/planning/apartment-map-points.ts`.
 
+## Site Search
+
+- `npm run dev` and `npm run build` generate the Pagefind bundle from project content in `public/pagefind/`; this generated directory is ignored by Git. Restart the development server or rebuild after content changes to refresh search results.
+- Places are indexed only when a card is actually rendered in a guide. `src/lib/search-place-targets.ts` selects a relevant guide and links to its unique `#place-<id>` anchor; do not index orphaned places or create misleading links just to increase coverage.
+- The build includes dated, upcoming events with detail pages. The browser hides events after their end date in Paris time, but newly eligible events and content edits require a new build. Pending dates and expired events are not treated as current listings.
+- Search uses separate EN, FR, IT and UK indexes and a deliberately small per-language synonym list. It does not offer cross-language translation, typo correction or semantic search. When changing matching or ranking, update `tests/unit/search-rules.test.ts` and check representative searches in each affected language.
+- The browser search uses WebAssembly; the CSP permits `wasm-unsafe-eval` while continuing to reject general production `unsafe-eval`. Keep this distinction when changing `src/lib/security-headers.ts`.
+
 ## Stay Plans and Transport
 
 - Keep stay plans compact: trip intent, useful guides, useful places, relevant apartments and transport destinations.

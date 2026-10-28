@@ -15,7 +15,7 @@ const labels = {
 };
 const businessLabels: Record<Locale, string> = { en: "Represent this place? Contact us", fr: "Vous représentez ce lieu ? Contactez-nous", it: "Rappresenti questo luogo? Contattaci", uk: "Представляєте цей заклад? Напишіть нам" };
 
-export function PlaceCard({ place, locale, compact = false, currentGuideId, relatedGuideSlug }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null }) {
+export function PlaceCard({ place, locale, compact = false, currentGuideId, relatedGuideSlug, anchorId }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null; anchorId?: string }) {
   const copy = labels[locale];
   const location = place.address ?? place.area?.[locale];
   const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
@@ -28,7 +28,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
   const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
 
   return (
-    <article className="group relative overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">
+    <article id={anchorId} className="group relative scroll-mt-28 overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">
       {place.images && place.images.length > 1 ? (
         <PlaceImageCarousel images={place.images} imageAlt={imageAlt} locale={locale} label={visualLabel} className={compact ? "aspect-[4/1.65]" : "aspect-[4/1.9]"} />
       ) : (

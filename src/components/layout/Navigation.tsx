@@ -6,6 +6,7 @@ import { navItems, routeLabels } from "@/content/navigation";
 
 export function Navigation({ locale }: { locale: Locale }) {
   const labels = routeLabels[locale];
+  const searchLabel = { en: "Search", fr: "Recherche", it: "Cerca", uk: "Пошук" }[locale];
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#dfd4c1] bg-[#fbf7ef]/90 backdrop-blur-xl">
@@ -28,6 +29,7 @@ export function Navigation({ locale }: { locale: Locale }) {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <Link href={`/${locale}/search` as Route} className="text-sm font-semibold text-[#173f36] underline-offset-4 hover:underline">{searchLabel}</Link>
           <Link
             href={`/${locale}/check-availability` as Route}
             className="hidden border border-[#173f36] bg-[#173f36] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#102f28] md:inline-flex"

@@ -16,6 +16,8 @@ describe("security headers", () => {
 
     expect(scriptDirective).toContain("script-src 'self' 'nonce-test-nonce' 'strict-dynamic'");
     expect(scriptDirective).not.toContain("'unsafe-inline'");
+    expect(scriptDirective).toContain("'wasm-unsafe-eval'");
+    expect(scriptDirective).not.toContain("'unsafe-eval'");
     expect(csp).toContain("style-src-attr 'unsafe-inline'");
     expect(csp).toContain("https://plausible.io");
   });

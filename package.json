@@ -7,8 +7,8 @@
     "node": ">=20.9.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node scripts/search-index.cjs && next dev",
+    "build": "node scripts/search-index.cjs && next build",
     "start": "next start",
     "preflight": "npm run content:lint && npm run seo:priorities && npm run weekly:validate && npm run booking:funnel",
     "preflight:postbuild": "npm run perf:csp",
@@ -71,6 +71,7 @@
     "cheerio": "^1.2.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.4.3",
+    "pagefind": "^1.5.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "vitest": "^4.1.11"

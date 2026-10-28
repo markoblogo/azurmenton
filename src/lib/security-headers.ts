@@ -43,6 +43,7 @@ export function createCspHeader(nonce: string) {
       "'self'",
       `'nonce-${nonce}'`,
       "'strict-dynamic'",
+      "'wasm-unsafe-eval'",
       "https://challenges.cloudflare.com",
       ...plausibleOrigins,
       isDev ? "'unsafe-eval'" : "",
