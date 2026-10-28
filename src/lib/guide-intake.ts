@@ -142,7 +142,7 @@ function isPreambleHeading(text: string) {
 
 function isGuideFieldLine(value: string) {
   const normalized = stripMarkdownDecoration(normalizeText(value).replace(/^[-*]\s*/, ""));
-  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image|Category|Best for|Season covered|Programme last checked)\s*[:\-]/i.test(normalized);
+  return /^(SEO title|SEO Title|Meta title|Meta Title|Title tag|Meta description|Meta Description|Description|Suggested slug|Suggested URL|Guide slug|Canonical slug|URL slug|Cover image|Category|Best for|Recommended duration|Season covered|Programme last checked|Last transport and access check)\s*[:\-]/i.test(normalized);
 }
 
 function isWidgetSectionHeading(text: string) {
@@ -266,6 +266,8 @@ function isBroadLocalityHeading(text: string) {
 }
 
 function isEditorialPlaceHeading(text: string) {
+  if (/^(?:spring|summer|autumn|winter|admission and opening|visiting arrangements|walking difficulty|seasonal transport|discover local food|explore the historic village|a simple rule|a realistic .+ day|a critical .+ warning|road conditions can change quickly)$/i.test(text)) return true;
+  if (/^(?:plan [a-z]:|option [a-z]:|if (?:your|road|a museum|you)|getting to (?:the|a) )/i.test(text)) return true;
   return /\?$/.test(text) || /^(?:our quick recommendations|best (?:for|plan)|how to |where to |getting (?:there|home)|hours and |children's highlights|walking considerations|travel considerations|evening [a-z]:|the (?:nice|monaco) festive afternoon|engineering works|christmas eve:|christmas day:|new year's eve:|frequently asked questions|official sources|final thoughts)/i.test(text);
 }
 
@@ -416,7 +418,7 @@ function extractPlaceCandidates(lines: string[]) {
         !isWidgetSectionHeading(heading.text) &&
         !isBroadLocalityHeading(heading.text)
       ) {
-        candidates.push({ name: heading.text, section: ancestor.text });
+        candidates.push({ name: heading.text.replace(/^Visit (?:the )?/i, ""), section: ancestor.text });
       }
       return;
     }
@@ -424,7 +426,7 @@ function extractPlaceCandidates(lines: string[]) {
     if (heading.level === 3) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
       if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text) && !isWidgetSectionHeading(ancestor.text)) {
-        candidates.push({ name: heading.text, section: ancestor.text });
+        candidates.push({ name: heading.text.replace(/^Visit (?:the )?/i, ""), section: ancestor.text });
       }
     }
   });

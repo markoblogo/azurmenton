@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { extractGuideIntake, normalizePlainTextGuide } from "../../src/lib/guide-intake";
 
 describe("guide intake extraction", () => {
+  it("separates trip metadata and editorial advice from real heritage venues", () => {
+    const intake = extractGuideIntake('# Roya\n\nSEO title: Roya trip\nRecommended duration: One day\nLast transport and access check: 28 October 2026\n\nA real introduction.\n\n## Saorge\n### Walking difficulty\nSteps.\n### Visit the Monastery of Saorge\nVisit.\n### Admission and opening\nCheck.\n### Notre-Dame-des-Fontaines\nChapel.\n### Option A: Zest bus line 25\nBus.\n### Spring\nFlowers.\n### Plan A: Breil\nPlan.');
+    expect(intake.intro).toBe('A real introduction.');
+    expect(intake.placeCandidates.map(place => place.name)).toEqual(['Monastery of Saorge', 'Notre-Dame-des-Fontaines']);
+  });
   it("does not invent venues from editorial planning subheadings", () => {
     const intake = extractGuideIntake('# Christmas\n\nIntro.\n\n## Monaco\n### Best plan\nPlan.\n### How to get there\nTrain.\n### Is it suitable for children?\nCheck.\n### Grimaldi Forum\nVenue.');
     expect(intake.placeCandidates.map((place) => place.name)).toEqual(['Grimaldi Forum']);

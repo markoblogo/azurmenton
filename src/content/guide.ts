@@ -3,6 +3,7 @@ import { locales } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import type { PlaceType } from "@/content/places";
 import { christmasGuide } from "@/content/christmas-guide";
+import { royaGuide } from "@/content/roya-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -2159,7 +2160,7 @@ export const guideArticles: GuideArticle[] = [
       "saint-martin-vesubie",
       "valdeblore",
     ],
-    relatedArticles: ["menton-in-winter", "cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
+    relatedArticles: ["roya-valley-day-trip-from-menton", "menton-in-winter", "cycling-bike-rental-menton", "skateparks-near-menton", "best-walks-and-hikes-around-menton", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "day-trips-from-menton", "italian-riviera-day-trip-from-menton", "menton-in-autumn", "public-transport-in-menton", "where-to-stay-in-menton"],
     relatedApartments: allApartments,
     sections: [
       {
@@ -2211,7 +2212,9 @@ export const guideArticles: GuideArticle[] = [
           t("In July and August, the mountain value is not guaranteed snow; it is cooler air, altitude, shade, forest roads and a break from the coast. Good options include Col de Turini, the Authion side, Sospel and the Bévéra valley, La Brigue, Tende and Mercantour walks.", "En juillet et aout, l'interet des montagnes n'est pas la neige garantie: c'est l'air plus frais, l'altitude, l'ombre, les routes forestieres et une pause loin de la cote. Bons choix: Turini, Authion, Sospel et Bévéra, La Brigue, Tende et marches du Mercantour.", "A luglio e agosto il valore della montagna non e neve garantita: e aria piu fresca, quota, ombra, strade nei boschi e pausa dalla costa. Buone opzioni: Turini, Authion, Sospel e valle Bévéra, La Brigue, Tende e cammini nel Mercantour.", "У липні й серпні цінність гір - не гарантований сніг, а прохолодніше повітря, висота, тінь, лісові дороги й пауза від узбережжя. Варіанти: Turini, Authion, Sospel і долина Bévéra, La Brigue, Tende та маршрути Mercantour."),
           t("With children, this can completely change a hot day: leave the beach rhythm, eat somewhere cooler, walk under trees, look for viewpoints and return to the sea in the evening.", "Avec des enfants, cela peut transformer une journee chaude: quitter le rythme plage, manger au frais, marcher sous les arbres, chercher les points de vue puis revenir a la mer le soir.", "Con bambini puo cambiare completamente una giornata calda: lasciare la spiaggia, mangiare al fresco, camminare tra alberi, cercare panorami e tornare al mare la sera.", "З дітьми це може повністю змінити спекотний день: вийти з пляжного ритму, поїсти в прохолоді, пройтися під деревами, знайти краєвиди й повернутися до моря ввечері."),
         ],
-        relatedPlaceIds: ["col-de-turini", "authion-massif", "sospel-bevera-valley", "la-brigue", "tende", "mercantour-national-park"],
+        guideLinkSlug: "roya-valley-day-trip-from-menton",
+        guideLinkLabel: t("Plan a Roya Valley day: Saorge, Fontan, Tende and La Brigue", "Préparer une journée dans la Roya : Saorge, Fontan, Tende et La Brigue", "Pianificare una giornata nella Roya: Saorge, Fontan, Tende e La Brigue", "Спланувати день у Рої: Саорж, Фонтан, Тенд і Ла-Бріг"),
+        relatedPlaceIds: ["col-de-turini", "authion-massif", "sospel-bevera-valley", "la-brigue", "tende", "mercantour-national-park", "saorge", "fontan"],
         relatedApartmentKeys: allApartments,
       },
       {
@@ -7030,7 +7033,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "full-day",
     locationTags: ["monaco", "nice", "italian-riviera"],
     relatedPlaces: ["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "nice-ville-station", "ventimiglia-station", "monaco-monte-carlo", "oceanographic-museum-monaco", "prince-monaco-car-collection", "grimaldi-forum-monaco", "nice-old-town", "musee-matisse-nice", "musee-chagall-nice", "palais-lascaris-nice", "musee-photographie-charles-negre-nice", "villefranche-sur-mer", "eze-village", "ventimiglia", "bordighera", "sanremo", "teatro-ariston-sanremo", "dolceacqua", "gorbio", "roquebrune-medieval-village", "sospel-bevera-valley", "roquebrune-cap-martin-coastal-walk", "sentier-douaniers-menton", "monte-carlo-golf-club"],
-    relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
+    relatedArticles: ["roya-valley-day-trip-from-menton", "jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "cycling-bike-rental-menton", "skateparks-near-menton", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "best-photo-spots-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton", "mountains-snow-skiing-near-menton", "best-walks-and-hikes-around-menton", "theatre-opera-performing-arts-near-menton", "wine-tasting-near-menton", "golf-near-menton", "menton-with-kids-family-guide", "supermarkets-in-menton", "michelin-restaurants-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "museums-in-menton-nice-monaco", "menton-three-day-itinerary", "italian-riviera-day-trip-from-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "menton-without-a-car", "public-transport-in-menton", "where-to-stay-in-menton", "nightlife-in-menton"],
     relatedEvents: ["monaco-grand-prix", "monaco-e-prix", "monaco-run", "rolex-monte-carlo-masters", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest", "nice-carnival", "monaco-yacht-show"],
     relatedApartments: allApartments,
     sections: [
@@ -11353,6 +11356,7 @@ export const guideArticles: GuideArticle[] = [
 ];
 
 guideArticles.push(christmasGuide);
+guideArticles.push(royaGuide);
 
 export const featuredGuideArticles = guideArticles.filter((article) => article.featured).slice(0, 4);
 

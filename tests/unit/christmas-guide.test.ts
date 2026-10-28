@@ -19,7 +19,7 @@ describe('Christmas guide publication', () => {
   });
   it('has a cover, apartment recommendations, sources, valid place cards and latest-slot eligibility', () => {
     expect(getGuideArticle(christmasGuide.slug)).toBe(christmasGuide);
-    expect(getLatestLandingGuideSlug()).toBe(christmasGuide.slug);
+    expect(getLatestLandingGuideSlug([christmasGuide])).toBe(christmasGuide.slug);
     expect(christmasGuide.coverImage).toContain(christmasGuide.slug);
     expect(christmasGuide.relatedApartments).toHaveLength(3);
     for (const section of christmasGuide.sections) for (const id of section.relatedPlaceIds ?? []) {

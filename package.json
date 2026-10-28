@@ -19,6 +19,7 @@
     "content:lint": "node scripts/content-lint.cjs",
     "content:report": "node scripts/content-audit-report.cjs",
     "guide:assets": "node scripts/guide-assets.cjs",
+    "guide:compile": "node scripts/guide-compile.cjs",
     "guide:apply": "node scripts/guide-apply.cjs",
     "guide:match": "node scripts/guide-match.cjs",
     "guide:link-plan": "node scripts/guide-link-plan.cjs",

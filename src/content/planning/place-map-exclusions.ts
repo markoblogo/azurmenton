@@ -10,6 +10,12 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "saorge", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/nos-suggestions-ditineraires/un-jour-un-village/saorge/" },
+  { placeId: "fontan", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/mercantour-roya-bevera/vallee-de-la-roya/fontan/" },
+  { placeId: "monastere-saorge", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.monastere-saorge.fr/visiter/informations-pratiques" },
+  { placeId: "notre-dame-fontaines-la-brigue", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lart-dans-les-chapelles-et-eglises/notre-dame-des-fontaines/" },
+  { placeId: "santa-maria-in-albis-breil", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/nos-suggestions-ditineraires/un-jour-un-village/breil-sur-roya/" },
+  { placeId: "ecomusee-transports-breil", reason: "coordinate_unverified", checkedOn: "2026-10-28", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/ecomusee-du-train-des-merveilles-breil-sur-roya-fr-3051704/" },
   ...[
     ["port-hercule-christmas-monaco", "https://mairie.mc/le-village-de-noel"],
     ["jardin-albert-premier-christmas-nice", "https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/"],

@@ -4,6 +4,23 @@ This document defines the current semi-automated flow for publishing new Azur Me
 
 ## Current Command Chain
 
+DOCX is accepted directly by `guide:new` (Python 3 standard library). For reviewed
+long-form multilingual sources, keep `<prefix>-en.md`, `-fr.md`, `-it.md`, `-uk.md`
+under `src/content/guide-data/` and run:
+
+```bash
+npm run guide:compile -- --slug <public-slug> --prefix <prefix>
+```
+
+This validates locale section/table alignment and generates imported JSON; it
+does not translate, verify facts or publish. `markdownGuideSections` is the shared
+adapter to the existing guide schema. New places must use explicit `id:` objects
+to remain compatible with safe post-publication image patches. Request missing
+illustrations as `<placeId>.png` rather than shortened display names.
+
+See `docs/reviews/2026-10-28-guide-publication-flow.md` for the measured boundaries
+of the Christmas/Roya trial and the two-stage operator procedure.
+
 Use the commands in this order:
 
 ```bash

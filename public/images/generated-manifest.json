@@ -245,6 +245,13 @@
     ]
   },
   {
+    "source": "public/images/guide/jardin-albert-premier-christmas-nice.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-albert-premier-christmas-nice.avif",
+      "public/images/guide/generated/jardin-albert-premier-christmas-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jet-rent-menton.png",
     "outputs": [
       "public/images/guide/generated/jet-rent-menton.avif",
@@ -389,6 +396,13 @@
     "outputs": [
       "public/images/guide/generated/maison-des-pates-condamine-monaco.avif",
       "public/images/guide/generated/maison-des-pates-condamine-monaco.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/marche-carnoles-saint-nicolas.png",
+    "outputs": [
+      "public/images/guide/generated/marche-carnoles-saint-nicolas.avif",
+      "public/images/guide/generated/marche-carnoles-saint-nicolas.webp"
     ]
   },
   {
@@ -546,10 +560,31 @@
     ]
   },
   {
+    "source": "public/images/guide/place-clemenceau-castellar.png",
+    "outputs": [
+      "public/images/guide/generated/place-clemenceau-castellar.avif",
+      "public/images/guide/generated/place-clemenceau-castellar.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/place-garibaldi-sospel.png",
+    "outputs": [
+      "public/images/guide/generated/place-garibaldi-sospel.avif",
+      "public/images/guide/generated/place-garibaldi-sospel.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/point-postal-felix-faure-menton.png",
     "outputs": [
       "public/images/guide/generated/point-postal-felix-faure-menton.avif",
       "public/images/guide/generated/point-postal-felix-faure-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/port-hercule-christmas-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/port-hercule-christmas-monaco.avif",
+      "public/images/guide/generated/port-hercule-christmas-monaco.webp"
     ]
   },
   {
@@ -651,38 +686,10 @@
     ]
   },
   {
-    "source": "public/images/guide/port-hercule-christmas-monaco.png",
+    "source": "public/images/guide/roya-valley-day-trip-from-menton.png",
     "outputs": [
-      "public/images/guide/generated/port-hercule-christmas-monaco.avif",
-      "public/images/guide/generated/port-hercule-christmas-monaco.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/jardin-albert-premier-christmas-nice.png",
-    "outputs": [
-      "public/images/guide/generated/jardin-albert-premier-christmas-nice.avif",
-      "public/images/guide/generated/jardin-albert-premier-christmas-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/marche-carnoles-saint-nicolas.png",
-    "outputs": [
-      "public/images/guide/generated/marche-carnoles-saint-nicolas.avif",
-      "public/images/guide/generated/marche-carnoles-saint-nicolas.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/place-garibaldi-sospel.png",
-    "outputs": [
-      "public/images/guide/generated/place-garibaldi-sospel.avif",
-      "public/images/guide/generated/place-garibaldi-sospel.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/place-clemenceau-castellar.png",
-    "outputs": [
-      "public/images/guide/generated/place-clemenceau-castellar.avif",
-      "public/images/guide/generated/place-clemenceau-castellar.webp"
+      "public/images/guide/generated/roya-valley-day-trip-from-menton.avif",
+      "public/images/guide/generated/roya-valley-day-trip-from-menton.webp"
     ]
   }
 ]

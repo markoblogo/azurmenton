@@ -829,7 +829,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     bookingTip: t("Check the official programme for each concert's city, venue, time and reservation.", "Verifiez ville, lieu, horaire et reservation de chaque concert dans le programme officiel.", "Controlla citta, sede, orario e prenotazione di ogni concerto nel programma ufficiale.", "Перевіряйте місто, місце, час і запис на кожен концерт в офіційній програмі."),
     additionalOfficialLinks: [{ label: t("Tende film and music: 7 November", "Tende : cinema et musique le 7 novembre", "Tenda: cinema e musica il 7 novembre", "Танд: кіно і музика 7 листопада"), href: "https://www.menton-riviera-merveilles.fr/offres/festival-cest-pas-classique-projection-et-performance-musicale-tende-fr-6818270/" }],
     sourceStatus: "verified", sourceUrl: "https://www.explorenicecotedazur.com/evenement/cest-pas-classique-2026/", lastChecked: "2026-10-26", lastVerifiedAt: "2026-10-26", detailPage: true,
-    relatedGuideSlugs: ["menton-in-autumn", "day-trips-from-menton"], placeDisplayLimit: 14,
+    relatedGuideSlugs: ["menton-in-autumn", "day-trips-from-menton", "roya-valley-day-trip-from-menton"], placeDisplayLimit: 14,
     relatedPlaceIds: ["palais-de-leurope-menton", "palais-lascaris-nice", "theatre-anthea-antibes", "theatre-les-funambules-cap-dail", "theatre-de-grasse", "la-stella-la-trinite", "espace-leonard-de-vinci-mandelieu", "salle-charlie-chaplin-saint-jean-cap-ferrat", "salle-du-belvedere-berre-les-alpes", "eglise-notre-dame-assomption-puget-theniers", "espace-jean-grinda-saint-martin-vesubie", "musee-departemental-des-merveilles-tende", "salle-des-fetes-tourrette-levens", "cinema-casino-cineode-vence"], relatedApartmentKeys: relatedAll,
   },
   {

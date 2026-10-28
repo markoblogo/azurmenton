@@ -278,6 +278,7 @@ The guide workflow is now partially automated and remains review-first:
 
 ```bash
 npm run guide:new
+npm run guide:compile -- --slug <public-slug> --prefix <source-prefix>
 npm run guide:check
 npm run guide:assets
 npm run guide:apply
@@ -292,6 +293,11 @@ Detailed usage:
 - [docs/content-operations.md](docs/content-operations.md)
 
 This pipeline prepares and validates guide/place/link/image work. It does not blindly auto-publish.
+
+`guide:new` accepts DOCX directly. `guide:compile` validates reviewed EN/FR/IT/UK
+Markdown section/table alignment and generates JSON for the shared content adapter;
+it does not translate or publish. Supply second-stage illustrations as
+`<placeId>.png` to avoid ambiguous shortened venue names.
 
 For image work after a guide is already live, use the post-publish path:
 
