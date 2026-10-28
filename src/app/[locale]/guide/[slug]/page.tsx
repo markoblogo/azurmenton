@@ -39,6 +39,22 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
+function formattedGuideText(text: string, locale: Locale) {
+  const tokens = /(\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|\*\*([^*]+)\*\*|_([^_]+)_)/g;
+  return text.split(tokens).reduce<React.ReactNode[]>((out, part, index, parts) => {
+    if (index % 6 === 0) { if (part) out.push(part); return out; }
+    if (index % 6 !== 1 || !part) return out;
+    const label = parts[index + 1];
+    const url = parts[index + 2];
+    if (label && url) {
+      const href = url.replace(/^https:\/\/azurmenton\.com\/(?:en|fr|it|uk)(?=\/|$)/, `/${locale}`);
+      out.push(<a key={index} href={href} className="underline underline-offset-4 hover:text-[#173f36]" {...(href.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{label}</a>);
+    } else if (parts[index + 3]) out.push(<strong key={index} className="font-semibold text-[#173f36]">{parts[index + 3]}</strong>);
+    else if (parts[index + 4]) out.push(<em key={index}>{parts[index + 4]}</em>);
+    return out;
+  }, []);
+}
+
 const labels = {
   en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", authorityAuthor: "Author", authorityChecked: "Editorial review", authoritySources: "Useful sources", realPlan: "Plan your day", watchSource: "Watch on source", source: "Source", opensOnSource: "Video opens on the source site", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
   fr: { home: "Accueil", guide: "Guide de Menton", category: "Categorie", duration: "Duree", bestFor: "Ideal pour", usefulPlaces: "Adresses utiles", appToolkit: "Boite a outils", practicalTips: "Conseils pratiques", relatedGuides: "Guides lies", relatedEvents: "Evenements lies", relatedApartments: "Ou sejourner", sourceNote: "Certains horaires, tarifs ou details de lieu doivent etre verifies avant la visite.", authorityAuthor: "Auteur", authorityChecked: "Relecture editoriale", authoritySources: "Sources utiles", realPlan: "Organiser votre journee", watchSource: "Voir a la source", source: "Source", opensOnSource: "La video s'ouvre sur le site source", check: "Verifier disponibilite", apartments: "Voir les appartements", finalTitle: "Sejourner pres de la plage a Menton centre", finalText: "Envoyez vos dates et nous confirmerons la disponibilite directement.", walkingFinalTitle: "Sejourner au centre, tout faire a pied", walkingFinalText: "Envoyez vos dates et nous vous aiderons a choisir l'appartement adapte a vos plans.", transportFinalTitle: "Vous planifiez un sejour sans voiture a Menton?", transportFinalText: "Envoyez vos dates et votre mode d'arrivee. Nous vous aiderons a choisir l'appartement adapte a votre voyage." },
@@ -193,8 +209,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
                       expandable
                     />
                     ) : null}
-                    <div className="mt-4 space-y-3 text-base leading-8 text-[#5c5044]">
-                      {section.body.map((paragraph) => <p className="whitespace-pre-line" key={paragraph}>{paragraph}</p>)}
+                    <div className={`mt-4 space-y-3 text-base ${section.formattedBody ? "leading-7" : "leading-8"} text-[#5c5044]`}>
+                      {(section.formattedBody ? section.body.flatMap(paragraph => paragraph.split("\n").filter(Boolean)) : section.body).map((paragraph, index) => <p className={section.formattedBody ? undefined : "whitespace-pre-line"} key={index}>{section.formattedBody ? formattedGuideText(paragraph, locale) : paragraph}</p>)}
                     </div>
                     {section.tables?.map((table, tableIndex) => (
                       <div key={tableIndex} className="mt-5 overflow-x-auto" role="region" aria-label={section.heading} tabIndex={0}>

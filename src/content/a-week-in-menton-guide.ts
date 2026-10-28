@@ -4,6 +4,18 @@ import records from "./guide-data/a-week-in-menton-book-walking-route.json";
 
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
 const sections = markdownGuideSections(records, t("A week by the sea", "Une semaine au bord de la mer", "Una settimana sul mare", "Тиждень біля моря"));
+// Keep the source's inline emphasis and links for this literary guide.
+sections.forEach((section, index) => {
+  const source = records[index];
+  const lines = (locale: keyof typeof source) => source[locale].split("\n").slice(1)
+    .map(line => line.trim())
+    .filter(line => line && !line.startsWith("|"))
+    .map(line => line.replace(/^#{1,6}\s+/, "").replace(/^[-*]\s+/, ""));
+  const localized = { en: lines("en"), fr: lines("fr"), it: lines("it"), uk: lines("uk") };
+  section.body = [t(localized.en.join("\n"), localized.fr.join("\n"), localized.it.join("\n"), localized.uk.join("\n"))];
+  section.formattedBody = true;
+  section.officialLinks = undefined;
+});
 sections[0].image = "/images/guide/a-week-in-menton-book-cover.jpeg";
 sections[0].imageAlt = t("Cover of A Week in Menton: A Novella by the Sea", "Couverture de A Week in Menton: A Novella by the Sea", "Copertina di A Week in Menton: A Novella by the Sea", "Обкладинка книги A Week in Menton: A Novella by the Sea");
 sections[0].imageLayout = "portrait";
@@ -14,7 +26,7 @@ const bookLinks = [
   { url: "https://www.amazon.com/dp/B0HPLDC157", label: t("Illustrated paperback on Amazon", "Livre illustré sur Amazon", "Edizione illustrata cartacea su Amazon", "Ілюстроване паперове видання на Amazon") },
   { url: "https://abvx.xyz/books/a-week-in-menton", label: t("About the book and its editions", "Le livre et ses éditions", "Il libro e le sue edizioni", "Про книгу та її видання") },
 ];
-sections[1].officialLinks = bookLinks;
+sections[1].officialLinks = [bookLinks[2]];
 sections[3].relatedPlaceIds = ["promenade-du-soleil"];
 sections[4].relatedPlaceIds = ["rue-saint-michel-menton"];
 sections[4].guideLinkSlug = "best-breakfast-menton";
@@ -31,7 +43,7 @@ sections[8].relatedPlaceIds = ["cimetiere-vieux-chateau"];
 sections[9].relatedPlaceIds = ["villefranche-sur-mer"];
 sections[9].guideLinkSlug = "public-transport-in-menton";
 sections[9].guideLinkLabel = t("Train and bus planning", "Préparer son trajet en train et bus", "Organizza i viaggi in treno e autobus", "Планування поїздок потягом та автобусом");
-sections[14].officialLinks = [...bookLinks, { url: "https://abvx.xyz/writing/a-week-in-menton-first-novella-french-riviera", label: t("The author's story behind the novella", "L'auteur présente sa nouvelle", "L'autore racconta la novella", "Автор про створення повісті") }];
+sections[14].officialLinks = [bookLinks[2], { url: "https://abvx.xyz/writing/a-week-in-menton-first-novella-french-riviera", label: t("The author's story behind the novella", "L'auteur présente sa nouvelle", "L'autore racconta la novella", "Автор про створення повісті") }];
 
 export const aWeekInMentonGuide: GuideArticle = {
   id: "a-week-in-menton-book-walking-route", slug: "a-week-in-menton-book-walking-route",

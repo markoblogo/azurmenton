@@ -14,9 +14,9 @@ describe("A Week in Menton literary route", () => {
     expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
   });
   it("links to the confirmed formats and contains substantial text in every locale", () => {
-    const links = guide.sections[1].officialLinks ?? [];
-    expect(links.find((link) => link.url.endsWith("B0HPKXPCPV"))?.label.en).toContain("Kindle");
-    expect(links.find((link) => link.url.endsWith("B0HPLDC157"))?.label.en).toContain("paperback");
+    const body = guide.sections[1].body.map((paragraph) => paragraph.en).join("\n");
+    expect(body).toContain("[Kindle edition on Amazon](https://www.amazon.com/dp/B0HPKXPCPV)");
+    expect(body).toContain("[Illustrated paperback on Amazon](https://www.amazon.com/dp/B0HPLDC157)");
     for (const locale of ["en", "fr", "it", "uk"] as const) {
       expect(guide.sections).toHaveLength(16);
       expect(guide.sections.map((section) => section.body.map((text) => text[locale]).join(" ")).join(" ").length).toBeGreaterThan(10000);

@@ -71,6 +71,7 @@ export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "im
 };
 
 export type GuideSection = {
+  formattedBody?: boolean;
   tables?: { headers: string[]; rows: string[][] }[];
   heading: string;
   body: string[];
@@ -102,6 +103,7 @@ export type LocalizedGuideSectionOfficialLink = {
 };
 
 export type LocalizedGuideSection = {
+  formattedBody?: boolean;
   tables?: Record<Locale, { headers: string[]; rows: string[][] }[]>;
   heading: LocalizedText;
   body: LocalizedText[];
