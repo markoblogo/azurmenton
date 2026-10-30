@@ -8,6 +8,7 @@ import { belleEpoqueGuide } from "@/content/belle-epoque-guide";
 import { aWeekInMentonGuide } from "@/content/a-week-in-menton-guide";
 import { lgbtqRivieraGuide } from "@/content/lgbtq-riviera-guide";
 import { naturistBeachesGuide } from "@/content/naturist-beaches-guide";
+import { cocteauMentonGuide } from "@/content/cocteau-menton-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11376,6 +11377,15 @@ guideArticles.push(belleEpoqueGuide);
 guideArticles.push(aWeekInMentonGuide);
 guideArticles.push(lgbtqRivieraGuide);
 guideArticles.push(naturistBeachesGuide);
+guideArticles.push(cocteauMentonGuide);
+for (const slug of ["museums-in-menton-nice-monaco", "menton-old-town", "belle-epoque-menton-architecture-walk", "famous-paintings-of-menton"]) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(cocteauMentonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), cocteauMentonGuide.slug];
+}
+const museumsGuide = guideArticles.find(article => article.slug === "museums-in-menton-nice-monaco")!;
+const mentonMuseumsSection = museumsGuide.sections.find(section => section.relatedPlaceIds?.includes("musee-jean-cocteau-bastion"))!;
+mentonMuseumsSection.relatedPlaceIds!.push("musee-jean-cocteau-wunderman-menton");
+mentonMuseumsSection.body.push(t("The separate Séverin Wunderman museum building remains closed after the 2018 flooding; view its exterior only. Do not confuse it with the open Bastion museum.", "Le bâtiment distinct de la collection Séverin Wunderman reste fermé depuis les inondations de 2018 : extérieur seulement. Ne le confondez pas avec le Bastion ouvert.", "L'edificio della collezione Séverin Wunderman resta chiuso dopo le inondazioni del 2018: solo esterno. Non confonderlo con il Bastion aperto.", "Окрема будівля колекції Séverin Wunderman залишається закритою після затоплення 2018 року: огляд лише зовні. Не плутайте її з відкритим Bastion."));
 for (const slug of ["lgbtq-menton-nice-monaco-french-riviera", "best-beaches-in-menton", "water-sports-in-menton-paddleboard-kayak-sailing-and-snorkelling"]) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(naturistBeachesGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), naturistBeachesGuide.slug];

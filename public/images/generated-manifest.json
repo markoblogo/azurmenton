@@ -616,6 +616,13 @@
     ]
   },
   {
+    "source": "public/images/guide/naturist-nudist-beaches-near-menton.png",
+    "outputs": [
+      "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
+      "public/images/guide/generated/naturist-nudist-beaches-near-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/nice-diving-and-wing-foil-area.png",
     "outputs": [
       "public/images/guide/generated/nice-diving-and-wing-foil-area.avif",
@@ -903,10 +910,10 @@
     ]
   },
   {
-    "source": "public/images/guide/naturist-nudist-beaches-near-menton.png",
+    "source": "public/images/guide/jean-cocteau-menton-walking-route.png",
     "outputs": [
-      "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
-      "public/images/guide/generated/naturist-nudist-beaches-near-menton.webp"
+      "public/images/guide/generated/jean-cocteau-menton-walking-route.avif",
+      "public/images/guide/generated/jean-cocteau-menton-walking-route.webp"
     ]
   }
 ]

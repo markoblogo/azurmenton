@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "musee-jean-cocteau-wunderman-menton", reason: "coordinate_unverified", checkedOn: "2026-10-30", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lempreinte-de-cocteau/" },
+  { placeId: "vieux-port-menton", reason: "coordinate_unverified", checkedOn: "2026-10-30", sourceUrl: "https://www.menton.fr/La-vie-de-Cocteau-a-Menton.html" },
   {"placeId":"ramdam-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/shop/ramdam-bar/"},
   {"placeId":"le-swing-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},
   {"placeId":"coco-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/app/uploads/2026/03/nice-rainbow-gb-ok-0425.pdf"},

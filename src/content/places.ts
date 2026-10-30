@@ -292,6 +292,24 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "musee-jean-cocteau-wunderman-menton", name: "Musée Jean Cocteau – Collection Séverin Wunderman", type: "museum",
+    address: "2 quai de Monléon, 06500 Menton", googleMapsUrl: mapsQuery("Musée Jean Cocteau Collection Séverin Wunderman", "Quai de Monléon, Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lempreinte-de-cocteau/",
+    sourceStatus: "verified", requiresMapReview: true,
+    openingHoursLabel: text("Closed to visitors; exterior only", "Fermé au public ; extérieur seulement", "Chiuso al pubblico; solo esterno", "Закрито для відвідувачів; огляд лише зовні"),
+    shortNote: text("Rudy Ricciotti's seafront museum remains closed after the 2018 flooding. View the exterior only; this is not the separate Bastion museum.", "Le musée de Rudy Ricciotti reste fermé après les inondations de 2018. Extérieur seulement ; à distinguer du Bastion.", "Il museo sul mare di Rudy Ricciotti resta chiuso dopo il 2018. Solo esterno; è distinto dal Bastion.", "Музей Rudy Ricciotti біля моря закритий після затоплення 2018 року. Огляд лише зовні; це не окремий музей Bastion."),
+    bestFor: [text("Museum architecture", "Architecture de musée", "Architettura museale", "Музейна архітектура")],
+    relatedArticleIds: ["jean-cocteau-menton-walking-route", "museums-in-menton-nice-monaco"], guideCoverageSlugs: ["jean-cocteau-menton-walking-route", "museums-in-menton-nice-monaco"],
+  },
+  {
+    id: "vieux-port-menton", name: "Vieux Port de Menton", type: "port",
+    address: "Quai Napoléon III, 06500 Menton", googleMapsUrl: mapsQuery("Vieux Port de Menton", "Quai Napoléon III, Menton"),
+    programmeUrl: "https://www.menton.fr/La-vie-de-Cocteau-a-Menton.html", sourceStatus: "editorial", requiresMapReview: true,
+    shortNote: text("Historic harbour beside Cocteau's Bastion, useful for viewing the fortress in its maritime setting before continuing to Sablettes.", "Port historique près du Bastion de Cocteau, pour regarder le fortin dans son cadre maritime avant les Sablettes.", "Porto storico accanto al Bastion, per osservare la fortezza nel paesaggio marittimo prima delle Sablettes.", "Історичний порт біля Bastion: погляньте на форт у морському оточенні перед прогулянкою до Sablettes."),
+    bestFor: [text("Harbour views and walks", "Vues du port et promenades", "Panorami e passeggiate sul porto", "Портові краєвиди й прогулянки")],
+    relatedArticleIds: ["jean-cocteau-menton-walking-route"], guideCoverageSlugs: ["jean-cocteau-menton-walking-route"],
+  },
+  {
     id: "ramdam-bar-nice", name: "Ramdam Bar", type: "bar", address: "3 rue Lascaris, 06300 Nice", programmeUrl: "https://www.explorenicecotedazur.com/en/shop/ramdam-bar/", sourceStatus: "verified", requiresMapReview: true,
     image: "/images/guide/ramdam-bar-nice.png",
     imageAlt: text("Illustration of Ramdam Bar", "Illustration de Ramdam Bar", "Illustrazione di Ramdam Bar", "Ілюстрація Ramdam Bar"),
@@ -10942,6 +10960,7 @@ export const places: Place[] = rawPlaces.map((place) => {
   const relatedArticleIds = new Set(place.relatedArticleIds);
   if (["plage-sablettes", "promenade-du-soleil", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("lgbtq-menton-nice-monaco-french-riviera");
   if (["pissarelles-beach-cap-dail", "balzi-rossi-area-ventimiglia", "plage-sablettes", "plage-casino", "plage-fossan", "rondelli-garavan-side"].includes(place.id)) relatedArticleIds.add("naturist-nudist-beaches-near-menton");
+  if (["salle-des-mariages-jean-cocteau", "rue-saint-michel-menton", "palais-de-leurope-menton", "musee-jean-cocteau-bastion", "plage-sablettes"].includes(place.id)) relatedArticleIds.add("jean-cocteau-menton-walking-route");
   return {
     ...place,
     ...visual,
