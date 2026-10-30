@@ -49,6 +49,19 @@ test("localizes contextual reasons and handles a second hash on the same events 
   }
 });
 
+test("long native select labels cannot widen the mobile correction form", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 900 });
+  const fragment = new URLSearchParams({ page: "https://azurmenton.com/it/events/monaco-yacht-show-2027", subject: "Monaco Yacht Show" });
+  await page.goto(`/it/events#suggest-event?${fragment}`);
+  const type = page.locator('#suggest-event select[name="type"]');
+  await expect(page.locator('#suggest-event [name="subject"]')).toHaveValue("Monaco Yacht Show");
+  await type.evaluate((select: HTMLSelectElement) => {
+    select.options[1].textContent = "Segnala una correzione alle informazioni ufficiali aggiornate per tutti i visitatori";
+  });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
+  expect(await type.evaluate(element => element.getBoundingClientRect().right)).toBeLessThanOrEqual(300);
+});
+
 test("day plan exposes ordered external maps and explicit geography warnings",async ({page})=>{
   await page.goto('/en/my-trip');
   await page.evaluate(()=>localStorage.setItem('azurmenton.trip.v1',JSON.stringify({version:1,trip:{checkIn:"2027-02-15",checkOut:"2027-02-20",adults:2,children:0,car:false,interests:[],placeDays:[{date:"2027-02-17",placeIds:["halles-du-marche","oceanographic-museum-monaco","musee-jean-cocteau-bastion"]}]}})));

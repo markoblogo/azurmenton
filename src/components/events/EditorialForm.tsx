@@ -50,15 +50,15 @@ export function EditorialForm({ locale, children }: { locale: Locale; children?:
   }
   return <section id="suggest-event" className="scroll-mt-40 border-y border-[#dfd4c1] py-8">
     <details ref={details}><summary className="cursor-pointer py-3 text-xl font-semibold text-[#173f36]">{c[0]}</summary>
-    {status === "success" ? <p role="status" className="py-4">{c[14]}</p> : <form method="post" action="/api/editorial-submission" onSubmit={submit} className="grid gap-4 py-5 sm:grid-cols-2">
-      <label className="grid gap-2 sm:col-span-2">{c[0]}<select name="type" value={type} onChange={e => setType(e.target.value)} className="min-h-11 border p-2"><option value="event">{c[1]}</option><option value="correction">{c[2]}</option></select></label>
+    {status === "success" ? <p role="status" className="py-4">{c[14]}</p> : <form method="post" action="/api/editorial-submission" onSubmit={submit} className="grid min-w-0 grid-cols-1 gap-4 py-5 sm:grid-cols-2">
+      <label className="grid min-w-0 gap-2 sm:col-span-2">{c[0]}<select name="type" value={type} onChange={e => setType(e.target.value)} className="min-h-11 w-full min-w-0 border p-2"><option value="event">{c[1]}</option><option value="correction">{c[2]}</option></select></label>
       {([["name", c[3], "text"], ["email", c[4], "email"], ...(type === "event" ? [["title", c[5], "text"], ["date", c[6], "date"], ["venue", c[7], "text"], ["organiser", c[8], "text"], ["source", c[9], "url"]] : [])] as string[][]).map(([name, label, inputType]) => <label key={name} className="grid min-w-0 gap-2">{label}<input name={name} type={inputType} required maxLength={name === "email" ? 254 : 1000} className="min-h-11 w-full min-w-0 border p-2" /></label>)}
       {type === "correction" ? <>
         <label className="grid min-w-0 gap-2 sm:col-span-2">{c[10]}<input key={context?.page ?? "page"} name="page" type="url" defaultValue={context?.page ?? ""} required maxLength={1000} className="min-h-11 w-full min-w-0 border p-2" /></label>
         <label className="grid min-w-0 gap-2">{correctionCopy[locale].subject}<input key={context?.subject ?? "subject"} name="subject" defaultValue={context?.subject ?? ""} maxLength={200} className="min-h-11 w-full min-w-0 border p-2" /></label>
         <label className="grid min-w-0 gap-2">{correctionCopy[locale].reason}<select name="reason" required defaultValue="" className="min-h-11 w-full min-w-0 border p-2"><option value="" disabled>—</option>{correctionReasons.map((reason, index) => <option key={reason} value={reason}>{correctionCopy[locale].reasons[index]}</option>)}</select></label>
       </> : null}
-      <label className="grid gap-2 sm:col-span-2">{c[11]}<textarea name="message" required minLength={10} maxLength={4000} rows={4} className="w-full border p-2" /></label>
+      <label className="grid min-w-0 gap-2 sm:col-span-2">{c[11]}<textarea name="message" required minLength={10} maxLength={4000} rows={4} className="w-full min-w-0 border p-2" /></label>
       <div hidden aria-hidden="true"><input name="website" tabIndex={-1} autoComplete="off" /></div>
       <label className="flex items-start gap-2 sm:col-span-2"><input type="checkbox" name="privacy" value="accepted" required className="mt-1" />{c[12]}</label>
       <Link href={`/${locale}/privacy`} className="underline">{c[16]}</Link>
