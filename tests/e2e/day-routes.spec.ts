@@ -27,6 +27,13 @@ test("five route cards remain readable in four locales, including without JavaSc
     expect(sources.every(href => href?.startsWith("https://"))).toBe(true);
     const museum = page.locator('[data-day-route="monaco-event-weekend"] [data-place-visit-notes="oceanographic-museum-monaco"]');
     await expect(museum).toContainText("-1");
+    await expect(museum).toContainText(/parking des pêcheurs/i);
+    const station = page.locator('[data-day-route="monaco-event-weekend"] [data-place-visit-notes="monaco-monte-carlo-station"]');
+    await expect(station).toContainText(/rue suffren-reymond/i);
+    const beach = page.locator('[data-day-route="one-day-without-car"] [data-place-visit-notes="plage-sablettes"]');
+    await expect(beach).toContainText(/quai bonaparte/i);
+    const promenade = page.locator('[data-day-route="family-menton"] [data-place-visit-notes="promenade-du-soleil"]');
+    await expect(promenade).toContainText("Carnot");
     if (locale === "en") await expect(museum).toContainText("all ages");
     if (locale === "uk") await expect(museum).toContainText("Дитячі візочки");
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0);

@@ -21,18 +21,16 @@ describe("shared visit rules",()=>{
       for(const condition of conditions) for(const locale of ["en","fr","it","uk"] as const) expect(condition.value[locale].trim(),`${place.id}:${locale}`).not.toBe("");
     }
   });
-  it("uses the same sourced conditions in the route stops and private planning catalogue",()=>{
-    for(const locale of ["en","fr","it","uk"] as const) {
-      const catalog=tripPlaceCatalog(locale);
-      for(const route of Object.values(dayRouteDetails)) {
-        const notes=route.stops.flatMap(stop=>{
-          const place=places.find(place=>place.id===stop.placeId)!;
-          const notes=placeVisitDetails(place,locale);
-          for(const note of notes) expect(catalog.find(item=>item.id===place.id)?.visitorInfo).toContain(note.value);
-          return notes;
-        });
-        expect(notes.length).toBeGreaterThan(0);
-      }
+  it.each(["en","fr","it","uk"] as const)("uses the same sourced conditions in route stops and private planning in %s",(locale)=>{
+    const catalog=tripPlaceCatalog(locale);
+    for(const route of Object.values(dayRouteDetails)) {
+      const notes=route.stops.flatMap(stop=>{
+        const place=places.find(place=>place.id===stop.placeId)!;
+        const notes=placeVisitDetails(place,locale);
+        for(const note of notes) expect(catalog.find(item=>item.id===place.id)?.visitorInfo).toContain(note.value);
+        return notes;
+      });
+      expect(notes.length).toBeGreaterThan(0);
     }
   });
   it("does not mistake ticket age bands or partial lift access for general suitability",()=>{
@@ -46,6 +44,21 @@ describe("shared visit rules",()=>{
     const value={en:"Official condition",fr:"",it:"Condizione",uk:"Умова"};
     expect(placeVisitNotes({visitRules:{conditions:[{...source,value}]}},"fr")).toEqual([]);
     expect(placeVisitNotes({visitRules:{conditions:[{...source,sourceUrl:"http://example.com",value}]}},"en")).toEqual([]);
+  });
+  it("keeps street approaches distinct from guaranteed step-free routes",()=>{
+    const notes=(id:string)=>placeVisitNotes(places.find(place=>place.id===id)!,"en").join(" ");
+    const station=notes("monaco-monte-carlo-station");
+    expect(station).toContain("Rue Suffren-Reymond");
+    expect(station).toContain("Port Hercule has escalators but no lifts");
+    expect(notes("plage-sablettes")).toContain("Quai Bonaparte");
+    expect(notes("plage-sablettes")).toContain("Current operation and the complete approach are unverified");
+    expect(notes("promenade-du-soleil")).toContain("instead of the Wedding Hall");
+    expect(notes("promenade-du-soleil")).toContain("does not certify other connections");
+    expect(notes("salle-des-mariages-jean-cocteau")).toContain("does not identify a specific step-free street doorway");
+    expect(notes("oceanographic-museum-monaco")).toContain("not a confirmed lift-only path");
+    expect(notes("mercato-coperto-ventimiglia")).toContain("Via della Repubblica 7");
+    expect(notes("mercato-coperto-ventimiglia")).toContain("does not specify an accessible doorway");
+    for(const route of Object.values(dayRouteDetails)) expect(route.accessStatus).toBe("partial");
   });
   it("warns without filtering out stops or asserting suitability",()=>{
     const catalog=[{id:"checked",title:"Checked",href:"/en/guide/test",minimumAge:8},{id:"unknown",title:"Unknown",href:"/en/guide/test"}];

@@ -1616,6 +1616,9 @@ const rawPlaces: Place[] = [
     visitRules: { conditions: [{
       sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/guided-tour-jean-cocteau-and-the-salle-des-mariages-menton-en-5595123/", checkedOn: "2026-10-30",
       value: text("The official guided-tour listing describes a lift and independent wheelchair access. Reserve that guided visit in advance; this does not confirm availability during ceremonies or pushchair access.", "La fiche officielle de la visite guidée indique un ascenseur et un accès en fauteuil roulant en autonomie. Réservez cette visite à l'avance ; cela ne confirme ni l'accès pendant les cérémonies ni l'accueil des poussettes.", "La scheda ufficiale della visita guidata indica ascensore e accesso autonomo in sedia a rotelle. Prenota la visita in anticipo; ciò non conferma l'apertura durante le cerimonie né l'accesso con passeggino.", "Офіційна сторінка екскурсії вказує ліфт і самостійний доступ на кріслі колісному. Бронюйте цю екскурсію заздалегідь; це не підтверджує доступ під час церемоній або з дитячим візочком."),
+    }, {
+      sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-jean-cocteau-et-la-salle-des-mariages-menton-fr-5595123/", checkedOn: "2026-10-30",
+      value: text("For the guided visit, meet at town-hall reception, 17 Rue de la République. Ask reception which entrance serves the lift; the listing does not identify a specific step-free street doorway.", "Pour la visite guidée, rendez-vous à l'accueil de la mairie, 17 rue de la République. Demandez quelle entrée dessert l'ascenseur ; la fiche ne désigne pas de porte sans marches depuis la rue.", "Per la visita guidata, ritrovo alla reception del municipio, 17 Rue de la République. Chiedi quale ingresso serve l'ascensore; la scheda non identifica una porta senza gradini dalla strada.", "На екскурсію приходьте до рецепції мерії, 17 Rue de la République. Уточніть вхід до ліфта: сторінка не вказує конкретні двері без сходів із вулиці."),
     }] },
     name: "La Salle des Mariages Jean Cocteau",
     type: "museum",
@@ -1638,6 +1641,9 @@ const rawPlaces: Place[] = [
       }, {
         sourceUrl: "https://musee.oceano.org/infos-pratiques/", checkedOn: "2026-10-30",
         value: text("Last entry is 30 minutes before closing. Closed on 25 December and during the Formula 1 Grand Prix weekend; check the museum calendar before buying tickets.", "Dernière entrée 30 minutes avant la fermeture. Fermé le 25 décembre et pendant le week-end du Grand Prix de Formule 1 ; consultez le calendrier avant d'acheter vos billets.", "Ultimo ingresso 30 minuti prima della chiusura. Chiuso il 25 dicembre e durante il fine settimana del Gran Premio di Formula 1; controlla il calendario prima di acquistare.", "Останній вхід за 30 хвилин до закриття. Зачинено 25 грудня та у вихідні Гран-прі Формули-1; перевірте календар музею перед купівлею квитків."),
+      }, {
+        sourceUrl: "https://musee.oceano.org/infos-pratiques/", checkedOn: "2026-10-30",
+        value: text("From Place d'Armes, the museum lists Avenue de la Porte Neuve or Rampe Major. These are not certified step-free here. Parking des Pêcheurs links to the main entrance via lifts and escalators, not a confirmed lift-only path.", "Depuis la place d'Armes, le musée indique l'avenue de la Porte Neuve ou la rampe Major, sans certification sans marches ici. Le parking des Pêcheurs rejoint l'entrée par ascenseurs et escalators, sans trajet uniquement par ascenseurs confirmé.", "Da Place d'Armes il museo indica Avenue de la Porte Neuve o Rampe Major, non certificati qui senza gradini. Il Parking des Pêcheurs collega l'ingresso con ascensori e scale mobili, non con un percorso confermato di soli ascensori.", "Від Place d'Armes музей вказує Avenue de la Porte Neuve або Rampe Major; тут їх не підтверджено як безбар'єрні. Parking des Pêcheurs з'єднаний зі входом ліфтами й ескалаторами, але шлях лише ліфтами не підтверджено."),
       }],
     },
     name: "Oceanographic Museum of Monaco",
@@ -2874,6 +2880,9 @@ const rawPlaces: Place[] = [
     visitRules: { conditions: [{
       sourceUrl: "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo/accessibilite", checkedOn: "2026-10-30",
       value: text("SNCF lists lift, ramp or level access to the information/ticket point and adapted toilets. For platform and train assistance, arrive 30 minutes before departure during staffed hours. The onward street route is not assessed.", "La SNCF indique un accès par ascenseur, rampe ou de plain-pied au point information/vente et des toilettes adaptées. Pour l'assistance quai/train, arrivez 30 minutes avant le départ pendant la présence du personnel. Le trajet en ville n'est pas évalué.", "SNCF indica accesso con ascensore, rampa o in piano al punto informazioni/biglietteria e servizi igienici adattati. Per l'assistenza binario/treno arriva 30 minuti prima durante l'orario del personale. Il percorso urbano successivo non è valutato.", "SNCF вказує ліфт, пандус або доступ без сходів до інформації/каси та адаптовані туалети. Для допомоги на платформі й у поїзді прийдіть за 30 хвилин до відправлення в години роботи персоналу. Подальший міський маршрут не перевірено."),
+    }, {
+      sourceUrl: "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo/infos-pratiques", checkedOn: "2026-10-30",
+      value: text("La Condamine: use the lifts by the post office at Rue Grimaldi / Rue Suffren-Reymond. Parvis Sainte-Dévote has stairs; Port Hercule has escalators but no lifts. SNCF does not list those two exits as wheelchair-accessible. Check lift operation.", "La Condamine : utilisez les ascenseurs près de la poste, rue Grimaldi / rue Suffren-Reymond. Le parvis Sainte-Dévote comporte des escaliers ; Port Hercule, des escalators sans ascenseur. La SNCF ne classe pas ces deux sorties accessibles en fauteuil. Vérifiez les ascenseurs.", "La Condamine: usa gli ascensori presso la posta, Rue Grimaldi / Rue Suffren-Reymond. Parvis Sainte-Dévote ha scale; Port Hercule ha scale mobili ma non ascensori. SNCF non indica queste due uscite accessibili in sedia a rotelle. Verifica gli ascensori.", "La Condamine: скористайтеся ліфтами біля пошти на Rue Grimaldi / Rue Suffren-Reymond. Parvis Sainte-Dévote має сходи; Port Hercule — ескалатори без ліфтів. SNCF не вказує ці два виходи як доступні для крісел колісних. Перевірте роботу ліфтів."),
     }] },
     name: "Monaco-Monte-Carlo Station",
     type: "station",
@@ -5815,6 +5824,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "promenade-du-soleil",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/balade-decouverte-de-menton-circuit-d1-heure-menton-fr-3096142/", checkedOn: "2026-10-30",
+      value: text("Outdoor alternative from Palais de l'Europe, instead of the Wedding Hall: east Biovès entrance, Avenue Carnot, Square des États-Unis, Avenue Édouard VII, seafront. The tourist office describes its walk as level; this does not certify other connections.", "Alternative extérieure depuis le Palais de l'Europe, sans la Salle des Mariages : entrée est de Biovès, avenue Carnot, square des États-Unis, avenue Édouard VII, front de mer. L'office décrit sa balade comme plate, sans certifier les autres liaisons.", "Alternativa all'aperto dal Palais de l'Europe, senza la Salle des Mariages: ingresso est di Biovès, Avenue Carnot, Square des États-Unis, Avenue Édouard VII, lungomare. L'ufficio descrive la sua passeggiata come pianeggiante, senza certificare altri collegamenti.", "Вулична альтернатива від Palais de l'Europe, без Зали одружень: східний вхід Biovès, Avenue Carnot, Square des États-Unis, Avenue Édouard VII, набережна. Туристичний офіс описує свою прогулянку як рівну; це не підтверджує інші переходи."),
+    }] },
     name: "Promenade du Soleil",
     type: "walk",
     area: text("Menton seafront", "Front de mer de Menton", "Lungomare di Mentone", "Набережна Ментона"),
@@ -5986,6 +5999,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "plage-sablettes",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.riviera-francaise.fr/wp-content/uploads/2025/10/38-2025-PJ-_RA2024Parking-sablette.pdf", checkedOn: "2026-10-30",
+      value: text("CARF's 2024 parking report locates a panoramic lift between Quai Bonaparte and the Sablettes esplanade/parking. Use the pedestrian lift access, not the vehicle ramp. Current operation and the complete approach are unverified.", "Le rapport parking 2024 de la CARF situe un ascenseur panoramique entre le quai Bonaparte et l'esplanade/parking des Sablettes. Utilisez l'accès piéton par ascenseur, pas la rampe automobile. Fonctionnement actuel et approche complète non vérifiés.", "Il rapporto parcheggio CARF 2024 colloca un ascensore panoramico tra Quai Bonaparte e l'esplanade/parcheggio delle Sablettes. Usa l'accesso pedonale con ascensore, non la rampa auto. Funzionamento attuale e percorso completo non verificati.", "Звіт CARF за 2024 рік вказує панорамний ліфт між Quai Bonaparte та еспланадою/паркінгом Sablettes. Користуйтеся пішохідним входом до ліфта, не автомобільним пандусом. Поточну роботу та весь підхід не перевірено."),
+    }] },
     name: "Plage des Sablettes",
     type: "beach",
     area: text("near old port / old town", "pres du vieux port / vieille ville", "vicino al vecchio porto / centro storico", "біля старого порту / старого міста"),
@@ -6962,6 +6979,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "mercato-coperto-ventimiglia",
+    visitRules: { conditions: [{
+      sourceUrl: "https://ventimiglia.it/esplora/gusto-e-shopping/mercati/mercato-dei-fiori/", checkedOn: "2026-10-30",
+      value: text("Use the food-market address, Via della Repubblica 7. The official visitor listing does not specify an accessible doorway, kerb ramps or a continuous step-free route from the station; check these before relying on wheelchair or pushchair access.", "Visez l'adresse du marché alimentaire, via della Repubblica 7. La fiche officielle ne précise ni porte accessible, ni abaissements de trottoir, ni trajet sans marches depuis la gare ; vérifiez-les avant de compter sur un accès fauteuil ou poussette.", "Usa l'indirizzo del mercato alimentare, Via della Repubblica 7. La scheda ufficiale non specifica ingresso accessibile, scivoli dei marciapiedi o percorso continuo senza gradini dalla stazione; verifica prima di contare sull'accesso con carrozzina o passeggino.", "Орієнтуйтеся на адресу продуктового ринку: Via della Repubblica 7. Офіційна сторінка не вказує доступні двері, пониження бордюрів або суцільний безбар'єрний шлях від станції; перевірте це перед поїздкою з кріслом колісним чи дитячим візочком."),
+    }] },
     name: "Mercato Coperto Ventimiglia",
     type: "market",
     area: text("Ventimiglia, Italy", "Vintimille, Italie", "Vintimiglia, Italia", "Вінтимілья, Італія"),
