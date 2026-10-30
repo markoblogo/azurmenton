@@ -322,6 +322,13 @@
     ]
   },
   {
+    "source": "public/images/guide/jean-cocteau-menton-walking-route.png",
+    "outputs": [
+      "public/images/guide/generated/jean-cocteau-menton-walking-route.avif",
+      "public/images/guide/generated/jean-cocteau-menton-walking-route.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jet-rent-menton.png",
     "outputs": [
       "public/images/guide/generated/jet-rent-menton.avif",
@@ -910,10 +917,17 @@
     ]
   },
   {
-    "source": "public/images/guide/jean-cocteau-menton-walking-route.png",
+    "source": "public/images/guide/musee-jean-cocteau-wunderman-menton.png",
     "outputs": [
-      "public/images/guide/generated/jean-cocteau-menton-walking-route.avif",
-      "public/images/guide/generated/jean-cocteau-menton-walking-route.webp"
+      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.avif",
+      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/vieux-port-menton.png",
+    "outputs": [
+      "public/images/guide/generated/vieux-port-menton.avif",
+      "public/images/guide/generated/vieux-port-menton.webp"
     ]
   }
 ]

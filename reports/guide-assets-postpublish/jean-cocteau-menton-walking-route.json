@@ -1,0 +1,49 @@
+{
+  "slug": "jean-cocteau-menton-walking-route",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": true,
+  "operatorSummary": [
+    "status: ok",
+    "subject: jean-cocteau-menton-walking-route",
+    "mode: published-guide + missing-only",
+    "matched: 2",
+    "skipped-covered: 5",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/jean-cocteau-menton-walking-route.json",
+    "rerun: npm run guide:assets -- --published-guide jean-cocteau-menton-walking-route --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 2,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 5,
+    "stillMissing": 0,
+    "patchReady": 2
+  },
+  "matchedAssetFiles": [
+    "musee-jean-cocteau-wunderman-menton.png",
+    "vieux-port-menton.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "musee-jean-cocteau-wunderman-menton",
+    "vieux-port-menton"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide jean-cocteau-menton-walking-route --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "musee-jean-cocteau-wunderman-menton",
+      "vieux-port-menton"
+    ],
+    "failedPlaceIds": []
+  }
+}

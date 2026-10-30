@@ -32,3 +32,14 @@ it("distinguishes the closed Wunderman museum and the 1 November holiday closure
   expect(guide.sections[6].body[0].en).toContain("takes precedence");
   expect(guide.sections[4].body[0].en).toContain("30 January 2027");
 });
+
+it("keeps owner illustrations attached to the two new Cocteau route places", () => {
+  for (const id of ["musee-jean-cocteau-wunderman-menton", "vieux-port-menton"]) {
+    const place = getPlaces([id])[0];
+    expect(place.image).toBe(`/images/guide/${id}.png`);
+    for (const locale of ["en", "fr", "it", "uk"] as const) {
+      expect(place.imageAlt?.[locale]).toBeTruthy();
+    }
+    expect(place.imageAlt?.uk).toMatch(/[іїєґІЇЄҐ]/);
+  }
+});

@@ -17,7 +17,7 @@ Some museum pages returned 403. Municipal and tourist-office pages and indexed m
 
 Five existing illustrated places are reused. Two new image-free cards are created, and the closed museum is also rendered, with an explicit closure warning, in the existing specialist museum guide. Explicit coordinate-review exclusions avoid guessed map markers. Nearby museum, old-town, architecture and painting guides link back.
 
-Owner illustrations needed after publication:
+Owner illustrations installed on 30 October 2026 through the published-guide safe asset workflow (two matched, verified place updates; no unmatched files or remaining image gaps):
 
 Musée Jean Cocteau – Collection Séverin Wunderman, Menton, musee-jean-cocteau-wunderman-menton.png
 Vieux Port de Menton, Menton, vieux-port-menton.png

@@ -294,6 +294,8 @@ const rawPlaces: Place[] = [
   {
     id: "musee-jean-cocteau-wunderman-menton", name: "Musée Jean Cocteau – Collection Séverin Wunderman", type: "museum",
     address: "2 quai de Monléon, 06500 Menton", googleMapsUrl: mapsQuery("Musée Jean Cocteau Collection Séverin Wunderman", "Quai de Monléon, Menton"),
+    image: "/images/guide/musee-jean-cocteau-wunderman-menton.png",
+    imageAlt: text("Illustration of the exterior of the Jean Cocteau Wunderman museum in Menton", "Illustration de l'extérieur du musée Jean Cocteau Wunderman à Menton", "Illustrazione dell'esterno del museo Jean Cocteau Wunderman a Mentone", "Ілюстрація фасаду музею Жана Кокто Wunderman у Ментоні"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lempreinte-de-cocteau/",
     sourceStatus: "verified", requiresMapReview: true,
     openingHoursLabel: text("Closed to visitors; exterior only", "Fermé au public ; extérieur seulement", "Chiuso al pubblico; solo esterno", "Закрито для відвідувачів; огляд лише зовні"),
@@ -304,6 +306,8 @@ const rawPlaces: Place[] = [
   {
     id: "vieux-port-menton", name: "Vieux Port de Menton", type: "port",
     address: "Quai Napoléon III, 06500 Menton", googleMapsUrl: mapsQuery("Vieux Port de Menton", "Quai Napoléon III, Menton"),
+    image: "/images/guide/vieux-port-menton.png",
+    imageAlt: text("Illustration of boats in Menton's old harbour below the old town", "Illustration des bateaux du Vieux Port de Menton au pied de la vieille ville", "Illustrazione delle barche nel porto vecchio di Mentone sotto il centro storico", "Ілюстрація човнів у Старому порту Ментона під старим містом"),
     programmeUrl: "https://www.menton.fr/La-vie-de-Cocteau-a-Menton.html", sourceStatus: "editorial", requiresMapReview: true,
     shortNote: text("Historic harbour beside Cocteau's Bastion, useful for viewing the fortress in its maritime setting before continuing to Sablettes.", "Port historique près du Bastion de Cocteau, pour regarder le fortin dans son cadre maritime avant les Sablettes.", "Porto storico accanto al Bastion, per osservare la fortezza nel paesaggio marittimo prima delle Sablettes.", "Історичний порт біля Bastion: погляньте на форт у морському оточенні перед прогулянкою до Sablettes."),
     bestFor: [text("Harbour views and walks", "Vues du port et promenades", "Panorami e passeggiate sul porto", "Портові краєвиди й прогулянки")],
