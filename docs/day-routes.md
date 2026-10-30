@@ -21,6 +21,7 @@ Five existing stay scenarios have structured `dayRoute` details. The Cocteau sce
 - `durationMinutes`, per-stop `visitMinutes` and effort are editorial estimates. Transport scope is explicit per route; there is no measured distance or turn-by-turn navigation.
 - `steps: present` records a known obstacle; `not-assessed` must never display as no stairs. Whole-route access is `partial` or `not-assessed`, independent of individual building access.
 - All five routes retain `childAgeStatus: not-verified`. No age suitability, accessible toilet or pushchair guarantee is inferred from family relevance.
+- Individual stops can have sourced admission rules even while the full route remains unverified. The Oceanographic Museum explicitly allows all ages for general admission; this is not a promise about its separate activities.
 - Optional stops may be omitted. A dated source review does not guarantee a venue is open on the visitor's dates. No weather-dependent automatic recommendations are introduced.
 - The large Wunderman museum remains an exterior-only stop, distinct from the Bastion. The Bastion's 1 November holiday closure remains explicit.
 - The municipal Condamine notice describes indoor-hall works with planned completion in February 2027; do not treat that target as confirmed reopening.
@@ -29,6 +30,28 @@ Five existing stay scenarios have structured `dayRoute` details. The Cocteau sce
 ## Source Review
 
 30 October 2026: official Menton tourist-office old-town, Halles, Cocteau, Wedding Hall tour and Palais de l'Europe listings; Ventimiglia tourist-office markets; Monaco municipality's Condamine notice; Oceanographic Museum practical information; official SNCF planner. Specific source links are stored with each route and visible in every locale. The museum's Bastion page blocked direct retrieval (403); its indexed notice corroborates the published closing days already recorded in the Cocteau guide. This is not an independent on-site accessibility inspection.
+
+### Shared Stop Conditions
+
+The follow-up review on 30 October stores checked conditions in `Place.visitRules`, not copied route prose. `PlaceVisitNotes` displays the same localized statements, official links and check dates in route stops and place cards; the personal-day catalogue consumes the same text. `conditions` holds scoped, localized facts, while `steps` and `minimumAge` retain their existing meanings. A wheelchair-access listing does not establish a pushchair policy.
+
+| Stop | Confirmed scope / remaining uncertainty |
+| --- | --- |
+| Les Halles | Tourist-office building accessibility listing; street approach and pushchairs unverified. |
+| Rampes Saint-Michel | Stairs; optional stop, not a claimed pushchair ban. |
+| Palais de l'Europe | Building lift and adapted facilities; check each programme's admission and age rules. |
+| Salle des Mariages | Accessibility listing applies to the bookable guided visit; ceremonies and pushchairs unverified. |
+| Monaco station | SNCF information-point access and assistance procedure; onward streets unverified. |
+| Condamine | Temporary outdoor trading during hall works; planned completion is not confirmed reopening. |
+| Oceanographic Museum | All-age general admission; FAQ describes a stairs-only level; closures and last entry from practical information. |
+| Ventimiglia station | RFI's platform-specific access, lift operating window and outage warning; no all-platform guarantee. |
+| Bastion | Reduced-mobility restriction and closure days from the official indexed notice; direct retrieval remains blocked. |
+
+No new access or age assertion is made for Rue Saint-Michel, Sablettes, Promenade du Soleil, Mercato Coperto, the Wunderman exterior or Vieux Port. Their missing rules stay unknown, not an implied lack of obstacles. Family and Italian routes are now partly source-checked, not fully audited. Four-language regression checks cover provenance, shared-note reuse, the museum's explicit all-age rule and the distinction between price bands and admission ages.
+
+Additional sources: [museum FAQ](https://musee.oceano.org/en/our-faq/), [Monaco station accessibility](https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo/accessibilite), [Ventimiglia station](https://www.rfi.it/it/stazioni/ventimiglia.html). Every other new condition links directly to its source in the shared place record.
+
+Follow-up local verification: 401 unit tests and 17 affected browser scenarios passed, including four locales without JavaScript, real place anchors, narrow layouts and private planning/booking-prefill regressions. TypeScript, lint, content preflight and the production build passed. The build used the existing weather fallback when local DNS could not reach Open-Meteo; it does not prove live weather availability. An initial concurrent unit run timed out; the isolated rerun passed. The native disclosure test explicitly centers its click target clear of the mobile sticky booking bar. No real booking, email or Telegram message was sent. GitHub/Vercel and live-domain checks are separate release gates.
 
 ## Verification And Next Boundary
 

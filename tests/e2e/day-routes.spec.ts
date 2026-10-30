@@ -15,9 +15,20 @@ test("five route cards remain readable in four locales, including without JavaSc
     await expect(routes).toHaveCount(5);
     const first = routes.first();
     await expect(first.locator("ol")).toBeHidden();
-    await first.locator("summary").click();
+    await first.locator("summary").evaluate(element => element.scrollIntoView({ block: "center", behavior: "instant" }));
+    await first.locator("summary").click({ timeout: 10_000 });
     await expect(first.locator("ol")).toBeVisible();
-    await expect(first.locator("time")).toHaveAttribute("datetime", "2026-10-30");
+    for (const time of await first.locator("time").all()) await expect(time).toHaveAttribute("datetime", "2026-10-30");
+    await expect(first.locator('[data-place-visit-notes="halles-du-marche"] a')).toHaveAttribute("href", "https://www.menton-riviera-merveilles.fr/offres/halles-de-menton-menton-fr-3834101/");
+    for (const route of await routes.all()) {
+      expect(await route.locator("[data-place-visit-notes]").count()).toBeGreaterThan(0);
+    }
+    const sources = await routes.locator("[data-place-visit-notes] a").evaluateAll(links => links.map(link => link.getAttribute("href")));
+    expect(sources.every(href => href?.startsWith("https://"))).toBe(true);
+    const museum = page.locator('[data-day-route="monaco-event-weekend"] [data-place-visit-notes="oceanographic-museum-monaco"]');
+    await expect(museum).toContainText("-1");
+    if (locale === "en") await expect(museum).toContainText("all ages");
+    if (locale === "uk") await expect(museum).toContainText("Дитячі візочки");
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0);
   }
   await context.close();
@@ -37,7 +48,7 @@ test("guide routes show practical facts and link to real place anchors", async (
     await expect(route.locator("details")).toHaveAttribute("open", "");
     await expect(route).toContainText("Minimum ages");
     await expect(route).toContainText("editorial estimates");
-    const links = await route.locator("ol a").evaluateAll(elements => elements.map(el => (el as HTMLAnchorElement).getAttribute("href")!));
+    const links = await route.locator('ol a[href^="/"]').evaluateAll(elements => elements.map(el => (el as HTMLAnchorElement).getAttribute("href")!));
     expect(links.length).toBeGreaterThanOrEqual(2);
     for (const href of links) {
       await page.goto(href, { waitUntil: "domcontentloaded" });

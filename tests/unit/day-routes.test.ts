@@ -62,7 +62,8 @@ describe("editorial day routes", () => {
     expect(cocteau.stops.find(stop => stop.placeId === "musee-jean-cocteau-wunderman-menton")?.note.en).toContain("Exterior only");
     expect(cocteau.timing.en).toContain("1 November");
     expect(cocteau.accessNote.en).toContain("not wheelchair accessible");
-    expect(dayRouteDetails["family-menton"].accessStatus).toBe("not-assessed");
+    expect(dayRouteDetails["family-menton"].accessStatus).toBe("partial");
+    expect(dayRouteDetails["italian-riviera-day"].accessStatus).toBe("partial");
     expect(dayRouteDetails["monaco-event-weekend"].accessNote.en).toContain("complete route from the station has not been audited");
     expect(dayRouteDetails["monaco-event-weekend"].timing.en).toContain("planned");
     expect(dayRouteDetails["italian-riviera-day"].timing.en).toContain("only on Friday");

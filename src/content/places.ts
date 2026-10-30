@@ -55,7 +55,11 @@ export type PlaceType =
 
 export type PlaceSourceStatus = "needs_verification" | "verified" | "editorial";
 export type VerifiedVisitRule<T> = { value: T; sourceUrl: string; checkedOn: string };
-export type PlaceVisitRules = { steps?: VerifiedVisitRule<boolean>; minimumAge?: VerifiedVisitRule<number> };
+export type PlaceVisitRules = {
+  steps?: VerifiedVisitRule<boolean>;
+  minimumAge?: VerifiedVisitRule<number>;
+  conditions?: VerifiedVisitRule<LocalizedText>[];
+};
 
 export type Place = {
   id: string;
@@ -633,6 +637,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "halles-du-marche",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/halles-de-menton-menton-fr-3834101/", checkedOn: "2026-10-30",
+      value: text("The tourist office lists independent wheelchair access and free entry. This concerns the market building, not the surrounding streets or a published pushchair policy.", "L'office de tourisme indique un accès en fauteuil roulant en autonomie et une entrée libre. Cela concerne le marché, pas les rues alentour ni une règle publiée pour les poussettes.", "L'ufficio turistico indica accesso autonomo in sedia a rotelle e ingresso libero. Ciò riguarda il mercato, non le vie circostanti né una regola pubblicata sui passeggini.", "Туристичний офіс вказує самостійний доступ на кріслі колісному та вільний вхід. Це дані про ринок, а не навколишні вулиці чи оприлюднені правила для дитячих візочків."),
+    }] },
     name: "Halles du Marché",
     type: "market",
     address: "5 Quai de Monléon, 06500 Menton",
@@ -1570,6 +1578,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "musee-jean-cocteau-bastion",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.museecocteaumenton.fr/Visites-scolaires.html", checkedOn: "2026-10-30",
+      value: text("The museum states it is not accessible to visitors with reduced mobility. Closed Tuesdays and 1 January, 1 May, 1 November and 25 December.", "Le musée indique ne pas être accessible aux personnes à mobilité réduite. Fermé le mardi et les 1er janvier, 1er mai, 1er novembre et 25 décembre.", "Il museo dichiara di non essere accessibile alle persone con mobilità ridotta. Chiuso il martedì e il 1° gennaio, 1° maggio, 1° novembre e 25 dicembre.", "Музей повідомляє, що не доступний для людей з обмеженою мобільністю. Зачинено у вівторок, 1 січня, 1 травня, 1 листопада та 25 грудня."),
+    }] },
     name: "Musée Jean Cocteau - Le Bastion",
     type: "museum",
     address: "Quai Napoléon III - Bastion du Vieux Port, 06500 Menton",
@@ -1601,6 +1613,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "salle-des-mariages-jean-cocteau",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/guided-tour-jean-cocteau-and-the-salle-des-mariages-menton-en-5595123/", checkedOn: "2026-10-30",
+      value: text("The official guided-tour listing describes a lift and independent wheelchair access. Reserve that guided visit in advance; this does not confirm availability during ceremonies or pushchair access.", "La fiche officielle de la visite guidée indique un ascenseur et un accès en fauteuil roulant en autonomie. Réservez cette visite à l'avance ; cela ne confirme ni l'accès pendant les cérémonies ni l'accueil des poussettes.", "La scheda ufficiale della visita guidata indica ascensore e accesso autonomo in sedia a rotelle. Prenota la visita in anticipo; ciò non conferma l'apertura durante le cerimonie né l'accesso con passeggino.", "Офіційна сторінка екскурсії вказує ліфт і самостійний доступ на кріслі колісному. Бронюйте цю екскурсію заздалегідь; це не підтверджує доступ під час церемоній або з дитячим візочком."),
+    }] },
     name: "La Salle des Mariages Jean Cocteau",
     type: "museum",
     address: "Mairie de Menton, Place Ardoïno, 06500 Menton",
@@ -1614,6 +1630,16 @@ const rawPlaces: Place[] = [
   },
   {
     id: "oceanographic-museum-monaco",
+    visitRules: {
+      minimumAge: { value: 0, sourceUrl: "https://musee.oceano.org/en/our-faq/", checkedOn: "2026-10-30" },
+      conditions: [{
+        sourceUrl: "https://musee.oceano.org/en/our-faq/", checkedOn: "2026-10-30",
+        value: text("Pushchairs: the FAQ identifies level -1 as stairs-only; other floors and rooms have lift access. Do not assume every museum area is step-free.", "Poussettes : la FAQ indique que le niveau -1 est accessible uniquement par escalier ; les autres étages et salles disposent d'un ascenseur. Ne supposez pas que tout le musée est sans marches.", "Passeggini: secondo le FAQ il livello -1 è raggiungibile solo con le scale; gli altri piani e sale sono serviti da ascensore. Non presumere che ogni area sia senza gradini.", "Дитячі візочки: за FAQ рівень -1 доступний лише сходами; інші поверхи й зали мають ліфт. Не вважайте всі зони музею безбар'єрними."),
+      }, {
+        sourceUrl: "https://musee.oceano.org/infos-pratiques/", checkedOn: "2026-10-30",
+        value: text("Last entry is 30 minutes before closing. Closed on 25 December and during the Formula 1 Grand Prix weekend; check the museum calendar before buying tickets.", "Dernière entrée 30 minutes avant la fermeture. Fermé le 25 décembre et pendant le week-end du Grand Prix de Formule 1 ; consultez le calendrier avant d'acheter vos billets.", "Ultimo ingresso 30 minuti prima della chiusura. Chiuso il 25 dicembre e durante il fine settimana del Gran Premio di Formula 1; controlla il calendario prima di acquistare.", "Останній вхід за 30 хвилин до закриття. Зачинено 25 грудня та у вихідні Гран-прі Формули-1; перевірте календар музею перед купівлею квитків."),
+      }],
+    },
     name: "Oceanographic Museum of Monaco",
     type: "museum",
     address: "Avenue Saint-Martin, 98000 Monaco",
@@ -2845,6 +2871,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "monaco-monte-carlo-station",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.garesetconnexions.sncf/fr/gares-services/monaco-monte-carlo/accessibilite", checkedOn: "2026-10-30",
+      value: text("SNCF lists lift, ramp or level access to the information/ticket point and adapted toilets. For platform and train assistance, arrive 30 minutes before departure during staffed hours. The onward street route is not assessed.", "La SNCF indique un accès par ascenseur, rampe ou de plain-pied au point information/vente et des toilettes adaptées. Pour l'assistance quai/train, arrivez 30 minutes avant le départ pendant la présence du personnel. Le trajet en ville n'est pas évalué.", "SNCF indica accesso con ascensore, rampa o in piano al punto informazioni/biglietteria e servizi igienici adattati. Per l'assistenza binario/treno arriva 30 minuti prima durante l'orario del personale. Il percorso urbano successivo non è valutato.", "SNCF вказує ліфт, пандус або доступ без сходів до інформації/каси та адаптовані туалети. Для допомоги на платформі й у поїзді прийдіть за 30 хвилин до відправлення в години роботи персоналу. Подальший міський маршрут не перевірено."),
+    }] },
     name: "Monaco-Monte-Carlo Station",
     type: "station",
     address: "Place Sainte-Dévote, 98000 Monaco",
@@ -2857,6 +2887,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "ventimiglia-station",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.rfi.it/it/stazioni/ventimiglia.html", checkedOn: "2026-10-30",
+      value: text("RFI lists a level/ramp route to platform 1 and lifts to platforms 2–3, operating 04:30–22:30. Other platforms are not listed as barrier-free. Check lift outages and train boarding; request Sala Blu assistance in advance.", "RFI indique un accès de plain-pied/par rampe au quai 1 et des ascenseurs vers les quais 2–3, de 04 h 30 à 22 h 30. Les autres quais ne sont pas indiqués sans barrières. Vérifiez les pannes et l'embarquement ; demandez l'assistance Sala Blu à l'avance.", "RFI indica un percorso in piano/con rampa al binario 1 e ascensori ai binari 2–3, attivi 04:30–22:30. Gli altri binari non sono indicati senza barriere. Verifica guasti e accesso al treno; richiedi in anticipo l'assistenza Sala Blu.", "RFI вказує шлях без сходів/із пандусом до платформи 1 і ліфти до платформ 2–3, що працюють 04:30–22:30. Інші платформи не зазначені як безбар'єрні. Перевірте роботу ліфтів і посадку; замовте допомогу Sala Blu заздалегідь."),
+    }] },
     name: "Ventimiglia Station",
     type: "station",
     address: "Piazza Cesare Battisti, 18039 Ventimiglia",
@@ -4392,6 +4426,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "marche-de-la-condamine-monaco",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.mairie.mc/le-marche-de-la-condamine", checkedOn: "2026-10-30",
+      value: text("The indoor hall closed on 15 January 2026 for works scheduled to last 13 months; traders moved outside to Place d'Armes. Do not plan it as an indoor rain shelter or assume reopening in February 2027 is confirmed.", "La halle a fermé le 15 janvier 2026 pour des travaux prévus sur 13 mois ; les commerçants sont installés dehors, place d'Armes. Ne la prévoyez pas comme abri couvert et ne considérez pas février 2027 comme une réouverture confirmée.", "Il mercato coperto ha chiuso il 15 gennaio 2026 per lavori previsti di 13 mesi; i commercianti sono all'aperto in Place d'Armes. Non considerarlo un riparo dalla pioggia né febbraio 2027 una riapertura confermata.", "Критий павільйон зачинився 15 січня 2026 року на роботи, заплановані на 13 місяців; торговці працюють просто неба на Place d'Armes. Не плануйте його як укриття від дощу й не вважайте відкриття в лютому 2027 року підтвердженим."),
+    }] },
     name: "Marché de la Condamine",
     type: "market",
     image: "/images/guide/marche-de-la-condamine-monaco.png",
@@ -5829,6 +5867,10 @@ const rawPlaces: Place[] = [
   },
   {
     id: "palais-de-leurope-menton",
+    visitRules: { conditions: [{
+      sourceUrl: "https://www.menton-riviera-merveilles.co.uk/offers/the-palais-de-leurope-menton-en-3051207/", checkedOn: "2026-10-30",
+      value: text("The tourist office lists independent wheelchair access, a lift and adapted toilets for the building. Check the selected exhibition or performance for opening, tickets and age conditions; the street approach and pushchair policy are not assessed.", "L'office de tourisme indique un accès en fauteuil roulant en autonomie, un ascenseur et des toilettes adaptées dans le bâtiment. Vérifiez horaires, billets et âges de l'exposition ou du spectacle choisi ; l'approche dans la rue et les poussettes ne sont pas évaluées.", "L'ufficio turistico indica accesso autonomo in sedia a rotelle, ascensore e servizi igienici adattati nell'edificio. Verifica orari, biglietti ed età dell'esposizione o spettacolo scelto; percorso esterno e passeggini non sono valutati.", "Туристичний офіс вказує самостійний доступ на кріслі колісному, ліфт і адаптовані туалети в будівлі. Перевірте години, квитки та вікові умови конкретної виставки чи вистави; вуличний підхід і правила для дитячих візочків не перевірено."),
+    }] },
     name: "Palais de l'Europe",
     type: "civic",
     area: text("Menton centre", "Menton centre", "Centro di Mentone", "Центр Ментона"),
