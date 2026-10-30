@@ -55,6 +55,7 @@ Product and claim boundaries live in:
 - [docs/EVENT_CALENDAR.md](docs/EVENT_CALENDAR.md): confirmed-event calendar exports, verified time/venue fields and date-only safeguards.
 - [docs/EVENT_DISCOVERY_AND_INTAKE.md](docs/EVENT_DISCOVERY_AND_INTAKE.md): month view, manually moderated suggestions/corrections and full event-time coverage report.
 - [Portal technical audit](docs/audits/2026-10-30-portal-technical-audit.md): representative mobile, accessibility, timezone and privacy checks, with explicit remaining limits.
+- [Guide catalogue loading](docs/audits/2026-10-30-guide-performance.md): matched mobile measurements, smaller image/font transfers and remaining LCP uncertainty.
 
 ## Current operating phase
 

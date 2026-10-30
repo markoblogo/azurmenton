@@ -66,6 +66,7 @@ export function GuideVisual({
   className = "",
   expandable = false,
   showLabel = true,
+  sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
 }: {
   image?: string;
   imageAlt?: string;
@@ -76,6 +77,7 @@ export function GuideVisual({
   className?: string;
   expandable?: boolean;
   showLabel?: boolean;
+  sizes?: string;
 }) {
   const visualLabel = label ?? themeLabels[locale][theme];
   const alt = imageAlt ?? visualLabel;
@@ -87,7 +89,7 @@ export function GuideVisual({
           src={image}
           alt={alt}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          sizes={sizes}
           className="next-fill-cover object-cover transition duration-500 ease-out group-hover:scale-[1.035]"
           quality={90}
           preload={priority}

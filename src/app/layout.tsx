@@ -13,11 +13,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
-  subsets: ["latin", "cyrillic"],
+  // Subsets control preloads, not glyph availability. Cyrillic loads on demand.
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 

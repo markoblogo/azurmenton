@@ -203,6 +203,7 @@ function GuideArticleCard({ article, locale, readLabel, priority = false }: { ar
           theme={article.visualTheme ?? "sea"}
           label={article.categoryLabel}
           priority={priority}
+          sizes="(min-width: 1152px) 354px, (min-width: 1024px) calc((100vw - 88px) / 3), (min-width: 768px) calc((100vw - 60px) / 2), calc(100vw - 40px)"
           className={priority ? "aspect-[4/2.35]" : "aspect-[4/2.05]"}
         />
         <div className="p-4">

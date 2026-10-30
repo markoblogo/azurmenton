@@ -309,6 +309,7 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
                         theme={localized.visualTheme ?? "sea"}
                         label={localized.categoryLabel}
                         className="aspect-[4/2.25]"
+                        sizes="(min-width: 1152px) 208px, (min-width: 1024px) 18vw, calc((100vw - 88px) / 2)"
                         showLabel={false}
                       />
                       <div className="p-3">

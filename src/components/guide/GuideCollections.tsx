@@ -44,6 +44,7 @@ export function GuideCollections({ locale, collections }: { locale: Locale; coll
             theme={collection.leadGuide?.visualTheme ?? "itinerary"}
             className="h-full border-b-0 border-r border-[#dfd2b8]"
             showLabel={false}
+            sizes="120px"
           />
           <article className="flex min-w-0 flex-col p-3">
             <div>
