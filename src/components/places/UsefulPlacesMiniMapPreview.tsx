@@ -9,10 +9,10 @@ import { miniMapCategories } from "@/content/planning/map-taxonomy";
 import type { ApartmentMarker, MapPlace } from "@/components/places/LeafletPlacesMap";
 
 const copy = {
-  en: { all: "All", detail: "More", open: "Open in Google Maps", guide: "Related guide", apartment: "Apartment" },
-  fr: { all: "Tout", detail: "Plus", open: "Ouvrir dans Google Maps", guide: "Guide lie", apartment: "Appartement" },
-  it: { all: "Tutto", detail: "Altro", open: "Apri in Google Maps", guide: "Guida correlata", apartment: "Appartamento" },
-  uk: { all: "Усі", detail: "Більше", open: "Відкрити в Google Maps", guide: "Пов'язаний гід", apartment: "Апартаменти" },
+  en: { all: "All", detail: "Explore the map", open: "Open in Google Maps", guide: "Related guide", apartment: "Apartment" },
+  fr: { all: "Tout", detail: "Explorer la carte", open: "Ouvrir dans Google Maps", guide: "Guide lie", apartment: "Appartement" },
+  it: { all: "Tutto", detail: "Esplora la mappa", open: "Apri in Google Maps", guide: "Guida correlata", apartment: "Appartamento" },
+  uk: { all: "Усі", detail: "Переглянути карту", open: "Відкрити в Google Maps", guide: "Пов'язаний гід", apartment: "Апартаменти" },
 } satisfies Record<Locale, Record<string, string>>;
 
 const categories = miniMapCategories;

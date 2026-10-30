@@ -7,6 +7,9 @@ import { stayPages } from "@/content/stay-pages";
 import { travelTools } from "@/content/travel-tools";
 import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
+import { getPublicWeeklyDigest } from "@/content/weekly-digests";
+
+export const revalidate=3600;
 
 const staticRoutes = [
   "",
@@ -29,7 +32,7 @@ const staticRoutes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries = locales.flatMap((locale) => [
-    ...staticRoutes.map((path) => ({ route: localizedPath(locale, path), path, image: imageForStaticRoute(path) })),
+    ...staticRoutes.filter(path=>path!=="events/this-week"||Boolean(getPublicWeeklyDigest(locale))).map((path) => ({ route: localizedPath(locale, path), path, image: imageForStaticRoute(path) })),
     ...apartments.map((apartment) => ({
       route: localizedPath(locale, `apartments/${apartment.slug}`),
       path: `apartments/${apartment.slug}`,

@@ -54,6 +54,8 @@ export type PlaceType =
   | "computer-repair";
 
 export type PlaceSourceStatus = "needs_verification" | "verified" | "editorial";
+export type VerifiedVisitRule<T> = { value: T; sourceUrl: string; checkedOn: string };
+export type PlaceVisitRules = { steps?: VerifiedVisitRule<boolean>; minimumAge?: VerifiedVisitRule<number> };
 
 export type Place = {
   id: string;
@@ -77,6 +79,7 @@ export type Place = {
   priceLabel?: LocalizedText;
   sourceStatus: PlaceSourceStatus;
   visitorAccess?: "ask-first" | "public" | "members-only";
+  visitRules?: PlaceVisitRules;
   shortNote: LocalizedText;
   bestFor: LocalizedText[];
   relatedArticleIds: string[];
@@ -5762,6 +5765,7 @@ const rawPlaces: Place[] = [
   },
   {
     id: "rampes-saint-michel",
+    visitRules: {steps:{value:true,sourceUrl:"https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/nos-incontournables/vieille-ville-de-menton/",checkedOn:"2026-10-30"}},
     name: "Les Rampes Saint-Michel",
     type: "viewpoint",
     area: text("Old town / Saint-Michel", "Vieille ville / Saint-Michel", "Centro storico / Saint-Michel", "Старе місто / Saint-Michel"),

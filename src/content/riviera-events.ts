@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locales";
+import { toParisDateKey } from "@/lib/events";
 import { publishedEventRecords } from "@/content/events/published";
 import legacyEventImages from "@/content/events/overrides/legacy-event-images.json";
 
@@ -3521,7 +3522,7 @@ const priorityEventSlugs = new Set([
 
 function isConfirmedEventPast(event: RivieraEvent, today = new Date()) {
   if (event.dateStatus !== "confirmed") return false;
-  const todayKey = today.toISOString().slice(0, 10);
+  const todayKey = toParisDateKey(today);
   const comparableDate = event.endDate ?? event.startDate;
   return Boolean(comparableDate && comparableDate < todayKey);
 }

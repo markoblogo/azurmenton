@@ -7,6 +7,7 @@ import { BookingCTA } from "@/components/content/BookingCTA";
 import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
+import { ReportChangeLink } from "@/components/content/ReportChangeLink";
 import { FavouriteButton } from "@/components/content/FavouriteButton";
 import { placeAnchorId } from "@/lib/search-place-targets";
 import { EventImage } from "@/components/events/EventImage";
@@ -425,6 +426,7 @@ export default async function EventArticlePage({ params }: PageProps) {
               <div className="mt-4">
                 <ShareActions locale={locale} title={title} url={pageUrl}><FavouriteButton locale={locale} item={{ type: "event", id: event.occurrenceSlug ?? event.slug }} /></ShareActions>
                 <AddToCalendar event={event} locale={locale} />
+                <ReportChangeLink locale={locale} path={new URL(pageUrl).pathname} title={title} />
               </div>
             </div>
           </div>

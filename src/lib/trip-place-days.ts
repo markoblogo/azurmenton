@@ -2,7 +2,7 @@ import type { MyTrip } from "./my-trip";
 import { routeDateInTrip } from "./trip-day-routes";
 
 export type PlaceDay = { date: string; placeIds: string[] };
-export type PlanPlace = { id: string; title: string; href: string };
+export type PlanPlace = { id: string; title: string; href: string; city?: string; point?: string; visitorInfo?: string; minimumAge?: number };
 export const MAX_PLACE_DAYS = 30;
 export const MAX_STOPS_PER_DAY = 12;
 export const MAX_PLAN_STOPS = 120;

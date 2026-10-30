@@ -5,7 +5,7 @@ type ButtonProps = {
   children: React.ReactNode;
   className?: string;
   href?: string;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "secondaryOnDark";
   type?: "button" | "submit";
   disabled?: boolean;
 };
@@ -15,6 +15,8 @@ export const buttonVariants = {
     "border border-[#173f36] bg-[#173f36] text-white hover:bg-[#102f28] focus-visible:outline-[#173f36]",
   secondary:
     "border border-[#c6a66a] bg-transparent text-[#173f36] hover:bg-[#f3ead7] focus-visible:outline-[#c6a66a]",
+  secondaryOnDark:
+    "border border-[#c6a66a] bg-transparent text-white hover:bg-[#102f28] focus-visible:outline-[#c6a66a]",
 };
 
 export function Button({

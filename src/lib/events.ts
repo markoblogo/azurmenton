@@ -6,14 +6,6 @@ export type EventPeriod = "today" | "tomorrow" | "weekend" | "next7" | "next30" 
 type DateLikeEvent = Pick<RivieraEvent, "startDate" | "endDate" | "expectedSeason" | "dateLabel" | "dateStatus">;
 type StructuredEventLike = Pick<RivieraEvent, "dateStatus" | "startDate" | "endDate">;
 
-function toDateKey(date: Date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  return `${year}-${month}-${day}`;
-}
-
 export function toParisDateKey(date: Date) {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Europe/Paris",
@@ -29,7 +21,7 @@ export function toParisDateKey(date: Date) {
 export function addDaysToDateKey(dateKey: string, days: number) {
   const date = new Date(`${dateKey}T12:00:00.000Z`);
   date.setUTCDate(date.getUTCDate() + days);
-  return toDateKey(date);
+  return date.toISOString().slice(0,10);
 }
 
 export function getParisDateRange(period: EventPeriod, today = new Date(), custom?: { from?: string; to?: string }) {
@@ -78,7 +70,7 @@ function compareDateKeys(left: string, right: string) {
 }
 
 function getComparableToday(today: Date) {
-  return toDateKey(today);
+  return toParisDateKey(today);
 }
 
 export function getEventDateStatus(event: DateLikeEvent, today = new Date()): EventDateStatus {
@@ -166,6 +158,6 @@ export function getVisibleEvents(events: RivieraEvent[], today = new Date()) {
 
 export function canRenderEventJsonLd(event: StructuredEventLike, today = new Date()) {
   if (event.dateStatus !== "confirmed" || !event.startDate) return false;
-  const todayKey = toDateKey(today);
+  const todayKey = toParisDateKey(today);
   return (event.endDate ?? event.startDate) >= todayKey;
 }

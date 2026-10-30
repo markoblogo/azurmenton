@@ -10,6 +10,8 @@ import { siteConfig } from "@/config/site";
 import { PlaceImageCarousel } from "@/components/guide/PlaceImageCarousel";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { bookingFunnelEvents } from "@/lib/analytics";
+import { ReportChangeLink } from "@/components/content/ReportChangeLink";
+import { placeVisitNotes } from "@/lib/place-visit-rules";
 
 const labels = {
   en: { map: "Open in Google Maps", programme: "View current programme", website: "Website", hours: "Hours", price: "Price", note: "Check current hours before visiting", related: "Related guide" },
@@ -67,6 +69,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
           <p className="mt-2 text-xs leading-5 text-[#71665b]"><span className="font-bold uppercase tracking-[0.12em] text-[#173f36]">{copy.price}: </span>{place.priceLabel[locale]}</p>
         ) : null}
         {place.sourceStatus === "needs_verification" ? <p className="mt-3 text-xs italic text-[#71665b]">{copy.note}</p> : null}
+        {placeVisitNotes(place,locale).map(note=><p key={note} className="mt-3 text-sm leading-6 text-[#765621]">{note}</p>)}
         <div className="mt-4 flex flex-wrap gap-2">
           {compact && relatedHref ? (
             <Link className="inline-flex border border-[#dfd2b8] px-3 py-2 text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#173f36] transition-colors hover:bg-[#f3ead7]" href={relatedHref}>
@@ -90,6 +93,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
           ) : null}
         </div>
         {!compact ? <Link href={`/${locale}/partners` as Route} className="mt-4 inline-block text-xs text-[#665c50] underline underline-offset-2">{businessLabels[locale]}</Link> : null}
+        {sharePath ? <div><ReportChangeLink locale={locale} path={sharePath} title={place.name} /></div> : null}
       </div>
     </article>
   );

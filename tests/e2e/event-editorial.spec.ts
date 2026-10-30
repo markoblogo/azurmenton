@@ -19,6 +19,7 @@ test("month view preserves filters and manual intake handles errors", async ({ p
   await panel.getByLabel("Name", { exact: true }).fill("TEST ONLY");
   await panel.getByLabel("Email", { exact: true }).fill("editor@example.com");
   await panel.getByLabel("Page to correct", { exact: false }).fill("https://azurmenton.com/en/events");
+  await panel.locator('select[name="reason"]').selectOption("hours");
   await panel.getByLabel("Details", { exact: true }).fill("TEST ONLY: information for review");
   await panel.getByRole("checkbox").check();
   let requestBody: Record<string, unknown> = {};

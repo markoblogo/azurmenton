@@ -26,9 +26,11 @@ Five ready-made day routes extend the existing stay plans and relevant guides: o
 
 A ready-made route can be assigned to a day within the saved trip, then viewed, moved or removed in My trip. Assignments stay in the existing device-only profile; they are not bookings and are not included in shared links or analytics.
 
-Visitors can also build personal days from their own favourite places, manually reorder/remove stops and move or merge days. The same private trip profile stores these plans. Structural warnings flag six or more stops or a ready-made route on the same date; no automatic navigation or travel-time calculation is provided.
+Visitors can also build personal days from their own favourite places, manually reorder/remove stops and move or merge days. The same private trip profile stores these plans. Warnings cover many stops, same-day ready routes, explicitly recorded different cities and unknown geographic data. External Maps links retain the selected order and require reviewed coordinates for every stop; there is no street-route optimisation or travel-time calculation.
 
-Confirmed events offer calendar exports, including explicit performance selection when sessions are known. The editorial form accepts event suggestions and corrections for manual email review, never automatic publication. A downloaded calendar entry is a snapshot, not an updating subscription.
+Optional child ages stay device-only. Source-backed visit rules feed both place cards and personal plans; unknown age restrictions remain unknown. Eligible single-city walking plans offer an optional proximity-order preview with explicit apply/undo, not a guaranteed shortest street route. The guide landing includes the first “Menton in detail” observation; `/events/this-week` holds the current curated edition with live references to existing event records. Future-update interest and withdrawal requests go to the editorial mailbox only: no active mailing list or newsletter delivery. See [docs/PORTAL_FEATURES.md](docs/PORTAL_FEATURES.md).
+
+Confirmed events offer calendar exports, including explicit performance selection when sessions are known. Place/event cards link to the existing editorial form with title and canonical page prefilled; visitors choose a correction reason. Submissions remain unverified proposals for manual email review, never automatic publication. A downloaded calendar entry is a snapshot, not an updating subscription.
 
 Read first for a fresh coding session:
 
@@ -52,6 +54,7 @@ Product and claim boundaries live in:
 - [docs/events-publication-workflow.md](docs/events-publication-workflow.md)
 - [docs/EVENT_CALENDAR.md](docs/EVENT_CALENDAR.md): confirmed-event calendar exports, verified time/venue fields and date-only safeguards.
 - [docs/EVENT_DISCOVERY_AND_INTAKE.md](docs/EVENT_DISCOVERY_AND_INTAKE.md): month view, manually moderated suggestions/corrections and full event-time coverage report.
+- [Portal technical audit](docs/audits/2026-10-30-portal-technical-audit.md): representative mobile, accessibility, timezone and privacy checks, with explicit remaining limits.
 
 ## Current operating phase
 

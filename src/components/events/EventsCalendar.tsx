@@ -7,6 +7,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { EventImage } from "@/components/events/EventImage";
+import { ReportChangeLink } from "@/components/content/ReportChangeLink";
 import {
   eventCategoryLabels,
   eventDateStatusLabels,
@@ -557,6 +558,7 @@ function EventCard({ event, locale, status, compact = false }: { event: RivieraE
             {copy[locale].availability}
           </TrackedLink>
         </div>
+        <ReportChangeLink locale={locale} path={hasDetail ? eventHref(locale, event) : `/${locale}/events`} title={title} />
       </div>
     </article>
   );
@@ -680,20 +682,20 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
         </div>
 
         <div className="mt-4 grid gap-3 lg:grid-cols-[0.75fr_0.75fr_1fr]">
-          <div className="grid grid-cols-2 gap-2">
-            <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+          <div className="grid min-w-0 grid-cols-1 gap-2 sm:grid-cols-2">
+            <label className="grid min-w-0 gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
               {labels.from}
               <input
-                className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+                className="min-h-11 w-full min-w-0 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
                 type="date"
                 value={filters.from ?? ""}
                 onChange={(event) => setFilters({ period: "custom", from: event.target.value || undefined })}
               />
             </label>
-            <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+            <label className="grid min-w-0 gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
               {labels.to}
               <input
-                className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+                className="min-h-11 w-full min-w-0 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
                 type="date"
                 value={filters.to ?? ""}
                 onChange={(event) => {

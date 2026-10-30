@@ -62,4 +62,10 @@ Date validation uses the same arrival-to-day-before-departure window and Paris c
 
 Verification is covered by `tests/unit/trip-place-days.test.ts` and `tests/e2e/trip-place-days.spec.ts`: selection order, duplicate/limit bounds, merge/reorder/remove, storage failure, stale selection, cross-tab form preservation, date warnings, privacy of shared links and four-language mobile layouts. Existing trip, favourites and booking-prefill checks remain required.
 
-Child-age inputs, actual schedule-conflict detection, geographic route optimisation and automatic reordering remain out of scope. No booking request, email, analytics configuration or Telegram setting is changed.
+Optional device-only child-age inputs and source-backed visit advisories are supported. Actual schedule-conflict detection and guaranteed route optimisation remain out of scope. A nearby walking-order preview can be explicitly applied/undone for eligible single-city plans; it never automatically overwrites a plan. See [PORTAL_FEATURES.md](PORTAL_FEATURES.md). No booking request, analytics configuration or Telegram setting is changed.
+
+## Context And External Navigation
+
+Personal days offer walking, driving and public-transport links to Google Maps. Only coordinates with an existing map review are exported. Missing coordinates or unavailable places disable the complete route rather than silently dropping a stop. Mobile-compatible segments contain at most five stops with overlapping endpoints; transit uses individual legs because Maps URLs do not support transit waypoints. Manual stop order is retained. Approximate area/landside points are not audited entrances or step-free directions. Maps receives stop coordinates only after an explicit link click, never trip dates or party details. Reference: [Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started).
+
+Different-city advisories use explicit labels in `src/content/planning/place-cities.ts`, initially covering the five reviewed routes. No city is inferred from names or coordinates; missing labels produce an uncertainty notice. Existing place hours and visitor-access notes are shown for checking, not interpreted as a real-time opening or schedule-conflict guarantee.

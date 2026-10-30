@@ -18,7 +18,9 @@ test("calendar downloads are localized and fit narrow event pages", async ({ pag
   await page.getByText("Add to calendar", { exact: true }).click();
   await expect(page.getByRole("link", { name: "Apple / Outlook (.ics)" })).toBeVisible();
   const schema = await page.locator('script[type="application/ld+json"]').allTextContents();
-  expect(schema.join(" ")).toContain("2026-10-31T18:30:00.000+01:00");
+  const parisToday=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  if(parisToday<="2026-10-31") expect(schema.join(" ")).toContain("2026-10-31T18:30:00.000+01:00");
+  else expect(schema.join(" ")).not.toContain('"@type":"Event"');
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/en/events/stand-up-monaco-2026-11-09");
   await page.getByText("Add to calendar", { exact: true }).click();

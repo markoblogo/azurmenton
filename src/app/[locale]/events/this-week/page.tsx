@@ -8,6 +8,12 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getPublicWeeklyDigest } from "@/content/weekly-digests";
+import { getRivieraEvent } from "@/content/riviera-events";
+import { getPlaces } from "@/content/places";
+import { placeSharePath } from "@/lib/place-share-target";
+import { EventImage } from "@/components/events/EventImage";
+import { NewsletterInterest } from "@/components/events/NewsletterInterest";
+import { TurnstileWidget } from "@/components/booking/TurnstileWidget";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { bookingFunnelEvents } from "@/lib/analytics";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -23,7 +29,7 @@ const copy = {
     events: "Events",
     title: "This week near Menton",
     seoTitle: "This week near Menton",
-    description: "A human-reviewed weekly digest foundation for events and useful local ideas near Menton, Monaco, Nice and Sanremo.",
+    description: "Editorial picks for the week near Menton: why to go, who each outing suits and what to check for the journey home.",
     empty: "This week’s update is being prepared. Browse the full events calendar.",
     calendar: "Browse events calendar",
     apartments: "View apartments",
@@ -31,14 +37,14 @@ const copy = {
     ctaText: "Send your dates and we will confirm apartment availability directly.",
     check: "Check availability",
     lastChecked: "Last checked",
-    source: "Human-reviewed digest",
+    source: "Editorial selection",
   },
   fr: {
     home: "Accueil",
     events: "Evenements",
     title: "Cette semaine pres de Menton",
     seoTitle: "Cette semaine pres de Menton",
-    description: "Base de digest hebdomadaire relu humainement pour les evenements et idees utiles pres de Menton, Monaco, Nice et Sanremo.",
+    description: "Les choix de la semaine près de Menton : pourquoi y aller, pour qui et comment préparer le retour.",
     empty: "La mise a jour de la semaine est en preparation. Consultez le calendrier complet des evenements.",
     calendar: "Voir le calendrier",
     apartments: "Voir les appartements",
@@ -46,14 +52,14 @@ const copy = {
     ctaText: "Envoyez vos dates et nous confirmerons directement la disponibilite des appartements.",
     check: "Verifier disponibilite",
     lastChecked: "Derniere verification",
-    source: "Digest relu humainement",
+    source: "Sélection éditoriale",
   },
   it: {
     home: "Home",
     events: "Eventi",
     title: "Questa settimana vicino a Mentone",
     seoTitle: "Questa settimana vicino a Mentone",
-    description: "Base per un digest settimanale rivisto da una persona per eventi e idee utili vicino a Mentone, Monaco, Nizza e Sanremo.",
+    description: "Le scelte della settimana vicino a Mentone: perché andare, a chi sono adatte e come preparare il ritorno.",
     empty: "L'aggiornamento della settimana e in preparazione. Consulta il calendario completo degli eventi.",
     calendar: "Vedi calendario eventi",
     apartments: "Vedi appartamenti",
@@ -61,14 +67,14 @@ const copy = {
     ctaText: "Inviaci le date e confermeremo direttamente la disponibilita degli appartamenti.",
     check: "Controlla disponibilita",
     lastChecked: "Ultimo controllo",
-    source: "Digest rivisto da una persona",
+    source: "Selezione editoriale",
   },
   uk: {
     home: "Головна",
     events: "Події",
     title: "Цього тижня біля Ментона",
     seoTitle: "Цього тижня біля Ментона",
-    description: "Основа щотижневого дайджесту з людською перевіркою для подій та локальних ідей біля Ментона, Монако, Ніцци й Санремо.",
+    description: "Редакційний вибір на тиждень поблизу Ментона: навіщо піти, кому підходить і що перевірити для повернення.",
     empty: "Оновлення цього тижня готується. Перегляньте повний календар подій.",
     calendar: "Переглянути календар подій",
     apartments: "Переглянути апартаменти",
@@ -76,7 +82,7 @@ const copy = {
     ctaText: "Надішліть дати, і ми напряму підтвердимо доступність апартаментів.",
     check: "Перевірити доступність",
     lastChecked: "Остання перевірка",
-    source: "Дайджест із людською перевіркою",
+    source: "Редакційний вибір",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -85,13 +91,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const labels = copy[safeLocale];
 
-  return createMetadata({
+  const metadata=createMetadata({
     locale: safeLocale,
     path: "events/this-week",
     title: labels.seoTitle,
     description: labels.description,
     type: "article",
   });
+  return getPublicWeeklyDigest(safeLocale)?metadata:{...metadata,robots:{index:false,follow:true}};
 }
 
 export default async function ThisWeekNearMentonPage({ params }: PageProps) {
@@ -123,10 +130,10 @@ export default async function ThisWeekNearMentonPage({ params }: PageProps) {
       <section className="border-b border-[#dfd4c1] bg-[#fbf7ef]">
         <Container>
           <div className="max-w-3xl py-12 sm:py-16">
-            <p className="editorial-label">{labels.source}</p>
+            <p className="text-sm font-bold uppercase text-[#765621]">{labels.source}</p>
             <h1 className="serif-heading mt-4 text-5xl leading-[0.95] text-[#173f36] sm:text-6xl">{digest?.title ?? labels.title}</h1>
             <p className="mt-6 text-lg leading-8 text-[#5f574c]">{digest?.summary ?? labels.empty}</p>
-            {digest?.lastChecked ? <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#b07820]">{labels.lastChecked}: {digest.lastChecked}</p> : null}
+            {digest?.lastChecked ? <p className="mt-4 text-sm font-bold uppercase text-[#765621]">{labels.lastChecked}: {digest.lastChecked}</p> : null}
           </div>
         </Container>
       </section>
@@ -137,13 +144,15 @@ export default async function ThisWeekNearMentonPage({ params }: PageProps) {
             <div className="grid gap-4 md:grid-cols-2">
               {digest.items.map((item) => (
                 <Card key={`${item.city}-${item.title}`} className="p-5">
-                  <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{item.city} · {item.dateLabel}</p>
+                  {item.relatedEventSlug&&getRivieraEvent(item.relatedEventSlug)?<EventImage event={getRivieraEvent(item.relatedEventSlug)!} locale={locale} className="mb-4 aspect-[16/9]" sizes="(min-width: 768px) 45vw, 90vw" />:null}
+                  <p className="text-sm font-bold text-[#765621]">{item.city} · {item.dateLabel}</p>
                   <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36]">{item.title}</h2>
                   <p className="mt-3 text-sm leading-6 text-[#5c5044]">{item.description}</p>
                   <p className="mt-3 text-sm leading-6 text-[#6f665b]">{item.travelNoteFromMenton}</p>
                   <a className="mt-4 inline-flex text-sm font-semibold text-[#0b6f8f] underline-offset-4 hover:underline" href={item.sourceUrl} target="_blank" rel="noopener noreferrer">
-                    Official source
+                    {{en:"Official source",fr:"Source officielle",it:"Fonte ufficiale",uk:"Офіційне джерело"}[locale]}
                   </a>
+                  <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-[#155b6c]">{item.relatedEventSlug?<Link href={`/${locale}/events/${getRivieraEvent(item.relatedEventSlug)?.occurrenceSlug??item.relatedEventSlug}` as Route} className="inline-flex min-h-11 items-center underline">{{en:"Event details",fr:"Détails de l'événement",it:"Dettagli dell'evento",uk:"Подробиці події"}[locale]}</Link>:null}{item.relatedGuideSlug?<Link href={`/${locale}/guide/${item.relatedGuideSlug}` as Route} className="inline-flex min-h-11 items-center underline">{{en:"Plan the outing",fr:"Préparer la sortie",it:"Organizza l'uscita",uk:"Спланувати прогулянку"}[locale]}</Link>:null}{getPlaces(item.relatedPlaceIds??[]).map(place=>{const href=placeSharePath(place.id,locale);return href?<Link key={place.id} href={href as Route} className="inline-flex min-h-11 items-center underline">{place.name}</Link>:null;})}</div>
                 </Card>
               ))}
             </div>
@@ -162,6 +171,8 @@ export default async function ThisWeekNearMentonPage({ params }: PageProps) {
           )}
         </Container>
       </Section>
+
+      <Container><NewsletterInterest locale={locale}><TurnstileWidget /></NewsletterInterest></Container>
 
       <Section className="py-10 sm:py-14">
         <Container>

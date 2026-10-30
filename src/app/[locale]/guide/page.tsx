@@ -4,6 +4,7 @@ import type { Route } from "next";
 import { ApartmentCard } from "@/components/apartments/ApartmentCard";
 import { GuideCollections } from "@/components/guide/GuideCollections";
 import { GuideExplorer } from "@/components/guide/GuideExplorer";
+import { MentonDetails } from "@/components/guide/MentonDetails";
 import { GuideVisual } from "@/components/guide/GuideVisual";
 import { UsefulPlacesMiniMapPreview } from "@/components/places/UsefulPlacesMiniMapPreview";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
@@ -336,6 +337,8 @@ export default async function GuideLandingPage({ params, searchParams }: PagePro
           />
         </Container>
       </Section>
+
+      <MentonDetails locale={safeLocale} />
 
       <Section className="!py-4 bg-[#fffaf0] sm:!py-5">
         <Container>

@@ -9,6 +9,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Reuse existing places, guide articles, events and apartments when the connection is editorially useful.
 - Do not invent dates, ticket prices, schedules, ratings, opening hours or official rules.
 - Keep English as the source editorial language and localize French, Italian and Ukrainian naturally.
+- Place and event cards expose a contextual correction link to the existing events-page form. The URL fragment carries the canonical target (including a place anchor) and display title, not guest data. The form opens in correction mode and requires a reason: closed/cancelled, hours, address/venue, dates/times or other. Context and reader statements remain unverified; submission only emails the moderation inbox after existing consent, anti-spam and rate-limit checks. Never change cards automatically from a submission. Legacy corrections without a reason remain accepted as `other`.
 
 ## Guide Articles
 

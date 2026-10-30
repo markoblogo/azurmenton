@@ -35,9 +35,9 @@ export async function POST(request: Request) {
   try {
     const response = await fetch("https://api.resend.com/emails", { method: "POST", signal: AbortSignal.timeout(10000), headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" }, body: JSON.stringify({
       from: process.env.BOOKING_REQUEST_FROM_EMAIL ?? "Azur Menton <onboarding@resend.dev>", to,
-      subject: `[Azur Menton] Editorial review: ${data.type === "event" ? "Event suggestion" : "Correction"}`,
+      subject: `[Azur Menton] Editorial review: ${data.type === "newsletter" ? "Newsletter interest / withdrawal" : data.type === "event" ? "Event suggestion" : "Correction"}`,
       reply_to: data.email,
-      text: `MANUAL REVIEW ONLY. User-submitted information is unverified. Nothing has been published. Do not follow supplied links without checking them.\n\n${Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n\n")}`,
+      text: `MANUAL REVIEW ONLY. User-submitted information is unverified. Nothing has been published. Do not follow supplied links without checking them.${data.type==="newsletter"?"\nWAITLIST REQUEST ONLY. No email ownership verification has occurred. Do not send newsletters, import as confirmed subscribers or enable automations. Process withdrawals before any future launch. Keep pending requests for at most six months, then delete or obtain fresh permission.":""}\n\n${Object.entries(data).map(([k, v]) => `${k}: ${v}`).join("\n\n")}`,
     }) });
     if (!response.ok) return json(false, 502);
     const result = await response.json();

@@ -22,6 +22,12 @@ const visitNotes: Record<Locale, string> = {
   uk: "Перед відвідуванням перевірте години роботи, транспорт та офіційні програми. Заняття в горах і на морі залежать від умов.",
 };
 export type TripSuggestion = { id: string; title: string; href: string; category?: string; start?: string; end?: string; date?: string };
+const ageCopy = {
+  en: {title:"Children's ages during the trip (optional)",child:"Child",note:"Saved on this device only, not sent with a booking enquiry or shared collection. Venue age rules still need checking."},
+  fr: {title:"Âges des enfants pendant le séjour (facultatif)",child:"Enfant",note:"Enregistrés uniquement sur cet appareil, sans transmission avec une demande de réservation ou une collection partagée. Vérifiez les conditions d'âge des lieux."},
+  it: {title:"Età dei bambini durante il viaggio (facoltative)",child:"Bambino",note:"Salvate solo sul dispositivo, non inviate con una richiesta di prenotazione o raccolta condivisa. Verifica i limiti d'età dei luoghi."},
+  uk: {title:"Вік дітей під час поїздки (необов'язково)",child:"Дитина",note:"Зберігається лише на пристрої, не надсилається із запитом бронювання чи добіркою. Вікові умови закладів потрібно перевіряти."},
+};
 
 export function MyTripPlanner({ locale, events, guides, interestLabels, routes, places }: { locale: Locale; events: TripSuggestion[]; guides: TripSuggestion[]; interestLabels: Record<string, string>; routes: DayRouteOption[]; places: PlanPlace[] }) {
   const [trip, setTrip] = useState<MyTrip>(emptyTrip);
@@ -58,8 +64,9 @@ export function MyTripPlanner({ locale, events, guides, interestLabels, routes, 
         <label>{c.from}<input required type="date" value={trip.checkIn} className={inputClass} onChange={e => setTrip({ ...trip, checkIn: e.target.value })} /></label>
         <label>{c.to}<input required type="date" min={trip.checkIn} value={trip.checkOut} className={inputClass} onChange={e => setTrip({ ...trip, checkOut: e.target.value })} /></label>
         <label>{c.adults}<input required type="number" min={1} max={12} value={trip.adults} className={inputClass} onChange={e => setTrip({ ...trip, adults: Number(e.target.value) })} /></label>
-        <label>{c.children}<input required type="number" min={0} max={12} value={trip.children} className={inputClass} onChange={e => setTrip({ ...trip, children: Number(e.target.value) })} /></label>
+        <label>{c.children}<input required type="number" min={0} max={12} value={trip.children} className={inputClass} onChange={e => { const children=Number(e.target.value); const count=Number.isInteger(children)&&children>=0&&children<=12?children:0; setTrip({ ...trip, children, childAges:Array.from({length:count},(_,index)=>trip.childAges?.[index]??null) }); }} /></label>
       </div>
+      {trip.children>0&&trip.children<=12 ? <fieldset className="mt-5 min-w-0" aria-describedby="trip-child-ages-note"><legend className="font-semibold">{ageCopy[locale].title}</legend><div className="mt-3 grid gap-4 sm:grid-cols-3">{Array.from({length:trip.children},(_,index)=><label key={index} className="min-w-0">{ageCopy[locale].child} {index+1}<input type="number" min={0} max={17} step={1} value={trip.childAges?.[index]??""} className={inputClass} onChange={event=>{const ages=Array.from({length:trip.children},(_,i)=>trip.childAges?.[i]??null);ages[index]=event.target.value===""?null:Number(event.target.value);setTrip({...trip,childAges:ages});}} /></label>)}</div><p id="trip-child-ages-note" className="mt-3 text-sm leading-6 text-[#586660]">{ageCopy[locale].note}</p></fieldset> : null}
       <label className="mt-6 flex min-h-11 items-center gap-3"><input type="checkbox" checked={trip.car} onChange={e => setTrip({ ...trip, car: e.target.checked })} />{c.car}</label>
       <fieldset className="mt-4"><legend className="font-semibold">{c.interests}</legend><div className="mt-3 grid gap-2 sm:grid-cols-3">{tripInterests.map(id => <label key={id} className="flex min-h-11 items-center gap-3"><input type="checkbox" checked={trip.interests.includes(id)} onChange={e => setTrip({ ...trip, interests: e.target.checked ? [...trip.interests, id] : trip.interests.filter(i => i !== id) })} />{interestLabels[id]}</label>)}</div></fieldset>
       <div className="mt-6 flex flex-wrap gap-3"><button className="min-h-11 bg-[#173f36] px-5 py-3 text-white" type="submit">{c.save}</button><button className="min-h-11 border border-[#173f36] px-5 py-3" type="button" onClick={() => { try { window.localStorage.removeItem(TRIP_KEY); setTrip(emptyTrip); setSaved(null); setMessage(""); window.dispatchEvent(new Event(TRIP_CHANGED)); } catch { setMessage(c.error); } }}>{c.reset}</button></div><p role="status" className="mt-3">{message}</p>

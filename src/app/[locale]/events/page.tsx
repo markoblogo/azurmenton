@@ -287,6 +287,7 @@ export default async function EventsLandingPage({ params }: PageProps) {
                 <Button href={`/${safeLocale}/check-availability`}>{labels.availability}</Button>
                 <Button href={`/${safeLocale}/apartments`} variant="secondary">{labels.apartments}</Button>
               </div>
+              <Link href={`/${safeLocale}/events/this-week` as Route} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[#155b6c] underline">{{en:"This week's editorial picks",fr:"Les choix éditoriaux de la semaine",it:"Le scelte editoriali della settimana",uk:"Редакційний вибір на тиждень"}[safeLocale]}</Link>
             </div>
             <div className="grid grid-cols-[0.8fr_1.1fr] gap-3 lg:min-h-[24rem]">
               {featured.slice(0, 3).map((event, index) => (

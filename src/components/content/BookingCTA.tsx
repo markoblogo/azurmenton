@@ -1,6 +1,5 @@
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { Button, buttonVariants } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import type { Locale } from "@/i18n/locales";
 import {
   bookingAttributionHref,
@@ -44,7 +43,7 @@ export function BookingCTA({
   };
 
   return (
-    <Card className="bg-[#17313a] p-6 text-white sm:p-8">
+    <div data-booking-cta className="border border-[#dfd4c1] bg-[#17313a] p-6 text-white sm:p-8">
       <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
@@ -59,12 +58,12 @@ export function BookingCTA({
             <Button href={href}>{primaryLabel}</Button>
           )}
           {secondaryLabel ? (
-            <Button href={secondaryHref ?? `/${locale}/apartments`} variant="secondary">
+            <Button href={secondaryHref ?? `/${locale}/apartments`} variant="secondaryOnDark">
               {secondaryLabel}
             </Button>
           ) : null}
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
