@@ -49,7 +49,7 @@ test("localizes contextual reasons and handles a second hash on the same events 
   }
 });
 
-test("long native select labels cannot widen the mobile correction form", async ({ page }) => {
+test("long native select labels cannot widen mobile forms or event filters", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   const fragment = new URLSearchParams({ page: "https://azurmenton.com/it/events/monaco-yacht-show-2027", subject: "Monaco Yacht Show" });
   await page.goto(`/it/events#suggest-event?${fragment}`);
@@ -58,6 +58,11 @@ test("long native select labels cannot widen the mobile correction form", async 
   await page.evaluate(() => document.fonts.ready);
   await type.evaluate((select: HTMLSelectElement) => {
     select.options[1].textContent = "Segnala una correzione alle informazioni ufficiali aggiornate per tutti i visitatori";
+  });
+  await page.locator('input[type="search"]').evaluate(input => {
+    input.closest("section")!.querySelectorAll("select").forEach(select => {
+      select.options[0].textContent = "Tutti gli eventi e le informazioni per visitatori della Riviera italiana e francese";
+    });
   });
   const dimensions = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth - innerWidth,

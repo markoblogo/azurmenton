@@ -654,8 +654,8 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
   const sportsPrestige = [...events, ...datesPendingEvents].filter(isSportsPrestigeHighlight);
 
   return (
-    <div className="grid gap-9">
-      <section className="border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.06)] sm:p-5" aria-label={labels.filters}>
+    <div className="grid min-w-0 grid-cols-1 gap-9">
+      <section className="min-w-0 border border-[#dfd4c1] bg-[#fffdf8] p-4 shadow-[0_18px_60px_rgba(23,63,54,0.06)] sm:p-5" aria-label={labels.filters}>
         <div className="grid gap-4 border-b border-[#dfd4c1] pb-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
           <div>
             <p className="editorial-label">{labels.dateFilters}</p>
@@ -681,7 +681,7 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
           </div>
         </div>
 
-        <div className="mt-4 grid gap-3 lg:grid-cols-[0.75fr_0.75fr_1fr]">
+        <div className="mt-4 grid min-w-0 grid-cols-1 gap-3 lg:grid-cols-[0.75fr_0.75fr_1fr]">
           <div className="grid min-w-0 grid-cols-1 gap-2 sm:grid-cols-2">
             <label className="grid min-w-0 gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
               {labels.from}
@@ -705,10 +705,10 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
               />
             </label>
           </div>
-          <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+          <label className="grid min-w-0 gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.location}
             <select
-              className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+              className="min-h-11 w-full min-w-0 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
               value={filters.location}
               onChange={(event) => setFilters({ location: event.target.value as EventDiscoveryLocation })}
             >
@@ -717,10 +717,10 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
               ))}
             </select>
           </label>
-          <label className="grid gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
+          <label className="grid min-w-0 gap-1 text-xs font-bold uppercase tracking-[0.14em] text-[#173f36]">
             {labels.interest}
             <select
-              className="min-h-11 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+              className="min-h-11 w-full min-w-0 border border-[#dfd4c1] bg-[#fffdf8] px-3 text-sm text-[#173f36] outline-none focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
               value={filters.interest}
               onChange={(event) => setFilters({ interest: event.target.value as EventInterest })}
             >
@@ -730,9 +730,9 @@ export function EventsCalendar({ events, datesPendingEvents, pastEvents, locale 
             </select>
           </label>
         </div>
-        <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_auto] md:items-center">
+        <div className="mt-3 grid min-w-0 grid-cols-1 gap-3 md:grid-cols-[1fr_auto_auto] md:items-center">
           <input
-            className="min-h-11 w-full border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
+            className="min-h-11 w-full min-w-0 border border-[#dfd4c1] bg-[#fffdf8] px-4 text-sm outline-none transition placeholder:text-[#8a8072] focus:border-[#0b6f8f] focus:ring-2 focus:ring-[#0b6f8f]/10"
             defaultValue={filters.query}
             onBlur={(event) => setFilters({ query: event.target.value })}
             onKeyDown={(event) => {
