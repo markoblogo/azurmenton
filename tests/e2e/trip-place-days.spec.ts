@@ -39,7 +39,7 @@ test("builds from favourite places, preserves selection order and keeps shared l
   expect(await day.locator("[data-plan-stop]").evaluateAll(els => els.map(el => el.getAttribute("data-plan-stop")))).toEqual([placeIds[1], placeIds[0], placeIds[2]]);
   await day.locator('[data-plan-stop="halles-du-marche"]').getByRole("button", { name: /^Move earlier:/ }).click();
   await page.reload();
-  expect(await day.locator("[data-plan-stop]").evaluateAll(els => els.map(el => el.getAttribute("data-plan-stop")))).toEqual(placeIds);
+  await expect.poll(() => day.locator("[data-plan-stop]").evaluateAll(els => els.map(el => el.getAttribute("data-plan-stop")))).toEqual(placeIds);
   await day.locator('[data-plan-stop="halles-du-marche"]').getByRole("button", { name: /^Remove stop:/ }).click();
   await expect(day.locator("[data-plan-stop]")).toHaveCount(2);
   expect(await page.evaluate(k => JSON.parse(localStorage.getItem(k)!).items, favKey)).toEqual(favourites);
@@ -113,5 +113,5 @@ test("localizes day plans, handles unknown places and fits phones", async ({ pag
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/en/my-trip#place-days");
   await expect(page.locator("[data-plan-stop]")).toHaveCount(3);
-  await page.screenshot({ path: "/private/tmp/menton-place-day-preview.png" });
+  await page.screenshot({ path: test.info().outputPath("menton-place-day-preview.png") });
 });

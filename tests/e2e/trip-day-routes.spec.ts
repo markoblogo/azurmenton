@@ -96,5 +96,5 @@ test("saved routes use localized catalogues and fit mobile screens", async ({ pa
   }, key);
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/en/my-trip#saved-day-routes");
-  await page.screenshot({ path: "/private/tmp/menton-saved-day-routes.png" });
+  await page.screenshot({ path: test.info().outputPath("menton-saved-day-routes.png") });
 });

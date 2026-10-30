@@ -54,11 +54,11 @@ test("route cards fit narrow phones and desktop without clipping", async ({ page
     await expect(route).toContainText("Exterior only");
     expect(await route.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0);
-    await route.screenshot({ path: `/private/tmp/menton-day-route-${width}.png` });
+    await route.screenshot({ path: test.info().outputPath(`menton-day-route-${width}.png`) });
     if (width === 1440) {
       const top = await route.evaluate(el => el.getBoundingClientRect().top + window.scrollY);
       await page.evaluate(y => window.scrollTo(0, y), top - 160);
-      await page.screenshot({ path: "/private/tmp/menton-day-route-preview.png" });
+      await page.screenshot({ path: test.info().outputPath("menton-day-route-preview.png") });
     }
   }
 });
