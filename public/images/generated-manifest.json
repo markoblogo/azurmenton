@@ -21,6 +21,20 @@
     ]
   },
   {
+    "source": "public/images/guide/a-week-in-menton-book-cover.jpeg",
+    "outputs": [
+      "public/images/guide/generated/a-week-in-menton-book-cover.avif",
+      "public/images/guide/generated/a-week-in-menton-book-cover.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/a-week-in-menton-book-walking-route.png",
+    "outputs": [
+      "public/images/guide/generated/a-week-in-menton-book-walking-route.avif",
+      "public/images/guide/generated/a-week-in-menton-book-walking-route.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/abam-menton.png",
     "outputs": [
       "public/images/guide/generated/abam-menton.avif",
@@ -39,6 +53,13 @@
     "outputs": [
       "public/images/guide/generated/amarea-bordighera.avif",
       "public/images/guide/generated/amarea-bordighera.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/ancien-hotel-louvre-menton.png",
+    "outputs": [
+      "public/images/guide/generated/ancien-hotel-louvre-menton.avif",
+      "public/images/guide/generated/ancien-hotel-louvre-menton.webp"
     ]
   },
   {
@@ -392,10 +413,31 @@
     ]
   },
   {
+    "source": "public/images/guide/le-balmoral-menton.png",
+    "outputs": [
+      "public/images/guide/generated/le-balmoral-menton.avif",
+      "public/images/guide/generated/le-balmoral-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-majestic-menton.png",
+    "outputs": [
+      "public/images/guide/generated/le-majestic-menton.avif",
+      "public/images/guide/generated/le-majestic-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/le-napoli-menton.png",
     "outputs": [
       "public/images/guide/generated/le-napoli-menton.avif",
       "public/images/guide/generated/le-napoli-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/lgbtq-menton-nice-monaco-french-riviera.png",
+    "outputs": [
+      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.avif",
+      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.webp"
     ]
   },
   {
@@ -665,6 +707,13 @@
     ]
   },
   {
+    "source": "public/images/guide/riviera-palace-menton.png",
+    "outputs": [
+      "public/images/guide/generated/riviera-palace-menton.avif",
+      "public/images/guide/generated/riviera-palace-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
     "outputs": [
       "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
@@ -676,6 +725,13 @@
     "outputs": [
       "public/images/guide/generated/roya-valley-day-trip-from-menton.avif",
       "public/images/guide/generated/roya-valley-day-trip-from-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/royal-westminster-menton.png",
+    "outputs": [
+      "public/images/guide/generated/royal-westminster-menton.avif",
+      "public/images/guide/generated/royal-westminster-menton.webp"
     ]
   },
   {
@@ -697,6 +753,13 @@
     "outputs": [
       "public/images/guide/generated/tatie-cbd-menton.avif",
       "public/images/guide/generated/tatie-cbd-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/winter-palace-menton.png",
+    "outputs": [
+      "public/images/guide/generated/winter-palace-menton.avif",
+      "public/images/guide/generated/winter-palace-menton.webp"
     ]
   },
   {
@@ -742,66 +805,101 @@
     ]
   },
   {
-    "source": "public/images/guide/le-majestic-menton.png",
+    "source": "public/images/guide/ramdam-bar-nice.png",
     "outputs": [
-      "public/images/guide/generated/le-majestic-menton.avif",
-      "public/images/guide/generated/le-majestic-menton.webp"
+      "public/images/guide/generated/ramdam-bar-nice.avif",
+      "public/images/guide/generated/ramdam-bar-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/ancien-hotel-louvre-menton.png",
+    "source": "public/images/guide/le-swing-nice.png",
     "outputs": [
-      "public/images/guide/generated/ancien-hotel-louvre-menton.avif",
-      "public/images/guide/generated/ancien-hotel-louvre-menton.webp"
+      "public/images/guide/generated/le-swing-nice.avif",
+      "public/images/guide/generated/le-swing-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/royal-westminster-menton.png",
+    "source": "public/images/guide/coco-bar-nice.png",
     "outputs": [
-      "public/images/guide/generated/royal-westminster-menton.avif",
-      "public/images/guide/generated/royal-westminster-menton.webp"
+      "public/images/guide/generated/coco-bar-nice.avif",
+      "public/images/guide/generated/coco-bar-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/le-balmoral-menton.png",
+    "source": "public/images/guide/rainbow-bar-nice.png",
     "outputs": [
-      "public/images/guide/generated/le-balmoral-menton.avif",
-      "public/images/guide/generated/le-balmoral-menton.webp"
+      "public/images/guide/generated/rainbow-bar-nice.avif",
+      "public/images/guide/generated/rainbow-bar-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/winter-palace-menton.png",
+    "source": "public/images/guide/le-couloir-nice.png",
     "outputs": [
-      "public/images/guide/generated/winter-palace-menton.avif",
-      "public/images/guide/generated/winter-palace-menton.webp"
+      "public/images/guide/generated/le-couloir-nice.avif",
+      "public/images/guide/generated/le-couloir-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/riviera-palace-menton.png",
+    "source": "public/images/guide/le-glam-nice.png",
     "outputs": [
-      "public/images/guide/generated/riviera-palace-menton.avif",
-      "public/images/guide/generated/riviera-palace-menton.webp"
+      "public/images/guide/generated/le-glam-nice.avif",
+      "public/images/guide/generated/le-glam-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/a-week-in-menton-book-cover.jpeg",
+    "source": "public/images/guide/omega-club-nice.png",
     "outputs": [
-      "public/images/guide/generated/a-week-in-menton-book-cover.avif",
-      "public/images/guide/generated/a-week-in-menton-book-cover.webp"
+      "public/images/guide/generated/omega-club-nice.avif",
+      "public/images/guide/generated/omega-club-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/a-week-in-menton-book-walking-route.png",
+    "source": "public/images/guide/le-six-nice.png",
     "outputs": [
-      "public/images/guide/generated/a-week-in-menton-book-walking-route.avif",
-      "public/images/guide/generated/a-week-in-menton-book-walking-route.webp"
+      "public/images/guide/generated/le-six-nice.avif",
+      "public/images/guide/generated/le-six-nice.webp"
     ]
   },
   {
-    "source": "public/images/guide/lgbtq-menton-nice-monaco-french-riviera.png",
+    "source": "public/images/guide/le-klubber-nice.png",
     "outputs": [
-      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.avif",
-      "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.webp"
+      "public/images/guide/generated/le-klubber-nice.avif",
+      "public/images/guide/generated/le-klubber-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/coco-beach-nice.png",
+    "outputs": [
+      "public/images/guide/generated/coco-beach-nice.avif",
+      "public/images/guide/generated/coco-beach-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/castel-public-beach-nice.png",
+    "outputs": [
+      "public/images/guide/generated/castel-public-beach-nice.avif",
+      "public/images/guide/generated/castel-public-beach-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/saint-laurent-eze-coastal-area.png",
+    "outputs": [
+      "public/images/guide/generated/saint-laurent-eze-coastal-area.avif",
+      "public/images/guide/generated/saint-laurent-eze-coastal-area.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pissarelles-beach-cap-dail.png",
+    "outputs": [
+      "public/images/guide/generated/pissarelles-beach-cap-dail.avif",
+      "public/images/guide/generated/pissarelles-beach-cap-dail.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/centre-lgbtqia-cote-azur-nice.png",
+    "outputs": [
+      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.avif",
+      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.webp"
     ]
   }
 ]

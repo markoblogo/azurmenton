@@ -16,11 +16,11 @@ The owner supplied the DOCX and cover. English retains the article, with service
 
 No venue is labelled exclusively LGBTQ+ merely because it is listed as friendly. No current municipal naturism authorisation is asserted. Lou Queernaval's proposed 2027 date remains explicitly provisional. The five late-2026 dates are a sourced article table, not five newly published event records. The guide links reciprocally to the existing Nice Carnival page without implying that Lou Queernaval itself is confirmed.
 
-Fourteen new place cards have deliberately empty image fields. Three existing Menton places retain their current illustrations. Each new place has a map-search link and an explicit coordinate-review exclusion: a search address is not a verified map point. No office/pin is invented for the Monaco association or the multi-venue film festival.
+Fourteen new place cards now use the owner's supplied illustrations with localized alt text. Three existing Menton places retain their current illustrations. Each new place has a map-search link and an explicit coordinate-review exclusion: a search address is not a verified map point. No office/pin is invented for the Monaco association or the multi-venue film festival.
 
-## Owner Illustration Request
+## Owner Illustrations Installed
 
-Supply these filenames in the next illustration package. The guide cover is already installed; do not reuse it as a place placeholder.
+All fourteen files below were matched and safely applied on 30 October 2026 using the published-guide asset workflow. No unmatched files or missing illustrations remain. The existing guide cover was not changed.
 
 | Place | Suggested filename |
 | --- | --- |
@@ -41,4 +41,4 @@ Supply these filenames in the next illustration package. The guide cover is alre
 
 ## Pipeline Observation
 
-Intake still proposed editorial/FAQ subheadings as places and defaulted Nice venue IDs to Menton. These suggestions were not applied. `guide:review --sync-plan-from-published` reconciled the intake with 17 actual rendered places; its 14 remaining image warnings correspond exactly to the next-stage asset request, not phantom locations. Scope any later matching improvement to this observed case; do not create records from every heading.
+Intake still proposed editorial/FAQ subheadings as places and defaulted Nice venue IDs to Menton. These suggestions were not applied. `guide:review --sync-plan-from-published` reconciled the intake with 17 actual rendered places. The fourteen initial image warnings were closed by the later asset pass. Scope any later matching improvement to this observed case; do not create records from every heading.
