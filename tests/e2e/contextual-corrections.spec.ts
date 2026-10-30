@@ -55,10 +55,20 @@ test("long native select labels cannot widen the mobile correction form", async 
   await page.goto(`/it/events#suggest-event?${fragment}`);
   const type = page.locator('#suggest-event select[name="type"]');
   await expect(page.locator('#suggest-event [name="subject"]')).toHaveValue("Monaco Yacht Show");
+  await page.evaluate(() => document.fonts.ready);
   await type.evaluate((select: HTMLSelectElement) => {
     select.options[1].textContent = "Segnala una correzione alle informazioni ufficiali aggiornate per tutti i visitatori";
   });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
+  const dimensions = await page.evaluate(() => ({
+    overflow: document.documentElement.scrollWidth - innerWidth,
+    controls: [...document.querySelectorAll("#suggest-event input, #suggest-event select, #suggest-event textarea")].map(element => ({
+      name: element.getAttribute("name"), right: element.getBoundingClientRect().right, width: element.getBoundingClientRect().width,
+    })),
+    outside: [...document.querySelectorAll("main *")].filter(element => element.getBoundingClientRect().right > innerWidth).slice(0, 8).map(element => ({
+      tag: element.tagName, className: element.getAttribute("class"), right: element.getBoundingClientRect().right,
+    })),
+  }));
+  expect(dimensions.overflow, JSON.stringify(dimensions)).toBe(0);
   expect(await type.evaluate(element => element.getBoundingClientRect().right)).toBeLessThanOrEqual(300);
 });
 

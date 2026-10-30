@@ -45,6 +45,8 @@ Unit suite: 398 tests passed. All 56 browser scenarios passed, including the thr
 
 The first publication exposed a 7px overflow in the Italian contextual-correction form on Linux, despite the complete local suite passing. Its native type selector had unconstrained intrinsic sizing. A separate long-option regression reproduced the mechanism locally (307px overflow), without relaxing the existing zero-overflow assertion. The form now has an explicit single mobile grid track and the selector/textarea wrappers have `min-width: 0` and constrained widths. This fixes the field layout instead of hiding page overflow. All 57 browser scenarios passed on the rebuilt follow-up, including the long-option case. Linux CI and domain checks remain separate release gates. This form-only repair does not change the guide performance configuration above.
 
+The synthetic long-option fixture waits for `document.fonts.ready` before changing option text, to test settled native-control sizing rather than race a platform font swap. It retains an exact zero-overflow assertion and logs control/page geometry on failure. The original four-locale contextual scenario keeps its immediate zero-overflow check unchanged.
+
 ## Remaining Work
 
 If continuing performance work, profile the heading's render delay, render-blocking CSS and initial JavaScript before considering larger catalogue changes. Do not remove useful content, weaken CSP, change the typeface or claim real-user speed gains merely to improve a single lab score. Collect field evidence where traffic permits.
