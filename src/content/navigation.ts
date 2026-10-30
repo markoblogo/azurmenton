@@ -9,6 +9,9 @@ export const navItems = [
   { key: "contact", href: "/contact" },
 ] as const;
 
+export const primaryNavItems = navItems.filter(item => item.key === "apartments" || item.key === "guide" || item.key === "events");
+export const secondaryNavItems = navItems.filter(item => !primaryNavItems.some(primary => primary.key === item.key));
+
 export const routeLabels: Record<Locale, Record<string, string>> = {
   en: {
     home: "Home",

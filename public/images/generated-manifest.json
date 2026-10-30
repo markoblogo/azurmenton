@@ -154,10 +154,24 @@
     ]
   },
   {
+    "source": "public/images/guide/castel-public-beach-nice.png",
+    "outputs": [
+      "public/images/guide/generated/castel-public-beach-nice.avif",
+      "public/images/guide/generated/castel-public-beach-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cbd-shop-france-menton.png",
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",
       "public/images/guide/generated/cbd-shop-france-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/centre-lgbtqia-cote-azur-nice.png",
+    "outputs": [
+      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.avif",
+      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.webp"
     ]
   },
   {
@@ -200,6 +214,20 @@
     "outputs": [
       "public/images/guide/generated/club-sea-nice.avif",
       "public/images/guide/generated/club-sea-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/coco-bar-nice.png",
+    "outputs": [
+      "public/images/guide/generated/coco-bar-nice.avif",
+      "public/images/guide/generated/coco-bar-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/coco-beach-nice.png",
+    "outputs": [
+      "public/images/guide/generated/coco-beach-nice.avif",
+      "public/images/guide/generated/coco-beach-nice.webp"
     ]
   },
   {
@@ -420,6 +448,27 @@
     ]
   },
   {
+    "source": "public/images/guide/le-couloir-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-couloir-nice.avif",
+      "public/images/guide/generated/le-couloir-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-glam-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-glam-nice.avif",
+      "public/images/guide/generated/le-glam-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-klubber-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-klubber-nice.avif",
+      "public/images/guide/generated/le-klubber-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/le-majestic-menton.png",
     "outputs": [
       "public/images/guide/generated/le-majestic-menton.avif",
@@ -431,6 +480,20 @@
     "outputs": [
       "public/images/guide/generated/le-napoli-menton.avif",
       "public/images/guide/generated/le-napoli-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-six-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-six-nice.avif",
+      "public/images/guide/generated/le-six-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-swing-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-swing-nice.avif",
+      "public/images/guide/generated/le-swing-nice.webp"
     ]
   },
   {
@@ -588,6 +651,13 @@
     ]
   },
   {
+    "source": "public/images/guide/omega-club-nice.png",
+    "outputs": [
+      "public/images/guide/generated/omega-club-nice.avif",
+      "public/images/guide/generated/omega-club-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/osteria-del-marinaio-sanremo.png",
     "outputs": [
       "public/images/guide/generated/osteria-del-marinaio-sanremo.avif",
@@ -627,6 +697,13 @@
     "outputs": [
       "public/images/guide/generated/pharmacie-saint-roman.avif",
       "public/images/guide/generated/pharmacie-saint-roman.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pissarelles-beach-cap-dail.png",
+    "outputs": [
+      "public/images/guide/generated/pissarelles-beach-cap-dail.avif",
+      "public/images/guide/generated/pissarelles-beach-cap-dail.webp"
     ]
   },
   {
@@ -707,6 +784,20 @@
     ]
   },
   {
+    "source": "public/images/guide/rainbow-bar-nice.png",
+    "outputs": [
+      "public/images/guide/generated/rainbow-bar-nice.avif",
+      "public/images/guide/generated/rainbow-bar-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/ramdam-bar-nice.png",
+    "outputs": [
+      "public/images/guide/generated/ramdam-bar-nice.avif",
+      "public/images/guide/generated/ramdam-bar-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/riviera-palace-menton.png",
     "outputs": [
       "public/images/guide/generated/riviera-palace-menton.avif",
@@ -732,6 +823,13 @@
     "outputs": [
       "public/images/guide/generated/royal-westminster-menton.avif",
       "public/images/guide/generated/royal-westminster-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/saint-laurent-eze-coastal-area.png",
+    "outputs": [
+      "public/images/guide/generated/saint-laurent-eze-coastal-area.avif",
+      "public/images/guide/generated/saint-laurent-eze-coastal-area.webp"
     ]
   },
   {
@@ -805,101 +903,10 @@
     ]
   },
   {
-    "source": "public/images/guide/ramdam-bar-nice.png",
+    "source": "public/images/guide/naturist-nudist-beaches-near-menton.png",
     "outputs": [
-      "public/images/guide/generated/ramdam-bar-nice.avif",
-      "public/images/guide/generated/ramdam-bar-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-swing-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-swing-nice.avif",
-      "public/images/guide/generated/le-swing-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/coco-bar-nice.png",
-    "outputs": [
-      "public/images/guide/generated/coco-bar-nice.avif",
-      "public/images/guide/generated/coco-bar-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/rainbow-bar-nice.png",
-    "outputs": [
-      "public/images/guide/generated/rainbow-bar-nice.avif",
-      "public/images/guide/generated/rainbow-bar-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-couloir-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-couloir-nice.avif",
-      "public/images/guide/generated/le-couloir-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-glam-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-glam-nice.avif",
-      "public/images/guide/generated/le-glam-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/omega-club-nice.png",
-    "outputs": [
-      "public/images/guide/generated/omega-club-nice.avif",
-      "public/images/guide/generated/omega-club-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-six-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-six-nice.avif",
-      "public/images/guide/generated/le-six-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-klubber-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-klubber-nice.avif",
-      "public/images/guide/generated/le-klubber-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/coco-beach-nice.png",
-    "outputs": [
-      "public/images/guide/generated/coco-beach-nice.avif",
-      "public/images/guide/generated/coco-beach-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/castel-public-beach-nice.png",
-    "outputs": [
-      "public/images/guide/generated/castel-public-beach-nice.avif",
-      "public/images/guide/generated/castel-public-beach-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/saint-laurent-eze-coastal-area.png",
-    "outputs": [
-      "public/images/guide/generated/saint-laurent-eze-coastal-area.avif",
-      "public/images/guide/generated/saint-laurent-eze-coastal-area.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/pissarelles-beach-cap-dail.png",
-    "outputs": [
-      "public/images/guide/generated/pissarelles-beach-cap-dail.avif",
-      "public/images/guide/generated/pissarelles-beach-cap-dail.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/centre-lgbtqia-cote-azur-nice.png",
-    "outputs": [
-      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.avif",
-      "public/images/guide/generated/centre-lgbtqia-cote-azur-nice.webp"
+      "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
+      "public/images/guide/generated/naturist-nudist-beaches-near-menton.webp"
     ]
   }
 ]

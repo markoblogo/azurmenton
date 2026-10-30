@@ -10939,12 +10939,13 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
+  const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["plage-sablettes", "promenade-du-soleil", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("lgbtq-menton-nice-monaco-french-riviera");
+  if (["pissarelles-beach-cap-dail", "balzi-rossi-area-ventimiglia", "plage-sablettes", "plage-casino", "plage-fossan", "rondelli-garavan-side"].includes(place.id)) relatedArticleIds.add("naturist-nudist-beaches-near-menton");
   return {
     ...place,
     ...visual,
-    relatedArticleIds: ["plage-sablettes", "promenade-du-soleil", "halles-du-marche"].includes(place.id)
-      ? [...new Set([...place.relatedArticleIds, "lgbtq-menton-nice-monaco-french-riviera"])]
-      : place.relatedArticleIds,
+    relatedArticleIds: [...relatedArticleIds],
     requiresMapReview: place.requiresMapReview ?? mapReviewRequiredPlaceIds.has(place.id),
     visualTheme: place.visualTheme ?? visual?.visualTheme ?? visualThemeForPlace(place.type),
     googleMapsSearchUrl:
