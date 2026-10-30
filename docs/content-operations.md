@@ -52,6 +52,9 @@ Use this checklist when adding or changing guide articles, places, events or apa
 ## Stay Plans and Transport
 
 - Keep stay plans compact: trip intent, useful guides, useful places, relevant apartments and transport destinations.
+- Five stay plans also reference structured day-route details in `src/content/planning/day-route-details.ts`. Maintain ordered existing place IDs, optional stops, editorial duration ranges, effort, stairs, access status, transport/return, booking advice, timing, a linked plan B and dated official sources. They render in the existing `/stay` cards and selected guides, not a new route catalogue.
+- Route duration/effort are editorial estimates, not measured travel times. A building's lift does not verify the full pedestrian route. Preserve `not-assessed` / `partial` access and `not-verified` age conditions; missing data must never become a step-free or child-age guarantee. Do not add guessed coordinates, automatic routing, live availability or reservations to this layer.
+- When adding/changing a route, verify place-anchor targets, plan-B guides, all four locales and native disclosure controls without JavaScript. See `tests/unit/day-routes.test.ts` and `tests/e2e/day-routes.spec.ts`. No separate route JSON-LD or indexable detail URL is introduced.
 - Do not turn stay plans into a second blog system; link to the full stay or guide page for detail.
 - Use `src/content/transport.ts` for curated transport notes and official timetable/route links. Do not add live SNCF, Trenitalia or bus data without a separate API, caching and source-review pass.
 - Keep transport copy cautious: check current schedules, last returns and event-day access before travelling.

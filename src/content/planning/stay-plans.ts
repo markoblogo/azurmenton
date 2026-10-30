@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/locales";
+import { dayRouteDetails, type DayRouteDetails } from "./day-route-details";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -16,6 +17,7 @@ export type StayPlan = {
   relatedPlaceIds: string[];
   relatedApartmentSlugs: string[];
   transportDestinationIds: string[];
+  dayRoute?: DayRouteDetails;
 };
 
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
@@ -23,6 +25,7 @@ const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ 
 export const stayPlans: StayPlan[] = [
   {
     id: "one-day-without-car",
+    dayRoute: dayRouteDetails["one-day-without-car"],
     title: t("One day in Menton without a car", "Une journee a Menton sans voiture", "Un giorno a Mentone senza auto", "Один день у Ментоні без авто"),
     excerpt: t("Old town, a market stop, Sablettes beach and a walkable seafront day from a central base.", "Vieille ville, marche, plage des Sablettes et journee a pied sur le front de mer depuis une base centrale.", "Centro storico, mercato, spiaggia Sablettes e una giornata sul lungomare a piedi da una base centrale.", "Старе місто, ринок, пляж Салетт і день на набережній пішки від центральної бази."),
     duration: t("1 day", "1 jour", "1 giorno", "1 день"),
@@ -32,12 +35,13 @@ export const stayPlans: StayPlan[] = [
     featuredOnGuide: true,
     relatedStaySlug: "menton-without-a-car",
     relatedGuideSlugs: ["menton-one-day-itinerary", "menton-without-a-car", "public-transport-in-menton"],
-    relatedPlaceIds: ["halles-du-marche", "plage-sablettes", "rue-saint-michel-menton"],
+    relatedPlaceIds: ["halles-du-marche", "plage-sablettes", "rue-saint-michel-menton", "rampes-saint-michel"],
     relatedApartmentSlugs: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
     transportDestinationIds: ["monaco", "ventimiglia"],
   },
   {
     id: "family-menton",
+    dayRoute: dayRouteDetails["family-menton"],
     title: t("Menton with children", "Menton avec enfants", "Mentone con bambini", "Ментон з дітьми"),
     excerpt: t("Beach time, short walks, simple food stops and apartment space that keeps the trip manageable.", "Plage, petites balades, adresses simples et espace d'appartement pour garder un sejour fluide.", "Spiaggia, brevi passeggiate, soste semplici e spazio in appartamento per rendere il viaggio gestibile.", "Пляж, короткі прогулянки, прості зупинки для їжі й простір в апартаментах."),
     duration: t("1-3 days", "1-3 jours", "1-3 giorni", "1-3 дні"),
@@ -46,7 +50,7 @@ export const stayPlans: StayPlan[] = [
     primaryGuideSlug: "menton-with-kids-family-guide",
     featuredOnGuide: true,
     relatedGuideSlugs: ["menton-with-kids-family-guide", "best-beaches-in-menton", "best-ice-cream-menton"],
-    relatedPlaceIds: ["plage-sablettes", "promenade-du-soleil", "halles-du-marche"],
+    relatedPlaceIds: ["palais-de-leurope-menton", "salle-des-mariages-jean-cocteau", "promenade-du-soleil", "plage-sablettes", "halles-du-marche"],
     relatedApartmentSlugs: ["beachside-family-apartment", "sea-view-balcony-studio"],
     transportDestinationIds: ["villages"],
   },
@@ -67,6 +71,7 @@ export const stayPlans: StayPlan[] = [
   },
   {
     id: "monaco-event-weekend",
+    dayRoute: dayRouteDetails["monaco-event-weekend"],
     title: t("Monaco event weekend from Menton", "Week-end evenement a Monaco depuis Menton", "Weekend evento a Monaco da Mentone", "Вікенд події в Монако з Ментона"),
     excerpt: t("Use Menton as a calmer seaside base, then plan train access and returns before the busy event days.", "Utilisez Menton comme base balneaire plus calme, puis prevoyez train et retour avant les jours charges.", "Usa Mentone come base sul mare piu tranquilla, poi pianifica treno e rientro prima dei giorni affollati.", "Зробіть Ментон спокійнішою морською базою, а потяг і повернення плануйте до завантажених днів."),
     duration: t("Weekend", "Week-end", "Weekend", "Вікенд"),
@@ -76,12 +81,13 @@ export const stayPlans: StayPlan[] = [
     featuredOnGuide: true,
     relatedStaySlug: "monaco-events-from-menton",
     relatedGuideSlugs: ["monaco-events-from-menton", "day-trips-from-menton", "public-transport-in-menton"],
-    relatedPlaceIds: ["grimaldi-forum-monaco", "opera-de-monte-carlo", "oceanographic-museum-monaco"],
+    relatedPlaceIds: ["monaco-monte-carlo-station", "marche-de-la-condamine-monaco", "oceanographic-museum-monaco", "grimaldi-forum-monaco", "opera-de-monte-carlo"],
     relatedApartmentSlugs: ["sea-view-balcony-studio", "beachside-family-apartment", "panoramic-sea-view-studio"],
     transportDestinationIds: ["monaco"],
   },
   {
     id: "italian-riviera-day",
+    dayRoute: dayRouteDetails["italian-riviera-day"],
     title: t("Italian Riviera day from Menton", "Une journee sur la Riviera italienne", "Una giornata in Riviera italiana", "День на Італійській Рив'єрі"),
     excerpt: t("A simple train day for Ventimiglia, Bordighera or Sanremo, with Menton as the easy return base.", "Une journee simple en train vers Vintimille, Bordighera ou Sanremo, avec Menton comme base de retour facile.", "Una semplice gita in treno a Ventimiglia, Bordighera o Sanremo, con Mentone come base per il rientro.", "Проста поїздка потягом до Вентімільї, Бордігери чи Санремо з Ментоном як зручною базою для повернення."),
     duration: t("Full day", "Journee complete", "Giornata intera", "Повний день"),
@@ -90,7 +96,7 @@ export const stayPlans: StayPlan[] = [
     primaryGuideSlug: "italian-riviera-day-trip-from-menton",
     featuredOnGuide: true,
     relatedGuideSlugs: ["italian-riviera-day-trip-from-menton", "day-trips-from-menton", "public-transport-in-menton"],
-    relatedPlaceIds: ["ventimiglia", "ventimiglia-station", "teatro-ariston-sanremo"],
+    relatedPlaceIds: ["ventimiglia-station", "mercato-coperto-ventimiglia", "ventimiglia", "teatro-ariston-sanremo"],
     relatedApartmentSlugs: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
     transportDestinationIds: ["ventimiglia"],
   },
@@ -107,5 +113,19 @@ export const stayPlans: StayPlan[] = [
     relatedPlaceIds: ["opera-de-monte-carlo", "theatre-princesse-grace-monaco", "opera-de-nice"],
     relatedApartmentSlugs: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
     transportDestinationIds: ["monaco", "nice"],
+  },
+  {
+    id: "cocteau-walking-day",
+    dayRoute: dayRouteDetails["cocteau-walking-day"],
+    title: t("Cocteau's Menton on foot", "Menton à pied avec Cocteau", "Mentone a piedi con Cocteau", "Ментон Кокто пішки"),
+    excerpt: t("A cultural half-day linking the Wedding Hall, the closed Wunderman museum exterior, the old port and the separate Bastion museum.", "Une demi-journée culturelle entre Salle des Mariages, extérieur du musée Wunderman fermé, Vieux Port et musée distinct du Bastion.", "Mezza giornata culturale tra Salle des Mariages, esterno del museo Wunderman chiuso, porto vecchio e distinto museo Bastion.", "Культурні пів дня: Зала одружень, фасад закритого музею Wunderman, Старий порт і окремий музей Bastion."),
+    duration: t("Half-day", "Demi-journée", "Mezza giornata", "Пів дня"),
+    bestFor: t("Art and walking", "Art et promenade", "Arte e passeggiate", "Мистецтво й прогулянки"),
+    transportNote: t("Walk through central Menton; check both interiors before choosing your day.", "À pied dans Menton centre ; vérifiez les deux intérieurs avant de choisir le jour.", "A piedi in centro; verifica i due interni prima di scegliere il giorno.", "Пішки центром Ментона; перевірте обидва приміщення перед вибором дня."),
+    primaryGuideSlug: "jean-cocteau-menton-walking-route",
+    relatedGuideSlugs: ["jean-cocteau-menton-walking-route", "museums-in-menton-nice-monaco", "menton-old-town"],
+    relatedPlaceIds: ["salle-des-mariages-jean-cocteau", "musee-jean-cocteau-wunderman-menton", "vieux-port-menton", "musee-jean-cocteau-bastion", "plage-sablettes"],
+    relatedApartmentSlugs: ["sea-view-balcony-studio", "panoramic-sea-view-studio"],
+    transportDestinationIds: [],
   },
 ];

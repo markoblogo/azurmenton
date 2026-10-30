@@ -1,8 +1,11 @@
+import { parseDayRoutes, type SavedDayRoute } from "./trip-day-routes";
+import { parsePlaceDays, type PlaceDay } from "./trip-place-days";
+
 export const TRIP_KEY = "azurmenton.trip.v1";
 export const TRIP_CHANGED = "azurmenton:trip-changed";
 export const tripInterests = ["food-markets", "beaches", "walks-views", "with-children", "day-trips", "events", "practical"] as const;
 export type TripInterest = typeof tripInterests[number];
-export type MyTrip = { checkIn: string; checkOut: string; adults: number; children: number; car: boolean; interests: TripInterest[] };
+export type MyTrip = { checkIn: string; checkOut: string; adults: number; children: number; car: boolean; interests: TripInterest[]; dayRoutes?: SavedDayRoute[]; placeDays?: PlaceDay[] };
 export const emptyTrip: MyTrip = { checkIn: "", checkOut: "", adults: 2, children: 0, car: false, interests: [] };
 
 function validDate(value: unknown): value is string {
@@ -11,12 +14,14 @@ function validDate(value: unknown): value is string {
 
 export function parseTrip(raw: string | null): MyTrip | null {
   try {
-    if (!raw || raw.length > 4000) return null;
+    if (!raw || raw.length > 40000) return null;
     const data = JSON.parse(raw);
     if (data.version !== 1) return null;
     const t = data.trip;
     if (!t || !validDate(t.checkIn) || !validDate(t.checkOut) || t.checkOut <= t.checkIn || !Number.isInteger(t.adults) || t.adults < 1 || t.adults > 12 || !Number.isInteger(t.children) || t.children < 0 || t.children > 12 || typeof t.car !== "boolean" || !Array.isArray(t.interests) || t.interests.some((i: unknown) => !tripInterests.includes(i as TripInterest))) return null;
-    return { checkIn: t.checkIn, checkOut: t.checkOut, adults: t.adults, children: t.children, car: t.car, interests: [...new Set<TripInterest>(t.interests)] };
+    const dayRoutes = parseDayRoutes(t.dayRoutes);
+    const placeDays = parsePlaceDays(t.placeDays);
+    return { checkIn: t.checkIn, checkOut: t.checkOut, adults: t.adults, children: t.children, car: t.car, interests: [...new Set<TripInterest>(t.interests)], ...(dayRoutes.length ? { dayRoutes } : {}), ...(placeDays.length ? { placeDays } : {}) };
   } catch { return null; }
 }
 

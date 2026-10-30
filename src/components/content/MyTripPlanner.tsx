@@ -1,9 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/locales";
 import { emptyTrip, parseTrip, saveTrip, TRIP_KEY, TRIP_CHANGED, tripInterests, type MyTrip } from "@/lib/my-trip";
 import { rankTripGuides, tripOverlapsEvent } from "@/lib/trip-recommendations";
+import { SavedDayRoutes } from "./TripRouteControls";
+import type { DayRouteOption } from "@/lib/trip-day-routes";
+import type { PlanPlace } from "@/lib/trip-place-days";
+import { PlaceDayPlanner } from "./PlaceDayPlanner";
 
 const copy = {
   en: { title: "My trip", from: "Arrival", to: "Departure", adults: "Adults", children: "Children", car: "Travelling with a car", interests: "Interests", save: "Save trip", reset: "Clear trip", saved: "Saved on this device", error: "Check your dates and group size, or allow storage on this device.", events: "On your dates", guides: "Ideas for your stay", empty: "No confirmed events match these dates.", booking: "Request availability", favourites: "Favourites" },
@@ -19,25 +23,36 @@ const visitNotes: Record<Locale, string> = {
 };
 export type TripSuggestion = { id: string; title: string; href: string; category?: string; start?: string; end?: string; date?: string };
 
-export function MyTripPlanner({ locale, events, guides, interestLabels }: { locale: Locale; events: TripSuggestion[]; guides: TripSuggestion[]; interestLabels: Record<string, string> }) {
+export function MyTripPlanner({ locale, events, guides, interestLabels, routes, places }: { locale: Locale; events: TripSuggestion[]; guides: TripSuggestion[]; interestLabels: Record<string, string>; routes: DayRouteOption[]; places: PlanPlace[] }) {
   const [trip, setTrip] = useState<MyTrip>(emptyTrip);
   const [saved, setSaved] = useState<MyTrip | null>(null);
   const [message, setMessage] = useState("");
   const [ready, setReady] = useState(false);
+  const lastProfile = useRef<string | null>(null);
   const c = copy[locale];
   useEffect(() => {
-    const refresh = () => { try { const value = parseTrip(window.localStorage.getItem(TRIP_KEY)); setTrip(value ?? emptyTrip); setSaved(value); } catch {} setReady(true); };
+    const refresh = () => {
+      try {
+        const value = parseTrip(window.localStorage.getItem(TRIP_KEY));
+        const profile = JSON.stringify(value ? { ...value, dayRoutes: undefined, placeDays: undefined } : null);
+        if (profile !== lastProfile.current) setTrip(value ?? emptyTrip);
+        lastProfile.current = profile;
+        setSaved(value);
+      } catch {}
+      setReady(true);
+    };
     const onStorage = (event: StorageEvent) => { if (event.key === TRIP_KEY || event.key === null) refresh(); };
     refresh();
     window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
+    window.addEventListener(TRIP_CHANGED, refresh);
+    return () => { window.removeEventListener("storage", onStorage); window.removeEventListener(TRIP_CHANGED, refresh); };
   }, []);
   const matching = saved ? events.filter(e => tripOverlapsEvent(saved, e)) : [];
   const ideas = rankTripGuides(guides, saved);
   const inputClass = "mt-2 block min-h-11 w-full border border-[#dfd4c1] bg-white px-3 py-2";
   return <div className="mx-auto max-w-5xl px-5 py-12 text-[#173f36]">
     <div className="flex flex-wrap items-center justify-between gap-4"><h1 className="serif-heading text-4xl">{c.title}</h1><a href={`/${locale}/favourites`} className="underline">{c.favourites}</a></div>
-    <form className="mt-8" onSubmit={e => { e.preventDefault(); try { if (saveTrip(window.localStorage, trip)) { setSaved(trip); setMessage(c.saved); window.dispatchEvent(new Event(TRIP_CHANGED)); } else setMessage(c.error); } catch { setMessage(c.error); } }}>
+    <form id="trip-dates" className="mt-8 scroll-mt-40" onSubmit={e => { e.preventDefault(); try { const current = parseTrip(window.localStorage.getItem(TRIP_KEY)); const next = { ...trip, dayRoutes: current?.dayRoutes, placeDays: current?.placeDays }; if (saveTrip(window.localStorage, next)) { setSaved(next); setMessage(c.saved); window.dispatchEvent(new Event(TRIP_CHANGED)); } else setMessage(c.error); } catch { setMessage(c.error); } }}>
       <fieldset disabled={!ready} className="min-w-0 border-0 p-0">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <label>{c.from}<input required type="date" value={trip.checkIn} className={inputClass} onChange={e => setTrip({ ...trip, checkIn: e.target.value })} /></label>
@@ -50,6 +65,8 @@ export function MyTripPlanner({ locale, events, guides, interestLabels }: { loca
       <div className="mt-6 flex flex-wrap gap-3"><button className="min-h-11 bg-[#173f36] px-5 py-3 text-white" type="submit">{c.save}</button><button className="min-h-11 border border-[#173f36] px-5 py-3" type="button" onClick={() => { try { window.localStorage.removeItem(TRIP_KEY); setTrip(emptyTrip); setSaved(null); setMessage(""); window.dispatchEvent(new Event(TRIP_CHANGED)); } catch { setMessage(c.error); } }}>{c.reset}</button></div><p role="status" className="mt-3">{message}</p>
       </fieldset>
     </form>
+    <SavedDayRoutes locale={locale} routes={routes} />
+    <PlaceDayPlanner locale={locale} places={places} />
     {saved ? <section className="mt-10 border-t border-[#dfd4c1] pt-8"><h2 className="serif-heading text-3xl">{c.events}</h2><ul className="mt-5 space-y-4">{matching.map(e => <li key={e.id}><a href={e.href} className="font-semibold underline">{e.title}</a><p>{e.date}</p></li>)}</ul>{!matching.length ? <p className="mt-4">{c.empty}</p> : null}</section> : null}
     <section className="mt-10 border-t border-[#dfd4c1] pt-8"><h2 className="serif-heading text-3xl">{c.guides}</h2><ul className="mt-5 space-y-4">{ideas.map(g => <li key={g.id}><a href={g.href} className="underline">{g.title}</a></li>)}</ul><p className="mt-6 text-sm leading-6 text-[#5f574c]">{visitNotes[locale]}</p></section>
     {saved ? <a href={`/${locale}/check-availability`} className="mt-8 inline-flex min-h-11 items-center bg-[#173f36] px-5 py-3 text-white">{c.booking}</a> : null}

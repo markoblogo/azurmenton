@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import imageDerivativeTargets from "../../scripts/lib/image-derivative-targets.json";
+import { dayRouteDetails } from "./planning/day-route-details";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -10962,6 +10963,11 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  for (const route of Object.values(dayRouteDetails)) {
+    if (route.stops.some(stop => stop.placeId === place.id)) {
+      for (const slug of route.guideSlugs) relatedArticleIds.add(slug);
+    }
+  }
   if (["plage-sablettes", "promenade-du-soleil", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("lgbtq-menton-nice-monaco-french-riviera");
   if (["pissarelles-beach-cap-dail", "balzi-rossi-area-ventimiglia", "plage-sablettes", "plage-casino", "plage-fossan", "rondelli-garavan-side"].includes(place.id)) relatedArticleIds.add("naturist-nudist-beaches-near-menton");
   if (["salle-des-mariages-jean-cocteau", "rue-saint-michel-menton", "palais-de-leurope-menton", "musee-jean-cocteau-bastion", "plage-sablettes"].includes(place.id)) relatedArticleIds.add("jean-cocteau-menton-walking-route");

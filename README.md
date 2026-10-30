@@ -22,6 +22,12 @@ Azur Menton is a multilingual direct-booking site for three central Menton apart
 
 Trip planning: `/[locale]/my-trip` stores a device-only trip profile and recommends guides/events, while `/[locale]/favourites` keeps saved guides, events and places and can share a read-only snapshot. Booking prefill requires an explicit click; it never submits a request. See [docs/TRIP_FEATURES.md](docs/TRIP_FEATURES.md) for verification and analytics limitations.
 
+Five ready-made day routes extend the existing stay plans and relevant guides: old town, Cocteau, cool-weather family time, Monaco without a car and Ventimiglia markets. Ordered stops, estimated duration/effort, access uncertainties, return transport, booking advice, alternatives and official sources are shared across four locales. This is editorial planning, not automated navigation; see [docs/day-routes.md](docs/day-routes.md).
+
+A ready-made route can be assigned to a day within the saved trip, then viewed, moved or removed in My trip. Assignments stay in the existing device-only profile; they are not bookings and are not included in shared links or analytics.
+
+Visitors can also build personal days from their own favourite places, manually reorder/remove stops and move or merge days. The same private trip profile stores these plans. Structural warnings flag six or more stops or a ready-made route on the same date; no automatic navigation or travel-time calculation is provided.
+
 Confirmed events offer calendar exports, including explicit performance selection when sessions are known. The editorial form accepts event suggestions and corrections for manual email review, never automatic publication. A downloaded calendar entry is a snapshot, not an updating subscription.
 
 Read first for a fresh coding session:

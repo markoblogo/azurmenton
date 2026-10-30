@@ -4,6 +4,8 @@ import type { Route } from "next";
 import { notFound } from "next/navigation";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Card } from "@/components/ui/Card";
+import { DayRouteCard } from "@/components/content/DayRouteCard";
+import { GuideVisual } from "@/components/guide/GuideVisual";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
@@ -139,9 +141,11 @@ export default async function StayIndexPage({ params }: PageProps) {
               const planApartments = apartments.filter((apartment) => plan.relatedApartmentSlugs.includes(apartment.slug)).slice(0, 2);
               const planGuides = plan.relatedGuideSlugs.map((slug) => getGuideArticle(slug)).filter((article): article is NonNullable<typeof article> => Boolean(article)).slice(0, 2);
               const href = plan.relatedStaySlug ? `/${locale}/stay/${plan.relatedStaySlug}` : `/${locale}/guide/${plan.primaryGuideSlug}`;
+              const guide = getGuideArticle(plan.primaryGuideSlug);
 
               return (
-                <Card key={plan.id} className="h-full p-5">
+                <Card key={plan.id} className="self-start p-5">
+                  {plan.dayRoute && guide?.coverImage ? <GuideVisual className="mb-5 aspect-[16/9]" locale={locale} image={guide.coverImage} imageAlt={guide.coverImageAlt?.[locale] ?? guide.title[locale]} showLabel={false} /> : null}
                   <p className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-[#b49353]">{plan.duration[locale]} · {plan.bestFor[locale]}</p>
                   <h2 className="mt-3 serif-heading text-3xl leading-none text-[#173f36]">{plan.title[locale]}</h2>
                   <p className="mt-3 text-sm leading-6 text-[#5c5044]">{plan.excerpt[locale]}</p>
@@ -151,6 +155,7 @@ export default async function StayIndexPage({ params }: PageProps) {
                     {planApartments.length ? <MiniList label={labels.apartments} items={planApartments.map((apartment) => apartment.shortName[locale])} /> : null}
                     <MiniList label={labels.transport} items={[plan.transportNote[locale]]} />
                   </div>
+                  {plan.dayRoute ? <div className="mt-5"><DayRouteCard id={plan.id} route={plan.dayRoute} locale={locale} compact /></div> : null}
                   <Link className="mt-5 inline-flex min-h-10 items-center border border-[#c6a66a] px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#173f36] hover:bg-[#f3ead7]" href={href as Route}>{labels.openPlan}</Link>
                 </Card>
               );

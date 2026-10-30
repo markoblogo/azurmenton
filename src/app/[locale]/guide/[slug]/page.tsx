@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ArrivalParkingBlock } from "@/components/content/ArrivalParkingBlock";
 import { BookingCTA } from "@/components/content/BookingCTA";
+import { DayRouteCard } from "@/components/content/DayRouteCard";
 import { ContextualApartmentRecommendations } from "@/components/content/ContextualApartmentRecommendations";
 import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBlock";
 import { ShareActions } from "@/components/content/ShareActions";
@@ -25,6 +26,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
 import { getGuideAuthorityProfile } from "@/content/guide-authority";
+import { stayPlans } from "@/content/planning/stay-plans";
 import { guideApartmentScenarios } from "@/content/contextual-apartment-recommendations";
 import { guideApartmentPaths } from "@/content/guide-apartment-paths";
 import { getApartment } from "@/content/apartments";
@@ -102,6 +104,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const localized = localizeGuideArticle(article, locale);
+  const dayPlans = stayPlans.filter(plan => plan.dayRoute?.guideSlugs.includes(slug));
   const page = getGuidePage(locale, slug);
   const copy = labels[locale];
   const isWalkingGuide = article.slug === "menton-without-a-car";
@@ -182,7 +185,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                   trackingEventName={bookingFunnelEvents.guideCtaClick}
                 />
               ) : null}
-              {authorityProfile ? <RealMentonPlan plan={authorityProfile.plan} label={copy.realPlan} /> : null}
+              {dayPlans.length ? dayPlans.map(plan => <DayRouteCard key={plan.id} id={plan.id} route={plan.dayRoute!} locale={locale} />) : authorityProfile ? <RealMentonPlan plan={authorityProfile.plan} label={copy.realPlan} /> : null}
               {localized.appTools?.length ? (
                 <section className="border border-[#dfd2b8] bg-[#fffaf0] p-5 sm:p-7">
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.appToolkit}</h2>

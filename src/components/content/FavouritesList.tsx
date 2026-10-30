@@ -5,6 +5,7 @@ import type { Locale } from "@/i18n/locales";
 import { FAVOURITES_CHANGED, parseFavourites, readFavourites, type Favourite } from "@/lib/favourites";
 import { FavouriteButton } from "./FavouriteButton";
 import { ShareActions } from "./ShareActions";
+import { PlaceDayPlanner } from "./PlaceDayPlanner";
 
 export type SavedContent = Favourite & { title: string; href: string };
 const copy = {
@@ -42,6 +43,7 @@ export function FavouritesList({ locale, catalog }: { locale: Locale; catalog: S
   }
   return <div className="mx-auto max-w-4xl px-5 py-12"><div className="flex flex-wrap items-center justify-between gap-4"><h1 className="serif-heading text-4xl text-[#173f36]">{shared ? copy[locale].shared : copy[locale].title}</h1><a href={`/${locale}/my-trip`} className="underline underline-offset-4">{{ en: "My trip", fr: "Mon séjour", it: "Il mio viaggio", uk: "Моя поїздка" }[locale]}</a></div>
     {ready && !visible.length ? <p className="mt-6">{copy[locale].empty}</p> : null}
+    {ready && !shared ? <PlaceDayPlanner locale={locale} places={catalog.filter(item => item.type === "place")} showPlans={false} /> : null}
     <ul className="mt-8 divide-y divide-[#dfd4c1]">{visible.map(item => <li key={`${item.type}:${item.id}`} className="flex items-center justify-between gap-4 py-4"><a href={item.href} className="text-lg text-[#173f36] underline underline-offset-4">{item.title}</a><FavouriteButton locale={locale} item={item} /></li>)}</ul>
     {visible.length ? <button type="button" onClick={share} className="mt-6 border border-[#173f36] px-4 py-3">{copy[locale].share}</button> : null}
     {url && url.length <= 8000 ? <ShareActions locale={locale} title={copy[locale].shared} url={url} /> : url ? <p role="status">{copy[locale].error}</p> : null}
