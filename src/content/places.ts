@@ -6018,6 +6018,8 @@ const rawPlaces: Place[] = [
     type: "civic",
     address: "Rue Général Galliéni, 06500 Menton",
     area: text("Menton old town", "Vieille ville de Menton", "Centro storico di Mentone", "Старе місто Ментона"),
+    image: "/images/guide/chapelle-misericorde-menton.png",
+    imageAlt: text("Chapelle de la Miséricorde in Menton's old town", "Chapelle de la Miséricorde dans la vieille ville de Menton", "Chapelle de la Miséricorde nel centro storico di Mentone", "Каплиця Miséricorde у старому місті Ментона"),
     googleMapsUrl: mapsSearch("Chapelle de la Miséricorde", "Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/concert-de-noel-de-la-capeline-de-menton-menton-fr-6876062/",
     sourceStatus: "verified", requiresMapReview: true,

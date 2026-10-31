@@ -14,12 +14,12 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
-  it("publishes the November Menton batch without borrowed covers and preserves both Monaco years", () => {
+  it("keeps the November Menton batch on its owner-supplied covers and preserves both Monaco years", () => {
     for (const slug of ["mado-fait-son-cabaret-menton-2026-11-21", "delpech-ces-mots-la-menton-2026-11-21", "la-capeline-christmas-concert-menton-2026-11-29"]) {
       const event = getRivieraEvent(slug)!;
       expect(rivieraEvents.filter(e => e.slug === slug)).toHaveLength(1);
       expect(event).toMatchObject({ detailPage: true, dateStatus: "confirmed", sourceStatus: "verified", lastVerifiedAt: "2026-10-31" });
-      expect(event.media?.image).toBeFalsy();
+      expect(event.media).toMatchObject({ image: `/images/events/${slug}.webp`, mediaType: "project_illustration", mediaStatus: "available" });
       expect(getPlaces(event.relatedPlaceIds)).toHaveLength(1);
       expect(eventDetailSlugs).toContain(slug);
     }
@@ -38,6 +38,7 @@ describe("event date status", () => {
     expect(festival.relatedPlaceIds).toHaveLength(14);
     const christmas = getGuideArticle("christmas-french-riviera-from-menton")!;
     expect(christmas.sections.some(s => s.relatedPlaceIds?.includes("chapelle-misericorde-menton") && s.relatedEventIds?.includes("la-capeline-christmas-concert-menton-2026-11-29"))).toBe(true);
+    expect(getPlaces(["chapelle-misericorde-menton"])[0].image).toBe("/images/guide/chapelle-misericorde-menton.png");
   });
   it("links the reviewed small events to their venues and retains the existing festival", () => {
     for (const [slug, place] of [

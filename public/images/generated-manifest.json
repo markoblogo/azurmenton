@@ -245,10 +245,24 @@
     ]
   },
   {
+    "source": "public/images/guide/domaine-gannac-menton.png",
+    "outputs": [
+      "public/images/guide/generated/domaine-gannac-menton.avif",
+      "public/images/guide/generated/domaine-gannac-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/ecomusee-transports-breil.png",
     "outputs": [
       "public/images/guide/generated/ecomusee-transports-breil.avif",
       "public/images/guide/generated/ecomusee-transports-breil.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/emilie-citrons-de-pepe-menton.png",
+    "outputs": [
+      "public/images/guide/generated/emilie-citrons-de-pepe-menton.avif",
+      "public/images/guide/generated/emilie-citrons-de-pepe-menton.webp"
     ]
   },
   {
@@ -322,6 +336,13 @@
     ]
   },
   {
+    "source": "public/images/guide/jardin-fontana-rosa-menton.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-fontana-rosa-menton.avif",
+      "public/images/guide/generated/jardin-fontana-rosa-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jean-cocteau-menton-walking-route.png",
     "outputs": [
       "public/images/guide/generated/jean-cocteau-menton-walking-route.avif",
@@ -361,6 +382,13 @@
     "outputs": [
       "public/images/guide/generated/la-cazamis-menton.avif",
       "public/images/guide/generated/la-cazamis-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-ferme-des-citrons-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-ferme-des-citrons-menton.avif",
+      "public/images/guide/generated/la-ferme-des-citrons-menton.webp"
     ]
   },
   {
@@ -490,6 +518,13 @@
     ]
   },
   {
+    "source": "public/images/guide/le-regina-nice.png",
+    "outputs": [
+      "public/images/guide/generated/le-regina-nice.avif",
+      "public/images/guide/generated/le-regina-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/le-six-nice.png",
     "outputs": [
       "public/images/guide/generated/le-six-nice.avif",
@@ -501,6 +536,13 @@
     "outputs": [
       "public/images/guide/generated/le-swing-nice.avif",
       "public/images/guide/generated/le-swing-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-colombieres-menton.png",
+    "outputs": [
+      "public/images/guide/generated/les-colombieres-menton.avif",
+      "public/images/guide/generated/les-colombieres-menton.webp"
     ]
   },
   {
@@ -714,6 +756,13 @@
     ]
   },
   {
+    "source": "public/images/guide/pasta-piemonte-menton.png",
+    "outputs": [
+      "public/images/guide/generated/pasta-piemonte-menton.avif",
+      "public/images/guide/generated/pasta-piemonte-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/pharmacie-hanbury.png",
     "outputs": [
       "public/images/guide/generated/pharmacie-hanbury.avif",
@@ -854,6 +903,13 @@
     ]
   },
   {
+    "source": "public/images/guide/sacchelli-citrus-growers-menton.png",
+    "outputs": [
+      "public/images/guide/generated/sacchelli-citrus-growers-menton.avif",
+      "public/images/guide/generated/sacchelli-citrus-growers-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/saint-laurent-eze-coastal-area.png",
     "outputs": [
       "public/images/guide/generated/saint-laurent-eze-coastal-area.avif",
@@ -882,10 +938,52 @@
     ]
   },
   {
+    "source": "public/images/guide/the-houses-that-remember-book-cover.png",
+    "outputs": [
+      "public/images/guide/generated/the-houses-that-remember-book-cover.avif",
+      "public/images/guide/generated/the-houses-that-remember-book-cover.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/the-houses-that-remember-riviera-book-route.png",
+    "outputs": [
+      "public/images/guide/generated/the-houses-that-remember-riviera-book-route.avif",
+      "public/images/guide/generated/the-houses-that-remember-riviera-book-route.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/vieux-port-menton.png",
     "outputs": [
       "public/images/guide/generated/vieux-port-menton.avif",
       "public/images/guide/generated/vieux-port-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-e-1027-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/villa-e-1027-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/villa-e-1027-roquebrune-cap-martin.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-ephrussi-de-rothschild.png",
+    "outputs": [
+      "public/images/guide/generated/villa-ephrussi-de-rothschild.avif",
+      "public/images/guide/generated/villa-ephrussi-de-rothschild.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-isola-bella-menton.png",
+    "outputs": [
+      "public/images/guide/generated/villa-isola-bella-menton.avif",
+      "public/images/guide/generated/villa-isola-bella-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-kerylos-beaulieu-sur-mer.png",
+    "outputs": [
+      "public/images/guide/generated/villa-kerylos-beaulieu-sur-mer.avif",
+      "public/images/guide/generated/villa-kerylos-beaulieu-sur-mer.webp"
     ]
   },
   {
@@ -938,101 +1036,10 @@
     ]
   },
   {
-    "source": "public/images/guide/domaine-gannac-menton.png",
+    "source": "public/images/guide/chapelle-misericorde-menton.png",
     "outputs": [
-      "public/images/guide/generated/domaine-gannac-menton.avif",
-      "public/images/guide/generated/domaine-gannac-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/emilie-citrons-de-pepe-menton.png",
-    "outputs": [
-      "public/images/guide/generated/emilie-citrons-de-pepe-menton.avif",
-      "public/images/guide/generated/emilie-citrons-de-pepe-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/sacchelli-citrus-growers-menton.png",
-    "outputs": [
-      "public/images/guide/generated/sacchelli-citrus-growers-menton.avif",
-      "public/images/guide/generated/sacchelli-citrus-growers-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/la-ferme-des-citrons-menton.png",
-    "outputs": [
-      "public/images/guide/generated/la-ferme-des-citrons-menton.avif",
-      "public/images/guide/generated/la-ferme-des-citrons-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/pasta-piemonte-menton.png",
-    "outputs": [
-      "public/images/guide/generated/pasta-piemonte-menton.avif",
-      "public/images/guide/generated/pasta-piemonte-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/the-houses-that-remember-book-cover.png",
-    "outputs": [
-      "public/images/guide/generated/the-houses-that-remember-book-cover.avif",
-      "public/images/guide/generated/the-houses-that-remember-book-cover.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/the-houses-that-remember-riviera-book-route.png",
-    "outputs": [
-      "public/images/guide/generated/the-houses-that-remember-riviera-book-route.avif",
-      "public/images/guide/generated/the-houses-that-remember-riviera-book-route.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-isola-bella-menton.png",
-    "outputs": [
-      "public/images/guide/generated/villa-isola-bella-menton.avif",
-      "public/images/guide/generated/villa-isola-bella-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/jardin-fontana-rosa-menton.png",
-    "outputs": [
-      "public/images/guide/generated/jardin-fontana-rosa-menton.avif",
-      "public/images/guide/generated/jardin-fontana-rosa-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-e-1027-roquebrune-cap-martin.png",
-    "outputs": [
-      "public/images/guide/generated/villa-e-1027-roquebrune-cap-martin.avif",
-      "public/images/guide/generated/villa-e-1027-roquebrune-cap-martin.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-colombieres-menton.png",
-    "outputs": [
-      "public/images/guide/generated/les-colombieres-menton.avif",
-      "public/images/guide/generated/les-colombieres-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-ephrussi-de-rothschild.png",
-    "outputs": [
-      "public/images/guide/generated/villa-ephrussi-de-rothschild.avif",
-      "public/images/guide/generated/villa-ephrussi-de-rothschild.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-kerylos-beaulieu-sur-mer.png",
-    "outputs": [
-      "public/images/guide/generated/villa-kerylos-beaulieu-sur-mer.avif",
-      "public/images/guide/generated/villa-kerylos-beaulieu-sur-mer.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-regina-nice.png",
-    "outputs": [
-      "public/images/guide/generated/le-regina-nice.avif",
-      "public/images/guide/generated/le-regina-nice.webp"
+      "public/images/guide/generated/chapelle-misericorde-menton.avif",
+      "public/images/guide/generated/chapelle-misericorde-menton.webp"
     ]
   }
 ]

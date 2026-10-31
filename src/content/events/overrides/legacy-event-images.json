@@ -188,5 +188,62 @@
     "mediaStatus": "available",
     "mediaSourceName": "Azur Menton",
     "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "delpech-ces-mots-la-menton-2026-11-21": {
+    "image": "/images/events/delpech-ces-mots-la-menton-2026-11-21.webp",
+    "imageAlt": {
+      "en": "100% Delpech: Ces mots là",
+      "fr": "100% Delpech: Ces mots là",
+      "it": "100% Delpech: Ces mots là",
+      "uk": "100% Delpech: Ces mots là"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "la-capeline-christmas-concert-menton-2026-11-29": {
+    "image": "/images/events/la-capeline-christmas-concert-menton-2026-11-29.webp",
+    "imageAlt": {
+      "en": "La Capeline Christmas concert",
+      "fr": "Concert de Noël de La Capeline",
+      "it": "Concerto di Natale de La Capeline",
+      "uk": "Різдвяний концерт La Capeline"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "mado-fait-son-cabaret-menton-2026-11-21": {
+    "image": "/images/events/mado-fait-son-cabaret-menton-2026-11-21.webp",
+    "imageAlt": {
+      "en": "Noëlle Perna: Mado fait son cabaret",
+      "fr": "Noëlle Perna: Mado fait son cabaret",
+      "it": "Noëlle Perna: Mado fait son cabaret",
+      "uk": "Noëlle Perna: Mado fait son cabaret"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
   }
 }
