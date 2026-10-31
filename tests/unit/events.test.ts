@@ -5,6 +5,7 @@ import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getPa
 import { getGuideRelatedEventSlugs } from "../../src/lib/event-related-content";
 import { getGuideArticle } from "../../src/content/guide";
 import { getPlaces } from "../../src/content/places";
+import { getCalendarData } from "../../src/lib/event-calendar";
 
 const datedEvent = {
   dateLabel: "20 November-4 December 2026",
@@ -14,6 +15,46 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
+  it("publishes the approved winter batch with real venues, dates and no borrowed covers", () => {
+    const cases = [
+      ["bakian-chante-aznavour-menton-2026-12-12", "2026-12-12", "2026-12-12", "palais-de-leurope-menton"],
+      ["christmas-village-monaco-2026", "2026-12-04", "2027-01-03", "port-hercule-christmas-monaco"],
+      ["christmas-village-nice-2026", "2026-11-27", "2027-01-03", "jardin-albert-premier-christmas-nice"],
+      ["shrek-the-musical-monaco-2026", "2026-12-11", "2026-12-13", "grimaldi-forum-monaco"],
+      ["christmas-market-sospel-2026", "2026-12-06", "2026-12-06", "place-garibaldi-sospel"],
+    ];
+    for (const [slug, startDate, endDate, placeId] of cases) {
+      expect(rivieraEvents.filter(e => e.slug === slug)).toHaveLength(1);
+      const event = getRivieraEvent(slug)!;
+      expect(event).toMatchObject({ startDate, endDate, dateStatus: "confirmed", sourceStatus: "verified", detailPage: true, lastVerifiedAt: "2026-10-31" });
+      expect(event.venue?.placeId).toBe(placeId);
+      expect(getPlaces([placeId])).toHaveLength(1);
+      expect(event.media?.image).toBeFalsy();
+      expect(eventDetailSlugs).toContain(slug);
+      for (const locale of ["en", "fr", "it", "uk"] as const) expect(event.shortDescription[locale].length).toBeGreaterThan(30);
+    }
+    vi.useFakeTimers({ now: new Date("2026-10-31T12:00:00Z") });
+    try {
+      const christmas = getGuideRelatedEventSlugs(getGuideArticle("christmas-french-riviera-from-menton")!);
+      for (const slug of ["christmas-village-monaco-2026", "christmas-village-nice-2026", "christmas-market-sospel-2026"]) expect(christmas).toContain(slug);
+      expect(getGuideRelatedEventSlugs(getGuideArticle("monaco-events-from-menton")!)).toEqual(expect.arrayContaining(["christmas-village-monaco-2026", "shrek-the-musical-monaco-2026", "christmas-parade-beausoleil-2026"]));
+    } finally { vi.useRealTimers(); }
+  });
+
+  it("exports only selected Shrek performances and not the Sospel weather fallback", () => {
+    const shrek = getRivieraEvent("shrek-the-musical-monaco-2026")!;
+    expect(shrek.sessions?.map(s => [s.date, s.startTime])).toEqual([["2026-12-11", "19:30"], ["2026-12-12", "14:30"], ["2026-12-12", "19:30"], ["2026-12-13", "14:30"]]);
+    expect(getCalendarData(shrek, "en")).toBeNull();
+    expect(getCalendarData(shrek, "en", "dec12-1430")?.start.toUTC().toISO()).toBe("2026-12-12T13:30:00.000Z");
+    expect(getCalendarData(shrek, "en", "dec12-1430")?.end).toBeNull();
+    const sospel = getRivieraEvent("christmas-market-sospel-2026")!;
+    expect(sospel.sessions).toBeUndefined();
+    expect(sospel.bookingTip.en).toContain("fallback");
+    expect(getCalendarData(sospel, "en")?.start.toISODate()).toBe("2026-12-06");
+    const nice = getCalendarData(getRivieraEvent("christmas-village-nice-2026")!, "en")!;
+    expect(nice.timed).toBe(false);
+    expect(nice.end?.toISODate()).toBe("2027-01-04");
+  });
   it("keeps the November Menton batch on its owner-supplied covers and preserves both Monaco years", () => {
     for (const slug of ["mado-fait-son-cabaret-menton-2026-11-21", "delpech-ces-mots-la-menton-2026-11-21", "la-capeline-christmas-concert-menton-2026-11-29"]) {
       const event = getRivieraEvent(slug)!;

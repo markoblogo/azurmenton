@@ -53,9 +53,12 @@ sections[2].body.push(t(
 ));
 sections[2].relatedEventIds = ['la-capeline-christmas-concert-menton-2026-11-29'];
 sections[3].relatedPlaceIds = ['port-hercule-christmas-monaco'];
+sections[3].relatedEventIds = ['christmas-village-monaco-2026'];
 sections[4].relatedPlaceIds = ['jardin-albert-premier-christmas-nice'];
+sections[4].relatedEventIds = ['christmas-village-nice-2026'];
 sections[5].relatedPlaceIds = ['marche-carnoles-saint-nicolas'];
 sections[6].relatedPlaceIds = ['place-garibaldi-sospel'];
+sections[6].relatedEventIds = ['christmas-market-sospel-2026'];
 sections[7].relatedPlaceIds = ['place-clemenceau-castellar'];
 sections[1].relatedEventIds = ['christmas-markets-riviera'];
 
