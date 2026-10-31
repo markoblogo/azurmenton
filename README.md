@@ -76,3 +76,13 @@ Use the [documentation index](docs/README.md) to select the relevant runbook ins
 Booking delivery uses Resend; previews use server-only iCal feeds. Analytics uses aggregate non-PII context. Source-backed hours, prices, dates and accessibility rules can become stale: unknown remains unknown. Search rebuilds with the site and does not yet correct spelling mistakes.
 
 See [contribution guidance](CONTRIBUTING.md), [security reporting](SECURITY.md), [license](LICENSE) and [content/brand exclusions](NOTICE.md). Application code is MIT; editorial content, illustrations, photographs, apartment facts, guest data and branding are not automatically covered by that grant.
+
+<!-- ABVX:ECOSYSTEM:BEGIN -->
+## ABVX ecosystem
+
+- [AGENTS.md_generator](https://agentsmd.abvx.xyz/) — Keeps repository guidance and machine-readable context current. Current release: `v0.5.1`.
+- [abvx-shortener](https://go.abvx.xyz/) — Uses stable short links for public campaigns and QR destinations. Current release: `v0.4.0`.
+- [abvx-agent-skills](https://abvx.xyz/work/abvx-agent-skills) — Uses shared, reviewable agent capabilities during maintenance. Current release: `v0.16.1`.
+
+_This block is generated from the reviewed ABVX ecosystem registry._
+<!-- ABVX:ECOSYSTEM:END -->
