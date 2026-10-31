@@ -108,7 +108,7 @@ describe("map points", () => {
     for (const placeId of reviewedWaterfrontAndOldTownPointIds) {
       const point = placeMapPoints.find((item) => item.placeId === placeId);
       expect(point, placeId).toBeDefined();
-      expect(point?.review, placeId).toMatchObject({ checkedOn: "2026-07-10" });
+      expect(point?.review, placeId).toMatchObject({ checkedOn: placeId === "promenade-du-soleil" ? "2026-10-31" : "2026-07-10" });
       expect(point?.review?.sourceUrl, placeId).toBeTruthy();
       expect(point?.lat, placeId).toBeGreaterThan(43.7);
       expect(point?.lng, placeId).toBeGreaterThan(7.45);

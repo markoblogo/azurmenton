@@ -24,6 +24,12 @@ Trip planning: `/[locale]/my-trip` stores a device-only trip profile and recomme
 
 Five ready-made day routes extend the existing stay plans and relevant guides: old town, Cocteau, cool-weather family time, Monaco without a car and Ventimiglia markets. Ordered stops, estimated duration/effort, access uncertainties, return transport, booking advice, alternatives and official sources are shared across four locales. This is editorial planning, not automated navigation; see [docs/day-routes.md](docs/day-routes.md).
 
+Public-safe apartment guest guides cover arrival, check-in preparation, central groceries, the first evening and departure in four languages. They reuse existing content and never contain private access instructions. See [guest experience passes](docs/guest-experience-passes.md) for scope and release status.
+
+Contextual accommodation cards distinguish family capacity and winter/long-stay needs. Short confirmed events offer explicit apartment/date request links; longer or uncertain programmes leave dates to the guest. These are requests, not confirmed availability or bookings.
+
+Optional editorial maps: `npm run map:umap -- family-menton en` exports reviewed route points with compact localized popups and full audit metadata. It does not replace the site map or save a map on an external service. See [editorial uMap workflow](docs/umap-trial.md).
+
 A ready-made route can be assigned to a day within the saved trip, then viewed, moved or removed in My trip. Assignments stay in the existing device-only profile; they are not bookings and are not included in shared links or analytics.
 
 Visitors can also build personal days from their own favourite places, manually reorder/remove stops and move or merge days. The same private trip profile stores these plans. Warnings cover many stops, same-day ready routes, explicitly recorded different cities and unknown geographic data. External Maps links retain the selected order and require reviewed coordinates for every stop; there is no street-route optimisation or travel-time calculation.

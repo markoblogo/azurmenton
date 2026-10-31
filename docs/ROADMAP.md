@@ -9,6 +9,12 @@ This roadmap keeps the direct-booking objective first while allowing the Menton 
 - The priority guide authority layer covers 20 maintained high-intent pages.
 - The owner-only funnel dashboard is ready. It needs a local read-only Plausible Stats API key before it can select pages from live data.
 
+## Guest Experience Update: 31 October 2026
+
+Owner-approved release scope: three four-language public guest guides, shared contextual accommodation recommendations and an optional editor-side uMap export. Existing bookings remain manual; no private access instructions are published and no external map is saved automatically. See [scope and checks](guest-experience-passes.md).
+
+Next discussion: one editorial queue over existing intake/review artifacts. Scheduled guide publication will be discussed after that; no automatic publisher is enabled by these changes. These feature deliveries do not by themselves satisfy any commercial milestone below.
+
 ## M1 - Strong Guide Base
 
 **Outcome:** roughly 100 useful published guides, not a target reached through thin or duplicate pages.

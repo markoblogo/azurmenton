@@ -27,7 +27,7 @@ import { Section } from "@/components/ui/Section";
 import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
 import { getGuideAuthorityProfile } from "@/content/guide-authority";
 import { stayPlans } from "@/content/planning/stay-plans";
-import { guideApartmentScenarios } from "@/content/contextual-apartment-recommendations";
+import { getGuideApartmentScenario } from "@/content/contextual-apartment-recommendations";
 import { guideApartmentPaths } from "@/content/guide-apartment-paths";
 import { getApartment } from "@/content/apartments";
 import { getPlaces } from "@/content/places";
@@ -118,7 +118,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   );
   const isMarketsGuide = article.slug === "best-markets-near-menton-market-days-in-france-and-italy";
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
-  const apartmentScenario = guideApartmentScenarios[article.slug];
+  const apartmentScenario = getGuideApartmentScenario(article);
   const apartmentPath = guideApartmentPaths[article.slug];
   const transportDestinationIds = transportDestinationsForGuide(article.slug, article.locationTags);
   const transportHelperAfterSectionIndex = article.transportHelperAfterSectionIndex;

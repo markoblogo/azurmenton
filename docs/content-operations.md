@@ -20,6 +20,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - Link relevant existing places through `relatedPlaces` and section-level `relatedPlaceIds`.
 - Add genuinely useful `relatedArticles`, `relatedEvents` and `relatedApartments`.
 - Add apartment CTAs for practical stay guides, beach/sea-view guides, family guides, transport guides and seasonal comfort guides.
+- Contextual apartment cards use existing article/section apartment links automatically. Curated family/winter scenarios take precedence; do not infer suitability from a stray keyword or promise monthly prices. See `docs/guest-experience-passes.md` for event-date safety and guest-guide boundaries.
 - For a high-intent guide in `src/content/guide-authority.ts`, select an honest editorial review date, use only useful official/primary source links, and choose a compact plan template that helps the guest act without duplicating the article.
 - The report-only weekly freshness workflow is documented in `docs/guide-maintenance-review.md`; its metadata flags are review signals, not proof that guide facts have changed.
 - Do not add an authority profile simply for visual weight. It is for maintained pages where the review date and practical source context can be defended.
@@ -41,6 +42,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - For waterfront, old-town and apartment markers, record a reviewed coordinate source, URL and date. Do not apply a blanket latitude/longitude offset to make markers look land-side: verify each affected landmark at map zoom instead.
 - For every newly added local place that fits a map category, set `requiresMapReview: true` on the place or add it to the map-review required set. It must then have either a reviewed entry in `src/content/planning/place-map-points.ts` or an explicit, dated exclusion in `src/content/planning/place-map-exclusions.ts`. Never substitute an approximate point for an unresolved address. `npm run content:lint` fails when required coverage is missing; run `npm run map:report` to track both the active batch and the historic backlog.
 - Apartment markers may use the public building address at `building` precision when the host confirms it. Never publish an apartment or unit number; retain `host_verified` provenance in `src/content/planning/apartment-map-points.ts`.
+- For an optional editorial uMap, run `npm run map:umap -- <route-id> <locale>` and review the generated local preview. Unreviewed stops block export. Popups use short summaries and links to full place/access information; complete notes and provenance stay in the export. Never treat schematic stop connectors as street routes. `npm run map:umap:check -- <route-id> <locale>` is an explicit external no-write browser check, not part of CI. See `docs/umap-trial.md`; external map saving/embedding requires approval and does not replace the site map.
 
 ## Site Search
 

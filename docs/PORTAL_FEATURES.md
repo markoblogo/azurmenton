@@ -34,6 +34,14 @@ Sources for the first edition:
 - https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/
 - https://www.grimaldiforum.com/fr/agenda-manifestations-monaco/thursday-live-sessions-jimmy-gnecco-ours
 
+## Guest Guides And Contextual Stays
+
+Each apartment has a public-safe, four-language `/apartments/[slug]/guest-guide`: arrival preparation, check-in arrangements to confirm, central groceries, first evening and departure. These pages reuse existing content/photos, are noindex and contain no private access instructions. Panoramic studio parking remains unavailable.
+
+Guide accommodation cards use existing article/section apartment links; curated family and winter scenarios take priority. All event detail pages reuse the same contextual mechanism. Explicit request links may prefill a short confirmed event's dates and a selected apartment, never submit a request or change My trip. Invalid, conflicting, unverified, past-start, longer-than-seven-night and multi-session programmes leave dates to the guest. Individual availability, prices and longer-stay terms remain manual.
+
+Optional editor-side uMap exports reuse canonical reviewed route data, with short localized popup summaries and links to full place/access information. No main-map replacement, public iframe or provider-side save is automatic. See [guest-experience scope](guest-experience-passes.md) and [editorial maps](umap-trial.md). The editorial queue and scheduled guide publishing remain unimplemented pending their separate discussions.
+
 ## Newsletter Interest: Manual Requests Only
 
 The owner selected **requests to the existing editorial mailbox**, not a provider contact database or newsletter delivery. The four-language form on the weekly page uses the existing `/api/editorial-submission` transport, consent, Turnstile, same-origin checks, size bound and rate limit. Native fallback uses POST, never a GET query containing an email address.

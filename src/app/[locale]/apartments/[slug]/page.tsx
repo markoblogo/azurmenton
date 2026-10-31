@@ -14,6 +14,7 @@ import { Button, buttonVariants } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments, getApartment, type Apartment } from "@/content/apartments";
+import { guestGuideCopy } from "@/content/guest-guides";
 import { t } from "@/content/translations";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { getPublicApartmentAvailability } from "@/lib/availability/service";
@@ -1087,6 +1088,9 @@ export default async function ApartmentPage({ params, searchParams }: PageProps)
                 </div>
               ))}
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <Button href={`/${safeLocale}/apartments/${apartment.slug}/guest-guide`} variant="secondary">
+                  {guestGuideCopy.link[safeLocale]}
+                </Button>
                 <Button href={`/${safeLocale}/guide/best-beaches-in-menton`} variant="secondary">
                   {copy.beaches}
                 </Button>

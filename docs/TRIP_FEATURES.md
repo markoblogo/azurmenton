@@ -26,6 +26,8 @@ Status: the original trip/favourites release (`660ee02`) was deployed and its pu
 
 ## Measurement Boundary
 
+Public guest guides and contextual accommodation cards do not extend local trip storage. Clicking an event's suggested-stay link prefills the existing request form only; it does not overwrite saved dates, party details, favourites or day routes. Optional uMap exports contain public route/place data only, never the visitor's saved trip. See [guest experience](guest-experience-passes.md).
+
 Save/remove actions measure interactions, not exact numbers of people or current installed-device totals. Repeated toggles, analytics blocking and device changes affect counts. Favourites work without analytics. Do not claim booking uplift without comparable conversion evidence.
 
 ## Local Verification

@@ -1,4 +1,6 @@
 import type { Locale } from "@/i18n/locales";
+import type { RivieraEvent } from "./riviera-events";
+import type { GuideArticle } from "./guide";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -10,6 +12,8 @@ export type ContextualApartmentRecommendation = {
 
 export type ContextualApartmentScenario = {
   title: LocalizedText;
+  intro?: LocalizedText;
+  checkLabel?: LocalizedText;
   recommendations: ContextualApartmentRecommendation[];
 };
 
@@ -85,7 +89,20 @@ export const guideApartmentScenarios: Record<string, ContextualApartmentScenario
   "fete-du-citron-menton-practical-guide": { title, recommendations: festivalPair },
   "monaco-events-from-menton": { title, recommendations: allByTripStyle },
   "menton-without-a-car": { title, recommendations: [centralWalkable, beachsideFamily, panoramicSeaView] },
-  "menton-with-kids-family-guide": { title, recommendations: [beachsideFamily, seaViewBalcony] },
+  "menton-with-kids-family-guide": {
+    title: t("Space for a family stay", "De l'espace pour un séjour en famille", "Spazio per un soggiorno in famiglia", "Простір для сімейної поїздки"),
+    intro: t("The terrace apartment accommodates up to four guests and has a separate bedroom, a sofa bed and a full kitchen. Tell us your group size and any cot or access needs; these arrangements require confirmation.", "L'appartement avec terrasse accueille jusqu'à quatre personnes et dispose d'une chambre séparée, d'un canapé-lit et d'une cuisine complète. Précisez la taille du groupe et tout besoin de lit bébé ou d'accessibilité ; ces dispositions sont à confirmer.", "L'appartamento con terrazza accoglie fino a quattro ospiti, con camera separata, divano letto e cucina completa. Indicate il numero di ospiti ed eventuali esigenze di culla o accessibilità; gli accordi richiedono conferma.", "Апартаменти з терасою вміщують до чотирьох гостей і мають окрему спальню, диван-ліжко та повноцінну кухню. Повідомте склад групи й потребу в дитячому ліжечку чи доступності; ці умови потребують підтвердження."),
+    recommendations: [beachsideFamily],
+  },
+  "menton-in-winter": {
+    title: t("A base for a longer winter stay", "Une base pour un séjour hivernal prolongé", "Una base per un soggiorno invernale più lungo", "База для тривалішого зимового перебування"),
+    intro: t("Compare space, cooking facilities and laundry for everyday life, not just a weekend. Send your dates, length of stay and practical needs. Availability, price and any longer-stay terms are confirmed individually; no monthly rate or discount is promised.", "Comparez espace, cuisine et lave-linge pour le quotidien, pas seulement un week-end. Envoyez dates, durée et besoins pratiques. Disponibilité, prix et conditions de long séjour sont confirmés individuellement ; aucun tarif mensuel ni réduction n'est garanti.", "Confrontate spazio, cucina e lavatrice per la vita quotidiana, non solo per un weekend. Inviate date, durata ed esigenze pratiche. Disponibilità, prezzo e condizioni per soggiorni lunghi vengono confermati individualmente; nessuna tariffa mensile o sconto è garantito.", "Порівняйте простір, кухню й пральну машину для щоденного життя, а не лише вихідних. Надішліть дати, тривалість і побутові потреби. Наявність, ціна й умови тривалого проживання підтверджуються індивідуально; місячного тарифу чи знижки не обіцяємо."),
+    checkLabel: t("Ask about a longer stay", "Demander un séjour prolongé", "Chiedi un soggiorno più lungo", "Запитати про тривале проживання"),
+    recommendations: [
+      { ...beachsideFamily, reason: t("Up to four guests, a separate bedroom, full kitchen, dishwasher and washing machine for everyday routines.", "Jusqu'à quatre personnes, chambre séparée, cuisine complète, lave-vaisselle et lave-linge pour le quotidien.", "Fino a quattro ospiti, camera separata, cucina completa, lavastoviglie e lavatrice per la quotidianità.", "До чотирьох гостей, окрема спальня, повноцінна кухня, посудомийна й пральна машини для щоденного побуту."), keyFeature: t("Full kitchen and separate bedroom", "Cuisine complète et chambre séparée", "Cucina completa e camera separata", "Повноцінна кухня й окрема спальня") },
+      { ...panoramicSeaView, reason: t("A compact option for up to two guests, with a kitchenette, washing machine and private sea-view balcony. No parking.", "Une option compacte pour deux personnes maximum, avec kitchenette, lave-linge et balcon privé vue mer. Sans parking.", "Un'opzione compatta per massimo due ospiti, con angolo cottura, lavatrice e balcone privato vista mare. Senza parcheggio.", "Компактний варіант для двох гостей із мінікухнею, пральною машиною й приватним балконом з видом на море. Без паркінгу.") },
+    ],
+  },
   "day-trips-from-menton": { title, recommendations: allByTripStyle },
   "stay-cool-in-menton-summer": { title, recommendations: allByTripStyle },
   "italian-riviera-day-trip-from-menton": { title, recommendations: [centralWalkable, panoramicSeaView] },
@@ -105,3 +122,24 @@ export const eventApartmentScenarios: Record<string, ContextualApartmentScenario
   "rallye-automobile-monte-carlo": { title, recommendations: allByTripStyle },
   "menton-music-festival": { title, recommendations: seaViewPair },
 };
+
+export function getEventApartmentScenario(event: RivieraEvent, apartmentKeys: string[]): ContextualApartmentScenario {
+  const existing = eventApartmentScenarios[event.slug];
+  const choices = [seaViewBalcony, beachsideFamily, panoramicSeaView];
+  return existing ?? {
+    title: t("A Menton base for this event", "Une base à Menton pour cet événement", "Una base a Mentone per questo evento", "База в Ментоні для цієї події"),
+    recommendations: [...new Set(apartmentKeys)].flatMap(key => choices.filter(choice => choice.apartmentSlug === key)),
+  };
+}
+
+export function getGuideApartmentScenario(article: GuideArticle): ContextualApartmentScenario | undefined {
+  const existing = guideApartmentScenarios[article.slug];
+  if (existing) return existing;
+  const keys = [...new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap(section => section.relatedApartmentKeys ?? [])])];
+  const choices = [seaViewBalcony, beachsideFamily, panoramicSeaView];
+  const recommendations = keys.flatMap(key => choices.filter(choice => choice.apartmentSlug === key));
+  return recommendations.length ? {
+    title: t("Apartments for your Menton stay", "Appartements pour votre séjour à Menton", "Appartamenti per il soggiorno a Mentone", "Апартаменти для вашого перебування в Ментоні"),
+    recommendations,
+  } : undefined;
+}

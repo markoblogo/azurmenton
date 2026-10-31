@@ -1,6 +1,6 @@
 # Product Context
 
-Last reviewed: 2026-10-28
+Last reviewed: 2026-10-31
 
 ## Product
 
@@ -26,6 +26,9 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - Event calendar downloads contain verified hours or date-only planning entries; they are not subscriptions and do not receive automatic cancellation updates. Separate sessions require an explicit choice. Public editorial submissions are unverified email proposals for manual moderation, not automatic publication or booking requests.
 - Analytics uses aggregate booking-funnel context only. Never put names, email addresses, phone numbers, or message text into analytics.
 - The local trip/favourites release batch keeps saved preferences on the visitor's device. Shared collection links contain content IDs, not trip dates or party details. Booking prefill is explicitly user-triggered and never sends a request automatically. See `docs/TRIP_FEATURES.md` for implementation and release status.
+- Public apartment guest guides contain preparation advice and existing local content, never codes, unit details or private arrival instructions. Host-specific arrangements require confirmation; public guest-guide pages are noindex, not access-controlled private pages.
+- Contextual recommendations use existing apartment links and verified facts. Short confirmed events may suggest request dates after an explicit click; this never confirms availability, changes the saved trip or sends a booking. Longer-stay prices and conditions require a personal reply.
+- uMap is an optional editor-side export/preview tool over canonical route data, not the site's main map or a second place database. Saving/embedding an external map remains a separate approval. Editorial queue and scheduled guide publication are not enabled by this release.
 - Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.
 
 ## Language And Claim Boundaries

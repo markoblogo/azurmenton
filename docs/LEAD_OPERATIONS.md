@@ -33,6 +33,10 @@ Use inbox labels or a private tracker only:
 - Do not promise availability, a price, resident-access permissions, parking, transfers or event tickets before checking them.
 - For a flexible request, offer only verified alternative dates or apartments.
 
+## After A Confirmed Stay
+
+The host may manually share the appropriate localized `/apartments/<slug>/guest-guide` link. It contains public preparation advice, not a booking confirmation or access credentials. Share key handover, codes, personal arrival arrangements and apartment-specific private instructions only through the existing private booking conversation. No automatic guest message or PMS integration is added.
+
 ## Weekly Review
 
 1. Run `npm run booking:dashboard -- --period=28d` locally when a Plausible Stats API key is available.

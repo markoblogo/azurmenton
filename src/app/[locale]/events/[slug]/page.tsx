@@ -18,7 +18,7 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { getGuideArticle } from "@/content/guide";
 import { getPlaces } from "@/content/places";
-import { eventApartmentScenarios } from "@/content/contextual-apartment-recommendations";
+import { getEventApartmentScenario } from "@/content/contextual-apartment-recommendations";
 import { getEventOccurrencePage } from "@/content/event-occurrences";
 import {
   eventCategoryLabels,
@@ -44,7 +44,7 @@ type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 const copy = {
   en: {
@@ -306,7 +306,7 @@ export default async function EventArticlePage({ params }: PageProps) {
     event.relatedApartmentKeys ??
     ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"];
   const relatedPlaces = getPlaces(event.relatedPlaceIds ?? []).slice(0, event.placeDisplayLimit ?? 6);
-  const apartmentScenario = eventApartmentScenarios[event.slug];
+  const apartmentScenario = getEventApartmentScenario(event, relatedApartmentKeys);
   const relatedStayPage = occurrence?.relatedStaySlug ? stayPages.find((page) => page.slug === occurrence.relatedStaySlug) : undefined;
   const sourceAttribution = {
     sourcePageType: "event" as const,
@@ -659,6 +659,7 @@ export default async function EventArticlePage({ params }: PageProps) {
               scenario={apartmentScenario}
               sourceAttribution={sourceAttribution}
               trackingEventName={bookingFunnelEvents.eventCtaClick}
+              event={event}
             />
           ) : (
             <RelatedApartmentsBlock
