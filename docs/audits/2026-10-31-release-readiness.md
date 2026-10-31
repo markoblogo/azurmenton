@@ -14,6 +14,8 @@ The version-only npm lockfile regeneration removed Linux `libc` filters. The nat
 
 ## Content Snapshot
 
+The workshop publication regression no longer asserts that this guide must remain the global newest guide or that its nine places must remain permanently unillustrated. It accepts either pending images or existing place-ID-specific assets, so the next guide/image pass does not require removing a stale test assertion. Actual NEW-slot behavior still needs the publication browser check.
+
 The local release trial exposed slow serial hashing of the complete media tree before any check output. Fingerprinting now reports its stage and uses eight bounded IO workers, preserving deterministic byte hashes, missing-file detection and symlink rejection; no timestamp-only shortcut or reduced validation was introduced. Timing remains machine/storage-dependent.
 
 Current report: 102 guides, 606 places, 119 events and three apartments. Zero missing apartment CTAs, place backlink gaps, canonical coverage gaps, orphan guides, orphan places or expired featured events. Nine new workshop places intentionally await requested owner illustrations. Existing media is not replaced.

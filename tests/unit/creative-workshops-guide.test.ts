@@ -25,8 +25,9 @@ describe("creative workshops publication", () => {
     expect(guide.sections[5].body[0].en).toContain("€60");
   });
 
-  it("links ten distinct venues, keeps the existing illustration and declares nine missing images", () => {
-    expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
+  it("links ten distinct venues and supports the later owner illustration pass", () => {
+    expect(guideArticles.some(article => article.slug === guide.slug)).toBe(true);
+    expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
     expect(existsSync(`public${guide.coverImage}`)).toBe(true);
     expect(guide.relatedApartments).toHaveLength(3);
     const ids = guide.sections.flatMap(section => section.relatedPlaceIds ?? []);
@@ -36,7 +37,10 @@ describe("creative workshops publication", () => {
       expect(place.guideCoverageSlugs).toContain(guide.slug);
       if (place.id === "pasta-piemonte-menton") expect(place.image).toBe("/images/guide/pasta-piemonte-menton.png");
       else {
-        expect(place.image).toBeUndefined();
+        if (place.image) {
+          expect(place.image).toMatch(new RegExp(`/images/guide/${place.id}\\.(png|jpe?g|webp|avif)$`));
+          expect(existsSync(`public${place.image}`)).toBe(true);
+        }
         expect(place.programmeUrl).toMatch(/^https:\/\//);
         expect(placeMapExclusions.some(item => item.placeId === place.id)).toBe(true);
       }
