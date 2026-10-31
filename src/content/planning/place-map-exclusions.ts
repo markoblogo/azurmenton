@@ -10,6 +10,11 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "domaine-gannac-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.lamaisonducitron.com/pages/domaine-gannac" },
+  { placeId: "emilie-citrons-de-pepe-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-de-producteur-citron-de-menton-emilie-et-les-citrons-de-pepe-menton-fr-5108846/" },
+  { placeId: "sacchelli-citrus-growers-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/producteur-citron-de-menton-igp-sacchelli-christophe-visites-et-ateliers-menton-fr-3051589/" },
+  { placeId: "la-ferme-des-citrons-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.lafermedescitrons.fr/" },
+  { placeId: "pasta-piemonte-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/la-route-du-citron-menton-fr-4033616/" },
   { placeId: "musee-jean-cocteau-wunderman-menton", reason: "coordinate_unverified", checkedOn: "2026-10-30", sourceUrl: "https://www.menton-riviera-merveilles.fr/sinspirer/art-et-inspiration/lempreinte-de-cocteau/" },
   { placeId: "vieux-port-menton", reason: "coordinate_unverified", checkedOn: "2026-10-30", sourceUrl: "https://www.menton.fr/La-vie-de-Cocteau-a-Menton.html" },
   {"placeId":"ramdam-bar-nice","reason":"coordinate_unverified","checkedOn":"2026-10-28","sourceUrl":"https://www.explorenicecotedazur.com/en/shop/ramdam-bar/"},

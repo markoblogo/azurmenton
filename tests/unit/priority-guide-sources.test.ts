@@ -58,7 +58,8 @@ describe("priority guide source references", () => {
   it("distinguishes citrus boutiques from producer domains", () => {
     expect(getPlace("au-pays-du-citron-menton")?.address).toContain("22 Rue Saint-Michel");
     expect(getPlace("maison-gannac-menton")?.address).toContain("10 Rue Saint-Michel");
-    expect(getPlace("maison-gannac-menton")?.address).toContain("2970 Route de Super-Garavan");
+    expect(getPlace("maison-gannac-menton")?.address).not.toContain("2970");
+    expect(getPlace("domaine-gannac-menton")?.address).toContain("2970 Route de Super Garavan");
   });
 
   it("records the sourced Le Cabanon closure as dated rather than permanent", () => {

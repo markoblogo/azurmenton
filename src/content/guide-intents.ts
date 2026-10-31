@@ -132,7 +132,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "М'які прогулянки, сади, музеї та сезонні події Рив'єри.",
     ),
     canonicalGuideSlug: "menton-in-autumn",
-    supportingGuideSlugs: ["menton-in-winter", "fete-du-citron-menton-practical-guide", "museums-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton", "menton-old-town"],
+    supportingGuideSlugs: ["menton-in-winter", "fete-du-citron-menton-practical-guide", "museums-in-menton-nice-monaco", "best-walks-and-hikes-around-menton", "mountains-snow-skiing-near-menton", "day-trips-from-menton", "menton-old-town", "menton-lemons-producers-orchards-tastings"],
     relatedPlaceIds: ["jardin-val-rahmeh", "jardin-serre-de-la-madone", "cimetiere-vieux-chateau", "monaco-monte-carlo", "nice-old-town", "turini-camp-dargent"],
     relatedApartmentKeys: seaViewApartments,
     relatedEventSlugs: ["menton-lemon-festival", "monte-carlo-jazz-festival", "nice-carnival", "monaco-run", "rallye-automobile-monte-carlo", "monte-carlo-circus-festival", "christmas-markets-riviera"],

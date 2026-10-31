@@ -2233,7 +2233,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     lastChecked: "2026-09-13",
     featured: false,
     detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "menton-old-town", "menton-without-a-car", "menton-in-autumn", "where-to-stay-in-menton"],
+    relatedGuideSlugs: ["menton-with-kids-family-guide", "menton-old-town", "menton-without-a-car", "menton-in-autumn", "where-to-stay-in-menton", "menton-lemons-producers-orchards-tastings"],
     relatedApartmentKeys: relatedAll,
   },
   {

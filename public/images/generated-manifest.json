@@ -623,6 +623,13 @@
     ]
   },
   {
+    "source": "public/images/guide/musee-jean-cocteau-wunderman-menton.png",
+    "outputs": [
+      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.avif",
+      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/naturist-nudist-beaches-near-menton.png",
     "outputs": [
       "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
@@ -868,6 +875,13 @@
     ]
   },
   {
+    "source": "public/images/guide/vieux-port-menton.png",
+    "outputs": [
+      "public/images/guide/generated/vieux-port-menton.avif",
+      "public/images/guide/generated/vieux-port-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/winter-palace-menton.png",
     "outputs": [
       "public/images/guide/generated/winter-palace-menton.avif",
@@ -917,17 +931,10 @@
     ]
   },
   {
-    "source": "public/images/guide/musee-jean-cocteau-wunderman-menton.png",
+    "source": "public/images/guide/menton-lemons-producers-orchards-tastings.png",
     "outputs": [
-      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.avif",
-      "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/vieux-port-menton.png",
-    "outputs": [
-      "public/images/guide/generated/vieux-port-menton.avif",
-      "public/images/guide/generated/vieux-port-menton.webp"
+      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.avif",
+      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.webp"
     ]
   }
 ]

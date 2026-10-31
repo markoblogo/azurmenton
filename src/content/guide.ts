@@ -9,6 +9,7 @@ import { aWeekInMentonGuide } from "@/content/a-week-in-menton-guide";
 import { lgbtqRivieraGuide } from "@/content/lgbtq-riviera-guide";
 import { naturistBeachesGuide } from "@/content/naturist-beaches-guide";
 import { cocteauMentonGuide } from "@/content/cocteau-menton-guide";
+import { mentonLemonsGuide } from "@/content/menton-lemons-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11378,6 +11379,17 @@ guideArticles.push(aWeekInMentonGuide);
 guideArticles.push(lgbtqRivieraGuide);
 guideArticles.push(naturistBeachesGuide);
 guideArticles.push(cocteauMentonGuide);
+guideArticles.push(mentonLemonsGuide);
+for (const slug of ["local-food-menton", "best-souvenir-shops-menton-monaco-nice", "fete-du-citron-menton-practical-guide", "menton-in-winter", "menton-in-autumn", "best-pastries-desserts-cakes-menton"]) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(mentonLemonsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), mentonLemonsGuide.slug];
+}
+const winterCitrusSection = guideArticles.find(article => article.slug === "menton-in-winter")!.sections[5];
+winterCitrusSection.relatedPlaceIds = [...(winterCitrusSection.relatedPlaceIds ?? []), "emilie-citrons-de-pepe-menton"];
+winterCitrusSection.body.push(t("Emilie et les Citrons de Pépé lists seasonal producer visits by appointment; reserve a slot rather than treating the season dates as daily admission.", "Emilie et les Citrons de Pépé annonce des visites saisonnières sur rendez-vous ; réservez un créneau, la période ne vaut pas ouverture libre.", "Emilie et les Citrons de Pépé indica visite stagionali su appuntamento; prenota un turno, le date non significano ingresso libero ogni giorno.", "Emilie et les Citrons de Pépé вказує сезонні візити за записом; бронюйте час, а не вважайте період сезону щоденним вільним входом."));
+const localLemonSection = guideArticles.find(article => article.slug === "local-food-menton")!.sections[4];
+localLemonSection.relatedPlaceIds = [...(localLemonSection.relatedPlaceIds ?? []), "pasta-piemonte-menton"];
+localLemonSection.body.push(t("For a savoury interpretation of local citrus, ask Pasta Piemonte about its Menton-lemon ravioli and current availability.", "Pour une interprétation salée du citron local, demandez à Pasta Piemonte ses raviolis au citron de Menton et leur disponibilité.", "Per un'interpretazione salata degli agrumi locali, chiedi a Pasta Piemonte i ravioli al limone di Mentone e la disponibilità.", "Для несолодкого знайомства з місцевими цитрусовими запитайте в Pasta Piemonte про равіолі з ментонським лимоном та їхню наявність."));
 for (const slug of ["museums-in-menton-nice-monaco", "menton-old-town", "belle-epoque-menton-architecture-walk", "famous-paintings-of-menton"]) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(cocteauMentonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), cocteauMentonGuide.slug];

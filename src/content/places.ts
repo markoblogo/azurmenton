@@ -300,6 +300,55 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "domaine-gannac-menton", name: "Domaine Gannac", type: "garden",
+    address: "2970 Route de Super Garavan, 06500 Menton",
+    googleMapsUrl: mapsSearch("Domaine Gannac", "2970 Route de Super Garavan, Menton"),
+    programmeUrl: "https://www.lamaisonducitron.com/pages/domaine-gannac",
+    openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Working hillside citrus estate with orchard visits and tastings. Separate from Maison Gannac's town-centre shop; the operator says the steep orchard route is unsuitable for reduced mobility. Confirm the current visit programme.", "Domaine agricole d'agrumes sur les hauteurs, avec visites et dégustations. Distinct de la boutique centrale Maison Gannac ; le parcours pentu n'est pas adapté à la mobilité réduite selon l'exploitant. Confirmez le programme.", "Tenuta agricola collinare con visite e assaggi, distinta dal negozio Maison Gannac in centro. L'operatore indica il percorso ripido non adatto alla mobilità ridotta. Verifica il programma attuale.", "Діюче цитрусове господарство на схилі з візитами й дегустаціями, окреме від крамниці Maison Gannac у центрі. Оператор зазначає, що крутий маршрут не підходить людям з обмеженою мобільністю. Уточніть програму."),
+    bestFor: [text("orchard visits", "visites de verger", "visite dell'agrumeto", "відвідування саду"), text("citrus growing", "agrumiculture", "agrumicoltura", "вирощування цитрусових")],
+    relatedArticleIds: ["menton-lemons-producers-orchards-tastings"], guideCoverageSlugs: ["menton-lemons-producers-orchards-tastings"],
+  },
+  {
+    id: "emilie-citrons-de-pepe-menton", name: "Emilie et les Citrons de Pépé", type: "garden",
+    address: "2743 Corniche des Serres de la Madone, 06500 Menton",
+    googleMapsUrl: mapsSearch("Emilie et les Citrons de Pépé", "2743 Corniche des Serres de la Madone, Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-de-producteur-citron-de-menton-emilie-et-les-citrons-de-pepe-menton-fr-5108846/",
+    openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Seasonal lemon-grower visits and tastings by appointment. The tourist-office period is not permission for daily walk-in access; confirm price, meeting point and terrain.", "Visites et dégustations saisonnières chez une productrice, sur rendez-vous. La période affichée n'est pas une ouverture libre quotidienne ; confirmez prix, rendez-vous et terrain.", "Visite stagionali e degustazioni dalla produttrice su appuntamento. Il periodo indicato non è ingresso libero quotidiano; conferma prezzo, ritrovo e terreno.", "Сезонні візити до виробниці лимонів і дегустації за записом. Опублікований період не означає щоденний вільний вхід; уточніть ціну, місце зустрічі й рельєф."),
+    bestFor: [text("winter citrus", "agrumes d'hiver", "agrumi invernali", "зимові цитрусові"), text("producer visits", "rencontres de producteurs", "incontri con produttori", "зустрічі з виробниками")],
+    relatedArticleIds: ["menton-lemons-producers-orchards-tastings", "menton-in-winter"], guideCoverageSlugs: ["menton-lemons-producers-orchards-tastings"],
+  },
+  {
+    id: "sacchelli-citrus-growers-menton", name: "Christophe et Christelle Sacchelli", type: "garden",
+    address: "Villa les Mimosas, 1548 Avenue de Prades, 06500 Menton",
+    googleMapsUrl: mapsSearch("Sacchelli Christophe", "1548 Avenue de Prades, Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/producteur-citron-de-menton-igp-sacchelli-christophe-visites-et-ateliers-menton-fr-3051589/",
+    openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Organic growers offering visits and workshops by reservation, unavailable during the Lemon Festival period. The official listing notes a grassy passage; confirm individual access needs and prices.", "Agrumiculteurs biologiques proposant visites et ateliers sur réservation, hors période de la Fête du Citron. La fiche officielle mentionne un passage herbeux ; confirmez accès et tarifs.", "Agrumicoltori biologici con visite e laboratori su prenotazione, non disponibili durante la Festa del Limone. La scheda segnala un passaggio erboso; conferma accesso e prezzi.", "Органічні виробники з візитами й майстер-класами за записом, недоступними під час Свята лимона. Офіційна сторінка згадує трав'яний відрізок; уточніть доступність і ціни."),
+    bestFor: [text("cultivation workshops", "ateliers de culture", "laboratori di coltivazione", "заняття з вирощування"), text("organic citrus", "agrumes bio", "agrumi biologici", "органічні цитрусові")],
+    relatedArticleIds: ["menton-lemons-producers-orchards-tastings"], guideCoverageSlugs: ["menton-lemons-producers-orchards-tastings"],
+  },
+  {
+    id: "la-ferme-des-citrons-menton", name: "La Ferme des Citrons", type: "garden",
+    area: text("Menton hills; confirm the meeting point", "Hauteurs de Menton ; rendez-vous à confirmer", "Colline di Mentone; conferma il ritrovo", "Пагорби Ментона; уточніть точку зустрічі"),
+    googleMapsUrl: mapsSearch("La Ferme des Citrons", "Menton"), programmeUrl: "https://www.lafermedescitrons.fr/",
+    openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Working lemon farm welcoming the public by reservation only. Book the actual offer and confirm whether a visit, tasting or meal is included; no daily walk-in or free meal is implied.", "Exploitation de citrons accueillant le public uniquement sur réservation. Choisissez l'offre précise et confirmez visite, dégustation ou repas inclus ; ni entrée libre quotidienne ni repas gratuit garantis.", "Azienda di limoni con accesso al pubblico solo su prenotazione. Verifica se l'offerta comprende visita, assaggi o pasto; non sono garantiti ingresso libero giornaliero o pasti gratuiti.", "Лимонне господарство приймає гостей лише за бронюванням. Перевірте, чи включено візит, дегустацію або їжу; щоденний вільний вхід чи безкоштовний обід не обіцяються."),
+    bestFor: [text("farm experiences", "expériences agricoles", "esperienze agricole", "фермерські враження"), text("local flavours", "saveurs locales", "sapori locali", "місцеві смаки")],
+    relatedArticleIds: ["menton-lemons-producers-orchards-tastings"], guideCoverageSlugs: ["menton-lemons-producers-orchards-tastings"],
+  },
+  {
+    id: "pasta-piemonte-menton", name: "Pasta Piemonte", type: "market",
+    address: "34 Rue Partouneaux, 06500 Menton",
+    googleMapsUrl: mapsSearch("Pasta Piemonte", "34 Rue Partouneaux, Menton"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/la-route-du-citron-menton-fr-4033616/",
+    openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", requiresMapReview: true,
+    shortNote: text("Artisan fresh-pasta producer on the Route du Citron, known for Menton-lemon ravioli. Ask about the day's range and availability; a shop visit does not include a farm tour.", "Artisan de pâtes fraîches sur la Route du Citron, connu pour ses raviolis au citron de Menton. Demandez la gamme et les disponibilités du jour ; la boutique n'inclut pas une visite agricole.", "Produttore di pasta fresca sulla Route du Citron, noto per i ravioli al limone di Mentone. Chiedi assortimento e disponibilità; il negozio non comprende una visita agricola.", "Виробник свіжої пасти на Route du Citron, відомий равіолі з ментонським лимоном. Уточнюйте денний асортимент; відвідування крамниці не включає екскурсію фермою."),
+    bestFor: [text("lemon ravioli", "raviolis au citron", "ravioli al limone", "лимонні равіолі"), text("savoury tastings", "dégustations salées", "assaggi salati", "несолодкі дегустації")],
+    relatedArticleIds: ["menton-lemons-producers-orchards-tastings", "local-food-menton"], guideCoverageSlugs: ["menton-lemons-producers-orchards-tastings"],
+  },
+  {
     id: "musee-jean-cocteau-wunderman-menton", name: "Musée Jean Cocteau – Collection Séverin Wunderman", type: "museum",
     address: "2 quai de Monléon, 06500 Menton", googleMapsUrl: mapsQuery("Musée Jean Cocteau Collection Séverin Wunderman", "Quai de Monléon, Menton"),
     image: "/images/guide/musee-jean-cocteau-wunderman-menton.png",
@@ -1332,7 +1381,7 @@ const rawPlaces: Place[] = [
     id: "maison-gannac-menton",
     name: "Maison Gannac / La Maison du Citron",
     type: "market",
-    address: "Boutique: 10 Rue Saint-Michel; domaine: 2970 Route de Super-Garavan, 06500 Menton",
+    address: "10 Rue Saint-Michel, 06500 Menton",
     googleMapsUrl: mapsSearch("Maison Gannac", "10 Rue Saint-Michel, 06500 Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/aventures-merveilleuses/citrons-et-merveilles/",
     openingHoursLabel: checkHours,
@@ -11030,6 +11079,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["maison-herbin-menton", "maison-gannac-menton", "au-pays-du-citron-menton", "la-tarte-mentonnaise", "palais-carnoles-menton"].includes(place.id)) relatedArticleIds.add("menton-lemons-producers-orchards-tastings");
   for (const route of Object.values(dayRouteDetails)) {
     if (route.stops.some(stop => stop.placeId === place.id)) {
       for (const slug of route.guideSlugs) relatedArticleIds.add(slug);
