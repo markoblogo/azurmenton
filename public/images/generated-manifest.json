@@ -70,6 +70,13 @@
     ]
   },
   {
+    "source": "public/images/guide/atelier-cuisine-nicoise-nice.png",
+    "outputs": [
+      "public/images/guide/generated/atelier-cuisine-nicoise-nice.avif",
+      "public/images/guide/generated/atelier-cuisine-nicoise-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/azurserviceinfo-menton.png",
     "outputs": [
       "public/images/guide/generated/azurserviceinfo-menton.avif",
@@ -252,6 +259,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cuisine-sur-cours-nice.png",
+    "outputs": [
+      "public/images/guide/generated/cuisine-sur-cours-nice.avif",
+      "public/images/guide/generated/cuisine-sur-cours-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/depannage-pc-06-menton.png",
     "outputs": [
       "public/images/guide/generated/depannage-pc-06-menton.avif",
@@ -294,6 +308,20 @@
     ]
   },
   {
+    "source": "public/images/guide/fragonard-fabrique-des-fleurs-grasse.png",
+    "outputs": [
+      "public/images/guide/generated/fragonard-fabrique-des-fleurs-grasse.avif",
+      "public/images/guide/generated/fragonard-fabrique-des-fleurs-grasse.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/fragonard-perfume-workshop-eze.png",
+    "outputs": [
+      "public/images/guide/generated/fragonard-perfume-workshop-eze.avif",
+      "public/images/guide/generated/fragonard-perfume-workshop-eze.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
@@ -305,6 +333,13 @@
     "outputs": [
       "public/images/guide/generated/frites-city-menton.avif",
       "public/images/guide/generated/frites-city-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/galimard-studio-des-fragrances-grasse.png",
+    "outputs": [
+      "public/images/guide/generated/galimard-studio-des-fragrances-grasse.avif",
+      "public/images/guide/generated/galimard-studio-des-fragrances-grasse.webp"
     ]
   },
   {
@@ -343,6 +378,13 @@
     ]
   },
   {
+    "source": "public/images/guide/janet-frame-menton-in-the-memorial-room.png",
+    "outputs": [
+      "public/images/guide/generated/janet-frame-menton-in-the-memorial-room.avif",
+      "public/images/guide/generated/janet-frame-menton-in-the-memorial-room.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jardin-albert-premier-christmas-nice.png",
     "outputs": [
       "public/images/guide/generated/jardin-albert-premier-christmas-nice.avif",
@@ -368,6 +410,13 @@
     "outputs": [
       "public/images/guide/generated/jet-rent-menton.avif",
       "public/images/guide/generated/jet-rent-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/kairos-lab-menton.png",
+    "outputs": [
+      "public/images/guide/generated/kairos-lab-menton.avif",
+      "public/images/guide/generated/kairos-lab-menton.webp"
     ]
   },
   {
@@ -560,6 +609,13 @@
     ]
   },
   {
+    "source": "public/images/guide/les-petits-farcis-nice.png",
+    "outputs": [
+      "public/images/guide/generated/les-petits-farcis-nice.avif",
+      "public/images/guide/generated/les-petits-farcis-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/lgbtq-menton-nice-monaco-french-riviera.png",
     "outputs": [
       "public/images/guide/generated/lgbtq-menton-nice-monaco-french-riviera.avif",
@@ -648,6 +704,13 @@
     "outputs": [
       "public/images/guide/generated/micrologik-menton.avif",
       "public/images/guide/generated/micrologik-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/molinard-atelier-parfums-grasse.png",
+    "outputs": [
+      "public/images/guide/generated/molinard-atelier-parfums-grasse.avif",
+      "public/images/guide/generated/molinard-atelier-parfums-grasse.webp"
     ]
   },
   {
@@ -924,6 +987,13 @@
     ]
   },
   {
+    "source": "public/images/guide/said-berkane-atelier-menton.png",
+    "outputs": [
+      "public/images/guide/generated/said-berkane-atelier-menton.avif",
+      "public/images/guide/generated/said-berkane-atelier-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/saint-laurent-eze-coastal-area.png",
     "outputs": [
       "public/images/guide/generated/saint-laurent-eze-coastal-area.avif",
@@ -1050,66 +1120,10 @@
     ]
   },
   {
-    "source": "public/images/guide/kairos-lab-menton.png",
+    "source": "public/images/guide/boulevard-de-garavan-menton.png",
     "outputs": [
-      "public/images/guide/generated/kairos-lab-menton.avif",
-      "public/images/guide/generated/kairos-lab-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/said-berkane-atelier-menton.png",
-    "outputs": [
-      "public/images/guide/generated/said-berkane-atelier-menton.avif",
-      "public/images/guide/generated/said-berkane-atelier-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/atelier-cuisine-nicoise-nice.png",
-    "outputs": [
-      "public/images/guide/generated/atelier-cuisine-nicoise-nice.avif",
-      "public/images/guide/generated/atelier-cuisine-nicoise-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/cuisine-sur-cours-nice.png",
-    "outputs": [
-      "public/images/guide/generated/cuisine-sur-cours-nice.avif",
-      "public/images/guide/generated/cuisine-sur-cours-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-petits-farcis-nice.png",
-    "outputs": [
-      "public/images/guide/generated/les-petits-farcis-nice.avif",
-      "public/images/guide/generated/les-petits-farcis-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/fragonard-perfume-workshop-eze.png",
-    "outputs": [
-      "public/images/guide/generated/fragonard-perfume-workshop-eze.avif",
-      "public/images/guide/generated/fragonard-perfume-workshop-eze.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/fragonard-fabrique-des-fleurs-grasse.png",
-    "outputs": [
-      "public/images/guide/generated/fragonard-fabrique-des-fleurs-grasse.avif",
-      "public/images/guide/generated/fragonard-fabrique-des-fleurs-grasse.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/galimard-studio-des-fragrances-grasse.png",
-    "outputs": [
-      "public/images/guide/generated/galimard-studio-des-fragrances-grasse.avif",
-      "public/images/guide/generated/galimard-studio-des-fragrances-grasse.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/molinard-atelier-parfums-grasse.png",
-    "outputs": [
-      "public/images/guide/generated/molinard-atelier-parfums-grasse.avif",
-      "public/images/guide/generated/molinard-atelier-parfums-grasse.webp"
+      "public/images/guide/generated/boulevard-de-garavan-menton.avif",
+      "public/images/guide/generated/boulevard-de-garavan-menton.webp"
     ]
   }
 ]

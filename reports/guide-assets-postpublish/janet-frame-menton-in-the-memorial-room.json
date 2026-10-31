@@ -1,0 +1,44 @@
+{
+  "slug": "janet-frame-menton-in-the-memorial-room",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: janet-frame-menton-in-the-memorial-room",
+    "mode: published-guide + missing-only",
+    "matched: 1",
+    "skipped-covered: 4",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/janet-frame-menton-in-the-memorial-room.json",
+    "rerun: npm run guide:assets -- --published-guide janet-frame-menton-in-the-memorial-room --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 1,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 4,
+    "stillMissing": 0,
+    "patchReady": 1
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "boulevard-de-garavan-menton"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide janet-frame-menton-in-the-memorial-room --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "boulevard-de-garavan-menton"
+    ],
+    "failedPlaceIds": []
+  }
+}

@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "boulevard-de-garavan-menton", reason: "not_a_fixed_venue", checkedOn: "2026-10-31", sourceUrl: "https://www.menton.fr/Boulevard-de-Garavan.html" },
   { placeId: "kairos-lab-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://kairoslab.it/fr/pages/contatti" },
   { placeId: "said-berkane-atelier-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/artiste-peintre-said-berkane-menton-fr-4674757/" },
   { placeId: "atelier-cuisine-nicoise-nice", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.explorenicecotedazur.com/sortir/activites-loisirs/atelier-cuisine-nicoise/" },

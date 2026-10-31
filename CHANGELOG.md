@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added Janet Frame's Menton literary guide in four languages, owner-supplied imagery and a curated Books, film & art collection linking existing book, screen and painting guides.
 - Replaced vulnerable development minimatch engines with upstream 11.0.3. A private compatibility bridge preserves the callable API needed by current ESLint plugins; TypeScript ESLint uses the modern API directly. No Next.js/ESLint downgrade or audit suppression.
 - Added glob/API, real lint-rule and bounded adversarial-pattern regression tests. Release checks now audit development dependencies too and fail at moderate severity.
 

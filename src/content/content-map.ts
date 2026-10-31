@@ -9,6 +9,7 @@ export type ContentCollectionId =
   | "walks-and-views"
   | "family-days"
   | "culture-and-evenings"
+  | "books-films-and-art"
   | "riviera-day-trips"
   | "practical-stay"
   | "sport-and-outdoors"
@@ -77,6 +78,14 @@ export const contentCollections: ContentCollection[] = [
     categories: ["nightlife-drinks", "events"],
     includeGuideSlugs: ["museums-in-menton-nice-monaco", "cinemas-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "films-shot-in-menton", "bookshops-libraries-menton", "menton-hand-drawn-postcards"],
     priorityGuideSlugs: ["museums-in-menton-nice-monaco", "theatre-opera-performing-arts-near-menton", "jazz-live-music-near-menton"],
+  },
+  {
+    id: "books-films-and-art",
+    title: t("Books, film & art", "Livres, cinéma et art", "Libri, cinema e arte", "Книжки, кіно й мистецтво"),
+    description: t("Real places behind books, films and paintings in Menton and the Riviera. Literary history, creative lives and walks without spoilers.", "Les lieux réels des livres, films et tableaux à Menton et sur la Riviera : histoire littéraire, vies d'artistes et promenades sans révéler l'intrigue.", "I luoghi reali di libri, film e dipinti a Mentone e sulla Riviera: storia letteraria, vite creative e passeggiate senza spoiler.", "Реальні місця з книжок, фільмів і картин Ментона та Рив'єри: літературна історія, життя митців і прогулянки без спойлерів."),
+    categories: [],
+    includeGuideSlugs: ["janet-frame-menton-in-the-memorial-room", "a-week-in-menton-book-walking-route", "the-houses-that-remember-riviera-book-route", "jean-cocteau-menton-walking-route", "films-shot-in-menton", "famous-paintings-of-menton", "music-videos-filmed-in-menton"],
+    priorityGuideSlugs: ["janet-frame-menton-in-the-memorial-room", "a-week-in-menton-book-walking-route", "the-houses-that-remember-riviera-book-route", "jean-cocteau-menton-walking-route", "films-shot-in-menton", "famous-paintings-of-menton"],
   },
   {
     id: "riviera-day-trips",

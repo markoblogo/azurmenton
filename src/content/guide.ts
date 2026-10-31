@@ -12,6 +12,7 @@ import { cocteauMentonGuide } from "@/content/cocteau-menton-guide";
 import { mentonLemonsGuide } from "@/content/menton-lemons-guide";
 import { housesRememberGuide } from "@/content/houses-remember-guide";
 import { creativeWorkshopsGuide } from "@/content/creative-workshops-guide";
+import { janetFrameGuide } from "@/content/janet-frame-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11384,6 +11385,13 @@ guideArticles.push(cocteauMentonGuide);
 guideArticles.push(mentonLemonsGuide);
 guideArticles.push(housesRememberGuide);
 guideArticles.push(creativeWorkshopsGuide);
+guideArticles.push(janetFrameGuide);
+belleEpoqueGuide.sections[11].relatedPlaceIds = [...(belleEpoqueGuide.sections[11].relatedPlaceIds ?? []), "boulevard-de-garavan-menton"];
+belleEpoqueGuide.sections[11].body.push(t("Boulevard de Garavan offers public-street context for these villas and literary stays. Choose a short section suited to your mobility: this hillside road is not a level, traffic-free promenade.", "Le boulevard de Garavan donne le contexte public de ces villas et séjours littéraires. Choisissez un tronçon adapté : cette voie en pente n'est pas une promenade plate sans circulation.", "Boulevard de Garavan offre il contesto pubblico di queste ville e residenze letterarie. Scegliete un tratto adatto: la strada collinare non è un lungomare pianeggiante senza traffico.", "Boulevard de Garavan дає громадський вуличний контекст цих вілл і літературних резиденцій. Обирайте придатний відрізок: дорога на схилі не є рівною набережною без транспорту."));
+for (const slug of janetFrameGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(janetFrameGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), janetFrameGuide.slug];
+}
 for (const slug of ["menton-with-kids-family-guide", "best-souvenir-shops-menton-monaco-nice", "menton-lemons-producers-orchards-tastings", "menton-in-winter"]) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(creativeWorkshopsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), creativeWorkshopsGuide.slug];

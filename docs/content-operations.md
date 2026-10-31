@@ -234,6 +234,7 @@ The public Travel Tools hub is maintained in `src/components/tools/TravelTools.t
 - When a specialised guide declares `canonicalPlaceTypes`, every linked place of that type must be shown there and declare the same coverage slug. Use this only where the type is genuinely unambiguous; restaurant, market and lifestyle links still require editorial judgement.
 - Check whether the article belongs in an intent cluster.
 - Check whether it belongs in a living guide collection in `src/content/content-map.ts`. Add an item to the compact intent map only when it answers a meaningful guest or search question; do not inflate the count with near-duplicate queries.
+- Use `books-films-and-art` for real regional places connected with a particular book, film, music video or artwork. Membership is an explicit editorial list, not every walking or museum guide. Distinguish documented author/filming history, fictional settings and optional scenic extensions; state public-access limits and avoid plot spoilers. Third-party books use a neutral publisher/source link, not the AzurBooks sales block. New entries still follow the normal translated-guide, place/backlink and image checks.
 - Check whether the article needs apartment-aware linking.
 
 ## SEO Priority And Monitoring
