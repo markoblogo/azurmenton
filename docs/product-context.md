@@ -30,6 +30,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - Contextual recommendations use existing apartment links and verified facts. Short confirmed events may suggest request dates after an explicit click; this never confirms availability, changes the saved trip or sends a booking. Longer-stay prices and conditions require a personal reply.
 - uMap is an optional editor-side export/preview tool over canonical route data, not the site's main map or a second place database. Saving/embedding an external map remains a separate approval.
 - A local editorial metadata registry/report coordinates existing workflows without copying content or importing private submissions. Pipeline readiness, owner approval, canonical presence and public verification remain distinct. No scheduled guide publication or automatic publisher is enabled. See `docs/editorial-queue.md`.
+- Manual guide packets wrap existing preparation/check/image commands and retain input-bound local QA receipts. Post-publication illustrations remain supported. A loopback-only runtime trial is not connected to production content, Pagefind, maps or hosted storage. See `docs/guide-manual-workflow.md`; no new automatic publication authority is implied.
 - Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.
 
 ## Language And Claim Boundaries

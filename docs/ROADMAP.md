@@ -13,7 +13,7 @@ This roadmap keeps the direct-booking objective first while allowing the Menton 
 
 Owner-approved release scope: three four-language public guest guides, shared contextual accommodation recommendations and an optional editor-side uMap export. Existing bookings remain manual; no private access instructions are published and no external map is saved automatically. See [scope and checks](guest-experience-passes.md).
 
-Next discussion: one editorial queue over existing intake/review artifacts. Scheduled guide publication will be discussed after that; no automatic publisher is enabled by these changes. These feature deliveries do not by themselves satisfy any commercial milestone below.
+The shared editorial registry/report and first approved weekly pilot are implemented. Guide selection and publication remain manual, with later illustration passes; scheduled guide publication is postponed by the owner. The manual packet/check-receipt workflow and an isolated local no-rebuild trial are documented in [guide operations](guide-manual-workflow.md). No production runtime store or automatic publisher is enabled. These feature deliveries do not by themselves satisfy any commercial milestone below.
 
 ## M1 - Strong Guide Base
 

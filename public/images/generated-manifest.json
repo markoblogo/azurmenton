@@ -182,6 +182,13 @@
     ]
   },
   {
+    "source": "public/images/guide/chapelle-misericorde-menton.png",
+    "outputs": [
+      "public/images/guide/generated/chapelle-misericorde-menton.avif",
+      "public/images/guide/generated/chapelle-misericorde-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cheap-eats-menton-budget-lunch.png",
     "outputs": [
       "public/images/guide/generated/cheap-eats-menton-budget-lunch.avif",
@@ -1036,10 +1043,10 @@
     ]
   },
   {
-    "source": "public/images/guide/chapelle-misericorde-menton.png",
+    "source": "public/images/guide/creative-workshops-menton-french-riviera.png",
     "outputs": [
-      "public/images/guide/generated/chapelle-misericorde-menton.avif",
-      "public/images/guide/generated/chapelle-misericorde-menton.webp"
+      "public/images/guide/generated/creative-workshops-menton-french-riviera.avif",
+      "public/images/guide/generated/creative-workshops-menton-french-riviera.webp"
     ]
   }
 ]

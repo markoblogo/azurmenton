@@ -31,6 +31,7 @@ export type GuidePublicationPlaceTopMatch = {
 
 export type GuidePublicationPlanPlace = {
   draftName: string;
+  sourceDraftName?: string;
   existingPlaceId?: string | null;
   newPlaceId?: string | null;
   suggestedExistingPlaceId?: string | null;

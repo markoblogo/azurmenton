@@ -266,6 +266,7 @@ function isBroadLocalityHeading(text: string) {
 }
 
 function isEditorialPlaceHeading(text: string) {
+  if (/^(?:regular workshops|languages and age|practical details|what can you (?:make|learn)|what will you (?:make|do)|what do you take home|for (?:couples|families(?: with .+)?|food lovers|a rainy day|a two- to four-week stay))\??$/i.test(text)) return true;
   if (/^(?:(?:current )?access|what to look for|other (?:former hotels|historic villas)|the story (?:of|behind) .+|a race to .+|the (?:easy central|complete architectural) walk|the architecture and gardens experience|(?:generally|conditionally) accessible|normally private|published information for \d{4})$/i.test(text)) return true;
   if (/^(?:spring|summer|autumn|winter|admission and opening|visiting arrangements|walking difficulty|seasonal transport|discover local food|explore the historic village|a simple rule|a realistic .+ day|a critical .+ warning|road conditions can change quickly)$/i.test(text)) return true;
   if (/^(?:plan [a-z]:|option [a-z]:|if (?:your|road|a museum|you)|getting to (?:the|a) )/i.test(text)) return true;
@@ -401,6 +402,8 @@ function extractPlaceCandidates(lines: string[]) {
   const allHeadings = extractHeadings(lines);
   const headings = allHeadings.slice(findPrimaryHeadingOffset(allHeadings));
   const title = headings[0]?.text;
+  const venueSections=new Set<number>();
+  const hasAddress=(heading:GuideHeading)=>lines.slice(heading.lineIndex+1).find(line=>line.trim())?.trim().match(/^(?:address|locations?):\s*\S/i);
 
   headings.forEach((heading, index) => {
     if (index === 0 || isSuppressedHeading(heading.text)) return;
@@ -409,6 +412,10 @@ function extractPlaceCandidates(lines: string[]) {
     if (sitsUnderWidgetAncestor(headings, index) || isWidgetSectionHeading(heading.text)) return;
 
     if (heading.level === 2) {
+      if(hasAddress(heading)){
+        const name=heading.text.replace(/^\d+[.)]\s*/,"").replace(/^painting and drawing with\s+/i,"").split(/:\s/)[0];
+        candidates.push({name,section:heading.text});venueSections.add(index);return;
+      }
       const ancestor = findNearestAncestor(headings, index, heading.level);
       if (
         ancestor &&
@@ -426,6 +433,7 @@ function extractPlaceCandidates(lines: string[]) {
 
     if (heading.level === 3) {
       const ancestor = findNearestAncestor(headings, index, heading.level);
+      if(ancestor&&venueSections.has(headings.indexOf(ancestor)))return;
       if (ancestor && ancestor.level === 2 && !isSuppressedHeading(ancestor.text) && !isWidgetSectionHeading(ancestor.text)) {
         candidates.push({ name: heading.text.replace(/^Visit (?:the )?/i, ""), section: ancestor.text });
       }

@@ -3,6 +3,11 @@ import { describe, expect, it } from "vitest";
 import { extractGuideIntake, normalizePlainTextGuide } from "../../src/lib/guide-intake";
 
 describe("guide intake extraction", () => {
+  it("recognises named workshop sections with address evidence without inventing advice venues", () => {
+    const intake=extractGuideIntake("# Creative workshops\n\nIntro.\n\n## 1. Kairòs Lab: make pottery\n\nAddress: 6 Chemin du Rosaire, Menton\n\n### Regular workshops\nDetails.\n### Languages and age\nDetails.\n## 2. Pasta Piemonte: make ravioli\n\nAddress: 34 Rue Partouneaux, Menton\n\n### Practical details\nBook.\n## Which workshop is best?\n### For couples\nAdvice.\n### For a rainy day\nAdvice.");
+    expect(intake.placeCandidates.map(place=>place.name)).toEqual(["Kairòs Lab","Pasta Piemonte"]);
+    expect(intake.sectionHeadings).toContain("Kairòs Lab: make pottery");
+  });
   it("recognises architecture venues without turning access and route advice into places", () => {
     const intake = extractGuideIntake('# Belle Époque\n\nDuration: 2–3 hours\nLast researched: 28 October 2026\n\nLook up while walking.\n\n## Central hotels\n### What to look for\nWindows.\n### Le Majestic\nHotel.\n### Access\nPrivate.\n### Royal Westminster\nHotel.\n### Current access\nCheck.\n### The easy central walk\nPlan.\n### Normally private\nRespect gates.\n### Published information for 2026\nCheck.');
     expect(intake.intro).toBe('Look up while walking.');

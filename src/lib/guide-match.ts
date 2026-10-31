@@ -333,17 +333,26 @@ export function mergePublicationPlanWithMatches(input: {
   const currentPlan = input.currentPlan ?? {};
   const seededByDraft = new Map((input.seededPlan.plannedPlaces ?? []).map((place) => [plannedPlaceKey(place), place]));
 
-  const mergedPlaces: GuidePublicationPlanPlace[] = input.intake.placeCandidates.map((candidate) => {
+  const used = new Set<GuidePublicationPlanPlace>();
+  const mergedPlaces: GuidePublicationPlanPlace[] = input.intake.placeCandidates.flatMap((candidate) => {
     const seeded = seededByDraft.get(normalize(candidate.name));
+    // One source operator can deliberately resolve to multiple physical venues.
+    const resolvedBranches = (currentPlan.plannedPlaces ?? []).filter(place =>
+      place.sourceDraftName && normalize(place.sourceDraftName) === normalize(candidate.name) && (place.existingPlaceId || place.newPlaceId));
+    if (resolvedBranches.length) {
+      resolvedBranches.forEach(place => used.add(place));
+      return resolvedBranches.map(place => ({ ...place }));
+    }
     const existing = (currentPlan.plannedPlaces ?? []).find((place) => plannedPlaceKey(place) === normalize(candidate.name));
+    if (existing) used.add(existing);
 
     if (!seeded && !existing) {
-      return {
+      return [{
         draftName: candidate.name,
-      };
+      }];
     }
 
-    return {
+    return [{
       ...(seeded ?? {}),
       ...(existing ?? {}),
       draftName: candidate.name,
@@ -352,16 +361,19 @@ export function mergePublicationPlanWithMatches(input: {
       matchDecision: existing?.matchDecision ?? seeded?.matchDecision ?? null,
       matchReason: seeded?.matchReason ?? existing?.matchReason ?? null,
       topMatches: seeded?.topMatches ?? existing?.topMatches ?? null,
-      existingPlaceId: existing?.existingPlaceId ?? seeded?.existingPlaceId ?? null,
-      newPlaceId: existing?.newPlaceId ?? seeded?.newPlaceId ?? null,
+      existingPlaceId: existing?.existingPlaceId ?? (existing?.newPlaceId ? null : seeded?.existingPlaceId) ?? null,
+      newPlaceId: existing?.newPlaceId ?? (existing?.existingPlaceId ? null : seeded?.newPlaceId) ?? null,
       imageStatus: existing?.imageStatus ?? seeded?.imageStatus ?? null,
       assetPath: existing?.assetPath ?? seeded?.assetPath ?? null,
       assetFileName: existing?.assetFileName ?? seeded?.assetFileName ?? null,
       requiresMapReview: existing?.requiresMapReview ?? seeded?.requiresMapReview ?? null,
       mapAction: existing?.mapAction ?? seeded?.mapAction ?? null,
       coverageGuideSlug: existing?.coverageGuideSlug ?? seeded?.coverageGuideSlug ?? null,
-    };
+    }];
   });
+  for (const place of currentPlan.plannedPlaces ?? []) {
+    if (!used.has(place) && (place.existingPlaceId || place.newPlaceId)) mergedPlaces.push({ ...place });
+  }
 
   return {
     ...input.seededPlan,

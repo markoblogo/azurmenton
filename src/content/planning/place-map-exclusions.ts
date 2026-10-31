@@ -10,6 +10,15 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "kairos-lab-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://kairoslab.it/fr/pages/contatti" },
+  { placeId: "said-berkane-atelier-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/artiste-peintre-said-berkane-menton-fr-4674757/" },
+  { placeId: "atelier-cuisine-nicoise-nice", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.explorenicecotedazur.com/sortir/activites-loisirs/atelier-cuisine-nicoise/" },
+  { placeId: "cuisine-sur-cours-nice", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.explorenicecotedazur.com/en/service-provider/cuisine-sur-cours-atelier-gastronomique/" },
+  { placeId: "les-petits-farcis-nice", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.explorenicecotedazur.com/prestataire/atelier-de-cuisine-les-petits-farcis/" },
+  { placeId: "fragonard-perfume-workshop-eze", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.fragonard.com/en-us/stores/" },
+  { placeId: "fragonard-fabrique-des-fleurs-grasse", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://usines-parfum.fragonard.com/en/factories/la-fabrique-des-fleurs/" },
+  { placeId: "galimard-studio-des-fragrances-grasse", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.galimard.com/produit/atelier-de-creation-de-parfum-a-grasse-particuliers-2" },
+  { placeId: "molinard-atelier-parfums-grasse", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.paysdegrassetourisme.fr/l-atelier-des-parfums-parfumerie-molinard-5724624/" },
   { placeId: "chapelle-misericorde-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/concert-de-noel-de-la-capeline-de-menton-menton-fr-6876062/" },
   { placeId: "villa-isola-bella-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/balade-a-garavan-le-reve-babylonien-menton-fr-3097471/" },
   { placeId: "jardin-fontana-rosa-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-fontana-rosa-le-jardin-des-romanciers-menton-fr-5595124/" },

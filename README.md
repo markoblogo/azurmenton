@@ -120,6 +120,8 @@ Optional source-backed time-coverage audit: `npm run events:timing -- --fetch-so
 
 Unified editorial coordination: `npm run editorial:report` summarizes the tracked metadata registry and existing local guide/event artifacts into `build/editorial/queue-report.md` and JSON. Readiness, owner approval, repository presence and public verification remain separate; nothing is published or scheduled. See [editorial registry rules](docs/editorial-queue.md).
 
+Manual guide publishing: `guide:workflow` wraps preparation, the combined patch, final-tree check receipts and later safe image passes. Existing Word input, manual selection/translation and post-publication illustrations remain supported. `guide:runtime-trial` is an isolated local no-rebuild experiment, not a production content store. See [manual guide workflow](docs/guide-manual-workflow.md).
+
 Event publication keeps owner-approved images local and can attach related
 guides/places through `relatedGuideSlugs` and `relatedPlaceIds`; missing event
 images should stay visible until an owner asset pack is applied.

@@ -2,6 +2,8 @@
 
 This document defines the current semi-automated flow for publishing new Azur Menton guides.
 
+The preferred operator entrypoint is now `guide:workflow`: one manual packet over the commands below, followed by reusable final-tree check receipts and the existing later illustration pass. It does not publish, translate or approve content automatically. See [manual packet workflow](guide-manual-workflow.md). The individual tools remain supported for diagnosis and exceptional cases.
+
 ## Current Command Chain
 
 DOCX is accepted directly by `guide:new` (Python 3 standard library). For reviewed

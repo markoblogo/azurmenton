@@ -30,6 +30,8 @@
     "guide:publish": "node scripts/guide-publish.cjs",
     "guide:review": "node scripts/guide-review.cjs",
     "guide:ops": "node scripts/guide-ops.cjs",
+    "guide:workflow": "node scripts/guide-workflow.cjs",
+    "guide:runtime-trial": "node scripts/guide-runtime-trial.cjs",
     "editorial:report": "node scripts/editorial-report.cjs",
     "guides:health": "node scripts/guides-health.cjs",
     "guides:verify": "node scripts/guides-verify.cjs",

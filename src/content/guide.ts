@@ -11,6 +11,7 @@ import { naturistBeachesGuide } from "@/content/naturist-beaches-guide";
 import { cocteauMentonGuide } from "@/content/cocteau-menton-guide";
 import { mentonLemonsGuide } from "@/content/menton-lemons-guide";
 import { housesRememberGuide } from "@/content/houses-remember-guide";
+import { creativeWorkshopsGuide } from "@/content/creative-workshops-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11382,6 +11383,25 @@ guideArticles.push(naturistBeachesGuide);
 guideArticles.push(cocteauMentonGuide);
 guideArticles.push(mentonLemonsGuide);
 guideArticles.push(housesRememberGuide);
+guideArticles.push(creativeWorkshopsGuide);
+for (const slug of ["menton-with-kids-family-guide", "best-souvenir-shops-menton-monaco-nice", "menton-lemons-producers-orchards-tastings", "menton-in-winter"]) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(creativeWorkshopsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), creativeWorkshopsGuide.slug];
+}
+const familyWorkshopGuide = guideArticles.find(article => article.slug === "menton-with-kids-family-guide");
+familyWorkshopGuide?.sections.push({
+  heading: t("Book a creative indoor activity", "Réserver un atelier créatif à l'abri", "Prenotare un'attività creativa al coperto", "Забронюйте творче заняття в приміщенні"),
+  body: [t("Kairòs Lab has children's pottery from five, while Cuisine sur Cours in Nice has selected cooking formats from three. Reserve an age-appropriate session, confirm the language and allow extra time for pottery firing and collection.", "Kairòs Lab propose la poterie dès cinq ans ; Cuisine sur Cours à Nice a certains formats dès trois ans. Réservez un cours adapté, confirmez la langue et prévoyez le délai de cuisson et de retrait des poteries.", "Kairòs Lab propone ceramica dai cinque anni; Cuisine sur Cours a Nizza ha alcuni corsi dai tre. Prenotate il formato adatto, confermate la lingua e considerate cottura e ritiro delle ceramiche.", "Kairòs Lab пропонує кераміку від п'яти років, а Cuisine sur Cours у Ніцці має окремі кулінарні формати від трьох. Бронюйте за віком, підтвердьте мову й врахуйте час випалу та отримання кераміки.")],
+  relatedPlaceIds: ["kairos-lab-menton", "cuisine-sur-cours-nice"], guideLinkSlug: creativeWorkshopsGuide.slug,
+  guideLinkLabel: t("Compare creative workshops", "Comparer les ateliers créatifs", "Confronta i laboratori creativi", "Порівняйте творчі майстер-класи"),
+});
+const souvenirWorkshopGuide = guideArticles.find(article => article.slug === "best-souvenir-shops-menton-monaco-nice");
+souvenirWorkshopGuide?.sections.push({
+  heading: t("Make your own souvenir", "Créer son propre souvenir", "Creare il proprio souvenir", "Створіть власний сувенір"),
+  body: [t("A booked fragrance workshop at Fragonard's Èze factory offers another kind of keepsake. Choose the programme, language and age-appropriate format; a shop visit alone does not include perfume creation.", "Un atelier réservé à l'usine Fragonard d'Èze permet de créer un autre souvenir. Choisissez programme, langue et âge adapté ; une visite en boutique n'inclut pas la création de parfum.", "Un laboratorio prenotato alla fabbrica Fragonard di Èze offre un ricordo personale. Scegliete programma, lingua ed età adatta; la visita in negozio non include la creazione.", "Заняття за записом на фабриці Fragonard в Езі — можливість створити особистий сувенір. Оберіть програму, мову й відповідний вік; сам візит до крамниці не включає створення парфумів.")],
+  relatedPlaceIds: ["fragonard-perfume-workshop-eze"], guideLinkSlug: creativeWorkshopsGuide.slug,
+  guideLinkLabel: t("Pottery, cooking and perfume workshops", "Ateliers de poterie, cuisine et parfum", "Laboratori di ceramica, cucina e profumi", "Кераміка, кулінарія й парфумерія"),
+});
 for (const slug of ["a-week-in-menton-book-walking-route", "belle-epoque-menton-architecture-walk", "jean-cocteau-menton-walking-route", "museums-in-menton-nice-monaco", "menton-in-winter", "day-trips-from-menton"]) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(housesRememberGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), housesRememberGuide.slug];
