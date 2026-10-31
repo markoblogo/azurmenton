@@ -1,6 +1,6 @@
 {
   "name": "azurmenton",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -14,6 +14,8 @@
     "preflight:postbuild": "npm run perf:csp",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
+    "docs:check": "node scripts/docs-check.cjs",
+    "release:check": "node scripts/release-check.cjs",
     "test": "vitest run",
     "content:audit": "vitest run tests/unit/content-audit.test.ts",
     "content:lint": "node scripts/content-lint.cjs",

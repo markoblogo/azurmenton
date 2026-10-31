@@ -14,7 +14,7 @@ When adding a guide, prefer its existing `GuideCategory`. Update a collection on
 
 ## Curated trip plans
 
-`src/content/planning/stay-plans.ts` holds six compact, human-curated stay scenarios. Each plan must connect to a primary guide, useful places, a cautious transport note and relevant apartments. The Guide uses the plans as an entry point; `/[locale]/stay` remains the fuller catalogue. Do not add an AI itinerary generator or a separate route for every plan.
+`src/content/planning/stay-plans.ts` holds compact, human-curated stay scenarios. Each plan connects a primary guide, useful places, cautious transport notes and relevant apartments. The Guide uses plans as an entry point; `/[locale]/stay` is the fuller catalogue. Saved personal days and optional proximity ordering use the separate device-only profile, not an AI itinerary generator or new canonical routes.
 
 ## Validation
 

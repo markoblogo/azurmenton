@@ -600,11 +600,11 @@ export function applyGuideLinkPlan(publicationPlan: GuidePublicationPlan, linkPl
     ...publicationPlan,
     plannedPlaces,
     relatedArticleSlugs: dedupeByKey(
-      [...preservedManualArticles, ...linkPlan.autoAppliedRelatedArticles].map((slug) => ({ slug })),
+      [...(publicationPlan.approvedRelatedArticleSlugs ?? []), ...preservedManualArticles, ...linkPlan.autoAppliedRelatedArticles].map((slug) => ({ slug })),
       (entry) => entry.slug,
     ).map((entry) => entry.slug),
     relatedApartmentSlugs: dedupeByKey(
-      [...preservedManualApartments, ...linkPlan.autoAppliedRelatedApartments].map((slug) => ({ slug })),
+      [...(publicationPlan.approvedRelatedApartmentSlugs ?? []), ...preservedManualApartments, ...linkPlan.autoAppliedRelatedApartments].map((slug) => ({ slug })),
       (entry) => entry.slug,
     ).map((entry) => entry.slug),
     linkPlan,

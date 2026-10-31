@@ -1,66 +1,27 @@
-# Azur Menton Launch Checklist
+# Release Checklist
 
-## Deployment
+Reusable per release. Old launch checkmarks are not evidence for the current commit. Infrastructure is already deployed; do not recreate Vercel, change DNS, rotate credentials or send test bookings as routine release work.
 
-- [ ] Code is pushed to GitHub.
-- [ ] Vercel project is created from `https://github.com/markoblogo/azurmenton`.
-- [ ] Preview deployment is checked.
-- [ ] Environment variables from `.env.example` are set in Vercel.
-- [ ] Domain points to the production deployment.
-- [ ] Production domain `azurmenton.com` is added in Vercel.
-- [ ] `www.azurmenton.com` is added in Vercel.
-- [ ] Cloudflare DNS is configured using Vercel-provided records.
-- [ ] Vercel domain status is verified.
-- [ ] SSL certificate is active.
-- [ ] Canonical redirect between `www` and apex is tested.
-- [ ] HTTPS works for `https://azurmenton.com`.
-- [ ] `https://azurmenton.com/sitemap.xml` returns the production sitemap.
-- [ ] `https://azurmenton.com/robots.txt` allows public crawling and references the sitemap.
+## Prepare
 
-## Pages
+- [ ] Confirm scope, branch and understood working-tree changes; preserve unrelated work and original content sources.
+- [ ] Update version and lockfile, changelog and affected runbooks. Never move an existing release tag.
+- [ ] Run `npm run release:check` (optional `-- --webpack` locally). Review `build/release/checks.json` and logs; failed or stale checks are not a pass.
+- [ ] Review content/event reports. Separate editorial backlog and intentionally missing images from broken references or unsafe public behavior.
+- [ ] Review full dependency audit as well as the production high/critical gate; document unresolved development advisories instead of using a destructive force upgrade.
 
-- [ ] `/en`, `/fr`, `/it`, `/uk` homepages work.
-- [ ] All apartment listing and detail pages work.
-- [ ] All guide and events pages work.
-- [ ] FAQ, contact, legal, privacy, cookie policy and booking terms pages work.
-- [ ] Footer links and language switcher links work.
+## Publish
 
-## Booking
+- [ ] Use a reviewed branch/PR where supported; required CI must pass on its current head. Do not bypass failed checks or use administrator merge overrides.
+- [ ] Verify CI for the final production commit, not only a previous branch commit.
+- [ ] Verify Vercel Production succeeded for that exact commit and that the domain serves the changed content.
+- [ ] Check representative EN/FR/IT/UK routes, mobile width, images, canonical/hreflang and browser errors. Check changed interactions without sending real requests.
+- [ ] Create the version tag and GitHub release at the verified production commit; include changes, checks and known limits. A GitHub release is not an npm publication.
 
-- [x] Booking request form submits successfully in production.
-- [ ] Privacy acknowledgement checkbox is required and not pre-checked.
-- [ ] Host receives booking request notifications in `petraetpaul@gmail.com` after final inbox confirmation.
-- [x] Resend sender/domain is configured in Vercel Production if Resend is used.
-- [x] Booking API returns the expected success response for honeypot submissions without sending a real request.
-- [x] Booking API returns the expected validation error for incomplete payloads.
-- [ ] Read-only availability previews are labelled as planning guidance and manual confirmation remains explicit.
+## Keep Separate
 
-## Legal And Content
-
-- [x] Legal owner/business details are replaced with verified Kbis values.
-- [x] Owner / publisher name is completed.
-- [x] Business status is completed.
-- [x] SIREN/RCS registration is completed from Kbis.
-- [x] Contact or registered address is completed.
-- [x] Email and phone wording is confirmed: petraetpaul@gmail.com, +33 6 24 71 65 65.
-- [ ] Hosting provider details are completed.
-- [ ] Consumer mediator details are added if legally required.
-- [ ] Payment, deposit, cancellation, tourist tax and mediation details are completed.
-- [ ] Exact event dates are added only with source URLs.
-- [ ] French, Italian and Ukrainian guide/event content is reviewed by a native speaker.
-
-## SEO And Quality
-
-- [ ] Canonicals and hreflang links are checked after deployment.
-- [ ] Open Graph previews show valid apartment-specific images where relevant.
-- [ ] Structured data is tested with Google's Rich Results Test or Schema Markup Validator.
-- [ ] Mobile layout is tested on real devices.
-- [ ] Apartment images and alt text are checked.
-- [ ] Lighthouse basic pass is completed.
-- [ ] Google Search Console domain verification is completed.
-- [ ] Sitemap is submitted in Google Search Console.
-- [ ] Indexing coverage, hreflang issues, mobile usability and Core Web Vitals are reviewed after launch.
-- [ ] Analytics is added only if needed and only with cookie compliance.
-- [x] Dependency audit has no production vulnerabilities as of 2026-09-13.
-- [x] Public images have no files above 1.5 MB as of 2026-05-27.
-- [x] Next.js 16 image priority usage was updated to `preload` / `fetchPriority` for hero imagery.
+- Real email inbox delivery, provider dashboards, analytics access and DNS authentication need independent evidence and authorization. A successful form response is not proof of inbox delivery.
+- Calendar previews are read-only; no bookings or external availability are modified during release checks.
+- Editorial approvals, factual verification, native-language review, media rights and owner visual acceptance are not implied by automated tests.
+- Telegram remains deferred. Subscription interest is email intake only, not an enabled mailing list.
+- Retain source documents until publication is verified; archive only under the owner's agreed procedure. Never delete original illustrations or evidence to make Git status look clean.

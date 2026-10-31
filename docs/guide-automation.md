@@ -98,6 +98,8 @@ npm run guide:ops
 
 ### `guide:link-plan`
 
+Explicitly reviewed `approvedRelatedArticleSlugs` and `approvedRelatedApartmentSlugs` in the publication plan survive suggestion refreshes. Use these for intentional editorial links; unapproved automatic suggestions remain replaceable.
+
 Reads `publication-plan.json` plus current repo content and adds a narrow suggestion layer:
 
 - auto-suggest `relatedArticleSlugs`

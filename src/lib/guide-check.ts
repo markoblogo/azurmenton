@@ -98,6 +98,8 @@ export type GuidePublicationPlan = {
   relatedPlaceIds?: string[];
   relatedArticleSlugs?: string[];
   relatedApartmentSlugs?: string[];
+  approvedRelatedArticleSlugs?: string[];
+  approvedRelatedApartmentSlugs?: string[];
   canonicalGuideForPlaces?: boolean;
   plannedPlaces?: GuidePublicationPlanPlace[];
   linkPlan?: GuidePublicationLinkPlan;
@@ -238,7 +240,7 @@ export function buildGuideCheckReport(
       errors.push({ severity: "error", code: "cover-marked-provided-without-file", message: "Cover is marked as provided but the source cover file is missing." });
     }
 
-    for (const slug of publicationPlan.relatedArticleSlugs ?? []) {
+    for (const slug of new Set([...(publicationPlan.relatedArticleSlugs ?? []), ...(publicationPlan.approvedRelatedArticleSlugs ?? [])])) {
       if (!guideSlugSet.has(slug)) {
         errors.push({ severity: "error", code: "unresolved-related-article", message: `relatedArticleSlugs contains unknown guide slug: ${slug}` });
       }
@@ -250,7 +252,7 @@ export function buildGuideCheckReport(
       }
     }
 
-    for (const slug of publicationPlan.relatedApartmentSlugs ?? []) {
+    for (const slug of new Set([...(publicationPlan.relatedApartmentSlugs ?? []), ...(publicationPlan.approvedRelatedApartmentSlugs ?? [])])) {
       if (!apartmentSlugSet.has(slug)) {
         errors.push({ severity: "error", code: "unresolved-related-apartment", message: `relatedApartmentSlugs contains unknown apartment slug: ${slug}` });
       }

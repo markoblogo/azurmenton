@@ -4,6 +4,8 @@ This roadmap keeps the direct-booking objective first while allowing the Menton 
 
 ## Current Baseline
 
+Release audit snapshot (31 October 2026): 102 guides, 606 places and 119 events. Counts are not editorial acceptance: nine workshop places intentionally await owner illustrations; source freshness and thematic coverage still need review. Use current reports instead of treating these numbers as a permanent baseline. See the [release audit](audits/2026-10-31-release-readiness.md).
+
 - Three apartments, manual availability requests and booking-funnel tracking are live.
 - Guide, places, map, event and stay-page content is typed and validated.
 - The priority guide authority layer covers 20 maintained high-intent pages.

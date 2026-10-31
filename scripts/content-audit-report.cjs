@@ -15,6 +15,7 @@ const { places } = require("../src/content/places.ts");
 const { eventFreshnessProfiles, rivieraEvents, summerOnTheRivieraEvent } = require("../src/content/riviera-events.ts");
 const { stayPlans } = require("../src/content/planning/stay-plans.ts");
 const { getEventDateStatus } = require("../src/lib/events.ts");
+const { referencedPlaceIds } = require("../src/lib/content-place-usage.ts");
 
 const apartmentSlugs = new Set(apartments.map((apartment) => apartment.slug));
 const clusteredGuideSlugs = new Set(guideIntentClusters.flatMap((cluster) => [cluster.canonicalGuideSlug, ...cluster.supportingGuideSlugs]));
@@ -137,8 +138,9 @@ for (const place of places) {
   }
 }
 
+const usedPlaces = referencedPlaceIds(guideArticles, [...rivieraEvents, summerOnTheRivieraEvent]);
 const orphanPlaces = places
-  .filter((place) => !place.relatedArticleIds.length)
+  .filter((place) => !usedPlaces.has(place.id))
   .sort((left, right) => left.id.localeCompare(right.id));
 
 const incomingGuideLinks = new Map(guideArticles.map((article) => [article.slug, 0]));

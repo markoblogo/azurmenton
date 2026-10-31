@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
+__pycache__/
+*.py[cod]
 
 # next.js
 /.next/
@@ -23,6 +27,7 @@
 
 # misc
 .DS_Store
+/.tmp/
 *.pem
 *.backup
 *.tmp
