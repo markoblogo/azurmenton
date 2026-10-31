@@ -28,6 +28,8 @@ No high or critical dependency entries were found in the full audit at review ti
 
 ## Verification And Publication Gates
 
+The GitHub verify job invokes the same `release:check` entrypoint after installing Chromium, instead of maintaining a second ordered list of equivalent commands. CI browser concurrency remains one worker. Failure artifacts include the actual release receipt and step logs; the separate production-only native dependency job is retained.
+
 Baseline local proof: 454 unit and 71 browser tests passed, with four public workshop locales and the production commit verified. The changed release tree must pass `npm run release:check -- --webpack`; actual outcomes/logs are retained privately in `build/release/checks.json`, not inferred from this document. The final CI, deployed SHA, public smoke result and release tag must be verified after publication. See the [release checklist](../../LAUNCH_CHECKLIST.md).
 
 This maintenance pass does not independently reverify every factual claim in 102 guides, every archived event, real inbox delivery, field Core Web Vitals, native-language quality or image rights. Existing dated audits remain the evidence for their original scope. Telegram delivery remains deferred; original manuscripts, illustrations, intake packets and prior browser evidence are retained.

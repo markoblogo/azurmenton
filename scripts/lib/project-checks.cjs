@@ -9,7 +9,7 @@ function projectChecks(root, { webpack = false, release = false } = {}) {
     ...(release ? [node("native-lockfile", "check-native-lockfile.mjs"), { id: "production-audit", argv: [process.platform === "win32" ? "npm.cmd" : "npm", "audit", "--omit=dev", "--audit-level=high"], alwaysRun: true }] : []),
     ...[["docs", "docs:check"], ["lint", "lint"], ["typecheck", "typecheck"], ["unit", "test"], ["preflight", "preflight"], ["images", "images:check"]].map(([id, script]) => ({ id, argv: npm(script) })),
     { id: "build", argv: [...npm("build"), ...(webpack ? ["--", "--webpack"] : [])], artifacts: buildArtifacts },
-    ...(release ? [{ id: "browser", argv: [...npm("test:e2e"), "--", "--workers=2"], artifacts: [buildArtifacts[0]] }] : []),
+    ...(release ? [{ id: "browser", argv: [...npm("test:e2e"), "--", process.env.CI ? "--workers=1" : "--workers=2"], artifacts: [buildArtifacts[0]] }] : []),
     { id: "postbuild", argv: npm("preflight:postbuild"), artifacts: [buildArtifacts[0]] },
   ];
 }

@@ -37,50 +37,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Native dependency metadata
-        run: node scripts/check-native-lockfile.mjs
-
-      - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=high
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Documentation links and commands
-        run: npm run docs:check
-
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: Unit tests
-        run: npm test
-
-      - name: Content and funnel preflight
-        run: npm run preflight
-
-      - name: Image derivative manifest
-        run: npm run images:check
-
-      - name: Build
-        run: npm run build
-
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Browser smoke tests
-        env:
-          PLAYWRIGHT_WEB_SERVER_COMMAND: npm run start -- --hostname 127.0.0.1 --port 3100
-        run: npm run test:e2e
-
-      - name: Post-build performance preflight
-        run: npm run preflight:postbuild
+      - name: Complete release checks
+        run: npm run release:check
 
       - name: Upload browser traces on failure
         if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: playwright-traces
-          path: test-results/
+          path: |
+            test-results/
+            build/release/
           if-no-files-found: ignore
           retention-days: 7
 
