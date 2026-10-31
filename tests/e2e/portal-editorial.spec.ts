@@ -12,9 +12,13 @@ test("details and editorial links are localized without replacing the newest-gui
     const section=page.locator("#menton-in-detail");
     await expect(section.getByRole("heading",{name:headings[locale],exact:true})).toBeVisible();
     await expect(section.locator('a[href$="/guide/jean-cocteau-menton-walking-route"]')).toHaveCount(1);
-    await expect(section.locator('a[href*="#place-"]')).toHaveCount(1);
-    await expect(section.locator("img")).toBeVisible();
-    await expect.poll(()=>section.locator("img").evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
+    await expect(section.locator('a[href*="#place-"]')).toHaveCount(3);
+    await expect(section.locator("img")).toHaveCount(3);
+    for(const image of await section.locator("img").all()){
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toBeVisible();
+      await expect.poll(()=>image.evaluate((element:HTMLImageElement)=>element.complete&&element.naturalWidth>0),{message:`Image loads: ${await image.getAttribute("src")}`,timeout:15_000}).toBe(true);
+    }
     expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBe(0);
   }
   await page.screenshot({path:test.info().outputPath("menton-details-mobile.png")});
