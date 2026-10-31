@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/locales";
 import { firstWeeklyEdition } from "./weekly-edition-2026-10-30";
+import { novemberWeeklyEdition } from "./weekly-edition-2026-11-06";
 import { getRivieraEvent, getEventTitle } from "./riviera-events";
 import { getEventDateStatus, toParisDateKey } from "@/lib/events";
 import { weeklyEventDateLabel } from "@/lib/weekly-event-label";
@@ -35,7 +36,7 @@ export type WeeklyDigest = {
   sourceStatus: WeeklyDigestSourceStatus;
 };
 
-export const weeklyDigests: WeeklyDigest[] = (["en","fr","it","uk"] as const).map(firstWeeklyEdition);
+export const weeklyDigests: WeeklyDigest[] = (["en","fr","it","uk"] as const).flatMap(locale => [firstWeeklyEdition(locale), novemberWeeklyEdition(locale)]);
 
 export function getPublicWeeklyDigest(locale: Locale, now=new Date()) {
   const today=toParisDateKey(now);

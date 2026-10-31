@@ -920,12 +920,14 @@ const rivieraEventsBase: RivieraEvent[] = [
   },
   {
     id: "note-damare-bordighera-2026-11-08", slug: "note-damare-bordighera-2026-11-08", title: "Note d'aMare: final concert", location: "Italian Riviera", city: "Bordighera", monthGroup: "2026-11",
+    schedule: { timeZone: "Europe/Paris", startTime: "17:00", sourceUrl: "https://www.visitbordighera.it/eventi/note-damare-concerto-finale", lastVerifiedAt: "2026-10-31" },
+    venue: { name: "Teatro Giancarlo Golzi", placeId: "teatro-giancarlo-golzi-bordighera", sourceUrl: "https://www.visitbordighera.it/eventi/note-damare-concerto-finale" },
     dateLabel: "8 November 2026, 17:00", dateLabelLocalized: t("8 November 2026, 17:00", "8 novembre 2026, 17h", "8 novembre 2026, 17:00", "8 листопада 2026, 17:00"), startDate: "2026-11-08", endDate: "2026-11-08", dateStatus: "confirmed", recurrence: "one_off",
     category: ["music"], familySuitability: "depends", audience: ["music lovers"],
     shortDescription: t("A free final concert at Teatro Giancarlo Golzi with musicians from Bordighera and Ventimiglia.", "Concert final gratuit au Teatro Giancarlo Golzi avec des musiciens de Bordighera et Vintimille.", "Concerto finale gratuito al Teatro Giancarlo Golzi con musicisti di Bordighera e Ventimiglia.", "Безкоштовний заключний концерт у Teatro Giancarlo Golzi за участю музикантів із Бордігери та Вентімільї."),
     whyShowOnSite: t("A local Italian Riviera music outing.", "Une sortie musicale locale sur la Riviera italienne.", "Una serata musicale locale sulla Riviera italiana.", "Місцевий музичний вечір на Італійській Рив'єрі."),
     bookingTip: t("Check admission details and return trains before travelling.", "Verifiez les conditions d'entree et les trains de retour avant le depart.", "Verifica l'ingresso e i treni di ritorno prima di partire.", "Перед поїздкою перевірте умови входу та зворотні поїзди."),
-    sourceStatus: "verified", sourceUrl: "https://www.visitbordighera.it/en/events/note-damare-final-concert", lastChecked: "2026-10-27", lastVerifiedAt: "2026-10-27", detailPage: true, relatedPlaceIds: ["teatro-giancarlo-golzi-bordighera"], relatedGuideSlugs: ["italian-riviera-day-trip-from-menton"], relatedApartmentKeys: relatedAll,
+    sourceStatus: "verified", sourceUrl: "https://www.visitbordighera.it/eventi/note-damare-concerto-finale", lastChecked: "2026-10-31", lastVerifiedAt: "2026-10-31", detailPage: true, relatedPlaceIds: ["teatro-giancarlo-golzi-bordighera"], relatedGuideSlugs: ["italian-riviera-day-trip-from-menton"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "stand-up-monaco-2026-11-09", slug: "stand-up-monaco-2026-11-09", title: "Stand Up Monaco", location: "Monaco", city: "Monaco", monthGroup: "2026-11",

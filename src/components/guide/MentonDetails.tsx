@@ -7,7 +7,7 @@ import { placeSharePath } from "@/lib/place-share-target";
 import { GuideVisual } from "./GuideVisual";
 import { Container } from "@/components/ui/Container";
 
-const copy={en:{title:"Menton in detail",walk:"Follow the Cocteau walk",place:"See the place",source:"Heritage source",checked:"Sources checked"},fr:{title:"Menton en détail",walk:"Suivre la promenade Cocteau",place:"Voir le lieu",source:"Source patrimoniale",checked:"Sources vérifiées"},it:{title:"Mentone nei dettagli",walk:"Segui la passeggiata Cocteau",place:"Vedi il luogo",source:"Fonte sul patrimonio",checked:"Fonti verificate"},uk:{title:"Ментон у деталях",walk:"Пройти маршрутом Кокто",place:"Переглянути місце",source:"Джерело про спадщину",checked:"Перевірка джерел"}};
+const copy={en:{title:"Menton in detail",walk:"Read the related guide",place:"See the place",source:"Heritage source",checked:"Sources checked"},fr:{title:"Menton en détail",walk:"Lire le guide associé",place:"Voir le lieu",source:"Source patrimoniale",checked:"Sources vérifiées"},it:{title:"Mentone nei dettagli",walk:"Leggi la guida collegata",place:"Vedi il luogo",source:"Fonte sul patrimonio",checked:"Fonti verificate"},uk:{title:"Ментон у деталях",walk:"Читати пов'язаний гід",place:"Переглянути місце",source:"Джерело про спадщину",checked:"Перевірка джерел"}};
 
 export function MentonDetails({locale}:{locale:Locale}){
   const c=copy[locale];

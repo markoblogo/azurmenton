@@ -14,6 +14,21 @@ Titles, dates, verified wall times, places and sources resolve from the existing
 
 Add a new edition only after checking official programmes and duplicate coverage. Supply editorial reasons and return-travel advice in all four languages, reference canonical existing IDs, run `npm run weekly:validate`, and review the page. Do not generate or publish an edition automatically or silently advance the previous edition's dates.
 
+The second approved edition, `weekly-edition-2026-11-06.ts`, covers 6-12 November 2026 in all four languages. It selects St John's Jazz (6 November), Note d'aMare in Bordighera (8 November), and Stand Up Monaco (9 November), plus a non-event Halles morning. The existing Paris-date resolver keeps the first edition through 5 November and selects the second from 6 November; completed events disappear without removing the continuing local morning suggestion. No new public preview endpoint or auto-publishing mechanism was added.
+
+The detail collection now contains three observations: Cocteau's wedding room, the Halles facade and Fontana Rosa's literary ceramics. All reuse existing illustrated places and full guides. The shared guide-link label is neutral rather than incorrectly calling every destination a Cocteau walk.
+
+## Weekly Editorial Review
+
+The existing Codex heartbeat `azur-menton` was expanded on 31 October 2026 rather than duplicated. It runs Mondays at 09:00 Europe/Paris in the owner's project chat and is report-only:
+
+1. Recheck published events for dates, sessions, venues, access, cancellations, stale links and missing covers, using official sources.
+2. Search small local events for the next three calendar months and major cultural/sporting events for the next twelve months, covering Menton, the French Riviera, neighbouring villages and nearby Italy. Compare published records and existing pending/borderline batches before calling an item new.
+3. Propose the next weekly edition, 2-3 source-backed Menton-in-detail observations, and gaps in existing route content. Check already prepared future editions before proposing another for the same dates.
+4. Deliver a weekly editorial shortlist with sources, checked dates, uncertainties, relevant content links, image needs and one priority action. No source means unconfirmed, not permission to infer last year's dates.
+
+The schedule lives in Codex, not a Vercel cron or repository publishing job. It does not edit files, commit/push, publish, contact organisers or guests, send newsletters, change bookings or touch Telegram. Publication remains a separate owner-approved action. The independent guide-maintenance, roadmap and 30 November ski-season reviews are unchanged.
+
 Sources for the first edition:
 - https://www.menton-riviera-merveilles.fr/offres/vivaldi-gloria-menton-fr-6754351/
 - https://www.menton-riviera-merveilles.fr/offres/halloween-au-centre-culturel-prince-hereditaire-jacques-beausoleil-fr-6854033/
