@@ -8,7 +8,7 @@ Reusable per release. Old launch checkmarks are not evidence for the current com
 - [ ] Update version and lockfile, changelog and affected runbooks. Never move an existing release tag.
 - [ ] Run `npm run release:check` (optional `-- --webpack` locally). Review `build/release/checks.json` and logs; failed or stale checks are not a pass.
 - [ ] Review content/event reports. Separate editorial backlog and intentionally missing images from broken references or unsafe public behavior.
-- [ ] Review full dependency audit as well as the production high/critical gate; document unresolved development advisories instead of using a destructive force upgrade.
+- [ ] Pass the full dependency audit (development included, moderate and above). Review production-only dependencies separately when changing them; never use a destructive force downgrade to clear an advisory.
 
 ## Publish
 

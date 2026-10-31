@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Replaced vulnerable development minimatch engines with upstream 11.0.3. A private compatibility bridge preserves the callable API needed by current ESLint plugins; TypeScript ESLint uses the modern API directly. No Next.js/ESLint downgrade or audit suppression.
+- Added glob/API, real lint-rule and bounded adversarial-pattern regression tests. Release checks now audit development dependencies too and fail at moderate severity.
+
 ## 0.3.0 - 2026-10-31
 
 - Added device-only trips, favourites, shared selections, structured day routes and personal day plans with source-backed visit warnings and optional child ages.

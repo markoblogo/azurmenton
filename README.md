@@ -38,7 +38,7 @@ npm run release:check
 npm run release:check -- --webpack
 ```
 
-This checks native dependency metadata, production dependency security, documentation, lint, types, unit tests, content/SEO preflight, images, production build, browser tests and post-build CSP/cache rules. Results and logs stay under ignored `build/release/`. It does not publish, send mail, create tags or change bookings. The production browser test server uses port 3100; stop any existing server there first.
+This checks native dependency metadata, dependency security (including development tools, moderate and above), documentation, lint, types, unit tests, content/SEO preflight, images, production build, browser tests and post-build CSP/cache rules. Results and logs stay under ignored `build/release/`. It does not publish, send mail, create tags or change bookings. The production browser test server uses port 3100; stop any existing server there first. See [dependency maintenance](docs/ci-native-dependencies.md) for the temporary ESLint/minimatch compatibility bridge.
 
 Individual checks remain available: `npm run docs:check`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run preflight`, `npm run images:check`, `npm run build`, `npm run test:e2e`, `npm run preflight:postbuild`.
 
