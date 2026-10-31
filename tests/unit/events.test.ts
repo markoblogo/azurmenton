@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, inheritAnnualEventIllustrations, isIndexableEventDetail } from "../../src/content/riviera-events";
+import { rivieraEvents, eventDetailSlugs, getCanonicalEventDetailSlug, getEventDetail, getEventSearchIndexing, getRivieraEvent, inheritAnnualEventIllustrations, isIndexableEventDetail } from "../../src/content/riviera-events";
 import { eventDeduplicationKey, filterDiscoverableEvents, findDuplicateEventCandidates, parseEventDiscoveryParams } from "../../src/lib/event-discovery";
 import { canRenderEventJsonLd, eventOverlapsDateRange, getEventDateStatus, getParisDateRange } from "../../src/lib/events";
 import { getGuideRelatedEventSlugs } from "../../src/lib/event-related-content";
@@ -14,6 +14,31 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
+  it("publishes the November Menton batch without borrowed covers and preserves both Monaco years", () => {
+    for (const slug of ["mado-fait-son-cabaret-menton-2026-11-21", "delpech-ces-mots-la-menton-2026-11-21", "la-capeline-christmas-concert-menton-2026-11-29"]) {
+      const event = getRivieraEvent(slug)!;
+      expect(rivieraEvents.filter(e => e.slug === slug)).toHaveLength(1);
+      expect(event).toMatchObject({ detailPage: true, dateStatus: "confirmed", sourceStatus: "verified", lastVerifiedAt: "2026-10-31" });
+      expect(event.media?.image).toBeFalsy();
+      expect(getPlaces(event.relatedPlaceIds)).toHaveLength(1);
+      expect(eventDetailSlugs).toContain(slug);
+    }
+    expect(getRivieraEvent("delpech-ces-mots-la-menton-2026-11-21")?.schedule).toBeUndefined();
+    expect(getRivieraEvent("monaco-national-day-2026")).toMatchObject({ seriesSlug: "monaco-national-day", occurrenceYear: 2026, startDate: "2026-11-18", endDate: "2026-11-19" });
+    expect(getRivieraEvent("monaco-national-day")).toMatchObject({ occurrenceYear: 2027, startDate: "2027-11-19" });
+    expect(getRivieraEvent("monaco-national-day-2026")?.media?.image).toBe(getRivieraEvent("monaco-national-day")?.media?.image);
+    vi.useFakeTimers({ now: new Date("2026-10-31T12:00:00Z") });
+    try {
+      expect(getGuideRelatedEventSlugs(getGuideArticle("monaco-events-from-menton")!)).toContain("monaco-national-day-2026");
+    } finally {
+      vi.useRealTimers();
+    }
+    const festival = getRivieraEvent("cest-pas-classique-riviera-2026")!;
+    expect(festival.sessions).toEqual(expect.arrayContaining([expect.objectContaining({ id: "theo-ould-menton", date: "2026-11-10", startTime: "20:00", lastVerifiedAt: "2026-10-31" })]));
+    expect(festival.relatedPlaceIds).toHaveLength(14);
+    const christmas = getGuideArticle("christmas-french-riviera-from-menton")!;
+    expect(christmas.sections.some(s => s.relatedPlaceIds?.includes("chapelle-misericorde-menton") && s.relatedEventIds?.includes("la-capeline-christmas-concert-menton-2026-11-29"))).toBe(true);
+  });
   it("links the reviewed small events to their venues and retains the existing festival", () => {
     for (const [slug, place] of [
       ["vivaldi-gloria-menton-2026-10-31", "st-john-anglican-church-menton"],

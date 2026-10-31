@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "chapelle-misericorde-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/concert-de-noel-de-la-capeline-de-menton-menton-fr-6876062/" },
   { placeId: "villa-isola-bella-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/balade-a-garavan-le-reve-babylonien-menton-fr-3097471/" },
   { placeId: "jardin-fontana-rosa-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-fontana-rosa-le-jardin-des-romanciers-menton-fr-5595124/" },
   { placeId: "villa-e-1027-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://capmoderne.monuments-nationaux.fr/en/visit/practical-information" },

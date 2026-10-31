@@ -44,7 +44,14 @@ const sourceLinks = [
   ['Regional trains', 'https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/info-trafic/travaux/travaux-entre-nice-vintimille'],
 ];
 sections[sections.length-1].officialLinks = sourceLinks.map(([label,url]) => ({label:t(label,label,label,label),url}));
-sections[2].relatedPlaceIds = ['jardins-bioves'];
+sections[2].relatedPlaceIds = ['jardins-bioves', 'chapelle-misericorde-menton'];
+sections[2].body.push(t(
+  'An early seasonal option: La Capeline gives a free Christmas concert at the Chapelle de la Miséricorde on 29 November 2026, 15:00-16:30. This is a separate concert, not confirmation of the town Christmas village programme.',
+  'Une première sortie de saison : La Capeline donne un concert de Noël gratuit à la chapelle de la Miséricorde le 29 novembre 2026, de 15h à 16h30. Ce concert est distinct et ne confirme pas le programme du village de Noël municipal.',
+  'Una prima uscita di stagione: La Capeline tiene un concerto di Natale gratuito alla Chapelle de la Miséricorde il 29 novembre 2026, dalle 15:00 alle 16:30. È un concerto distinto, non la conferma del programma del villaggio natalizio comunale.',
+  'Рання сезонна подія: безкоштовний різдвяний концерт La Capeline у Chapelle de la Miséricorde 29 листопада 2026, 15:00-16:30. Це окремий концерт, а не підтвердження програми міського різдвяного містечка.'
+));
+sections[2].relatedEventIds = ['la-capeline-christmas-concert-menton-2026-11-29'];
 sections[3].relatedPlaceIds = ['port-hercule-christmas-monaco'];
 sections[4].relatedPlaceIds = ['jardin-albert-premier-christmas-nice'];
 sections[5].relatedPlaceIds = ['marche-carnoles-saint-nicolas'];

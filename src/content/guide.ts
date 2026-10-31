@@ -7145,7 +7145,7 @@ export const guideArticles: GuideArticle[] = [
     sourceStatus: "needs_verification",
     relatedPlaces: ["monaco-monte-carlo"],
     relatedArticles: ["jazz-live-music-near-menton", "latin-dancing-salsa-bachata-menton", "tennis-padel-courts-menton", "best-souvenir-shops-menton-monaco-nice", "car-rental-menton-nice-airport-convertibles", "casinos-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "day-trips-from-menton", "public-transport-in-menton", "menton-without-a-car", "where-to-stay-in-menton", "how-to-get-to-menton-from-nice-airport", "nightlife-in-menton"],
-    relatedEvents: ["monaco-grand-prix", "monaco-national-day", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run", "halloween-beausoleil-2026", "christmas-parade-beausoleil-2026"],
+    relatedEvents: ["monaco-national-day-2026", "monaco-grand-prix", "monaco-e-prix", "monaco-yacht-show", "rolex-monte-carlo-masters", "monte-carlo-circus-festival", "rallye-automobile-monte-carlo", "rallye-monte-carlo-historique", "monaco-red-cross-gala", "monaco-run", "halloween-beausoleil-2026", "christmas-parade-beausoleil-2026"],
     relatedApartments: allApartments,
     sections: [
       {
