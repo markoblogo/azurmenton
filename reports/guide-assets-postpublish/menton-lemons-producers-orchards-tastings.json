@@ -1,0 +1,58 @@
+{
+  "slug": "menton-lemons-producers-orchards-tastings",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": true,
+  "operatorSummary": [
+    "status: ok",
+    "subject: menton-lemons-producers-orchards-tastings",
+    "mode: published-guide + missing-only",
+    "matched: 5",
+    "skipped-covered: 5",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/menton-lemons-producers-orchards-tastings.json",
+    "rerun: npm run guide:assets -- --published-guide menton-lemons-producers-orchards-tastings --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 5,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 5,
+    "stillMissing": 0,
+    "patchReady": 5
+  },
+  "matchedAssetFiles": [
+    "domaine-gannac-menton.png",
+    "emilie-citrons-de-pepe-menton.png",
+    "la-ferme-des-citrons-menton.png",
+    "pasta-piemonte-menton.png",
+    "sacchelli-citrus-growers-menton.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "domaine-gannac-menton",
+    "emilie-citrons-de-pepe-menton",
+    "sacchelli-citrus-growers-menton",
+    "la-ferme-des-citrons-menton",
+    "pasta-piemonte-menton"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide menton-lemons-producers-orchards-tastings --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "domaine-gannac-menton",
+      "emilie-citrons-de-pepe-menton",
+      "sacchelli-citrus-growers-menton",
+      "la-ferme-des-citrons-menton",
+      "pasta-piemonte-menton"
+    ],
+    "failedPlaceIds": []
+  }
+}

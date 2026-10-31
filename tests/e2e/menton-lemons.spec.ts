@@ -4,7 +4,7 @@ const slug = "menton-lemons-producers-orchards-tastings";
 const newIds = ["domaine-gannac-menton", "emilie-citrons-de-pepe-menton", "sacchelli-citrus-growers-menton", "la-ferme-des-citrons-menton", "pasta-piemonte-menton"];
 
 for (const locale of ["en", "fr", "it", "uk"]) {
-  test(`lemon guide has translated content, usable tables and intentional image gaps in ${locale}`, async ({ page }) => {
+  test(`lemon guide has translated content, usable tables and dedicated place images in ${locale}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     const response = await page.goto(`/${locale}/guide/${slug}`);
     expect(response?.status()).toBe(200);
@@ -16,7 +16,10 @@ for (const locale of ["en", "fr", "it", "uk"]) {
       await expect(card).toHaveCount(1);
       await card.scrollIntoViewIfNeeded();
       await expect(card).toBeVisible();
-      await expect(card.locator("img")).toHaveCount(0);
+      const image = card.locator("img");
+      await expect(image).toHaveCount(1);
+      await expect(image).toHaveAttribute("src", new RegExp(id));
+      await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth)).toBeGreaterThan(0);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
     await expect(page.locator(`link[rel="canonical"]`)).toHaveAttribute("href", `https://azurmenton.com/${locale}/guide/${slug}`);

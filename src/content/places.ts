@@ -302,6 +302,7 @@ const rawPlaces: Place[] = [
   {
     id: "domaine-gannac-menton", name: "Domaine Gannac", type: "garden",
     address: "2970 Route de Super Garavan, 06500 Menton",
+    image: "/images/guide/domaine-gannac-menton.png",
     googleMapsUrl: mapsSearch("Domaine Gannac", "2970 Route de Super Garavan, Menton"),
     programmeUrl: "https://www.lamaisonducitron.com/pages/domaine-gannac",
     openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
@@ -312,6 +313,7 @@ const rawPlaces: Place[] = [
   {
     id: "emilie-citrons-de-pepe-menton", name: "Emilie et les Citrons de Pépé", type: "garden",
     address: "2743 Corniche des Serres de la Madone, 06500 Menton",
+    image: "/images/guide/emilie-citrons-de-pepe-menton.png",
     googleMapsUrl: mapsSearch("Emilie et les Citrons de Pépé", "2743 Corniche des Serres de la Madone, Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-de-producteur-citron-de-menton-emilie-et-les-citrons-de-pepe-menton-fr-5108846/",
     openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
@@ -322,6 +324,7 @@ const rawPlaces: Place[] = [
   {
     id: "sacchelli-citrus-growers-menton", name: "Christophe et Christelle Sacchelli", type: "garden",
     address: "Villa les Mimosas, 1548 Avenue de Prades, 06500 Menton",
+    image: "/images/guide/sacchelli-citrus-growers-menton.png",
     googleMapsUrl: mapsSearch("Sacchelli Christophe", "1548 Avenue de Prades, Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/producteur-citron-de-menton-igp-sacchelli-christophe-visites-et-ateliers-menton-fr-3051589/",
     openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
@@ -332,6 +335,7 @@ const rawPlaces: Place[] = [
   {
     id: "la-ferme-des-citrons-menton", name: "La Ferme des Citrons", type: "garden",
     area: text("Menton hills; confirm the meeting point", "Hauteurs de Menton ; rendez-vous à confirmer", "Colline di Mentone; conferma il ritrovo", "Пагорби Ментона; уточніть точку зустрічі"),
+    image: "/images/guide/la-ferme-des-citrons-menton.png",
     googleMapsUrl: mapsSearch("La Ferme des Citrons", "Menton"), programmeUrl: "https://www.lafermedescitrons.fr/",
     openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", visitorAccess: "ask-first", requiresMapReview: true,
     shortNote: text("Working lemon farm welcoming the public by reservation only. Book the actual offer and confirm whether a visit, tasting or meal is included; no daily walk-in or free meal is implied.", "Exploitation de citrons accueillant le public uniquement sur réservation. Choisissez l'offre précise et confirmez visite, dégustation ou repas inclus ; ni entrée libre quotidienne ni repas gratuit garantis.", "Azienda di limoni con accesso al pubblico solo su prenotazione. Verifica se l'offerta comprende visita, assaggi o pasto; non sono garantiti ingresso libero giornaliero o pasti gratuiti.", "Лимонне господарство приймає гостей лише за бронюванням. Перевірте, чи включено візит, дегустацію або їжу; щоденний вільний вхід чи безкоштовний обід не обіцяються."),
@@ -341,6 +345,7 @@ const rawPlaces: Place[] = [
   {
     id: "pasta-piemonte-menton", name: "Pasta Piemonte", type: "market",
     address: "34 Rue Partouneaux, 06500 Menton",
+    image: "/images/guide/pasta-piemonte-menton.png",
     googleMapsUrl: mapsSearch("Pasta Piemonte", "34 Rue Partouneaux, Menton"),
     programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/la-route-du-citron-menton-fr-4033616/",
     openingHoursLabel: checkHours, priceLabel: checkPrices, sourceStatus: "needs_verification", requiresMapReview: true,

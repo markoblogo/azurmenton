@@ -27,7 +27,7 @@ describe("Menton lemon growers guide", () => {
     expect(guide.sections[5].body[0].en).toContain("aren't available during the Fête du Citron");
   });
 
-  it("keeps reciprocal links, a real cover and intentional empty new-place images", () => {
+  it("keeps reciprocal links, a real cover and dedicated owner illustrations", () => {
     expect(guideArticles.some(article => article.slug === guide.slug)).toBe(true);
     expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
     expect(guide.publishedOn).toBe("2026-10-31");
@@ -40,7 +40,9 @@ describe("Menton lemon growers guide", () => {
       expect(place.image).not.toBe(guide.coverImage);
     }
     for (const place of getPlaces(newIds)) {
-      expect(place.image).toBeUndefined();
+      expect(place.image).toBe(`/images/guide/${place.id}.png`);
+      expect(existsSync(`public${place.image}`)).toBe(true);
+      for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]).toBeTruthy();
       expect(place.guideCoverageSlugs).toContain(guide.slug);
       expect(placeMapExclusions.some(item => item.placeId === place.id)).toBe(true);
     }

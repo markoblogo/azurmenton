@@ -567,6 +567,13 @@
     ]
   },
   {
+    "source": "public/images/guide/menton-lemons-producers-orchards-tastings.png",
+    "outputs": [
+      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.avif",
+      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/menton-water-sports-bay.png",
     "outputs": [
       "public/images/guide/generated/menton-water-sports-bay.avif",
@@ -931,10 +938,38 @@
     ]
   },
   {
-    "source": "public/images/guide/menton-lemons-producers-orchards-tastings.png",
+    "source": "public/images/guide/domaine-gannac-menton.png",
     "outputs": [
-      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.avif",
-      "public/images/guide/generated/menton-lemons-producers-orchards-tastings.webp"
+      "public/images/guide/generated/domaine-gannac-menton.avif",
+      "public/images/guide/generated/domaine-gannac-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/emilie-citrons-de-pepe-menton.png",
+    "outputs": [
+      "public/images/guide/generated/emilie-citrons-de-pepe-menton.avif",
+      "public/images/guide/generated/emilie-citrons-de-pepe-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/sacchelli-citrus-growers-menton.png",
+    "outputs": [
+      "public/images/guide/generated/sacchelli-citrus-growers-menton.avif",
+      "public/images/guide/generated/sacchelli-citrus-growers-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-ferme-des-citrons-menton.png",
+    "outputs": [
+      "public/images/guide/generated/la-ferme-des-citrons-menton.avif",
+      "public/images/guide/generated/la-ferme-des-citrons-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/pasta-piemonte-menton.png",
+    "outputs": [
+      "public/images/guide/generated/pasta-piemonte-menton.avif",
+      "public/images/guide/generated/pasta-piemonte-menton.webp"
     ]
   }
 ]
