@@ -32,13 +32,15 @@ it("preserves the book companion and real translations, with two aligned tables"
   expect(guide.relatedApartments).toHaveLength(3);
 });
 
-it("links nine real places without stealing illustrations for seven new cards", () => {
+it("links nine real places and preserves dedicated owner illustrations", () => {
   const ids = guide.sections.flatMap(s => s.relatedPlaceIds ?? []);
   expect(new Set(ids).size).toBe(9);
   for (const place of getPlaces(ids)) {
     expect(place.relatedArticleIds).toContain(guide.slug);
     if (!["jardin-val-rahmeh", "musee-matisse-nice"].includes(place.id)) {
-      expect(place.image).toBeUndefined();
+      expect(place.image).toBe(`/images/guide/${place.id}.png`);
+      expect(existsSync(`public${place.image}`)).toBe(true);
+      for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]).toBeTruthy();
       expect(placeMapExclusions.some(x => x.placeId === place.id)).toBe(true);
     } else expect(place.image).toBeTruthy();
   }

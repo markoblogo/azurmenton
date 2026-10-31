@@ -1,8 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const slug = "the-houses-that-remember-riviera-book-route";
+const illustratedPlaces = ["villa-isola-bella-menton", "jardin-fontana-rosa-menton", "villa-e-1027-roquebrune-cap-martin", "les-colombieres-menton", "villa-ephrussi-de-rothschild", "villa-kerylos-beaulieu-sur-mer", "le-regina-nice"];
 for (const locale of ["en", "fr", "it", "uk"]) {
   test(`book companion has readable localized content and correct links in ${locale}`, async ({ page }) => {
+    test.setTimeout(60_000);
     await page.setViewportSize({ width: 390, height: 844 });
     const response = await page.goto(`/${locale}/guide/${slug}`);
     expect(response?.status()).toBe(200);
@@ -15,8 +17,13 @@ for (const locale of ["en", "fr", "it", "uk"]) {
     const cover = page.locator('img[src*="the-houses-that-remember-book-cover"]').first();
     await cover.scrollIntoViewIfNeeded();
     await expect.poll(() => cover.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
-    await expect(page.locator("#place-villa-isola-bella-menton img")).toHaveCount(0);
-    await expect(page.locator("#place-le-regina-nice img")).toHaveCount(0);
+    for (const id of illustratedPlaces) {
+      const image = page.locator(`#place-${id} img`);
+      await expect(image).toHaveCount(1);
+      await image.scrollIntoViewIfNeeded();
+      await expect(image).toHaveAttribute("src", new RegExp(id));
+      await expect.poll(() => image.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0), { timeout: 10_000 }).toBe(true);
+    }
     await expect(page.locator("#place-musee-matisse-nice")).toHaveCount(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://azurmenton.com/${locale}/guide/${slug}`);
