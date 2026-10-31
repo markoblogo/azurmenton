@@ -1,0 +1,10 @@
+{
+  "name": "@azurmenton/minimatch-compat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Development-only legacy callable API for the patched upstream minimatch engine",
+  "main": "index.cjs",
+  "dependencies": {
+    "minimatch-core": "npm:minimatch@11.0.3"
+  }
+}

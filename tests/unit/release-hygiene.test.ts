@@ -52,9 +52,12 @@ describe("release hygiene", () => {
     const guide = projectChecks("/project", { webpack: true });
     const release = projectChecks("/project", { webpack: true, release: true });
     expect(guide.map((check: { id: string }) => check.id)).toEqual(["docs", "lint", "typecheck", "unit", "preflight", "images", "build", "postbuild"]);
-    expect(release.map((check: { id: string }) => check.id)).toEqual(["native-lockfile", "production-audit", ...guide.slice(0, -1).map((check: { id: string }) => check.id), "browser", "postbuild"]);
+    expect(release.map((check: { id: string }) => check.id)).toEqual(["native-lockfile", "dependency-audit", ...guide.slice(0, -1).map((check: { id: string }) => check.id), "browser", "postbuild"]);
     expect(release.find((check: { id: string }) => check.id === "build").argv).toContain("--webpack");
-    expect(release.find((check: { id: string }) => check.id === "production-audit").alwaysRun).toBe(true);
+    const audit = release.find((check: { id: string }) => check.id === "dependency-audit");
+    expect(audit.alwaysRun).toBe(true);
+    expect(audit.argv).toContain("--audit-level=moderate");
+    expect(audit.argv).not.toContain("--omit=dev");
     expect(release.some((check: { argv: string[] }) => check.argv.includes("push"))).toBe(false);
   });
   it("counts event-only venues as linked without hiding truly unused places", () => {

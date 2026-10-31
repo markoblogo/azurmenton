@@ -24,6 +24,8 @@ The report still has 34 editorial review items, including 18 guides outside the 
 
 ## Dependency Review
 
+Follow-up: the snapshot below records the v0.3.0 review, not an unresolved current exception. The subsequent minimatch repair replaces old engines with upstream 11.0.3, retaining the legacy ESLint API through a private bridge. Release checks now include development dependencies at moderate severity. See [dependency maintenance](../ci-native-dependencies.md) and the Unreleased changelog; current audit/test output must still be checked for the working commit.
+
 The full dependency audit reports 16 moderate affected package entries caused by one transitive development-tool issue: [minimatch glob-pattern amplification, GHSA-g3hv-75wg-m249](https://github.com/advisories/GHSA-g3hv-75wg-m249). The advisory lists versions below 11.0.1 as affected. Installed ESLint consumers use minimatch 3.x and 10.x; a blanket override to the changed 11.x API is not a proven compatible repair. The audit's suggested force operation would downgrade ESLint/Next tooling and is rejected.
 
 No high or critical dependency entries were found in the full audit at review time. The separate production audit is enforced by the release runner and CI. This is not a claim of zero development vulnerabilities, a penetration test or proof against unpublished advisories. Follow up when upstream-compatible fixes are available; never accept untrusted remote glob configuration in local lint tooling.
