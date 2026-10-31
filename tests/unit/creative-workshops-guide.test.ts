@@ -40,6 +40,7 @@ describe("creative workshops publication", () => {
         if (place.image) {
           expect(place.image).toMatch(new RegExp(`/images/guide/${place.id}\\.(png|jpe?g|webp|avif)$`));
           expect(existsSync(`public${place.image}`)).toBe(true);
+          for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]).toBeTruthy();
         }
         expect(place.programmeUrl).toMatch(/^https:\/\//);
         expect(placeMapExclusions.some(item => item.placeId === place.id)).toBe(true);

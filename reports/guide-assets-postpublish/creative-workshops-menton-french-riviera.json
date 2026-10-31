@@ -1,0 +1,70 @@
+{
+  "slug": "creative-workshops-menton-french-riviera",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: creative-workshops-menton-french-riviera",
+    "mode: published-guide + missing-only",
+    "matched: 9",
+    "skipped-covered: 1",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/creative-workshops-menton-french-riviera.json",
+    "rerun: npm run guide:assets -- --published-guide creative-workshops-menton-french-riviera --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 9,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 1,
+    "stillMissing": 0,
+    "patchReady": 9
+  },
+  "matchedAssetFiles": [
+    "atelier-cuisine-nicoise-nice.png",
+    "cuisine-sur-cours-nice.png",
+    "fragonard-fabrique-des-fleurs-grasse.png",
+    "fragonard-perfume-workshop-eze.png",
+    "galimard-studio-des-fragrances-grasse.png",
+    "kairos-lab-menton.png",
+    "les-petits-farcis-nice.png",
+    "molinard-atelier-parfums-grasse.png",
+    "said-berkane-atelier-menton.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "kairos-lab-menton",
+    "said-berkane-atelier-menton",
+    "atelier-cuisine-nicoise-nice",
+    "cuisine-sur-cours-nice",
+    "les-petits-farcis-nice",
+    "fragonard-perfume-workshop-eze",
+    "fragonard-fabrique-des-fleurs-grasse",
+    "galimard-studio-des-fragrances-grasse",
+    "molinard-atelier-parfums-grasse"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide creative-workshops-menton-french-riviera --assets-dir /Users/antonbiletskiy-volokh/Downloads/Content/AzurM/images --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "kairos-lab-menton",
+      "said-berkane-atelier-menton",
+      "atelier-cuisine-nicoise-nice",
+      "cuisine-sur-cours-nice",
+      "les-petits-farcis-nice",
+      "fragonard-perfume-workshop-eze",
+      "fragonard-fabrique-des-fleurs-grasse",
+      "galimard-studio-des-fragrances-grasse",
+      "molinard-atelier-parfums-grasse"
+    ],
+    "failedPlaceIds": []
+  }
+}
