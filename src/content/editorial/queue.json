@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "weekly:2026-11-06:publish",
+      "kind": "weekly",
+      "targetId": "2026-11-06",
+      "action": "publish",
+      "title": "Week in Menton: 6-12 November 2026",
+      "status": "approved",
+      "priority": "high",
+      "refs": ["src/content/weekly-edition-2026-11-06.ts", "docs/audits/2026-10-31-editorial-queue-pilot.md"],
+      "notBefore": "2026-11-06",
+      "approval": {
+        "by": "owner",
+        "on": "2026-10-31",
+        "reference": "Project chat reply to call_cdf1552e63a742c7875af7a5cbb61ebe: owner explicitly approved the four-item 6-12 November edition for display during those dates."
+      },
+      "nextAction": "After the separately authorised release, verify /en/events/this-week and the three translations during 6-12 November; only then record public verification."
+    },
+    {
+      "id": "event:christmas-markets-riviera:verify",
+      "kind": "event",
+      "targetId": "christmas-markets-riviera",
+      "action": "verify",
+      "title": "Menton Christmas programme: confirm the 2026-2027 announcement",
+      "status": "new",
+      "priority": "high",
+      "refs": ["docs/audits/2026-10-31-december-january-events-review.md", "https://www.noel-menton.fr/"],
+      "blockers": ["The 31 October review found last year's programme; no current Menton dates were established."],
+      "nextAction": "Recheck the municipal programme; update only confirmed Menton dates without duplicating the published Nice and Monaco villages."
+    },
+    {
+      "id": "event:sanremo-international-guitar-festival-2026:publish",
+      "kind": "event",
+      "targetId": "sanremo-international-guitar-festival-2026",
+      "action": "publish",
+      "title": "Sanremo International Guitar Festival, 10-14 November: publication proposal",
+      "status": "new",
+      "priority": "normal",
+      "refs": ["docs/audits/2026-10-31-november-events-review.md", "https://www.sanremoguitarfestival.com/", "https://comune.sanremo.im.it/it/eventi/2518388"],
+      "blockers": ["This is an unapproved proposal, not a freshly verified event or a publication instruction."],
+      "nextAction": "Recheck programme, date/venue identity and duplicates; prepare selected performances and venue links for owner approval, requesting missing illustrations."
+    },
+    {
+      "id": "weekly:2026-11-13:publish",
+      "kind": "weekly",
+      "targetId": "2026-11-13",
+      "action": "publish",
+      "title": "Next Week in Menton edition: 13-19 November",
+      "status": "new",
+      "priority": "normal",
+      "refs": ["docs/audits/2026-10-31-november-events-review.md", "src/content/weekly-digests.ts"],
+      "notBefore": "2026-11-13",
+      "blockers": ["No edition has been selected, translated or approved yet."],
+      "nextAction": "Select a small source-backed programme, including existing National Day coverage where useful; do not create duplicate events or promise late return trains."
+    },
+    {
+      "id": "guide:untitled-guide:publish",
+      "kind": "guide",
+      "targetId": "untitled-guide",
+      "action": "publish",
+      "title": "Non-editorial test intake: exclude from publication",
+      "status": "rejected",
+      "priority": "low",
+      "refs": ["build/guide-intake/untitled-guide/intake.json", "build/guide-intake/untitled-guide/preamble.json", "docs/audits/2026-10-31-editorial-queue-pilot.md"],
+      "decisionReason": "Technical triage: empty editorial body and Vitest worker imports in preamble; not a guide submission. Files retained, no content deleted.",
+      "nextAction": "Retain as technical evidence; do not publish or turn it into a guide."
+    }
+  ],
+  "targetAliases": [
+    {
+      "kind": "guide",
+      "alias": "laundry-near-victoria-beach-apartments",
+      "targetId": "laundry-laundromats-menton",
+      "reference": "The original intake preamble explicitly specifies laundry-laundromats-menton; that canonical guide exists in src/content/guide.ts. Reconciled 2026-10-31."
+    },
+    {
+      "kind": "guide",
+      "alias": "the-houses-that-remember-discover-eight-remarkable-lives-on-the-french-riviera",
+      "targetId": "the-houses-that-remember-riviera-book-route",
+      "reference": "Original intake title matches the canonical guide title (case-insensitive); the completed intake uses the-houses-that-remember-riviera-book-route. Reconciled 2026-10-31."
+    }
+  ]
+}

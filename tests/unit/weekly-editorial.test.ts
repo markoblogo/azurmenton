@@ -4,7 +4,33 @@ import { getRivieraEvent } from "@/content/riviera-events";
 import { guideArticles } from "@/content/guide";
 import { places } from "@/content/places";
 import { mentonDetails } from "@/content/menton-details";
+import registry from "@/content/editorial/queue.json";
+import { buildEditorialReport } from "@/lib/editorial-queue";
+import { existsSync } from "node:fs";
+import path from "node:path";
 describe("editorial layers reuse canonical content",()=>{
+  it("keeps the real approved edition staged before its date and uses canonical illustrated selections",()=>{
+    const task=registry.items.find(item=>item.id==="weekly:2026-11-06:publish")!;
+    expect(task).toMatchObject({status:"approved",notBefore:"2026-11-06",approval:{by:"owner",on:"2026-10-31"}});
+    expect(task).not.toHaveProperty("publication");
+    const report=buildEditorialReport({...registry,targetAliases:[]},[],[{kind:"weekly",targetId:"2026-11-06",title:"Weekly edition"}],"2026-10-31");
+    expect(report.items.find(item=>item.id===task.id)).toMatchObject({bucket:"active",liveStatus:"not-checked"});
+    for(const locale of ["en","fr","it","uk"] as const){
+      expect(getPublicWeeklyDigest(locale,new Date("2026-10-31T12:00:00Z"))?.slug).toBe("2026-10-30");
+      const digest=getPublicWeeklyDigest(locale,new Date("2026-11-06T12:00:00Z"))!;
+      expect(digest.items).toHaveLength(4);
+      expect(digest.items.map(item=>item.relatedEventSlug).filter(Boolean)).toEqual(["st-johns-jazz-menton-2026-11-06","note-damare-bordighera-2026-11-08","stand-up-monaco-2026-11-09"]);
+      for(const item of digest.items){
+        if(!item.relatedEventSlug)continue;
+        const event=getRivieraEvent(item.relatedEventSlug)!;
+        expect(event.media?.mediaStatus).toBe("available");
+        expect(existsSync(path.join(process.cwd(),"public",event.media!.image!))).toBe(true);
+      }
+    }
+    const comedy=getRivieraEvent("stand-up-monaco-2026-11-09")!;
+    expect(comedy.sourceUrl).toBe(comedy.programmeUrl);
+    expect(comedy.sessions?.map(session=>session.startTime)).toEqual(["19:00","21:00"]);
+  });
   it("has four translations and a bounded current edition, not stale evergreen dates",()=>{
     expect(weeklyDigests).toHaveLength(8);
     for(const locale of ["en","fr","it","uk"] as const){

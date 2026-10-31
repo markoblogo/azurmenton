@@ -942,7 +942,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     shortDescription: t("Two comedy shows at Espace Indigo, Grimaldi Forum. The advertised ticket price is EUR 35.", "Deux spectacles d'humour a l'Espace Indigo, Grimaldi Forum. Tarif annonce : 35 EUR.", "Due spettacoli comici all'Espace Indigo, Grimaldi Forum. Prezzo indicato: 35 EUR.", "Два стендап-виступи в Espace Indigo, Grimaldi Forum. Заявлена ціна квитка: 35 євро."),
     whyShowOnSite: t("A comedy evening in Monaco.", "Une soiree humour a Monaco.", "Una serata comica a Monaco.", "Вечір стендапу в Монако."),
     bookingTip: t("Check ticket availability, language and your return journey.", "Verifiez les billets, la langue et votre trajet retour.", "Verifica biglietti, lingua e viaggio di ritorno.", "Перевірте квитки, мову виступу та зворотну дорогу."),
-    sourceStatus: "verified", sourceUrl: "https://www.grimaldiforum.com/fr/bienvenue-au-grimaldi-forum", lastChecked: "2026-10-27", lastVerifiedAt: "2026-10-27", detailPage: true, relatedPlaceIds: ["grimaldi-forum-monaco"], relatedGuideSlugs: ["theatre-opera-performing-arts-near-menton", "day-trips-from-menton"], relatedApartmentKeys: relatedAll,
+    sourceStatus: "verified", sourceUrl: "https://grimaldiforum.com/fr/agenda-manifestations-monaco/stand-up-monaco-9-novembre-2026", lastChecked: "2026-10-31", lastVerifiedAt: "2026-10-31", detailPage: true, relatedPlaceIds: ["grimaldi-forum-monaco"], relatedGuideSlugs: ["theatre-opera-performing-arts-near-menton", "day-trips-from-menton"], relatedApartmentKeys: relatedAll,
   },
   {
     id: "menton-fete-halloween-2026", slug: "menton-fete-halloween-2026",

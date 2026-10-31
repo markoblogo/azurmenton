@@ -4,7 +4,7 @@ Owner approved implementation and testing of each pass, followed by discussion b
 
 ## 1. Apartment Guest Guides
 
-Implemented and owner-reviewed. Publication of passes 1-3 was approved on 31 October 2026; pass 4 remains a separate discussion.
+Implemented and owner-reviewed. Publication of passes 1-3 was approved on 31 October 2026; the owner also approved releasing pass 4's registry/report and pilot on that date.
 
 - `/[locale]/apartments/[slug]/guest-guide` for each of the three existing apartments, in EN/FR/IT/UK.
 - Arrival, check-in, groceries, first evening and departure. Titles, photos and amenities reuse apartment content; guide and place links resolve canonical records.
@@ -36,7 +36,9 @@ The trial also corrected the canonical Promenade du Soleil pin from an inland po
 
 ## 4. Editorial Queue
 
-Pending. One local queue over existing intake/event review artifacts: new, checked, approved, published. Preserve source records and publication approval; do not create another content database. Test duplicate handling and status transitions before discussion.
+Local metadata registry and `npm run editorial:report` implemented over existing guide intake/event publishing artifacts. Tasks support guides, events, weekly editions, details and places without copying their content. Technical snapshots, explicit owner decisions, repository presence and historical public-verification evidence are separate. Existing publication proposals and past event candidates do not pollute the active queue; ambiguous matches remain blocked. No inbox import, dashboard or automatic publisher. See [registry workflow and manual status rules](editorial-queue.md). The owner approved releasing this bounded implementation on 31 October; further automation remains a separate decision.
+
+The first real pilot registers four priorities and excludes one test artifact. Official sources for the 6-12 November weekly edition were checked; the owner explicitly approved this specific edition for its date window. Its content is staged for release, but the task remains `approved`, not publicly verified during that future window. See [pilot evidence](audits/2026-10-31-editorial-queue-pilot.md). Scheduled guide publication remains a separate discussion.
 
 ## Later: Scheduled Guide Publication
 

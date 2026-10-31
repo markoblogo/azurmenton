@@ -112,10 +112,13 @@ npm run events:prepare -- --latest
 npm run events:publish -- --batch <batch-id> --all --dry-run
 npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply
 npm run events:review
+npm run editorial:report
 npm run seo:priorities
 ```
 
 Optional source-backed time-coverage audit: `npm run events:timing -- --fetch-sources`. This updates a local report, not published event data; retrieved pages and candidate timestamps still require editorial verification.
+
+Unified editorial coordination: `npm run editorial:report` summarizes the tracked metadata registry and existing local guide/event artifacts into `build/editorial/queue-report.md` and JSON. Readiness, owner approval, repository presence and public verification remain separate; nothing is published or scheduled. See [editorial registry rules](docs/editorial-queue.md).
 
 Event publication keeps owner-approved images local and can attach related
 guides/places through `relatedGuideSlugs` and `relatedPlaceIds`; missing event
