@@ -245,5 +245,100 @@
     "mediaStatus": "available",
     "mediaSourceName": "Azur Menton",
     "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "christmas-market-sospel-2026": {
+    "image": "/images/events/christmas-market-sospel-2026.webp",
+    "imageAlt": {
+      "en": "Sospel Christmas market",
+      "fr": "Marché de Noël de Sospel",
+      "it": "Mercatino di Natale di Sospel",
+      "uk": "Різдвяний ярмарок Соспеля"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "christmas-village-monaco-2026": {
+    "image": "/images/events/christmas-village-monaco-2026.webp",
+    "imageAlt": {
+      "en": "Monaco Christmas Village: The Enchanted Forest",
+      "fr": "Village de Noël de Monaco : La Forêt enchantée",
+      "it": "Villaggio di Natale di Monaco: La Foresta incantata",
+      "uk": "Різдвяне містечко Монако: Зачарований ліс"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "christmas-village-nice-2026": {
+    "image": "/images/events/christmas-village-nice-2026.webp",
+    "imageAlt": {
+      "en": "Nice Christmas Village",
+      "fr": "Village de Noël de Nice",
+      "it": "Villaggio di Natale di Nizza",
+      "uk": "Різдвяне містечко Ніцци"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "shrek-the-musical-monaco-2026": {
+    "image": "/images/events/shrek-the-musical-monaco-2026.webp",
+    "imageAlt": {
+      "en": "Shrek - The Musical",
+      "fr": "Shrek - The Musical",
+      "it": "Shrek - The Musical",
+      "uk": "Shrek - The Musical"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
+  },
+  "bakian-chante-aznavour-menton-2026-12-12": {
+    "image": "/images/events/bakian-chante-aznavour-menton-2026-12-12.webp",
+    "imageAlt": {
+      "en": "Bakian chante Aznavour",
+      "fr": "Bakian chante Aznavour",
+      "it": "Bakian chante Aznavour",
+      "uk": "Bakian chante Aznavour"
+    },
+    "imageCaption": {
+      "en": "Azur Menton event illustration.",
+      "fr": "Illustration d'evenement Azur Menton.",
+      "it": "Illustrazione evento Azur Menton.",
+      "uk": "Ілюстрація події Azur Menton."
+    },
+    "mediaType": "project_illustration",
+    "mediaStatus": "available",
+    "mediaSourceName": "Azur Menton",
+    "mediaRightsNote": "Owner-approved Azur Menton event illustration."
   }
 }

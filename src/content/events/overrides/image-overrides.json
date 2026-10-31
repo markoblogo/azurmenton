@@ -388,5 +388,70 @@
     "rightsNote": "Owner-approved Azur Menton event illustration.",
     "approvedAt": "2026-10-31T12:57:35.229Z",
     "locked": true
+  },
+  {
+    "eventSlug": "christmas-market-sospel-2026",
+    "sourceUrl": "https://www.menton-riviera-merveilles.fr/offres/marche-de-noel-sospel-fr-3389197/",
+    "localPath": "/images/events/christmas-market-sospel-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Sospel Christmas market",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-31T14:02:09.971Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "christmas-village-monaco-2026",
+    "sourceUrl": "https://mairie.mc/le-village-de-noel",
+    "localPath": "/images/events/christmas-village-monaco-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Monaco Christmas Village: The Enchanted Forest",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-31T14:02:10.180Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "christmas-village-nice-2026",
+    "sourceUrl": "https://www.explorenicecotedazur.com/evenement/village-de-noel-a-nice/",
+    "localPath": "/images/events/christmas-village-nice-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Nice Christmas Village",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-31T14:02:10.384Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "shrek-the-musical-monaco-2026",
+    "sourceUrl": "https://www.grimaldiforum.com/en/events-schedule-monaco/shrek-the-musical",
+    "localPath": "/images/events/shrek-the-musical-monaco-2026.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Shrek - The Musical",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-31T14:02:10.572Z",
+    "locked": true
+  },
+  {
+    "eventSlug": "bakian-chante-aznavour-menton-2026-12-12",
+    "sourceUrl": "https://www.menton.fr/-Theatre-Francis-Palmero-Menton-.html",
+    "localPath": "/images/events/bakian-chante-aznavour-menton-2026-12-12.webp",
+    "kind": "azur-editorial",
+    "rightsStatus": "manual-approved",
+    "alt": "Bakian chante Aznavour",
+    "sourceName": "Azur Menton",
+    "credit": "Azur Menton",
+    "rightsNote": "Owner-approved Azur Menton event illustration.",
+    "approvedAt": "2026-10-31T14:02:39.461Z",
+    "locked": true
   }
 ]

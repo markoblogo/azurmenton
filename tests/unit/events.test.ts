@@ -15,7 +15,7 @@ const datedEvent = {
 };
 
 describe("event date status", () => {
-  it("publishes the approved winter batch with real venues, dates and no borrowed covers", () => {
+  it("keeps the approved winter batch on its verified venues, dates and owner-supplied covers", () => {
     const cases = [
       ["bakian-chante-aznavour-menton-2026-12-12", "2026-12-12", "2026-12-12", "palais-de-leurope-menton"],
       ["christmas-village-monaco-2026", "2026-12-04", "2027-01-03", "port-hercule-christmas-monaco"],
@@ -29,7 +29,7 @@ describe("event date status", () => {
       expect(event).toMatchObject({ startDate, endDate, dateStatus: "confirmed", sourceStatus: "verified", detailPage: true, lastVerifiedAt: "2026-10-31" });
       expect(event.venue?.placeId).toBe(placeId);
       expect(getPlaces([placeId])).toHaveLength(1);
-      expect(event.media?.image).toBeFalsy();
+      expect(event.media).toMatchObject({ image: `/images/events/${slug}.webp`, mediaStatus: "available" });
       expect(eventDetailSlugs).toContain(slug);
       for (const locale of ["en", "fr", "it", "uk"] as const) expect(event.shortDescription[locale].length).toBeGreaterThan(30);
     }
