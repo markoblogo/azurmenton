@@ -10,6 +10,7 @@ import { lgbtqRivieraGuide } from "@/content/lgbtq-riviera-guide";
 import { naturistBeachesGuide } from "@/content/naturist-beaches-guide";
 import { cocteauMentonGuide } from "@/content/cocteau-menton-guide";
 import { mentonLemonsGuide } from "@/content/menton-lemons-guide";
+import { housesRememberGuide } from "@/content/houses-remember-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11380,6 +11381,17 @@ guideArticles.push(lgbtqRivieraGuide);
 guideArticles.push(naturistBeachesGuide);
 guideArticles.push(cocteauMentonGuide);
 guideArticles.push(mentonLemonsGuide);
+guideArticles.push(housesRememberGuide);
+for (const slug of ["a-week-in-menton-book-walking-route", "belle-epoque-menton-architecture-walk", "jean-cocteau-menton-walking-route", "museums-in-menton-nice-monaco", "menton-in-winter", "day-trips-from-menton"]) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(housesRememberGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), housesRememberGuide.slug];
+}
+const belleEpoqueVillas = guideArticles.find(article => article.slug === "belle-epoque-menton-architecture-walk")!.sections[11];
+belleEpoqueVillas.relatedPlaceIds = [...(belleEpoqueVillas.relatedPlaceIds ?? []), "villa-isola-bella-menton", "les-colombieres-menton"];
+belleEpoqueVillas.body.push(t("For the lives behind Garavan's villas, the AzurBooks companion connects Villa Isola Bella with the private Les Colombières estate. Isola Bella is exterior context only; Les Colombières requires a separately confirmed guided visit, not spontaneous entry.", "Le parcours AzurBooks relie les vies de Garavan à Isola Bella et aux Colombières : contexte extérieur pour la première, visite guidée confirmée séparément pour la seconde, jamais entrée improvisée.", "Il percorso AzurBooks collega le vite di Garavan a Isola Bella e Les Colombières: solo contesto esterno per la prima, visita guidata confermata separatamente per la seconda, mai ingresso improvvisato.", "Маршрут AzurBooks пов'язує історії Гаравана з Isola Bella та Les Colombières: перша — лише зовнішній контекст, другий маєток потребує окремо підтвердженої екскурсії, а не спонтанного входу."));
+const villaMuseumOptions = guideArticles.find(article => article.slug === "museums-in-menton-nice-monaco")!.sections[4];
+villaMuseumOptions.relatedPlaceIds = [...(villaMuseumOptions.relatedPlaceIds ?? []), "villa-ephrussi-de-rothschild", "villa-kerylos-beaulieu-sur-mer"];
+villaMuseumOptions.body.push(t("For a separate historic-villa day outside Nice, choose Villa Ephrussi de Rothschild in Saint-Jean-Cap-Ferrat or Villa Kérylos in Beaulieu-sur-Mer. Both combine interiors with a coastal setting. Check seasonal hours and final approaches; these are alternatives to a packed Nice museum day, not extra stops promised in the same afternoon.", "Pour une autre journée de villas historiques hors de Nice, choisissez Ephrussi à Saint-Jean-Cap-Ferrat ou Kérylos à Beaulieu-sur-Mer. Vérifiez horaires saisonniers et accès ; ce sont des alternatives à une journée de musées niçois chargée, pas des ajouts garantis le même après-midi.", "Per una giornata separata fra ville storiche, scegli Ephrussi a Saint-Jean-Cap-Ferrat o Kérylos a Beaulieu-sur-Mer. Verifica orari e avvicinamenti; sono alternative a una giornata piena nei musei di Nizza, non tappe aggiuntive garantite nello stesso pomeriggio.", "Для окремого дня історичних вілл за межами Ніцци оберіть Ephrussi в Сен-Жан-Кап-Ферра або Kérylos у Больє-сюр-Мер. Перевірте сезонні години й підхід; це альтернатива насиченому музейному дню в Ніцці, а не гарантовані додаткові зупинки того ж пообіддя."));
 for (const slug of ["local-food-menton", "best-souvenir-shops-menton-monaco-nice", "fete-du-citron-menton-practical-guide", "menton-in-winter", "menton-in-autumn", "best-pastries-desserts-cakes-menton"]) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(mentonLemonsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), mentonLemonsGuide.slug];

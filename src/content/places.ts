@@ -300,6 +300,63 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "villa-isola-bella-menton", name: "Villa Isola Bella", type: "viewpoint",
+    area: text("Garavan, Menton; public-street context only", "Garavan, Menton ; contexte depuis la rue publique", "Garavan, Mentone; solo contesto dalla strada pubblica", "Гараван, Ментон; лише огляд із громадських вулиць"),
+    googleMapsUrl: mapsSearch("Villa Isola Bella", "Garavan"), programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/balade-a-garavan-le-reve-babylonien-menton-fr-3097471/",
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: text("Private/restricted; no regular public interior visit confirmed", "Privé ou restreint ; aucune visite intérieure régulière confirmée", "Privato o limitato; nessuna visita interna regolare confermata", "Приватне або обмежене; регулярні публічні відвідування всередині не підтверджені"),
+    shortNote: text("Katherine Mansfield's Garavan home is literary heritage, not a confirmed walk-in museum. View only from public spaces; respect residential doors and grounds.", "La maison de Katherine Mansfield est un repère littéraire, pas un musée ouvert sans rendez-vous. Restez dans les espaces publics et respectez les logements.", "La casa di Katherine Mansfield è patrimonio letterario, non un museo a ingresso libero. Restate negli spazi pubblici e rispettate le abitazioni.", "Оселя Кетрін Менсфілд — літературна пам'ятка, не підтверджений музей із вільним входом. Залишайтеся в громадських місцях і поважайте мешканців."),
+    bestFor: [text("literary history", "histoire littéraire", "storia letteraria", "літературна історія")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route", "belle-epoque-menton-architecture-walk"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "jardin-fontana-rosa-menton", name: "Jardin Fontana Rosa", type: "garden", address: "Avenue Blasco Ibáñez, 06500 Menton",
+    googleMapsUrl: mapsSearch("Jardin Fontana Rosa", "Avenue Blasco Ibáñez"), programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-fontana-rosa-le-jardin-des-romanciers-menton-fr-5595124/",
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    shortNote: text("Vicente Blasco Ibáñez's Garden of the Novelists, with ceramics and literary monuments. Organised guided visits, not unrestricted garden admission; confirm the booked session and language.", "Jardin des Romanciers de Vicente Blasco Ibáñez, avec céramiques et monuments littéraires. Visite guidée organisée, pas entrée libre ; confirmez séance et langue.", "Giardino dei Romanzieri di Vicente Blasco Ibáñez, con ceramiche e monumenti letterari. Visite organizzate, non ingresso libero; conferma turno e lingua.", "Сад романістів Вісенте Бласко Ібаньєса з керамікою й літературними пам'ятниками. Організовані екскурсії, не вільний вхід; уточніть час і мову."),
+    bestFor: [text("literary gardens", "jardins littéraires", "giardini letterari", "літературні сади")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "villa-e-1027-roquebrune-cap-martin", name: "Villa E-1027 / Cap Moderne", type: "museum", area: text("Roquebrune-Cap-Martin; tour meeting point at the railway station", "Roquebrune-Cap-Martin ; rendez-vous des visites à la gare", "Roquebrune-Cap-Martin; ritrovo delle visite alla stazione", "Рокбрюн-Кап-Мартен; зустріч екскурсії біля станції"),
+    googleMapsUrl: mapsQuery("Cap Moderne", "Gare de Roquebrune-Cap-Martin"), programmeUrl: "https://capmoderne.monuments-nationaux.fr/en/visit/practical-information",
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    shortNote: text("Eileen Gray's modernist villa, visited with a booked Cap Moderne tour. Published 2026 season ends 31 October; later visits need a new confirmed programme. Walking approach, uneven ground and steps.", "Villa moderniste d'Eileen Gray, en visite Cap Moderne réservée. La saison 2026 publiée finit le 31 octobre ; programme ultérieur à confirmer. Approche à pied, sol irrégulier et marches.", "Villa modernista di Eileen Gray, con visita Cap Moderne prenotata. Stagione 2026 pubblicata fino al 31 ottobre; programma successivo da confermare. Approccio a piedi, fondo irregolare e scale.", "Модерністська вілла Ейлін Ґрей, відвідування з екскурсією Cap Moderne. Сезон 2026 завершується 31 жовтня; пізніші дати потребують нового підтвердження. Піший підхід, нерівності й сходи."),
+    bestFor: [text("modernist architecture", "architecture moderniste", "architettura modernista", "модерністська архітектура")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "les-colombieres-menton", name: "Les Colombières", type: "garden", address: "312 Route de Super Garavan, 06500 Menton",
+    googleMapsUrl: mapsSearch("Les Colombières", "312 Route de Super Garavan"), programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-domaine-des-colombieres-menton-fr-5595115/",
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    shortNote: text("Private estate shaped by Ferdinand Bac and the Ladan-Bockairys. Enter only for a confirmed guided visit via the upper gate. Published July–September dates have passed; steep approach and steps.", "Domaine privé de Bac et des Ladan-Bockairy. Accès au portail supérieur uniquement pour une visite confirmée. Les dates publiées de juillet à septembre sont passées ; pente et marches.", "Tenuta privata di Bac e dei Ladan-Bockairy. Accesso dal cancello superiore solo con visita confermata. Date luglio–settembre trascorse; salita e gradini.", "Приватний маєток Бака та родини Ладан-Бокері. Вхід через верхню браму лише на підтверджену екскурсію. Дати липень–вересень минули; крутий підхід і сходинки."),
+    bestFor: [text("Mediterranean garden design", "jardins méditerranéens", "giardini mediterranei", "середземноморські сади")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route", "belle-epoque-menton-architecture-walk"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "villa-ephrussi-de-rothschild", name: "Villa Ephrussi de Rothschild", type: "museum", area: text("Saint-Jean-Cap-Ferrat", "Saint-Jean-Cap-Ferrat", "Saint-Jean-Cap-Ferrat", "Сен-Жан-Кап-Ферра"),
+    googleMapsUrl: mapsQuery("Villa Ephrussi de Rothschild", "Saint-Jean-Cap-Ferrat"), programmeUrl: "https://villa-ephrussi.com/fr/preparer-sa-visite/conditions-dacces",
+    requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    shortNote: text("Béatrice Ephrussi de Rothschild's collections and themed gardens. Public ticketed visit with seasonal hours; exceptional closure announced for 14 December 2026.", "Collections de Béatrice Ephrussi de Rothschild et jardins thématiques. Visite publique payante, horaires saisonniers ; fermeture exceptionnelle annoncée le 14 décembre 2026.", "Collezioni di Béatrice Ephrussi de Rothschild e giardini tematici. Visita pubblica a pagamento, orari stagionali; chiusura straordinaria il 14 dicembre 2026.", "Колекції Беатріс Ефруссі де Ротшильд і тематичні сади. Публічний платний вхід, сезонні години; оголошене закриття 14 грудня 2026 року."),
+    bestFor: [text("art and gardens", "art et jardins", "arte e giardini", "мистецтво й сади")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "villa-kerylos-beaulieu-sur-mer", name: "Villa Kérylos", type: "museum", address: "Rue Gustave Eiffel, 06310 Beaulieu-sur-Mer",
+    googleMapsUrl: mapsQuery("Villa Kérylos", "Beaulieu-sur-Mer"), programmeUrl: "https://www.villakerylos.fr/",
+    requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    shortNote: text("Greek-inspired home of Théodore and Fanny Reinach, designed with Emmanuel Pontremoli. Regular tickets sold on site. Rue Gustave Eiffel has pedestrian-only access during works; confirm mobility arrangements.", "Maison d'inspiration grecque des Reinach, conçue avec Emmanuel Pontremoli. Billets ordinaires vendus sur place. Rue Gustave Eiffel piétonne pendant les travaux ; accès à confirmer.", "Casa d'ispirazione greca dei Reinach, progettata con Emmanuel Pontremoli. Biglietti ordinari sul posto. Rue Gustave Eiffel pedonale per lavori; verifica l'accessibilità.", "Грецька за задумом оселя родини Рейнах, створена з Еммануелем Понтремолі. Звичайні квитки — на місці. Через роботи Rue Gustave Eiffel лише пішохідна; уточніть доступність."),
+    bestFor: [text("classical interiors", "intérieurs antiques", "interni classici", "античні інтер'єри")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
+    id: "le-regina-nice", name: "Le Régina / Ancien Excelsior Régina Palace", type: "viewpoint", address: "71 Boulevard de Cimiez, 06000 Nice",
+    googleMapsUrl: mapsQuery("Le Régina", "71 Boulevard de Cimiez, Nice"), programmeUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080968",
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: text("Private residence; exterior from public spaces only", "Résidence privée ; extérieur depuis l'espace public uniquement", "Residenza privata; esterno solo dagli spazi pubblici", "Приватний житловий будинок; лише зовні з громадських місць"),
+    shortNote: text("Former grand hotel where Matisse lived and worked. Not the Musée Matisse and no ordinary public apartment tour. Respect private entrances and gardens; combine public-street viewing with the separate museum.", "Ancien grand hôtel où Matisse vécut et travailla, distinct du musée. Pas de visite publique ordinaire de l'appartement ; respectez entrées et jardins privés.", "Ex grande albergo dove Matisse visse e lavorò, distinto dal museo. Nessuna visita ordinaria dell'appartamento; rispetta ingressi e giardini privati.", "Колишній великий готель, де жив і працював Матісс, окремий від музею. Публічної екскурсії квартирою немає; поважайте приватні входи й сади."),
+    bestFor: [text("Matisse heritage", "patrimoine Matisse", "patrimonio di Matisse", "спадщина Матісса")],
+    relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
+  },
+  {
     id: "domaine-gannac-menton", name: "Domaine Gannac", type: "garden",
     address: "2970 Route de Super Garavan, 06500 Menton",
     image: "/images/guide/domaine-gannac-menton.png",
@@ -11084,6 +11141,8 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["jardin-val-rahmeh", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("the-houses-that-remember-riviera-book-route");
+  if (["villa-ephrussi-de-rothschild", "villa-kerylos-beaulieu-sur-mer"].includes(place.id)) relatedArticleIds.add("museums-in-menton-nice-monaco");
   if (["maison-herbin-menton", "maison-gannac-menton", "au-pays-du-citron-menton", "la-tarte-mentonnaise", "palais-carnoles-menton"].includes(place.id)) relatedArticleIds.add("menton-lemons-producers-orchards-tastings");
   for (const route of Object.values(dayRouteDetails)) {
     if (route.stops.some(stop => stop.placeId === place.id)) {

@@ -10,6 +10,13 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "villa-isola-bella-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/balade-a-garavan-le-reve-babylonien-menton-fr-3097471/" },
+  { placeId: "jardin-fontana-rosa-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-fontana-rosa-le-jardin-des-romanciers-menton-fr-5595124/" },
+  { placeId: "villa-e-1027-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://capmoderne.monuments-nationaux.fr/en/visit/practical-information" },
+  { placeId: "les-colombieres-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-domaine-des-colombieres-menton-fr-5595115/" },
+  { placeId: "villa-ephrussi-de-rothschild", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://villa-ephrussi.com/fr/preparer-sa-visite/conditions-dacces" },
+  { placeId: "villa-kerylos-beaulieu-sur-mer", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.villakerylos.fr/" },
+  { placeId: "le-regina-nice", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080968" },
   { placeId: "domaine-gannac-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.lamaisonducitron.com/pages/domaine-gannac" },
   { placeId: "emilie-citrons-de-pepe-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-de-producteur-citron-de-menton-emilie-et-les-citrons-de-pepe-menton-fr-5108846/" },
   { placeId: "sacchelli-citrus-growers-menton", reason: "coordinate_unverified", checkedOn: "2026-10-31", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/producteur-citron-de-menton-igp-sacchelli-christophe-visites-et-ateliers-menton-fr-3051589/" },

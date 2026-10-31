@@ -25,7 +25,8 @@ describe("Belle Époque guide publication", () => {
     // Use a fixed publication cohort so adding tomorrow's guide cannot break this test.
     expect(getLatestLandingGuideSlug([royaGuide, belleEpoqueGuide])).toBe(belleEpoqueGuide.slug);
     const ids = [...new Set(belleEpoqueGuide.sections.flatMap(section => section.relatedPlaceIds ?? []))];
-    expect(ids).toHaveLength(10);
+    expect(ids).toHaveLength(12);
+    expect(ids).toEqual(expect.arrayContaining(["villa-isola-bella-menton", "les-colombieres-menton"]));
     for (const id of ids) expect(places.find(place => place.id === id)?.relatedArticleIds, id).toContain(belleEpoqueGuide.slug);
     expect(belleEpoqueGuide.relatedApartments).toHaveLength(3);
   });
