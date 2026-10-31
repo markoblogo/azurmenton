@@ -1,73 +1,37 @@
-# Azur Menton Deployment
+# Deployment Runbook
 
-## Target
+Production: [azurmenton.com](https://azurmenton.com), Vercel project `azurmenton`, repository [markoblogo/azurmenton](https://github.com/markoblogo/azurmenton). DNS is managed in Cloudflare. Existing infrastructure does not need to be recreated for a release.
 
-- Deployment platform: Vercel
-- GitHub repository: https://github.com/markoblogo/azurmenton
-- Production domain: https://azurmenton.com
-- DNS provider: Cloudflare
+## Normal Release
 
-Do not commit secrets. Do not deploy, connect the domain or change Cloudflare DNS from local development unless explicitly requested.
+1. Follow the [release checklist](LAUNCH_CHECKLIST.md) and run `npm run release:check`.
+2. Commit reviewed source and generated image derivatives; keep local packets, build output, secrets and browser evidence untracked.
+3. Prefer a branch/PR and green required CI. After the approved merge, record the exact final commit.
+4. Vercel builds `npm run build` using the Next.js preset and default output. Pagefind is generated during the build; there is no separate production content store.
+5. Confirm the Production deployment and domain behavior match the final commit. Check changed routes on desktop/mobile and all affected locales.
+6. Only then create the release tag/notes. If deployment fails, do not call the release live.
 
-## Vercel Setup
+Local fallback: `npm run release:check -- --webpack`. Browser tests start the production server on port 3100 and never reuse an unrelated existing server.
 
-1. Import `https://github.com/markoblogo/azurmenton` into Vercel.
-2. Use the Next.js framework preset.
-3. Build command: `npm run build` or Vercel's detected default.
-4. Output directory: leave as the default for Next.js.
-5. Add environment variables from `.env.example`.
-6. Deploy a preview first and test the routes listed in `LAUNCH_CHECKLIST.md`.
-7. Add production domains:
-   - `azurmenton.com`
-   - `www.azurmenton.com`
-8. Configure `www` redirect to the apex domain if desired.
+## Configuration
 
-## Required Environment Variables
+[.env.example](.env.example) is the key inventory; [email operations](docs/booking-email-operations.md) documents delivery and alerts. Production values belong in closed Vercel variables, never in public reports, screenshots or Git.
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://azurmenton.com
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
-NEXT_PUBLIC_PLAUSIBLE_API_HOST=
-NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=
-TURNSTILE_SECRET_KEY=
-RESEND_API_KEY=
-BOOKING_REQUEST_TO_EMAIL=
-BOOKING_REQUEST_FROM_EMAIL=
-BOOKING_REQUEST_BCC_EMAIL=
-```
+- `NEXT_PUBLIC_SITE_URL` is the canonical public origin. `NEXT_PUBLIC_*` values are public, never secret.
+- Booking mail needs `RESEND_API_KEY`, a valid `BOOKING_REQUEST_TO_EMAIL` and a verified `BOOKING_REQUEST_FROM_EMAIL` sender.
+- `BOOKING_REQUEST_BCC_EMAIL` overrides the owner-approved operational copy. **Unset or blank retains the application default; it does not disable the copy.** See `src/lib/resend.ts` and its regression tests.
+- `EDITORIAL_TO_EMAIL` optionally selects the editorial inbox; otherwise it uses the booking recipient. This handles manually moderated submissions, not automatic content publication.
+- Calendar feed variables are server-only; never expose feed URLs, guest names or booking notes. Missing provider configuration must not imply free dates.
+- Plausible public script configuration is distinct from local-only read-only Stats API credentials. Reports are not proof of revenue attribution.
+- Weather has Menton defaults; provider failures remain unavailable/stale states, not fabricated current readings.
+- Telegram configuration and delivery verification remain a separate deferred task. Do not send messages as part of a routine release.
 
-`RESEND_API_KEY` must be configured in Vercel for booking requests to be delivered by email. Without it, the form will show an error and ask guests to contact by email or WhatsApp instead of silently dropping the request.
+Saving environment variables does not update an existing deployment. Verify a newly built deployment after an approved configuration change.
 
-`BOOKING_REQUEST_BCC_EMAIL` is optional and has no code-level default. Set it explicitly only when an approved operational mailbox should receive a copy of each request.
+## Infrastructure Changes Are Separate
 
-The weather widget uses Open-Meteo defaults for Menton. Override these only when the production location or provider changes:
+Domain connection, DNS, mail authentication, credentials and provider integrations need explicit authorization. If needed, follow the values currently shown by the provider, preserve MX/email records and test apex/`www` redirects and TLS. Do not copy old DNS values from a historical report or change Cloudflare proxy settings as routine cleanup.
 
-```bash
-WEATHER_PROVIDER=open-meteo
-WEATHER_LATITUDE=43.7745
-WEATHER_LONGITUDE=7.4975
-```
+## Post-Deployment Evidence
 
-## Cloudflare DNS
-
-Follow the exact DNS values shown by Vercel for the project.
-
-- Add the apex record for `azurmenton.com` according to Vercel instructions.
-- Add the `www` CNAME according to Vercel instructions.
-- Keep Vercel-related records DNS only / gray cloud unless there is a specific reason to proxy them.
-- Add any TXT verification record if Vercel asks for it.
-- Do not delete existing MX or email-related DNS records.
-
-## Post-Launch Checks
-
-- `https://azurmenton.com` loads.
-- `https://www.azurmenton.com` redirects as intended.
-- `/en`, `/fr`, `/it`, `/uk` work.
-- `/sitemap.xml` and `/robots.txt` work.
-- Apartment pages and galleries work.
-- Booking request form delivers an email, or the fallback error/contact path is clear.
-- Mobile layout works.
-- Browser console has no production errors.
-- Google Search Console domain verification is completed.
-- Sitemap is submitted in Google Search Console.
+Record Git SHA, CI run, Vercel deployment and public route checks separately. Test homepage, apartments, guide/event entrypoints, `/sitemap.xml`, `/robots.txt`, `/llms.txt` and changed localizations. Do not submit real bookings or contact forms without a separately approved delivery test. A rollback must also be owner-authorized and verified; never move an existing release tag to conceal a failed deployment.

@@ -1,12 +1,22 @@
 # Changelog
 
+## 0.3.0 - 2026-10-31
+
+- Added device-only trips, favourites, shared selections, structured day routes and personal day plans with source-backed visit warnings and optional child ages.
+- Expanded events with a list/month view, verified venue/session times, calendar exports, contextual correction forms, linked places/guides and approved weekly editorial editions.
+- Added multilingual Pagefind search, seasonal homepage selections, public-safe apartment guest guides and contextual accommodation recommendations.
+- Expanded maintained four-language guides and owner-supplied place/event imagery, including creative workshops; missing new-place images remain explicit owner tasks.
+- Consolidated manual guide intake, translation compilation, patch bundles, safe later-image passes and input-bound check receipts. Preserved multi-venue matching and explicitly approved editorial links. The no-rebuild runtime trial remains local only.
+- Added shared release checks and CI documentation validation, corrected event-only venue orphan reporting, refreshed operating docs and replaced obsolete launch claims with a reusable release checklist.
+- No automatic guide publication, active newsletter or newly verified Telegram delivery. Development-only minimatch advisory remains documented; production audit and full release checks are separate gates.
+
 ## Repository Update - 2026-10-28
 
 - Added verified event time/venue fields, calendar downloads and separate performance selection.
 - Added a filtered month calendar and a localized event suggestion/correction form with manual email moderation; no automatic publication.
 - Restored the two-row primary navigation and integrated favourite/share controls into cards and detail actions.
 - Added a report-only time-coverage audit for the full event inventory and refreshed confirmed schedules from official sources.
-- Updated privacy disclosures, configuration examples and operating documentation. Code pushed in `538dd02`; CI, deployment and real email delivery must be verified separately.
+- Updated privacy disclosures, configuration examples and operating documentation. This dated entry records the original work; it is not current release or delivery evidence.
 
 ## 0.2.1 - 2026-09-13
 
@@ -19,7 +29,7 @@
 - Updated Next.js, React, media, image, test, and styling dependencies; production audit now reports no known vulnerabilities.
 - Localized the homepage FAQ in EN/FR/IT/UK and aligned availability copy with the read-only planning previews.
 - Fixed `llms.txt` line breaks and removed an expired event from featured status.
-- Made booking-request BCC explicit instead of relying on a personal-address fallback.
+- Made booking-request BCC explicit in that release. Later owner-approved behavior retains the operational copy when the override is blank; current rules are in `RESEND_SETUP.md`.
 - Added production browser tests, hardened CI, Dependabot, contribution guidance, security reporting, ownership, and licensing boundaries.
 
 ## 0.1.0

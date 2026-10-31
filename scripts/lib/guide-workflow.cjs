@@ -19,7 +19,9 @@ async function saveJson(file,value){await fs.mkdir(path.dirname(file),{recursive
 async function artifacts(paths=[]){const result={};for(const file of paths){try{result[file]=await artifactHash(file);}catch(error){if(error.code!=="ENOENT")throw error;result[file]=null;}}return result;}
 
 async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>{}}){
+  onStep("fingerprint","running");
   const inputHash=await fingerprint();
+  onStep("fingerprint","passed");
   const signature=digest(JSON.stringify(checks));
   const previous=await json(receiptPath);
   const compatible=previous?.version===1&&!previous.stale&&previous.fingerprint===inputHash&&previous.signature===signature;
@@ -27,7 +29,7 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
   for(const check of checks){
     if(!/^[a-z0-9-]+$/.test(check.id))throw Error("Invalid check id");
     const logPath=path.join(path.dirname(receiptPath),"logs",`${check.id}.log`);
-    const cached=compatible?previous.checks.find(x=>x.id===check.id&&x.status==="passed"):null;
+    const cached=compatible&&!check.alwaysRun?previous.checks.find(x=>x.id===check.id&&x.status==="passed"):null;
     let reusable=false;
     if(cached&&cached.logPath===logPath){try{reusable=await fileHash(logPath)===cached.logHash&&JSON.stringify(await artifacts(check.artifacts))===JSON.stringify(cached.artifacts);}catch{reusable=false;}}
     if(reusable){receipt.checks.push({...cached,reused:true});onStep(check.id,"reused");}
@@ -53,24 +55,37 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
   return receipt;
 }
 
+async function fingerprintInputs(root,paths){
+  const sorted=[...new Set(paths)].sort();
+  const entries=new Array(sorted.length);
+  let next=0;
+  async function worker(){
+    while(next<sorted.length){
+      const index=next++;
+      const file=sorted[index];
+      try{
+        const stat=await fs.lstat(file);
+        if(stat.isSymbolicLink())throw Error(`Refusing symlink input: ${path.relative(root,file)}`);
+        if(!stat.isFile())continue;
+        entries[index]=[path.relative(root,file),await fileHash(file)];
+      }catch(error){if(error.code!=="ENOENT")throw error;entries[index]=[path.relative(root,file),"missing"];}
+    }
+  }
+  // Bound IO concurrency without replacing content hashes with timestamps.
+  await Promise.all(Array.from({length:Math.min(8,sorted.length)},()=>worker()));
+  return entries.filter(Boolean);
+}
+
 async function repositoryFingerprint(root,extraFiles=[]){
   const listed=execFileSync("git",["ls-files","-z","--cached","--others","--exclude-standard"],{cwd:root,encoding:"utf8",maxBuffer:20_000_000}).split("\0").filter(Boolean);
   const generated=/^(?:build|\.next|node_modules|coverage|test-results)(?:\/|$)|(?:^|\/)__pycache__(?:\/|$)/;
   const paths=new Set(listed.filter(file=>!generated.test(file)).map(file=>path.join(root,file)));
   for(const file of await fs.readdir(root))if(/^\.env(?:\.|$)/.test(file))paths.add(path.join(root,file));
   for(const file of extraFiles)paths.add(path.resolve(file));
-  const entries=[];
-  for(const file of [...paths].sort()){
-    try{
-      const stat=await fs.lstat(file);
-      if(stat.isSymbolicLink())throw Error(`Refusing symlink input: ${path.relative(root,file)}`);
-      if(!stat.isFile())continue;
-      entries.push([path.relative(root,file),await fileHash(file)]);
-    }catch(error){if(error.code!=="ENOENT")throw error;entries.push([path.relative(root,file),"missing"]);}
-  }
+  const entries=await fingerprintInputs(root,paths);
   const volatile=new Set(["_","SHLVL","PWD","OLDPWD","npm_lifecycle_event","npm_lifecycle_script","npm_command","INIT_CWD"]);
   const environment=Object.entries(process.env).filter(([key])=>!volatile.has(key)).sort(([a],[b])=>a.localeCompare(b));
   const asOf=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   return digest(JSON.stringify({asOf,node:process.version,platform:process.platform,arch:process.arch,environment:digest(JSON.stringify(environment)),inputs:entries}));
 }
-module.exports={digest,fileHash,json,saveJson,runCheckSuite,repositoryFingerprint};
+module.exports={digest,fileHash,json,saveJson,runCheckSuite,repositoryFingerprint,fingerprintInputs};

@@ -4,6 +4,7 @@ const fs=require("node:fs/promises");
 const path=require("node:path");
 const {execFileSync}=require("node:child_process");
 const {fileHash,json,saveJson,runCheckSuite,repositoryFingerprint}=require("./lib/guide-workflow.cjs");
+const {projectChecks}=require("./lib/project-checks.cjs");
 const root=path.resolve(__dirname,"..");
 require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
 const {guideArticles}=require("../src/content/guide.ts");
@@ -141,10 +142,7 @@ async function main(args=process.argv.slice(2)){
   const guide=guideArticles.find(guide=>guide.slug===packet.publicSlug);
   if(!guide?.coverImage)throw Error("Insert the reviewed guide and cover before running final checks");
   for(const field of ["title","seoTitle","seoDescription","excerpt"]){if(["en","fr","it","uk"].some(locale=>typeof guide[field]?.[locale]!=="string"||!guide[field][locale].trim()))throw Error(`Missing ${field} translation`);}
-  const npm=script=>[process.platform==="win32"?"npm.cmd":"npm","run",script];
-  const checks=[{...nodeStep("guide-review","guide-review.cjs",["--slug",opts.slug]),artifacts:[path.join(directory,"review/report.json"),path.join(directory,"review/owner-checklist.md")]},...[["lint","lint"],["typecheck","typecheck"],["unit","test"],["preflight","preflight"],["images","images:check"]].map(([id,script])=>({id,argv:npm(script)})),
-    {id:"build",argv:[...npm("build"),...(opts.webpack?["--","--webpack"]:[])],artifacts:[path.join(root,".next/BUILD_ID"),path.join(root,".next/build-manifest.json"),path.join(root,"public/pagefind")]},
-    {id:"postbuild",argv:npm("preflight:postbuild"),artifacts:[path.join(root,".next/BUILD_ID")]}];
+  const checks=[{...nodeStep("guide-review","guide-review.cjs",["--slug",opts.slug]),artifacts:[path.join(directory,"review/report.json"),path.join(directory,"review/owner-checklist.md")]},...projectChecks(root,{webpack:opts.webpack})];
   const receipt=await runCheckSuite({receiptPath:path.join(directory,"workflow/checks.json"),checks,
     fingerprint:()=>repositoryFingerprint(root,[...packet.files.map(file=>path.join(directory,file.path)),...Object.values(packet.source??{}).map(source=>source.path)]),
     execute:check=>execute(check.argv),onStep:(id,status)=>console.log(`${id}: ${status}`)});

@@ -1,442 +1,78 @@
 # Azur Menton
 
 [![CI](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/azurmenton/actions/workflows/ci.yml)
-![Next.js](https://img.shields.io/badge/Next.js-16.4-black?logo=nextdotjs)
-![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)
 
-Azur Menton is a multilingual direct-booking site for three central Menton apartments. The public surface combines apartment pages, a practical local guide, Riviera events, stay-planning pages, a useful-places map, and a manual booking funnel.
+Multilingual direct-booking and local travel site for three Menton apartments.
+English, French, Italian and Ukrainian; Next.js App Router, React, TypeScript and Tailwind CSS.
 
-**[View the live site](https://azurmenton.com)** · [Check availability](https://azurmenton.com/en/check-availability) · [Explore the Menton guide](https://azurmenton.com/en/guide)
+[Live site](https://azurmenton.com) · [Apartments](https://azurmenton.com/en/apartments) · [Guides](https://azurmenton.com/en/guide) · [Events](https://azurmenton.com/en/events)
 
 ![Azur Menton apartment terrace](public/images/home/TerraceParkingApartment.jpg)
 
-## Product at a glance
+## What Is Live
 
-- **Direct booking:** read-only availability guidance followed by a personally confirmed request.
-- **Three distinct stays:** two sea-view studios and one larger terrace apartment with parking.
-- **Four languages:** English, French, Italian, and Ukrainian routes with canonical and hreflang metadata.
-- **Local utility:** maintained guides and places, a filterable Riviera event list/month calendar, weather, marine conditions, transport, and travel tools.
-- **Privacy-first operations:** server-only calendar feeds, non-PII analytics, Turnstile, rate limiting, and nonce-based CSP.
+- Apartment pages, public-safe guest guides, read-only availability previews and personally confirmed booking requests.
+- Linked guides, places and Riviera events, with an interactive map and multilingual Pagefind search.
+- Event filters, list/month calendar, verified-session calendar downloads and manually moderated suggestions/corrections.
+- Device-only My trip and favourites: saved routes, personal day plans, optional child ages, cautious access warnings and external navigation.
+- Weather, sea, clocks, exchange rates, transport, airport boards and radio tools; seasonal home selections and approved weekly editorial editions.
 
-Trip planning: `/[locale]/my-trip` stores a device-only trip profile and recommends guides/events, while `/[locale]/favourites` keeps saved guides, events and places and can share a read-only snapshot. Booking prefill requires an explicit click; it never submits a request. See [docs/TRIP_FEATURES.md](docs/TRIP_FEATURES.md) for verification and analytics limitations.
+Availability is guidance, not a reservation. Shared favourites contain content IDs, not private trip details. Public guest guides never contain access codes. Subscription-interest forms collect editorial requests only: no newsletter is being sent. Telegram verification remains postponed.
 
-Five ready-made day routes extend the existing stay plans and relevant guides: old town, Cocteau, cool-weather family time, Monaco without a car and Ventimiglia markets. Ordered stops, estimated duration/effort, access uncertainties, return transport, booking advice, alternatives and official sources are shared across four locales. This is editorial planning, not automated navigation; see [docs/day-routes.md](docs/day-routes.md).
+## Start Locally
 
-Public-safe apartment guest guides cover arrival, check-in preparation, central groceries, the first evening and departure in four languages. They reuse existing content and never contain private access instructions. See [guest experience passes](docs/guest-experience-passes.md) for scope and release status.
-
-Contextual accommodation cards distinguish family capacity and winter/long-stay needs. Short confirmed events offer explicit apartment/date request links; longer or uncertain programmes leave dates to the guest. These are requests, not confirmed availability or bookings.
-
-Optional editorial maps: `npm run map:umap -- family-menton en` exports reviewed route points with compact localized popups and full audit metadata. It does not replace the site map or save a map on an external service. See [editorial uMap workflow](docs/umap-trial.md).
-
-A ready-made route can be assigned to a day within the saved trip, then viewed, moved or removed in My trip. Assignments stay in the existing device-only profile; they are not bookings and are not included in shared links or analytics.
-
-Visitors can also build personal days from their own favourite places, manually reorder/remove stops and move or merge days. The same private trip profile stores these plans. Warnings cover many stops, same-day ready routes, explicitly recorded different cities and unknown geographic data. External Maps links retain the selected order and require reviewed coordinates for every stop; there is no street-route optimisation or travel-time calculation.
-
-Optional child ages stay device-only. Source-backed visit rules feed both place cards and personal plans; unknown age restrictions remain unknown. Eligible single-city walking plans offer an optional proximity-order preview with explicit apply/undo, not a guaranteed shortest street route. The guide landing includes three source-backed “Menton in detail” observations; `/events/this-week` selects the current approved edition in Paris time, including the prepared 6–12 November issue. A weekly, report-only editorial review covers small events three months ahead, major events twelve months ahead and proposals for these editorial sections. Future-update interest and withdrawal requests go to the editorial mailbox only: no active mailing list or newsletter delivery. See [docs/PORTAL_FEATURES.md](docs/PORTAL_FEATURES.md).
-
-Confirmed events offer calendar exports, including explicit performance selection when sessions are known. Place/event cards link to the existing editorial form with title and canonical page prefilled; visitors choose a correction reason. Submissions remain unverified proposals for manual email review, never automatic publication. A downloaded calendar entry is a snapshot, not an updating subscription.
-
-Read first for a fresh coding session:
-
-1. `README.md`
-2. `AGENTS.md`
-3. `docs/product-context.md`
-4. `docs/content-operations.md`
-5. task-specific docs only
-
-## What matters
-
-- Booking is manual. The site never promises instant confirmation.
-- Availability previews are read-only planning guidance from external iCal feeds.
-- Guide, stay and event content exist to support direct booking intent, not compete with it.
-- Content is typed in-repo; there is no CMS.
-
-Product and claim boundaries live in:
-
-- [docs/product-context.md](docs/product-context.md)
-- [docs/ROADMAP.md](docs/ROADMAP.md)
-- [docs/events-publication-workflow.md](docs/events-publication-workflow.md)
-- [docs/EVENT_CALENDAR.md](docs/EVENT_CALENDAR.md): confirmed-event calendar exports, verified time/venue fields and date-only safeguards.
-- [docs/EVENT_DISCOVERY_AND_INTAKE.md](docs/EVENT_DISCOVERY_AND_INTAKE.md): month view, manually moderated suggestions/corrections and full event-time coverage report.
-- [Portal technical audit](docs/audits/2026-10-30-portal-technical-audit.md): representative mobile, accessibility, timezone and privacy checks, with explicit remaining limits.
-- [Guide catalogue loading](docs/audits/2026-10-30-guide-performance.md): matched mobile measurements, smaller image/font transfers and remaining LCP uncertainty.
-
-## Current operating phase
-
-Guides, events and travel planning support manually confirmed direct bookings. Publishing and freshness reviews remain editorially controlled; analytics measures interactions and attribution, not proven booking uplift. See the operational docs for publication and image workflows rather than treating report output as publication approval.
-
-## Stack
-
-- Next.js 16 App Router
-- React 19
-- strict TypeScript
-- Tailwind CSS 4
-- Vitest + Playwright (both run in CI)
-- Resend for booking requests and manually moderated editorial submissions
-- FullCalendar Standard 6 (MIT) for month view; ICS and Luxon for calendar exports and timezone validation
-- Cloudflare Turnstile, honeypot, rate limiting, CSP
-- Plausible + Vercel Analytics
-- Sharp-based image derivative pipeline
-
-## Local development
-
-Requirements: Node.js 20.9+ (Node.js 22 is used in CI).
+Node.js 20.9+ is required; use Node.js 22 to match the main CI job. Python 3 is needed only for Word intake.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. Root redirects to `/en`.
+Open `http://localhost:3000` (redirects to `/en`). For optional services, use the documented keys in [.env.example](.env.example) in an untracked `.env.local`. Never commit credentials, real calendar feeds, guest data or private operational reports.
 
-## Core commands
-
-Daily engineering checks:
+## Check And Release
 
 ```bash
-npm run lint
-npm run typecheck
-npm test
-npm run build
+npm run release:check
+# Restricted local build environments may need:
+npm run release:check -- --webpack
 ```
 
-Content and SEO checks:
+This checks native dependency metadata, production dependency security, documentation, lint, types, unit tests, content/SEO preflight, images, production build, browser tests and post-build CSP/cache rules. Results and logs stay under ignored `build/release/`. It does not publish, send mail, create tags or change bookings. The production browser test server uses port 3100; stop any existing server there first.
+
+Individual checks remain available: `npm run docs:check`, `npm run lint`, `npm run typecheck`, `npm test`, `npm run preflight`, `npm run images:check`, `npm run build`, `npm run test:e2e`, `npm run preflight:postbuild`.
+
+Follow the [release checklist](LAUNCH_CHECKLIST.md) and [deployment runbook](DEPLOYMENT.md). Local checks, GitHub CI, the deployed commit and public behavior are separate evidence. See [CHANGELOG.md](CHANGELOG.md) for release history.
+
+## Publish Content Manually
 
 ```bash
-npm run preflight
-npm run content:report
-npm run events:ingest
-npm run events:prepare -- --latest
-npm run events:publish -- --batch <batch-id> --all --dry-run
-npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply
-npm run events:review
-npm run editorial:report
-npm run seo:priorities
+npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
+# Review facts, matches and links; prepare all four translations and insert reviewed content.
+npm run guide:workflow -- bundle --slug <intake-slug>
+npm run guide:workflow -- check --slug <intake-slug>
+# Later, add the owner's illustrations without replacing existing images:
+npm run guide:workflow -- assets --slug <intake-slug> --assets-dir /absolute/images
 ```
 
-Optional source-backed time-coverage audit: `npm run events:timing -- --fetch-sources`. This updates a local report, not published event data; retrieved pages and candidate timestamps still require editorial verification.
+Word, Markdown and plain text are supported. Guide selection, translation, review and publication remain manual. New-place placeholders require an explicit owner illustration request. Original sources are retained until verified publication. `guide:runtime-trial` is a loopback-only experiment, not a production content store.
 
-Unified editorial coordination: `npm run editorial:report` summarizes the tracked metadata registry and existing local guide/event artifacts into `build/editorial/queue-report.md` and JSON. Readiness, owner approval, repository presence and public verification remain separate; nothing is published or scheduled. See [editorial registry rules](docs/editorial-queue.md).
+[Guide workflow](docs/guide-manual-workflow.md) · [Content rules](docs/content-operations.md) · [Event workflow](docs/events-publication-workflow.md) · [Editorial registry](docs/editorial-queue.md)
 
-Manual guide publishing: `guide:workflow` wraps preparation, the combined patch, final-tree check receipts and later safe image passes. Existing Word input, manual selection/translation and post-publication illustrations remain supported. `guide:runtime-trial` is an isolated local no-rebuild experiment, not a production content store. See [manual guide workflow](docs/guide-manual-workflow.md).
+Useful editorial reports: `npm run content:report`, `npm run events:review`, `npm run editorial:report`, `npm run guides:verify`, `npm run seo:priorities`. Reports do not constitute approval or publication. Do not ingest, publish, send messages or modify live settings without the corresponding authorization.
 
-Event publication keeps owner-approved images local and can attach related
-guides/places through `relatedGuideSlugs` and `relatedPlaceIds`; missing event
-images should stay visible until an owner asset pack is applied.
+## Where Things Live
 
-Additional checks when relevant:
+- `src/app/[locale]/`: localized public routes; `src/app/api/`: server endpoints.
+- `src/content/`: canonical apartment, guide, place, event and editorial data; `src/content/guide-data/`: multilingual long-form sources.
+- `src/components/` and `src/lib/`: shared UI, booking, availability, search, planning and validation.
+- `scripts/`: editorial and release tools; `tests/unit/` and `tests/e2e/`: regression coverage.
+- `public/images/`: approved media and generated derivatives; generated Pagefind output and local evidence are not tracked.
 
-```bash
-npm run content:audit
-npm run images:check
-npm run seo:validate
-npm run test:e2e
-npm run preflight:postbuild
-```
+## Documentation And Boundaries
 
-## Environment
+Use the [documentation index](docs/README.md) to select the relevant runbook instead of loading every historical audit. Read [AGENTS.md](AGENTS.md) before edits and [product context](docs/product-context.md) before changing conversion claims, SEO or booking analytics. [ROADMAP](docs/ROADMAP.md) tracks outcomes, not automatic publication authority.
 
-Booking email tracing and read-only delivery checks: [operations runbook](docs/booking-email-operations.md).
+Booking delivery uses Resend; previews use server-only iCal feeds. Analytics uses aggregate non-PII context. Source-backed hours, prices, dates and accessibility rules can become stale: unknown remains unknown. Search rebuilds with the site and does not yet correct spelling mistakes.
 
-Use `.env.local` from `.env.example` when needed.
-
-Key variables:
-
-```bash
-NEXT_PUBLIC_SITE_URL=https://azurmenton.com
-
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=
-NEXT_PUBLIC_PLAUSIBLE_API_HOST=
-NEXT_PUBLIC_PLAUSIBLE_SCRIPT_SRC=
-
-NEXT_PUBLIC_TURNSTILE_SITE_KEY=
-TURNSTILE_SECRET_KEY=
-
-RESEND_API_KEY=
-BOOKING_REQUEST_TO_EMAIL=
-BOOKING_REQUEST_FROM_EMAIL=
-# Optional override; omitted/blank keeps the owner-approved copy to a.biletskiy@gmail.com.
-BOOKING_REQUEST_BCC_EMAIL=
-# Optional editorial recipient; falls back to BOOKING_REQUEST_TO_EMAIL.
-EDITORIAL_TO_EMAIL=
-
-WEATHER_PROVIDER=open-meteo
-WEATHER_LATITUDE=43.7745
-WEATHER_LONGITUDE=7.4975
-
-EVENT_INGEST_SECRET=
-CRON_SECRET=
-
-AZUR_ICAL_SEA_VIEW_BALCONY_STUDIO=
-AZUR_ICAL_TERRACE_PARKING_APARTMENT=
-AZUR_ICAL_PANORAMIC_SEA_VIEW_STUDIO=
-```
-
-Important:
-
-- never commit real iCal URLs;
-- never expose iCal URLs client-side;
-- keep Plausible Stats API keys local-only;
-- never hotlink third-party event posters; use event image queues and owner-approved asset packs;
-- do not commit `.env.local`.
-
-## Main route families
-
-Supported locales: `en`, `fr`, `it`, `uk`.
-
-- `/[locale]`
-- `/[locale]/apartments`
-- `/[locale]/apartments/[slug]`
-- `/[locale]/check-availability`
-- `/[locale]/guide`
-- `/[locale]/guide/[slug]`
-- `/[locale]/stay`
-- `/[locale]/stay/[slug]`
-- `/[locale]/events`
-- `/[locale]/events/[slug]`
-- `/[locale]/events/this-week`
-- `/[locale]/my-trip`
-- `/[locale]/favourites`
-- `/[locale]/search`
-- `/[locale]/tools` and `/[locale]/tools/[slug]`
-- `/[locale]/map`
-- `/[locale]/partners`
-- `/[locale]/faq`
-- `/[locale]/contact`
-- `/llms.txt`
-
-## Key subsystems
-
-### Booking and availability
-
-- Manual request flow: `src/components/booking/`, `src/app/actions/booking-request.ts`, `src/app/api/booking-request/route.ts`
-- Read-only availability layer: `src/lib/availability/`, `src/components/availability/`, `src/app/api/availability/`
-
-Current booking UX includes:
-
-- availability hub on `/[locale]/check-availability`;
-- nearest available stay windows;
-- selected-stay prefill into the request form;
-- repeated server-side date validation before submit;
-- compact availability previews on apartment detail pages;
-- compact next-availability hints on the apartment listing page.
-
-Do not expose provider URLs, booking titles, guest names, summaries, or booking notes.
-
-### Apartments
-
-Source of truth: `src/content/apartments.ts`
-
-Current slugs:
-
-- `sea-view-balcony-studio`
-- `beachside-family-apartment`
-- `panoramic-sea-view-studio`
-
-### Guide, places and map
-
-Main content files:
-
-- `src/content/guide.ts`
-- `src/content/guide-intents.ts`
-- `src/content/places.ts`
-- `src/content/stay-pages.ts`
-
-Main UI:
-
-- `src/app/[locale]/guide/page.tsx`
-- `src/components/guide/`
-- `src/components/places/UsefulPlacesMap.tsx`
-- `src/components/tools/TravelTools.tsx`
-- `src/components/tools/RadioConsole.tsx`
-- `src/components/guide/utility/AirportLiveBoard.tsx`
-
-The guide portal is not a plain article list. It includes editorial selections, planning clusters, finder/search entry points, compact catalogues, map previews and apartment-aware recommendations.
-
-Site search at `/[locale]/search` uses a Pagefind index generated from the published guide, place and upcoming event data whenever `npm run dev` or `npm run build` runs. Results link to the first rendered place card; places without a rendered guide card are excluded. Dated events are filtered again in the browser after their end date. The generated `public/pagefind/` bundle is not tracked; rebuild to pick up content changes. Search is language-specific and does not yet correct spelling mistakes.
-
-### Travel Tools
-
-The Travel Tools hub at `/[locale]/tools` is a compact planning surface, not a second editorial section. Its current order is:
-
-1. live weather and marine context;
-2. world clocks and euro reference rates;
-3. transport routes, airport-board links/embeds and the local radio console;
-4. emergency numbers and official safety links.
-
-The detailed `/[locale]/tools/weather` and `/[locale]/tools/sea` pages carry the expanded forecast and marine views. The radio console is hub-only and uses stations with direct `audioStreamUrl` values. Radio guide cards remain the detailed station reference; stations that only expose a web player remain website links rather than being presented as native streams.
-
-Airport boards are either embedded or presented through official external links according to the provider. Embedded providers can show their own cookie or consent UI inside a cross-origin iframe; Azur Menton cannot style or dismiss that provider-owned surface.
-
-### Events
-
-Main files:
-
-- `src/content/riviera-events.ts`
-- `src/content/event-sources.ts`
-- `src/content/event-occurrences.ts`
-- `src/components/events/EventsCalendar.tsx`
-- `src/lib/event-discovery.ts`
-
-Events use a pragmatic annual-series model with confirmed, pending and estimated states. The `/[locale]/events` page is a curated discovery surface with shareable filters for quick periods, custom stay dates, locations and interests. Keep stale annual events archived for future refresh; do not invent dates.
-
-List and Month share these filters. Only confirmed, verified, non-conflicting dates enter the month grid; bars indicate dates rather than all-day opening hours. Optional verified `schedule`, `sessions` and `venue` fields drive calendar exports and detail metadata. See [calendar rules](docs/EVENT_CALENDAR.md) and [editorial intake operations](docs/EVENT_DISCOVERY_AND_INTAKE.md) for API, moderation and delivery limits.
-
-Automated event ingestion is intentionally only a foundation for now: source registry, adapter contracts, deterministic dedupe and review-first candidates. Do not add fragile broad scraping or publish unverified events as live listings.
-
-The publication workflow is repository-based and explicit:
-
-```bash
-npm run events:ingest
-npm run events:prepare -- --latest
-npm run events:publish -- --batch <batch-id> --all --dry-run
-npm run events:publish -- --batch <batch-id> --all
-```
-
-Preparation never publishes. Publication requires `--all`, `--city <city>` or `--ids <id,id>`; otherwise it prints a safe no-write summary. Menton uses a broad local usefulness threshold, while Monaco, Nice, Ventimiglia and Sanremo require destination-worthy value from a Menton base.
-
-Post-publish event images use the owner-approved asset path:
-
-```bash
-npm run events:assets -- --published-events --assets-dir /absolute/path/to/assets --missing-only --apply --fail-on-unmatched
-```
-
-This writes local WebP event covers, updates published media records and locks owner decisions in `src/content/events/overrides/image-overrides.json`. The event asset pipeline normalizes covers to a consistent `1200x720` crop so event cards keep equal image height.
-
-### Guide automation
-
-The guide workflow is now partially automated and remains review-first:
-
-```bash
-npm run guide:new
-npm run guide:compile -- --slug <public-slug> --prefix <source-prefix>
-npm run guide:check
-npm run guide:assets
-npm run guide:apply
-npm run guide:publish
-npm run guide:patch
-npm run guide:review
-```
-
-Detailed usage:
-
-- [docs/guide-automation.md](docs/guide-automation.md)
-- [docs/content-operations.md](docs/content-operations.md)
-
-This pipeline prepares and validates guide/place/link/image work. It does not blindly auto-publish.
-
-After insertion, `guide:review -- --slug <slug> --sync-plan-from-published` can
-reconcile the local intake plan with the actual content graph, preserving a backup;
-it does not modify public content or verify a live deployment.
-
-`guide:new` accepts DOCX directly. `guide:compile` validates reviewed EN/FR/IT/UK
-Markdown section/table alignment and generates JSON for the shared content adapter;
-it does not translate or publish. Supply second-stage illustrations as
-`<placeId>.png` to avoid ambiguous shortened venue names.
-
-For image work after a guide is already live, use the post-publish path:
-
-```bash
-npm run guide:assets -- --published-guide <guide-slug> --assets-dir /absolute/path/to/assets --missing-only --report-only
-```
-
-Add `--fail-on-unmatched` when the asset package must be fully reconciled before sign-off.
-
-In post-publish mode the script now writes two reports:
-
-- transient full report in `build/guide-assets-postpublish/`
-- small git-tracked summary in `reports/guide-assets-postpublish/`
-
-## SEO, analytics and structured data
-
-Main files:
-
-- `src/lib/seo.ts`
-- `src/lib/structured-data.ts`
-- `src/lib/analytics.ts`
-
-The site emits:
-
-- localized metadata;
-- canonical + hreflang links;
-- sitemap and robots;
-- JSON-LD for lodging, vacation rental, article, FAQ, breadcrumb and related page types.
-
-Keep analytics non-PII. Funnel events are for attribution and drop-off analysis, not guest profiling.
-
-Useful docs:
-
-- [docs/ANALYTICS.md](docs/ANALYTICS.md)
-- [docs/SEO_MONITORING.md](docs/SEO_MONITORING.md)
-- [docs/search-console-validation.md](docs/search-console-validation.md)
-
-## Security and performance
-
-Main files:
-
-- `next.config.ts`
-- `src/proxy.ts`
-- `src/lib/security-headers.ts`
-
-Notes:
-
-- CSP is nonce-based and intentionally keeps App Router responses dynamic.
-- `npm run preflight:postbuild` runs the current CSP/cache audit.
-- `next/image` plus generated derivatives are the default media path.
-
-See:
-
-- [docs/csp-cache-audit.md](docs/csp-cache-audit.md)
-
-## Repo layout
-
-```text
-src/app/            App Router pages and API routes
-src/components/     UI and feature components
-src/content/        Typed site content
-src/i18n/           Locale definitions
-src/lib/            Booking, SEO, analytics, availability, security helpers
-public/images/      Local media assets
-scripts/            Validation, reporting and automation scripts
-tests/              Unit and E2E tests
-docs/               Operational docs
-```
-
-## Operational rules
-
-- English is the editorial source language.
-- Keep FR/IT/UK natural; do not leave placeholder translations.
-- Do not invent dates, prices, ratings, opening hours or official rules.
-- Keep partner/perk content separate from core booking paths.
-- Prefer structured content updates over hardcoded page copy.
-- Use the docs before making content, SEO or booking-flow changes.
-
-## Contributing and license
-
-Focused fixes and source-backed content corrections are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and report vulnerabilities through [SECURITY.md](SECURITY.md).
-
-Release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
-
-Application code, tests, scripts, and technical documentation are available under the [MIT license](LICENSE). Apartment content, editorial material, media, guest data, and Azur Menton branding are excluded unless stated otherwise; see [NOTICE.md](NOTICE.md).
-
-## Primary docs
-
-- [docs/product-context.md](docs/product-context.md)
-- [docs/content-operations.md](docs/content-operations.md)
-- [docs/guide-automation.md](docs/guide-automation.md)
-- [docs/ANALYTICS.md](docs/ANALYTICS.md)
-- [docs/LEAD_OPERATIONS.md](docs/LEAD_OPERATIONS.md)
-- [docs/WEEKLY_DIGEST.md](docs/WEEKLY_DIGEST.md)
-- [docs/ROADMAP.md](docs/ROADMAP.md)
-
-<!-- ABVX:ECOSYSTEM:BEGIN -->
-## ABVX ecosystem
-
-- [AGENTS.md_generator](https://agentsmd.abvx.xyz/) — Keeps repository guidance and machine-readable context current. Current release: `v0.5.1`.
-- [abvx-shortener](https://go.abvx.xyz/) — Uses stable short links for public campaigns and QR destinations. Current release: `v0.4.0`.
-- [abvx-agent-skills](https://abvx.xyz/work/abvx-agent-skills) — Uses shared, reviewable agent capabilities during maintenance. Current release: `v0.16.1`.
-
-_This block is generated from the reviewed ABVX ecosystem registry._
-<!-- ABVX:ECOSYSTEM:END -->
+See [contribution guidance](CONTRIBUTING.md), [security reporting](SECURITY.md), [license](LICENSE) and [content/brand exclusions](NOTICE.md). Application code is MIT; editorial content, illustrations, photographs, apartment facts, guest data and branding are not automatically covered by that grant.

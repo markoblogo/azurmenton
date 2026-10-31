@@ -29,6 +29,8 @@ npm run guide:workflow -- check --slug <intake-slug> --webpack
 
 When one operator represents multiple venues, give each `plannedPlaces` entry its own stable ID and `draftName`, with a shared `sourceDraftName` matching the intake candidate (for example, Fragonard in Èze and Grasse). Re-running matching preserves these explicit branches and resolved editorial additions instead of collapsing them into one ambiguous operator. A manual new-place decision is not silently supplemented with a conflicting existing-place ID. Nested workshop labels such as “Practical details” are not venue candidates when their parent identifies the operator and address.
 
+Pin reviewed links in `approvedRelatedArticleSlugs` and `approvedRelatedApartmentSlugs` when they must survive re-running link suggestions. These editorial choices are retained even when the suggestion engine no longer ranks them; stale automatic suggestions can still be removed. IDs remain subject to the normal reference validation. This does not approve publication or assert availability.
+
 Files under ignored `build/guide-intake/<intake-slug>/workflow/`:
 
 - `packet.json`: canonical slug, hashed source/artifact references, real command outcomes and blockers. Approval and publication are explicitly not inferred.
@@ -41,13 +43,15 @@ Keep these files private/local: they can contain absolute source paths, prose an
 
 ## Reusing Check Results
 
-The check suite runs guide review, lint, TypeScript, unit tests, content/SEO/weekly/funnel preflight, image validation, build and post-build preflight. This first version deliberately retains full checks; a content-only reduced profile is not yet proved for executable TypeScript content modules.
+The check suite runs guide review, documentation, lint, TypeScript, unit tests, content/SEO/weekly/funnel preflight, image validation, build and post-build preflight, using the shared project-check definitions. `release:check` adds native dependency validation, production security audit and production browser tests with the same receipt safeguards. A content-only reduced profile is not yet proved for executable TypeScript content modules.
 
 A successful check is reused only if the input fingerprint, ordered command definitions, log hash and any required generated artifacts still match. The fingerprint covers tracked and non-ignored source files, frozen packet inputs, Node/platform, local environment files and a hash of process environment values (excluding transient shell/invocation labels). Secret values are never printed or stored in the receipt. Generated build/report/browser output is excluded from source inputs; build artifacts and the complete generated Pagefind directory have separate integrity hashes. A changed guide, locale, place, image, link, script or dependency invalidates the prior result. Missing/modified required build artifacts force the relevant check again. A failed check stops the suite; earlier real successes may be reused on a same-input retry. Changing inputs during a run invalidates the entire receipt.
 
 This is local evidence, not a signature of human approval or proof of browser/production behavior. Current GitHub CI remains mandatory and unchanged; so do exact deployed-SHA, public locale/media checks and owner visual acceptance. No commit, push, merge, deployment or original-file deletion is performed by these commands. Archive source files only after the separately approved release and public verification, never merely after a green local receipt.
 
 Receipts are also bound to the calendar day in Europe/Paris, so date-sensitive readiness is not reused silently on the following day.
+
+The release runner's production dependency audit always runs again, even when source/check receipts match; external advisory data can change without a repository edit.
 
 ## Isolated No-Rebuild Trial
 

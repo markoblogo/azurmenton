@@ -27,7 +27,7 @@ BOOKING_REQUEST_FROM_EMAIL="Azur Menton <booking@your-verified-domain.example>"
 BOOKING_REQUEST_BCC_EMAIL=...
 ```
 
-The BCC variable is optional. No hidden copy is sent when it is unset; there is no personal-address fallback in application code.
+The BCC variable is an optional override. If unset or blank, the application retains the owner-approved operational copy defined in `src/lib/resend.ts`; blank does not disable it. Regression tests cover this behavior. See [delivery operations](docs/booking-email-operations.md) for request IDs and incident handling. Telegram verification is postponed.
 
 ## 3. Set variables in Vercel
 
@@ -35,7 +35,7 @@ Add the variables in the Vercel project environment settings for Production. Red
 
 ## 4. Test the booking flow
 
-Submit a real booking request from `/en/check-availability` with an obvious test message, for example:
+Only after explicit owner approval, submit one real booking request from `/en/check-availability` with an obvious test message, for example:
 
 ```txt
 TEST REQUEST - please confirm that Resend delivery works. Do not treat this as a real booking.
@@ -45,7 +45,7 @@ Expected result:
 
 - The website shows the normal success message.
 - The host inbox receives the email.
-- If `BOOKING_REQUEST_BCC_EMAIL` is configured, that operational inbox receives the same request with an `[Azur Menton]` subject prefix.
+- The approved copy recipient (override or application default) receives the request with an `[Azur Menton]` subject prefix.
 - The Resend dashboard shows a delivered email event.
 - Replying to the email should target the guest email because the request uses `reply_to`.
 

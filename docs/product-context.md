@@ -46,4 +46,6 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 
 ## Maintenance
 
+`docs/README.md` indexes current runbooks; dated audits remain historical evidence. `release:check` reuses the input-bound check machinery and shared guide checks, adding production dependency/native/browser gates. It never authorizes a commit, release, external message or production configuration change.
+
 Refresh after material changes to apartments, booking flow, content model, analytics contract, or public positioning. Drafts and recurring review outputs remain proposal-first until explicitly approved.
