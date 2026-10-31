@@ -383,6 +383,16 @@ const rawPlaces: Place[] = [
     bestFor: [text("One-hour perfume workshop", "Atelier parfum d'une heure", "Laboratorio profumi di un'ora", "Парфумерія за годину")], relatedArticleIds: ["creative-workshops-menton-french-riviera"], guideCoverageSlugs: ["creative-workshops-menton-french-riviera"],
   },
   {
+    id: "boulevard-de-garavan-menton", name: "Boulevard de Garavan", type: "viewpoint", address: "Boulevard de Garavan, 06500 Menton",
+    area: text("Garavan, Menton", "Garavan, Menton", "Garavan, Mentone", "Гараван, Ментон"),
+    image: "/images/guide/boulevard-de-garavan-menton.png",
+    programmeUrl: "https://www.menton.fr/Boulevard-de-Garavan.html", googleMapsUrl: mapsSearch("Boulevard de Garavan", "Menton"),
+    sourceStatus: "verified", requiresMapReview: true, visitorAccess: "public",
+    shortNote: text("Historic hillside boulevard above Garavan, with villas and bay views. Slopes, traffic and variable pedestrian space: choose a suitable public section, not an assumed step-free route. Villa grounds remain private.", "Boulevard historique sur les hauteurs de Garavan, villas et vues sur la baie. Pentes, circulation et espace piéton variable : choisissez un tronçon adapté, sans présumer un accès sans marches. Jardins privés.", "Viale storico sopra Garavan, ville e panorami sulla baia. Pendenze, traffico e spazio pedonale variabile: scegliete un tratto adatto senza presumere un percorso privo di gradini. Giardini privati.", "Історичний бульвар над Гараваном із віллами й видами на затоку. Схили, транспорт і різна ширина проходу: обирайте придатну громадську ділянку, не вважайте маршрут безсходинковим. Сади вілл приватні."),
+    bestFor: [text("literary and architectural walks", "balades littéraires et architecturales", "passeggiate letterarie e architettoniche", "літературні й архітектурні прогулянки")],
+    relatedArticleIds: ["janet-frame-menton-in-the-memorial-room", "belle-epoque-menton-architecture-walk"],
+  },
+  {
     id: "villa-isola-bella-menton", name: "Villa Isola Bella", type: "viewpoint",
     area: text("Garavan, Menton; public-street context only", "Garavan, Menton ; contexte depuis la rue publique", "Garavan, Mentone; solo contesto dalla strada pubblica", "Гараван, Ментон; лише огляд із громадських вулиць"),
     image: "/images/guide/villa-isola-bella-menton.png",
@@ -11247,6 +11257,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["villa-isola-bella-menton", "menton-garavan-station", "promenade-reine-astrid", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("janet-frame-menton-in-the-memorial-room");
   if (["jardin-val-rahmeh", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("the-houses-that-remember-riviera-book-route");
   if (["villa-ephrussi-de-rothschild", "villa-kerylos-beaulieu-sur-mer"].includes(place.id)) relatedArticleIds.add("museums-in-menton-nice-monaco");
   if (["maison-herbin-menton", "maison-gannac-menton", "au-pays-du-citron-menton", "la-tarte-mentonnaise", "palais-carnoles-menton"].includes(place.id)) relatedArticleIds.add("menton-lemons-producers-orchards-tastings");
