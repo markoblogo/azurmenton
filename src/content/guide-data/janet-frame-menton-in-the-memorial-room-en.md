@@ -145,7 +145,7 @@ Mansfield's letters from Menton frequently reveal her attention to gardens, plan
 
 ### Visiting information
 
-Val Rahmeh is a ticketed botanical garden with seasonal opening hours. Its operator announces closure from **2 to 28 November 2026** for irrigation works. Verify reopening before travelling. The grounds contain gradients and uneven paths, so check access requirements if mobility is limited.
+Val Rahmeh is a ticketed botanical garden with seasonal opening hours. Its operator announces closure starting **2 November 2026** for irrigation works. The [detailed works notice](https://www.jardinbotaniquevalrahmehmenton.fr/fr/actualites/le-jardin-val-rahmeh-menton-ferme-pour-travaux-en-novembre) lists 2–27 November inclusive, while the homepage has also shown 28 November; confirm the actual reopening before travelling. The grounds contain gradients and uneven paths, so check access requirements if mobility is limited.
 
 [Val Rahmeh: official opening information](https://www.jardinbotaniquevalrahmehmenton.fr/)
 

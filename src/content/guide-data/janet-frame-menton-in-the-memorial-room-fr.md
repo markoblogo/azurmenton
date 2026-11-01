@@ -133,7 +133,7 @@ Les lettres de Mansfield témoignent de son attention aux jardins, aux plantes, 
 
 ### Informations de visite
 
-Val Rahmeh est un jardin botanique payant aux horaires saisonniers. Son gestionnaire annonce une **fermeture du 2 au 28 novembre 2026** pour des travaux d'arrosage. Vérifiez la réouverture avant de vous déplacer. Les pentes et les chemins irréguliers imposent également de se renseigner sur l'accès si la mobilité est limitée.
+Val Rahmeh est un jardin botanique payant aux horaires saisonniers. Son gestionnaire annonce une **fermeture à partir du 2 novembre 2026** pour des travaux d'arrosage. L'[avis détaillé](https://www.jardinbotaniquevalrahmehmenton.fr/fr/actualites/le-jardin-val-rahmeh-menton-ferme-pour-travaux-en-novembre) indique du 2 au 27 inclus, tandis que l'accueil a aussi affiché le 28 novembre ; confirmez la réouverture avant de vous déplacer. Les pentes et les chemins irréguliers imposent également de se renseigner sur l'accès si la mobilité est limitée.
 
 [Val Rahmeh : informations officielles](https://www.jardinbotaniquevalrahmehmenton.fr/)
 

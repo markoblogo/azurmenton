@@ -13,6 +13,7 @@ import { mentonLemonsGuide } from "@/content/menton-lemons-guide";
 import { housesRememberGuide } from "@/content/houses-remember-guide";
 import { creativeWorkshopsGuide } from "@/content/creative-workshops-guide";
 import { janetFrameGuide } from "@/content/janet-frame-guide";
+import { stepFreeMentonGuide } from "@/content/step-free-menton-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11386,6 +11387,19 @@ guideArticles.push(mentonLemonsGuide);
 guideArticles.push(housesRememberGuide);
 guideArticles.push(creativeWorkshopsGuide);
 guideArticles.push(janetFrameGuide);
+guideArticles.push(stepFreeMentonGuide);
+for (const slug of stepFreeMentonGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(stepFreeMentonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), stepFreeMentonGuide.slug];
+}
+const accessibleBeachGuide = guideArticles.find(article => article.slug === "best-beaches-in-menton");
+accessibleBeachGuide?.sections.push({
+  heading: t("Access to the promenade, beach and sea", "Accès à la promenade, à la plage et à la mer", "Accesso al lungomare, alla spiaggia e al mare", "Доступ до набережної, пляжу й моря"),
+  body: [t("Esplanade des Sablettes is a pedestrian public space, not the beach surface. Its seasonal Handiplage service offers assisted bathing by reservation; the published July–August 2026 season has ended. At Plage du Marché, the tourist office identifies reduced-mobility access points, including near Royal Westminster, but reaching beach level does not guarantee independent passage over pebbles or entry into the sea. Our step-free guide separates these conditions and explains what still needs checking.", "L'Esplanade des Sablettes est un espace piéton, pas la surface de la plage. Son Handiplage saisonnier propose une baignade assistée sur réservation ; la saison publiée juillet–août 2026 est terminée. À la Plage du Marché, l'office signale des accès PMR, notamment près du Royal Westminster, sans garantie de traverser seul les galets ni d'entrer dans l'eau. Notre guide sans escaliers distingue ces conditions et les vérifications restantes.", "Esplanade des Sablettes è uno spazio pedonale, non la superficie della spiaggia. Il servizio stagionale Handiplage propone bagni assistiti su prenotazione; la stagione pubblicata luglio–agosto 2026 è terminata. Alla Plage du Marché l'ufficio segnala accessi per mobilità ridotta, anche vicino al Royal Westminster, senza garantire attraversamento autonomo dei ciottoli o ingresso in mare. La guida senza scale distingue queste condizioni e le verifiche necessarie.", "Esplanade des Sablettes — пішохідний простір, не поверхня пляжу. Сезонний Handiplage пропонує купання з допомогою за записом; опублікований сезон липня–серпня 2026 року завершився. На Plage du Marché офіс зазначає пристосовані входи, зокрема біля Royal Westminster, але це не гарантує самостійного проїзду галькою чи входу у воду. Гайд без сходів розділяє ці умови й пояснює необхідні перевірки.")],
+  relatedPlaceIds: ["esplanade-des-sablettes-menton", "handiplage-menton", "plage-du-marche-menton"],
+  guideLinkSlug: stepFreeMentonGuide.slug,
+  guideLinkLabel: t("Plan a step-free outing", "Préparer une sortie sans marches", "Organizza un'uscita senza gradini", "Сплануйте прогулянку без сходів"),
+});
 belleEpoqueGuide.sections[11].relatedPlaceIds = [...(belleEpoqueGuide.sections[11].relatedPlaceIds ?? []), "boulevard-de-garavan-menton"];
 belleEpoqueGuide.sections[11].body.push(t("Boulevard de Garavan offers public-street context for these villas and literary stays. Choose a short section suited to your mobility: this hillside road is not a level, traffic-free promenade.", "Le boulevard de Garavan donne le contexte public de ces villas et séjours littéraires. Choisissez un tronçon adapté : cette voie en pente n'est pas une promenade plate sans circulation.", "Boulevard de Garavan offre il contesto pubblico di queste ville e residenze letterarie. Scegliete un tratto adatto: la strada collinare non è un lungomare pianeggiante senza traffico.", "Boulevard de Garavan дає громадський вуличний контекст цих вілл і літературних резиденцій. Обирайте придатний відрізок: дорога на схилі не є рівною набережною без транспорту."));
 for (const slug of janetFrameGuide.relatedArticles ?? []) {

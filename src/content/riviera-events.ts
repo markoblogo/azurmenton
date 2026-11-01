@@ -2047,7 +2047,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     ),
     sourceStatus: "needs_verification",
     sourceUrl: "https://ville-eze.fr/evenements/halloween-3/",
-    featured: true,
+    featured: false,
     detailPage: true,
     relatedApartmentKeys: relatedAll,
   },

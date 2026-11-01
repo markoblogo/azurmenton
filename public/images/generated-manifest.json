@@ -126,6 +126,13 @@
     ]
   },
   {
+    "source": "public/images/guide/boulevard-de-garavan-menton.png",
+    "outputs": [
+      "public/images/guide/generated/boulevard-de-garavan-menton.avif",
+      "public/images/guide/generated/boulevard-de-garavan-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/burger-king-nice-centre.png",
     "outputs": [
       "public/images/guide/generated/burger-king-nice-centre.avif",
@@ -672,6 +679,13 @@
     ]
   },
   {
+    "source": "public/images/guide/menton-accessible-step-free-walks.png",
+    "outputs": [
+      "public/images/guide/generated/menton-accessible-step-free-walks.avif",
+      "public/images/guide/generated/menton-accessible-step-free-walks.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/menton-in-winter.png",
     "outputs": [
       "public/images/guide/generated/menton-in-winter.avif",
@@ -1120,10 +1134,31 @@
     ]
   },
   {
-    "source": "public/images/guide/boulevard-de-garavan-menton.png",
+    "source": "public/images/guide/esplanade-des-sablettes-menton.png",
     "outputs": [
-      "public/images/guide/generated/boulevard-de-garavan-menton.avif",
-      "public/images/guide/generated/boulevard-de-garavan-menton.webp"
+      "public/images/guide/generated/esplanade-des-sablettes-menton.avif",
+      "public/images/guide/generated/esplanade-des-sablettes-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/promenade-de-la-mer-menton.png",
+    "outputs": [
+      "public/images/guide/generated/promenade-de-la-mer-menton.avif",
+      "public/images/guide/generated/promenade-de-la-mer-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/handiplage-menton.png",
+    "outputs": [
+      "public/images/guide/generated/handiplage-menton.avif",
+      "public/images/guide/generated/handiplage-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/plage-du-marche-menton.png",
+    "outputs": [
+      "public/images/guide/generated/plage-du-marche-menton.avif",
+      "public/images/guide/generated/plage-du-marche-menton.webp"
     ]
   }
 ]
