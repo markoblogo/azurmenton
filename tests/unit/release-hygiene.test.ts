@@ -1,5 +1,5 @@
 import { createRequire } from "node:module";
-import { mkdtempSync, writeFileSync, rmSync, symlinkSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync, rmSync, symlinkSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -14,6 +14,23 @@ const { runCheckSuite, fingerprintInputs } = require("../../scripts/lib/guide-wo
 const { main: releaseCheck } = require("../../scripts/release-check.cjs");
 
 describe("release hygiene", () => {
+  it("excludes local agent bundles from website checks and source control", () => {
+    const config = JSON.parse(readFileSync(new URL("../../tsconfig.json", import.meta.url), "utf8"));
+    expect(config.exclude).toContain(".local-tools");
+    expect(readFileSync(new URL("../../eslint.config.mjs", import.meta.url), "utf8")).toContain('".local-tools/**"');
+    expect(readFileSync(new URL("../../.gitignore", import.meta.url), "utf8")).toContain("/.local-tools/token-economizer/");
+  });
+  it("keeps the FullCalendar plugins aligned with core in the manifest and lockfile", () => {
+    const manifest = JSON.parse(readFileSync(new URL("../../package.json", import.meta.url), "utf8"));
+    const lock = JSON.parse(readFileSync(new URL("../../package-lock.json", import.meta.url), "utf8"));
+    const core = lock.packages["node_modules/@fullcalendar/core"].version;
+    for (const name of ["core", "daygrid", "react"]) {
+      const id = `@fullcalendar/${name}`;
+      expect(manifest.dependencies[id]).toBe(manifest.dependencies["@fullcalendar/core"]);
+      expect(lock.packages[""].dependencies[id]).toBe(manifest.dependencies[id]);
+      expect(lock.packages[`node_modules/${id}`].version).toBe(core);
+    }
+  });
   it("hashes inputs deterministically, detects byte changes and refuses symlinks", async () => {
     const root = mkdtempSync(join(tmpdir(), "menton-fingerprint-"));
     try {
