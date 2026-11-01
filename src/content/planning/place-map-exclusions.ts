@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "port-de-la-darse-villefranche", reason: "coordinate_unverified", checkedOn: "2026-11-01", sourceUrl: "https://dossiersinventaire.maregionsud.fr/dossier/IA06002587" },
   { placeId: "esplanade-des-sablettes-menton", reason: "coordinate_unverified", checkedOn: "2026-11-01", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/esplanade-des-sablettes-menton-fr-3834108/" },
   { placeId: "promenade-de-la-mer-menton", reason: "not_a_fixed_venue", checkedOn: "2026-11-01", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/promenade-en-poussette-bord-de-mer-menton-fr-4269929/" },
   { placeId: "handiplage-menton", reason: "coordinate_unverified", checkedOn: "2026-11-01", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/handiplage-de-menton-menton-fr-3234475/" },
