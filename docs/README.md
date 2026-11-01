@@ -7,6 +7,7 @@ Current entrypoints are below. Dated audits, reports and reviews record observat
 - [Product context](product-context.md), [roadmap](ROADMAP.md): goals, claim boundaries and deferred work.
 - [Development](../CONTRIBUTING.md), [release checklist](../LAUNCH_CHECKLIST.md), [deployment](../DEPLOYMENT.md), [security](../SECURITY.md).
 - [Native dependencies](ci-native-dependencies.md), [CSP/cache checks](csp-cache-audit.md), [release audit](audits/2026-10-31-release-readiness.md).
+- [Local TokenEconomizer](token-economizer.md): optional Codex tooling, repository scope and activation limits; not a website dependency.
 
 ## Guides, Places And Media
 

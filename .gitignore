@@ -48,3 +48,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Codex tooling; never included in the website or release artifacts
+/.local-tools/token-economizer/

@@ -11,6 +11,9 @@ updates:
         dependency-type: development
     open-pull-requests-limit: 5
     ignore:
+      # Calendar plugins share core peer dependencies; major upgrades need a coordinated migration.
+      - dependency-name: "@fullcalendar/*"
+        update-types: ["version-update:semver-major"]
       - dependency-name: "@types/node"
         update-types: ["version-update:semver-major"]
       - dependency-name: eslint
