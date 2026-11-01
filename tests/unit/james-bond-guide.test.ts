@@ -46,21 +46,20 @@ it("excludes road and stunt movements from the pedestrian outing and avoids fals
   expect(tunnel.visitRules?.conditions?.[0].value.en).toContain("Never enter the tunnel on foot");
 });
 
-it("reuses illustrated Menton cards, leaves only the two new owner image tasks and links them back", () => {
+it("keeps all nine cards illustrated with the correct owner images and reciprocal links", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(9);
   for (const place of places) {
     expect(place.relatedArticleIds).toContain(slug);
     if (newPlaces.includes(place.id)) {
-      expect(place.image).toBeUndefined();
+      expect(place.image).toBe(`/images/guide/${place.id}.png`);
       expect(place.images?.length ?? 0).toBe(0);
       if (place.id === "port-de-la-darse-villefranche") expect(placeMapExclusions.find(value => value.placeId === place.id)?.sourceUrl).toBe(place.programmeUrl);
       else expect(placeMapExclusions.find(value => value.placeId === place.id)).toBeUndefined();
       expect(place.googleMapsUrl).toContain("Villefranche");
-    } else {
-      expect(place.image).toBeTruthy();
-      expect(existsSync(`public${place.image}`)).toBe(true);
     }
+    expect(place.image).toBeTruthy();
+    expect(existsSync(`public${place.image}`)).toBe(true);
   }
   const screen = guideArticles.find(article => article.slug === "films-shot-in-menton")!;
   for (const id of newPlaces) {
