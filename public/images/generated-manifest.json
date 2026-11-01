@@ -301,6 +301,13 @@
     ]
   },
   {
+    "source": "public/images/guide/esplanade-des-sablettes-menton.png",
+    "outputs": [
+      "public/images/guide/generated/esplanade-des-sablettes-menton.avif",
+      "public/images/guide/generated/esplanade-des-sablettes-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/fix-phones-menton.png",
     "outputs": [
       "public/images/guide/generated/fix-phones-menton.avif",
@@ -354,6 +361,13 @@
     "outputs": [
       "public/images/guide/generated/gourdon-paragliding-area.avif",
       "public/images/guide/generated/gourdon-paragliding-area.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/handiplage-menton.png",
+    "outputs": [
+      "public/images/guide/generated/handiplage-menton.avif",
+      "public/images/guide/generated/handiplage-menton.webp"
     ]
   },
   {
@@ -896,6 +910,13 @@
     ]
   },
   {
+    "source": "public/images/guide/plage-du-marche-menton.png",
+    "outputs": [
+      "public/images/guide/generated/plage-du-marche-menton.avif",
+      "public/images/guide/generated/plage-du-marche-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/point-postal-felix-faure-menton.png",
     "outputs": [
       "public/images/guide/generated/point-postal-felix-faure-menton.avif",
@@ -921,6 +942,13 @@
     "outputs": [
       "public/images/guide/generated/post-offices-stamps-menton.avif",
       "public/images/guide/generated/post-offices-stamps-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/promenade-de-la-mer-menton.png",
+    "outputs": [
+      "public/images/guide/generated/promenade-de-la-mer-menton.avif",
+      "public/images/guide/generated/promenade-de-la-mer-menton.webp"
     ]
   },
   {
@@ -1134,31 +1162,10 @@
     ]
   },
   {
-    "source": "public/images/guide/esplanade-des-sablettes-menton.png",
+    "source": "public/images/guide/james-bond-menton-never-say-never-again-filming-locations.png",
     "outputs": [
-      "public/images/guide/generated/esplanade-des-sablettes-menton.avif",
-      "public/images/guide/generated/esplanade-des-sablettes-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/promenade-de-la-mer-menton.png",
-    "outputs": [
-      "public/images/guide/generated/promenade-de-la-mer-menton.avif",
-      "public/images/guide/generated/promenade-de-la-mer-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/handiplage-menton.png",
-    "outputs": [
-      "public/images/guide/generated/handiplage-menton.avif",
-      "public/images/guide/generated/handiplage-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/plage-du-marche-menton.png",
-    "outputs": [
-      "public/images/guide/generated/plage-du-marche-menton.avif",
-      "public/images/guide/generated/plage-du-marche-menton.webp"
+      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.avif",
+      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.webp"
     ]
   }
 ]

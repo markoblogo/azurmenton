@@ -14,6 +14,7 @@ import { housesRememberGuide } from "@/content/houses-remember-guide";
 import { creativeWorkshopsGuide } from "@/content/creative-workshops-guide";
 import { janetFrameGuide } from "@/content/janet-frame-guide";
 import { stepFreeMentonGuide } from "@/content/step-free-menton-guide";
+import { jamesBondGuide } from "@/content/james-bond-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11388,6 +11389,23 @@ guideArticles.push(housesRememberGuide);
 guideArticles.push(creativeWorkshopsGuide);
 guideArticles.push(janetFrameGuide);
 guideArticles.push(stepFreeMentonGuide);
+guideArticles.push(jamesBondGuide);
+for (const slug of jamesBondGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(jamesBondGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), jamesBondGuide.slug];
+}
+const screenGuide = guideArticles.find(article => article.slug === "films-shot-in-menton");
+if (screenGuide) {
+  screenGuide.sections[1].guideLinkSlug = jamesBondGuide.slug;
+  screenGuide.sections[1].guideLinkLabel = t("Walk the Bond locations safely", "Découvrir les lieux de Bond à pied", "Scopri a piedi i luoghi di Bond", "Пройдіть місцями Бонда безпечно");
+  screenGuide.sections.push({
+    heading: t("A separate Bond excursion to Villefranche", "Une excursion Bond distincte à Villefranche", "Una gita Bond separata a Villefranche", "Окрема поїздка слідами Бонда до Вільфранша"),
+    body: [t("Never Say Never Again joins Menton's streets to Villefranche through editing, not a continuous visitor route. Specialist research places the warehouse finale at Port de la Darse / Quai de la Corderie; regional tourism identifies Quai de l'Amiral Courbet for Largo's yacht. Plan a separate half-day visit using public paths only. Working warehouses and port installations are not automatically open to visitors.", "Le montage de Jamais plus jamais relie Menton à Villefranche, pas un parcours continu de visite. Les recherches situent l'entrepôt final à la Darse / Quai de la Corderie ; le tourisme régional identifie Quai de l'Amiral Courbet pour le yacht de Largo. Prévoyez une demi-journée distincte sur les voies publiques, sans présumer l'ouverture des entrepôts ou installations.", "Il montaggio di Mai dire mai unisce Mentone a Villefranche, non un percorso turistico continuo. La ricerca colloca il magazzino finale alla Darse / Quai de la Corderie; il turismo regionale indica Quai de l'Amiral Courbet per lo yacht di Largo. Prevedi una mezza giornata separata su percorsi pubblici, senza presumere l'accesso a magazzini o impianti.", "Монтаж Never Say Never Again поєднує Ментон із Вільфраншем, але це не суцільний туристичний шлях. Дослідники пов'язують фінальний склад із Darse / Quai de la Corderie, а регіональний туризм — яхту Ларго з Quai de l'Amiral Courbet. Плануйте окремі пів дня громадськими доріжками; склади й робочі споруди не обов'язково відкриті.")],
+    relatedPlaceIds: ["port-de-la-darse-villefranche", "quai-amiral-courbet-villefranche"],
+    guideLinkSlug: jamesBondGuide.slug,
+    guideLinkLabel: t("Menton and Villefranche Bond guide", "Guide Bond à Menton et Villefranche", "Guida Bond a Mentone e Villefranche", "Гайд Бонда в Ментоні й Вільфранші"),
+  });
+}
 for (const slug of stepFreeMentonGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(stepFreeMentonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), stepFreeMentonGuide.slug];

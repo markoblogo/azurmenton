@@ -32,7 +32,7 @@ it("publishes the full step-free guide with aligned translations and practical t
     expect(guide.sections[16].body[0][locale]).toContain("https://www.zestbus.fr/service-mobizest");
     expect(guide.sections[16].body[0][locale]).toContain("https://acceslibre.beta.gouv.fr/");
   }
-  const articlesThroughPublication = guideArticles.filter(article => !article.publishedOn || article.publishedOn <= guide.publishedOn!);
+  const articlesThroughPublication = guideArticles.slice(0, guideArticles.indexOf(guide) + 1);
   expect(getLatestLandingGuideSlug(articlesThroughPublication)).toBe(guide.slug);
 });
 

@@ -300,6 +300,25 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "port-de-la-darse-villefranche", name: "Port de la Darse / Quai de la Corderie", type: "port",
+    address: "Quai de la Corderie, 06230 Villefranche-sur-Mer", area: text("Villefranche-sur-Mer", "Villefranche-sur-Mer", "Villefranche-sur-Mer", "Вільфранш-сюр-Мер"),
+    googleMapsUrl: mapsQuery("Port de la Darse", "Quai de la Corderie", "Villefranche-sur-Mer"),
+    programmeUrl: "https://dossiersinventaire.maregionsud.fr/dossier/IA06002587", sourceStatus: "verified", requiresMapReview: true,
+    shortNote: text("Historic working harbour linked by specialist scene research to the warehouse finale of Never Say Never Again. Explore public paths only; warehouse interiors and operational areas are not presumed open.", "Port historique en activité associé par des recherches cinéma à l'entrepôt final de Jamais plus jamais. Voies publiques seulement ; aucun accès intérieur ou aux zones de travail n'est présumé.", "Porto storico operativo associato dalla ricerca cinematografica al magazzino finale di Mai dire mai. Solo percorsi pubblici; nessun accesso presunto a interni o aree operative.", "Історичний чинний порт, пов'язаний кінодослідниками зі складом у фіналі Never Say Never Again. Лише громадські шляхи; доступ до інтер'єрів і робочих зон не передбачається."),
+    bestFor: [text("Maritime heritage and film context", "Patrimoine maritime et contexte cinéma", "Patrimonio marittimo e contesto cinematografico", "Морська спадщина й кіноконтекст")],
+    visitRules: { conditions: [{ value: text("A separate Villefranche outing, not an extension on foot from Menton. Stay on public paths; enter working buildings only with explicit permission.", "Une sortie distincte à Villefranche, pas un prolongement à pied depuis Menton. Restez sur les voies publiques ; autorisation explicite pour les bâtiments de travail.", "Un'uscita separata a Villefranche, non una continuazione a piedi da Mentone. Restare sui percorsi pubblici; permesso esplicito per gli edifici operativi.", "Окрема поїздка до Вільфранша, не пішохідне продовження з Ментона. Лише публічні шляхи; для робочих будівель потрібен прямий дозвіл."), sourceUrl: "https://rivieraonfilm.wixsite.com/riviera-on-film/never-say-never-again-1983", checkedOn: "2026-11-01" }] },
+    relatedArticleIds: ["james-bond-menton-never-say-never-again-filming-locations", "films-shot-in-menton"],
+  },
+  {
+    id: "quai-amiral-courbet-villefranche", name: "Quai de l'Amiral Courbet", type: "walk",
+    address: "Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer", area: text("Villefranche-sur-Mer", "Villefranche-sur-Mer", "Villefranche-sur-Mer", "Вільфранш-сюр-Мер"),
+    googleMapsUrl: mapsQuery("Quai de l'Amiral Courbet", "Villefranche-sur-Mer"),
+    programmeUrl: "https://provence-alpes-cotedazur.com/en/get-inspired/james-bond-a-spy-on-the-cote-dazur/", sourceStatus: "verified",
+    shortNote: text("Villefranche waterfront identified by regional tourism for Largo's yacht scenes in Never Say Never Again. A different film setting from the Darse warehouse; public-quay context, not yacht or interior access.", "Quai de Villefranche identifié par le tourisme régional pour le yacht de Largo dans Jamais plus jamais. Distinct de l'entrepôt de la Darse ; contexte public du quai, sans accès au yacht ni aux intérieurs.", "Lungomare di Villefranche indicato dal turismo regionale per lo yacht di Largo in Mai dire mai. Distinto dal magazzino della Darse; contesto del quai pubblico, non accesso a yacht o interni.", "Набережна Вільфранша, названа регіональним туризмом для сцен яхти Ларго в Never Say Never Again. Не склад Darse; публічний контекст набережної без доступу до яхти чи інтер'єрів."),
+    bestFor: [text("Waterfront film-location context", "Contexte cinéma au bord de l'eau", "Contesto cinematografico sul mare", "Прибережний кіноконтекст")],
+    relatedArticleIds: ["james-bond-menton-never-say-never-again-filming-locations", "films-shot-in-menton"],
+  },
+  {
     id: "esplanade-des-sablettes-menton", name: "Esplanade des Sablettes", type: "viewpoint", address: "Esplanade des Sablettes, 06500 Menton",
     area: text("Menton waterfront", "Littoral de Menton", "Lungomare di Mentone", "Узбережжя Ментона"), sourceStatus: "verified", visitorAccess: "public", requiresMapReview: true,
     image: "/images/guide/esplanade-des-sablettes-menton.png",
@@ -1679,12 +1698,13 @@ const rawPlaces: Place[] = [
   {
     id: "tunnel-pascal-molinari",
     name: "Tunnel Pascal-Molinari",
-    type: "walk",
+    type: "viewpoint",
     area: text("between the old town and eastern Menton", "entre la vieille ville et l'est de Menton", "tra il centro storico e l'est di Mentone", "між старим містом і східним Ментоном"),
     googleMapsUrl: mapsSearch("Tunnel Pascal Molinari", "Menton"),
     sourceStatus: "needs_verification",
     shortNote: text("A road tunnel used as the final point in the Menton sequence of Never Say Never Again; view from public streets only and never enter on foot.", "Un tunnel routier utilise comme point final de la sequence mentonnaise de Jamais plus jamais; observez-le seulement depuis l'espace public et ne le parcourez jamais a pied.", "Un tunnel stradale usato come punto finale della sequenza mentonese di Mai dire mai; osservalo solo da spazi pubblici e non percorrerlo mai a piedi.", "Автодорожній тунель, що завершує ментонську сцену Never Say Never Again; оглядайте лише з публічних вулиць і не заходьте пішки."),
-    bestFor: [text("film-location context", "contexte de tournage", "contesto cinematografico", "контекст кінолокації"), text("Bond walk finish", "fin de balade Bond", "finale della passeggiata Bond", "фінал маршруту Bond")],
+    bestFor: [text("Documentary film-location context only", "Contexte documentaire de tournage uniquement", "Solo contesto documentario delle riprese", "Лише довідковий контекст кінолокації")],
+    visitRules: { conditions: [{ value: text("Road infrastructure, not a pedestrian stop. Never enter the tunnel on foot or use live traffic lanes to recreate a shot. Study the scene through archive images and maps instead.", "Infrastructure routière, pas une étape piétonne. N'entrez jamais à pied dans le tunnel et n'utilisez pas les voies actives pour une photo. Préférez les archives et les cartes.", "Infrastruttura stradale, non tappa pedonale. Non entrare a piedi nel tunnel né usare corsie attive per una foto. Studiare invece immagini d'archivio e mappe.", "Дорожня інфраструктура, не пішохідна зупинка. Не заходьте пішки в тунель і не використовуйте смуги руху для кадру. Досліджуйте архівні зображення й карти."), sourceUrl: "https://www.menton.fr/visite-sur-le-chantier-du-giratoire-square-victoria.html", checkedOn: "2026-11-01" }] },
     relatedArticleIds: ["films-shot-in-menton"],
   },
   {
@@ -11300,6 +11320,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "place-du-cap-menton", "quai-bonaparte-menton", "villefranche-sur-mer"].includes(place.id)) relatedArticleIds.add("james-bond-menton-never-say-never-again-filming-locations");
   if (["esplanade-des-sablettes-menton", "handiplage-menton", "plage-du-marche-menton"].includes(place.id)) relatedArticleIds.add("best-beaches-in-menton");
   if (["promenade-du-soleil", "jardins-bioves", "office-tourisme-menton-riviera-merveilles", "halles-du-marche", "port-de-garavan", "plage-casino", "palais-de-leurope-menton", "menton-station", "jardin-val-rahmeh", "jardin-serre-de-la-madone"].includes(place.id)) relatedArticleIds.add("menton-accessible-step-free-walks");
   if (["villa-isola-bella-menton", "menton-garavan-station", "promenade-reine-astrid", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("janet-frame-menton-in-the-memorial-room");
