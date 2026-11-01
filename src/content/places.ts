@@ -300,6 +300,48 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "rue-shakespeare-nice", name: "Rue Shakespeare", type: "walk", address: "Rue Shakespeare, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: false, sourceStatus: "editorial", visitorAccess: "public",
+    googleMapsUrl: mapsQuery("Rue Shakespeare", "Nice"), programmeUrl: "https://rim.univ-cotedazur.fr/items/show/2921",
+    shortNote: text("Residential street associated with Roman Kacew and his mother's first Nice home. Public-street context only: the exact original apartment entrance is not independently established and homes are private.", "Rue résidentielle liée au premier foyer niçois de Roman Kacew et sa mère. Contexte depuis la rue uniquement : entrée précise non établie indépendamment et logements privés.", "Strada residenziale legata alla prima casa nizzarda di Roman Kacew e sua madre. Solo contesto dalla strada: ingresso originario non verificato indipendentemente e abitazioni private.", "Житлова вулиця, пов'язана з першою оселею Романа Кацева та матері в Ніцці. Лише вуличний контекст: точний вхід до квартири незалежно не встановлений, оселі приватні."),
+    bestFor: [text("Gary's early Nice years", "Premières années niçoises de Gary", "Primi anni nizzardi di Gary", "Перші роки Гарі в Ніцці")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "hotel-pension-mermonts-nice", name: "Former Hôtel-Pension Mermonts / Les Pervenches", type: "viewpoint", address: "7 Boulevard François-Grosso, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: true, sourceStatus: "editorial", visitorAccess: "ask-first",
+    googleMapsUrl: mapsQuery("Les Pervenches", "7 Boulevard François-Grosso, Nice"), programmeUrl: "https://rim.univ-cotedazur.fr/items/show/2923",
+    shortNote: text("Former pension managed by Gary's mother, now a residential building. View the commemorative plaque from the public pavement only; this is not a walk-in hotel or museum.", "Ancienne pension gérée par la mère de Gary, aujourd'hui résidentielle. Plaque depuis le trottoir public seulement : ni hôtel accessible librement ni musée.", "Ex pensione gestita dalla madre di Gary, oggi residenziale. Osserva la targa dal marciapiede pubblico: non è un albergo visitabile liberamente né un museo.", "Колишній пансіон, яким керувала мати Гарі, тепер житловий будинок. Дошку оглядають із громадського тротуару; це не відкритий готель чи музей."),
+    bestFor: [text("Documented literary address", "Adresse littéraire documentée", "Indirizzo letterario documentato", "Документована літературна адреса")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "buffa-dante-neighbourhood-nice", name: "Buffa / Avenue Dante neighbourhood", type: "neighbourhood", address: "Rue de la Buffa / Avenue Dante, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: false, sourceStatus: "editorial", visitorAccess: "public",
+    googleMapsUrl: mapsQuery("Rue de la Buffa", "Avenue Dante, Nice"), programmeUrl: "https://rim.univ-cotedazur.fr/items/show/2923",
+    shortNote: text("Public streets evoking the everyday commercial world around Mermonts. The historical Buffa market reference is not a promise of the same market or stalls operating today.", "Rues publiques évoquant le quotidien commerçant autour de Mermonts. Le marché historique de la Buffa ne garantit pas les mêmes étals aujourd'hui.", "Strade pubbliche che evocano la vita commerciale attorno a Mermonts. Il mercato storico della Buffa non garantisce gli stessi banchi oggi.", "Громадські вулиці торговельного повсякдення довкола Mermonts. Згадка про історичний ринок Buffa не обіцяє існування тих самих яток сьогодні."),
+    bestFor: [text("Everyday literary geography", "Géographie littéraire du quotidien", "Geografia letteraria quotidiana", "Літературна географія повсякдення")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "hotel-negresco-nice", name: "Hôtel Negresco", type: "viewpoint", address: "37 Promenade des Anglais, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: true, sourceStatus: "editorial", visitorAccess: "ask-first",
+    googleMapsUrl: mapsQuery("Hôtel Negresco", "37 Promenade des Anglais, Nice"), programmeUrl: "https://rim.univ-cotedazur.fr/items/show/2921",
+    shortNote: text("Landmark hotel associated in biographical walking research with Mina's luxury-goods trade. View the façade from the public promenade; literary interest does not grant access to private interiors.", "Hôtel repère lié, dans les promenades biographiques, au commerce de luxe de Mina. Façade depuis la promenade publique ; aucun droit d'accès aux intérieurs privés.", "Albergo simbolo legato nelle ricerche biografiche al commercio di lusso di Mina. Facciata dal lungomare pubblico; l'interesse letterario non autorizza l'accesso agli interni.", "Знаковий готель, пов'язаний у біографічних дослідженнях із торгівлею Міни предметами розкоші. Фасад із громадської набережної; літературний інтерес не дає доступу до інтер'єрів."),
+    bestFor: [text("Architecture and literary context", "Architecture et contexte littéraire", "Architettura e contesto letterario", "Архітектура й літературний контекст")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "lycee-massena-nice", name: "Lycée Masséna", type: "civic", address: "2 Avenue Félix-Faure, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: true, sourceStatus: "editorial", visitorAccess: "ask-first",
+    googleMapsUrl: mapsQuery("Lycée Masséna", "2 Avenue Félix-Faure, Nice"), programmeUrl: "https://www.lycee-massena.fr/nous-contacter/",
+    shortNote: text("Gary's Nice school, still an educational establishment. Appreciate the exterior from public streets, without entering school grounds or treating it as a public museum.", "Lycée de Gary, toujours établissement scolaire. Extérieur depuis les rues publiques, sans entrer dans l'enceinte ni le considérer comme un musée.", "La scuola nizzarda di Gary è ancora un istituto scolastico. Osserva l'esterno dalle strade pubbliche senza entrare né considerarla un museo.", "Ніццька школа Гарі й нині навчальний заклад. Оглядайте зовні з громадських вулиць, не заходячи на територію та не вважаючи її музеєм."),
+    bestFor: [text("Gary's education and architecture", "Études de Gary et architecture", "Studi di Gary e architettura", "Освіта Гарі й архітектура")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "promenade-des-anglais-nice", name: "Promenade des Anglais", type: "walk", address: "Promenade des Anglais, Nice",
+    area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: false, sourceStatus: "editorial", visitorAccess: "public",
+    googleMapsUrl: mapsQuery("Promenade des Anglais", "Nice"), programmeUrl: "https://rim.univ-cotedazur.fr/items/show/2921",
+    shortNote: text("Nice's public seafront and a contextual finish for the Gary walk. Choose a manageable section; a seaside route is not a certification of uninterrupted step-free access or current conditions.", "Front de mer public et fin possible de la promenade Gary. Choisissez un tronçon adapté ; bord de mer ne signifie pas accessibilité sans interruption garantie.", "Lungomare pubblico e possibile finale del percorso Gary. Scegli un tratto adatto: la costa non certifica un accesso continuo senza gradini o le condizioni attuali.", "Громадська набережна Ніцци й завершення прогулянки Гарі. Обирайте посильну ділянку: узбережжя не гарантує безперервного безсходинкового доступу чи поточних умов."),
+    bestFor: [text("Seafront walks and literary reflection", "Balades littorales et lecture", "Passeggiate sul mare e lettura", "Приморські прогулянки й читання")], relatedArticleIds: ["romain-gary-nice-promise-at-dawn-literary-walk", "day-trips-from-menton"],
+  },
+  {
     id: "port-de-la-darse-villefranche", name: "Port de la Darse / Quai de la Corderie", type: "port",
     address: "Quai de la Corderie, 06230 Villefranche-sur-Mer", area: text("Villefranche-sur-Mer", "Villefranche-sur-Mer", "Villefranche-sur-Mer", "Вільфранш-сюр-Мер"),
     image: "/images/guide/port-de-la-darse-villefranche.png",
@@ -11324,6 +11366,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["cours-saleya-nice", "roquebrune-medieval-village"].includes(place.id)) relatedArticleIds.add("romain-gary-nice-promise-at-dawn-literary-walk");
   if (["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "place-du-cap-menton", "quai-bonaparte-menton", "villefranche-sur-mer"].includes(place.id)) relatedArticleIds.add("james-bond-menton-never-say-never-again-filming-locations");
   if (["esplanade-des-sablettes-menton", "handiplage-menton", "plage-du-marche-menton"].includes(place.id)) relatedArticleIds.add("best-beaches-in-menton");
   if (["promenade-du-soleil", "jardins-bioves", "office-tourisme-menton-riviera-merveilles", "halles-du-marche", "port-de-garavan", "plage-casino", "palais-de-leurope-menton", "menton-station", "jardin-val-rahmeh", "jardin-serre-de-la-madone"].includes(place.id)) relatedArticleIds.add("menton-accessible-step-free-walks");

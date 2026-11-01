@@ -15,6 +15,7 @@ import { creativeWorkshopsGuide } from "@/content/creative-workshops-guide";
 import { janetFrameGuide } from "@/content/janet-frame-guide";
 import { stepFreeMentonGuide } from "@/content/step-free-menton-guide";
 import { jamesBondGuide } from "@/content/james-bond-guide";
+import { romainGaryGuide } from "@/content/romain-gary-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11401,6 +11402,17 @@ guideArticles.push(creativeWorkshopsGuide);
 guideArticles.push(janetFrameGuide);
 guideArticles.push(stepFreeMentonGuide);
 guideArticles.push(jamesBondGuide);
+guideArticles.push(romainGaryGuide);
+for (const slug of romainGaryGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(romainGaryGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), romainGaryGuide.slug];
+}
+const niceDayTripGuide = guideArticles.find(article => article.slug === "day-trips-from-menton");
+const niceDayTripSection = niceDayTripGuide?.sections.find(section => section.heading.en.startsWith("Nice:"));
+if (niceDayTripSection) {
+  niceDayTripSection.relatedPlaceIds = [...new Set([...(niceDayTripSection.relatedPlaceIds ?? []), "promenade-des-anglais-nice"])];
+  niceDayTripSection.body.push(t("For a literary alternative, follow Romain Gary's Nice: the former Mermonts pension, Lycée Masséna and the streets behind Promise at Dawn. These are public-street or exterior stops, not unrestricted visits inside homes, the school or hotels.", "Pour une alternative littéraire, suivez le Nice de Romain Gary : ancienne pension Mermonts, lycée Masséna et rues de La Promesse de l'aube. Visites depuis les rues publiques, sans accès libre aux logements, au lycée ou aux hôtels.", "Per un'alternativa letteraria, segui la Nizza di Romain Gary: ex pensione Mermonts, Lycée Masséna e vie di La promessa dell'alba. Sono tappe da strade pubbliche o esterni, senza libero accesso a case, scuola o alberghi.", "Для літературної альтернативи оберіть Ніццу Ромена Гарі: колишній Mermonts, Lycée Masséna й вулиці «Обіцянки на світанку». Це громадські вулиці та фасади, не вільні візити всередину осель, школи чи готелів."));
+}
 for (const slug of jamesBondGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(jamesBondGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), jamesBondGuide.slug];
