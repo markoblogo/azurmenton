@@ -1124,6 +1124,17 @@ const articles: GuideArticle[] = [
         ],
         relatedPlaceIds: ["halles-du-marche", "maison-herbin-menton", "rue-saint-michel-menton"],
       },
+      {
+        heading: t("Halles du Marché on video", "Les Halles du Marché en vidéo", "Le Halles du Marché in video", "Halles du Marché на відео"),
+        body: [t("Menton's covered market, between the lower old town and the seafront.", "Le marché couvert de Menton, entre la ville basse et le front de mer.", "Il mercato coperto di Mentone, tra la città bassa e il lungomare.", "Критий ринок Ментона між нижнім старим містом і набережною.")],
+        videoEmbeds: [{
+          id: "halles-du-marche-menton-video", provider: "youtube",
+          embedUrl: "https://www.youtube-nocookie.com/embed/WEEGy8Ks3ig",
+          watchUrl: "https://www.youtube.com/watch?v=WEEGy8Ks3ig",
+          title: t("Halles du Marché in Menton", "Les Halles du Marché à Menton", "Le Halles du Marché a Mentone", "Halles du Marché у Ментоні"),
+          watchLabel: t("Watch on YouTube", "Voir sur YouTube", "Guarda su YouTube", "Дивитися на YouTube"),
+        }],
+      },
     ],
     practicalTips: [
       t("Arrive before 10:00 for better choice and a calmer visit.", "Arrivez avant 10h00 pour plus de choix et une visite plus calme.", "Arriva prima delle 10:00 per piu scelta e una visita piu calma.", "Приходьте до 10:00 для кращого вибору й спокійнішого візиту."),
