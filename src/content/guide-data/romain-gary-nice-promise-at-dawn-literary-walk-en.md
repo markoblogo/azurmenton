@@ -295,4 +295,3 @@ The market streets and the Mediterranean waterfront. Visiting them won't reprodu
 - [Explore More AzurMenton Guides](https://azurmenton.com/en/guide)
 
 Research reviewed on 1 November 2026. Biographical locations are based on university literary records and independent biographical research. The route combines documented addresses with contextual public places; it is not a reconstruction of every scene in the novel. Private homes, schools and hotel interiors are not assumed open for public literary visits. Travel times and access arrangements should be checked for the actual date.
-
