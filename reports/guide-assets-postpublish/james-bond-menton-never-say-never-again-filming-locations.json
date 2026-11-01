@@ -1,0 +1,46 @@
+{
+  "slug": "james-bond-menton-never-say-never-again-filming-locations",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: james-bond-menton-never-say-never-again-filming-locations",
+    "mode: published-guide + missing-only",
+    "matched: 2",
+    "skipped-covered: 7",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/james-bond-menton-never-say-never-again-filming-locations.json",
+    "rerun: npm run guide:assets -- --published-guide james-bond-menton-never-say-never-again-filming-locations --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 2,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 7,
+    "stillMissing": 0,
+    "patchReady": 2
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "port-de-la-darse-villefranche",
+    "quai-amiral-courbet-villefranche"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide james-bond-menton-never-say-never-again-filming-locations --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "port-de-la-darse-villefranche",
+      "quai-amiral-courbet-villefranche"
+    ],
+    "failedPlaceIds": []
+  }
+}

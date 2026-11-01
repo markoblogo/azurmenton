@@ -46,10 +46,18 @@ unimplemented pending suitable verified, reusable imagery.
 Existing Menton place images are retained. Two new place cards distinguish
 Port de la Darse / Quai de la Corderie from Quai de l'Amiral Courbet in Villefranche.
 Both appear in the new guide and the older filming overview, with reciprocal links.
-Their images remain empty for the owner's later illustration package:
+At initial publication their images were empty for the owner's later illustration package:
 
 - Port de la Darse / Quai de la Corderie, Villefranche-sur-Mer, `port-de-la-darse-villefranche.png`
 - Quai de l'Amiral Courbet, Villefranche-sur-Mer, `quai-amiral-courbet-villefranche.png`
+
+The owner supplied both illustrations on 1 November 2026. The existing safe
+post-publication asset path matched and applied both, skipped seven already-covered
+places and verified both image fields, with zero unmatched files or missing images.
+The persisted receipt is
+`reports/guide-assets-postpublish/james-bond-menton-never-say-never-again-filming-locations.json`.
+The cards in this guide and the older film overview share the same canonical images;
+these are illustrations, not film stills or exact-camera-position evidence.
 
 The port's explicit map exclusion avoids inventing exact coordinates or warehouse
 entrances. Quai Courbet is a linear `walk`, already outside point-map eligibility;

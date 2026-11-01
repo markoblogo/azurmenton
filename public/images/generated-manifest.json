@@ -399,6 +399,13 @@
     ]
   },
   {
+    "source": "public/images/guide/james-bond-menton-never-say-never-again-filming-locations.png",
+    "outputs": [
+      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.avif",
+      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/janet-frame-menton-in-the-memorial-room.png",
     "outputs": [
       "public/images/guide/generated/janet-frame-menton-in-the-memorial-room.avif",
@@ -1162,10 +1169,17 @@
     ]
   },
   {
-    "source": "public/images/guide/james-bond-menton-never-say-never-again-filming-locations.png",
+    "source": "public/images/guide/port-de-la-darse-villefranche.png",
     "outputs": [
-      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.avif",
-      "public/images/guide/generated/james-bond-menton-never-say-never-again-filming-locations.webp"
+      "public/images/guide/generated/port-de-la-darse-villefranche.avif",
+      "public/images/guide/generated/port-de-la-darse-villefranche.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/quai-amiral-courbet-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/quai-amiral-courbet-villefranche.avif",
+      "public/images/guide/generated/quai-amiral-courbet-villefranche.webp"
     ]
   }
 ]

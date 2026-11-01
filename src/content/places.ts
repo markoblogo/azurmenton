@@ -302,6 +302,8 @@ const rawPlaces: Place[] = [
   {
     id: "port-de-la-darse-villefranche", name: "Port de la Darse / Quai de la Corderie", type: "port",
     address: "Quai de la Corderie, 06230 Villefranche-sur-Mer", area: text("Villefranche-sur-Mer", "Villefranche-sur-Mer", "Villefranche-sur-Mer", "Вільфранш-сюр-Мер"),
+    image: "/images/guide/port-de-la-darse-villefranche.png",
+    imageAlt: text("Illustration of Port de la Darse and its historic waterfront in Villefranche-sur-Mer", "Illustration du port de la Darse et de ses quais historiques à Villefranche-sur-Mer", "Illustrazione del Port de la Darse e del lungomare storico a Villefranche-sur-Mer", "Ілюстрація Port de la Darse та історичної набережної у Вільфранш-сюр-Мер"),
     googleMapsUrl: mapsQuery("Port de la Darse", "Quai de la Corderie", "Villefranche-sur-Mer"),
     programmeUrl: "https://dossiersinventaire.maregionsud.fr/dossier/IA06002587", sourceStatus: "verified", requiresMapReview: true,
     shortNote: text("Historic working harbour linked by specialist scene research to the warehouse finale of Never Say Never Again. Explore public paths only; warehouse interiors and operational areas are not presumed open.", "Port historique en activité associé par des recherches cinéma à l'entrepôt final de Jamais plus jamais. Voies publiques seulement ; aucun accès intérieur ou aux zones de travail n'est présumé.", "Porto storico operativo associato dalla ricerca cinematografica al magazzino finale di Mai dire mai. Solo percorsi pubblici; nessun accesso presunto a interni o aree operative.", "Історичний чинний порт, пов'язаний кінодослідниками зі складом у фіналі Never Say Never Again. Лише громадські шляхи; доступ до інтер'єрів і робочих зон не передбачається."),
@@ -312,6 +314,8 @@ const rawPlaces: Place[] = [
   {
     id: "quai-amiral-courbet-villefranche", name: "Quai de l'Amiral Courbet", type: "walk",
     address: "Quai de l'Amiral Courbet, 06230 Villefranche-sur-Mer", area: text("Villefranche-sur-Mer", "Villefranche-sur-Mer", "Villefranche-sur-Mer", "Вільфранш-сюр-Мер"),
+    image: "/images/guide/quai-amiral-courbet-villefranche.png",
+    imageAlt: text("Illustration of Quai de l'Amiral Courbet on the Villefranche-sur-Mer waterfront", "Illustration du quai de l'Amiral Courbet à Villefranche-sur-Mer", "Illustrazione del Quai de l'Amiral Courbet sul lungomare di Villefranche-sur-Mer", "Ілюстрація Quai de l'Amiral Courbet на узбережжі Вільфранш-сюр-Мер"),
     googleMapsUrl: mapsQuery("Quai de l'Amiral Courbet", "Villefranche-sur-Mer"),
     programmeUrl: "https://provence-alpes-cotedazur.com/en/get-inspired/james-bond-a-spy-on-the-cote-dazur/", sourceStatus: "verified",
     shortNote: text("Villefranche waterfront identified by regional tourism for Largo's yacht scenes in Never Say Never Again. A different film setting from the Darse warehouse; public-quay context, not yacht or interior access.", "Quai de Villefranche identifié par le tourisme régional pour le yacht de Largo dans Jamais plus jamais. Distinct de l'entrepôt de la Darse ; contexte public du quai, sans accès au yacht ni aux intérieurs.", "Lungomare di Villefranche indicato dal turismo regionale per lo yacht di Largo in Mai dire mai. Distinto dal magazzino della Darse; contesto del quai pubblico, non accesso a yacht o interni.", "Набережна Вільфранша, названа регіональним туризмом для сцен яхти Ларго в Never Say Never Again. Не склад Darse; публічний контекст набережної без доступу до яхти чи інтер'єрів."),
