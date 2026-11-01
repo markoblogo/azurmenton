@@ -931,6 +931,13 @@
     ]
   },
   {
+    "source": "public/images/guide/port-de-la-darse-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/port-de-la-darse-villefranche.avif",
+      "public/images/guide/generated/port-de-la-darse-villefranche.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/port-hercule-christmas-monaco.png",
     "outputs": [
       "public/images/guide/generated/port-hercule-christmas-monaco.avif",
@@ -956,6 +963,13 @@
     "outputs": [
       "public/images/guide/generated/promenade-de-la-mer-menton.avif",
       "public/images/guide/generated/promenade-de-la-mer-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/quai-amiral-courbet-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/quai-amiral-courbet-villefranche.avif",
+      "public/images/guide/generated/quai-amiral-courbet-villefranche.webp"
     ]
   },
   {
@@ -1169,17 +1183,10 @@
     ]
   },
   {
-    "source": "public/images/guide/port-de-la-darse-villefranche.png",
+    "source": "public/images/guide/romain-gary-nice-promise-at-dawn-literary-walk.png",
     "outputs": [
-      "public/images/guide/generated/port-de-la-darse-villefranche.avif",
-      "public/images/guide/generated/port-de-la-darse-villefranche.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/quai-amiral-courbet-villefranche.png",
-    "outputs": [
-      "public/images/guide/generated/quai-amiral-courbet-villefranche.avif",
-      "public/images/guide/generated/quai-amiral-courbet-villefranche.webp"
+      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.avif",
+      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.webp"
     ]
   }
 ]
