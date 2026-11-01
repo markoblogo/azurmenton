@@ -300,6 +300,49 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "esplanade-des-sablettes-menton", name: "Esplanade des Sablettes", type: "viewpoint", address: "Esplanade des Sablettes, 06500 Menton",
+    area: text("Menton waterfront", "Littoral de Menton", "Lungomare di Mentone", "Узбережжя Ментона"), sourceStatus: "verified", visitorAccess: "public", requiresMapReview: true,
+    image: "/images/guide/esplanade-des-sablettes-menton.png",
+    imageAlt: text("Illustration of Esplanade des Sablettes, not a measured access survey", "Illustration de l'Esplanade des Sablettes, sans valeur de relevé d'accessibilité", "Illustrazione dell'Esplanade des Sablettes, non un rilievo di accessibilità", "Ілюстрація Esplanade des Sablettes, не обстеження доступності"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/esplanade-des-sablettes-menton-fr-3834108/",
+    shortNote: text("Pedestrian esplanade below the old town, distinct from the beach. Operator-reported wheelchair access; confirm your entrance, level changes and any lift before relying on it.", "Esplanade piétonne sous la vieille ville, distincte de la plage. Accès fauteuil signalé par l'opérateur ; confirmez entrée, changements de niveau et ascenseur.", "Esplanade pedonale sotto il centro storico, distinta dalla spiaggia. Accesso in carrozzina indicato dall'operatore; confermare ingresso, dislivelli e ascensore.", "Пішохідна еспланада під старим містом, не сам пляж. Оператор зазначає доступ кріслами колісними; уточніть вхід, переходи рівнів і ліфт."),
+    bestFor: [text("Old-town views from below", "Vue sur la vieille ville depuis le bas", "Vista del centro storico dal basso", "Краєвид старого міста знизу")],
+    visitRules: { conditions: [{ value: text("The published accessibility classification is not a measured survey of every approach. Beach access and seasonal assisted bathing are separate.", "Le classement d'accessibilité publié n'est pas un relevé de chaque approche. Plage et baignade assistée saisonnière sont distinctes.", "La classificazione pubblicata non è un rilievo di ogni accesso. Spiaggia e balneazione assistita stagionale sono distinte.", "Опублікована класифікація не є вимірюванням усіх підходів. Пляж і сезонне купання з допомогою — окремі умови."), sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/esplanade-des-sablettes-menton-fr-3834108/", checkedOn: "2026-11-01" }] },
+    relatedArticleIds: ["menton-accessible-step-free-walks"],
+  },
+  {
+    id: "promenade-de-la-mer-menton", name: "Promenade de la Mer", type: "viewpoint", address: "Promenade de la Mer, Garavan, 06500 Menton",
+    area: text("Garavan, Menton", "Garavan, Menton", "Garavan, Mentone", "Гараван, Ментон"), sourceStatus: "verified", visitorAccess: "public", requiresMapReview: true,
+    image: "/images/guide/promenade-de-la-mer-menton.png",
+    imageAlt: text("Illustration of a Menton coastal promenade, not evidence of continuous step-free access", "Illustration d'une promenade côtière de Menton, sans garantie d'un accès continu sans marches", "Illustrazione di una passeggiata costiera a Mentone, non prova di accesso continuo senza gradini", "Ілюстрація прибережної прогулянки Ментона, не доказ суцільного безсходинкового шляху"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/promenade-en-poussette-bord-de-mer-menton-fr-4269929/",
+    shortNote: text("Eastern coastal promenade on the tourist office's waterfront itinerary. Wide pavements and lowered kerbs are reported, but individual gradients, surfaces and crossings have not been measured here.", "Promenade orientale du parcours côtier de l'office de tourisme. Trottoirs larges et abaissés signalés, sans mesure ici de chaque pente, revêtement ou traversée.", "Passeggiata orientale dell'itinerario costiero turistico. Segnalati marciapiedi ampi e ribassati, senza misurazione qui di ogni pendenza, superficie o attraversamento.", "Східна набережна офіційного прибережного маршруту. Зазначені широкі тротуари й знижені бордюри, але окремі ухили, покриття й переходи тут не вимірювали."),
+    bestFor: [text("A flexible coastal walk", "Balade côtière modulable", "Passeggiata costiera flessibile", "Гнучка прогулянка узбережжям")],
+    relatedArticleIds: ["menton-accessible-step-free-walks"],
+  },
+  {
+    id: "handiplage-menton", name: "Handiplage de Menton (Les Sablettes)", type: "beach", address: "Esplanade des Sablettes, Quai Bonaparte, 06500 Menton",
+    area: text("Les Sablettes, Menton", "Les Sablettes, Menton", "Les Sablettes, Mentone", "Les Sablettes, Ментон"), sourceStatus: "verified", visitorAccess: "ask-first", requiresMapReview: true,
+    image: "/images/guide/handiplage-menton.png",
+    imageAlt: text("Illustration of assisted beach access at Menton; confirm actual seasonal equipment", "Illustration de l'accès assisté à la plage à Menton ; confirmez l'équipement saisonnier réel", "Illustrazione dell'accesso assistito alla spiaggia a Mentone; confermare l'attrezzatura stagionale reale", "Ілюстрація пляжного доступу з допомогою в Ментоні; уточнюйте фактичне сезонне обладнання"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/handiplage-de-menton-menton-fr-3234475/",
+    openingHoursLabel: text("The published July–August 2026 season has ended. Confirm future dates and reserve.", "La saison publiée juillet–août 2026 est terminée. Confirmez les prochaines dates et réservez.", "La stagione pubblicata luglio–agosto 2026 è terminata. Confermare le prossime date e prenotare.", "Опублікований сезон липня–серпня 2026 року завершився. Уточніть наступні дати й запишіться."),
+    shortNote: text("Seasonal assisted bathing with adapted equipment, changing facilities, toilets and showers. Not a year-round independent bathing guarantee; confirm staff, equipment and access before visiting.", "Baignade assistée saisonnière : matériel adapté, vestiaires, toilettes et douches. Pas de garantie annuelle de baignade autonome ; confirmez personnel, équipement et accès.", "Balneazione assistita stagionale con attrezzatura, spogliatoi, bagni e docce. Nessuna garanzia annuale di balneazione autonoma; confermare personale, attrezzature e accesso.", "Сезонне купання з допомогою, спеціальним обладнанням, роздягальнями, туалетами й душем. Не гарантія самостійного цілорічного купання; уточнюйте персонал, обладнання й доступ."),
+    bestFor: [text("Assisted summer bathing by reservation", "Baignade estivale assistée sur réservation", "Bagno estivo assistito su prenotazione", "Літнє купання з допомогою за записом")],
+    visitRules: { conditions: [{ value: text("Prior reservation required for the published assisted service. The 2026 season ended on 31 August; future summer dates are not confirmed here.", "Réservation préalable pour le service publié. La saison 2026 s'est terminée le 31 août ; les prochaines dates ne sont pas confirmées ici.", "Prenotazione obbligatoria per il servizio pubblicato. La stagione 2026 è terminata il 31 agosto; qui non sono confermate le prossime date.", "Опублікований сервіс потребує запису. Сезон 2026 року завершився 31 серпня; майбутні літні дати тут не підтверджені."), sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/handiplage-de-menton-menton-fr-3234475/", checkedOn: "2026-11-01" }] },
+    relatedArticleIds: ["menton-accessible-step-free-walks"],
+  },
+  {
+    id: "plage-du-marche-menton", name: "Plage du Marché", type: "beach", address: "Promenade du Soleil, 06500 Menton",
+    area: text("Central Menton seafront", "Front de mer central de Menton", "Lungomare centrale di Mentone", "Центральна набережна Ментона"), sourceStatus: "verified", visitorAccess: "public", requiresMapReview: true,
+    image: "/images/guide/plage-du-marche-menton.png",
+    imageAlt: text("Illustration of Plage du Marché in Menton", "Illustration de la Plage du Marché à Menton", "Illustrazione della Plage du Marché a Mentone", "Ілюстрація Plage du Marché у Ментоні"),
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/les-plages/",
+    shortNote: text("Small-pebble beach between the Cocteau museum area and the Casino. The tourist office lists reduced-mobility access points, including near Royal Westminster; reaching beach level does not guarantee crossing pebbles or entering the sea independently.", "Plage de petits galets entre le secteur du musée Cocteau et le Casino. Accès PMR signalés, notamment près du Royal Westminster ; descendre ne garantit ni la traversée des galets ni la baignade autonome.", "Spiaggia di piccoli ciottoli tra il museo Cocteau e il Casino. Accessi per mobilità ridotta segnalati, anche vicino al Royal Westminster; scendere non garantisce attraversamento dei ciottoli o ingresso autonomo in mare.", "Дрібногальковий пляж між районом музею Кокто й Казино. Офіс зазначає пристосовані входи, зокрема біля Royal Westminster; спуск не гарантує проїзду галькою або самостійного входу в море."),
+    bestFor: [text("Central beach access planning", "Préparer l'accès à une plage centrale", "Organizzare l'accesso a una spiaggia centrale", "Планування доступу до центрального пляжу")],
+    relatedArticleIds: ["menton-accessible-step-free-walks"],
+  },
+  {
     id: "kairos-lab-menton", name: "Kairòs Lab", type: "family-activity", address: "6 Chemin du Rosaire, 06500 Menton",
     area: text("Menton", "Menton", "Mentone", "Ментон"), programmeUrl: "https://kairoslab.it/fr/pages/cour-de-ceramique",
     image: "/images/guide/kairos-lab-menton.png",
@@ -11257,6 +11300,8 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["esplanade-des-sablettes-menton", "handiplage-menton", "plage-du-marche-menton"].includes(place.id)) relatedArticleIds.add("best-beaches-in-menton");
+  if (["promenade-du-soleil", "jardins-bioves", "office-tourisme-menton-riviera-merveilles", "halles-du-marche", "port-de-garavan", "plage-casino", "palais-de-leurope-menton", "menton-station", "jardin-val-rahmeh", "jardin-serre-de-la-madone"].includes(place.id)) relatedArticleIds.add("menton-accessible-step-free-walks");
   if (["villa-isola-bella-menton", "menton-garavan-station", "promenade-reine-astrid", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("janet-frame-menton-in-the-memorial-room");
   if (["jardin-val-rahmeh", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("the-houses-that-remember-riviera-book-route");
   if (["villa-ephrussi-de-rothschild", "villa-kerylos-beaulieu-sur-mer"].includes(place.id)) relatedArticleIds.add("museums-in-menton-nice-monaco");

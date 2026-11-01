@@ -61,6 +61,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Walks & views", "Balades & panoramas", "Passeggiate & panorami", "Прогулянки та краєвиди"),
     description: t("Old-town lanes, coastal walks, viewpoints and photo stops.", "Ruelles de la vieille ville, balades, panoramas et photos.", "Vie del centro storico, passeggiate, panorami e soste fotografiche.", "Вулички старого міста, прогулянки, краєвиди та фотозупинки."),
     categories: ["walks-views", "photo-spots", "itineraries"],
+    includeGuideSlugs: ["menton-accessible-step-free-walks"],
     priorityGuideSlugs: ["menton-old-town", "best-walks-and-hikes-around-menton", "best-photo-spots-menton"],
   },
   {
@@ -68,7 +69,7 @@ export const contentCollections: ContentCollection[] = [
     title: t("Family days", "Jours en famille", "Giornate in famiglia", "Сімейні дні"),
     description: t("Simple ideas for children, beach time and low-stress outings.", "Idees simples pour enfants, plage et sorties sans stress.", "Idee semplici per bambini, spiaggia e uscite senza stress.", "Прості ідеї для дітей, пляжу та неквапливих прогулянок."),
     categories: ["with-children"],
-    includeGuideSlugs: ["best-ice-cream-menton", "cinemas-in-menton-nice-monaco", "zoos-aquariums-animal-parks-near-menton"],
+    includeGuideSlugs: ["best-ice-cream-menton", "cinemas-in-menton-nice-monaco", "zoos-aquariums-animal-parks-near-menton", "menton-accessible-step-free-walks"],
     priorityGuideSlugs: ["menton-with-kids-family-guide", "zoos-aquariums-animal-parks-near-menton", "best-ice-cream-menton", "cinemas-in-menton-nice-monaco"],
   },
   {

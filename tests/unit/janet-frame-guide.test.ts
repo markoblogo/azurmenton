@@ -24,7 +24,8 @@ it("publishes a full, aligned literary guide in four real languages", () => {
     expect(guide.sections[7].body[0][locale]).toContain("28");
     expect(guide.sections[7].body[0][locale]).toContain("2026");
   }
-  expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
+  const articlesThroughPublication = guideArticles.filter(article => !article.publishedOn || article.publishedOn <= guide.publishedOn!);
+  expect(getLatestLandingGuideSlug(articlesThroughPublication)).toBe(guide.slug);
   expect(guide.relatedApartments).toHaveLength(3);
 });
 

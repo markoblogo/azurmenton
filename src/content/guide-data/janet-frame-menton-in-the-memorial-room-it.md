@@ -133,7 +133,7 @@ Le lettere di Mansfield mostrano attenzione a giardini, piante, tempo e luce. Pa
 
 ### Informazioni per la visita
 
-È un giardino botanico a pagamento con orari stagionali. Il gestore annuncia una **chiusura dal 2 al 28 novembre 2026** per lavori all'irrigazione: verificate la riapertura prima di partire. Pendenze e sentieri irregolari rendono opportuno chiedere informazioni sull'accessibilità in caso di mobilità ridotta.
+È un giardino botanico a pagamento con orari stagionali. Il gestore annuncia una **chiusura dal 2 novembre 2026** per lavori all'irrigazione. L'[avviso dettagliato](https://www.jardinbotaniquevalrahmehmenton.fr/fr/actualites/le-jardin-val-rahmeh-menton-ferme-pour-travaux-en-novembre) indica il 2–27 inclusi, mentre la homepage ha mostrato anche il 28 novembre; confermate la riapertura prima di partire. Pendenze e sentieri irregolari rendono opportuno chiedere informazioni sull'accessibilità in caso di mobilità ridotta.
 
 [Val Rahmeh: informazioni ufficiali di apertura](https://www.jardinbotaniquevalrahmehmenton.fr/)
 
