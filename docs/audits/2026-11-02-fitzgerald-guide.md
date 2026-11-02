@@ -20,7 +20,7 @@ No claim that the novel is set in Menton. Villa Diana and Gausse's Hôtel des É
 
 Add to Books, Film & Art and the existing day-trip category. Reciprocal related-guide links with Gary, Frame, real-house book route, bookshops, excursions and car-free/transport guides. The day-trip overview gains a relevant Juan-les-Pins section linking the real Belles Rives and public seafront. No separate Bonjour Tristesse or Long Afternoon guide exists yet: retain them as reading recommendations without fabricated links or a claim of publication.
 
-Five real place IDs, no duplicates found. Three fixed venues have dated coordinate-unverified exclusions; two linear public-coast walks are outside the existing map-eligible place types and do not claim point markers. No approximate markers or unrelated cover substitution. Illustrations needed (all places):
+Five real place IDs, no duplicates found. Three fixed venues have dated coordinate-unverified exclusions; two linear public-coast walks are outside the existing map-eligible place types and do not claim point markers. No approximate markers or unrelated cover substitution. Owner-supplied place illustrations received and attached in the subsequent 2 November asset pass:
 
 - Hôtel Belles Rives / Villa Saint-Louis, Juan-les-Pins, `hotel-belles-rives-juan-les-pins.png`.
 - Juan-les-Pins public seafront, Juan-les-Pins, `juan-les-pins-seafront.png`.
@@ -29,6 +29,14 @@ Five real place IDs, no duplicates found. Three fixed venues have dated coordina
 - Sentier de Tirepoil, Antibes, `sentier-tirepoil-cap-antibes.png`.
 
 Cover is an owner-supplied project illustration, not an actual historical photograph or verified Belles Rives viewpoint. Existing place/guide imagery stays unchanged. No booking changes, external messages, scheduling or automatic source deletion.
+
+## Subsequent Illustration Pass
+
+Attach the five supplied PNGs to their exact place IDs using the same manual packet's safe missing-only stage. The Eden-Roc source filename is normalized only in the temporary intake copy; all original Desktop files remain unchanged. Generate targeted WebP/AVIF derivatives for these five images only. Localized alternative text identifies them as illustrations, not current access/season evidence or a verified stair survey. Preserve closure, construction, weather and private-property caveats; no route, coordinate or source-fact changes accompany the images. The guide and existing day-trip overview share the same place cards, so both gain illustrations without duplication.
+
+The packet initially refused an outdated local input fingerprint; rerunning bundle refreshed it before the asset stage. The image regression first failed on the missing image field before attachment. All five image requests are now locally satisfied; public media decoding and deployment remain separate release checks.
+
+Image-alt regression also exposed that the automatic derivative lookup overwrote explicitly authored alternative text with a generic label. The fallback now retains `place.imageAlt` when present and uses the existing generic label only when absent. Tests assert the Eden-Roc opening and Tirepoil survey disclaimers survive resolution; explicit `placeVisuals` precedence remains unchanged.
 
 ## Checks And Boundaries
 

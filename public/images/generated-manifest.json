@@ -1176,6 +1176,13 @@
     ]
   },
   {
+    "source": "public/images/guide/tender-is-the-night-fitzgerald-french-riviera.png",
+    "outputs": [
+      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.avif",
+      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/the-houses-that-remember-book-cover.png",
     "outputs": [
       "public/images/guide/generated/the-houses-that-remember-book-cover.avif",
@@ -1281,10 +1288,38 @@
     ]
   },
   {
-    "source": "public/images/guide/tender-is-the-night-fitzgerald-french-riviera.png",
+    "source": "public/images/guide/hotel-belles-rives-juan-les-pins.png",
     "outputs": [
-      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.avif",
-      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.webp"
+      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.avif",
+      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/juan-les-pins-seafront.png",
+    "outputs": [
+      "public/images/guide/generated/juan-les-pins-seafront.avif",
+      "public/images/guide/generated/juan-les-pins-seafront.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/plage-la-garoupe-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/plage-la-garoupe-antibes.avif",
+      "public/images/guide/generated/plage-la-garoupe-antibes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-du-cap-eden-roc-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.avif",
+      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/sentier-tirepoil-cap-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/sentier-tirepoil-cap-antibes.avif",
+      "public/images/guide/generated/sentier-tirepoil-cap-antibes.webp"
     ]
   }
 ]

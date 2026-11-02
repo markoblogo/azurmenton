@@ -302,6 +302,8 @@ const rawPlaces: Place[] = [
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
     address: "33 Boulevard Edouard Baudoin, 06160 Juan-les-Pins", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),
+    image: "/images/guide/hotel-belles-rives-juan-les-pins.png",
+    imageAlt: text("Project illustration of Hôtel Belles Rives and its waterfront at Juan-les-Pins", "Illustration de l'Hôtel Belles Rives et de son front de mer à Juan-les-Pins", "Illustrazione dell'Hôtel Belles Rives e del suo lungomare a Juan-les-Pins", "Ілюстрація Hôtel Belles Rives та узбережжя в Жуан-ле-Пен"),
     programmeUrl: "https://www.bellesrives.com/en/history-and-identity.html", googleMapsUrl: mapsQuery("Hôtel Belles Rives", "33 Boulevard Edouard Baudoin, Juan-les-Pins"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "ask-first",
     shortNote: text("The Fitzgeralds' documented 1926 Villa Saint-Louis, now a private hotel. View the context from authorised public areas; confirm bar or restaurant reservations. Beach and pontoon are not unrestricted public facilities.", "Villa Saint-Louis des Fitzgerald en 1926, aujourd'hui hôtel privé. Contexte depuis les espaces publics autorisés ; confirmez bar ou restaurant. Plage et ponton ne sont pas en accès libre.", "Villa Saint-Louis dei Fitzgerald nel 1926, oggi hotel privato. Contesto da spazi pubblici autorizzati; conferma bar o ristorante. Spiaggia e pontile non sono liberamente accessibili.", "Документована Villa Saint-Louis Фіцджеральдів 1926 року, нині приватний готель. Огляд із дозволених громадських місць; бар і ресторан уточнюйте. Пляж і понтон не відкриті необмежено."),
@@ -311,6 +313,8 @@ const rawPlaces: Place[] = [
   {
     id: "juan-les-pins-seafront", name: "Juan-les-Pins public seafront", type: "walk",
     address: "Front de mer, Juan-les-Pins, Antibes", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),
+    image: "/images/guide/juan-les-pins-seafront.png",
+    imageAlt: text("Project illustration of the Juan-les-Pins seafront with beach, promenade and pine trees", "Illustration du front de mer de Juan-les-Pins avec plage, promenade et pins", "Illustrazione del lungomare di Juan-les-Pins con spiaggia, passeggiata e pini", "Ілюстрація узбережжя Жуан-ле-Пен із пляжем, набережною й соснами"),
     programmeUrl: "https://www.antibesjuanlespins.com/en/discover/antibes-juan-les-pins-a-mediterranean-city/one-city-3-places-3-entities/juan-les-pins-lust-for-life", googleMapsUrl: mapsQuery("Front de mer", "Juan-les-Pins, Antibes"),
     sourceStatus: "editorial", requiresMapReview: false, visitorAccess: "public",
     shortNote: text("Public waterfront context for the resort's 1920s summer culture. Choose public sections; private beach concessions and hotel facilities have separate access rules. Not a claim that each fictional beach scene has been located.", "Front de mer public pour comprendre l'été des années 1920. Choisissez les parties publiques ; concessions et hôtels ont leurs propres accès. Les scènes fictives ne sont pas localisées précisément.", "Lungomare pubblico per capire l'estate degli anni Venti. Scegli tratti pubblici; concessioni e hotel hanno accessi propri. Non identifica precisamente ogni scena immaginaria.", "Публічна набережна для контексту літньої культури 1920-х. Обирайте громадські ділянки; концесії й готелі мають окремі правила. Не точна локалізація кожної сцени роману."),
@@ -320,6 +324,8 @@ const rawPlaces: Place[] = [
   {
     id: "plage-la-garoupe-antibes", name: "Plage de la Garoupe", type: "beach",
     address: "La Garoupe, Cap d'Antibes", area: text("Cap d'Antibes", "Cap d'Antibes", "Cap d'Antibes", "Мис Антіб"),
+    image: "/images/guide/plage-la-garoupe-antibes.png",
+    imageAlt: text("Project illustration of La Garoupe beach and its cove at Cap d'Antibes, not a current access report", "Illustration de la plage et de la baie de la Garoupe au Cap d'Antibes, pas un état actuel des accès", "Illustrazione della spiaggia e della baia della Garoupe a Cap d'Antibes, non un resoconto dell'accesso attuale", "Ілюстрація пляжу й бухти La Garoupe на мисі Антіб, не звіт про поточний доступ"),
     programmeUrl: "https://www.antibesjuanlespins.com/les-plages", googleMapsUrl: mapsQuery("Plage de la Garoupe", "Cap d'Antibes"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
     visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://www.antibesjuanlespins.com/les-plages", value: text("Official notice: works resumed 7 September 2026; public beach listed open, chemin de la Garoupe road traffic interrupted, coastal-path access only via beach. Completion planned for end 2026, not guaranteed. Recheck before travelling.", "Avis officiel : reprise des travaux le 7 septembre 2026 ; plage publique ouverte, circulation du chemin de la Garoupe interrompue, sentier accessible par la plage seulement. Fin prévue fin 2026, non garantie. Vérifiez avant départ.", "Avviso ufficiale: lavori ripresi il 7 settembre 2026; spiaggia pubblica aperta, traffico sul chemin de la Garoupe interrotto, sentiero accessibile solo dalla spiaggia. Fine prevista entro il 2026, non garantita. Ricontrolla prima di partire.", "Офіційне повідомлення: роботи відновлено 7 вересня 2026; громадський пляж відкритий, рух chemin de la Garoupe перерваний, стежка доступна лише через пляж. Завершення планують до кінця 2026, не гарантують. Перевірте перед дорогою.") }] },
@@ -330,6 +336,8 @@ const rawPlaces: Place[] = [
   {
     id: "hotel-du-cap-eden-roc-antibes", name: "Hôtel du Cap-Eden-Roc", type: "viewpoint",
     address: "Cap d'Antibes, Antibes", area: text("Cap d'Antibes", "Cap d'Antibes", "Cap d'Antibes", "Мис Антіб"),
+    image: "/images/guide/hotel-du-cap-eden-roc-antibes.png",
+    imageAlt: text("Project illustration of Hôtel du Cap-Eden-Roc and its coastal setting, not evidence of current opening or public access", "Illustration de l'Hôtel du Cap-Eden-Roc et de son cadre côtier, sans confirmer ouverture actuelle ou accès public", "Illustrazione dell'Hôtel du Cap-Eden-Roc e della costa, non prova dell'apertura attuale o dell'accesso pubblico", "Ілюстрація Hôtel du Cap-Eden-Roc та узбережжя, не підтвердження поточного відкриття чи громадського доступу"),
     programmeUrl: "https://www.oetkerhotels.com/hotels/hotel-du-cap-eden-roc/", googleMapsUrl: mapsQuery("Hôtel du Cap-Eden-Roc", "Cap d'Antibes"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "ask-first",
     visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://www.oetkerhotels.com/hotels/hotel-du-cap-eden-roc/", value: text("Hotel announces seasonal closure and next season 18 April–17 October 2027. Historical comparison only during closure, not an available interior or restaurant stop. Private grounds, pool and beach are not unrestricted visitor facilities.", "Fermeture saisonnière annoncée ; prochaine saison du 18 avril au 17 octobre 2027. Repère historique pendant la fermeture, pas visite intérieure ou restaurant disponible. Parc, piscine et plage privés ne sont pas en accès libre.", "Chiusura stagionale annunciata; prossima stagione 18 aprile–17 ottobre 2027. Riferimento storico durante la chiusura, non visita interna o ristorante disponibile. Parco, piscina e spiaggia privati non sono ad accesso libero.", "Готель оголошує сезонне закриття й наступний сезон 18 квітня–17 жовтня 2027. Під час закриття лише історичне порівняння, не доступний ресторан чи інтер'єр. Приватні парк, басейн і пляж не відкриті вільно.") }] },
@@ -340,6 +348,8 @@ const rawPlaces: Place[] = [
   {
     id: "sentier-tirepoil-cap-antibes", name: "Sentier de Tirepoil", type: "walk",
     address: "Cap d'Antibes coastal path", area: text("Cap d'Antibes", "Cap d'Antibes", "Cap d'Antibes", "Мис Антіб"),
+    image: "/images/guide/sentier-tirepoil-cap-antibes.png",
+    imageAlt: text("Project illustration of the rocky Tirepoil coastal path, not a verified step count or current trail-condition report", "Illustration du sentier rocheux de Tirepoil, pas un relevé vérifié des marches ni de l'état actuel du parcours", "Illustrazione del sentiero roccioso di Tirepoil, non un conteggio verificato dei gradini o un resoconto attuale del percorso", "Ілюстрація кам'янистої стежки Tirepoil, не перевірена кількість сходинок чи звіт про поточний стан маршруту"),
     programmeUrl: "https://www.antibesjuanlespins.com/decouvrir/les-incontournables/cap-d-antibes-le-sentier-de-tirepoil", googleMapsUrl: mapsQuery("Sentier de Tirepoil", "Cap d'Antibes"),
     sourceStatus: "editorial", requiresMapReview: false, visitorAccess: "public",
     visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://www.antibesjuanlespins.com/decouvrir/les-incontournables/cap-d-antibes-le-sentier-de-tirepoil", value: text("Official route closes in bad weather. Recheck Garoupe works and current access; choose a suitable short section. No step-free guarantee or invented precise obstacle count.", "Fermeture officielle par mauvais temps. Vérifiez travaux de La Garoupe et accès actuel ; choisissez un court tronçon adapté. Aucune garantie sans marches ni nombre d'obstacles inventé.", "Il percorso ufficiale chiude con maltempo. Verifica lavori alla Garoupe e accesso attuale; scegli un breve tratto adatto. Nessuna garanzia senza gradini o conteggio inventato degli ostacoli.", "Офіційний маршрут закривають у негоду. Перевірте роботи La Garoupe й чинний доступ; оберіть коротку придатну ділянку. Без гарантії відсутності сходинок чи вигаданої кількості перешкод.") }] },
@@ -11471,7 +11481,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 
     return {
       image: `/images/guide/${place.id}${extension}`,
-      imageAlt: autoImageAlt(place.name),
+      imageAlt: place.imageAlt ?? autoImageAlt(place.name),
       visualTheme: visualThemeForPlace(place.type),
     };
   }

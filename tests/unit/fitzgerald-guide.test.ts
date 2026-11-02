@@ -40,12 +40,16 @@ it("separates fiction, private property, seasonal closure and the public excursi
   expect(guide.sections[11].relatedPlaceIds).toEqual(["sentier-tirepoil-cap-antibes"]);
 });
 
-it("connects five real places without fabricated images or map points and links older guides reciprocally", () => {
+it("connects five illustrated real places without fabricated map points and links older guides reciprocally", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(5);
   expect(guide.relatedPlaces).toEqual([...new Set(guide.sections.flatMap(section => section.relatedPlaceIds ?? []))]);
   for (const place of places) {
-    expect(place.image).toBeFalsy();
+    expect(place.image).toBe(`/images/guide/${place.id}.png`);
+    expect(existsSync(`public${place.image}`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${place.id}.avif`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${place.id}.webp`)).toBe(true);
+    for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]?.length).toBeGreaterThan(30);
     expect(place.relatedArticleIds).toContain(guide.slug);
     expect(place.programmeUrl).toMatch(/^https:\/\//);
     if (place.type === "walk") {
@@ -54,6 +58,8 @@ it("connects five real places without fabricated images or map points and links 
     } else expect(placeMapExclusions.find(item => item.placeId === place.id)?.checkedOn).toBe("2026-11-02");
   }
   expect(places.find(place => place.id === "hotel-du-cap-eden-roc-antibes")?.visitorAccess).toBe("ask-first");
+  expect(places.find(place => place.id === "hotel-du-cap-eden-roc-antibes")?.imageAlt?.en).toContain("not evidence of current opening");
+  expect(places.find(place => place.id === "sentier-tirepoil-cap-antibes")?.imageAlt?.en).toContain("not a verified step count");
   for (const slug of guide.relatedArticles ?? []) expect(guideArticles.find(article => article.slug === slug)?.relatedArticles).toContain(guide.slug);
   const dayTrips = guideArticles.find(article => article.slug === "day-trips-from-menton")!;
   expect(dayTrips.sections.find(section => section.guideLinkSlug === guide.slug)?.relatedPlaceIds).toContain("juan-les-pins-seafront");
