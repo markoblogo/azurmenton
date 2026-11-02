@@ -728,6 +728,13 @@
     ]
   },
   {
+    "source": "public/images/guide/marche-aux-puces-nice.png",
+    "outputs": [
+      "public/images/guide/generated/marche-aux-puces-nice.avif",
+      "public/images/guide/generated/marche-aux-puces-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/marche-carnoles-saint-nicolas.png",
     "outputs": [
       "public/images/guide/generated/marche-carnoles-saint-nicolas.avif",
@@ -760,6 +767,13 @@
     "outputs": [
       "public/images/guide/generated/menton-accessible-step-free-walks.avif",
       "public/images/guide/generated/menton-accessible-step-free-walks.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/menton-brocante-mail-du-bastion.png",
+    "outputs": [
+      "public/images/guide/generated/menton-brocante-mail-du-bastion.avif",
+      "public/images/guide/generated/menton-brocante-mail-du-bastion.webp"
     ]
   },
   {
@@ -1176,6 +1190,13 @@
     ]
   },
   {
+    "source": "public/images/guide/ventimiglia-friday-market.png",
+    "outputs": [
+      "public/images/guide/generated/ventimiglia-friday-market.avif",
+      "public/images/guide/generated/ventimiglia-friday-market.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/vieux-port-menton.png",
     "outputs": [
       "public/images/guide/generated/vieux-port-menton.avif",
@@ -1260,24 +1281,10 @@
     ]
   },
   {
-    "source": "public/images/guide/menton-brocante-mail-du-bastion.png",
+    "source": "public/images/guide/tender-is-the-night-fitzgerald-french-riviera.png",
     "outputs": [
-      "public/images/guide/generated/menton-brocante-mail-du-bastion.avif",
-      "public/images/guide/generated/menton-brocante-mail-du-bastion.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/marche-aux-puces-nice.png",
-    "outputs": [
-      "public/images/guide/generated/marche-aux-puces-nice.avif",
-      "public/images/guide/generated/marche-aux-puces-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/ventimiglia-friday-market.png",
-    "outputs": [
-      "public/images/guide/generated/ventimiglia-friday-market.avif",
-      "public/images/guide/generated/ventimiglia-friday-market.webp"
+      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.avif",
+      "public/images/guide/generated/tender-is-the-night-fitzgerald-french-riviera.webp"
     ]
   }
 ]
