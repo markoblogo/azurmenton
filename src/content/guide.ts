@@ -18,6 +18,7 @@ import { jamesBondGuide } from "@/content/james-bond-guide";
 import { romainGaryGuide } from "@/content/romain-gary-guide";
 import { frenchRivieraPassGuide } from "@/content/french-riviera-pass-guide";
 import { graceOfMonacoGuide } from "@/content/grace-of-monaco-guide";
+import { fleaMarketsGuide } from "@/content/flea-markets-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11407,6 +11408,25 @@ guideArticles.push(jamesBondGuide);
 guideArticles.push(romainGaryGuide);
 guideArticles.push(frenchRivieraPassGuide);
 guideArticles.push(graceOfMonacoGuide);
+guideArticles.push(fleaMarketsGuide);
+for (const slug of fleaMarketsGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(fleaMarketsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), fleaMarketsGuide.slug];
+}
+const marketOverview = guideArticles.find(article => article.slug === "best-markets-near-menton-market-days-in-france-and-italy");
+if (marketOverview) {
+  const marketIds = ["menton-brocante-mail-du-bastion", "marche-aux-puces-nice", "ventimiglia-friday-market"];
+  marketOverview.relatedPlaces = [...new Set([...(marketOverview.relatedPlaces ?? []), ...marketIds])];
+  const fridaySection = marketOverview.sections.find(section => section.heading.en === "Ventimiglia Friday market");
+  if (fridaySection) fridaySection.relatedPlaceIds = [...new Set([...(fridaySection.relatedPlaceIds ?? []), "ventimiglia-friday-market"])];
+  marketOverview.sections.push({
+    heading: t("Brocantes and vintage: a different market day", "Brocantes et vintage : une autre journée de marché", "Brocante e vintage: un altro giorno di mercato", "Brocante та вінтаж: інший ринковий день"),
+    body: [t("For second-hand objects rather than food, try the Mail du Bastion brocante in Menton on Fridays and the second and fourth Sundays. Published opening hours conflict, so confirm if timing matters. Nice's Rue Robilante Puces opens Tuesday–Sunday, unlike the Monday antiques market at Saleya. Ventimiglia's Friday seafront market is mainly general shopping; its old-town antiques calendar is not confirmed. Our dedicated guide separates the formats and covers buying, packing and transport.", "Pour les objets d'occasion plutôt que les produits alimentaires, découvrez la brocante du Mail du Bastion les vendredis et 2e et 4e dimanches. Ses horaires publiés divergent : confirmez si nécessaire. Les Puces de la rue Robilante à Nice ouvrent du mardi au dimanche, contrairement à Saleya le lundi. Le vendredi de Vintimille reste généraliste ; le calendrier des antiquités de la vieille ville n'est pas confirmé. Le guide dédié distingue ces formats et détaille achat et transport.", "Per l'usato anziché gli alimentari, scegli la brocante del Mail du Bastion il venerdì e la seconda e quarta domenica. Gli orari pubblicati divergono: chiedi conferma se necessario. Le Puces in Rue Robilante a Nizza aprono martedì–domenica, diversamente da Saleya il lunedì. Il venerdì di Ventimiglia è generalista; il calendario d'antiquariato del centro storico non è confermato. La guida dedicata distingue i formati e spiega acquisto e trasporto.", "За вживаними речами, а не продуктами завітайте на brocante Mail du Bastion щоп'ятниці й другої та четвертої неділі. Опубліковані години розходяться: уточнюйте за потреби. Puces на Rue Robilante у Ніцці працює вівторок–неділя, на відміну від понеділкового Saleya. П'ятнична Вентимілья — звичайний торговий ринок; антикварний календар старого міста не підтверджено. Окремий гід пояснює формати, купівлю й перевезення.")],
+    relatedPlaceIds: ["menton-brocante-mail-du-bastion", "marche-aux-puces-nice"],
+    guideLinkSlug: fleaMarketsGuide.slug,
+    guideLinkLabel: t("Flea markets and vintage shopping", "Brocantes et shopping vintage", "Mercatini e shopping vintage", "Блошині ринки й вінтажні покупки"),
+  });
+}
 for (const slug of graceOfMonacoGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(graceOfMonacoGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), graceOfMonacoGuide.slug];
