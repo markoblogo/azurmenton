@@ -26,6 +26,7 @@ test("corrected waves, fair and shared visitor notes render on mobile", async ({
   await expect(page.locator("#place-parc-phoenix-nice")).toContainText("09:30-18:00");
   await expect(page.locator("#place-parc-alpha-saint-martin-vesubie")).toContainText("not evidence of closure");
   await page.goto("/en/guide/public-transport-in-menton");
-  await expect(page.locator("body")).not.toContainText("free city navette");
+  await expect(page.locator("body")).not.toContainText(/free city navette/i);
+  await expect(page.getByRole("heading", { name: "City shuttle", exact: true })).toBeVisible();
   await expect(page.locator('a[href$="/nice-monaco-vintimille-nice-breil-tende"]')).toBeVisible();
 });
