@@ -1,14 +1,11 @@
 import type { GuideArticle, LocalizedText } from "./guide";
-import { markdownGuideSections } from "@/lib/guide-markdown";
+import { formattedMarkdownGuideBody, markdownGuideSections } from "@/lib/guide-markdown";
 import records from "./guide-data/romain-gary-nice-promise-at-dawn-literary-walk.json";
 
 const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ en, fr, it, uk });
 const sections = markdownGuideSections(records, t("A literary day in Nice", "Une journée littéraire à Nice", "Una giornata letteraria a Nizza", "Літературний день у Ніцці"));
 sections.forEach((section, index) => {
-  const body = (locale: keyof typeof records[number]) => records[index][locale].split("\n").slice(1)
-    .map(line => line.trim()).filter(line => line && !line.startsWith("|"))
-    .map(line => line.replace(/^###\s+(.+)$/, "**$1**").replace(/^[-*]\s+/, "")
-      .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, "_$1_")).join("\n");
+  const body = (locale: keyof typeof records[number]) => formattedMarkdownGuideBody(records[index][locale]);
   section.body = [t(body("en"), body("fr"), body("it"), body("uk"))];
   section.formattedBody = true;
   section.officialLinks = undefined;

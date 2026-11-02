@@ -6,6 +6,7 @@ test("Gary guide keeps its cover, real links and localizations", async ({ page }
   for (const locale of ["en", "fr", "it", "uk"]) {
     await page.goto(`/${locale}/guide/${slug}`);
     await expect(page.locator("h1")).toBeVisible();
+    expect(await page.locator("main").innerText()).not.toMatch(/\*\*|\*Promise at Dawn\*|_Promise at Dawn_|_La Promesse/);
     if (locale === "uk") await expect(page.locator("h1")).toContainText("Ромена Гарі");
     await expect(page.locator('a[href="https://www.ndbooks.com/book/promise-at-dawn/"]').first()).toBeAttached();
     await expect(page.locator("#place-hotel-pension-mermonts-nice")).toBeAttached();

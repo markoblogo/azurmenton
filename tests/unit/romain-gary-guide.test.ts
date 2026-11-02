@@ -22,6 +22,8 @@ it("publishes the complete Gary article with aligned translations and no editori
     expect(guide.sections[21].body[0][locale]).toContain("https://rim.univ-cotedazur.fr/items/show/2923");
     expect(guide.sections[2].body[0][locale]).toContain("https://www.ndbooks.com/book/promise-at-dawn/");
     for (const section of guide.sections) {
+      expect(section.heading[locale]).not.toMatch(/[*_]/);
+      expect(section.body[0][locale]).not.toMatch(/\*{3}|\*Promise at Dawn\*|\[(?:\*|_)/);
       expect(section.body[0][locale].length).toBeGreaterThan(50);
       if (locale === "uk") expect(section.heading.uk).toMatch(/[А-Яа-яІіЇїЄє]/);
     }

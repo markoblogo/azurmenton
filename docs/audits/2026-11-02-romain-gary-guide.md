@@ -53,6 +53,12 @@ Check receipts and packet state are local evidence, not publication approval.
 
 ## Illustrations To Request
 
+Post-publication correction: nested book-title emphasis leaked into section
+headings, subheadings and source-link labels. The shared Markdown preparation
+helper now flattens those plain-text positions while preserving normal body
+italics/bold and exact URLs. Unit and four-locale rendered-text regressions cover
+the reported cases; this was not detected by the original presence/layout checks.
+
 - Rue Shakespeare, Nice, `rue-shakespeare-nice.png`
 - Former Hôtel-Pension Mermonts / Les Pervenches, Nice, `hotel-pension-mermonts-nice.png`
 - Buffa / Avenue Dante neighbourhood, Nice, `buffa-dante-neighbourhood-nice.png`
