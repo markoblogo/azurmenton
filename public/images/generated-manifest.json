@@ -1022,6 +1022,13 @@
     ]
   },
   {
+    "source": "public/images/guide/romain-gary-nice-promise-at-dawn-literary-walk.png",
+    "outputs": [
+      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.avif",
+      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/roquebrune-menton-paragliding-area.png",
     "outputs": [
       "public/images/guide/generated/roquebrune-menton-paragliding-area.avif",
@@ -1183,10 +1190,45 @@
     ]
   },
   {
-    "source": "public/images/guide/romain-gary-nice-promise-at-dawn-literary-walk.png",
+    "source": "public/images/guide/rue-shakespeare-nice.png",
     "outputs": [
-      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.avif",
-      "public/images/guide/generated/romain-gary-nice-promise-at-dawn-literary-walk.webp"
+      "public/images/guide/generated/rue-shakespeare-nice.avif",
+      "public/images/guide/generated/rue-shakespeare-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-pension-mermonts-nice.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-pension-mermonts-nice.avif",
+      "public/images/guide/generated/hotel-pension-mermonts-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/buffa-dante-neighbourhood-nice.png",
+    "outputs": [
+      "public/images/guide/generated/buffa-dante-neighbourhood-nice.avif",
+      "public/images/guide/generated/buffa-dante-neighbourhood-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-negresco-nice.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-negresco-nice.avif",
+      "public/images/guide/generated/hotel-negresco-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/lycee-massena-nice.png",
+    "outputs": [
+      "public/images/guide/generated/lycee-massena-nice.avif",
+      "public/images/guide/generated/lycee-massena-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/promenade-des-anglais-nice.png",
+    "outputs": [
+      "public/images/guide/generated/promenade-des-anglais-nice.avif",
+      "public/images/guide/generated/promenade-des-anglais-nice.webp"
     ]
   }
 ]

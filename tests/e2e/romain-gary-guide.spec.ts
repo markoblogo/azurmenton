@@ -11,6 +11,11 @@ test("Gary guide keeps its cover, real links and localizations", async ({ page }
     await expect(page.locator('a[href="https://www.ndbooks.com/book/promise-at-dawn/"]').first()).toBeAttached();
     await expect(page.locator("#place-hotel-pension-mermonts-nice")).toBeAttached();
     await expect(page.locator("#place-lycee-massena-nice")).toBeAttached();
+    for (const id of ["rue-shakespeare-nice", "hotel-pension-mermonts-nice", "buffa-dante-neighbourhood-nice", "hotel-negresco-nice", "lycee-massena-nice", "promenade-des-anglais-nice"]) {
+      const image = page.locator(`#place-${id} img`).first();
+      await image.scrollIntoViewIfNeeded();
+      await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
+    }
     await expect(page.locator("table").first().locator("tbody tr")).toHaveCount(7);
     const cover = page.locator(`img[src*="${slug}"]`).first();
     await expect(cover).toBeVisible();

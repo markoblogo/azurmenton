@@ -51,13 +51,18 @@ Required checks: compile, focused regression, complete shared project checks,
 fresh build, mobile/desktop visual review and public verification after deployment.
 Check receipts and packet state are local evidence, not publication approval.
 
-## Illustrations To Request
+## Supplied Place Illustrations
 
 Post-publication correction: nested book-title emphasis leaked into section
 headings, subheadings and source-link labels. The shared Markdown preparation
 helper now flattens those plain-text positions while preserving normal body
 italics/bold and exact URLs. Unit and four-locale rendered-text regressions cover
 the reported cases; this was not detected by the original presence/layout checks.
+
+The owner subsequently supplied the six images below. Apply them through the
+published-guide missing-only path with explicit place IDs; preserve Cours Saleya,
+Roquebrune village and the existing cover. Generate derivatives only for these six
+assets, retain the persisted asset report and verify each rendered image.
 
 - Rue Shakespeare, Nice, `rue-shakespeare-nice.png`
 - Former Hôtel-Pension Mermonts / Les Pervenches, Nice, `hotel-pension-mermonts-nice.png`

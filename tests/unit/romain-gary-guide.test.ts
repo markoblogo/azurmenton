@@ -7,7 +7,7 @@ import { contentCollections, resolveContentCollectionGuideSlugs } from "@/conten
 import { placeMapExclusions } from "@/content/planning/place-map-exclusions";
 import { mapPlaceTypes } from "@/content/planning/map-taxonomy";
 
-const pending = ["rue-shakespeare-nice", "hotel-pension-mermonts-nice", "buffa-dante-neighbourhood-nice", "hotel-negresco-nice", "lycee-massena-nice", "promenade-des-anglais-nice"];
+const illustratedPlaces = ["rue-shakespeare-nice", "hotel-pension-mermonts-nice", "buffa-dante-neighbourhood-nice", "hotel-negresco-nice", "lycee-massena-nice", "promenade-des-anglais-nice"];
 
 it("publishes the complete Gary article with aligned translations and no editorial preamble", () => {
   expect(guideArticles).toContain(guide);
@@ -31,13 +31,16 @@ it("publishes the complete Gary article with aligned translations and no editori
   expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
 });
 
-it("reuses existing cards, requests six illustrations and never invents map coordinates", () => {
+it("keeps all eight cards illustrated without replacing existing assets or inventing coordinates", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(8);
   for (const place of places) expect(place.relatedArticleIds).toContain(guide.slug);
-  for (const id of pending) {
+  for (const id of illustratedPlaces) {
     const place = getPlace(id)!;
-    expect(place.image).toBeUndefined();
+    expect(place.image).toBe(`/images/guide/${id}.png`);
+    expect(existsSync(`public${place.image}`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${id}.webp`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${id}.avif`)).toBe(true);
     expect(place.googleMapsUrl).toContain("Nice");
     if (mapPlaceTypes.has(place.type)) {
       expect(place.requiresMapReview).toBe(true);
@@ -47,7 +50,8 @@ it("reuses existing cards, requests six illustrations and never invents map coor
       expect(placeMapExclusions.find(item => item.placeId === id)).toBeUndefined();
     }
   }
-  for (const id of ["cours-saleya-nice", "roquebrune-medieval-village"]) expect(getPlace(id)?.image).toBeTruthy();
+  expect(getPlace("cours-saleya-nice")?.image).toBe("/images/guide/cours-saleya-nice.jpg");
+  expect(getPlace("roquebrune-medieval-village")?.image).toBe("/images/guide/roquebrune-medieval-village.jpg");
   expect(getPlace("lycee-massena-nice")?.visitorAccess).toBe("ask-first");
   expect(getPlace("hotel-pension-mermonts-nice")?.shortNote.en).toContain("not a walk-in hotel or museum");
   expect(guide.sections[12].body[0].en).toContain("not measured GPS routes");

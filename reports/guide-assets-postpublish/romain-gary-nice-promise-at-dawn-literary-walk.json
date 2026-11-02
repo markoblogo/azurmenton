@@ -1,0 +1,54 @@
+{
+  "slug": "romain-gary-nice-promise-at-dawn-literary-walk",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": true,
+  "operatorSummary": [
+    "status: ok",
+    "subject: romain-gary-nice-promise-at-dawn-literary-walk",
+    "mode: published-guide + missing-only",
+    "matched: 6",
+    "skipped-covered: 2",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/romain-gary-nice-promise-at-dawn-literary-walk.json",
+    "rerun: npm run guide:assets -- --published-guide romain-gary-nice-promise-at-dawn-literary-walk --missing-only --fail-on-unmatched --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 6,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 2,
+    "stillMissing": 0,
+    "patchReady": 6
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "rue-shakespeare-nice",
+    "hotel-pension-mermonts-nice",
+    "buffa-dante-neighbourhood-nice",
+    "hotel-negresco-nice",
+    "lycee-massena-nice",
+    "promenade-des-anglais-nice"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide romain-gary-nice-promise-at-dawn-literary-walk --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "rue-shakespeare-nice",
+      "hotel-pension-mermonts-nice",
+      "buffa-dante-neighbourhood-nice",
+      "hotel-negresco-nice",
+      "lycee-massena-nice",
+      "promenade-des-anglais-nice"
+    ],
+    "failedPlaceIds": []
+  }
+}
