@@ -406,6 +406,20 @@
     ]
   },
   {
+    "source": "public/images/guide/hotel-belles-rives-juan-les-pins.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.avif",
+      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-du-cap-eden-roc-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.avif",
+      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/hotel-negresco-nice.png",
     "outputs": [
       "public/images/guide/generated/hotel-negresco-nice.avif",
@@ -487,6 +501,13 @@
     "outputs": [
       "public/images/guide/generated/jet-rent-menton.avif",
       "public/images/guide/generated/jet-rent-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/juan-les-pins-seafront.png",
+    "outputs": [
+      "public/images/guide/generated/juan-les-pins-seafront.avif",
+      "public/images/guide/generated/juan-les-pins-seafront.webp"
     ]
   },
   {
@@ -994,6 +1015,13 @@
     ]
   },
   {
+    "source": "public/images/guide/plage-la-garoupe-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/plage-la-garoupe-antibes.avif",
+      "public/images/guide/generated/plage-la-garoupe-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/point-postal-felix-faure-menton.png",
     "outputs": [
       "public/images/guide/generated/point-postal-felix-faure-menton.avif",
@@ -1169,6 +1197,13 @@
     ]
   },
   {
+    "source": "public/images/guide/sentier-tirepoil-cap-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/sentier-tirepoil-cap-antibes.avif",
+      "public/images/guide/generated/sentier-tirepoil-cap-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/tatie-cbd-menton.png",
     "outputs": [
       "public/images/guide/generated/tatie-cbd-menton.avif",
@@ -1288,38 +1323,10 @@
     ]
   },
   {
-    "source": "public/images/guide/hotel-belles-rives-juan-les-pins.png",
+    "source": "public/images/guide/menton-with-a-dog.png",
     "outputs": [
-      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.avif",
-      "public/images/guide/generated/hotel-belles-rives-juan-les-pins.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/juan-les-pins-seafront.png",
-    "outputs": [
-      "public/images/guide/generated/juan-les-pins-seafront.avif",
-      "public/images/guide/generated/juan-les-pins-seafront.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/plage-la-garoupe-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/plage-la-garoupe-antibes.avif",
-      "public/images/guide/generated/plage-la-garoupe-antibes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/hotel-du-cap-eden-roc-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.avif",
-      "public/images/guide/generated/hotel-du-cap-eden-roc-antibes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/sentier-tirepoil-cap-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/sentier-tirepoil-cap-antibes.avif",
-      "public/images/guide/generated/sentier-tirepoil-cap-antibes.webp"
+      "public/images/guide/generated/menton-with-a-dog.avif",
+      "public/images/guide/generated/menton-with-a-dog.webp"
     ]
   }
 ]

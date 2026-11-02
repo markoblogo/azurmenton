@@ -20,6 +20,7 @@ import { frenchRivieraPassGuide } from "@/content/french-riviera-pass-guide";
 import { graceOfMonacoGuide } from "@/content/grace-of-monaco-guide";
 import { fleaMarketsGuide } from "@/content/flea-markets-guide";
 import { fitzgeraldGuide } from "@/content/fitzgerald-guide";
+import { dogGuide } from "@/content/dog-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11411,6 +11412,22 @@ guideArticles.push(frenchRivieraPassGuide);
 guideArticles.push(graceOfMonacoGuide);
 guideArticles.push(fleaMarketsGuide);
 guideArticles.push(fitzgeraldGuide);
+guideArticles.push(dogGuide);
+for (const slug of dogGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(dogGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), dogGuide.slug];
+}
+const dogBeachOverview = guideArticles.find(article => article.slug === "best-beaches-in-menton");
+if (dogBeachOverview) {
+  const dogBeachIds = ["plage-du-gorbio-menton", "plage-casino", "plage-hawai-menton"];
+  dogBeachOverview.relatedPlaces = [...new Set([...(dogBeachOverview.relatedPlaces ?? []), ...dogBeachIds])];
+  dogBeachOverview.sections.push({
+    heading: t("Coming with a dog", "Venir avec un chien", "Venire con un cane", "Відпочинок із собакою"),
+    body: [t("The city's 29 April 2026 notice lists designated dog sectors at Gorbio, Casino and Hawaï. This is not permission for the whole named beach or for ordinary Sablettes/Fossan areas. Follow signs, flags and sea warnings; neither a winter exemption nor supervised swimming is assumed. The dog guide covers enclosures, transport and veterinary contacts.", "Le rappel municipal du 29 avril 2026 désigne des secteurs canins au Gorbio, au Casino et à Hawaï, pas l'ensemble des plages ni les zones ordinaires des Sablettes et du Fossan. Suivez panneaux, fanions et météo ; ni exception hivernale ni baignade surveillée présumée. Le guide détaille parcs, transports et vétérinaires.", "L'avviso comunale del 29 aprile 2026 indica settori canini a Gorbio, Casino e Hawaï, non intere spiagge né normali zone di Sablettes e Fossan. Segui cartelli, bandierine e meteo: nessuna eccezione invernale o sorveglianza presunta. La guida spiega aree recintate, trasporti e veterinari.", "Повідомлення мерії 29 квітня 2026 визначає собачі ділянки Gorbio, Casino та Hawaï, не цілі пляжі чи звичайні Sablettes і Fossan. Дотримуйтеся знаків, прапорців і попереджень моря; зимового винятку чи рятувального нагляду не припускаємо. Окремий гід пояснює майданчики, транспорт і ветеринарів.")],
+    relatedPlaceIds: dogBeachIds, guideLinkSlug: dogGuide.slug,
+    guideLinkLabel: t("Menton with a dog", "Menton avec un chien", "Mentone con un cane", "Ментон із собакою"),
+  });
+}
 for (const slug of fitzgeraldGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(fitzgeraldGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), fitzgeraldGuide.slug];

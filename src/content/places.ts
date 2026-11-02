@@ -2,6 +2,7 @@ import type { Locale } from "@/i18n/locales";
 import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import imageDerivativeTargets from "../../scripts/lib/image-derivative-targets.json";
 import { dayRouteDetails } from "./planning/day-route-details";
+import { dogPlaces } from "./dog-places";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -299,6 +300,7 @@ const festivalVenues = [
 ] as const;
 
 const rawPlaces: Place[] = [
+  ...dogPlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
     address: "33 Boulevard Edouard Baudoin, 06160 Juan-les-Pins", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),
@@ -11492,6 +11494,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["promenade-du-soleil", "promenade-reine-astrid", "plage-casino"].includes(place.id)) relatedArticleIds.add("menton-with-a-dog");
   if (["place-du-cap-menton", "quai-bonaparte-menton", "cours-saleya-antiques", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("flea-markets-brocantes-vintage-menton");
   if (["basilica-saint-michel-archange", "rampes-saint-michel", "rue-longue-menton", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("grace-of-monaco-filming-locations-menton");
   if (["villa-kerylos-beaulieu-sur-mer", "villa-ephrussi-de-rothschild", "musee-matisse-nice", "oceanographic-museum-monaco"].includes(place.id)) relatedArticleIds.add("french-riviera-pass-worth-it-from-menton");
