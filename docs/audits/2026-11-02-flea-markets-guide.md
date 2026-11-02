@@ -18,13 +18,19 @@ Brocabrac and Vide-greniers.org are discovery directories, not confirmation of i
 
 Reuse existing illustrated Place du Cap, Quai Bonaparte, Cours Saleya antiques and Halles cards. Do not use the food-market Saleya card for the Monday antiques or the covered Ventimiglia food market for Friday seafront shopping. Add reciprocal related-guide links to market, souvenir, bookshop, Italian excursion, day-trip and old-town guides. Extend the existing market overview with a focused brocante section and the Friday-market card in its already relevant section.
 
-Three new market places have official URLs, distinct stable IDs and explicit dated coordinate-unverified map exclusions. No guessed markers or copied unrelated cover images. Illustration requests:
+Three new market places have official URLs, distinct stable IDs and explicit dated coordinate-unverified map exclusions. No guessed markers or copied unrelated cover images. Owner-supplied place illustrations received and attached in the subsequent 2 November asset pass:
 
 - Menton Brocante — Mail du Bastion, Menton, `menton-brocante-mail-du-bastion.png` (place).
 - Marché aux Puces de Nice, Nice, `marche-aux-puces-nice.png` (place).
 - Ventimiglia Friday Market, Ventimiglia, `ventimiglia-friday-market.png` (place).
 
 Existing illustrations remain unchanged. Source Word and cover remain at their original paths; frozen copies and the manually reviewed publication packet are local under ignored `build/guide-intake/`. No deletion, automatic scheduling or production runtime-content migration.
+
+## Subsequent Illustration Pass
+
+The three supplied PNGs are attached only to their matching place IDs through the same manual packet's safe missing-only asset stage. WebP/AVIF derivatives are generated only for these assets. Localized alternative text identifies them as project illustrations, not documentary confirmation of market layout or location. Existing four place images and the guide cover are unchanged; source files in Downloads are retained. All seven places in this guide now have images; coordinates remain unverified where already recorded.
+
+The updated regression test first failed on the missing image field before the asset pass. Unit and browser checks now require the supplied images and their derivatives, rather than the former pending-image state. CI, production deployment and public image decoding remain separate release gates.
 
 ## Verification
 

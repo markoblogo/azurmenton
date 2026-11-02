@@ -302,6 +302,8 @@ const rawPlaces: Place[] = [
   {
     id: "menton-brocante-mail-du-bastion", name: "Menton Brocante — Mail du Bastion", type: "market",
     address: "Mail du Bastion & Place aux Herbes, 06500 Menton", area: text("Menton", "Menton", "Mentone", "Ментон"),
+    image: "/images/guide/menton-brocante-mail-du-bastion.png",
+    imageAlt: text("Project illustration of antiques and vintage stalls for Menton's Mail du Bastion brocante", "Illustration de stands d'antiquités et vintage pour la brocante du Mail du Bastion à Menton", "Illustrazione di banchi d'antiquariato e vintage per la brocante del Mail du Bastion a Mentone", "Ілюстрація антикварних і вінтажних прилавків для brocante Mail du Bastion у Ментоні"),
     programmeUrl: "https://www.menton.fr/Rue-pietonne-et-marches.html", googleMapsUrl: mapsQuery("Mail du Bastion", "Menton"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
     openingHoursLabel: text("Fridays; second and fourth Sundays. Published hours conflict: 07:00–18:00 versus 09:00–17:00; confirm before a timed visit.", "Vendredis ; 2e et 4e dimanches. Horaires divergents : 7 h–18 h ou 9 h–17 h ; confirmez avant une visite à heure précise.", "Venerdì; seconda e quarta domenica. Orari divergenti: 7–18 oppure 9–17; conferma prima di una visita a orario preciso.", "П'ятниці; друга й четверта неділі. Години розходяться: 07:00–18:00 або 09:00–17:00; уточніть перед візитом на конкретний час."),
@@ -313,6 +315,8 @@ const rawPlaces: Place[] = [
   {
     id: "marche-aux-puces-nice", name: "Marché aux Puces de Nice", type: "market",
     address: "Rue Robilante, Nice", area: text("Nice", "Nice", "Nizza", "Ніцца"),
+    image: "/images/guide/marche-aux-puces-nice.png",
+    imageAlt: text("Project illustration of antique dealers and vintage objects for Nice's Marché aux Puces", "Illustration d'antiquaires et d'objets vintage pour le Marché aux Puces de Nice", "Illustrazione di antiquari e oggetti vintage per il Marché aux Puces di Nizza", "Ілюстрація антикварних крамниць і вінтажних речей для Marché aux Puces Ніцци"),
     programmeUrl: "https://www.explorenicecotedazur.com/evenement/marche-aux-puces/", googleMapsUrl: mapsQuery("Marché aux Puces", "Rue Robilante, Nice"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
     openingHoursLabel: text("Tuesday–Sunday: October–May 10:00–18:00, June–September 10:00–19:00. Monday normally closed; dealer hours vary.", "Mardi–dimanche : octobre–mai 10 h–18 h, juin–septembre 10 h–19 h. Lundi normalement fermé ; horaires des marchands variables.", "Martedì–domenica: ottobre–maggio 10–18, giugno–settembre 10–19. Lunedì normalmente chiuso; orari dei singoli variabili.", "Вівторок–неділя: жовтень–травень 10:00–18:00, червень–вересень 10:00–19:00. Понеділок зазвичай вихідний; години продавців різняться."),
@@ -324,6 +328,8 @@ const rawPlaces: Place[] = [
   {
     id: "ventimiglia-friday-market", name: "Ventimiglia Friday Market", type: "market",
     address: "Lungomare, Ventimiglia", area: text("Ventimiglia", "Vintimille", "Ventimiglia", "Вентимілья"),
+    image: "/images/guide/ventimiglia-friday-market.png",
+    imageAlt: text("Project illustration of clothing and accessory stalls for Ventimiglia's Friday market", "Illustration de stands de vêtements et accessoires pour le marché du vendredi de Vintimille", "Illustrazione di banchi di abbigliamento e accessori per il mercato del venerdì di Ventimiglia", "Ілюстрація прилавків одягу й аксесуарів для п'ятничного ринку Вентимільї"),
     programmeUrl: "https://ventimiglia.it/en/markets/friday-market/", googleMapsUrl: mapsQuery("Mercato del venerdì", "Lungomare, Ventimiglia"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
     openingHoursLabel: text("Friday from 07:00; closing time not established in the municipal listing.", "Vendredi dès 7 h ; fermeture non précisée par la fiche municipale.", "Venerdì dalle 7; chiusura non indicata nella scheda comunale.", "П'ятниця від 07:00; час завершення в муніципальній картці не зазначено."),
