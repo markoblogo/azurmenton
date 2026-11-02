@@ -133,6 +133,13 @@
     ]
   },
   {
+    "source": "public/images/guide/buffa-dante-neighbourhood-nice.png",
+    "outputs": [
+      "public/images/guide/generated/buffa-dante-neighbourhood-nice.avif",
+      "public/images/guide/generated/buffa-dante-neighbourhood-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/burger-king-nice-centre.png",
     "outputs": [
       "public/images/guide/generated/burger-king-nice-centre.avif",
@@ -336,6 +343,13 @@
     ]
   },
   {
+    "source": "public/images/guide/french-riviera-pass-worth-it-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.avif",
+      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
@@ -368,6 +382,20 @@
     "outputs": [
       "public/images/guide/generated/handiplage-menton.avif",
       "public/images/guide/generated/handiplage-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-negresco-nice.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-negresco-nice.avif",
+      "public/images/guide/generated/hotel-negresco-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/hotel-pension-mermonts-nice.png",
+    "outputs": [
+      "public/images/guide/generated/hotel-pension-mermonts-nice.avif",
+      "public/images/guide/generated/hotel-pension-mermonts-nice.webp"
     ]
   },
   {
@@ -655,6 +683,13 @@
     "outputs": [
       "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.avif",
       "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/lycee-massena-nice.png",
+    "outputs": [
+      "public/images/guide/generated/lycee-massena-nice.avif",
+      "public/images/guide/generated/lycee-massena-nice.webp"
     ]
   },
   {
@@ -966,6 +1001,13 @@
     ]
   },
   {
+    "source": "public/images/guide/promenade-des-anglais-nice.png",
+    "outputs": [
+      "public/images/guide/generated/promenade-des-anglais-nice.avif",
+      "public/images/guide/generated/promenade-des-anglais-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/quai-amiral-courbet-villefranche.png",
     "outputs": [
       "public/images/guide/generated/quai-amiral-courbet-villefranche.avif",
@@ -1047,6 +1089,13 @@
     "outputs": [
       "public/images/guide/generated/royal-westminster-menton.avif",
       "public/images/guide/generated/royal-westminster-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/rue-shakespeare-nice.png",
+    "outputs": [
+      "public/images/guide/generated/rue-shakespeare-nice.avif",
+      "public/images/guide/generated/rue-shakespeare-nice.webp"
     ]
   },
   {
@@ -1190,45 +1239,10 @@
     ]
   },
   {
-    "source": "public/images/guide/rue-shakespeare-nice.png",
+    "source": "public/images/guide/galimard-pause-cologne-eze.png",
     "outputs": [
-      "public/images/guide/generated/rue-shakespeare-nice.avif",
-      "public/images/guide/generated/rue-shakespeare-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/hotel-pension-mermonts-nice.png",
-    "outputs": [
-      "public/images/guide/generated/hotel-pension-mermonts-nice.avif",
-      "public/images/guide/generated/hotel-pension-mermonts-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/buffa-dante-neighbourhood-nice.png",
-    "outputs": [
-      "public/images/guide/generated/buffa-dante-neighbourhood-nice.avif",
-      "public/images/guide/generated/buffa-dante-neighbourhood-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/hotel-negresco-nice.png",
-    "outputs": [
-      "public/images/guide/generated/hotel-negresco-nice.avif",
-      "public/images/guide/generated/hotel-negresco-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/lycee-massena-nice.png",
-    "outputs": [
-      "public/images/guide/generated/lycee-massena-nice.avif",
-      "public/images/guide/generated/lycee-massena-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/promenade-des-anglais-nice.png",
-    "outputs": [
-      "public/images/guide/generated/promenade-des-anglais-nice.avif",
-      "public/images/guide/generated/promenade-des-anglais-nice.webp"
+      "public/images/guide/generated/galimard-pause-cologne-eze.avif",
+      "public/images/guide/generated/galimard-pause-cologne-eze.webp"
     ]
   }
 ]

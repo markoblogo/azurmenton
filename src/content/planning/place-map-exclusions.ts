@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "galimard-pause-cologne-eze", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.galimard.com/nous-trouver" },
   { placeId: "hotel-pension-mermonts-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://rim.univ-cotedazur.fr/items/show/2923" },
   { placeId: "hotel-negresco-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://rim.univ-cotedazur.fr/items/show/2921" },
   { placeId: "lycee-massena-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.lycee-massena.fr/nous-contacter/" },

@@ -16,6 +16,7 @@ import { janetFrameGuide } from "@/content/janet-frame-guide";
 import { stepFreeMentonGuide } from "@/content/step-free-menton-guide";
 import { jamesBondGuide } from "@/content/james-bond-guide";
 import { romainGaryGuide } from "@/content/romain-gary-guide";
+import { frenchRivieraPassGuide } from "@/content/french-riviera-pass-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11403,6 +11404,11 @@ guideArticles.push(janetFrameGuide);
 guideArticles.push(stepFreeMentonGuide);
 guideArticles.push(jamesBondGuide);
 guideArticles.push(romainGaryGuide);
+guideArticles.push(frenchRivieraPassGuide);
+for (const slug of frenchRivieraPassGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(frenchRivieraPassGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), frenchRivieraPassGuide.slug];
+}
 for (const slug of romainGaryGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(romainGaryGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), romainGaryGuide.slug];

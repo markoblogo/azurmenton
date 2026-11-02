@@ -1,0 +1,44 @@
+{
+  "slug": "french-riviera-pass-worth-it-from-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": true,
+  "operatorSummary": [
+    "status: ok",
+    "subject: french-riviera-pass-worth-it-from-menton",
+    "mode: published-guide + missing-only",
+    "matched: 1",
+    "skipped-covered: 4",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/french-riviera-pass-worth-it-from-menton.json",
+    "rerun: npm run guide:assets -- --published-guide french-riviera-pass-worth-it-from-menton --missing-only --fail-on-unmatched --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 1,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 4,
+    "stillMissing": 0,
+    "patchReady": 1
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "galimard-pause-cologne-eze"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide french-riviera-pass-worth-it-from-menton --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "galimard-pause-cologne-eze"
+    ],
+    "failedPlaceIds": []
+  }
+}

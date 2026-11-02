@@ -28,7 +28,7 @@ it("publishes the complete Gary article with aligned translations and no editori
       if (locale === "uk") expect(section.heading.uk).toMatch(/[А-Яа-яІіЇїЄє]/);
     }
   }
-  expect(getLatestLandingGuideSlug(guideArticles)).toBe(guide.slug);
+  expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
 });
 
 it("keeps all eight cards illustrated without replacing existing assets or inventing coordinates", () => {
