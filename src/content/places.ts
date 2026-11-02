@@ -11383,6 +11383,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["basilica-saint-michel-archange", "rampes-saint-michel", "rue-longue-menton", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("grace-of-monaco-filming-locations-menton");
   if (["villa-kerylos-beaulieu-sur-mer", "villa-ephrussi-de-rothschild", "musee-matisse-nice", "oceanographic-museum-monaco"].includes(place.id)) relatedArticleIds.add("french-riviera-pass-worth-it-from-menton");
   if (["cours-saleya-nice", "roquebrune-medieval-village"].includes(place.id)) relatedArticleIds.add("romain-gary-nice-promise-at-dawn-literary-walk");
   if (["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "place-du-cap-menton", "quai-bonaparte-menton", "villefranche-sur-mer"].includes(place.id)) relatedArticleIds.add("james-bond-menton-never-say-never-again-filming-locations");

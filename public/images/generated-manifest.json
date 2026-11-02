@@ -364,6 +364,13 @@
     ]
   },
   {
+    "source": "public/images/guide/galimard-pause-cologne-eze.png",
+    "outputs": [
+      "public/images/guide/generated/galimard-pause-cologne-eze.avif",
+      "public/images/guide/generated/galimard-pause-cologne-eze.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/galimard-studio-des-fragrances-grasse.png",
     "outputs": [
       "public/images/guide/generated/galimard-studio-des-fragrances-grasse.avif",
@@ -1239,10 +1246,10 @@
     ]
   },
   {
-    "source": "public/images/guide/galimard-pause-cologne-eze.png",
+    "source": "public/images/guide/grace-of-monaco-filming-locations-menton.png",
     "outputs": [
-      "public/images/guide/generated/galimard-pause-cologne-eze.avif",
-      "public/images/guide/generated/galimard-pause-cologne-eze.webp"
+      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.avif",
+      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.webp"
     ]
   }
 ]
