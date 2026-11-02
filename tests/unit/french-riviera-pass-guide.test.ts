@@ -23,12 +23,15 @@ it("publishes the full pass comparison with four aligned locales and the supplie
   expect(guide.title.uk).toMatch(/[ЇїІіЄє]/);
 });
 
-it("reuses four illustrated venues and distinguishes the new Èze workshop from Grasse", () => {
+it("illustrates all five venues and distinguishes the new Èze workshop from Grasse", () => {
   expect(guide.relatedPlaces).toHaveLength(5);
   for (const id of guide.relatedPlaces ?? []) expect(getPlace(id)?.relatedArticleIds).toContain(guide.slug);
   for (const id of ["villa-kerylos-beaulieu-sur-mer", "villa-ephrussi-de-rothschild", "musee-matisse-nice", "oceanographic-museum-monaco"]) expect(getPlace(id)?.image).toBeTruthy();
   const eze = getPlace("galimard-pause-cologne-eze")!;
-  expect(eze.image).toBeUndefined();
+  expect(eze.image).toBe("/images/guide/galimard-pause-cologne-eze.png");
+  expect(existsSync(`public${eze.image}`)).toBe(true);
+  expect(existsSync("public/images/guide/generated/galimard-pause-cologne-eze.webp")).toBe(true);
+  expect(existsSync("public/images/guide/generated/galimard-pause-cologne-eze.avif")).toBe(true);
   expect(eze.address).toContain("Èze-Village");
   expect(eze.requiresMapReview).toBe(true);
   expect(placeMapExclusions.find(item => item.placeId === eze.id)?.reason).toBe("coordinate_unverified");

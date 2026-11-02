@@ -10,6 +10,9 @@ test("pass guide keeps corrected costs, real links, cover and translations", asy
     const cover = page.locator(`img[src*="${slug}"]`).first();
     await expect.poll(() => cover.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
     await expect(page.locator("#place-galimard-pause-cologne-eze")).toBeAttached();
+    const placeImage = page.locator("#place-galimard-pause-cologne-eze img").first();
+    await placeImage.scrollIntoViewIfNeeded();
+    await expect.poll(() => placeImage.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
     await expect(page.locator('a[href="https://www.galimard.com/visite-guidee-eze"]').first()).toBeAttached();
     await expect(page.locator("table")).toHaveCount(9);
     expect(await page.locator("main").innerText()).not.toMatch(/SEO title:|Meta description:|Интерактивный расчёт|Редакторская рекомендация|\*\*/);

@@ -25,13 +25,13 @@ describe("creative workshops publication", () => {
     expect(guide.sections[5].body[0].en).toContain("€60");
   });
 
-  it("links ten distinct venues and supports the later owner illustration pass", () => {
+  it("links eleven distinct venues including the separate Galimard Èze alternative", () => {
     expect(guideArticles.some(article => article.slug === guide.slug)).toBe(true);
     expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
     expect(existsSync(`public${guide.coverImage}`)).toBe(true);
     expect(guide.relatedApartments).toHaveLength(3);
     const ids = guide.sections.flatMap(section => section.relatedPlaceIds ?? []);
-    expect(new Set(ids).size).toBe(10);
+    expect(new Set(ids).size).toBe(11);
     for (const place of getPlaces(ids)) {
       expect(place.relatedArticleIds).toContain(guide.slug);
       expect(place.guideCoverageSlugs).toContain(guide.slug);

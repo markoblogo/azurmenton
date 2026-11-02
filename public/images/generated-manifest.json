@@ -343,6 +343,13 @@
     ]
   },
   {
+    "source": "public/images/guide/french-riviera-pass-worth-it-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.avif",
+      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-sightseeing-flights.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-sightseeing-flights.avif",
@@ -1232,10 +1239,10 @@
     ]
   },
   {
-    "source": "public/images/guide/french-riviera-pass-worth-it-from-menton.png",
+    "source": "public/images/guide/galimard-pause-cologne-eze.png",
     "outputs": [
-      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.avif",
-      "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.webp"
+      "public/images/guide/generated/galimard-pause-cologne-eze.avif",
+      "public/images/guide/generated/galimard-pause-cologne-eze.webp"
     ]
   }
 ]

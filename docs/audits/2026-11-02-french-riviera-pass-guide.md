@@ -15,10 +15,10 @@ Owner-supplied Word article and cover; canonical slug `french-riviera-pass-worth
 
 Four existing illustrated places reused; new `galimard-pause-cologne-eze` is a distinct venue from the existing Grasse studio. No invented coordinates: explicit dated map exclusion. Add the Èze alternative to the existing workshops guide and reciprocal related-guide/place links. No event relationship is forced: this is an evergreen ticket comparison, not a dated event.
 
-Request: Galimard Pause Cologne Èze, Èze, `galimard-pause-cologne-eze.png`.
+The owner supplied the Èze illustration during preparation. Attach it through the safe published-guide missing-only workflow as `galimard-pause-cologne-eze.png`, with targeted WebP/AVIF derivatives and a persisted post-apply verification. It appears in both the pass and workshops guides. No further place illustration is needed for this guide; all four existing images remain unchanged.
 
 ## Publication Workflow Findings
 
 The manual packet extracted the correct title/slug and processed the supplied cover. Its place heuristics still propose analytical subheadings such as “Verdict” and “The combined villa ticket” as venues. Resolve the plan against the five real canonical places before bundling; no pseudo-places may enter published content. Record this remaining parser limitation without expanding this publication into an unrequested pipeline rewrite.
 
-Tests cover all locale table totals, source/editorial separation, the latest-guide slot, reciprocal links, missing-image honesty, map obligations, decoded cover and mobile overflow. Local checks, CI, deployment and public verification are separate release gates.
+Tests cover all locale table totals, source/editorial separation, the latest-guide slot, reciprocal links, the supplied place illustration and derivatives, map obligations, decoded images and mobile overflow. Local checks, CI, deployment and public verification are separate release gates.

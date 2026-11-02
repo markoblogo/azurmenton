@@ -302,11 +302,13 @@ const rawPlaces: Place[] = [
   {
     id: "galimard-pause-cologne-eze", name: "Galimard Pause Cologne Èze", type: "family-activity",
     address: "Place Charles de Gaulle, 06360 Èze-Village", area: text("Èze", "Èze", "Èze", "Ез"),
+    image: "/images/guide/galimard-pause-cologne-eze.png",
     programmeUrl: "https://www.galimard.com/visite-guidee-eze", googleMapsUrl: mapsQuery("Galimard", "Place Charles de Gaulle, Èze-Village"),
     sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "ask-first",
     shortNote: text("Factory-museum and short Pause Cologne experience in Èze-Village, distinct from Galimard's Grasse studio. Provider price checked 2 November 2026: €18 per creation; factory visit alone free. Confirm pass-holder booking and child eligibility because official listings differ.", "Usine-musée et courte Pause Cologne à Èze-Village, distinctes du studio de Grasse. Tarif prestataire vérifié le 2 novembre 2026 : €18 par création ; visite seule gratuite. Confirmez réservation avec pass et âge des enfants : les fiches officielles divergent.", "Fabbrica-museo e breve Pause Cologne a Èze-Village, diversa dallo studio di Grasse. Prezzo verificato il 2 novembre 2026: €18 per creazione; sola visita gratuita. Conferma prenotazione con pass ed età dei bambini: le schede ufficiali divergono.", "Фабрика-музей і коротка Pause Cologne в Ез-Віллаж, не студія Грасса. Ціна організатора перевірена 2 листопада 2026: €18 за композицію; сама екскурсія безплатна. Уточніть запис із пасом і вік дітей: офіційні картки відрізняються."),
     bestFor: [text("Short creative experience in Èze", "Courte expérience créative à Èze", "Breve esperienza creativa a Èze", "Коротке творче заняття в Езі")],
     relatedArticleIds: ["french-riviera-pass-worth-it-from-menton", "creative-workshops-menton-french-riviera"],
+    guideCoverageSlugs: ["creative-workshops-menton-french-riviera"],
   },
   {
     id: "rue-shakespeare-nice", name: "Rue Shakespeare", type: "walk", address: "Rue Shakespeare, Nice",
