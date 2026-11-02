@@ -4,7 +4,7 @@ import { getPlace } from "@/content/places";
 import { eventFreshnessProfiles, getEventDetail } from "@/content/riviera-events";
 import { eventCalendarFile } from "@/lib/event-calendar";
 import { locales } from "@/i18n/locales";
-import { transportOptions } from "@/content/transport";
+import { transportOptionLabels, transportOptions } from "@/content/transport";
 
 describe("2 November editorial corrections", () => {
   it("confirms the existing Monaco fair without inventing uniform daily hours", () => {
@@ -32,6 +32,8 @@ describe("2 November editorial corrections", () => {
     }
     expect(intro.officialLinks?.some((link) => link.url.endsWith("/nice-monaco-vintimille-nice-breil-tende"))).toBe(true);
     const shuttle = transportOptions.find((option) => option.type === "navette")!;
+    expect(transportOptionLabels.navette).toEqual({ en: "City shuttle", fr: "Navette du centre-ville", it: "Navetta del centro", uk: "Міський шатл" });
+    expect(shuttle.name).toEqual(transportOptionLabels.navette);
     for (const locale of locales) expect(shuttle.note[locale]).toContain("1");
     expect(shuttle.note.en).toContain("€1");
   });

@@ -36,7 +36,7 @@ const t = (en: string, fr: string, it: string, uk: string): LocalizedText => ({ 
 export const transportOptionLabels: Record<TransportOptionType, LocalizedText> = {
   walking: t("Walking", "A pied", "A piedi", "Пішки"),
   "local-bus": t("Local buses", "Bus locaux", "Autobus locali", "Місцеві автобуси"),
-  navette: t("Free city navette", "Navette gratuite", "Navetta gratuita", "Безкоштовний міський шатл"),
+  navette: t("City shuttle", "Navette du centre-ville", "Navetta del centro", "Міський шатл"),
   train: t("Regional trains", "Trains regionaux", "Treni regionali", "Регіональні потяги"),
   "regional-bus": t("Regional buses", "Bus regionaux", "Autobus regionali", "Регіональні автобуси"),
   taxi: t("Taxis and ride-hailing", "Taxis et VTC", "Taxi e ride-hailing", "Таксі та сервіси виклику авто"),

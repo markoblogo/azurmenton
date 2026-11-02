@@ -43,3 +43,13 @@ scenarios now pass; no claim of production build, CI or public deployment is mad
 Incidental development warnings report apartment images requesting quality 88
 outside the configured [75, 90] list. This pre-existing image-configuration issue
 is outside this content-correction pass; no image configuration was changed.
+
+## Domain Verification Follow-Up
+
+PR #44 merged as `902dd054efe649e4b2ba7726540f05ece0e7c103`; Vercel succeeded.
+Domain verification confirmed the new marathon waves and fair dates, then caught
+one remaining contradiction: the shared transport heading still said "Free city
+navette" above the corrected EUR1 description. The old local body assertion was
+case-sensitive and missed that capitalized label. Correct the shared heading in
+all four languages, assert the actual localized labels in unit coverage and use
+a case-insensitive browser assertion before repeating the public checks.
