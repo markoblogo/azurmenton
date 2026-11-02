@@ -1,0 +1,58 @@
+{
+  "slug": "tender-is-the-night-fitzgerald-french-riviera",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: tender-is-the-night-fitzgerald-french-riviera",
+    "mode: published-guide + missing-only",
+    "matched: 5",
+    "skipped-covered: 0",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/tender-is-the-night-fitzgerald-french-riviera.json",
+    "rerun: npm run guide:assets -- --published-guide tender-is-the-night-fitzgerald-french-riviera --assets-dir /tmp/menton-fitzgerald-assets --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 5,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 0,
+    "stillMissing": 0,
+    "patchReady": 5
+  },
+  "matchedAssetFiles": [
+    "hotel-belles-rives-juan-les-pins.png",
+    "hotel-du-cap-eden-roc-antibes.png",
+    "juan-les-pins-seafront.png",
+    "plage-la-garoupe-antibes.png",
+    "sentier-tirepoil-cap-antibes.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "hotel-belles-rives-juan-les-pins",
+    "juan-les-pins-seafront",
+    "plage-la-garoupe-antibes",
+    "hotel-du-cap-eden-roc-antibes",
+    "sentier-tirepoil-cap-antibes"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide tender-is-the-night-fitzgerald-french-riviera --assets-dir /tmp/menton-fitzgerald-assets --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "hotel-belles-rives-juan-les-pins",
+      "juan-les-pins-seafront",
+      "plage-la-garoupe-antibes",
+      "hotel-du-cap-eden-roc-antibes",
+      "sentier-tirepoil-cap-antibes"
+    ],
+    "failedPlaceIds": []
+  }
+}
