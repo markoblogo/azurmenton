@@ -10,10 +10,17 @@ const base = getEventDetail("vivaldi-gloria-menton-2026-10-31")!;
 describe("event calendar export", () => {
   it("retains the marathon's successive starts without inventing a finish", () => {
     const event = getEventDetail("nice-cannes-marathon")!;
-    const file = eventCalendarFile(event, "en")!;
-    expect(file).toContain("DTSTART:20261108T065700Z");
-    expect(file.replace(/\r\n /g, "")).toContain("mass start from 08:03");
-    expect(file).not.toContain("DTEND");
+    expect(eventCalendarFile(event, "en")).toBeNull();
+    expect(event.schedule).toBeUndefined();
+    expect(event.sessions?.map((session) => session.startTime)).toEqual(["07:57", "08:00", "08:25", "08:50", "09:15"]);
+    for (const locale of ["en", "fr", "it", "uk"] as const) {
+      for (const [session, utc] of [["0757", "0657"], ["0800", "0700"], ["0825", "0725"], ["0850", "0750"], ["0915", "0815"]]) {
+        const file = eventCalendarFile(event, locale, session)!;
+        expect(file).toContain(`DTSTART:20261108T${utc}00Z`);
+        expect(file.replace(/\r\n /g, "")).not.toContain("08:03");
+        expect(file).not.toContain("DTEND");
+      }
+    }
   });
   it("renders a separate download per performance in all four languages", () => {
     const event = getEventDetail("stand-up-monaco-2026-11-09")!;
