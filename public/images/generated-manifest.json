@@ -819,6 +819,13 @@
     ]
   },
   {
+    "source": "public/images/guide/menton-with-a-dog.png",
+    "outputs": [
+      "public/images/guide/generated/menton-with-a-dog.avif",
+      "public/images/guide/generated/menton-with-a-dog.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/mer-passion-menton.png",
     "outputs": [
       "public/images/guide/generated/mer-passion-menton.avif",
@@ -1323,10 +1330,38 @@
     ]
   },
   {
-    "source": "public/images/guide/menton-with-a-dog.png",
+    "source": "public/images/guide/plage-du-gorbio-menton.png",
     "outputs": [
-      "public/images/guide/generated/menton-with-a-dog.avif",
-      "public/images/guide/generated/menton-with-a-dog.webp"
+      "public/images/guide/generated/plage-du-gorbio-menton.avif",
+      "public/images/guide/generated/plage-du-gorbio-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/plage-hawai-menton.png",
+    "outputs": [
+      "public/images/guide/generated/plage-hawai-menton.avif",
+      "public/images/guide/generated/plage-hawai-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/dog-park-garavan-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-garavan-menton.avif",
+      "public/images/guide/generated/dog-park-garavan-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/dog-park-serres-madone-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-serres-madone-menton.avif",
+      "public/images/guide/generated/dog-park-serres-madone-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/dog-park-pian-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-pian-menton.avif",
+      "public/images/guide/generated/dog-park-pian-menton.webp"
     ]
   }
 ]

@@ -1,0 +1,42 @@
+{
+  "slug": "menton-with-a-dog",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: menton-with-a-dog",
+    "mode: published-guide + missing-only",
+    "matched: 5",
+    "skipped-covered: 3",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/menton-with-a-dog.json",
+    "rerun: npm run guide:assets -- --published-guide menton-with-a-dog --missing-only"
+  ],
+  "counts": {
+    "matched": 5,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 3,
+    "stillMissing": 0,
+    "patchReady": 5
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "plage-du-gorbio-menton",
+    "plage-hawai-menton",
+    "dog-park-garavan-menton",
+    "dog-park-serres-madone-menton",
+    "dog-park-pian-menton"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide menton-with-a-dog --missing-only",
+  "issueCodes": []
+}
