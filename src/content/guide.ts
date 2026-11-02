@@ -19,6 +19,7 @@ import { romainGaryGuide } from "@/content/romain-gary-guide";
 import { frenchRivieraPassGuide } from "@/content/french-riviera-pass-guide";
 import { graceOfMonacoGuide } from "@/content/grace-of-monaco-guide";
 import { fleaMarketsGuide } from "@/content/flea-markets-guide";
+import { fitzgeraldGuide } from "@/content/fitzgerald-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11409,6 +11410,22 @@ guideArticles.push(romainGaryGuide);
 guideArticles.push(frenchRivieraPassGuide);
 guideArticles.push(graceOfMonacoGuide);
 guideArticles.push(fleaMarketsGuide);
+guideArticles.push(fitzgeraldGuide);
+for (const slug of fitzgeraldGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(fitzgeraldGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), fitzgeraldGuide.slug];
+}
+const fitzgeraldDayTrips = guideArticles.find(article => article.slug === "day-trips-from-menton");
+if (fitzgeraldDayTrips) {
+  fitzgeraldDayTrips.relatedPlaces = [...new Set([...(fitzgeraldDayTrips.relatedPlaces ?? []), "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront"])];
+  fitzgeraldDayTrips.sections.push({
+    heading: t("Juan-les-Pins: Fitzgerald's Riviera", "Juan-les-Pins : la Riviera de Fitzgerald", "Juan-les-Pins: la Riviera di Fitzgerald", "Жуан-ле-Пен: Рив'єра Фіцджеральда"),
+    body: [t("For a literary excursion, take a regional train towards Juan-les-Pins, checking connections and the return. Explore the public seafront and the exterior context of Belles Rives, formerly the Fitzgeralds' Villa Saint-Louis. Hotel facilities require confirmation. The fuller Cap d'Antibes option needs a separate local transfer, current Garoupe works checks and safe coastal-path conditions; private villas and seasonally closed Cap-Eden-Roc are not freely accessible stops.", "Pour une sortie littéraire, rejoignez Juan-les-Pins en train régional en vérifiant correspondances et retour. Front de mer public et contexte extérieur des Belles Rives, ancienne Villa Saint-Louis des Fitzgerald ; confirmez les services de l'hôtel. L'option Cap d'Antibes nécessite transport local, vérification des travaux de La Garoupe et météo favorable. Villas privées et Cap-Eden-Roc fermé en saison ne sont pas en accès libre.", "Per una gita letteraria raggiungi Juan-les-Pins in treno regionale, controllando coincidenze e ritorno. Lungomare pubblico ed esterni del Belles Rives, ex Villa Saint-Louis dei Fitzgerald; conferma i servizi dell'hotel. L'opzione Cap d'Antibes richiede trasporto locale, verifica dei lavori alla Garoupe e condizioni sicure del sentiero. Ville private e Cap-Eden-Roc chiuso stagionalmente non sono tappe libere.", "Для літературної поїздки дістаньтеся Жуан-ле-Пен регіональним поїздом, перевіривши пересадки й повернення. Публічна набережна та зовнішній контекст Belles Rives — колишньої Villa Saint-Louis Фіцджеральдів; готельні послуги уточнюйте. Мис Антіб потребує окремого транспорту, перевірки робіт La Garoupe й безпечної стежки. Приватні вілли та сезонно закритий Cap-Eden-Roc не є вільними зупинками.")],
+    relatedPlaceIds: ["hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront"],
+    guideLinkSlug: fitzgeraldGuide.slug,
+    guideLinkLabel: t("Tender Is the Night literary excursion", "Excursion Tendre est la nuit", "Gita letteraria Tenera è la notte", "Літературна поїздка «Ніч лагідна»"),
+  });
+}
 for (const slug of fleaMarketsGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(fleaMarketsGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), fleaMarketsGuide.slug];

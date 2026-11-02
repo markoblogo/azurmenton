@@ -10,6 +10,9 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "hotel-belles-rives-juan-les-pins", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.bellesrives.com/en/contact-and-getting-here.html" },
+  { placeId: "plage-la-garoupe-antibes", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.antibesjuanlespins.com/les-plages" },
+  { placeId: "hotel-du-cap-eden-roc-antibes", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.oetkerhotels.com/hotels/hotel-du-cap-eden-roc/" },
   { placeId: "menton-brocante-mail-du-bastion", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.menton.fr/Rue-pietonne-et-marches.html" },
   { placeId: "marche-aux-puces-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.explorenicecotedazur.com/evenement/marche-aux-puces/" },
   { placeId: "ventimiglia-friday-market", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://ventimiglia.it/en/markets/friday-market/" },
