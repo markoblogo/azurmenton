@@ -322,6 +322,13 @@
     ]
   },
   {
+    "source": "public/images/guide/flea-markets-brocantes-vintage-menton.png",
+    "outputs": [
+      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.avif",
+      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/fontan.png",
     "outputs": [
       "public/images/guide/generated/fontan.avif",
@@ -1253,10 +1260,24 @@
     ]
   },
   {
-    "source": "public/images/guide/flea-markets-brocantes-vintage-menton.png",
+    "source": "public/images/guide/menton-brocante-mail-du-bastion.png",
     "outputs": [
-      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.avif",
-      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.webp"
+      "public/images/guide/generated/menton-brocante-mail-du-bastion.avif",
+      "public/images/guide/generated/menton-brocante-mail-du-bastion.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/marche-aux-puces-nice.png",
+    "outputs": [
+      "public/images/guide/generated/marche-aux-puces-nice.avif",
+      "public/images/guide/generated/marche-aux-puces-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/ventimiglia-friday-market.png",
+    "outputs": [
+      "public/images/guide/generated/ventimiglia-friday-market.avif",
+      "public/images/guide/generated/ventimiglia-friday-market.webp"
     ]
   }
 ]

@@ -1,0 +1,52 @@
+{
+  "slug": "flea-markets-brocantes-vintage-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: flea-markets-brocantes-vintage-menton",
+    "mode: published-guide + missing-only",
+    "matched: 3",
+    "skipped-covered: 4",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/flea-markets-brocantes-vintage-menton.json",
+    "rerun: npm run guide:assets -- --published-guide flea-markets-brocantes-vintage-menton --assets-dir /tmp/menton-flea-assets --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 3,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 4,
+    "stillMissing": 0,
+    "patchReady": 3
+  },
+  "matchedAssetFiles": [
+    "marche-aux-puces-nice.png",
+    "menton-brocante-mail-du-bastion.png",
+    "ventimiglia-friday-market.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "menton-brocante-mail-du-bastion",
+    "marche-aux-puces-nice",
+    "ventimiglia-friday-market"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide flea-markets-brocantes-vintage-menton --assets-dir /tmp/menton-flea-assets --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "menton-brocante-mail-du-bastion",
+      "marche-aux-puces-nice",
+      "ventimiglia-friday-market"
+    ],
+    "failedPlaceIds": []
+  }
+}

@@ -42,7 +42,7 @@ it("keeps conflicting hours, Italy's unknown dates and distinct market identitie
   expect(guide.relatedPlaces).not.toContain("cours-saleya-nice");
 });
 
-it("reuses existing illustrations and records new places without invented cover images or coordinates", () => {
+it("reuses existing illustrations and attaches the owner-supplied market images without inventing coordinates", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(7);
   expect(guide.relatedPlaces).toEqual([...new Set(guide.sections.flatMap(section => section.relatedPlaceIds ?? []))]);
@@ -54,7 +54,10 @@ it("reuses existing illustrations and records new places without invented cover 
   for (const id of newPlaceIds) {
     const place = places.find(place => place.id === id)!;
     expect(place.requiresMapReview).toBe(true);
-    expect(place.image).toBeFalsy();
+    expect(place.image).toBe(`/images/guide/${id}.png`);
+    expect(existsSync(`public${place.image}`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${id}.avif`)).toBe(true);
+    expect(existsSync(`public/images/guide/generated/${id}.webp`)).toBe(true);
     expect(place.programmeUrl).toMatch(/^https:\/\//);
     expect(placeMapExclusions.find(item => item.placeId === id)).toMatchObject({ reason: "coordinate_unverified", checkedOn: "2026-11-02" });
     expect(guideArticles.find(article => article.slug === "best-markets-near-menton-market-days-in-france-and-italy")?.relatedPlaces).toContain(id);
