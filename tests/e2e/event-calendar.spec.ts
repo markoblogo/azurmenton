@@ -24,7 +24,7 @@ test("calendar downloads are localized and fit narrow event pages", async ({ pag
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/en/events/stand-up-monaco-2026-11-09");
   await page.getByText("Add to calendar", { exact: true }).click();
-  await expect(page.getByText("Choose a performance", { exact: true })).toBeVisible();
+  await expect(page.getByText("Choose a time", { exact: true })).toBeVisible();
   for (const [id, time] of [["1900", "180000"], ["2100", "200000"]]) {
     await expect(page.locator(`a[href$="session=${id}"]`)).toBeVisible();
     const response = await request.get(`/api/events/stand-up-monaco-2026-11-09/calendar?session=${id}`);

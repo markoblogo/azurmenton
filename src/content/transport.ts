@@ -67,11 +67,11 @@ export const transportOptions: TransportOption[] = [
     sourceStatus: "needs_verification",
   },
   {
-    id: "free-navette",
+    id: "free-navette", // Stable legacy ID; the shuttle is now paid.
     name: transportOptionLabels.navette,
     type: "navette",
     bestFor: [t("station links", "liaisons gare", "collegamenti stazione", "зв'язок із вокзалом"), t("central stops", "arrets centraux", "fermate centrali", "центральні зупинки"), t("port areas", "zones portuaires", "zone porto", "портові райони")],
-    note: t("Menton has operated a free electric shuttle/navette linking key central points. Check current stops and operating hours locally.", "Menton a exploite une navette electrique gratuite reliant des points centraux. Verifiez les arrets et horaires actuels sur place.", "Mentone ha utilizzato una navetta elettrica gratuita tra punti centrali. Controlla fermate e orari aggiornati sul posto.", "У Ментоні працював безкоштовний електричний шатл між ключовими центральними точками. Перевіряйте актуальні зупинки й години на місці."),
+    note: t("Zestbus lists the central Menton navette at €1 from 6 July 2026, checked on 2 November 2026. It is not a free shuttle. Check current stops, operating hours and fares with the operator.", "Zestbus indique la navette du centre de Menton à 1 € depuis le 6 juillet 2026, vérifié le 2 novembre 2026. Elle n'est pas gratuite. Vérifiez les arrêts, horaires et tarifs actuels auprès de l'opérateur.", "Zestbus indica la navetta del centro di Mentone a 1 € dal 6 luglio 2026, verificato il 2 novembre 2026. Non è gratuita. Controlla fermate, orari e tariffe aggiornati con il gestore.", "Zestbus вказує ціну міського шатла Ментона €1 з 6 липня 2026 року; перевірено 2 листопада 2026 року. Він не безкоштовний. Уточнюйте актуальні зупинки, години й тарифи в оператора."),
     sourceStatus: "needs_verification",
   },
   {

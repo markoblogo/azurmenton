@@ -8,7 +8,7 @@ export function AddToCalendar({ event, locale }: { event: RivieraEvent; locale: 
     if (!sessions.length) return null;
     return <details className="mt-4 border-t border-[#dfd4c1] pt-3 text-[#173f36]">
       <summary className="min-h-11 cursor-pointer py-2 font-semibold">{calendarCopy[locale].add}</summary>
-      <p className="py-2 font-semibold">{{ en: "Choose a performance", fr: "Choisir une séance", it: "Scegli uno spettacolo", uk: "Оберіть сеанс" }[locale]}</p>
+      <p className="py-2 font-semibold">{{ en: "Choose a time", fr: "Choisir un horaire", it: "Scegli un orario", uk: "Оберіть час" }[locale]}</p>
       {sessions.map(session => <section key={session.id} aria-label={`${session.date} ${session.startTime}`} className="border-t border-[#dfd4c1] py-2">
         <p className="font-semibold">{new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" }).format(new Date(`${session.date}T12:00:00+01:00`))} · {session.startTime}</p>
         <CalendarLinks event={event} locale={locale} sessionId={session.id} />
