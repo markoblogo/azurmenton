@@ -41,14 +41,18 @@ it("retains uncertainty for accommodation, Zest, beaches, borders and emergency 
   expect(guide.sections[3].body[0].en).toContain("blanket year-round permission");
 });
 
-it("reuses three illustrated places, adds five honest gaps and aligns the nearby graph", () => {
+it("resolves all eight illustrated places and aligns the nearby graph", () => {
   expect(guide.relatedPlaces).toEqual([...new Set(guide.sections.flatMap(section => section.relatedPlaceIds ?? []))]);
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(8);
   for (const place of places) expect(place.relatedArticleIds).toContain(guide.slug);
   expect(dogPlaces).toHaveLength(5);
   for (const place of dogPlaces) {
-    expect(place.image).toBeUndefined();
+    const resolved = places.find(candidate => candidate.id === place.id)!;
+    expect(resolved.image).toBe(`/images/guide/${place.id}.png`);
+    expect(existsSync(`public${resolved.image}`)).toBe(true);
+    for (const extension of ["avif", "webp"]) expect(existsSync(`public/images/guide/generated/${place.id}.${extension}`)).toBe(true);
+    for (const locale of ["en", "fr", "it", "uk"] as const) expect(resolved.imageAlt?.[locale]?.length).toBeGreaterThan(35);
     expect(place.requiresMapReview).toBe(true);
     expect(placeMapExclusions.find(entry => entry.placeId === place.id)?.checkedOn).toBe("2026-11-02");
   }

@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const slug = "menton-with-a-dog";
-test("dog guide renders complete locales, permitted sectors and honest media gaps", async ({ page }) => {
+test("dog guide renders complete locales, permitted sectors and all supplied illustrations", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   for (const locale of ["en", "fr", "it", "uk"]) {
     await page.goto(`/${locale}/guide/${slug}`, { waitUntil: "domcontentloaded" });
@@ -12,6 +12,9 @@ test("dog guide renders complete locales, permitted sectors and honest media gap
     await expect(page.locator("table tbody tr")).toHaveCount(19);
     for (const id of ["promenade-du-soleil", "promenade-reine-astrid", "plage-casino", "plage-du-gorbio-menton", "plage-hawai-menton", "dog-park-garavan-menton", "dog-park-serres-madone-menton", "dog-park-pian-menton"]) {
       await expect(page.locator(`#place-${id}`)).toBeAttached();
+      const image = page.locator(`#place-${id} img`).first();
+      await image.scrollIntoViewIfNeeded();
+      await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
     }
     await expect(page.locator("#related-apartments")).toHaveCount(0);
     const content = await page.locator("main").innerText();
