@@ -300,6 +300,15 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "galimard-pause-cologne-eze", name: "Galimard Pause Cologne Èze", type: "family-activity",
+    address: "Place Charles de Gaulle, 06360 Èze-Village", area: text("Èze", "Èze", "Èze", "Ез"),
+    programmeUrl: "https://www.galimard.com/visite-guidee-eze", googleMapsUrl: mapsQuery("Galimard", "Place Charles de Gaulle, Èze-Village"),
+    sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "ask-first",
+    shortNote: text("Factory-museum and short Pause Cologne experience in Èze-Village, distinct from Galimard's Grasse studio. Provider price checked 2 November 2026: €18 per creation; factory visit alone free. Confirm pass-holder booking and child eligibility because official listings differ.", "Usine-musée et courte Pause Cologne à Èze-Village, distinctes du studio de Grasse. Tarif prestataire vérifié le 2 novembre 2026 : €18 par création ; visite seule gratuite. Confirmez réservation avec pass et âge des enfants : les fiches officielles divergent.", "Fabbrica-museo e breve Pause Cologne a Èze-Village, diversa dallo studio di Grasse. Prezzo verificato il 2 novembre 2026: €18 per creazione; sola visita gratuita. Conferma prenotazione con pass ed età dei bambini: le schede ufficiali divergono.", "Фабрика-музей і коротка Pause Cologne в Ез-Віллаж, не студія Грасса. Ціна організатора перевірена 2 листопада 2026: €18 за композицію; сама екскурсія безплатна. Уточніть запис із пасом і вік дітей: офіційні картки відрізняються."),
+    bestFor: [text("Short creative experience in Èze", "Courte expérience créative à Èze", "Breve esperienza creativa a Èze", "Коротке творче заняття в Езі")],
+    relatedArticleIds: ["french-riviera-pass-worth-it-from-menton", "creative-workshops-menton-french-riviera"],
+  },
+  {
     id: "rue-shakespeare-nice", name: "Rue Shakespeare", type: "walk", address: "Rue Shakespeare, Nice",
     area: text("Nice", "Nice", "Nizza", "Ніцца"), requiresMapReview: false, sourceStatus: "editorial", visitorAccess: "public",
     image: "/images/guide/rue-shakespeare-nice.png",
@@ -11372,6 +11381,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["villa-kerylos-beaulieu-sur-mer", "villa-ephrussi-de-rothschild", "musee-matisse-nice", "oceanographic-museum-monaco"].includes(place.id)) relatedArticleIds.add("french-riviera-pass-worth-it-from-menton");
   if (["cours-saleya-nice", "roquebrune-medieval-village"].includes(place.id)) relatedArticleIds.add("romain-gary-nice-promise-at-dawn-literary-walk");
   if (["cimetiere-vieux-chateau", "rampes-saint-michel", "basilica-saint-michel-archange", "rue-longue-menton", "place-du-cap-menton", "quai-bonaparte-menton", "villefranche-sur-mer"].includes(place.id)) relatedArticleIds.add("james-bond-menton-never-say-never-again-filming-locations");
   if (["esplanade-des-sablettes-menton", "handiplage-menton", "plage-du-marche-menton"].includes(place.id)) relatedArticleIds.add("best-beaches-in-menton");
