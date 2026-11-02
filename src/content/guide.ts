@@ -17,6 +17,7 @@ import { stepFreeMentonGuide } from "@/content/step-free-menton-guide";
 import { jamesBondGuide } from "@/content/james-bond-guide";
 import { romainGaryGuide } from "@/content/romain-gary-guide";
 import { frenchRivieraPassGuide } from "@/content/french-riviera-pass-guide";
+import { graceOfMonacoGuide } from "@/content/grace-of-monaco-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -3509,7 +3510,7 @@ export const guideArticles: GuideArticle[] = [
         heading: t("The clearest old-town locations: Bond and Grace of Monaco", "Les lieux les plus reconnaissables : Bond et Grace of Monaco", "Le location piu riconoscibili: Bond e Grace of Monaco", "Найвпізнаваніші локації: Bond і Grace of Monaco"),
         body: [
           t("Never Say Never Again (1983) offers the most recognisable Menton sequence: Bond's motorcycle chase moves from the cemetery side of the old town toward Saint-Michel, Rue Longue, Place du Cap, Quai Bonaparte and the Pascal-Molinari tunnel. Treat the tunnel as a road landmark, not a walking route.", "Jamais plus jamais (1983) offre la sequence mentonnaise la plus reconnaissable : la poursuite a moto de Bond descend du secteur du cimetiere vers Saint-Michel, rue Longue, place du Cap, quai Bonaparte et le tunnel Pascal-Molinari. Le tunnel est un repere routier, pas un itineraire a pied.", "Mai dire mai (1983) offre la sequenza mentonese piu riconoscibile: l'inseguimento in moto di Bond scende dal settore del cimitero verso Saint-Michel, Rue Longue, Place du Cap, Quai Bonaparte e il tunnel Pascal-Molinari. Il tunnel e un riferimento stradale, non un percorso a piedi.", "Never Say Never Again (1983) має найвпізнаванішу ментонську сцену: мотоциклетна погоня Bond спускається від району кладовища до Saint-Michel, Rue Longue, Place du Cap, Quai Bonaparte і тунелю Pascal-Molinari. Тунель є дорожнім орієнтиром, а не пішим маршрутом."),
-          t("Grace of Monaco (2014) uses the Saint-Michel forecourt and surrounding old-town streets as a picturesque stand-in for Monaco. The film is a fictionalised drama, so use the location as a cinema-and-architecture stop rather than a lesson in Monaco history.", "Grace of Monaco (2014) utilise le parvis Saint-Michel et les rues voisines de la vieille ville comme doublure pittoresque de Monaco. C'est un drame fictionnalise : voyez ce lieu comme une halte cinema et architecture, non comme une lecon d'histoire monegasque.", "Grace of Monaco (2014) usa il sagrato di Saint-Michel e le vie vicine del centro storico come controfigura pittoresca di Monaco. E un dramma romanzato: considera il luogo come tappa di cinema e architettura, non come lezione di storia monegasca.", "Grace of Monaco (2014) використовує площу перед Saint-Michel та сусідні вулички старого міста як мальовничу заміну Монако. Це художня драма, тому сприймайте місце як зупинку про кіно й архітектуру, а не урок історії Монако."),
+          t("Grace of Monaco (2014) uses the Saint-Michel forecourt as a Monaco marketplace. Nearby old-town streets provide visitor context, not independently verified scenes. The film is a fictionalised drama: treat this as a cinema-and-architecture stop, not a documentary account of Monaco history.", "Grace de Monaco (2014) utilise le parvis Saint-Michel comme marché monégasque. Les rues voisines apportent un contexte de visite, sans scènes vérifiées indépendamment. Ce drame fictionnalisé invite à une halte cinéma et architecture, pas à une histoire documentaire de Monaco.", "Grace di Monaco (2014) usa il sagrato di Saint-Michel come mercato monegasco. Le vie vicine offrono contesto per la visita, non scene verificate indipendentemente. È un dramma romanzato: una tappa di cinema e architettura, non una storia documentaria di Monaco.", "Grace of Monaco (2014) використовує площу Saint-Michel як ринок Монако. Сусідні вулиці дають контекст для прогулянки, не незалежно підтверджені сцени. Це художня драма: зупинка про кіно й архітектуру, не документальна історія Монако."),
         ],
         officialLinks: [
           { label: t("Bond location reference", "Reference des lieux Bond", "Riferimento alle location Bond", "Довідка про локації Bond"), url: "https://rivieraonfilm.wixsite.com/riviera-on-film/never-say-never-again-1983" },
@@ -11405,6 +11406,20 @@ guideArticles.push(stepFreeMentonGuide);
 guideArticles.push(jamesBondGuide);
 guideArticles.push(romainGaryGuide);
 guideArticles.push(frenchRivieraPassGuide);
+guideArticles.push(graceOfMonacoGuide);
+for (const slug of graceOfMonacoGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(graceOfMonacoGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), graceOfMonacoGuide.slug];
+}
+const graceOverviewSection = guideArticles.find(article => article.slug === "films-shot-in-menton")?.sections.find(section => section.heading.en === "The clearest old-town locations: Bond and Grace of Monaco");
+if (graceOverviewSection) {
+  guideArticles.find(article => article.slug === "films-shot-in-menton")?.sections.push({
+    heading: t("A focused Grace of Monaco walk", "Une promenade dédiée à Grace de Monaco", "Una passeggiata dedicata a Grace di Monaco", "Окрема прогулянка слідами «Принцеси Монако»"),
+    body: [t("The Saint-Michel square played a Monaco marketplace in the 2014 film. Follow the dedicated 45–90-minute guide for the verified site, contextual old-town stops and the distinction between screen geography and history. The traditional approach has stairs; exact camera positions remain unverified.", "Le parvis Saint-Michel devient un marché monégasque dans le film de 2014. Le guide de 45–90 minutes distingue site vérifié, étapes de contexte et histoire. L'approche traditionnelle comporte des escaliers ; les positions exactes des caméras restent non vérifiées.", "Il sagrato Saint-Michel interpreta un mercato monegasco nel film del 2014. La guida di 45–90 minuti distingue sito verificato, tappe di contesto e storia. L'accesso tradizionale ha scale; le posizioni esatte delle cineprese restano non verificate.", "Площа Saint-Michel грає ринок Монако у фільмі 2014 року. Гайд на 45–90 хвилин розрізняє підтверджене місце, контекстні зупинки й історію. Традиційний підхід має сходи; точні позиції камер не перевірені.")],
+    guideLinkSlug: graceOfMonacoGuide.slug,
+    guideLinkLabel: t("Read the verified Grace of Monaco location walk", "Lire la promenade vérifiée de Grace de Monaco", "Leggi la passeggiata verificata di Grace di Monaco", "Читайте перевірену кінопрогулянку «Принцеси Монако»"),
+  });
+}
 for (const slug of frenchRivieraPassGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(frenchRivieraPassGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), frenchRivieraPassGuide.slug];

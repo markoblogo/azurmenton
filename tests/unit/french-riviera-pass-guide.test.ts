@@ -9,7 +9,7 @@ import records from "@/content/guide-data/french-riviera-pass-worth-it-from-ment
 it("publishes the full pass comparison with four aligned locales and the supplied cover", () => {
   expect(guideArticles).toContain(guide);
   expect(guide.sections).toHaveLength(18);
-  expect(getLatestLandingGuideSlug()).toBe(guide.slug);
+  expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
   expect(existsSync(`public${guide.coverImage}`)).toBe(true);
   for (const locale of ["en", "fr", "it", "uk"] as const) {
     const body = guide.sections.flatMap(section => section.body.map(item => item[locale])).join("\n");
