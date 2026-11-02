@@ -4,6 +4,26 @@ const locales = ["en", "fr", "it", "uk"] as const;
 export type GuideMarkdownRecord = Record<typeof locales[number], string>;
 const field = /^(?:SEO title|Meta title|Meta description|Suggested URL|Category|Best for|Duration|Recommended duration|Season covered|Programme last checked|Last researched|Last transport and access check):/i;
 
+function plainInlineEmphasis(text: string) {
+  return text.replace(/\*\*([^*\n]+)\*\*/g, "$1")
+    .replace(/__([^_\n]+)__/g, "$1")
+    .replace(/\*([^*\n]+)\*/g, "$1")
+    .replace(/(^|[^\p{L}\p{N}])_([^_\n]+)_(?=$|[^\p{L}\p{N}])/gu, "$1$2");
+}
+
+// The guide renderer supports flat emphasis, not nested Markdown inside titles or links.
+export function formattedMarkdownGuideBody(markdown: string) {
+  return markdown.split("\n").slice(1).map(line => line.trim())
+    .filter(line => line && !line.startsWith("|"))
+    .map(line => {
+      const heading = line.match(/^#{3,6}\s+(.+)$/);
+      if (heading) return `**${plainInlineEmphasis(heading[1])}**`;
+      return line.replace(/^[-*]\s+/, "")
+        .replace(/\[([^\]]+)\](?=\(https?:\/\/)/g, (_, label: string) => `[${plainInlineEmphasis(label)}]`)
+        .replace(/(?<!\*)\*([^*\n]+)\*(?!\*)/g, "_$1_");
+    }).join("\n");
+}
+
 export function compileGuideMarkdown(sources: GuideMarkdownRecord): GuideMarkdownRecord[] {
   const split = (source: string) => {
     let preamble = true;
@@ -32,7 +52,7 @@ export function compileGuideMarkdown(sources: GuideMarkdownRecord): GuideMarkdow
 
 export function parseGuideMarkdownBlock(text: string) {
   const lines = text.split("\n");
-  const heading = lines.shift()?.replace(/^#+\s*/, "") ?? "";
+  const heading = plainInlineEmphasis(lines.shift()?.replace(/^#+\s*/, "") ?? "");
   const body: string[] = [];
   const tables: { headers: string[]; rows: string[][] }[] = [];
   const links: { label: string; url: string }[] = [];

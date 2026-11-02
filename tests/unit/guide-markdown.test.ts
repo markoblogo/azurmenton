@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { compileGuideMarkdown, markdownGuideSections, parseGuideMarkdownBlock } from "../../src/lib/guide-markdown";
+import { compileGuideMarkdown, formattedMarkdownGuideBody, markdownGuideSections, parseGuideMarkdownBlock } from "../../src/lib/guide-markdown";
 
 const en = "# Valley\n\nSEO title: hidden\n\nRecommended duration: one day\nDuration: two hours\nLast researched: 28 October 2026\n\nA proper introduction.\n\n## 1. Travel\n\nCheck [operator](https://example.org/).\n\n| Place | Time |\n| --- | --- |\n| Village | One hour |";
 const sources = { en, fr: en, it: en, uk: en };
@@ -34,5 +34,14 @@ describe("reviewed multilingual guide compilation", () => {
     const block = parseGuideMarkdownBlock(`## Museum\nOfficial website:[ ](${url})[${url}](${url})`);
     expect(block.body).toEqual(["Official website:"]);
     expect(block.links).toEqual([{ label: "museedesmerveilles.departement06.fr", url }]);
+  });
+  it("removes emphasis delimiters from plain section headings", () => {
+    expect(parseGuideMarkdownBlock("## 1. Discover *Promise at Dawn*\nText").heading).toBe("1. Discover Promise at Dawn");
+    expect(parseGuideMarkdownBlock("## **Read _La Promesse_**\nText").heading).toBe("Read La Promesse");
+  });
+  it("flattens nested emphasis in subheadings and link labels without changing URLs or body emphasis", () => {
+    const body = formattedMarkdownGuideBody("## Film\n### *Promise at Dawn* (2017)\n[*Promise at Dawn*, Film France](https://example.org/promise_at_dawn)\n[_La Promesse_, publisher](https://example.org/a_b)\nRead *the book* and **take a break**.");
+    expect(body).toBe("**Promise at Dawn (2017)**\n[Promise at Dawn, Film France](https://example.org/promise_at_dawn)\n[La Promesse, publisher](https://example.org/a_b)\nRead _the book_ and **take a break**.");
+    expect(parseGuideMarkdownBlock("## GPIO_PIN_NAME\nText").heading).toBe("GPIO_PIN_NAME");
   });
 });

@@ -15,6 +15,9 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 - Add or update the article in `src/content/guide.ts`.
 - Provide all localized fields: title, SEO title, SEO description, excerpt, cover alt text, headings, body copy and bullets.
+- For new formatted Markdown-backed guides, use `formattedMarkdownGuideBody` from
+  `src/lib/guide-markdown.ts`. Section titles and link labels are plain text;
+  flatten nested emphasis there instead of leaking `*` or `_` into the page.
 - For every newly published guide, set `publishedOn` in `YYYY-MM-DD` format. The guide landing page uses the latest `publishedOn` value for the dedicated `NEW` slot automatically; do not use manual landing flags.
 - Add a cover image before publishing unless instructed to leave it empty temporarily.
 - Link relevant existing places through `relatedPlaces` and section-level `relatedPlaceIds`.
