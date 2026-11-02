@@ -9,7 +9,7 @@ import { contentCollections, resolveContentCollectionGuideSlugs } from "@/conten
 it("publishes the complete film walk in four languages without service notes or Markdown debris", () => {
   expect(guideArticles).toContain(guide);
   expect(guide.sections).toHaveLength(15);
-  expect(getLatestLandingGuideSlug()).toBe(guide.slug);
+  expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
   expect(existsSync(`public${guide.coverImage}`)).toBe(true);
   for (const locale of ["en", "fr", "it", "uk"] as const) {
     const original = records.map(record => record[locale]).join("\n");

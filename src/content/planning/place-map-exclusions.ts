@@ -10,6 +10,9 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "menton-brocante-mail-du-bastion", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.menton.fr/Rue-pietonne-et-marches.html" },
+  { placeId: "marche-aux-puces-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.explorenicecotedazur.com/evenement/marche-aux-puces/" },
+  { placeId: "ventimiglia-friday-market", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://ventimiglia.it/en/markets/friday-market/" },
   { placeId: "galimard-pause-cologne-eze", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.galimard.com/nous-trouver" },
   { placeId: "hotel-pension-mermonts-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://rim.univ-cotedazur.fr/items/show/2923" },
   { placeId: "hotel-negresco-nice", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://rim.univ-cotedazur.fr/items/show/2921" },

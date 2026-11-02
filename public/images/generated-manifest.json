@@ -385,6 +385,13 @@
     ]
   },
   {
+    "source": "public/images/guide/grace-of-monaco-filming-locations-menton.png",
+    "outputs": [
+      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.avif",
+      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/handiplage-menton.png",
     "outputs": [
       "public/images/guide/generated/handiplage-menton.avif",
@@ -1246,10 +1253,10 @@
     ]
   },
   {
-    "source": "public/images/guide/grace-of-monaco-filming-locations-menton.png",
+    "source": "public/images/guide/flea-markets-brocantes-vintage-menton.png",
     "outputs": [
-      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.avif",
-      "public/images/guide/generated/grace-of-monaco-filming-locations-menton.webp"
+      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.avif",
+      "public/images/guide/generated/flea-markets-brocantes-vintage-menton.webp"
     ]
   }
 ]

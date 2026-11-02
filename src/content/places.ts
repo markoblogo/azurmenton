@@ -300,6 +300,39 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "menton-brocante-mail-du-bastion", name: "Menton Brocante — Mail du Bastion", type: "market",
+    address: "Mail du Bastion & Place aux Herbes, 06500 Menton", area: text("Menton", "Menton", "Mentone", "Ментон"),
+    programmeUrl: "https://www.menton.fr/Rue-pietonne-et-marches.html", googleMapsUrl: mapsQuery("Mail du Bastion", "Menton"),
+    sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
+    openingHoursLabel: text("Fridays; second and fourth Sundays. Published hours conflict: 07:00–18:00 versus 09:00–17:00; confirm before a timed visit.", "Vendredis ; 2e et 4e dimanches. Horaires divergents : 7 h–18 h ou 9 h–17 h ; confirmez avant une visite à heure précise.", "Venerdì; seconda e quarta domenica. Orari divergenti: 7–18 oppure 9–17; conferma prima di una visita a orario preciso.", "П'ятниці; друга й четверта неділі. Години розходяться: 07:00–18:00 або 09:00–17:00; уточніть перед візитом на конкретний час."),
+    visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://www.menton-riviera-merveilles.fr/offres/marche-des-antiquaires-brocanteurs-menton-fr-3051283/", value: text("Tourism narrative says 07:00–18:00, but its timetable says 09:00–17:00. Weather, holidays and temporary changes can affect editions.", "Le texte touristique indique 7 h–18 h, le calendrier 9 h–17 h. Météo, jours fériés et modifications temporaires peuvent affecter les éditions.", "Il testo turistico indica 7–18, il calendario 9–17. Meteo, festività e modifiche temporanee possono incidere sulle edizioni.", "Туристичний опис указує 07:00–18:00, календар — 09:00–17:00. Погода, свята й тимчасові зміни можуть вплинути на випуски.") }] },
+    shortNote: text("Brocante for old postcards, used books and decorative finds near the old port. Distinct from the food market and the dated Vintage & Collectors editions.", "Brocante de cartes postales, bouquins et décoration près du vieux port. Distincte du marché alimentaire et des éditions datées Vintage et Collections.", "Brocante di cartoline, libri usati e decorazioni vicino al porto vecchio. Distinta dal mercato alimentare e dalle edizioni datate Vintage e Collezionismo.", "Brocante з давніми листівками, книжками й декором біля старого порту. Не продуктовий ринок і не датовані випуски Vintage та Collections."),
+    bestFor: [text("Small vintage discoveries", "Petites trouvailles vintage", "Piccole scoperte vintage", "Невеликі вінтажні знахідки")],
+    relatedArticleIds: ["flea-markets-brocantes-vintage-menton", "best-markets-near-menton-market-days-in-france-and-italy"], guideCoverageSlugs: ["flea-markets-brocantes-vintage-menton"],
+  },
+  {
+    id: "marche-aux-puces-nice", name: "Marché aux Puces de Nice", type: "market",
+    address: "Rue Robilante, Nice", area: text("Nice", "Nice", "Nizza", "Ніцца"),
+    programmeUrl: "https://www.explorenicecotedazur.com/evenement/marche-aux-puces/", googleMapsUrl: mapsQuery("Marché aux Puces", "Rue Robilante, Nice"),
+    sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
+    openingHoursLabel: text("Tuesday–Sunday: October–May 10:00–18:00, June–September 10:00–19:00. Monday normally closed; dealer hours vary.", "Mardi–dimanche : octobre–mai 10 h–18 h, juin–septembre 10 h–19 h. Lundi normalement fermé ; horaires des marchands variables.", "Martedì–domenica: ottobre–maggio 10–18, giugno–settembre 10–19. Lunedì normalmente chiuso; orari dei singoli variabili.", "Вівторок–неділя: жовтень–травень 10:00–18:00, червень–вересень 10:00–19:00. Понеділок зазвичай вихідний; години продавців різняться."),
+    visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://www.explorenicecotedazur.com/evenement/marche-aux-puces/", value: text("Tourism listing covers October 2026–May 2027 and June–September 2027. Individual dealer attendance is not guaranteed.", "La fiche touristique couvre octobre 2026–mai 2027 et juin–septembre 2027. Présence individuelle des marchands non garantie.", "La scheda turistica copre ottobre 2026–maggio 2027 e giugno–settembre 2027. La presenza dei singoli non è garantita.", "Туристична картка охоплює жовтень 2026–травень 2027 і червень–вересень 2027. Присутність окремих продавців не гарантована.") }] },
+    shortNote: text("Antique, art and decorative-object dealers near Port Lympia; not the Monday Cours Saleya brocante.", "Antiquaires, art et décoration près de Port Lympia ; pas la brocante du lundi à Saleya.", "Antiquari, arte e decorazione vicino a Port Lympia; non la brocante del lunedì a Saleya.", "Антиквари, мистецтво й декор біля Port Lympia; не понеділкова brocante Saleya."),
+    bestFor: [text("Specialist antiques", "Antiquités spécialisées", "Antiquariato specialistico", "Спеціалізований антикваріат")],
+    relatedArticleIds: ["flea-markets-brocantes-vintage-menton", "best-markets-near-menton-market-days-in-france-and-italy"], guideCoverageSlugs: ["flea-markets-brocantes-vintage-menton"],
+  },
+  {
+    id: "ventimiglia-friday-market", name: "Ventimiglia Friday Market", type: "market",
+    address: "Lungomare, Ventimiglia", area: text("Ventimiglia", "Vintimille", "Ventimiglia", "Вентимілья"),
+    programmeUrl: "https://ventimiglia.it/en/markets/friday-market/", googleMapsUrl: mapsQuery("Mercato del venerdì", "Lungomare, Ventimiglia"),
+    sourceStatus: "editorial", requiresMapReview: true, visitorAccess: "public",
+    openingHoursLabel: text("Friday from 07:00; closing time not established in the municipal listing.", "Vendredi dès 7 h ; fermeture non précisée par la fiche municipale.", "Venerdì dalle 7; chiusura non indicata nella scheda comunale.", "П'ятниця від 07:00; час завершення в муніципальній картці не зазначено."),
+    visitRules: { conditions: [{ checkedOn: "2026-11-02", sourceUrl: "https://ventimiglia.it/en/markets/friday-market/", value: text("General seafront shopping, not principally antiques. Distinct from the covered food market and the historic-centre antiques market.", "Marché généraliste du front de mer, pas principalement des antiquités. Distinct du marché couvert alimentaire et des antiquités du centre historique.", "Mercato generale sul lungomare, non principalmente antiquariato. Distinto dal mercato coperto alimentare e dall'antiquariato del centro storico.", "Звичайний торговий ринок на набережній, не переважно антикварний. Окремий від критого продуктового й антикварного ринку історичного центру.") }] },
+    shortNote: text("Clothing, leather goods, shoes and household items on the seafront. Confirm arrangements before travelling; antique-market dates in Ventimiglia Alta are separate and unverified.", "Vêtements, cuir, chaussures et objets domestiques sur le front de mer. Confirmez avant de partir ; les dates d'antiquités de Ventimiglia Alta restent distinctes et non vérifiées.", "Abbigliamento, pelle, scarpe e casalinghi sul lungomare. Verifica prima di partire; le date d'antiquariato di Ventimiglia Alta sono distinte e non confermate.", "Одяг, шкіряні вироби, взуття й домашні товари на набережній. Уточніть перед поїздкою; антикварні дати Ventimiglia Alta окремі й не підтверджені."),
+    bestFor: [text("General Italian market shopping", "Marché italien généraliste", "Shopping al mercato italiano", "Звичайні покупки на італійському ринку")],
+    relatedArticleIds: ["flea-markets-brocantes-vintage-menton", "best-markets-near-menton-market-days-in-france-and-italy"], guideCoverageSlugs: ["flea-markets-brocantes-vintage-menton"],
+  },
+  {
     id: "galimard-pause-cologne-eze", name: "Galimard Pause Cologne Èze", type: "family-activity",
     address: "Place Charles de Gaulle, 06360 Èze-Village", area: text("Èze", "Èze", "Èze", "Ез"),
     image: "/images/guide/galimard-pause-cologne-eze.png",
@@ -11395,6 +11428,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["place-du-cap-menton", "quai-bonaparte-menton", "cours-saleya-antiques", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("flea-markets-brocantes-vintage-menton");
   if (["basilica-saint-michel-archange", "rampes-saint-michel", "rue-longue-menton", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("grace-of-monaco-filming-locations-menton");
   if (["villa-kerylos-beaulieu-sur-mer", "villa-ephrussi-de-rothschild", "musee-matisse-nice", "oceanographic-museum-monaco"].includes(place.id)) relatedArticleIds.add("french-riviera-pass-worth-it-from-menton");
   if (["cours-saleya-nice", "roquebrune-medieval-village"].includes(place.id)) relatedArticleIds.add("romain-gary-nice-promise-at-dawn-literary-walk");
