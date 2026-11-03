@@ -1,0 +1,46 @@
+{
+  "slug": "heartbreaker-larnacoeur-monaco-filming-locations",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: heartbreaker-larnacoeur-monaco-filming-locations",
+    "mode: published-guide + missing-only",
+    "matched: 2",
+    "skipped-covered: 3",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/heartbreaker-larnacoeur-monaco-filming-locations.json",
+    "rerun: npm run guide:assets -- --published-guide heartbreaker-larnacoeur-monaco-filming-locations --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 2,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 3,
+    "stillMissing": 0,
+    "patchReady": 2
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "monte-carlo-bay-hotel-resort",
+    "monte-carlo-beach-roquebrune-cap-martin"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide heartbreaker-larnacoeur-monaco-filming-locations --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "monte-carlo-bay-hotel-resort",
+      "monte-carlo-beach-roquebrune-cap-martin"
+    ],
+    "failedPlaceIds": []
+  }
+}

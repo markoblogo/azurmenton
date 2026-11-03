@@ -126,6 +126,13 @@
     ]
   },
   {
+    "source": "public/images/guide/bonjour-tristesse-francoise-sagan-french-riviera.png",
+    "outputs": [
+      "public/images/guide/generated/bonjour-tristesse-francoise-sagan-french-riviera.avif",
+      "public/images/guide/generated/bonjour-tristesse-francoise-sagan-french-riviera.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/boulevard-de-garavan-menton.png",
     "outputs": [
       "public/images/guide/generated/boulevard-de-garavan-menton.avif",
@@ -424,6 +431,13 @@
     "outputs": [
       "public/images/guide/generated/handiplage-menton.avif",
       "public/images/guide/generated/handiplage-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/heartbreaker-larnacoeur-monaco-filming-locations.png",
+    "outputs": [
+      "public/images/guide/generated/heartbreaker-larnacoeur-monaco-filming-locations.avif",
+      "public/images/guide/generated/heartbreaker-larnacoeur-monaco-filming-locations.webp"
     ]
   },
   {
@@ -1386,10 +1400,17 @@
     ]
   },
   {
-    "source": "public/images/guide/bonjour-tristesse-francoise-sagan-french-riviera.png",
+    "source": "public/images/guide/monte-carlo-bay-hotel-resort.png",
     "outputs": [
-      "public/images/guide/generated/bonjour-tristesse-francoise-sagan-french-riviera.avif",
-      "public/images/guide/generated/bonjour-tristesse-francoise-sagan-french-riviera.webp"
+      "public/images/guide/generated/monte-carlo-bay-hotel-resort.avif",
+      "public/images/guide/generated/monte-carlo-bay-hotel-resort.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/monte-carlo-beach-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.webp"
     ]
   }
 ]
