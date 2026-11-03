@@ -6595,6 +6595,17 @@ export const guideArticles: GuideArticle[] = [
           t("For taxis and private transfers, confirm the approximate fare, terminal and meeting point before you arrive. If you rent a car, decide whether you prefer the faster toll motorway or the slower, more scenic coastal road.", "Pour taxis et transferts prives, confirmez le tarif approximatif, le terminal et le point de rendez-vous avant l'arrivee. Si vous louez une voiture, decidez si vous preferez l'autoroute a peage plus rapide ou la route cotiere plus lente et plus scenique.", "Per taxi e transfer privati, conferma prezzo indicativo, terminal e punto d'incontro prima dell'arrivo. Se noleggi un'auto, decidi se preferisci l'autostrada a pedaggio piu rapida o la strada costiera piu lenta e panoramica.", "Для таксі й приватних трансферів заздалегідь уточніть приблизну ціну, термінал і місце зустрічі. Якщо орендуєте авто, вирішіть, чи вам ближча швидша платна траса, чи повільніша, але мальовничіша прибережна дорога."),
         ],
       },
+      {
+        heading: t("Nice Airport to Menton on video", "De l'aéroport de Nice à Menton en vidéo", "Dall'aeroporto di Nizza a Mentone in video", "З аеропорту Ніцци до Ментона на відео"),
+        body: [t("Bus or train from Nice Airport to Menton. Check the current timetables and fares using the official links in this guide before travelling.", "Bus ou train entre l'aéroport de Nice et Menton. Vérifiez les horaires et tarifs actuels avec les liens officiels du guide avant le départ.", "Bus o treno dall'aeroporto di Nizza a Mentone. Prima di partire verifica orari e tariffe attuali tramite i link ufficiali della guida.", "Автобус чи потяг з аеропорту Ніцци до Ментона. Перед поїздкою перевірте актуальні розклади й тарифи за офіційними посиланнями в гіді.")],
+        videoEmbeds: [{
+          id: "nice-airport-to-menton-video", provider: "youtube",
+          embedUrl: "https://www.youtube-nocookie.com/embed/ih43aF1zeaM",
+          watchUrl: "https://www.youtube.com/watch?v=ih43aF1zeaM",
+          title: t("Nice Airport to Menton: Bus or Train?", "Aéroport de Nice–Menton : bus ou train ?", "Aeroporto di Nizza–Mentone: bus o treno?", "Аеропорт Ніцци–Ментон: автобус чи потяг?"),
+          watchLabel: t("Watch on YouTube", "Voir sur YouTube", "Guarda su YouTube", "Дивитися на YouTube"),
+        }],
+      },
     ],
     practicalTips: [
       t("Best value for most light travellers: train via Nice Saint-Augustin or Nice-Ville.", "Meilleur rapport qualite-prix pour la plupart des voyageurs legers: train via Nice Saint-Augustin ou Nice-Ville.", "Miglior rapporto qualita-prezzo per molti viaggiatori leggeri: treno via Nice Saint-Augustin o Nice-Ville.", "Найкращий баланс для більшості мандрівників з легким багажем: потяг через Nice Saint-Augustin або Nice-Ville."),
