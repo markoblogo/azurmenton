@@ -30,6 +30,7 @@ it("preserves location, access and evidence boundaries", () => {
   expect(guide.showTransportHelper).toBe(true);
   expect(guide.transportHelperAfterSectionIndex).toBe(12);
   expect(guide.locationTags).toEqual(["monaco", "day-trip"]);
+  expect(guide.sections[2].body[0].en).toContain("2021 interview");
   expect(guide.sections[7].body[0].en).toContain("not a verified filming stop");
   expect(guide.sections[8].body[0].en).toContain("Joinville-le-Pont");
   expect(guide.sections[9].body[0].en).toContain("Roquebrune-Cap-Martin, France");
