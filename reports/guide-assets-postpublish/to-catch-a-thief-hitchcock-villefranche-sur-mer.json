@@ -1,0 +1,36 @@
+{
+  "slug": "to-catch-a-thief-hitchcock-villefranche-sur-mer",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": true,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: to-catch-a-thief-hitchcock-villefranche-sur-mer",
+    "mode: published-guide + missing-only + report-only",
+    "matched: 0",
+    "skipped-covered: 6",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/to-catch-a-thief-hitchcock-villefranche-sur-mer.json",
+    "rerun: npm run guide:assets -- --published-guide to-catch-a-thief-hitchcock-villefranche-sur-mer --missing-only --report-only"
+  ],
+  "counts": {
+    "matched": 0,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 6,
+    "stillMissing": 0,
+    "patchReady": 0
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide to-catch-a-thief-hitchcock-villefranche-sur-mer --missing-only --report-only",
+  "issueCodes": []
+}

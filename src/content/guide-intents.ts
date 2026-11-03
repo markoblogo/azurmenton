@@ -117,7 +117,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "Монако, Ніцца, Італія й села на пагорбах із тихої бази біля моря.",
     ),
     canonicalGuideSlug: "day-trips-from-menton",
-    supportingGuideSlugs: ["monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "wine-tasting-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "tennis-padel-courts-menton", "mountains-snow-skiing-near-menton", "public-transport-in-menton", "menton-three-day-itinerary", "museums-in-menton-nice-monaco", "french-riviera-pass-worth-it-from-menton", "best-hilltop-villages-near-menton"],
+    supportingGuideSlugs: ["monaco-events-from-menton", "italian-riviera-day-trip-from-menton", "wine-tasting-near-menton", "theatre-opera-performing-arts-near-menton", "golf-near-menton", "tennis-padel-courts-menton", "mountains-snow-skiing-near-menton", "public-transport-in-menton", "menton-three-day-itinerary", "museums-in-menton-nice-monaco", "french-riviera-pass-worth-it-from-menton", "best-hilltop-villages-near-menton", "to-catch-a-thief-hitchcock-villefranche-sur-mer"],
     relatedPlaceIds: ["monaco-monte-carlo", "nice-old-town", "ventimiglia", "bordighera", "eze-village", "dolceacqua", "chateau-de-bellet", "monte-carlo-golf-club", "tennis-padel-soleil-beausoleil", "circolo-golf-degli-ulivi-sanremo", "opera-de-monte-carlo", "col-de-turini"],
     relatedApartmentKeys: allApartments,
     relatedEventSlugs: ["monaco-grand-prix", "rolex-monte-carlo-masters", "monaco-e-prix", "monaco-run", "nice-half-marathon", "sanremo-music-festival", "sanremo-in-fiore", "milano-sanremo-cycling-race", "nice-jazz-fest"],

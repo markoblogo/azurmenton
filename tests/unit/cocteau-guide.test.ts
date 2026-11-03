@@ -2,12 +2,13 @@ import { expect, it } from "vitest";
 import { guideArticles, getLatestLandingGuideSlug } from "@/content/guide";
 import { getPlaces } from "@/content/places";
 
-it("keeps the Cocteau route translated and linked to seven distinct real places", () => {
+it("keeps the Cocteau route translated with a separate Villefranche chapel outing", () => {
   const guide = guideArticles.find(g => g.slug === "jean-cocteau-menton-walking-route")!;
-  expect(guide.sections).toHaveLength(17);
+  expect(guide.sections).toHaveLength(18);
   expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
   const ids = guide.sections.flatMap(s => s.relatedPlaceIds ?? []);
-  expect(new Set(ids).size).toBe(7);
+  expect(new Set(ids).size).toBe(8);
+  expect(guide.sections[17].relatedPlaceIds).toEqual(["chapelle-saint-pierre-villefranche"]);
   for (const section of guide.sections) {
     expect(section.body[0].uk).toMatch(/[іїєґІЇЄҐ]/);
     expect(section.body[0].uk).not.toBe(section.body[0].en);

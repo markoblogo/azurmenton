@@ -3,6 +3,7 @@ import type { GuideVisualTheme } from "@/components/guide/GuideVisual";
 import imageDerivativeTargets from "../../scripts/lib/image-derivative-targets.json";
 import { dayRouteDetails } from "./planning/day-route-details";
 import { dogPlaces } from "./dog-places";
+import { hitchcockPlaces } from "./hitchcock-places";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -341,6 +342,7 @@ const rawPlaces: Place[] = [
     relatedArticleIds: ["rebecca-monte-carlo-daphne-du-maurier-literary-walk", "day-trips-from-menton"],
   },
   ...dogPlaces,
+  ...hitchcockPlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
     address: "33 Boulevard Edouard Baudoin, 06160 Juan-les-Pins", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),
@@ -11559,6 +11561,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["villefranche-sur-mer", "quai-amiral-courbet-villefranche"].includes(place.id)) relatedArticleIds.add("to-catch-a-thief-hitchcock-villefranche-sur-mer");
   if (["menton-station", "menton-garavan-station", "carrefour-city-felix-faure", "carrefour-express-menton", "promenade-du-soleil", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("first-evening-menton-late-arrival");
   if (["casino-square-monaco", "opera-de-monte-carlo", "monaco-monte-carlo-station"].includes(place.id)) relatedArticleIds.add("heartbreaker-larnacoeur-monaco-filming-locations");
   if (["promenade-du-soleil", "plage-casino", "royal-westminster-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("bonjour-tristesse-francoise-sagan-french-riviera");

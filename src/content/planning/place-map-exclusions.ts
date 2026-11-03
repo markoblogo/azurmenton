@@ -10,6 +10,9 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "villefranche-sur-mer-station", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/gares/villefranche-sur-mer-87756361" },
+  { placeId: "chapelle-saint-pierre-villefranche", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.explorenicecotedazur.com/culture/la-chapelle-saint-pierre-decoree-par-jean-cocteau/" },
+  { placeId: "citadelle-saint-elme-villefranche", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://lacitadellevsm.fr/" },
   { placeId: "carrefour-city-thiers-menton", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.carrefour.fr/magasin/city-menton-thiers" },
   { placeId: "carrefour-city-sospel-menton", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.carrefour.fr/magasin/city-menton-sospel" },
   { placeId: "monte-carlo-bay-hotel-resort", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.montecarlosbm.com/en/hotel-monaco/monte-carlo-bay-hotel-resort" },
