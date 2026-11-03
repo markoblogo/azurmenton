@@ -40,7 +40,7 @@ it("keeps current source conflicts, private access and optional services explici
   expect(christmas.sections.flatMap(section => section.body.map(text => text.en)).join(" ")).not.toContain("11 December 2026");
 });
 
-it("links eight places, two honest missing illustrations, older shopping content and apartment guest guides", () => {
+it("links eight illustrated places, older shopping content and apartment guest guides", () => {
   const guide = guideArticles.find(article => article.slug === slug)!;
   expect(guide).toBeDefined();
   const places = getPlaces(guide.relatedPlaces ?? []);
@@ -49,7 +49,8 @@ it("links eight places, two honest missing illustrations, older shopping content
   const shopping = guideArticles.find(article => article.slug === "supermarkets-in-menton")!;
   for (const id of ["carrefour-city-thiers-menton", "carrefour-city-sospel-menton"]) {
     const place = places.find(item => item.id === id)!;
-    expect(place.image).toBeFalsy();
+    expect(place.image).toBe(`/images/guide/${id}.png`);
+    for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]).toBeTruthy();
     expect(place.guideCoverageSlugs).toContain(shopping.slug);
     expect(shopping.relatedPlaces).toContain(id);
     expect(placeMapExclusions.find(item => item.placeId === id)?.checkedOn).toBe("2026-11-03");

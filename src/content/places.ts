@@ -5317,6 +5317,8 @@ const rawPlaces: Place[] = [
   {
     id: "carrefour-city-thiers-menton", name: "Carrefour City Menton Thiers", type: "supermarket",
     address: "6 Avenue de Thiers, 06500 Menton",
+    image: "/images/guide/carrefour-city-thiers-menton.png",
+    imageAlt: text("Project illustration of Carrefour City Menton Thiers at 6 Avenue de Thiers; not a verified photograph of the current entrance", "Illustration de Carrefour City Menton Thiers au 6 avenue de Thiers ; pas une photographie vérifiée de l'entrée actuelle", "Illustrazione di Carrefour City Menton Thiers al 6 Avenue de Thiers; non una fotografia verificata dell'ingresso attuale", "Ілюстрація Carrefour City Menton Thiers за адресою 6 Avenue de Thiers; не перевірене фото поточного входу"),
     googleMapsUrl: mapsSearch("Carrefour City Menton Thiers", "6 Avenue de Thiers, 06500 Menton"),
     programmeUrl: "https://www.carrefour.fr/magasin/city-menton-thiers",
     sourceStatus: "editorial", requiresMapReview: true, openingHoursLabel: checkHours,
@@ -5327,6 +5329,8 @@ const rawPlaces: Place[] = [
   {
     id: "carrefour-city-sospel-menton", name: "Carrefour City Menton Sospel", type: "supermarket",
     address: "25–27 Avenue de Sospel, 06500 Menton",
+    image: "/images/guide/carrefour-city-sospel-menton.png",
+    imageAlt: text("Project illustration of Carrefour City at 25-27 Avenue de Sospel in Menton, not Sospel village; not a verified photograph of the current entrance", "Illustration de Carrefour City au 25-27 avenue de Sospel à Menton, pas au village de Sospel ; pas une photographie vérifiée de l'entrée actuelle", "Illustrazione di Carrefour City al 25-27 Avenue de Sospel a Mentone, non nel paese di Sospel; non una fotografia verificata dell'ingresso attuale", "Ілюстрація Carrefour City за адресою 25-27 Avenue de Sospel у Ментоні, не в селі Соспель; не перевірене фото поточного входу"),
     googleMapsUrl: mapsSearch("Carrefour City Menton Sospel", "25-27 Avenue de Sospel, 06500 Menton"),
     programmeUrl: "https://www.carrefour.fr/magasin/city-menton-sospel",
     sourceStatus: "editorial", requiresMapReview: true, openingHoursLabel: checkHours,
