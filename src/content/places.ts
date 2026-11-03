@@ -690,7 +690,8 @@ const rawPlaces: Place[] = [
     id: "les-colombieres-menton", name: "Les Colombières", type: "garden", address: "312 Route de Super Garavan, 06500 Menton",
     image: "/images/guide/les-colombieres-menton.png",
     googleMapsUrl: mapsSearch("Les Colombières", "312 Route de Super Garavan"), programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-domaine-des-colombieres-menton-fr-5595115/",
-    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification", openingHoursLabel: checkHours, priceLabel: checkPrices,
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "needs_verification",
+    openingHoursLabel: text("Checked 3 November 2026: owner booking page shows no available visits. Seasonal timetables do not confirm a future date. Private villa; only the garden/patio on a confirmed guided visit via the upper gate.", "Vérifié le 3 novembre 2026 : aucune visite disponible sur la réservation du propriétaire. Horaires saisonniers sans date future confirmée. Villa privée ; jardin/patio en visite guidée confirmée, portail supérieur.", "Verificato il 3 novembre 2026: nessuna visita disponibile sulla prenotazione del proprietario. Orari stagionali senza data futura confermata. Villa privata; giardino/patio solo con visita guidata confermata dal cancello superiore.", "Перевірено 3 листопада 2026: сторінка власника не пропонує доступних візитів. Сезонний розклад не підтверджує майбутню дату. Вілла приватна; сад/патіо лише на підтвердженій екскурсії через верхню браму."), priceLabel: checkPrices,
     shortNote: text("Private estate shaped by Ferdinand Bac and the Ladan-Bockairys. Enter only for a confirmed guided visit via the upper gate. Published July–September dates have passed; steep approach and steps.", "Domaine privé de Bac et des Ladan-Bockairy. Accès au portail supérieur uniquement pour une visite confirmée. Les dates publiées de juillet à septembre sont passées ; pente et marches.", "Tenuta privata di Bac e dei Ladan-Bockairy. Accesso dal cancello superiore solo con visita confermata. Date luglio–settembre trascorse; salita e gradini.", "Приватний маєток Бака та родини Ладан-Бокері. Вхід через верхню браму лише на підтверджену екскурсію. Дати липень–вересень минули; крутий підхід і сходинки."),
     bestFor: [text("Mediterranean garden design", "jardins méditerranéens", "giardini mediterranei", "середземноморські сади")],
     relatedArticleIds: ["the-houses-that-remember-riviera-book-route", "belle-epoque-menton-architecture-walk"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
@@ -1915,7 +1916,9 @@ const rawPlaces: Place[] = [
     id: "villa-maria-serena",
     name: "Villa Maria Serena",
     type: "garden",
-    address: "Promenade de la Reine Astrid, 06500 Menton",
+    address: "21 Promenade Reine Astrid, 06500 Menton",
+    programmeUrl: "https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-maria-serena-menton-fr-5595109/",
+    openingHoursLabel: text("Checked 3 November 2026: displayed October sessions have ended; no new November session confirmed. Guided visit by mandatory booking, no on-site payment.", "Vérifié le 3 novembre 2026 : séances d'octobre terminées ; aucune séance de novembre confirmée. Réservation obligatoire, pas de paiement sur place.", "Verificato il 3 novembre 2026: date di ottobre concluse; nessuna visita di novembre confermata. Prenotazione obbligatoria, nessun pagamento sul posto.", "Перевірено 3 листопада 2026: жовтневі сеанси завершилися; нові листопадові не підтверджені. Обов'язкове бронювання, без оплати на місці."),
     googleMapsUrl: mapsSearch("Villa Maria Serena", "Menton"),
     sourceStatus: "needs_verification",
     shortNote: text("A historic Garavan villa and garden used as a filming location; access depends on municipal arrangements, tours or events.", "Une villa et un jardin historiques de Garavan, utilises comme lieu de tournage; l'acces depend des dispositions municipales, visites ou evenements.", "Una villa e un giardino storici di Garavan, usati come location; l'accesso dipende da disposizioni comunali, visite o eventi.", "Історична вілла й сад у Garavan, використані як кінолокація; доступ залежить від муніципальних умов, екскурсій або подій."),
@@ -1926,7 +1929,9 @@ const rawPlaces: Place[] = [
     id: "palais-carnoles-menton",
     name: "Palais Carnolès",
     type: "museum",
-    address: "Avenue de la Madone, 06500 Menton",
+    address: "3 Avenue de la Madone, 06500 Menton",
+    programmeUrl: "https://www.menton.fr/Palais-Carnoles-Musee-des-Beaux.html",
+    openingHoursLabel: text("Checked 3 November 2026: municipal page lists garden access on weekends only, 10:00–12:00 and 14:00–18:00. Museum closed for works; broader opening on other sources is conflicting. Confirm your date.", "Vérifié le 3 novembre 2026 : page municipale, jardin le week-end uniquement, 10 h–12 h et 14 h–18 h. Musée fermé pour travaux ; autres horaires plus larges contradictoires. Confirmez la date.", "Verificato il 3 novembre 2026: pagina comunale, giardino solo nel fine settimana 10–12 e 14–18. Museo chiuso per lavori; orari più ampi altrove sono discordanti. Conferma la data.", "Перевірено 3 листопада 2026: муніципальна сторінка дозволяє сад лише вихідними 10–12 та 14–18. Музей закритий на роботи; ширші години інших джерел суперечать цьому. Уточнюйте дату."),
     googleMapsUrl: mapsSearch("Palais Carnoles", "Menton"),
     sourceStatus: "needs_verification",
     shortNote: text("A historic Menton palace and garden complex, used as a screen stand-in for a railway station in Poirot: The Mystery of the Blue Train.", "Un palais et jardin historiques de Menton, utilises comme doublure de gare dans Poirot : Le Mystere du Train bleu.", "Uno storico palazzo e giardino di Mentone, usato come controfigura di una stazione in Poirot: Il mistero del treno azzurro.", "Історичний палацово-садовий комплекс Ментона, використаний як екранна заміна вокзалу в Poirot: The Mystery of the Blue Train."),
@@ -6506,13 +6511,14 @@ const rawPlaces: Place[] = [
     id: "jardin-serre-de-la-madone",
     name: "Jardin Serre de la Madone",
     type: "garden",
-    address: "Route de Monti / Mont Lombard area, exact address to verify",
-    googleMapsUrl: mapsSearch("Jardin Serre de la Madone", "Menton"),
-    openingHoursLabel: text("Check current opening hours and prices before visiting.", "Verifiez horaires et tarifs actuels avant la visite.", "Controlla orari e prezzi aggiornati prima della visita.", "Перед візитом перевірте актуальні години роботи й ціни."),
+    address: "74 Route du Val de Gorbio, 06500 Menton",
+    googleMapsUrl: mapsSearch("Jardin Serre de la Madone", "74 Route du Val de Gorbio, 06500 Menton"),
+    programmeUrl: "https://serredelamadone.fr/en/plan-your-visit/",
+    openingHoursLabel: text("Checked 3 November 2026: operator announces annual closure in November and December 2026, conflicting with its generic open-today panel. Confirm directly before travelling; steep paths and steps.", "Vérifié le 3 novembre 2026 : fermeture annuelle annoncée en novembre et décembre 2026, malgré un panneau générique ouvert aujourd'hui. Confirmez avant de partir ; pentes et marches.", "Verificato il 3 novembre 2026: chiusura annuale annunciata a novembre e dicembre 2026, in contrasto con il pannello generico aperto oggi. Conferma prima di partire; pendii e gradini.", "Перевірено 3 листопада 2026: оператор оголошує щорічне закриття в листопаді й грудні 2026 попри загальний блок відкрито сьогодні. Уточнюйте перед виїздом; круті стежки та сходи."),
     priceLabel: checkPrices,
     sourceStatus: "needs_verification",
     shortNote: text("A garden idea for visitors who want a quieter green break beyond the seafront.", "Une idee de jardin pour une pause verte plus calme, au-dela du front de mer.", "Un'idea verde per una pausa tranquilla oltre il lungomare.", "Садова ідея для тихої зеленої паузи поза набережною."),
-    bestFor: [text("gardens", "jardins", "giardini", "сади"), text("rainy day alternative", "alternative par temps couvert", "alternativa se il tempo cambia", "варіант, якщо погода зміниться")],
+    bestFor: [text("gardens", "jardins", "giardini", "сади"), text("hillside planting", "plantations en terrasses", "piante sui terrazzamenti", "рослини на схилах")],
     relatedArticleIds: ["best-photo-spots-menton", "menton-one-day-itinerary", "menton-in-autumn", "stay-cool-in-menton-summer", "public-transport-in-menton"],
   },
   {
@@ -6521,7 +6527,8 @@ const rawPlaces: Place[] = [
     type: "garden",
     address: "Avenue Saint-Jacques, 06500 Menton",
     googleMapsUrl: mapsSearch("Jardin Botanique Val Rahmeh", "Avenue Saint-Jacques, 06500 Menton"),
-    openingHoursLabel: text("Check current opening hours and prices before visiting.", "Verifiez horaires et tarifs actuels avant la visite.", "Controlla orari e prezzi aggiornati prima della visita.", "Перед візитом перевірте актуальні години роботи й ціни."),
+    programmeUrl: "https://www.jardinbotaniquevalrahmehmenton.fr/fr/tarifs-horaires-acces",
+    openingHoursLabel: text("Checked 3 November 2026: closed for works through 27 November; reopening planned on 28 November. Then winter hours 10:00–17:00, closed Tuesdays and 25 December. Confirm reopening before travelling.", "Vérifié le 3 novembre 2026 : fermé pour travaux jusqu'au 27 novembre ; réouverture prévue le 28. Ensuite horaires d'hiver 10 h–17 h, fermé mardi et 25 décembre. Confirmez la réouverture.", "Verificato il 3 novembre 2026: chiuso per lavori fino al 27 novembre; riapertura prevista il 28. Poi orario invernale 10–17, chiuso martedì e 25 dicembre. Conferma la riapertura.", "Перевірено 3 листопада 2026: закритий на роботи до 27 листопада; відкриття заплановане на 28-ме. Далі взимку 10–17, зачинено вівторками й 25 грудня. Уточнюйте відкриття."),
     priceLabel: checkPrices,
     sourceStatus: "needs_verification",
     shortNote: text("A botanical stop to consider for garden lovers and slower itineraries.", "Une halte botanique a envisager pour les amateurs de jardins et les sejours lents.", "Una sosta botanica per chi ama i giardini e gli itinerari lenti.", "Ботанічна зупинка для любителів садів і повільних маршрутів."),
@@ -11561,6 +11568,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["jardin-val-rahmeh", "jardin-serre-de-la-madone", "jardin-fontana-rosa-menton", "villa-maria-serena", "palais-carnoles-menton", "les-colombieres-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("best-gardens-menton");
   if (["villefranche-sur-mer", "quai-amiral-courbet-villefranche"].includes(place.id)) relatedArticleIds.add("to-catch-a-thief-hitchcock-villefranche-sur-mer");
   if (["menton-station", "menton-garavan-station", "carrefour-city-felix-faure", "carrefour-express-menton", "promenade-du-soleil", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("first-evening-menton-late-arrival");
   if (["casino-square-monaco", "opera-de-monte-carlo", "monaco-monte-carlo-station"].includes(place.id)) relatedArticleIds.add("heartbreaker-larnacoeur-monaco-filming-locations");
