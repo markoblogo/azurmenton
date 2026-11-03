@@ -27,6 +27,7 @@ import { heartbreakerGuide } from "@/content/heartbreaker-guide";
 import { hilltopVillagesGuide } from "@/content/hilltop-villages-guide";
 import { firstEveningGuide } from "@/content/first-evening-guide";
 import { hitchcockGuide } from "@/content/hitchcock-guide";
+import { gardensGuide } from "@/content/gardens-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11436,6 +11437,17 @@ guideArticles.push(heartbreakerGuide);
 guideArticles.push(hilltopVillagesGuide);
 guideArticles.push(firstEveningGuide);
 guideArticles.push(hitchcockGuide);
+guideArticles.push(gardensGuide);
+for (const slug of gardensGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(gardensGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), gardensGuide.slug];
+}
+const autumnGardens = guideArticles.find(article => article.slug === "menton-in-autumn")?.sections.find(section => section.relatedPlaceIds?.includes("jardin-serre-de-la-madone"));
+if (autumnGardens) {
+  autumnGardens.body.push(t("November 2026 exception, checked 3 November: Val Rahmeh is closed through 27 November, with reopening planned on 28 November. Serre de la Madone announces annual closure in November and December despite a conflicting generic opening panel. Do not plan either as an open garden without checking your date.", "Exception de novembre 2026, vérifiée le 3 novembre : Val Rahmeh fermé jusqu'au 27, réouverture prévue le 28. Serre de la Madone annonce une fermeture en novembre et décembre malgré un panneau générique contraire. Vérifiez votre date avant de prévoir une visite.", "Eccezione novembre 2026, verificata il 3 novembre: Val Rahmeh chiuso fino al 27, riapertura prevista il 28. Serre de la Madone annuncia chiusura a novembre e dicembre nonostante un pannello generico contrario. Verifica la data prima di programmare la visita.", "Виняток листопада 2026, перевірено 3 листопада: Val Rahmeh закритий до 27-го, відкриття заплановане на 28-ме. Serre de la Madone оголошує закриття в листопаді й грудні попри суперечливий загальний блок. Перевіряйте дату перед плануванням візиту."));
+  autumnGardens.guideLinkSlug = gardensGuide.slug;
+  autumnGardens.guideLinkLabel = t("Compare seven gardens and current access", "Comparer sept jardins et leurs accès", "Confronta sette giardini e gli accessi", "Порівняйте сім садів та умови доступу");
+}
 for (const slug of hitchcockGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(hitchcockGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), hitchcockGuide.slug];

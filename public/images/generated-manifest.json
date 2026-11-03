@@ -238,6 +238,13 @@
     ]
   },
   {
+    "source": "public/images/guide/chapelle-saint-pierre-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/chapelle-saint-pierre-villefranche.avif",
+      "public/images/guide/generated/chapelle-saint-pierre-villefranche.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cheap-eats-menton-budget-lunch.png",
     "outputs": [
       "public/images/guide/generated/cheap-eats-menton-budget-lunch.avif",
@@ -256,6 +263,13 @@
     "outputs": [
       "public/images/guide/generated/christmas-french-riviera-from-menton.avif",
       "public/images/guide/generated/christmas-french-riviera-from-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/citadelle-saint-elme-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/citadelle-saint-elme-villefranche.avif",
+      "public/images/guide/generated/citadelle-saint-elme-villefranche.webp"
     ]
   },
   {
@@ -1274,6 +1288,13 @@
     ]
   },
   {
+    "source": "public/images/guide/rue-obscure-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/rue-obscure-villefranche.avif",
+      "public/images/guide/generated/rue-obscure-villefranche.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/rue-shakespeare-nice.png",
     "outputs": [
       "public/images/guide/generated/rue-shakespeare-nice.avif",
@@ -1400,6 +1421,13 @@
     ]
   },
   {
+    "source": "public/images/guide/villefranche-sur-mer-station.png",
+    "outputs": [
+      "public/images/guide/generated/villefranche-sur-mer-station.avif",
+      "public/images/guide/generated/villefranche-sur-mer-station.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/winter-palace-menton.png",
     "outputs": [
       "public/images/guide/generated/winter-palace-menton.avif",
@@ -1449,31 +1477,10 @@
     ]
   },
   {
-    "source": "public/images/guide/villefranche-sur-mer-station.png",
+    "source": "public/images/guide/best-gardens-menton.png",
     "outputs": [
-      "public/images/guide/generated/villefranche-sur-mer-station.avif",
-      "public/images/guide/generated/villefranche-sur-mer-station.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/rue-obscure-villefranche.png",
-    "outputs": [
-      "public/images/guide/generated/rue-obscure-villefranche.avif",
-      "public/images/guide/generated/rue-obscure-villefranche.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/chapelle-saint-pierre-villefranche.png",
-    "outputs": [
-      "public/images/guide/generated/chapelle-saint-pierre-villefranche.avif",
-      "public/images/guide/generated/chapelle-saint-pierre-villefranche.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/citadelle-saint-elme-villefranche.png",
-    "outputs": [
-      "public/images/guide/generated/citadelle-saint-elme-villefranche.avif",
-      "public/images/guide/generated/citadelle-saint-elme-villefranche.webp"
+      "public/images/guide/generated/best-gardens-menton.avif",
+      "public/images/guide/generated/best-gardens-menton.webp"
     ]
   }
 ]
