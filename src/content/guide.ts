@@ -23,6 +23,7 @@ import { fitzgeraldGuide } from "@/content/fitzgerald-guide";
 import { dogGuide } from "@/content/dog-guide";
 import { rebeccaGuide } from "@/content/rebecca-guide";
 import { bonjourTristesseGuide } from "@/content/bonjour-tristesse-guide";
+import { heartbreakerGuide } from "@/content/heartbreaker-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11417,6 +11418,22 @@ guideArticles.push(fitzgeraldGuide);
 guideArticles.push(dogGuide);
 guideArticles.push(rebeccaGuide);
 guideArticles.push(bonjourTristesseGuide);
+guideArticles.push(heartbreakerGuide);
+for (const slug of heartbreakerGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(heartbreakerGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), heartbreakerGuide.slug];
+}
+const heartbreakerDayTrips = guideArticles.find(article => article.slug === "day-trips-from-menton");
+if (heartbreakerDayTrips) {
+  const placeIds = ["monte-carlo-bay-hotel-resort", "opera-de-monte-carlo"];
+  heartbreakerDayTrips.relatedPlaces = [...new Set([...(heartbreakerDayTrips.relatedPlaces ?? []), ...placeIds])];
+  heartbreakerDayTrips.sections.push({
+    heading: t("Monaco in a romantic comedy", "Monaco en comédie romantique", "Monaco in una commedia romantica", "Монако в романтичній комедії"),
+    body: [t("Heartbreaker pairs Casino Square and Salle Garnier with Monte-Carlo Bay, documented in an interview with SBM's filming representative. Allow a flexible cultural half-day and confirm transport to the hotel. Public exteriors do not require a casino/opera ticket; any hotel or performance entry needs the appropriate booking and access conditions. The old film-themed hotel package is not a confirmed current offer.", "L'Arnacœur associe place du Casino, Salle Garnier et Monte-Carlo Bay, documentés par une interview SBM. Prévoyez une demi-journée souple et vérifiez le transport vers l'hôtel. Extérieurs publics sans billet ; entrées d'hôtel ou spectacle selon réservation et conditions. L'ancien forfait cinéma n'est pas confirmé aujourd'hui.", "Heartbreaker unisce Place du Casino, Salle Garnier e Monte-Carlo Bay, documentati da un'intervista SBM. Prevedi mezza giornata flessibile e conferma il trasporto all'hotel. Esterni pubblici senza biglietto; ingressi e spettacoli secondo prenotazione e regole. Vecchio pacchetto non confermato oggi.", "Heartbreaker поєднує площу казино, Salle Garnier та Monte-Carlo Bay, документовані інтерв'ю SBM. Плануйте гнучкі пів дня й уточнюйте дорогу до готелю. Публічні фасади без квитка; вхід і вистави — за бронюванням та правилами. Старий кінопакет нині не підтверджений.")],
+    relatedPlaceIds: placeIds, guideLinkSlug: heartbreakerGuide.slug,
+    guideLinkLabel: t("Heartbreaker filming-location guide", "Les lieux de tournage de L'Arnacœur", "I luoghi delle riprese di Heartbreaker", "Місця зйомок Heartbreaker"),
+  });
+}
 for (const slug of bonjourTristesseGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(bonjourTristesseGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), bonjourTristesseGuide.slug];

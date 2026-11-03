@@ -301,6 +301,26 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "monte-carlo-bay-hotel-resort", name: "Monte-Carlo Bay Hotel & Resort", type: "civic",
+    address: "40 Avenue Princesse Grace, 98000 Monaco", googleMapsUrl: mapsQuery("Monte-Carlo Bay Hotel & Resort", "40 Avenue Princesse Grace", "Monaco"),
+    image: "/images/guide/monte-carlo-bay-hotel-resort.png",
+    imageAlt: text("Project illustration of the Monte-Carlo Bay resort and pool setting; not a Heartbreaker film still, verified camera angle or evidence of public pool access", "Illustration du cadre de Monte-Carlo Bay et de sa piscine ; ni photogramme de L'Arnacœur, ni cadrage vérifié, ni preuve d'accès public à la piscine", "Illustrazione del resort Monte-Carlo Bay e della piscina; non fotogramma di Heartbreaker, inquadratura verificata o prova di accesso pubblico", "Ілюстрація курорту Monte-Carlo Bay і басейну; не кадр Heartbreaker, перевірений ракурс чи доказ публічного доступу до басейну"),
+    programmeUrl: "https://www.montecarlosbm.com/en/hotel-monaco/monte-carlo-bay-hotel-resort", sourceStatus: "editorial", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("A principal Heartbreaker filming property, supported by the published interview with SBM's filming representative. An operating hotel, not a film museum: confirm any non-resident restaurant/bar visit. Rooms, pools and private gardens are not freely accessible; the former themed package is not a confirmed current offer.", "Lieu majeur de L'Arnacœur selon l'interview de la représentante SBM. Hôtel en activité, pas musée : confirmez une visite au bar ou restaurant pour non-résidents. Chambres, piscines et jardins privés ne sont pas en accès libre ; ancien forfait non confirmé aujourd'hui.", "Luogo principale di Heartbreaker secondo l'intervista SBM. Hotel attivo, non museo: conferma visite di non residenti a bar o ristoranti. Camere, piscine e giardini privati non sono liberamente accessibili; vecchio pacchetto non confermato oggi.", "Основне місце Heartbreaker за інтерв'ю представниці SBM. Чинний готель, не музей: підтвердіть візит сторонніх до бару чи ресторану. Номери, басейни й приватні сади не мають вільного доступу; старий пакет нині не підтверджений."),
+    bestFor: [text("Film-location context with a confirmed visit", "Contexte de tournage avec visite confirmée", "Contesto cinematografico con visita confermata", "Знімальний контекст за підтвердженого візиту")],
+    relatedArticleIds: ["heartbreaker-larnacoeur-monaco-filming-locations", "day-trips-from-menton"],
+  },
+  {
+    id: "monte-carlo-beach-roquebrune-cap-martin", name: "Monte-Carlo Beach", type: "civic",
+    address: "Avenue Princesse Grace, 06190 Roquebrune-Cap-Martin, France", googleMapsUrl: mapsQuery("Monte-Carlo Beach", "Avenue Princesse Grace", "Roquebrune-Cap-Martin"),
+    image: "/images/guide/monte-carlo-beach-roquebrune-cap-martin.png",
+    imageAlt: text("Project illustration of Monte-Carlo Beach in Roquebrune-Cap-Martin, France; not a film still, exact scene reconstruction or confirmation of current hotel and pool access", "Illustration de Monte-Carlo Beach à Roquebrune-Cap-Martin en France ; ni photogramme, ni scène exacte, ni confirmation d'accès actuel à l'hôtel et à la piscine", "Illustrazione di Monte-Carlo Beach a Roquebrune-Cap-Martin in Francia; non fotogramma, scena ricostruita o conferma dell'accesso attuale a hotel e piscina", "Ілюстрація Monte-Carlo Beach у Roquebrune-Cap-Martin, Франція; не кадр фільму, точне відтворення сцени чи підтвердження чинного доступу до готелю й басейну"),
+    programmeUrl: "https://www.montecarlosbm.com/en/hotel-monaco/monte-carlo-beach", sourceStatus: "editorial", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("SBM interview confirms Heartbreaker filming at this property in Roquebrune-Cap-Martin, France, not Monaco itself. Distinct from Monte-Carlo Bay. Optional production-history stop; exact scenes and camera positions are not verified. Hotel, beach-club and restaurant access are commercial and seasonal; confirm directly.", "L'interview SBM confirme un tournage ici, à Roquebrune-Cap-Martin en France, pas en Principauté. Distinct du Bay. Étape facultative ; scènes et cadrages exacts non vérifiés. Hôtel, plage et restaurants suivent des règles commerciales et saisonnières à confirmer.", "L'intervista SBM conferma riprese qui, a Roquebrune-Cap-Martin in Francia, non nel Principato. Distinto dal Bay. Tappa facoltativa; scene e inquadrature esatte non verificate. Hotel, beach club e ristoranti hanno regole commerciali e stagionali da confermare.", "Інтерв'ю SBM підтверджує зйомки тут, у Roquebrune-Cap-Martin, Франція, не в князівстві. Окремий від Bay готель. Необов'язкова зупинка; точні сцени й ракурси не перевірені. Доступ до готелю, пляжного клубу й ресторанів комерційний і сезонний — уточнюйте."),
+    bestFor: [text("Optional film-production history", "Histoire du tournage en complément", "Storia delle riprese facoltativa", "Додаткова історія зйомок")],
+    relatedArticleIds: ["heartbreaker-larnacoeur-monaco-filming-locations"],
+  },
+  {
     id: "hotel-de-paris-monte-carlo", name: "Hôtel de Paris Monte-Carlo", type: "viewpoint",
     address: "Place du Casino, 98000 Monaco", googleMapsUrl: mapsQuery("Hôtel de Paris Monte-Carlo", "Place du Casino", "Monaco"),
     image: "/images/guide/hotel-de-paris-monte-carlo.png",
@@ -11514,6 +11534,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["casino-square-monaco", "opera-de-monte-carlo", "monaco-monte-carlo-station"].includes(place.id)) relatedArticleIds.add("heartbreaker-larnacoeur-monaco-filming-locations");
   if (["promenade-du-soleil", "plage-casino", "royal-westminster-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("bonjour-tristesse-francoise-sagan-french-riviera");
   if (["casino-square-monaco", "casino-de-monte-carlo", "cafe-de-paris-monte-carlo"].includes(place.id)) relatedArticleIds.add("rebecca-monte-carlo-daphne-du-maurier-literary-walk");
   if (["promenade-du-soleil", "promenade-reine-astrid", "plage-casino"].includes(place.id)) relatedArticleIds.add("menton-with-a-dog");
