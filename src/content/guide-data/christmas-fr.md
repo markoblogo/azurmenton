@@ -183,17 +183,17 @@ Ce sont des exemples d’organisation, pas des horaires ferroviaires confirmés.
 
 Le train côtier rend Nice et Monaco attractifs, mais ne constitue pas une garantie de service nocturne.
 
-### Travaux jusqu’au 11 décembre 2026
+### Travaux : l’avis actuel va jusqu’au 10 décembre 2027
 
 SNCF annonce des travaux sur l’axe Nice–Monaco–Menton–Vintimille. Pendant la période publiée, la circulation est interrompue approximativement de 22h à 6h les nuits du dimanche au jeudi. Des cars de remplacement ou renforts de bus peuvent être proposés, sans nécessairement suivre le même trajet ni partir du quai habituel.
 
-Les travaux sont annoncés jusqu’au 11 décembre 2026 : c’est une contrainte importante pour le début de la saison de Noël.
+L’avis SNCF vérifié le 3 novembre 2026 annonce désormais des travaux jusqu’au 10 décembre 2027. Ne supposez pas leur fin pendant la saison de Noël ; vérifiez date et direction.
 
 ### Que vérifier ?
 
 Contrôlez séparément l’aller et le retour pour votre date exacte, et non un horaire générique de semaine. Si un car est proposé, vérifiez arrêt, destination et validité du billet. Prévoyez la marche depuis l’événement jusqu’au point de départ. En famille, envisagez de rentrer avant le dernier service.
 
-Après le 11 décembre, ne supposez pas que toutes les perturbations ont disparu : consultez le calculateur SNCF et les nouveaux avis. Pour Sospel et Castellar, le problème est souvent la fréquence plutôt que les travaux nocturnes. Choisissez le retour avant de partir ; faute de liaison pratique, privilégiez la côte ou organisez un véhicule adapté.
+L’ancienne échéance de décembre 2026 n’est plus celle de l’avis actuel : consultez le calculateur SNCF et les nouveaux avis pour toute la période des fêtes. Pour Sospel et Castellar, le problème est souvent la fréquence plutôt que les travaux nocturnes. Choisissez le retour avant de partir ; faute de liaison pratique, privilégiez la côte ou organisez un véhicule adapté.
 
 ## 13. Noël avec les enfants : choisir selon l’âge
 

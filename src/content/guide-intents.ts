@@ -88,7 +88,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
       "Пішохідні маршрути біля моря, потяги, автобуси й поїздки поруч.",
     ),
     canonicalGuideSlug: "menton-without-a-car",
-    supportingGuideSlugs: ["public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "day-trips-from-menton", "best-beaches-in-menton"],
+    supportingGuideSlugs: ["public-transport-in-menton", "monaco-events-from-menton", "how-to-get-to-menton-from-nice-airport", "day-trips-from-menton", "best-beaches-in-menton", "first-evening-menton-late-arrival"],
     relatedPlaceIds: ["promenade-du-soleil", "plage-casino", "halles-du-marche", "office-tourisme-menton-riviera-merveilles", "monaco-monte-carlo"],
     relatedApartmentKeys: allApartments,
     relatedEventSlugs: ["monaco-grand-prix", "monaco-e-prix", "rolex-monte-carlo-masters", "monaco-yacht-show", "monaco-run", "nice-carnival"],

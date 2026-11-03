@@ -183,17 +183,17 @@ Per adulti e ragazzi: parti nel pomeriggio, cena presto vicino al centro, visita
 
 Il treno costiero rende Nizza e Monaco interessanti da Mentone, ma non è una garanzia di servizio a tarda notte.
 
-### Lavori fino all’11 dicembre 2026
+### Lavori: l’avviso attuale arriva al 10 dicembre 2027
 
 SNCF ha pubblicato lavori sull’asse Nizza–Monaco–Mentone–Ventimiglia. Nel periodo indicato la circolazione è interrotta approssimativamente dalle 22:00 alle 06:00 nelle notti da domenica a giovedì. Possono esserci autobus sostitutivi o rinforzi, ma non necessariamente seguono lo stesso percorso o partono dal punto abituale.
 
-I lavori sono annunciati fino all’11 dicembre 2026: un vincolo importante per l’inizio della stagione natalizia.
+L’avviso SNCF verificato il 3 novembre 2026 indica ora lavori fino al 10 dicembre 2027. Non presumere che le restrizioni notturne finiscano durante le feste; verifica data e direzione.
 
 ### Che cosa controllare?
 
 Verifica andata e ritorno separatamente per la data reale, non un orario generico feriale. Se viene proposto un autobus, controlla fermata, destinazione e validità del biglietto. Calcola il percorso a piedi dall’evento alla stazione o fermata. In famiglia considera un rientro anticipato invece dell’ultimo servizio disponibile.
 
-Dopo l’11 dicembre non presumere che ogni interruzione sia terminata: consulta il pianificatore SNCF e gli avvisi successivi. Per Sospel e Castellar conta spesso la frequenza, più che i lavori notturni. Decidi il ritorno prima di partire; se manca un collegamento comodo, scegli la costa o organizza un veicolo adatto.
+La vecchia scadenza di dicembre 2026 non coincide più con l’avviso attuale: consulta il pianificatore SNCF e gli aggiornamenti per tutto il periodo festivo. Per Sospel e Castellar conta spesso la frequenza, più che i lavori notturni. Decidi il ritorno prima di partire; se manca un collegamento comodo, scegli la costa o organizza un veicolo adatto.
 
 ## 13. Uscite natalizie con bambini di età diverse
 

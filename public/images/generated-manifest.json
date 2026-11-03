@@ -112,6 +112,13 @@
     ]
   },
   {
+    "source": "public/images/guide/best-hilltop-villages-near-menton.png",
+    "outputs": [
+      "public/images/guide/generated/best-hilltop-villages-near-menton.avif",
+      "public/images/guide/generated/best-hilltop-villages-near-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/best-markets-near-menton-market-days-in-france-and-italy.png",
     "outputs": [
       "public/images/guide/generated/best-markets-near-menton-market-days-in-france-and-italy.avif",
@@ -1414,10 +1421,10 @@
     ]
   },
   {
-    "source": "public/images/guide/best-hilltop-villages-near-menton.png",
+    "source": "public/images/guide/first-evening-menton-late-arrival.png",
     "outputs": [
-      "public/images/guide/generated/best-hilltop-villages-near-menton.avif",
-      "public/images/guide/generated/best-hilltop-villages-near-menton.webp"
+      "public/images/guide/generated/first-evening-menton-late-arrival.avif",
+      "public/images/guide/generated/first-evening-menton-late-arrival.webp"
     ]
   }
 ]
