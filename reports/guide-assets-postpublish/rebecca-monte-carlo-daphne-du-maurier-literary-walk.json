@@ -1,0 +1,46 @@
+{
+  "slug": "rebecca-monte-carlo-daphne-du-maurier-literary-walk",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: rebecca-monte-carlo-daphne-du-maurier-literary-walk",
+    "mode: published-guide + missing-only",
+    "matched: 2",
+    "skipped-covered: 3",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/rebecca-monte-carlo-daphne-du-maurier-literary-walk.json",
+    "rerun: npm run guide:assets -- --published-guide rebecca-monte-carlo-daphne-du-maurier-literary-walk --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 2,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 3,
+    "stillMissing": 0,
+    "patchReady": 2
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "hotel-de-paris-monte-carlo",
+    "jardins-petite-afrique-monaco"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide rebecca-monte-carlo-daphne-du-maurier-literary-walk --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "hotel-de-paris-monte-carlo",
+      "jardins-petite-afrique-monaco"
+    ],
+    "failedPlaceIds": []
+  }
+}

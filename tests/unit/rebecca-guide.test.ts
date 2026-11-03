@@ -39,14 +39,18 @@ it("separates thematic stops, fictional hotel, screen geography and access uncer
   expect(guide.relatedPlaces).not.toContain("manderley");
 });
 
-it("reuses three images, adds only two real places, and links the nearby graph reciprocally", () => {
+it("illustrates all five real places and links the nearby graph reciprocally", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
   expect(places).toHaveLength(5);
   expect(guide.relatedPlaces).toEqual([...new Set(guide.sections.flatMap(section => section.relatedPlaceIds ?? []))]);
   for (const place of places) expect(place.relatedArticleIds).toContain(guide.slug);
   for (const id of ["hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco"]) {
     const place = places.find(item => item.id === id)!;
-    expect(place.image).toBeUndefined();
+    expect(place.image).toBe(`/images/guide/${id}.png`);
+    expect(existsSync(`public${place.image}`)).toBe(true);
+    for (const extension of ["avif", "webp"]) expect(existsSync(`public/images/guide/generated/${id}.${extension}`)).toBe(true);
+    for (const locale of ["en", "fr", "it", "uk"] as const) expect(place.imageAlt?.[locale]?.length).toBeGreaterThan(35);
+    expect(place.imageAlt?.en).toContain("Project illustration");
     expect(place.requiresMapReview).toBe(true);
     expect(placeMapExclusions.find(item => item.placeId === id)?.checkedOn).toBe("2026-11-03");
   }
