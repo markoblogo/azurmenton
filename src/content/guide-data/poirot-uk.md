@@ -183,6 +183,5 @@ Maria Serena атрибутована як вигадана Villa Marguerite; р
 - [Спільнотна класифікація Commons](https://commons.wikimedia.org/wiki/Category:Film_locations_of_Agatha_Christie%27s_Poirot_in_Menton)
 - [Carnolès: доступ за повідомленням міста](https://www.menton.fr/Palais-Carnoles-Musee-des-Beaux.html)
 - [Maria Serena: програма екскурсій](https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-maria-serena-menton-fr-5595109/)
-- [Інші фільми, зняті в Ментоні](/uk/guide/films-shot-in-menton)
 
 Джерела й доступ перевірено 3 листопада 2026; надане дослідження датоване 31 жовтня. IMDb повернув 403, архівний туристичний кінодосьє — 502. Це не доводить закриття чи відсутності зйомок. Час орієнтовний; повного аудиту доступності й позицій камери немає.

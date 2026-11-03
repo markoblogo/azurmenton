@@ -183,6 +183,5 @@ Palais, villa, rues et installations ferroviaires éloignées composent un monde
 - [Classement communautaire Commons](https://commons.wikimedia.org/wiki/Category:Film_locations_of_Agatha_Christie%27s_Poirot_in_Menton)
 - [Carnolès : accès municipal](https://www.menton.fr/Palais-Carnoles-Musee-des-Beaux.html)
 - [Maria Serena : programme guidé](https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-maria-serena-menton-fr-5595109/)
-- [Autres films tournés à Menton](/fr/guide/films-shot-in-menton)
 
 Vérification des sources et accès : 3 novembre 2026. Recherche fournie datée du 31 octobre. IMDb a renvoyé 403 ; le dossier cinéma touristique archivé, 502. Ces échecs ne prouvent ni fermeture ni absence de tournage. Durées estimées ; aucun relevé complet d'accessibilité ou de positions de caméra.

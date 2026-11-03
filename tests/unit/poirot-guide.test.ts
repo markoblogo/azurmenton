@@ -19,6 +19,7 @@ it("includes sixteen aligned sections, three tables and eleven FAQ answers in fo
       expect(guide.sections[index].tables?.[locale]?.[0].headers).toHaveLength(columns);
     }
     expect(records[13][locale].match(/^### /gm)).toHaveLength(11);
+    expect(records[15][locale]).not.toMatch(/\]\((?:\/(?:en|fr|it|uk)\/guide|https:\/\/azurmenton\.com\/)/);
     for (const section of guide.sections) expect(section.heading[locale]).not.toMatch(/[*_]/);
   }
   expect(resolveContentCollectionGuideSlugs(contentCollections.find(item => item.id === "books-films-and-art")!, guideArticles)).toContain(guide.slug);

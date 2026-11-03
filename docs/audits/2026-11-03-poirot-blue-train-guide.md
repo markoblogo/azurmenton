@@ -4,6 +4,8 @@ Source/access check: 3 November 2026, Europe/Paris. Owner supplied Word article 
 
 Preparation crossed midnight in Paris. Set the new guide's publication date to 4 November 2026; the actual source/access checks remain dated 3 November and are not falsely restamped. Repeat the final input-bound check suite for the new calendar day.
 
+Owner follow-up, 4 November: remove redundant AzurMenton directory/film-overview links from the final sources section in all four locales. Relative Markdown links had appeared literally in the translated endings. Preserve the curated related-guide graph and overview backlink; add a focused regression assertion for the sources section. No renderer or unrelated article changes.
+
 ## Editorial Scope
 
 Retain English article, twelve numbered chapters, three tables, eleven FAQ answers and no-solution-spoiler policy. Remove SEO/import metadata, literal escape tags and Russian editorial appendix from public prose. Localize FR/IT/UK naturally. No frame comparison, new map point, paid service, booking or contact is performed.
