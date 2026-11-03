@@ -169,6 +169,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 ];
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "bonjour-tristesse-francoise-sagan-french-riviera", ignore: ["cluster"], reason: "thematic literary walk surfaced through the existing Books, Film & Art collection, not a new practical search-intent cluster" },
   { slug: "barbecue-picnic-areas-near-menton", ignore: ["cluster"], reason: "safety-first practical reference guide with direct links to verified picnic and controlled private options" },
   { slug: "bars-and-beer-in-menton", ignore: ["cluster", "relatedArticles"], reason: "focused nightlife subguide linked through nightlife and quiet-evening guides" },
   { slug: "best-photo-spots-menton", ignore: ["cluster"], reason: "standalone visual guide used across walk, old-town and viewpoint content" },

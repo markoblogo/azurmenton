@@ -22,6 +22,7 @@ import { fleaMarketsGuide } from "@/content/flea-markets-guide";
 import { fitzgeraldGuide } from "@/content/fitzgerald-guide";
 import { dogGuide } from "@/content/dog-guide";
 import { rebeccaGuide } from "@/content/rebecca-guide";
+import { bonjourTristesseGuide } from "@/content/bonjour-tristesse-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11415,6 +11416,11 @@ guideArticles.push(fleaMarketsGuide);
 guideArticles.push(fitzgeraldGuide);
 guideArticles.push(dogGuide);
 guideArticles.push(rebeccaGuide);
+guideArticles.push(bonjourTristesseGuide);
+for (const slug of bonjourTristesseGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(bonjourTristesseGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), bonjourTristesseGuide.slug];
+}
 for (const slug of rebeccaGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(rebeccaGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), rebeccaGuide.slug];
