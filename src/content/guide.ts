@@ -28,6 +28,7 @@ import { hilltopVillagesGuide } from "@/content/hilltop-villages-guide";
 import { firstEveningGuide } from "@/content/first-evening-guide";
 import { hitchcockGuide } from "@/content/hitchcock-guide";
 import { gardensGuide } from "@/content/gardens-guide";
+import { poirotGuide } from "@/content/poirot-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11438,6 +11439,16 @@ guideArticles.push(hilltopVillagesGuide);
 guideArticles.push(firstEveningGuide);
 guideArticles.push(hitchcockGuide);
 guideArticles.push(gardensGuide);
+guideArticles.push(poirotGuide);
+for (const slug of poirotGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(poirotGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), poirotGuide.slug];
+}
+const televisionLocations = guideArticles.find(article => article.slug === "films-shot-in-menton")?.sections.find(section => section.videoEmbeds?.some(video => video.id === "poirot-blue-train-preview"));
+if (televisionLocations) {
+  televisionLocations.guideLinkSlug = poirotGuide.slug;
+  televisionLocations.guideLinkLabel = t("Explore Poirot's Menton locations and access limits", "Explorer les lieux de Poirot et leurs accès", "Esplora le location di Poirot e gli accessi", "Дослідіть локації Пуаро й умови доступу");
+}
 for (const slug of gardensGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(gardensGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), gardensGuide.slug];

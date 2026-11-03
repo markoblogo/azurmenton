@@ -112,6 +112,13 @@
     ]
   },
   {
+    "source": "public/images/guide/best-gardens-menton.png",
+    "outputs": [
+      "public/images/guide/generated/best-gardens-menton.avif",
+      "public/images/guide/generated/best-gardens-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/best-hilltop-villages-near-menton.png",
     "outputs": [
       "public/images/guide/generated/best-hilltop-villages-near-menton.avif",
@@ -1477,10 +1484,10 @@
     ]
   },
   {
-    "source": "public/images/guide/best-gardens-menton.png",
+    "source": "public/images/guide/poirot-blue-train-filming-locations-menton.png",
     "outputs": [
-      "public/images/guide/generated/best-gardens-menton.avif",
-      "public/images/guide/generated/best-gardens-menton.webp"
+      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.avif",
+      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.webp"
     ]
   }
 ]
