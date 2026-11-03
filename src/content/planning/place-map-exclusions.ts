@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "hotel-de-paris-monte-carlo", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.montecarlosbm-corporate.com/the-company/history/" },
+  { placeId: "jardins-petite-afrique-monaco", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://provence-alpes-cotedazur.com/en/things-to-do/culture-and-heritage/places/monaco-casino-gardens-monaco-en-3479928/" },
   ...["plage-du-gorbio-menton", "plage-hawai-menton"].map(placeId => ({ placeId, reason: "coordinate_unverified" as const, checkedOn: "2026-11-02", sourceUrl: "https://www.menton.fr/chiens-sur-les-plages-de-menton-rappel-des-regles-en-vigueur.html" })),
   ...["dog-park-garavan-menton", "dog-park-serres-madone-menton"].map(placeId => ({ placeId, reason: "coordinate_unverified" as const, checkedOn: "2026-11-02", sourceUrl: "https://www.menton.fr/Installations-pour-les-proprietaires-de-chiens" })),
   { placeId: "dog-park-pian-menton", reason: "coordinate_unverified", checkedOn: "2026-11-02", sourceUrl: "https://www.menton.fr/inauguration-d-un-3e-parc-a-chiens.html" },

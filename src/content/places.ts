@@ -300,6 +300,22 @@ const festivalVenues = [
 ] as const;
 
 const rawPlaces: Place[] = [
+  {
+    id: "hotel-de-paris-monte-carlo", name: "Hôtel de Paris Monte-Carlo", type: "viewpoint",
+    address: "Place du Casino, 98000 Monaco", googleMapsUrl: mapsQuery("Hôtel de Paris Monte-Carlo", "Place du Casino", "Monaco"),
+    programmeUrl: "https://www.montecarlosbm.com/en/hotel-monaco/hotel-paris-monte-carlo", requiresMapReview: true, sourceStatus: "editorial", visitorAccess: "ask-first",
+    shortNote: text("Historic hotel opened in 1864, viewed from the public square for this literary walk. Not a confirmed model for Rebecca's fictional Hôtel Côte d'Azur. Interior, restaurant and dress conditions need direct confirmation; it is not a free public museum.", "Hôtel historique ouvert en 1864, à observer depuis la place publique. Pas un modèle confirmé de l'Hôtel Côte d'Azur fictif de Rebecca. Confirmez accès intérieur, restauration et tenue ; ce n'est pas un musée gratuit.", "Hotel storico aperto nel 1864, da osservare dalla piazza pubblica. Non modello confermato dell'Hôtel Côte d'Azur fittizio di Rebecca. Conferma interni, ristoranti e abbigliamento; non è un museo gratuito.", "Історичний готель 1864 року, огляд із публічної площі. Не підтверджена модель вигаданого Hôtel Côte d'Azur «Ребекки». Уточнюйте інтер'єри, ресторани й одяг; це не безкоштовний музей."),
+    bestFor: [text("Exterior architecture and literary context", "Architecture extérieure et contexte littéraire", "Architettura esterna e contesto letterario", "Фасадна архітектура й літературний контекст")],
+    relatedArticleIds: ["rebecca-monte-carlo-daphne-du-maurier-literary-walk", "day-trips-from-menton"],
+  },
+  {
+    id: "jardins-petite-afrique-monaco", name: "Jardins de la Petite Afrique, Monaco", type: "garden",
+    address: "Casino Gardens, Place du Casino, 98000 Monaco", googleMapsUrl: mapsQuery("Jardins de la Petite Afrique", "Monte-Carlo", "Monaco"),
+    programmeUrl: "https://provence-alpes-cotedazur.com/en/things-to-do/culture-and-heritage/places/monaco-casino-gardens-monaco-en-3479928/", requiresMapReview: true, sourceStatus: "editorial",
+    shortNote: text("Subtropical part of the casino gardens and a thematic pause for the Rebecca walk, not a verified novel scene. Use open public paths and respect maintenance or event closures; the tourism listing is not a same-day access inspection.", "Partie subtropicale des jardins du Casino et pause thématique de Rebecca, pas une scène vérifiée. Suivez les allées publiques ouvertes et fermetures d'entretien ou d'événements ; la fiche touristique n'est pas une inspection du jour.", "Parte subtropicale dei giardini del casinò e pausa tematica per Rebecca, non scena verificata. Usa percorsi pubblici aperti e rispetta manutenzioni o eventi; la scheda turistica non è un'ispezione odierna.", "Субтропічна частина садів казино й тематична пауза «Ребекки», не перевірена сцена. Користуйтеся відкритими публічними доріжками, поважайте догляд і події; туристична картка не є сьогоднішнім оглядом доступу."),
+    bestFor: [text("Garden pause near Casino Square", "Pause au jardin près de la place du Casino", "Pausa nel verde vicino a Place du Casino", "Пауза в саду біля площі казино")],
+    relatedArticleIds: ["rebecca-monte-carlo-daphne-du-maurier-literary-walk", "day-trips-from-menton"],
+  },
   ...dogPlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
@@ -11494,6 +11510,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["casino-square-monaco", "casino-de-monte-carlo", "cafe-de-paris-monte-carlo"].includes(place.id)) relatedArticleIds.add("rebecca-monte-carlo-daphne-du-maurier-literary-walk");
   if (["promenade-du-soleil", "promenade-reine-astrid", "plage-casino"].includes(place.id)) relatedArticleIds.add("menton-with-a-dog");
   if (["place-du-cap-menton", "quai-bonaparte-menton", "cours-saleya-antiques", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("flea-markets-brocantes-vintage-menton");
   if (["basilica-saint-michel-archange", "rampes-saint-michel", "rue-longue-menton", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("grace-of-monaco-filming-locations-menton");
