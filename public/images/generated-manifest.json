@@ -189,6 +189,20 @@
     ]
   },
   {
+    "source": "public/images/guide/carrefour-city-sospel-menton.png",
+    "outputs": [
+      "public/images/guide/generated/carrefour-city-sospel-menton.avif",
+      "public/images/guide/generated/carrefour-city-sospel-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/carrefour-city-thiers-menton.png",
+    "outputs": [
+      "public/images/guide/generated/carrefour-city-thiers-menton.avif",
+      "public/images/guide/generated/carrefour-city-thiers-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/castel-public-beach-nice.png",
     "outputs": [
       "public/images/guide/generated/castel-public-beach-nice.avif",
@@ -1337,6 +1351,13 @@
     ]
   },
   {
+    "source": "public/images/guide/to-catch-a-thief-hitchcock-villefranche-sur-mer.png",
+    "outputs": [
+      "public/images/guide/generated/to-catch-a-thief-hitchcock-villefranche-sur-mer.avif",
+      "public/images/guide/generated/to-catch-a-thief-hitchcock-villefranche-sur-mer.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/ventimiglia-friday-market.png",
     "outputs": [
       "public/images/guide/generated/ventimiglia-friday-market.avif",
@@ -1428,17 +1449,31 @@
     ]
   },
   {
-    "source": "public/images/guide/carrefour-city-thiers-menton.png",
+    "source": "public/images/guide/villefranche-sur-mer-station.png",
     "outputs": [
-      "public/images/guide/generated/carrefour-city-thiers-menton.avif",
-      "public/images/guide/generated/carrefour-city-thiers-menton.webp"
+      "public/images/guide/generated/villefranche-sur-mer-station.avif",
+      "public/images/guide/generated/villefranche-sur-mer-station.webp"
     ]
   },
   {
-    "source": "public/images/guide/carrefour-city-sospel-menton.png",
+    "source": "public/images/guide/rue-obscure-villefranche.png",
     "outputs": [
-      "public/images/guide/generated/carrefour-city-sospel-menton.avif",
-      "public/images/guide/generated/carrefour-city-sospel-menton.webp"
+      "public/images/guide/generated/rue-obscure-villefranche.avif",
+      "public/images/guide/generated/rue-obscure-villefranche.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/chapelle-saint-pierre-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/chapelle-saint-pierre-villefranche.avif",
+      "public/images/guide/generated/chapelle-saint-pierre-villefranche.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/citadelle-saint-elme-villefranche.png",
+    "outputs": [
+      "public/images/guide/generated/citadelle-saint-elme-villefranche.avif",
+      "public/images/guide/generated/citadelle-saint-elme-villefranche.webp"
     ]
   }
 ]

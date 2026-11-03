@@ -26,6 +26,7 @@ import { bonjourTristesseGuide } from "@/content/bonjour-tristesse-guide";
 import { heartbreakerGuide } from "@/content/heartbreaker-guide";
 import { hilltopVillagesGuide } from "@/content/hilltop-villages-guide";
 import { firstEveningGuide } from "@/content/first-evening-guide";
+import { hitchcockGuide } from "@/content/hitchcock-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11434,6 +11435,21 @@ guideArticles.push(bonjourTristesseGuide);
 guideArticles.push(heartbreakerGuide);
 guideArticles.push(hilltopVillagesGuide);
 guideArticles.push(firstEveningGuide);
+guideArticles.push(hitchcockGuide);
+for (const slug of hitchcockGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(hitchcockGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), hitchcockGuide.slug];
+}
+const cocteauGuide = guideArticles.find(article => article.slug === "jean-cocteau-menton-walking-route");
+if (cocteauGuide) {
+  cocteauGuide.relatedPlaces = [...new Set([...(cocteauGuide.relatedPlaces ?? []), "chapelle-saint-pierre-villefranche"])];
+  cocteauGuide.sections.push({
+    heading: t("A separate Cocteau visit in Villefranche", "Une autre visite Cocteau à Villefranche", "Un'altra visita a Cocteau a Villefranche", "Окрема поїздка до Кокто у Вільфранші"),
+    body: [t("The fishermen's Chapelle Saint-Pierre in Villefranche has Cocteau's painted interior. This is a separate train outing, not a walk from Menton. The official listing states annual closure from mid-November to mid-December and no wheelchair access; confirm exact dates. Our Hitchcock-inspired Villefranche guide includes it as a cultural stop, not a confirmed filming scene.", "La chapelle des pêcheurs Saint-Pierre à Villefranche possède un décor de Cocteau. Sortie séparée en train, pas à pied depuis Menton. Fermeture annuelle de mi-novembre à mi-décembre et non-accessibilité en fauteuil selon la fiche ; confirmez les dates. Notre guide inspiré d'Hitchcock l'inclut comme étape culturelle, pas comme scène confirmée.", "La cappella dei pescatori Saint-Pierre a Villefranche ha un interno dipinto da Cocteau. Gita separata in treno, non passeggiata da Mentone. Chiusura annuale da metà novembre a metà dicembre e non accessibile in carrozzina secondo la scheda: conferma le date. La guida ispirata a Hitchcock la include come tappa culturale, non scena confermata.", "Каплиця рибалок Saint-Pierre у Вільфранші має розписи Кокто. Це окрема поїздка потягом, не прогулянка з Ментона. За офіційною карткою закриття із середини листопада до середини грудня й відсутність доступу кріслами колісними; уточнюйте дати. У гайді за мотивами Гічкока це культурна зупинка, не підтверджена сцена.")],
+    relatedPlaceIds: ["chapelle-saint-pierre-villefranche"], guideLinkSlug: hitchcockGuide.slug,
+    guideLinkLabel: t("Plan a day in Villefranche", "Préparer une journée à Villefranche", "Organizza una giornata a Villefranche", "Сплануйте день у Вільфранші"),
+  });
+}
 for (const slug of firstEveningGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(firstEveningGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), firstEveningGuide.slug];
