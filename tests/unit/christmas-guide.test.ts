@@ -15,7 +15,7 @@ describe('Christmas guide publication', () => {
         if (locale === 'uk') expect(section.heading.uk).toMatch(/[А-Яа-яІіЇїЄє]/);
       }
     }
-    expect(christmasGuide.sections.map(section => section.body.map(body => body.en).join(' ')).join(' ')).toContain('Engineering works through 11 December 2026');
+    expect(christmasGuide.sections.map(section => section.body.map(body => body.en).join(' ')).join(' ')).toContain('Engineering works: the current notice extends through 10 December 2027');
   });
   it('has a cover, apartment recommendations, sources, valid place cards and latest-slot eligibility', () => {
     expect(getGuideArticle(christmasGuide.slug)).toBe(christmasGuide);

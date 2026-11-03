@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "carrefour-city-thiers-menton", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.carrefour.fr/magasin/city-menton-thiers" },
+  { placeId: "carrefour-city-sospel-menton", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.carrefour.fr/magasin/city-menton-sospel" },
   { placeId: "monte-carlo-bay-hotel-resort", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.montecarlosbm.com/en/hotel-monaco/monte-carlo-bay-hotel-resort" },
   { placeId: "monte-carlo-beach-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://asset.montecarlosbm.com/pdf/H%C3%B4tels/Monte-Carlo%20Beach/2026/CLUB/260326_MONTECARLO-BEACH-BROCHURE-ACTIVITE%CC%81S-NAUTIQUES-WEB.pdf" },
   { placeId: "hotel-de-paris-monte-carlo", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.montecarlosbm-corporate.com/the-company/history/" },

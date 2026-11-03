@@ -5303,15 +5303,36 @@ const rawPlaces: Place[] = [
   },
   {
     id: "carrefour-express-menton",
-    name: "Carrefour Express Menton",
+    name: "Carrefour City Menton Amiral Courbet",
     type: "supermarket",
     address: "7 Rue Amiral Courbet, 06500 Menton",
-    googleMapsUrl: mapsSearch("Carrefour Express Menton", "7 Rue Amiral Courbet, 06500 Menton"),
+    googleMapsUrl: mapsSearch("Carrefour City Menton Amiral Courbet", "7 Rue Amiral Courbet, 06500 Menton"),
+    programmeUrl: "https://www.carrefour.fr/magasin/city-menton-amiral-courbet",
     openingHoursLabel: checkHours,
     sourceStatus: "needs_verification",
     shortNote: text("A compact town-centre option for breakfast basics, drinks, snacks and small grocery top-ups.", "Une option compacte en centre-ville pour petit-dejeuner, boissons, snacks et petites courses.", "Un'opzione compatta in centro per colazione, bevande, snack e piccoli acquisti.", "Компактний варіант у центрі для сніданку, напоїв, перекусів і дрібних покупок."),
     bestFor: [text("quick top-ups", "petites courses", "piccoli acquisti", "швидкі покупки"), text("breakfast basics", "base petit-dejeuner", "base colazione", "база для сніданку")],
     relatedArticleIds: ["supermarkets-in-menton"],
+  },
+  {
+    id: "carrefour-city-thiers-menton", name: "Carrefour City Menton Thiers", type: "supermarket",
+    address: "6 Avenue de Thiers, 06500 Menton",
+    googleMapsUrl: mapsSearch("Carrefour City Menton Thiers", "6 Avenue de Thiers, 06500 Menton"),
+    programmeUrl: "https://www.carrefour.fr/magasin/city-menton-thiers",
+    sourceStatus: "editorial", requiresMapReview: true, openingHoursLabel: checkHours,
+    shortNote: text("Official weekly grid checked 3 November 2026 lists 07:00–21:00 daily. Confirm the date and exceptions; not a guaranteed late-night or delivery option.", "Grille officielle vérifiée le 3 novembre 2026 : 7 h–21 h tous les jours. Confirmez date et exceptions ; aucune ouverture nocturne ou livraison garantie.", "Griglia ufficiale verificata il 3 novembre 2026: 7–21 ogni giorno. Conferma data ed eccezioni; nessuna apertura notturna o consegna garantita.", "Офіційна таблиця перевірена 3 листопада 2026: 07:00–21:00 щодня. Уточнюйте дату й винятки; нічного доступу чи доставки не гарантовано."),
+    bestFor: [text("Station-area groceries", "Courses près de la gare", "Spesa vicino alla stazione", "Продукти біля вокзалу")],
+    relatedArticleIds: ["first-evening-menton-late-arrival", "supermarkets-in-menton"], guideCoverageSlugs: ["supermarkets-in-menton"],
+  },
+  {
+    id: "carrefour-city-sospel-menton", name: "Carrefour City Menton Sospel", type: "supermarket",
+    address: "25–27 Avenue de Sospel, 06500 Menton",
+    googleMapsUrl: mapsSearch("Carrefour City Menton Sospel", "25-27 Avenue de Sospel, 06500 Menton"),
+    programmeUrl: "https://www.carrefour.fr/magasin/city-menton-sospel",
+    sourceStatus: "editorial", requiresMapReview: true, openingHoursLabel: checkHours,
+    shortNote: text("Menton branch on Avenue de Sospel, not Sospel village. Checked 3 November 2026: grid closes 21:50 Monday–Saturday and 19:50 Sunday, but banner says 22:00. Confirm directly; do not rely on the later time.", "Magasin à Menton, avenue de Sospel, pas au village de Sospel. Vérifié le 3 novembre 2026 : grille 21 h 50 lundi–samedi, 19 h 50 dimanche, bandeau 22 h. Confirmez sans compter sur l'heure tardive.", "Filiale a Mentone in Avenue de Sospel, non nel paese di Sospel. Verificato il 3 novembre 2026: griglia 21:50 lunedì–sabato, 19:50 domenica, banner 22. Conferma senza contare sull'orario più tardi.", "Магазин у Ментоні на Avenue de Sospel, не в селі Соспель. Перевірено 3 листопада 2026: таблиця 21:50 понеділок–субота, 19:50 неділя, банер 22:00. Уточнюйте, не покладаючись на пізнішу годину."),
+    bestFor: [text("Essential groceries", "Courses essentielles", "Spesa essenziale", "Необхідні продукти")],
+    relatedArticleIds: ["first-evening-menton-late-arrival", "supermarkets-in-menton"], guideCoverageSlugs: ["supermarkets-in-menton"],
   },
   {
     id: "petit-casino-saint-michel",
@@ -11534,6 +11555,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["menton-station", "menton-garavan-station", "carrefour-city-felix-faure", "carrefour-express-menton", "promenade-du-soleil", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("first-evening-menton-late-arrival");
   if (["casino-square-monaco", "opera-de-monte-carlo", "monaco-monte-carlo-station"].includes(place.id)) relatedArticleIds.add("heartbreaker-larnacoeur-monaco-filming-locations");
   if (["promenade-du-soleil", "plage-casino", "royal-westminster-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("bonjour-tristesse-francoise-sagan-french-riviera");
   if (["casino-square-monaco", "casino-de-monte-carlo", "cafe-de-paris-monte-carlo"].includes(place.id)) relatedArticleIds.add("rebecca-monte-carlo-daphne-du-maurier-literary-walk");

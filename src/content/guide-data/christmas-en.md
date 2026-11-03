@@ -486,7 +486,7 @@ The coastal train makes Nice and Monaco attractive from Menton.
 
 But it shouldn't be treated as a guaranteed late-night service.
 
-### Engineering works through 11 December 2026
+### Engineering works: the current notice extends through 10 December 2027
 
 SNCF has published works affecting the Nice–Monaco–Menton–Ventimiglia railway.
 
@@ -494,9 +494,9 @@ During the current works period, rail traffic is interrupted from approximately 
 
 Replacement road services may operate, but they do not necessarily follow the same route or depart from the ordinary station platform.
 
-The works are currently scheduled through 11 December 2026.
+The SNCF notice checked on 3 November 2026 now lists works through 10 December 2027.
 
-This creates a particularly important constraint for the first part of the Christmas season.
+Do not assume the night restrictions end during the Christmas season; check the specific dates and direction.
 
 ### What should you do?
 
@@ -510,9 +510,9 @@ Allow time to walk from the Christmas venue to the station or coach stop.
 
 For families, consider returning earlier rather than relying on the final available service.
 
-### What about after 11 December?
+### What about the rest of the holiday season?
 
-Don't assume that the entire holiday railway timetable is free from disruption simply because a published works period has ended.
+The older December 2026 end date is no longer the period shown on the current notice. Do not treat later holiday evenings as free from disruption.
 
 Check SNCF's live journey planner and any subsequent notices.
 
