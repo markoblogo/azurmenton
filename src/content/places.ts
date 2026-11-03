@@ -11514,6 +11514,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["promenade-du-soleil", "plage-casino", "royal-westminster-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("bonjour-tristesse-francoise-sagan-french-riviera");
   if (["casino-square-monaco", "casino-de-monte-carlo", "cafe-de-paris-monte-carlo"].includes(place.id)) relatedArticleIds.add("rebecca-monte-carlo-daphne-du-maurier-literary-walk");
   if (["promenade-du-soleil", "promenade-reine-astrid", "plage-casino"].includes(place.id)) relatedArticleIds.add("menton-with-a-dog");
   if (["place-du-cap-menton", "quai-bonaparte-menton", "cours-saleya-antiques", "halles-du-marche"].includes(place.id)) relatedArticleIds.add("flea-markets-brocantes-vintage-menton");
