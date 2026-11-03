@@ -21,6 +21,7 @@ import { graceOfMonacoGuide } from "@/content/grace-of-monaco-guide";
 import { fleaMarketsGuide } from "@/content/flea-markets-guide";
 import { fitzgeraldGuide } from "@/content/fitzgerald-guide";
 import { dogGuide } from "@/content/dog-guide";
+import { rebeccaGuide } from "@/content/rebecca-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11413,6 +11414,22 @@ guideArticles.push(graceOfMonacoGuide);
 guideArticles.push(fleaMarketsGuide);
 guideArticles.push(fitzgeraldGuide);
 guideArticles.push(dogGuide);
+guideArticles.push(rebeccaGuide);
+for (const slug of rebeccaGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(rebeccaGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), rebeccaGuide.slug];
+}
+const rebeccaDayTrips = guideArticles.find(article => article.slug === "day-trips-from-menton");
+if (rebeccaDayTrips) {
+  const placeIds = ["hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco"];
+  rebeccaDayTrips.relatedPlaces = [...new Set([...(rebeccaDayTrips.relatedPlaces ?? []), ...placeIds])];
+  rebeccaDayTrips.sections.push({
+    heading: t("Monte Carlo before Manderley", "Monte-Carlo avant Manderley", "Monte Carlo prima di Manderley", "Монте-Карло до Мандерлі"),
+    body: [t("For a literary half-day, follow the Monte Carlo opening of Daphne du Maurier's Rebecca: Casino Square, historic hotel exteriors and the Petite Afrique gardens. The real Hôtel de Paris is a contextual stop, not the identified fictional Hôtel Côte d'Azur. Public exteriors suffice; confirm any interior/café access, garden closures and train return. The route is not a film-location reconstruction or a step-free certification.", "Pour une demi-journée littéraire, suivez le début de Rebecca : place du Casino, façades d'hôtels et jardins de la Petite Afrique. L'Hôtel de Paris est une étape de contexte, pas l'Hôtel Côte d'Azur fictif identifié. Les extérieurs suffisent ; confirmez intérieurs, cafés, fermetures et retour. Ni reconstitution de tournage ni certification d'accessibilité.", "Per mezza giornata letteraria segui l'inizio di Rebecca: Place du Casino, esterni degli hotel e Petite Afrique. L'Hôtel de Paris è contesto, non l'Hôtel Côte d'Azur identificato. Bastano gli esterni; conferma interni, caffè, chiusure e ritorno. Non ricostruzione dei set o accessibilità certificata.", "Для літературних пів дня пройдіть початок «Ребекки»: площа казино, готельні фасади й Petite Afrique. Hôtel de Paris — контекст, не встановлений вигаданий Hôtel Côte d'Azur. Достатньо фасадів; уточнюйте інтер'єри, кафе, закриття й повернення. Не відновлення знімальних місць чи сертифікат доступності.")],
+    relatedPlaceIds: placeIds, guideLinkSlug: rebeccaGuide.slug,
+    guideLinkLabel: t("Rebecca's Monte Carlo literary walk", "Promenade littéraire Rebecca à Monte-Carlo", "Passeggiata letteraria Rebecca a Monte Carlo", "Літературна прогулянка Монте-Карло «Ребекки»"),
+  });
+}
 for (const slug of dogGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(dogGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), dogGuide.slug];

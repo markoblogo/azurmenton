@@ -287,6 +287,27 @@
     ]
   },
   {
+    "source": "public/images/guide/dog-park-garavan-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-garavan-menton.avif",
+      "public/images/guide/generated/dog-park-garavan-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/dog-park-pian-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-pian-menton.avif",
+      "public/images/guide/generated/dog-park-pian-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/dog-park-serres-madone-menton.png",
+    "outputs": [
+      "public/images/guide/generated/dog-park-serres-madone-menton.avif",
+      "public/images/guide/generated/dog-park-serres-madone-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/domaine-gannac-menton.png",
     "outputs": [
       "public/images/guide/generated/domaine-gannac-menton.avif",
@@ -1015,10 +1036,24 @@
     ]
   },
   {
+    "source": "public/images/guide/plage-du-gorbio-menton.png",
+    "outputs": [
+      "public/images/guide/generated/plage-du-gorbio-menton.avif",
+      "public/images/guide/generated/plage-du-gorbio-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/plage-du-marche-menton.png",
     "outputs": [
       "public/images/guide/generated/plage-du-marche-menton.avif",
       "public/images/guide/generated/plage-du-marche-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/plage-hawai-menton.png",
+    "outputs": [
+      "public/images/guide/generated/plage-hawai-menton.avif",
+      "public/images/guide/generated/plage-hawai-menton.webp"
     ]
   },
   {
@@ -1330,38 +1365,10 @@
     ]
   },
   {
-    "source": "public/images/guide/plage-du-gorbio-menton.png",
+    "source": "public/images/guide/rebecca-monte-carlo-daphne-du-maurier-literary-walk.png",
     "outputs": [
-      "public/images/guide/generated/plage-du-gorbio-menton.avif",
-      "public/images/guide/generated/plage-du-gorbio-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/plage-hawai-menton.png",
-    "outputs": [
-      "public/images/guide/generated/plage-hawai-menton.avif",
-      "public/images/guide/generated/plage-hawai-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/dog-park-garavan-menton.png",
-    "outputs": [
-      "public/images/guide/generated/dog-park-garavan-menton.avif",
-      "public/images/guide/generated/dog-park-garavan-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/dog-park-serres-madone-menton.png",
-    "outputs": [
-      "public/images/guide/generated/dog-park-serres-madone-menton.avif",
-      "public/images/guide/generated/dog-park-serres-madone-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/dog-park-pian-menton.png",
-    "outputs": [
-      "public/images/guide/generated/dog-park-pian-menton.avif",
-      "public/images/guide/generated/dog-park-pian-menton.webp"
+      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.avif",
+      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.webp"
     ]
   }
 ]
