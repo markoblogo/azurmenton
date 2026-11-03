@@ -24,6 +24,7 @@ import { dogGuide } from "@/content/dog-guide";
 import { rebeccaGuide } from "@/content/rebecca-guide";
 import { bonjourTristesseGuide } from "@/content/bonjour-tristesse-guide";
 import { heartbreakerGuide } from "@/content/heartbreaker-guide";
+import { hilltopVillagesGuide } from "@/content/hilltop-villages-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11430,6 +11431,17 @@ guideArticles.push(dogGuide);
 guideArticles.push(rebeccaGuide);
 guideArticles.push(bonjourTristesseGuide);
 guideArticles.push(heartbreakerGuide);
+guideArticles.push(hilltopVillagesGuide);
+for (const slug of hilltopVillagesGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(hilltopVillagesGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), hilltopVillagesGuide.slug];
+}
+const hilltopDayTrips = guideArticles.find(article => article.slug === "day-trips-from-menton");
+const hilltopSection = hilltopDayTrips?.sections.find(section => section.relatedPlaceIds?.includes("gorbio"));
+if (hilltopSection) {
+  hilltopSection.guideLinkSlug = hilltopVillagesGuide.slug;
+  hilltopSection.guideLinkLabel = t("Compare four hill villages near Menton", "Comparer quatre villages perchés près de Menton", "Confronta quattro borghi vicino a Mentone", "Порівняйте чотири гірські села біля Ментона");
+}
 for (const slug of heartbreakerGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(heartbreakerGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), heartbreakerGuide.slug];

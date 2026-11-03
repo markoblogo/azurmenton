@@ -1,0 +1,39 @@
+# Hilltop villages guide preparation
+
+Checked: 3 November 2026 (Europe/Paris). Preparation only; owner publication approval is not inferred.
+
+## Input And Scope
+
+- Owner-supplied Word: `The Hilltop Villages Above Menton_ Which One Should You Visit.docx`; supplied cover: `The Hilltop Villages Above Menton.png`.
+- Frozen bytes and hashes retained in ignored `build/guide-intake/best-hilltop-villages-near-menton/workflow/originals/`. Originals are not moved or deleted.
+- Public slug: `best-hilltop-villages-near-menton`; EN source retained with narrow factual corrections, natural FR/IT/UK adaptations, 12 numbered chapters, nine FAQ entries and three four-row tables. SEO preamble is metadata, not article prose or task instructions.
+- Cover is a project illustration, not a verified camera view of a named village. Four existing illustrated place objects are reused: Sainte-Agnès, Gorbio, Place Georges Clemenceau in Castellar, Roquebrune Medieval Village. The square is explicitly identified as a square rather than the whole of Castellar. No invented village marker, new place, unrelated replacement illustration or new feature.
+- Existing day-trip, walking, photo, car-free, public transport and accessible-walk guides are connected reciprocally. Existing day-trip section links directly to this comparison. The day-trip intent/collection are reused, not a new collection.
+
+## Source Evidence And Corrections
+
+All sources below were read on the checked date. A published description does not confirm a particular departure, guided-tour slot or restaurant table.
+
+| Claim | Primary source | Result and boundary |
+| --- | --- | --- |
+| Village bus route labels | [Zest network maps](https://www.zestbus.fr/se-deplacer/telecharger-les-plans/) | Operator lists 5 Gorbio–Gare Routière, 6 Castellar–Gare Routière, 10 Sainte-Agnès–Gare Routière, 24 Menton Gare Routière–Vieux Roquebrune/La Turbie and 22 Vieux Roquebrune–Cabbé Gare loop. Corrected Gorbio from draft line 7: operator labels 7 Sigua–Gare Routière. A route label is not a verified individual departure or a guaranteed all-day/Sunday service. |
+| Single/day tickets | [Zest tariffs](https://www.zestbus.fr/tarifs), [6 July 2026 change](https://www.zestbus.fr/news/les-tarifs-zestbus-evoluent-a-partir-du-6-juillet-2026) | EUR 2 single, EUR 5 day. Single allows transfers within one hour, not return travel. Day ticket is the calendar day of first validation, not rolling 24 hours. No invented live fare or transport guarantee. |
+| Timetable lookup | [Zest timetables](https://www.zestbus.fr/telecharger-les-horaires) | Current lookup exists; no chosen-date departure or last return verified. Guide directs readers to confirm both directions. Removed unsupported blanket label “2026–2027 network”. |
+| Sainte-Agnès heritage and altitude | [Tourist office](https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/la-riviera-et-ses-villages-perches/sainte-agnes/) | Supports 760 m, about 10 km from Menton, Plus Beaux Villages classification, castle/garden, Maginot fort and the historic path described as two hours one way. This is not a field-measured step-free route or weather guarantee. |
+| Sainte-Agnès transport and fort | [Municipal transport](https://www.sainteagnes.fr/transport/), [day planning](https://www.sainteagnes.fr/une-journee-a-sainte-agnes/) | Supports line 10, checking return, guided fort visits and booking-first advice. Older municipal magazines have conflicting hours: no old schedule imported, no bookable slot asserted. |
+| Sainte-Agnès restaurant names | [Municipal directory](https://www.sainteagnes.fr/hebergement-et-restauration/), tourist-office village page | Le Righi, Le Saint-Yves, Au Gaïné and Le Lilly's are names to contact, not guaranteed current lunch service. No daily service hours imported. |
+| Gorbio elm and heritage | [Tourist office](https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/la-riviera-et-ses-villages-perches/gorbio/) | Elm dated 1713, vaulted lanes, Lascaris museum and olive mill supported. No assumption every heritage interior or exhibition is open. |
+| Gorbio lunch | [Tourism directory](https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/la-riviera-et-ses-villages-perches/gorbio/ou-manger-a-gorbio/), [municipal Bistrot listing](https://www.gorbio.fr/annuaire/le-bistrot-de-lorme/) | Bistrot de l'Orme and Beauséjour listed. Seasonal/daily kitchen hours differ across listings: contact-first wording, no promised table or service. |
+| Castellar heritage and hiking | [Tourist office](https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/la-riviera-et-ses-villages-perches/castellar/) | Coloured façades, Palais Lascaris, Saint-Pierre, Sunday market and mountain routes supported. Roc de l'Orméa circuit described as sporting, five–six hours with technical descent: not a casual village extension. Market date is not used to infer Sunday bus frequency. |
+| Castellar lunch address | [Bistrot L'Ormeau](https://www.menton-riviera-merveilles.fr/offres/bistrot-lormeau-castellar-fr-5279238/), village directory | 2 Place Clemenceau; other named venues also listed. No guaranteed kitchen hours or availability. Existing square card remains linked to its seasonal programme and now also explains its everyday village context. |
+| Roquebrune castle | [Current official listing](https://www.menton-riviera-merveilles.fr/offres/chateau-medieval-de-roquebrune-cap-martin-roquebrune-cap-martin-fr-3051798/) | Tenth-century history and seasonal access supported; listing explicitly says not wheelchair-accessible. Current winter dates appear, but full hours/prices not duplicated into evergreen article. Coastal station is not village arrival. |
+| Olive tree and separate districts | [Tourist-office village overview](https://www.menton-riviera-merveilles.fr/menton-et-le-littoral/la-riviera-et-ses-villages-perches/roquebrune-cap-martin/) | Overview describes tree as over 2,000 years old and about 300 m from old village. Age remains attributed/traditional, not independently measured. Dedicated tree link was unavailable in browsing; overview is the evidence, not proof of today's route condition. |
+| Romain Gary heritage walk | [Official route listing](https://www.menton-riviera-merveilles.fr/offres/balades-cptivantes-dans-les-pas-de-romain-gary-au-village-roquebrune-cap-martin-fr-4353565/) | Named sequence supported. Current listing does not establish the draft's claimed official 90-minute–two-hour duration. Retained range only as an explicitly editorial estimate. |
+| Roquebrune lunch | [La Grotte & L'Olivier's own site](https://www.lagrotte-lolivier.fr/), [tourism restaurant directory](https://www.menton-riviera-merveilles.fr/sorganiser/ou-manger/tous-les-restaurants/) | Restaurant's own site confirms 2 Place des Deux Frères; tourism directory lists Au Grand Inquisiteur at 18 Rue du Château. No table booking, contact or price assumption. |
+
+## Boundaries And QA
+
+- Half-day lengths and easier/harder walking descriptions are editorial planning estimates, not measured routes, certified wheelchair access or transport promises. “Accessible viewpoints” softened to selected lower viewpoints with access to verify.
+- No emails, booking actions, route API, paid service, new automation, public release or original-file deletion.
+- Local packet initially contained false venue candidates from generic subheadings and an incorrect food category. Reviewed intake uses only four genuine existing places and day-trips. Frozen original and extracted original remain intact.
+- Unit regression first failed because guide was absent. Subsequent scoped run: 10 tests passed, including Markdown parser tests. Four-locale browser/layout and final-tree checks are separate evidence retained in ignored packet/logs; successful preparation does not itself authorize publication.

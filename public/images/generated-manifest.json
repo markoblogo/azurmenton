@@ -924,6 +924,20 @@
     ]
   },
   {
+    "source": "public/images/guide/monte-carlo-bay-hotel-resort.png",
+    "outputs": [
+      "public/images/guide/generated/monte-carlo-bay-hotel-resort.avif",
+      "public/images/guide/generated/monte-carlo-bay-hotel-resort.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/monte-carlo-beach-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/monte-carlo-post-office.png",
     "outputs": [
       "public/images/guide/generated/monte-carlo-post-office.avif",
@@ -1400,17 +1414,10 @@
     ]
   },
   {
-    "source": "public/images/guide/monte-carlo-bay-hotel-resort.png",
+    "source": "public/images/guide/best-hilltop-villages-near-menton.png",
     "outputs": [
-      "public/images/guide/generated/monte-carlo-bay-hotel-resort.avif",
-      "public/images/guide/generated/monte-carlo-bay-hotel-resort.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/monte-carlo-beach-roquebrune-cap-martin.png",
-    "outputs": [
-      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.avif",
-      "public/images/guide/generated/monte-carlo-beach-roquebrune-cap-martin.webp"
+      "public/images/guide/generated/best-hilltop-villages-near-menton.avif",
+      "public/images/guide/generated/best-hilltop-villages-near-menton.webp"
     ]
   }
 ]
