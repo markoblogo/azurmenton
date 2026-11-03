@@ -1064,9 +1064,9 @@ const rawPlaces: Place[] = [
     image: "/images/guide/place-clemenceau-castellar.png",
     sourceStatus: "verified", requiresMapReview: true,
     googleMapsUrl: mapsQuery("Place Georges Clemenceau, Castellar", "1 place Georges Clemenceau, 06500 Castellar"),
-    shortNote: text("A venue for the published Christmas programme. Check dates and access with the organiser.", "Lieu du programme de Noël publié. Vérifiez dates et accès auprès de l’organisateur.", "Sede del programma natalizio pubblicato. Verifica date e accesso con l’organizzatore.", "Місце опублікованої різдвяної програми. Перевірте дати й умови доступу в організатора."),
-    bestFor: [text("Seasonal events", "Événements saisonniers", "Eventi stagionali", "Сезонні події")],
-    relatedArticleIds: ["christmas-french-riviera-from-menton"],
+    shortNote: text("A central Castellar square for starting a village visit and finding the listed Bistrot L'Ormeau nearby. It also hosts the published Christmas programme; confirm service, event dates and return transport.", "Place centrale pour commencer la visite de Castellar et trouver le Bistrot L'Ormeau tout près. Elle accueille aussi le programme de Noël publié ; vérifiez service, dates et retour.", "Piazza centrale per iniziare Castellar e trovare il Bistrot L'Ormeau vicino. Ospita anche il programma natalizio pubblicato: verifica servizio, date e ritorno.", "Центральна площа для початку прогулянки Castellar і пошуку Bistrot L'Ormeau поруч. Тут також проходить оголошена різдвяна програма; уточнюйте роботу, дати й повернення."),
+    bestFor: [text("Village walks", "Promenades au village", "Passeggiate nel borgo", "Прогулянки селом"), text("Seasonal events", "Événements saisonniers", "Eventi stagionali", "Сезонні події")],
+    relatedArticleIds: ["christmas-french-riviera-from-menton", "best-hilltop-villages-near-menton", "day-trips-from-menton"],
   },
   {
     id: "teatro-giancarlo-golzi-bordighera", name: "Teatro Giancarlo Golzi", type: "civic",
@@ -6418,7 +6418,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A small hill village above Menton, useful for a quieter half-day detour and the Yolo Prelude visual reference.", "Un petit village perche au-dessus de Menton, utile pour une demi-journee plus calme et la reference visuelle du clip Prelude de Yolo.", "Un piccolo borgo sopra Mentone, utile per una mezza giornata piu tranquilla e per il riferimento visivo del video Prelude di Yolo.", "Невелике гірське село над Ментоном для спокійнішої поїздки на пів дня та візуальної прив'язки до кліпу Prelude Yolo."),
     bestFor: [text("hill village", "village perché", "borgo collinare", "гірське село"), text("quiet detour", "detour calme", "deviazione tranquilla", "спокійний відступ")],
-    relatedArticleIds: ["music-videos-filmed-in-menton", "day-trips-from-menton", "best-photo-spots-menton", "roya-valley-day-trip-from-menton"],
+    relatedArticleIds: ["music-videos-filmed-in-menton", "day-trips-from-menton", "best-photo-spots-menton", "roya-valley-day-trip-from-menton", "best-hilltop-villages-near-menton"],
   },
   {
     id: "am-fishing-menton",
@@ -7646,7 +7646,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A hill village walk from the coast with olive trees, stone lanes, a historic castle and sea-and-mountain views.", "Une montee de village depuis la cote avec oliviers, ruelles de pierre, chateau historique et vues mer-montagne.", "Una salita dal mare verso un borgo con ulivi, vicoli in pietra, castello storico e viste mare-montagna.", "Підйом від узбережжя до села з оливами, кам'яними вулицями, історичним замком і видами на море та гори."),
     bestFor: [text("history", "histoire", "storia", "історія"), text("moderate walk", "balade moderee", "passeggiata moderata", "помірна прогулянка")],
-    relatedArticleIds: ["best-walks-and-hikes-around-menton", "day-trips-from-menton", "roya-valley-day-trip-from-menton"],
+    relatedArticleIds: ["best-walks-and-hikes-around-menton", "day-trips-from-menton", "roya-valley-day-trip-from-menton", "best-hilltop-villages-near-menton"],
   },
   {
     id: "parc-du-pian",
@@ -7708,7 +7708,7 @@ const rawPlaces: Place[] = [
     sourceStatus: "editorial",
     shortNote: text("A hill village above Menton, useful for views, walks and occasional organised local celebrations. Check programmes and access before going.", "Un village perche au-dessus de Menton, utile pour les vues, les promenades et certaines fetes locales organisees. Verifiez programme et acces avant de partir.", "Un borgo in collina sopra Mentone, utile per viste, passeggiate e alcune feste locali organizzate. Controlla programma e accesso prima di partire.", "Гірське село над Ментоном для видів, прогулянок і деяких організованих місцевих свят. Перед поїздкою перевіряйте програму й доступ."),
     bestFor: [text("village views", "vues de village", "viste dal borgo", "види із села"), text("organised local events", "fetes locales organisees", "eventi locali organizzati", "організовані місцеві події")],
-    relatedArticleIds: ["day-trips-from-menton", "best-walks-and-hikes-around-menton", "barbecue-picnic-areas-near-menton"],
+    relatedArticleIds: ["day-trips-from-menton", "best-walks-and-hikes-around-menton", "barbecue-picnic-areas-near-menton", "best-hilltop-villages-near-menton"],
     guideCoverageSlugs: ["best-walks-and-hikes-around-menton"],
   },
   {
