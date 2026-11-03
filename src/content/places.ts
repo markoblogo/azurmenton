@@ -11568,6 +11568,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["palais-carnoles-menton", "rue-de-brea-menton", "basilica-saint-michel-archange", "villa-maria-serena"].includes(place.id)) relatedArticleIds.add("poirot-blue-train-filming-locations-menton");
   if (["jardin-val-rahmeh", "jardin-serre-de-la-madone", "jardin-fontana-rosa-menton", "villa-maria-serena", "palais-carnoles-menton", "les-colombieres-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("best-gardens-menton");
   if (["villefranche-sur-mer", "quai-amiral-courbet-villefranche"].includes(place.id)) relatedArticleIds.add("to-catch-a-thief-hitchcock-villefranche-sur-mer");
   if (["menton-station", "menton-garavan-station", "carrefour-city-felix-faure", "carrefour-express-menton", "promenade-du-soleil", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("first-evening-menton-late-arrival");
