@@ -610,8 +610,6 @@ And the one cinema gives them.
 
 - [Regional heritage inventory: Maria Serena and Poirot](https://dossiersinventaire.maregionsud.fr/dossier/IA06002844)
 
-- [AzurMenton: Films Shot in Menton](https://azurmenton.com/en/guide/films-shot-in-menton)
-
 - [Agatha Christie: The Mystery of the Blue Train](https://www.agathachristie.com/en/stories/the-mystery-of-the-blue-train)
 
 - [IMDb: The Mystery of the Blue Train, Filming Locations](https://www.imdb.com/title/tt0465569/locations/)
@@ -625,7 +623,5 @@ And the one cinema gives them.
 - [Menton Municipality: Palais de Carnolès](https://www.menton.fr/Palais-Carnoles-Musee-des-Beaux.html)
 
 - [Menton Tourist Office: Villa Maria Serena Guided Visits](https://www.menton-riviera-merveilles.fr/offres/visite-guidee-le-jardin-maria-serena-menton-fr-5595109/)
-
-- [Explore More AzurMenton Guides](https://azurmenton.com/en/guide)
 
 Source and visitor-access check: 3 November 2026. The supplied filming research was dated 31 October 2026. The principal location identifications are supported by publicly available specialist records, but exact episode timestamps and camera positions haven't been independently verified. Visitor access and heritage-site opening arrangements may change.

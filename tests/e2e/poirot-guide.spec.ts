@@ -17,7 +17,7 @@ test("Poirot guide keeps four illustrated places, evidence limits and translated
       await image.scrollIntoViewIfNeeded();
       await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0), { timeout: 30_000 }).toBe(true);
     }
-    expect(await page.locator("main").innerText()).not.toMatch(/SEO title:|Meta description:|Suggested URL:|<\/?escape>|Что я рекомендую|\*\*/);
+    expect(await page.locator("main").innerText()).not.toMatch(/SEO title:|Meta description:|Suggested URL:|<\/?escape>|Что я рекомендую|\*\*|\]\(\/(?:en|fr|it|uk)\/guide\//);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
     if (locale === "en") {
       await page.evaluate(() => window.scrollTo(0, 0));
