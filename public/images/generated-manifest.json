@@ -1162,6 +1162,13 @@
     ]
   },
   {
+    "source": "public/images/guide/rebecca-monte-carlo-daphne-du-maurier-literary-walk.png",
+    "outputs": [
+      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.avif",
+      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/riviera-palace-menton.png",
     "outputs": [
       "public/images/guide/generated/riviera-palace-menton.avif",
@@ -1365,10 +1372,17 @@
     ]
   },
   {
-    "source": "public/images/guide/rebecca-monte-carlo-daphne-du-maurier-literary-walk.png",
+    "source": "public/images/guide/hotel-de-paris-monte-carlo.png",
     "outputs": [
-      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.avif",
-      "public/images/guide/generated/rebecca-monte-carlo-daphne-du-maurier-literary-walk.webp"
+      "public/images/guide/generated/hotel-de-paris-monte-carlo.avif",
+      "public/images/guide/generated/hotel-de-paris-monte-carlo.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/jardins-petite-afrique-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/jardins-petite-afrique-monaco.avif",
+      "public/images/guide/generated/jardins-petite-afrique-monaco.webp"
     ]
   }
 ]
