@@ -24,6 +24,7 @@ it("publishes the complete literary structure in four locales without intake met
 });
 
 it("keeps thematic Menton stops distinct from fiction, film locations and guaranteed access", () => {
+  expect(guide.showTransportHelper).toBe(false);
   expect(guide.sections[7].body[0].en).toContain("thematic literary walk");
   expect(guide.sections[8].body[0].en).toContain("not a documented Sagan address");
   expect(guide.sections[8].body[0].en).toContain("not been field-audited");

@@ -25,6 +25,7 @@ test("Sagan guide renders four locales, its table and illustrated thematic stops
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(`/en/guide/${slug}`, { waitUntil: "domcontentloaded" });
   await expect(page.locator("main")).toContainText("thematic literary walk");
+  await expect(page.locator("main")).not.toContainText("Menton to Ventimiglia / Italy");
   expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   await page.screenshot({ path: "/tmp/menton-bonjour-desktop.png" });
 });
