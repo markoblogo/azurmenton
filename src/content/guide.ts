@@ -37,6 +37,7 @@ import { cyprisGuide } from "@/content/cypris-guide";
 import { winterWalksGuide } from "@/content/winter-walks-guide";
 import { bordersGuide } from "@/content/borders-guide";
 import { demyGuide } from "@/content/demy-guide";
+import { rebeccaFilmGuide } from "@/content/rebecca-film-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11476,6 +11477,11 @@ guideArticles.push(cyprisGuide);
 guideArticles.push(winterWalksGuide);
 guideArticles.push(bordersGuide);
 guideArticles.push(demyGuide);
+guideArticles.push(rebeccaFilmGuide);
+for (const slug of rebeccaFilmGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(rebeccaFilmGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), rebeccaFilmGuide.slug];
+}
 romainGaryGuide.relatedPlaces = [...(romainGaryGuide.relatedPlaces ?? []), "vieux-nice"];
 romainGaryGuide.sections[12].relatedPlaceIds = [...(romainGaryGuide.sections[12].relatedPlaceIds ?? []), "vieux-nice"];
 for (const slug of demyGuide.relatedArticles ?? []) {

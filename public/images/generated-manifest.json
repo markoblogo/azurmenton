@@ -1309,6 +1309,13 @@
     ]
   },
   {
+    "source": "public/images/guide/quai-des-etats-unis-nice.png",
+    "outputs": [
+      "public/images/guide/generated/quai-des-etats-unis-nice.avif",
+      "public/images/guide/generated/quai-des-etats-unis-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/radical-storage-menton-train-station.png",
     "outputs": [
       "public/images/guide/generated/radical-storage-menton-train-station.avif",
@@ -1348,6 +1355,13 @@
     "outputs": [
       "public/images/guide/generated/ramdam-bar-nice.avif",
       "public/images/guide/generated/ramdam-bar-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/rebecca-2020-riviera-filming-locations.png",
+    "outputs": [
+      "public/images/guide/generated/rebecca-2020-riviera-filming-locations.avif",
+      "public/images/guide/generated/rebecca-2020-riviera-filming-locations.webp"
     ]
   },
   {
@@ -1610,10 +1624,17 @@
     ]
   },
   {
-    "source": "public/images/guide/quai-des-etats-unis-nice.png",
+    "source": "public/images/guide/villa-eilenroc-antibes.png",
     "outputs": [
-      "public/images/guide/generated/quai-des-etats-unis-nice.avif",
-      "public/images/guide/generated/quai-des-etats-unis-nice.webp"
+      "public/images/guide/generated/villa-eilenroc-antibes.avif",
+      "public/images/guide/generated/villa-eilenroc-antibes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/jardin-exotique-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-exotique-monaco.avif",
+      "public/images/guide/generated/jardin-exotique-monaco.webp"
     ]
   }
 ]

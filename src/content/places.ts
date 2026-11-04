@@ -762,6 +762,30 @@ const rawPlaces: Place[] = [
     relatedArticleIds: ["the-houses-that-remember-riviera-book-route"], guideCoverageSlugs: ["the-houses-that-remember-riviera-book-route"],
   },
   {
+    id: "villa-eilenroc-antibes", name: "Villa Eilenroc", type: "garden", address: "Avenue Mrs Beaumont, 06160 Antibes",
+    googleMapsUrl: mapsQuery("Villa Eilenroc", "Antibes"), programmeUrl: "https://www.antibes-juanlespins.com/sorties-loisirs/un-patrimoine-vivant/la-villa-eilenroc",
+    image: "/images/guide/villa-eilenroc-antibes.png",
+    imageAlt: text("Artistic illustration of Villa Eilenroc and its garden, not a verified film frame", "Illustration artistique de Villa Eilenroc et son jardin, non un cadrage de film vérifié", "Illustrazione artistica di Villa Eilenroc e giardino, non inquadratura verificata", "Художня ілюстрація Villa Eilenroc та саду, не перевірений кадр фільму"),
+    visitorAccess: "ask-first", requiresMapReview: true, sourceStatus: "verified",
+    openingHoursLabel: text("Checked 4 November 2026: Saturday 10:00–17:00, last entry 16:30; confirm date and areas open", "Vérifié le 4 novembre 2026 : samedi 10:00–17:00, dernière entrée 16:30 ; date et espaces à confirmer", "Verificato il 4 novembre 2026: sabato 10:00–17:00, ultimo ingresso 16:30; confermare data e spazi", "Перевірено 4 листопада 2026: субота 10:00–17:00, останній вхід 16:30; уточніть дату й відкриті частини"),
+    priceLabel: text("Winter fees conflict between municipal and tourism listings; confirm directly", "Tarifs hivernaux divergents entre ville et tourisme ; confirmer directement", "Tariffe invernali discordanti fra Comune e turismo; confermare direttamente", "Зимові тарифи міста й туристичної сторінки суперечать одне одному; уточніть безпосередньо"),
+    shortNote: text("Municipal villa and gardens listed by Film France for Rebecca (2020). Limited openings, no unrestricted interiors; exact scenes unverified. Supplied artistic illustration.", "Villa et jardins municipaux répertoriés pour Rebecca (2020). Ouvertures limitées, pas d'accès intérieur libre ; scènes exactes non vérifiées. Illustration artistique fournie.", "Villa e giardini comunali elencati per Rebecca (2020). Aperture limitate, non interni liberi; scene precise non verificate. Illustrazione artistica fornita.", "Міська вілла й сади з каталогу локацій «Ребекки» (2020). Обмежені відкриття, не вільний вхід до інтер'єрів; точні сцени не перевірені. Надана художня ілюстрація."),
+    bestFor: [text("Villa architecture and gardens", "Architecture et jardins", "Architettura e giardini", "Архітектура й сади")],
+    relatedArticleIds: ["rebecca-2020-riviera-filming-locations"], guideCoverageSlugs: ["rebecca-2020-riviera-filming-locations"],
+  },
+  {
+    id: "jardin-exotique-monaco", name: "Jardin Exotique de Monaco", type: "garden", address: "62 Boulevard du Jardin Exotique, 98000 Monaco",
+    googleMapsUrl: mapsQuery("Jardin Exotique de Monaco", "Monaco"), programmeUrl: "https://www.jardin-exotique.mc/fr/preparer-ma-visite",
+    image: "/images/guide/jardin-exotique-monaco.png",
+    imageAlt: text("Artistic illustration of succulents and a Monaco panorama, not a verified film frame", "Illustration artistique de succulentes et d'un panorama de Monaco, non un cadrage vérifié", "Illustrazione artistica di succulente e panorama di Monaco, non inquadratura verificata", "Художня ілюстрація сукулентів і панорами Монако, не перевірений кадр"),
+    visitorAccess: "public", requiresMapReview: true, sourceStatus: "verified",
+    openingHoursLabel: text("9–17 Jan/Nov/Dec; 9–18 Feb–Apr/Oct; 9–19 May–Sep. Closed 19 Nov and 25 Dec; check exceptional closures.", "9–17 janv./nov./déc. ; 9–18 févr.–avr./oct. ; 9–19 mai–sept. Fermé les 19 nov. et 25 déc. ; vérifier les exceptions.", "9–17 gen./nov./dic.; 9–18 feb.–apr./ott.; 9–19 mag.–set. Chiuso 19 nov. e 25 dic.; verificare eccezioni.", "9–17 січ./лист./груд.; 9–18 лют.–квіт./жовт.; 9–19 трав.–верес. Закрито 19 лист. і 25 груд.; уточніть винятки."),
+    priceLabel: text("Adult garden only €12; combined visits extra, checked 4 November 2026", "Jardin seul adulte 12 € ; visites combinées en supplément, vérifié le 4 novembre 2026", "Solo giardino adulto 12 €; combinazioni a parte, verificato 4 novembre 2026", "Лише сад для дорослого 12 €; комбіновані візити окремо, перевірено 4 листопада 2026"),
+    shortNote: text("Reopened 30 March 2026. Rebecca garden connection reported by contemporary coverage, not a verified shot match. Wheelchair access only to upper plateau, not all paths or cave. Artistic illustration.", "Rouvert le 30 mars 2026. Lien à Rebecca cité par la presse, sans cadrage certifié. Fauteuil : plateau supérieur seulement, pas tous les chemins ni la grotte. Illustration artistique.", "Riaperto 30 marzo 2026. Legame con Rebecca citato dalla stampa, non inquadratura verificata. Carrozzina: solo pianoro superiore, non tutti i sentieri o grotta. Illustrazione artistica.", "Відкрився 30 березня 2026. Зв'язок із «Ребеккою» за пресою, не перевірений кадр. Крісло колісне: лише верхній майданчик, не всі стежки чи печера. Художня ілюстрація."),
+    bestFor: [text("Succulents and panoramas", "Succulentes et panoramas", "Succulente e panorami", "Сукуленти й панорами")],
+    relatedArticleIds: ["rebecca-2020-riviera-filming-locations"], guideCoverageSlugs: ["rebecca-2020-riviera-filming-locations"],
+  },
+  {
     id: "le-regina-nice", name: "Le Régina / Ancien Excelsior Régina Palace", type: "viewpoint", address: "71 Boulevard de Cimiez, 06000 Nice",
     image: "/images/guide/le-regina-nice.png",
     googleMapsUrl: mapsQuery("Le Régina", "71 Boulevard de Cimiez, Nice"), programmeUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080968",
@@ -11615,6 +11639,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["le-regina-nice", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("rebecca-2020-riviera-filming-locations");
   if (["promenade-des-anglais-nice", "casino-square-monaco", "casino-de-monte-carlo", "hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco", "quai-amiral-courbet-villefranche", "rue-obscure-villefranche", "chapelle-saint-pierre-villefranche"].includes(place.id)) relatedArticleIds.add("la-baie-des-anges-jacques-demy-riviera-filming-locations");
   if (["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "ventimiglia-station", "monaco-monte-carlo", "ventimiglia", "sanremo"].includes(place.id)) relatedArticleIds.add("france-monaco-italy-travel-from-menton");
   if (["promenade-du-soleil", "plage-casino", "plage-du-marche-menton", "jardins-bioves", "halles-du-marche", "esplanade-des-sablettes-menton", "port-de-garavan", "promenade-de-la-mer-menton"].includes(place.id)) relatedArticleIds.add("winter-walks-menton-sunshine-short-routes");
