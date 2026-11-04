@@ -8,11 +8,23 @@ import {
   buildPublishedGuideAssetsRerunCommand,
   parsePlaceAssetArgs,
   resolveGuideAssetPlan,
+  withAvailablePlaceImages,
   suggestPublishedGuideTargets,
   verifyPublishedGuidePlaceImagePatchApplied,
 } from "../../src/lib/guide-assets";
 
 describe("guide assets", () => {
+  it("repairs assigned-but-missing images without replacing existing files", () => {
+    const original = [{ id: "missing", name: "Missing", image: "/images/guide/missing.png" }, { id: "present", name: "Present", image: "/images/guide/present.png" }];
+    const available = withAvailablePlaceImages(original, ["/images/guide/present.png"]);
+    expect(original[0].image).toBe("/images/guide/missing.png");
+    expect(available[0].image).toBeUndefined();
+    expect(available[1].image).toBe(original[1].image);
+    const plan = resolveGuideAssetPlan({ slug: "example", missingOnly: true, assetsDirectory: "/tmp/assets", availableAssetFiles: ["Missing.png", "Present.png"], knownPlaces: available, publishedGuide: { slug: "example", intakeTitle: "Example", places: available.map(p => ({ placeId: p.id, draftName: p.name, image: p.image })) } });
+    expect(plan.operations.map(p => p.publicPath)).toEqual(["/images/guide/missing.png"]);
+    expect(plan.skippedAlreadyCoveredPlaces.map(p => p.placeId)).toEqual(["present"]);
+    expect(suggestPublishedGuideTargets({ assetFiles: ["Missing.png", "Present.png"], guides: [{ slug: "example", relatedPlaces: ["missing", "present"], sections: [] }], places: available, missingOnly: true })[0].matchedPlaceIds).toEqual(["missing"]);
+  });
   it("builds explicit asset copy operations", () => {
     const operations = buildGuideAssetPlan({
       slug: "burgers-menton",

@@ -11639,6 +11639,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["halles-du-marche", "menton-station", "plage-sablettes", "jardin-serre-de-la-madone"].includes(place.id)) relatedArticleIds.add("menton-holiday-budget");
   if (["le-regina-nice", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("rebecca-2020-riviera-filming-locations");
   if (["promenade-des-anglais-nice", "casino-square-monaco", "casino-de-monte-carlo", "hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco", "quai-amiral-courbet-villefranche", "rue-obscure-villefranche", "chapelle-saint-pierre-villefranche"].includes(place.id)) relatedArticleIds.add("la-baie-des-anges-jacques-demy-riviera-filming-locations");
   if (["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "ventimiglia-station", "monaco-monte-carlo", "ventimiglia", "sanremo"].includes(place.id)) relatedArticleIds.add("france-monaco-italy-travel-from-menton");
