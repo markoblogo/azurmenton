@@ -1,0 +1,23 @@
+# Revolution And Romance In Menton
+
+Reviewed 4 November 2026, Europe/Paris. Owner supplied Word guide and promotional artwork. Publication in EN/FR/IT/UK explicitly approved after successful checks. Preserve the supplied English narrative and localize the same sixteen-block structure, eight-row timeline and nine-row evidence table. Remove internal editorial instructions and intake metadata from public copy.
+
+## Sources And Corrections
+
+- [Harlequin](https://harlequin.helloromance.fr/livre/13159/alienor/les-derniers-feux-de-la-royaute): Virginie Platel, Aliénor, 1 July 2020, 352 pages, French paperback and ePub editions. Format listings do not prove current physical stock. No current price or sales claim. Publisher gives Gabriel Forcini; municipal text gives Forsani. Use Gabriel without asserting a surname. Premise only, not a full-text review or identification of individual scene addresses.
+- [City presentation, 12 October 2020](https://www.menton.fr/Les-derniers-feux-de-la-royaute-de-Paris-a-Menton.html): Jeanne Mercier, Marie-Antoinette's portraitist in the fictional premise, refuge in Menton; author moved to Menton around age ten, studied locally and in Nice, worked as violinist and screenwriter, accessed fonds Octobon through L'Odyssée. Do not confuse this fictional protagonist with Élisabeth Vigée Le Brun. The accessible descriptions do not confirm Gabriel's exact occupation: do not assign lemon-growing to him.
+- [Municipal history](https://www.menton.fr/Histoire-de-la-Ville.html) and [regional heritage inventory](https://dossiersinventaire.maregionsud.fr/dossier/IA06002797): Menton acquired by Charles Grimaldi in 1346; French protection in 1641; not French in 1789; annexation during 1793, Grimaldi restoration after Empire, free towns in 1848, definitive attachment in 1861. Keep 1793 at year precision; do not conflate local political acts and French decrees. The supplied 1790 reform context is also supported by the University of Lorraine doctoral research on local codes, not newly inferred from the municipal timeline.
+- [Municipal basilica page](https://www.menton.fr/la-basilique-saint-michel-archange.html): worship from 1653, consecration 1675, tower work from 1701, facade 1819. Weekdays 15:00–17:00; Saturday 10:00–12:00 and 15:00–17:00; Sunday 11:00 Mass is not an ordinary sightseeing slot. Services/exceptional closures may change access. [Municipal tower article](https://www.menton.fr/L-essentiel-sur-Le-campanile-de-la-Basilique-Saint-Michel-archange.html) gives completion in 1703, while the tourism-supplied listing gives 1701–1702. Retain start year only and disclose differing completion dates. Remove the unverified damask-gift detail rather than presenting it as a checked current exhibit. No free-admission claim without the current source.
+- [Municipal archives](https://www.menton.fr/les-archives-municipales.html): ancient collection before 1794; access by appointment. Archives and library are separate institutions. No new archive venue card, map coordinate or unannounced visit suggestion.
+
+## Content Graph And Artwork
+
+Reuse five already illustrated places: L'Odyssée in the research section, plus Rue Longue, Saint-Michel, Halles and Esplanade des Sablettes in the walk. The lower-old-town stop is context, not a fabricated extra address. Update reciprocal place/article links and six relevant existing guides. Do not create cards from subsection headings or fictional characters; discard broad automated fishing/day-trip suggestions. No standalone Giles Waterfield guide exists in the checked catalogue, so do not invent one.
+
+Add to Books, Films and Art. Existing old-town, citrus, Belle Époque and access guides provide context; apartment links support an actual Menton stay without promising availability or step-free walking. The five stops and 60–90-minute estimate are original editorial planning suggestions, not measured routes or an author's itinerary.
+
+Use supplied image unchanged with ordinary local derivatives; identify it as an imagined illustration, not the verified publisher's cover or a documentary reconstruction of 1789. All reused places already have illustrations; no new image request is needed. Keep the source document and original artwork; no source deletion, paid service, new UI or automation.
+
+## Verification Gates
+
+Check locale structure, formatted text, tables, fiction/history distinction, exact edition metadata, five illustrated cards, six reciprocal guide links, collection membership and actual image decoding. Run final-input local checks, scoped desktop/mobile browser checks, then current-head CI/review, exact deployed SHA and public-domain verification. Preparation, owner approval and successful public verification remain separate evidence.
