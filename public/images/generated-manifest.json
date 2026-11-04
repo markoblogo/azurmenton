@@ -1538,5 +1538,12 @@
       "public/images/guide/generated/les-petites-affaires-du-port-train.avif",
       "public/images/guide/generated/les-petites-affaires-du-port-train.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/les-derniers-feux-de-la-royaute-menton.png",
+    "outputs": [
+      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.avif",
+      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.webp"
+    ]
   }
 ]
