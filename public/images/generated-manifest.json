@@ -609,6 +609,13 @@
     ]
   },
   {
+    "source": "public/images/guide/julian-hale-french-riviera-cultural-history.png",
+    "outputs": [
+      "public/images/guide/generated/julian-hale-french-riviera-cultural-history.avif",
+      "public/images/guide/generated/julian-hale-french-riviera-cultural-history.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/kairos-lab-menton.png",
     "outputs": [
       "public/images/guide/generated/kairos-lab-menton.avif",
@@ -1162,6 +1169,13 @@
     ]
   },
   {
+    "source": "public/images/guide/poirot-blue-train-filming-locations-menton.png",
+    "outputs": [
+      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.avif",
+      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/port-de-la-darse-villefranche.png",
     "outputs": [
       "public/images/guide/generated/port-de-la-darse-villefranche.avif",
@@ -1484,10 +1498,17 @@
     ]
   },
   {
-    "source": "public/images/guide/poirot-blue-train-filming-locations-menton.png",
+    "source": "public/images/guide/cathedrale-saint-nicolas-nice.png",
     "outputs": [
-      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.avif",
-      "public/images/guide/generated/poirot-blue-train-filming-locations-menton.webp"
+      "public/images/guide/generated/cathedrale-saint-nicolas-nice.avif",
+      "public/images/guide/generated/cathedrale-saint-nicolas-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/trophee-auguste-la-turbie.png",
+    "outputs": [
+      "public/images/guide/generated/trophee-auguste-la-turbie.avif",
+      "public/images/guide/generated/trophee-auguste-la-turbie.webp"
     ]
   }
 ]
