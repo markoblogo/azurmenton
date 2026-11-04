@@ -1510,5 +1510,33 @@
       "public/images/guide/generated/trophee-auguste-la-turbie.avif",
       "public/images/guide/generated/trophee-auguste-la-turbie.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-book-cover.jpeg",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-companions.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-companions.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-companions.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-french-puzzle-book.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-train.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-train.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-train.webp"
+    ]
   }
 ]

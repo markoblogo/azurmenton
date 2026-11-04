@@ -57,6 +57,8 @@ npm run guide:workflow -- assets --slug <intake-slug> --assets-dir /absolute/ima
 
 Word, Markdown and plain text are supported. Guide selection, translation, review and publication remain manual. New-place placeholders require an explicit owner illustration request. Original sources are retained until verified publication. `guide:runtime-trial` is a loopback-only experiment, not a production content store.
 
+The guide catalogue also supports author-provided book recommendations: separate promotional artwork and actual cover, explicit language/format links, independent French editorial copy where supplied, and native spoiler-safe solution disclosures excluded from ordinary search text. Fictional settings are never imported as real places.
+
 [Guide workflow](docs/guide-manual-workflow.md) · [Content rules](docs/content-operations.md) · [Event workflow](docs/events-publication-workflow.md) · [Editorial registry](docs/editorial-queue.md)
 
 Useful editorial reports: `npm run content:report`, `npm run events:review`, `npm run editorial:report`, `npm run guides:verify`, `npm run seo:priorities`. Reports do not constitute approval or publication. Do not ingest, publish, send messages or modify live settings without the corresponding authorization.

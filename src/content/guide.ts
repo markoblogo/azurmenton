@@ -30,6 +30,7 @@ import { hitchcockGuide } from "@/content/hitchcock-guide";
 import { gardensGuide } from "@/content/gardens-guide";
 import { poirotGuide } from "@/content/poirot-guide";
 import { haleGuide } from "@/content/hale-guide";
+import { portBookGuide } from "@/content/port-book-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -95,6 +96,7 @@ export type LocalizedGuideArtworkCard = Omit<GuideArtworkCard, "workTitle" | "im
 };
 
 export type GuideSection = {
+  disclosures?: { id: string; heading: string; body: string[] }[];
   formattedBody?: boolean;
   tables?: { headers: string[]; rows: string[][] }[];
   heading: string;
@@ -127,6 +129,7 @@ export type LocalizedGuideSectionOfficialLink = {
 };
 
 export type LocalizedGuideSection = {
+  disclosures?: { id: string; heading: LocalizedText; body: LocalizedText[] }[];
   formattedBody?: boolean;
   tables?: Record<Locale, { headers: string[]; rows: string[][] }[]>;
   heading: LocalizedText;
@@ -192,7 +195,22 @@ export type MarineConditionsUtilityBlock = {
 
 export type GuideUtilityBlock = LocalRadioUtilityBlock | AirportLiveBoardUtilityBlock | MarineConditionsUtilityBlock;
 
+export type GuideBookRecommendation = {
+  title: string;
+  subtitle: string;
+  author: string;
+  year: number;
+  language: "fr";
+  coverImage: string;
+  coverImageAlt: LocalizedText;
+  languageNote: LocalizedText;
+  disclosure: LocalizedText;
+  paperbackUrl: string;
+  kindleUrl: string;
+};
+
 export type GuideArticle = {
+  bookRecommendation?: GuideBookRecommendation;
   id: string;
   slug: string;
   title: LocalizedText;
@@ -11442,6 +11460,11 @@ guideArticles.push(hitchcockGuide);
 guideArticles.push(gardensGuide);
 guideArticles.push(poirotGuide);
 guideArticles.push(haleGuide);
+guideArticles.push(portBookGuide);
+for (const slug of portBookGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(portBookGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), portBookGuide.slug];
+}
 for (const slug of haleGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(haleGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), haleGuide.slug];
@@ -11720,9 +11743,16 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
     categoryLabel: guideCategoryLabels[article.category][locale],
     durationLabel: article.duration ? guideDurationLabels[article.duration][locale] : undefined,
     coverImageAlt: article.coverImageAlt?.[locale],
+    bookRecommendation: article.bookRecommendation ? {
+      ...article.bookRecommendation,
+      coverImageAlt: article.bookRecommendation.coverImageAlt[locale],
+      languageNote: article.bookRecommendation.languageNote[locale],
+      disclosure: article.bookRecommendation.disclosure[locale],
+    } : undefined,
     sections: article.sections.map((section) => ({
       ...section,
       heading: section.heading[locale],
+      disclosures: section.disclosures?.map(item => ({ id: item.id, heading: item.heading[locale], body: item.body.map(paragraph => paragraph[locale]) })),
       tables: section.tables?.[locale],
       body: section.body.map((paragraph) => paragraph[locale]),
       bullets: section.bullets?.map((bullet) => bullet[locale]),

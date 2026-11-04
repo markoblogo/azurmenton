@@ -12,6 +12,8 @@ import { RelatedApartmentsBlock } from "@/components/content/RelatedApartmentsBl
 import { ShareActions } from "@/components/content/ShareActions";
 import { FavouriteButton } from "@/components/content/FavouriteButton";
 import { ArtworkCard } from "@/components/guide/ArtworkCard";
+import { BookRecommendationArticle } from "@/components/guide/BookRecommendationArticle";
+import { formattedGuideText } from "@/components/guide/FormattedGuideText";
 import { GuideAppToolCard } from "@/components/guide/GuideAppToolCard";
 import { GuideAuthorityPanel } from "@/components/guide/GuideAuthorityPanel";
 import { GuideVisual } from "@/components/guide/GuideVisual";
@@ -41,22 +43,6 @@ import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
-
-function formattedGuideText(text: string, locale: Locale) {
-  const tokens = /(\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|\*\*([^*]+)\*\*|_([^_]+)_)/g;
-  return text.split(tokens).reduce<React.ReactNode[]>((out, part, index, parts) => {
-    if (index % 6 === 0) { if (part) out.push(part); return out; }
-    if (index % 6 !== 1 || !part) return out;
-    const label = parts[index + 1];
-    const url = parts[index + 2];
-    if (label && url) {
-      const href = url.replace(/^https:\/\/azurmenton\.com\/(?:en|fr|it|uk)(?=\/|$)/, `/${locale}`);
-      out.push(<a key={index} href={href} className="underline underline-offset-4 hover:text-[#173f36]" {...(href.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{label}</a>);
-    } else if (parts[index + 3]) out.push(<strong key={index} className="font-semibold text-[#173f36]">{parts[index + 3]}</strong>);
-    else if (parts[index + 4]) out.push(<em key={index}>{parts[index + 4]}</em>);
-    return out;
-  }, []);
-}
 
 const labels = {
   en: { home: "Home", guide: "Menton Guide", category: "Category", duration: "Duration", bestFor: "Best for", usefulPlaces: "Useful places", appToolkit: "App toolkit", practicalTips: "Practical tips", relatedGuides: "Related guides", relatedEvents: "Related events", relatedApartments: "Where to stay", sourceNote: "Some opening hours, prices or venue details should be checked before visiting.", authorityAuthor: "Author", authorityChecked: "Editorial review", authoritySources: "Useful sources", realPlan: "Plan your day", watchSource: "Watch on source", source: "Source", opensOnSource: "Video opens on the source site", check: "Check availability", apartments: "View apartments", finalTitle: "Stay close to the beach in central Menton", finalText: "Tell us your dates and we will confirm availability directly.", walkingFinalTitle: "Stay central, walk everywhere", walkingFinalText: "Tell us your dates and we’ll help you choose the apartment that best fits your plans.", transportFinalTitle: "Planning a car-free stay in Menton?", transportFinalText: "Tell us your dates and how you plan to arrive. We’ll help you choose the apartment that best fits your trip." },
@@ -156,6 +142,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
         { name: localized.title, url: pageUrl },
       ])} />
 
+      {localized.bookRecommendation ? <BookRecommendationArticle article={localized} locale={locale} /> : <>
       <section className="border-b border-[#dfd2b8] bg-[#f8f3ea] pb-4 pt-10 sm:pb-6 sm:pt-14">
         <Container>
           <div>
@@ -418,6 +405,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           />
         </Container>
       </Section>
+      </>}
     </>
   );
 }
