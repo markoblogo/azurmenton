@@ -4,6 +4,7 @@ import imageDerivativeTargets from "../../scripts/lib/image-derivative-targets.j
 import { dayRouteDetails } from "./planning/day-route-details";
 import { dogPlaces } from "./dog-places";
 import { hitchcockPlaces } from "./hitchcock-places";
+import { halePlaces } from "./hale-places";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -343,6 +344,7 @@ const rawPlaces: Place[] = [
   },
   ...dogPlaces,
   ...hitchcockPlaces,
+  ...halePlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
     address: "33 Boulevard Edouard Baudoin, 06160 Juan-les-Pins", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),
@@ -11568,6 +11570,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["promenade-du-soleil", "monaco-monte-carlo", "casino-square-monaco", "royal-westminster-menton", "le-majestic-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "halles-du-marche", "musee-matisse-nice", "salle-des-mariages-jean-cocteau", "basilica-saint-michel-archange", "palais-carnoles-menton", "villa-e-1027-roquebrune-cap-martin", "jardin-val-rahmeh", "jardin-serre-de-la-madone", "villa-ephrussi-de-rothschild", "gorbio", "sainte-agnes"].includes(place.id)) relatedArticleIds.add("julian-hale-french-riviera-cultural-history");
   if (["palais-carnoles-menton", "rue-de-brea-menton", "basilica-saint-michel-archange", "villa-maria-serena"].includes(place.id)) relatedArticleIds.add("poirot-blue-train-filming-locations-menton");
   if (["jardin-val-rahmeh", "jardin-serre-de-la-madone", "jardin-fontana-rosa-menton", "villa-maria-serena", "palais-carnoles-menton", "les-colombieres-menton", "jardins-bioves"].includes(place.id)) relatedArticleIds.add("best-gardens-menton");
   if (["villefranche-sur-mer", "quai-amiral-courbet-villefranche"].includes(place.id)) relatedArticleIds.add("to-catch-a-thief-hitchcock-villefranche-sur-mer");
