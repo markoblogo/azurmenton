@@ -595,6 +595,13 @@
     ]
   },
   {
+    "source": "public/images/guide/jardin-exotique-monaco.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-exotique-monaco.avif",
+      "public/images/guide/generated/jardin-exotique-monaco.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jardin-fontana-rosa-menton.png",
     "outputs": [
       "public/images/guide/generated/jardin-fontana-rosa-menton.avif",
@@ -963,6 +970,13 @@
     "outputs": [
       "public/images/guide/generated/menton-brocante-mail-du-bastion.avif",
       "public/images/guide/generated/menton-brocante-mail-du-bastion.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/menton-holiday-budget.png",
+    "outputs": [
+      "public/images/guide/generated/menton-holiday-budget.avif",
+      "public/images/guide/generated/menton-holiday-budget.webp"
     ]
   },
   {
@@ -1540,6 +1554,13 @@
     ]
   },
   {
+    "source": "public/images/guide/villa-eilenroc-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/villa-eilenroc-antibes.avif",
+      "public/images/guide/generated/villa-eilenroc-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/villa-ephrussi-de-rothschild.png",
     "outputs": [
       "public/images/guide/generated/villa-ephrussi-de-rothschild.avif",
@@ -1621,20 +1642,6 @@
     "outputs": [
       "public/images/tools/generated/weather.avif",
       "public/images/tools/generated/weather.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-eilenroc-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/villa-eilenroc-antibes.avif",
-      "public/images/guide/generated/villa-eilenroc-antibes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/jardin-exotique-monaco.png",
-    "outputs": [
-      "public/images/guide/generated/jardin-exotique-monaco.avif",
-      "public/images/guide/generated/jardin-exotique-monaco.webp"
     ]
   }
 ]

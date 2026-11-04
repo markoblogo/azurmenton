@@ -1,6 +1,12 @@
 import type { GuidePublicationImageStatus } from "./guide-check";
 import { buildGuideOperatorSummary } from "./guide-operator-summary";
 
+// Resolve coverage from files checked by the caller, without mutating canonical place metadata.
+export function withAvailablePlaceImages<T extends { image?: string }>(places: T[], availableImagePaths: string[]): T[] {
+  const available = new Set(availableImagePaths);
+  return places.map(place => place.image && !available.has(place.image) ? { ...place, image: undefined } : place);
+}
+
 export type PlaceAssetInput = {
   placeId: string;
   sourcePath: string;

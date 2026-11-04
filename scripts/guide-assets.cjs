@@ -13,6 +13,7 @@ registerTypescriptContent(root);
 const {
   parsePlaceAssetArgs,
   resolveGuideAssetPlan,
+  withAvailablePlaceImages,
   suggestPublishedGuideTargets,
   buildPublishedGuideAssetsRerunCommand,
   buildGuideAssetsPersistentSummary,
@@ -142,7 +143,15 @@ async function main(args = process.argv.slice(2)) {
   const { loadTargets, saveTargets, generateDerivatives } = await import("./lib/image-derivatives.mjs");
   const overrides = parsePlaceAssetArgs(placeArgs).map((asset) => ({ ...asset, sourcePath: path.resolve(asset.sourcePath) }));
   const resolvedAssetsDir = assetsDir ? path.resolve(assetsDir) : publicationPlan?.assetsDirectory ? path.resolve(publicationPlan.assetsDirectory) : undefined;
-  const existingPlaceImages = Object.fromEntries(places.filter((place) => place.image).map((place) => [place.id, place.image]));
+  const availableImagePaths = [];
+  for (const image of new Set(places.map(place => place.image).filter(Boolean))) {
+    const file = path.resolve(root, "public", image.replace(/^\//, ""));
+    if (!file.startsWith(path.join(root, "public") + path.sep)) throw new Error("Place image must be inside public");
+    try { if ((await fs.stat(file)).isFile()) availableImagePaths.push(image); }
+    catch (error) { if (error.code !== "ENOENT") throw error; }
+  }
+  const assetPlaces = withAvailablePlaceImages(places, availableImagePaths);
+  const existingPlaceImages = Object.fromEntries(assetPlaces.filter((place) => place.image).map((place) => [place.id, place.image]));
   const outputSlug = publishedGuideSlug ?? publicationPlan?.slug ?? intake?.slug ?? workingSlug;
   const publishedGuide = publishedGuideSlug
     ? (() => {
@@ -156,7 +165,7 @@ async function main(args = process.argv.slice(2)) {
           intakeTitle: guide.title.en,
           coverImage: guide.coverImage,
           places: relatedPlaceIds.map((placeId) => {
-            const place = places.find((entry) => entry.id === placeId);
+            const place = assetPlaces.find((entry) => entry.id === placeId);
             return {
               placeId,
               draftName: place?.name ?? placeId,
@@ -184,7 +193,7 @@ async function main(args = process.argv.slice(2)) {
     placeAssetOverrides: overrides,
     availableAssetFiles: resolvedAssetsDir ? await existingFilesInDirectory(resolvedAssetsDir) : [],
     existingPlaceImages,
-    knownPlaces: places.map((place) => ({ id: place.id, name: place.name, image: place.image })),
+    knownPlaces: assetPlaces.map((place) => ({ id: place.id, name: place.name, image: place.image })),
     publishedGuide: publishedGuide ?? undefined,
     missingOnly,
   });
@@ -268,7 +277,7 @@ async function main(args = process.argv.slice(2)) {
               relatedPlaces: guide.relatedPlaces ?? [],
               sections: guide.sections,
             })),
-            places: places.map((place) => ({
+            places: assetPlaces.map((place) => ({
               id: place.id,
               name: place.name,
               image: place.image,
@@ -413,12 +422,19 @@ async function main(args = process.argv.slice(2)) {
 
   const targets = await loadTargets(registryPath);
   const generated = [];
+  report.assetProcessing = [];
 
   for (const operation of operations) {
+    const startedAt = new Date().toISOString();
+    const started = Date.now();
     const destination = path.join(root, operation.destinationPath);
     await fs.copyFile(operation.sourcePath, destination);
     if (!targets.includes(operation.destinationPath)) targets.push(operation.destinationPath);
-    generated.push(await generateDerivatives(root, operation.destinationPath));
+    const entry = await generateDerivatives(root, operation.destinationPath);
+    generated.push(entry);
+    let outputBytes = 0;
+    for (const output of entry.outputs) outputBytes += (await fs.stat(path.join(root, output))).size;
+    report.assetProcessing.push({ destinationPath: operation.destinationPath, startedAt, finishedAt: new Date().toISOString(), durationMs: Date.now() - started, sourceBytes: (await fs.stat(destination)).size, outputBytes });
     console.log(`${operation.kind}: ${operation.sourcePath} -> ${operation.destinationPath}`);
   }
 
