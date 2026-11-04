@@ -1573,5 +1573,12 @@
       "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.avif",
       "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/france-monaco-italy-travel-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/france-monaco-italy-travel-from-menton.avif",
+      "public/images/guide/generated/france-monaco-italy-travel-from-menton.webp"
+    ]
   }
 ]
