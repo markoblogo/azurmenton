@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "villa-torre-clementina-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-11-05", sourceUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080959" },
   { placeId: "villa-eilenroc-antibes", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://www.antibes-juanlespins.com/sorties-loisirs/un-patrimoine-vivant/la-villa-eilenroc" },
   { placeId: "jardin-exotique-monaco", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://www.jardin-exotique.mc/fr/preparer-ma-visite" },
   ...["jardin-albert-premier-nice", "place-massena-nice"].map(placeId => ({ placeId, reason: "coordinate_unverified" as const, checkedOn: "2026-11-04", sourceUrl: "https://www.nice.fr/uploads/media/default/0001/01/NFC_decouvrir-le-vieux-nice-en-velo.PDF" })),
