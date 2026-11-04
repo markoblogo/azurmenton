@@ -12,6 +12,9 @@ sections.forEach((section, index) => {
 });
 sections[2].relatedPlaceIds = ["villa-cypris-roquebrune-cap-martin"];
 sections[7].relatedPlaceIds = ["roquebrune-cap-martin-coastal-walk"];
+sections[10].relatedPlaceIds = ["villa-torre-clementina-roquebrune-cap-martin"];
+sections[10].guideLinkSlug = "joy-house-les-felins-villa-torre-clementina";
+sections[10].guideLinkLabel = t("Torre Clementina and Joy House", "Torre Clementina et Les Félins", "Torre Clementina e Joy House", "Torre Clementina та Joy House");
 sections[11].relatedPlaceIds = ["villa-ephrussi-de-rothschild"];
 sections[7].guideLinkSlug = "best-walks-and-hikes-around-menton";
 sections[7].guideLinkLabel = t("Compare other public walks", "Comparer d'autres promenades publiques", "Confrontare altre passeggiate pubbliche", "Порівняйте інші громадські прогулянки");
@@ -32,7 +35,7 @@ export const cyprisGuide: GuideArticle = {
   visualTheme: "itinerary", visualStatus: "project_illustration",
   tags: [t("French cinema", "Cinéma français", "Cinema francese", "Французьке кіно"), t("Architecture", "Architecture", "Architettura", "Архітектура"), t("Coastal walk", "Sentier littoral", "Sentiero costiero", "Прибережна стежка")],
   bestFor: [t("Film and architecture enthusiasts", "Amateurs de cinéma et d'architecture", "Appassionati di cinema e architettura", "Шанувальники кіно й архітектури"), t("A short selected coastal outing", "Une courte portion du littoral", "Un tratto costiero breve", "Коротка обрана ділянка узбережжя")],
-  relatedPlaces: ["villa-cypris-roquebrune-cap-martin", "roquebrune-cap-martin-coastal-walk", "villa-ephrussi-de-rothschild"],
+  relatedPlaces: ["villa-cypris-roquebrune-cap-martin", "roquebrune-cap-martin-coastal-walk", "villa-ephrussi-de-rothschild", "villa-torre-clementina-roquebrune-cap-martin"],
   relatedArticles: ["best-walks-and-hikes-around-menton", "films-shot-in-menton", "heartbreaker-larnacoeur-monaco-filming-locations", "to-catch-a-thief-hitchcock-villefranche-sur-mer", "museums-in-menton-nice-monaco", "public-transport-in-menton", "where-to-stay-in-menton"],
   relatedApartments: ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"],
   practicalTips: [t("Checked 4 November 2026. Private estate: no regular public visits verified. Use only the marked public trail when open; do not bypass barriers. Opening and dated train stops are not guaranteed. Uneven ground and steps: not continuously step-free. The 45–90 minutes is an editorial allowance for a short selected segment, not a measured station-to-gallery route. Exact film shots remain unverified; illustrations are not documentary evidence.", "Vérifié le 4 novembre 2026. Domaine privé : aucune visite régulière vérifiée. Sentier public balisé uniquement lorsqu'il est ouvert ; ne contournez pas les barrières. Ouverture et arrêts de trains non garantis. Sol irrégulier et marches. Les 45–90 minutes sont une estimation de courte portion, pas un trajet gare–galerie mesuré. Plans exacts non vérifiés ; illustrations non documentaires.", "Verificato il 4 novembre 2026. Proprietà privata: nessuna visita regolare verificata. Solo sentiero pubblico segnalato quando aperto; non aggirare barriere. Apertura e fermate datate non garantite. Fondo irregolare e gradini. I 45–90 minuti sono una stima per un tratto breve, non un percorso stazione–galleria misurato. Fotogrammi non verificati; immagini non documentarie.", "Перевірено 4 листопада 2026. Приватний маєток: регулярні відвідини не підтверджено. Лише відкрита позначена громадська стежка, без обходу бар'єрів. Відкриття й зупинки поїздів не гарантовані. Нерівності й сходи. 45–90 хвилин — оцінка короткої ділянки, не виміряний шлях станція–галерея. Точні кадри не перевірені; ілюстрації не документальні.")],

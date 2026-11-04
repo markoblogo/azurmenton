@@ -630,6 +630,13 @@
     ]
   },
   {
+    "source": "public/images/guide/joy-house-les-felins-villa-torre-clementina.png",
+    "outputs": [
+      "public/images/guide/generated/joy-house-les-felins-villa-torre-clementina.avif",
+      "public/images/guide/generated/joy-house-les-felins-villa-torre-clementina.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/juan-les-pins-seafront.png",
     "outputs": [
       "public/images/guide/generated/juan-les-pins-seafront.avif",
@@ -1642,6 +1649,13 @@
     "outputs": [
       "public/images/tools/generated/weather.avif",
       "public/images/tools/generated/weather.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-torre-clementina-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.webp"
     ]
   }
 ]

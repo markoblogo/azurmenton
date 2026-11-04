@@ -26,7 +26,8 @@ describe("Villa Cypris cinema guide", () => {
   });
 
   it("keeps the private estate illustrated, map-excluded and connected to a relevant older walk", () => {
-    expect(guide.relatedPlaces).toHaveLength(3);
+    expect(guide.relatedPlaces).toHaveLength(4);
+    expect(guide.sections[10].relatedPlaceIds).toContain("villa-torre-clementina-roquebrune-cap-martin");
     for (const id of guide.relatedPlaces ?? []) {
       const place = places.find(item => item.id === id)!;
       expect(place.relatedArticleIds).toContain(slug);

@@ -335,6 +335,18 @@ const rawPlaces: Place[] = [
     bestFor: [text("seafront pause", "pause en bord de mer", "pausa sul mare", "пауза біля моря")], relatedArticleIds: ["la-baie-des-anges-jacques-demy-riviera-filming-locations"],
   },
   {
+    id: "villa-torre-clementina-roquebrune-cap-martin", name: "Villa Torre Clementina", type: "civic",
+    address: "Avenue Impératrice-Eugénie, 06190 Roquebrune-Cap-Martin, France",
+    area: text("Cap Martin; private estate", "Cap Martin ; domaine privé", "Cap Martin; proprietà privata", "Cap Martin; приватний маєток"),
+    image: "/images/guide/villa-torre-clementina-roquebrune-cap-martin.png",
+    googleMapsUrl: mapsQuery("Villa Torre Clementina", "Roquebrune-Cap-Martin"),
+    programmeUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080959",
+    sourceStatus: "verified", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Private historic estate, documented Les Félins / Joy House filming property. No regular public visit or clear public viewpoint verified. Do not enter gates, gardens, driveways or terraces. The map search identifies the estate, not a visitor entrance. Exact film shots and unchanged interiors remain unverified.", "Domaine historique privé, décor documenté des Félins. Aucune visite régulière ou vue publique dégagée vérifiée. N'entrez pas par les portails, jardins, allées ou terrasses. La recherche situe le domaine, pas une entrée de visite. Plans exacts et intérieurs inchangés non vérifiés.", "Dimora storica privata, location documentata di Les Félins / Joy House. Visite regolari e punto pubblico libero non accertati. Non entrare in cancelli, giardini, viali o terrazze. La ricerca identifica il dominio, non un ingresso visitatori. Inquadrature e interni invariati non verificati.", "Приватний історичний маєток, документована локація Les Félins / Joy House. Регулярні відвідини й відкрита громадська точка огляду не перевірені. Не заходьте за ворота, у сади, алеї чи на тераси. Пошук показує маєток, не вхід для гостей. Точні кадри й незмінні інтер'єри не підтверджені."),
+    bestFor: [text("film and architectural history", "histoire du cinéma et de l'architecture", "storia del cinema e dell'architettura", "історія кіно й архітектури")],
+    relatedArticleIds: ["joy-house-les-felins-villa-torre-clementina", "mortelle-randonnee-villa-cypris-filming-location"],
+  },
+  {
     id: "villa-cypris-roquebrune-cap-martin", name: "Villa Cypris", type: "civic",
     address: "Avenue Douine, 06190 Roquebrune-Cap-Martin, France",
     area: text("Cap Martin; private estate", "Cap Martin ; domaine privé", "Cap Martin; proprietà privata", "Cap Martin; приватний маєток"),
@@ -11639,6 +11651,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["roquebrune-cap-martin-coastal-walk", "villa-e-1027-roquebrune-cap-martin", "villa-cypris-roquebrune-cap-martin"].includes(place.id)) relatedArticleIds.add("joy-house-les-felins-villa-torre-clementina");
   if (["halles-du-marche", "menton-station", "plage-sablettes", "jardin-serre-de-la-madone"].includes(place.id)) relatedArticleIds.add("menton-holiday-budget");
   if (["le-regina-nice", "musee-matisse-nice"].includes(place.id)) relatedArticleIds.add("rebecca-2020-riviera-filming-locations");
   if (["promenade-des-anglais-nice", "casino-square-monaco", "casino-de-monte-carlo", "hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco", "quai-amiral-courbet-villefranche", "rue-obscure-villefranche", "chapelle-saint-pierre-villefranche"].includes(place.id)) relatedArticleIds.add("la-baie-des-anges-jacques-demy-riviera-filming-locations");
