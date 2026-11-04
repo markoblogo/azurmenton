@@ -1566,5 +1566,12 @@
       "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.avif",
       "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/winter-walks-menton-sunshine-short-routes.png",
+    "outputs": [
+      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.avif",
+      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.webp"
+    ]
   }
 ]

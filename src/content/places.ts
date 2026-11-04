@@ -11583,6 +11583,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["promenade-du-soleil", "plage-casino", "plage-du-marche-menton", "jardins-bioves", "halles-du-marche", "esplanade-des-sablettes-menton", "port-de-garavan", "promenade-de-la-mer-menton"].includes(place.id)) relatedArticleIds.add("winter-walks-menton-sunshine-short-routes");
   if (["roquebrune-cap-martin-coastal-walk", "villa-ephrussi-de-rothschild"].includes(place.id)) relatedArticleIds.add("mortelle-randonnee-villa-cypris-filming-location");
   if (["jardins-bioves", "promenade-du-soleil", "halles-du-marche", "cours-saleya-nice", "menton-station", "nice-ville-station"].includes(place.id)) relatedArticleIds.add("nice-carnival-menton-lemon-festival-itinerary");
   if (["odyssee-bibliotheque-menton", "rue-longue-menton", "basilica-saint-michel-archange", "halles-du-marche", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("les-derniers-feux-de-la-royaute-menton");
