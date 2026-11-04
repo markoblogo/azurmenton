@@ -31,9 +31,10 @@ it("publishes the complete Gary article with aligned translations and no editori
   expect(getLatestLandingGuideSlug([guide])).toBe(guide.slug);
 });
 
-it("keeps all eight cards illustrated without replacing existing assets or inventing coordinates", () => {
+it("retains eight existing illustrations and the supplied shared Old Nice illustration without inventing coordinates", () => {
   const places = getPlaces(guide.relatedPlaces ?? []);
-  expect(places).toHaveLength(8);
+  expect(places).toHaveLength(9);
+  expect(places.find(place => place.id === "vieux-nice")?.image).toBe("/images/guide/vieux-nice.png");
   for (const place of places) expect(place.relatedArticleIds).toContain(guide.slug);
   for (const id of illustratedPlaces) {
     const place = getPlace(id)!;

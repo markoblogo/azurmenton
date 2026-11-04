@@ -48,14 +48,15 @@ Follow the [release checklist](LAUNCH_CHECKLIST.md) and [deployment runbook](DEP
 
 ```bash
 npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
-# Review facts, matches and links; prepare all four translations and insert reviewed content.
-npm run guide:workflow -- bundle --slug <intake-slug>
-npm run guide:workflow -- check --slug <intake-slug>
+# Review facts/links, prepare four translations and insert reviewed canonical content.
+npm run guide:workflow -- verify --slug <intake-slug>
+# After separately approved merge/deployment, verify the public pages without writes:
+npm run guide:browser -- --slug <intake-slug> --public
 # Later, add the owner's illustrations without replacing existing images:
 npm run guide:workflow -- assets --slug <intake-slug> --assets-dir /absolute/images
 ```
 
-Word, Markdown and plain text are supported. Guide selection, translation, review and publication remain manual. New-place placeholders require an explicit owner illustration request. Original sources are retained until verified publication. `guide:runtime-trial` is a loopback-only experiment, not a production content store.
+Word, Markdown and plain text are supported. `verify` synchronizes the local plan from the inserted guide, retains its original snapshot, runs all existing checks with the normal bundler and checks four languages/images/tables in an owned local browser server. Identical-input receipts are reused; `--webpack` is an explicit fallback only. Use `bundle` for pre-insertion editorial planning, not repeatedly after canonical insertion. Guide selection, translation, review and publication remain manual. New-place placeholders require an explicit owner illustration request. Original sources are retained until verified publication. `guide:runtime-trial` is a loopback-only experiment, not a production content store.
 
 The guide catalogue also supports author-provided book recommendations: separate promotional artwork and actual cover, explicit language/format links, independent French editorial copy where supplied, and native spoiler-safe solution disclosures excluded from ordinary search text. Fictional settings are never imported as real places.
 

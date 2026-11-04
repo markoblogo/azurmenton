@@ -33,6 +33,7 @@
     "guide:review": "node scripts/guide-review.cjs",
     "guide:ops": "node scripts/guide-ops.cjs",
     "guide:workflow": "node scripts/guide-workflow.cjs",
+    "guide:browser": "node scripts/guide-browser-check.cjs",
     "guide:runtime-trial": "node scripts/guide-runtime-trial.cjs",
     "editorial:report": "node scripts/editorial-report.cjs",
     "guides:health": "node scripts/guides-health.cjs",
