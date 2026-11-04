@@ -8,22 +8,28 @@ This wraps existing guide tools; it is not an automatic publisher, translator, s
 # Word, Markdown and plain text remain supported.
 npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
 
-# Edit the plan, review matches, translate and verify facts manually.
-# Rerun the packet after resolving editorial gaps:
+# Before insertion: edit the plan, review matches, translate and verify facts manually.
+# Rerun the planning packet only when resolving pre-insertion gaps:
 npm run guide:workflow -- bundle --slug <intake-slug>
 
-# Insert reviewed source/places/backlinks through the existing patch bundle.
-# Then validate the final tree:
-npm run guide:workflow -- check --slug <intake-slug>
-# Local fallback when Turbopack worker ports are restricted:
-npm run guide:workflow -- check --slug <intake-slug> --webpack
+# After inserting reviewed source/places/backlinks, use one final verification:
+npm run guide:workflow -- verify --slug <intake-slug>
+# Explicit fallback only when the normal Turbopack build is unavailable:
+npm run guide:workflow -- verify --slug <intake-slug> --webpack
+
+# After a separately approved release, check the public site without writes:
+npm run guide:browser -- --slug <intake-slug> --public
 
 # Later illustration pass, using the SAME packet:
 npm run guide:workflow -- assets --slug <intake-slug> --assets-dir /absolute/images
-npm run guide:workflow -- check --slug <intake-slug> --webpack
+npm run guide:workflow -- verify --slug <intake-slug>
 ```
 
 `prepare` reads the source, refuses an existing intake rather than erasing editorial decisions, runs `guide:new`, freezes original source/cover bytes, processes the explicit cover locally, and runs match -> structure -> link-plan -> check -> apply -> publish-readiness -> patch. `bundle` regenerates the same packet after manual plan edits. It does not translate or insert the article into canonical content. Expected readiness failures return nonzero with the packet and logs retained; inspect blockers rather than treating scaffold generation as publication.
+
+`verify` is the post-insertion path: validate frozen originals, require the same existing canonical guide/slug, save the first plan snapshot to `publication-plan.before-verify.json`, then use the existing review-plan synchronizer. It updates only ignored packet metadata, never public content. It does not rerun fuzzy place suggestions or the seven-step intake pipeline. The refreshed packet marks `canonicalFinalized`, not insertion readiness or publication approval; historical readiness claims are not carried forward. All normal final-tree checks still run, followed by the reusable browser check. Repeating the command on identical inputs reuses intact receipts; actual content, environment, date, log or build-artifact changes invalidate them. Keep `check` for the original strict packet path without synchronization/browser work.
+
+`guide:browser` derives table counts and place images from canonical content, checks four locale pages, titles/canonicals, decoded cover/place images, raw Markdown leaks and document overflow at 360/390/768/1440px. Local mode starts an owned production server on an available loopback port, waits for readiness, and stops only that process. Public mode uses only `https://azurmenton.com`, also verifies catalogue/sitemap, a reciprocal older-guide link and cover asset hashes. Reports and FR screenshots live under `workflow/browser/local` or `workflow/browser/public`; failures remain failures, not approval. Inspect screenshots separately. Bespoke tests remain necessary for new interactions, spoiler disclosures or unusual layouts. This smoke check does not verify personal visa status, source truth, CI/review, deployed SHA or approval and must not replace those gates.
 
 `assets` uses intake-mode asset processing before insertion, or the existing safe published-guide mode after insertion. The latter reads the actual canonical guide and validates place IDs before updating image fields, retaining the existing post-apply verification and durable asset report. An explicit `--cover /absolute/file` may attach a missing cover; existing covers are not replaced. Changes are local until a separate approved Git release.
 
@@ -41,17 +47,25 @@ Files under ignored `build/guide-intake/<intake-slug>/workflow/`:
 
 Keep these files private/local: they can contain absolute source paths, prose and command output. They are not automatically copied into the tracked editorial registry. A clean checkout has no such local packets; original sources and committed content remain distinct.
 
+## Publication Timing And Improvement
+
+Starting with `la-baie-des-anges-jacques-demy-riviera-filming-locations`, keep a timing table in each dated guide audit. Record observed ISO start/end timestamps and elapsed time for intake, research, editing/localization/content graph, local QA, owner approval wait, CI/preview, merge/production and public verification. Separate elapsed wall time, actual tool durations and owner/external waiting; do not infer active labour from wall time. Use `UNKNOWN` when an interval was not measured. Interrupted work and overlapping stages must be labelled, not summed twice.
+
+For each blocker record the affected stage, symptom, observed time lost, cause (`unknown` until supported), recovery, and one proposed improvement. After public verification, report total observed elapsed time, the largest avoidable delay and one small improvement for the next guide. Reuse check receipts and provider timestamps rather than starting a second content database or automation. Never remove fact checks, approval or public verification to improve the measured time. Keep the same execution environment across retries; environment changes intentionally invalidate receipts. Local server/browser checks require a permitted loopback listener; an environment restriction is a blocker, not a failed guide or permission to mark a skipped check passed.
+
 ## Reusing Check Results
 
 The check suite runs guide review, documentation, lint, TypeScript, unit tests, content/SEO/weekly/funnel preflight, image validation, build and post-build preflight, using the shared project-check definitions. `release:check` adds native dependency validation, production security audit and production browser tests with the same receipt safeguards. A content-only reduced profile is not yet proved for executable TypeScript content modules.
 
-A successful check is reused only if the input fingerprint, ordered command definitions, log hash and any required generated artifacts still match. The fingerprint covers tracked and non-ignored source files, frozen packet inputs, Node/platform, local environment files and a hash of process environment values (excluding transient shell/invocation labels). Secret values are never printed or stored in the receipt. Generated build/report/browser output is excluded from source inputs; build artifacts and the complete generated Pagefind directory have separate integrity hashes. A changed guide, locale, place, image, link, script or dependency invalidates the prior result. Missing/modified required build artifacts force the relevant check again. A failed check stops the suite; earlier real successes may be reused on a same-input retry. Changing inputs during a run invalidates the entire receipt.
+A successful check is reused only if the input fingerprint, ordered command prefix through that check, log hash and any required generated artifacts still match. Receipt v2 binds each gate to its complete predecessor definitions: changing the build command invalidates build and all later gates while preserving identical earlier checks; adding or reordering an earlier gate invalidates its dependants. Legacy v1 receipts rerun once. The fingerprint covers tracked and non-ignored source files, frozen packet inputs, Node/platform, local environment files and a hash of process environment values (excluding transient shell/invocation labels). Secret values are never printed or stored in the receipt. Generated build/report/browser output is excluded from source inputs; build artifacts and the complete generated Pagefind directory have separate integrity hashes. A changed guide, locale, place, image, link, script or dependency invalidates the prior result. Missing/modified required build artifacts force the relevant check again. A failed check stops the suite; earlier real successes may be reused on a same-input retry. Changing inputs during a run invalidates the entire receipt. Receipts record total wall time as well as individual check times.
 
 This is local evidence, not a signature of human approval or proof of browser/production behavior. Current GitHub CI remains mandatory and unchanged; so do exact deployed-SHA, public locale/media checks and owner visual acceptance. No commit, push, merge, deployment or original-file deletion is performed by these commands. Archive source files only after the separately approved release and public verification, never merely after a green local receipt.
 
 Receipts are also bound to the calendar day in Europe/Paris, so date-sensitive readiness is not reused silently on the following day.
 
 The release runner's production dependency audit always runs again, even when source/check receipts match; external advisory data can change without a repository edit.
+
+`CODEX_TOOL_CALL_ID` is an invocation label, not build configuration, and is excluded from the environment digest. A changing tool-call ID must not force a rebuild. All other non-transient configuration and secret values remain hashed; the exception is covered alongside a test proving that an actual environment-value change still invalidates receipts.
 
 ## Isolated No-Rebuild Trial
 

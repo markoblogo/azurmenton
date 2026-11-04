@@ -303,6 +303,38 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "jardin-albert-premier-nice", name: "Jardin Albert Ier", type: "garden", address: "Place Masséna / Avenue de Verdun, Nice",
+    image: "/images/guide/jardin-albert-premier-nice.png",
+    imageAlt: text("Supplied artistic illustration evoking Jardin Albert Ier and its monumental arc; not a documentary photograph or verified film still", "Illustration artistique du jardin Albert Ier et de son arc monumental ; ni photographie documentaire ni photogramme vérifié", "Illustrazione artistica del Jardin Albert Ier e dell'arco monumentale; non fotografia documentaria o fotogramma verificato", "Надана художня ілюстрація Jardin Albert Ier з монументальною аркою; не документальне фото чи перевірений кадр"),
+    googleMapsUrl: mapsQuery("Jardin Albert Ier", "Nice"), programmeUrl: "https://www.nice.fr/lieux/jardin-albert-1er/", requiresMapReview: true, sourceStatus: "verified",
+    shortNote: text("Public garden linking the seafront and central Nice; a thematic Demy stop, not a verified shot. The bandstand is listed closed 2–9 November 2026 for marathon preparation, not the whole garden. Check event restrictions.", "Jardin public entre mer et centre ; étape thématique Demy, pas cadrage vérifié. Kiosque annoncé fermé du 2 au 9 novembre 2026 pour le marathon, pas tout le jardin. Vérifiez les restrictions.", "Giardino pubblico fra mare e centro; tappa tematica Demy, non inquadratura verificata. Chiosco chiuso 2–9 novembre 2026 per la maratona, non tutto il parco. Verificate restrizioni.", "Громадський сад між морем і центром; тематична зупинка Демі, не перевірений кадр. Павільйон закритий 2–9 листопада 2026 через марафон, не весь сад. Перевірте обмеження."),
+    bestFor: [text("garden pause", "pause au jardin", "pausa in giardino", "пауза в саду")], relatedArticleIds: ["la-baie-des-anges-jacques-demy-riviera-filming-locations"],
+  },
+  {
+    id: "place-massena-nice", name: "Place Masséna", type: "civic", address: "Place Masséna, Nice",
+    image: "/images/guide/place-massena-nice.png",
+    imageAlt: text("Supplied artistic illustration evoking Place Masséna and its fountain; not a documentary photograph or verified film still", "Illustration artistique de la place Masséna et de sa fontaine ; ni photographie documentaire ni photogramme vérifié", "Illustrazione artistica di Place Masséna e della fontana; non fotografia documentaria o fotogramma verificato", "Надана художня ілюстрація Place Masséna з фонтаном; не документальне фото чи перевірений кадр"),
+    googleMapsUrl: mapsQuery("Place Masséna", "Nice"), programmeUrl: "https://www.nice.fr/uploads/media/default/0001/01/NFC_decouvrir-le-vieux-nice-en-velo.PDF", requiresMapReview: true, sourceStatus: "editorial",
+    shortNote: text("Central public square for urban and architectural context, not an authenticated La Baie des Anges camera position. Tramways and event layouts require attention.", "Place publique centrale pour le contexte urbain, pas un cadrage authentifié de La Baie des Anges. Attention aux trams et aménagements événementiels.", "Piazza pubblica centrale per il contesto urbano, non posizione autenticata del film. Attenzione a tram e allestimenti.", "Центральна громадська площа для міського контексту, не автентифікований ракурс фільму. Зважайте на трамваї й подієві споруди."),
+    bestFor: [text("urban architecture", "architecture urbaine", "architettura urbana", "міська архітектура")], relatedArticleIds: ["la-baie-des-anges-jacques-demy-riviera-filming-locations"],
+  },
+  {
+    id: "vieux-nice", name: "Vieux-Nice", type: "walk", address: "Vieux-Nice, Nice",
+    image: "/images/guide/vieux-nice.png",
+    imageAlt: text("Supplied artistic illustration evoking an Old Nice street; not an identified Demy filming doorway or documentary photograph", "Illustration artistique d'une rue du Vieux-Nice ; ni porte de tournage identifiée ni photographie documentaire", "Illustrazione artistica di una via del Vieux-Nice; non portone identificato del film o fotografia documentaria", "Надана художня ілюстрація вулиці Vieux-Nice; не впізнані двері зі зйомок Демі чи документальне фото"),
+    googleMapsUrl: mapsQuery("Vieux Nice", "Nice"), programmeUrl: "https://www.nice.fr/uploads/media/default/0001/01/NFC_decouvrir-le-vieux-nice-en-velo.PDF", sourceStatus: "editorial",
+    shortNote: text("Historic neighbourhood, not one filming doorway. The exact building used for Demy's room scenes is not established here. Expect varied paving, narrow lanes and possible steps; not assessed as continuously step-free.", "Quartier historique, pas une porte de tournage précise. L'adresse des scènes de chambre n'est pas établie ici. Sols variables, ruelles et marches possibles ; parcours sans marches non évalué.", "Quartiere storico, non singolo portone del film. Indirizzo delle scene nella camera non accertato qui. Pavimentazioni variabili, vicoli e possibili gradini; percorso senza barriere non valutato.", "Історичний район, не конкретні двері зі зйомок. Адресу кімнатних сцен тут не встановлено. Різне покриття, вузькі провулки й можливі сходи; безсходинковість не оцінено."),
+    bestFor: [text("historic streets", "rues historiques", "vie storiche", "історичні вулиці")], relatedArticleIds: ["la-baie-des-anges-jacques-demy-riviera-filming-locations", "romain-gary-nice-promise-at-dawn-literary-walk"],
+  },
+  {
+    id: "quai-des-etats-unis-nice", name: "Quai des États-Unis", type: "walk", address: "Quai des États-Unis, Nice",
+    image: "/images/guide/quai-des-etats-unis-nice.png",
+    imageAlt: text("Supplied artistic illustration evoking Quai des États-Unis beside Old Nice and Castle Hill; not a documentary photograph or verified film still", "Illustration artistique du quai des États-Unis près du Vieux-Nice et du château ; ni photographie documentaire ni photogramme vérifié", "Illustrazione artistica del Quai des États-Unis presso Vieux-Nice e la collina; non fotografia documentaria o fotogramma verificato", "Надана художня ілюстрація Quai des États-Unis біля старої Ніцци й Замкового холма; не документальне фото чи перевірений кадр"),
+    googleMapsUrl: mapsQuery("Quai des États-Unis", "Nice"), programmeUrl: "https://www.nice.fr/uploads/media/default/0001/01/NFC_decouvrir-le-vieux-nice-en-velo.PDF", sourceStatus: "editorial",
+    shortNote: text("Public waterfront beside Old Nice: a thematic conclusion to the walk, not a verified individual film shot. Follow current pedestrian arrangements and weather restrictions.", "Front de mer public du Vieux-Nice : conclusion thématique, pas plan précis vérifié. Respectez les cheminements et restrictions météo.", "Lungomare pubblico del Vieux-Nice: conclusione tematica, non singolo fotogramma verificato. Rispettate percorsi e restrizioni meteo.", "Громадська набережна біля старої Ніцци: тематичне завершення, не перевірений окремий кадр. Дотримуйтеся шляхів і погодних обмежень."),
+    bestFor: [text("seafront pause", "pause en bord de mer", "pausa sul mare", "пауза біля моря")], relatedArticleIds: ["la-baie-des-anges-jacques-demy-riviera-filming-locations"],
+  },
+  {
     id: "villa-cypris-roquebrune-cap-martin", name: "Villa Cypris", type: "civic",
     address: "Avenue Douine, 06190 Roquebrune-Cap-Martin, France",
     area: text("Cap Martin; private estate", "Cap Martin ; domaine privé", "Cap Martin; proprietà privata", "Cap Martin; приватний маєток"),
@@ -11583,6 +11615,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["promenade-des-anglais-nice", "casino-square-monaco", "casino-de-monte-carlo", "hotel-de-paris-monte-carlo", "jardins-petite-afrique-monaco", "quai-amiral-courbet-villefranche", "rue-obscure-villefranche", "chapelle-saint-pierre-villefranche"].includes(place.id)) relatedArticleIds.add("la-baie-des-anges-jacques-demy-riviera-filming-locations");
   if (["menton-station", "menton-garavan-station", "monaco-monte-carlo-station", "ventimiglia-station", "monaco-monte-carlo", "ventimiglia", "sanremo"].includes(place.id)) relatedArticleIds.add("france-monaco-italy-travel-from-menton");
   if (["promenade-du-soleil", "plage-casino", "plage-du-marche-menton", "jardins-bioves", "halles-du-marche", "esplanade-des-sablettes-menton", "port-de-garavan", "promenade-de-la-mer-menton"].includes(place.id)) relatedArticleIds.add("winter-walks-menton-sunshine-short-routes");
   if (["roquebrune-cap-martin-coastal-walk", "villa-ephrussi-de-rothschild"].includes(place.id)) relatedArticleIds.add("mortelle-randonnee-villa-cypris-filming-location");

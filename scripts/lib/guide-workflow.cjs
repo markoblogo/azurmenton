@@ -19,17 +19,20 @@ async function saveJson(file,value){await fs.mkdir(path.dirname(file),{recursive
 async function artifacts(paths=[]){const result={};for(const file of paths){try{result[file]=await artifactHash(file);}catch(error){if(error.code!=="ENOENT")throw error;result[file]=null;}}return result;}
 
 async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>{}}){
+  const started=Date.now();
   onStep("fingerprint","running");
   const inputHash=await fingerprint();
   onStep("fingerprint","passed");
   const signature=digest(JSON.stringify(checks));
   const previous=await json(receiptPath);
-  const compatible=previous?.version===1&&!previous.stale&&previous.fingerprint===inputHash&&previous.signature===signature;
-  const receipt={version:1,fingerprint:inputHash,signature,startedAt:new Date().toISOString(),ok:false,publication:"not-performed",plannedChecks:checks.map(x=>x.id),checks:[]};
-  for(const check of checks){
+  const compatible=previous?.version===2&&!previous.stale&&previous.fingerprint===inputHash;
+  const receipt={version:2,fingerprint:inputHash,signature,startedAt:new Date().toISOString(),ok:false,publication:"not-performed",plannedChecks:checks.map(x=>x.id),checks:[]};
+  for(const [index,check] of checks.entries()){
     if(!/^[a-z0-9-]+$/.test(check.id))throw Error("Invalid check id");
     const logPath=path.join(path.dirname(receiptPath),"logs",`${check.id}.log`);
-    const cached=compatible&&!check.alwaysRun?previous.checks.find(x=>x.id===check.id&&x.status==="passed"):null;
+    // A changed gate invalidates itself and its dependants, not an identical earlier prefix.
+    const prefixSignature=digest(JSON.stringify(checks.slice(0,index+1)));
+    const cached=compatible&&!check.alwaysRun?previous.checks.find(x=>x.id===check.id&&x.status==="passed"&&x.prefixSignature===prefixSignature):null;
     let reusable=false;
     if(cached&&cached.logPath===logPath){try{reusable=await fileHash(logPath)===cached.logHash&&JSON.stringify(await artifacts(check.artifacts))===JSON.stringify(cached.artifacts);}catch{reusable=false;}}
     if(reusable){receipt.checks.push({...cached,reused:true});onStep(check.id,"reused");}
@@ -42,7 +45,7 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
       if(result.code===0&&Object.values(outputs).some(x=>x===null))result={code:1,output:`${result.output}\nRequired build artifact missing`};
       await fs.mkdir(path.dirname(logPath),{recursive:true});
       await fs.writeFile(logPath,String(result.output??""));
-      receipt.checks.push({id:check.id,status:result.code===0?"passed":"failed",exitCode:result.code,durationMs:Date.now()-started,logPath,logHash:await fileHash(logPath),artifacts:outputs,reused:false});
+      receipt.checks.push({id:check.id,status:result.code===0?"passed":"failed",exitCode:result.code,prefixSignature,durationMs:Date.now()-started,logPath,logHash:await fileHash(logPath),artifacts:outputs,reused:false});
       onStep(check.id,result.code===0?"passed":"failed");
     }
     await saveJson(receiptPath,receipt);
@@ -51,6 +54,7 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
   receipt.stale=await fingerprint()!==inputHash;
   receipt.ok=!receipt.stale&&receipt.checks.length===checks.length&&receipt.checks.every(x=>x.status==="passed");
   receipt.finishedAt=new Date().toISOString();
+  receipt.durationMs=Date.now()-started;
   await saveJson(receiptPath,receipt);
   return receipt;
 }
@@ -83,7 +87,7 @@ async function repositoryFingerprint(root,extraFiles=[]){
   for(const file of await fs.readdir(root))if(/^\.env(?:\.|$)/.test(file))paths.add(path.join(root,file));
   for(const file of extraFiles)paths.add(path.resolve(file));
   const entries=await fingerprintInputs(root,paths);
-  const volatile=new Set(["_","SHLVL","PWD","OLDPWD","npm_lifecycle_event","npm_lifecycle_script","npm_command","INIT_CWD"]);
+  const volatile=new Set(["_","SHLVL","PWD","OLDPWD","CODEX_TOOL_CALL_ID","npm_lifecycle_event","npm_lifecycle_script","npm_command","INIT_CWD"]);
   const environment=Object.entries(process.env).filter(([key])=>!volatile.has(key)).sort(([a],[b])=>a.localeCompare(b));
   const asOf=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   return digest(JSON.stringify({asOf,node:process.version,platform:process.platform,arch:process.arch,environment:digest(JSON.stringify(environment)),inputs:entries}));

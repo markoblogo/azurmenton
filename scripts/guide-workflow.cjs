@@ -6,26 +6,24 @@ const {execFileSync}=require("node:child_process");
 const {fileHash,json,saveJson,runCheckSuite,repositoryFingerprint}=require("./lib/guide-workflow.cjs");
 const {projectChecks}=require("./lib/project-checks.cjs");
 const root=path.resolve(__dirname,"..");
-require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
-const {guideArticles}=require("../src/content/guide.ts");
-const {extractGuideIntake,normalizePlainTextGuide}=require("../src/lib/guide-intake.ts");
+let guideArticles;
 const packageFiles=["draft-original.txt","draft.md","draft-body.md","intake.json","publication-plan.json","structure.json","link-plan-report.json","check-report.json","assets-report.json","apply/guide-article.snippet.txt","apply/places-raw.snippet.txt","apply/place-visuals.snippet.txt","apply/integration-checklist.md","publish-report.json","patch/summary.json","patch/content-bundle.md","patch/existing-place-updates.json"];
 const options=new Set(["--slug","--from","--cover","--assets-dir"]);
 
 function parseArgs(args){
   const [stage,...rest]=args;
-  if(!["prepare","bundle","check","assets"].includes(stage))throw Error("Usage: guide:workflow -- prepare --from <file> [--cover <file>] | bundle/check --slug <intake-slug> | assets --slug <intake-slug> --assets-dir <folder> [--cover <file>]. check accepts --webpack.");
+  if(!["prepare","bundle","check","verify","assets"].includes(stage))throw Error("Usage: guide:workflow -- prepare --from <file> [--cover <file>] | bundle/check/verify --slug <intake-slug> | assets --slug <intake-slug> --assets-dir <folder> [--cover <file>]. check/verify accept --webpack; verify syncs the canonical plan and includes browser checks.");
   const result={stage};
   for(let i=0;i<rest.length;i++){
     const flag=rest[i];
-    if(flag==="--webpack"&&stage==="check"){result.webpack=true;continue;}
+    if(flag==="--webpack"&&["check","verify"].includes(stage)&&!result.webpack){result.webpack=true;continue;}
     if(!options.has(flag)||!rest[i+1]||rest[i+1].startsWith("--")||result[flag.slice(2)]!==undefined)throw Error(`Invalid/repeated option: ${flag}`);
     result[flag.slice(2)]=rest[++i];
   }
   if(stage==="prepare"&&!result.from)throw Error("prepare requires --from");
   if(stage!=="prepare"&&(!result.slug||!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(result.slug)))throw Error("A safe intake --slug is required");
   if(stage==="assets"&&!result["assets-dir"])throw Error("assets requires --assets-dir");
-  const allowed={prepare:["from","cover"],bundle:["slug"],check:["slug","webpack"],assets:["slug","assets-dir","cover"]}[stage];
+  const allowed={prepare:["from","cover"],bundle:["slug"],check:["slug","webpack"],verify:["slug","webpack"],assets:["slug","assets-dir","cover"]}[stage];
   for(const key of Object.keys(result))if(key!=="stage"&&!allowed.includes(key))throw Error(`Option ${key} is not valid for ${stage}`);
   return result;
 }
@@ -96,8 +94,11 @@ async function bundle(directory,source){
 }
 async function main(args=process.argv.slice(2)){
   const opts=parseArgs(args);
+  require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
+  ({guideArticles}=require("../src/content/guide.ts"));
   let directory;
   if(opts.stage==="prepare"){
+    const {extractGuideIntake,normalizePlainTextGuide}=require("../src/lib/guide-intake.ts");
     const source={document:await sourceDescriptor(opts.from)};
     if(opts.cover)source.cover=await sourceDescriptor(opts.cover);
     const original=path.extname(opts.from).toLowerCase()===".docx"?execFileSync("python3",[path.join(root,"scripts/lib/docx-to-markdown.py"),source.document.path],{encoding:"utf8",maxBuffer:20_000_000}):await fs.readFile(source.document.path,"utf8");
@@ -130,6 +131,27 @@ async function main(args=process.argv.slice(2)){
     for(const descriptor of Object.values(old?.source??{}))await verifySource(descriptor);
     const packet=await bundle(directory,old?.source??{});console.log(`Packet: ${path.relative(root,directory)}/workflow/packet.json; insertion-ready: ${packet.insertionReady}; publication: NOT PERFORMED`);return packet.insertionReady;
   }
+  if(opts.stage==="verify"){
+    const previous=await json(path.join(directory,"workflow/packet.json"));
+    if(previous?.version!==1||previous.intakeSlug!==opts.slug||previous.publicSlug!==opts.slug||!previous.source?.document?.sha256||!Array.isArray(previous.files))throw Error("verify requires the same prepared packet, frozen document and canonical guide slug");
+    for(const descriptor of Object.values(previous.source??{}))await verifySource(descriptor);
+    const guide=guideArticles.find(article=>article.slug===opts.slug);
+    if(!guide?.coverImage)throw Error("Insert the reviewed guide and cover before verify");
+    const {syncGuideReviewPlan}=require("../src/lib/guide-review.ts");
+    const {places}=require("../src/content/places.ts");
+    const {placeMapPoints}=require("../src/content/planning/place-map-points.ts");
+    const {placeMapExclusions}=require("../src/content/planning/place-map-exclusions.ts");
+    const plan=await json(path.join(directory,"publication-plan.json"));
+    const synced=syncGuideReviewPlan({slug:opts.slug,plan,guide,places,mapPoints:placeMapPoints,mapExclusions:placeMapExclusions});
+    try{await fs.writeFile(path.join(directory,"publication-plan.before-verify.json"),JSON.stringify(plan,null,2)+"\n",{flag:"wx"});}catch(error){if(error.code!=="EEXIST")throw error;}
+    await saveJson(path.join(directory,"publication-plan.json"),synced);
+    // Final-tree verification uses canonical content, not stale intake suggestions or old readiness claims.
+    const snapshot=await makePacket(directory,previous.source,[]);
+    snapshot.canonicalFinalized=true;
+    snapshot.nextAction="Run final-tree and browser checks; source research, owner approval and production verification remain separate.";
+    await saveJson(path.join(directory,"workflow/packet.json"),snapshot);
+    console.log("Canonical plan synced; original plan retained. No public content or publication state changed.");
+  }
   const packet=await loadPacket(directory);
   if(opts.stage==="assets"){
     const published=guideArticles.some(guide=>guide.slug===packet.publicSlug);
@@ -143,6 +165,10 @@ async function main(args=process.argv.slice(2)){
   if(!guide?.coverImage)throw Error("Insert the reviewed guide and cover before running final checks");
   for(const field of ["title","seoTitle","seoDescription","excerpt"]){if(["en","fr","it","uk"].some(locale=>typeof guide[field]?.[locale]!=="string"||!guide[field][locale].trim()))throw Error(`Missing ${field} translation`);}
   const checks=[{...nodeStep("guide-review","guide-review.cjs",["--slug",opts.slug]),artifacts:[path.join(directory,"review/report.json"),path.join(directory,"review/owner-checklist.md")]},...projectChecks(root,{webpack:opts.webpack})];
+  if(opts.stage==="verify"){
+    checks.find(check=>check.id==="unit").argv.push("--","--maxWorkers=1");
+    checks.push({...nodeStep("browser","guide-browser-check.cjs",["--slug",packet.publicSlug]),artifacts:[path.join(root,".next/BUILD_ID"),...["report.json","fr-390.png","fr-1440.png"].map(file=>path.join(directory,"workflow/browser/local",file))]});
+  }
   const receipt=await runCheckSuite({receiptPath:path.join(directory,"workflow/checks.json"),checks,
     fingerprint:()=>repositoryFingerprint(root,[...packet.files.map(file=>path.join(directory,file.path)),...Object.values(packet.source??{}).map(source=>source.path)]),
     execute:check=>execute(check.argv),onStep:(id,status)=>console.log(`${id}: ${status}`)});

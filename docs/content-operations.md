@@ -13,6 +13,7 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 ## Guide Articles
 
+- After canonical insertion, prefer `npm run guide:workflow -- verify --slug <slug>`: it synchronizes the ignored review plan and runs final-tree checks plus the reusable four-locale browser smoke. Use `bundle` for pre-insertion planning, not repeated fuzzy reimports after insertion. Use the normal bundler; `--webpack` is an explicit fallback. After approved merge/deployment and SHA verification, run `npm run guide:browser -- --slug <slug> --public`. See `docs/guide-manual-workflow.md`; publication approval remains separate.
 - Add or update the article in `src/content/guide.ts`.
 - Provide all localized fields: title, SEO title, SEO description, excerpt, cover alt text, headings, body copy and bullets.
 - For new formatted Markdown-backed guides, use `formattedMarkdownGuideBody` from

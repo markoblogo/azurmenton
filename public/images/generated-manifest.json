@@ -217,6 +217,13 @@
     ]
   },
   {
+    "source": "public/images/guide/cathedrale-saint-nicolas-nice.png",
+    "outputs": [
+      "public/images/guide/generated/cathedrale-saint-nicolas-nice.avif",
+      "public/images/guide/generated/cathedrale-saint-nicolas-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/cbd-shop-france-menton.png",
     "outputs": [
       "public/images/guide/generated/cbd-shop-france-menton.avif",
@@ -427,6 +434,13 @@
     ]
   },
   {
+    "source": "public/images/guide/france-monaco-italy-travel-from-menton.png",
+    "outputs": [
+      "public/images/guide/generated/france-monaco-italy-travel-from-menton.avif",
+      "public/images/guide/generated/france-monaco-italy-travel-from-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/french-riviera-pass-worth-it-from-menton.png",
     "outputs": [
       "public/images/guide/generated/french-riviera-pass-worth-it-from-menton.avif",
@@ -574,6 +588,13 @@
     ]
   },
   {
+    "source": "public/images/guide/jardin-albert-premier-nice.png",
+    "outputs": [
+      "public/images/guide/generated/jardin-albert-premier-nice.avif",
+      "public/images/guide/generated/jardin-albert-premier-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/jardin-fontana-rosa-menton.png",
     "outputs": [
       "public/images/guide/generated/jardin-fontana-rosa-menton.avif",
@@ -620,6 +641,13 @@
     "outputs": [
       "public/images/guide/generated/kairos-lab-menton.avif",
       "public/images/guide/generated/kairos-lab-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-baie-des-anges-jacques-demy-riviera-filming-locations.png",
+    "outputs": [
+      "public/images/guide/generated/la-baie-des-anges-jacques-demy-riviera-filming-locations.avif",
+      "public/images/guide/generated/la-baie-des-anges-jacques-demy-riviera-filming-locations.webp"
     ]
   },
   {
@@ -812,6 +840,41 @@
     ]
   },
   {
+    "source": "public/images/guide/les-derniers-feux-de-la-royaute-menton.png",
+    "outputs": [
+      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.avif",
+      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-book-cover.jpeg",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-companions.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-companions.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-companions.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-french-puzzle-book.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/les-petites-affaires-du-port-train.png",
+    "outputs": [
+      "public/images/guide/generated/les-petites-affaires-du-port-train.avif",
+      "public/images/guide/generated/les-petites-affaires-du-port-train.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/les-petits-farcis-nice.png",
     "outputs": [
       "public/images/guide/generated/les-petits-farcis-nice.avif",
@@ -1001,6 +1064,13 @@
     ]
   },
   {
+    "source": "public/images/guide/mortelle-randonnee-villa-cypris-filming-location.png",
+    "outputs": [
+      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.avif",
+      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/musee-jean-cocteau-wunderman-menton.png",
     "outputs": [
       "public/images/guide/generated/musee-jean-cocteau-wunderman-menton.avif",
@@ -1012,6 +1082,13 @@
     "outputs": [
       "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
       "public/images/guide/generated/naturist-nudist-beaches-near-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/nice-carnival-menton-lemon-festival-itinerary.png",
+    "outputs": [
+      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.avif",
+      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.webp"
     ]
   },
   {
@@ -1131,6 +1208,13 @@
     "outputs": [
       "public/images/guide/generated/place-garibaldi-sospel.avif",
       "public/images/guide/generated/place-garibaldi-sospel.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/place-massena-nice.png",
+    "outputs": [
+      "public/images/guide/generated/place-massena-nice.avif",
+      "public/images/guide/generated/place-massena-nice.webp"
     ]
   },
   {
@@ -1400,6 +1484,13 @@
     ]
   },
   {
+    "source": "public/images/guide/trophee-auguste-la-turbie.png",
+    "outputs": [
+      "public/images/guide/generated/trophee-auguste-la-turbie.avif",
+      "public/images/guide/generated/trophee-auguste-la-turbie.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/ventimiglia-friday-market.png",
     "outputs": [
       "public/images/guide/generated/ventimiglia-friday-market.avif",
@@ -1407,10 +1498,24 @@
     ]
   },
   {
+    "source": "public/images/guide/vieux-nice.png",
+    "outputs": [
+      "public/images/guide/generated/vieux-nice.avif",
+      "public/images/guide/generated/vieux-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/vieux-port-menton.png",
     "outputs": [
       "public/images/guide/generated/vieux-port-menton.avif",
       "public/images/guide/generated/vieux-port-menton.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-cypris-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.webp"
     ]
   },
   {
@@ -1456,6 +1561,13 @@
     ]
   },
   {
+    "source": "public/images/guide/winter-walks-menton-sunshine-short-routes.png",
+    "outputs": [
+      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.avif",
+      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/yacht-club-de-monaco-sailing-programmes.png",
     "outputs": [
       "public/images/guide/generated/yacht-club-de-monaco-sailing-programmes.avif",
@@ -1498,87 +1610,10 @@
     ]
   },
   {
-    "source": "public/images/guide/cathedrale-saint-nicolas-nice.png",
+    "source": "public/images/guide/quai-des-etats-unis-nice.png",
     "outputs": [
-      "public/images/guide/generated/cathedrale-saint-nicolas-nice.avif",
-      "public/images/guide/generated/cathedrale-saint-nicolas-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/trophee-auguste-la-turbie.png",
-    "outputs": [
-      "public/images/guide/generated/trophee-auguste-la-turbie.avif",
-      "public/images/guide/generated/trophee-auguste-la-turbie.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-petites-affaires-du-port-book-cover.jpeg",
-    "outputs": [
-      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.avif",
-      "public/images/guide/generated/les-petites-affaires-du-port-book-cover.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-petites-affaires-du-port-companions.png",
-    "outputs": [
-      "public/images/guide/generated/les-petites-affaires-du-port-companions.avif",
-      "public/images/guide/generated/les-petites-affaires-du-port-companions.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-petites-affaires-du-port-french-puzzle-book.png",
-    "outputs": [
-      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.avif",
-      "public/images/guide/generated/les-petites-affaires-du-port-french-puzzle-book.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-petites-affaires-du-port-train.png",
-    "outputs": [
-      "public/images/guide/generated/les-petites-affaires-du-port-train.avif",
-      "public/images/guide/generated/les-petites-affaires-du-port-train.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/les-derniers-feux-de-la-royaute-menton.png",
-    "outputs": [
-      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.avif",
-      "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/nice-carnival-menton-lemon-festival-itinerary.png",
-    "outputs": [
-      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.avif",
-      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/mortelle-randonnee-villa-cypris-filming-location.png",
-    "outputs": [
-      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.avif",
-      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/villa-cypris-roquebrune-cap-martin.png",
-    "outputs": [
-      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.avif",
-      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/winter-walks-menton-sunshine-short-routes.png",
-    "outputs": [
-      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.avif",
-      "public/images/guide/generated/winter-walks-menton-sunshine-short-routes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/france-monaco-italy-travel-from-menton.png",
-    "outputs": [
-      "public/images/guide/generated/france-monaco-italy-travel-from-menton.avif",
-      "public/images/guide/generated/france-monaco-italy-travel-from-menton.webp"
+      "public/images/guide/generated/quai-des-etats-unis-nice.avif",
+      "public/images/guide/generated/quai-des-etats-unis-nice.webp"
     ]
   }
 ]

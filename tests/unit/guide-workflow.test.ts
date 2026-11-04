@@ -7,6 +7,20 @@ import { execFileSync } from "node:child_process";
 const { runCheckSuite,repositoryFingerprint } = createRequire(import.meta.url)("../../scripts/lib/guide-workflow.cjs");
 
 describe("manual guide workflow receipts", () => {
+  it("reuses only the unchanged prefix when a build command or later gate changes", async () => {
+    const root=await mkdtemp(path.join(tmpdir(),"guide-workflow-prefix-"));
+    try {
+      const calls: string[]=[];
+      const checks=[{id:"lint",argv:["lint"]},{id:"build",argv:["build"]},{id:"browser",argv:["browser"]}];
+      const options={receiptPath:path.join(root,"receipt.json"),checks,fingerprint:async()=>"same",execute:async(check:{id:string})=>{calls.push(check.id);return {code:0,output:"actual output"};}};
+      await runCheckSuite(options);
+      const changed=await runCheckSuite({...options,checks:[checks[0],{...checks[1],argv:["build","--webpack"]},checks[2]]});
+      expect(calls).toEqual(["lint","build","browser","build","browser"]);
+      expect(changed.checks.map((check:{reused:boolean})=>check.reused)).toEqual([true,false,false]);
+      await runCheckSuite({...options,checks:[{id:"security",argv:["audit"]},...checks]});
+      expect(calls.slice(-4)).toEqual(["security","lint","build","browser"]);
+    } finally { await rm(root,{recursive:true,force:true}); }
+  });
   it("reuses actual successful checks only for the identical inputs and intact logs", async () => {
     const root=await mkdtemp(path.join(tmpdir(),"guide-workflow-"));
     try {
@@ -16,6 +30,7 @@ describe("manual guide workflow receipts", () => {
       const options={receiptPath,checks,fingerprint:async()=>"tree-a",execute:async()=>{calls++;return {code:0,output:"actual test output"};}};
       const first=await runCheckSuite(options);
       expect(first.ok).toBe(true);
+      expect(first.durationMs).toBeGreaterThanOrEqual(0);
       expect(calls).toBe(2);
       expect((await runCheckSuite(options)).checks.every((x:{reused:boolean})=>x.reused)).toBe(true);
       expect(calls).toBe(2);
@@ -67,15 +82,18 @@ describe("manual guide workflow receipts", () => {
   it("fingerprints real source and environment changes without retaining secret values",async()=>{
     const root=await mkdtemp(path.join(tmpdir(),"guide-workflow-fingerprint-"));
     const previous=process.env.GUIDE_WORKFLOW_TEST_SECRET;
+    const previousCall=process.env.CODEX_TOOL_CALL_ID;
     try{
       execFileSync("git",["init","-q"],{cwd:root});await writeFile(path.join(root,"source.md"),"one");
       process.env.GUIDE_WORKFLOW_TEST_SECRET="first-private-value";
       const first=await repositoryFingerprint(root);expect(first).toMatch(/^[a-f0-9]{64}$/);
       expect(await repositoryFingerprint(root)).toBe(first);
+      process.env.CODEX_TOOL_CALL_ID="another-invocation";
+      expect(await repositoryFingerprint(root)).toBe(first);
       process.env.GUIDE_WORKFLOW_TEST_SECRET="second-private-value";
       expect(await repositoryFingerprint(root)).not.toBe(first);
       process.env.GUIDE_WORKFLOW_TEST_SECRET="first-private-value";
       await writeFile(path.join(root,"source.md"),"two");expect(await repositoryFingerprint(root)).not.toBe(first);
-    }finally{if(previous===undefined)delete process.env.GUIDE_WORKFLOW_TEST_SECRET;else process.env.GUIDE_WORKFLOW_TEST_SECRET=previous;await rm(root,{recursive:true,force:true});}
+    }finally{if(previous===undefined)delete process.env.GUIDE_WORKFLOW_TEST_SECRET;else process.env.GUIDE_WORKFLOW_TEST_SECRET=previous;if(previousCall===undefined)delete process.env.CODEX_TOOL_CALL_ID;else process.env.CODEX_TOOL_CALL_ID=previousCall;await rm(root,{recursive:true,force:true});}
   });
 });
