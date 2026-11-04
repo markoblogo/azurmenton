@@ -32,6 +32,7 @@ import { poirotGuide } from "@/content/poirot-guide";
 import { haleGuide } from "@/content/hale-guide";
 import { portBookGuide } from "@/content/port-book-guide";
 import { platelGuide } from "@/content/platel-guide";
+import { februaryGuide } from "@/content/february-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11463,6 +11464,11 @@ guideArticles.push(poirotGuide);
 guideArticles.push(haleGuide);
 guideArticles.push(portBookGuide);
 guideArticles.push(platelGuide);
+guideArticles.push(februaryGuide);
+for (const slug of februaryGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(februaryGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), februaryGuide.slug];
+}
 for (const slug of platelGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(platelGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), platelGuide.slug];

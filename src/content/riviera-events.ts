@@ -2376,7 +2376,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     lastChecked: "2026-09-13",
     featured: false,
     detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "menton-old-town", "menton-without-a-car", "menton-in-autumn", "where-to-stay-in-menton", "menton-lemons-producers-orchards-tastings"],
+    relatedGuideSlugs: ["nice-carnival-menton-lemon-festival-itinerary", "menton-with-kids-family-guide", "menton-without-a-car", "menton-in-autumn", "where-to-stay-in-menton", "menton-lemons-producers-orchards-tastings"],
     relatedApartmentKeys: relatedAll,
   },
   {
@@ -2420,7 +2420,7 @@ const rivieraEventsBase: RivieraEvent[] = [
     featured: true,
     lastChecked: "2026-09-13",
     detailPage: true,
-    relatedGuideSlugs: ["menton-with-kids-family-guide", "public-transport-in-menton", "menton-in-autumn", "day-trips-from-menton", "lgbtq-menton-nice-monaco-french-riviera"],
+    relatedGuideSlugs: ["nice-carnival-menton-lemon-festival-itinerary", "menton-with-kids-family-guide", "public-transport-in-menton", "menton-in-autumn", "day-trips-from-menton", "lgbtq-menton-nice-monaco-french-riviera"],
     relatedApartmentKeys: relatedAll,
   },
   {
