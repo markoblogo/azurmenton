@@ -31,6 +31,10 @@ Use this checklist when adding or changing guide articles, places, events or apa
 - If the guide is useful for a ready-made trip scenario, update `src/content/planning/stay-plans.ts`.
 - If the guide depends on Monaco, Nice, Ventimiglia/Italy or car-free movement, confirm that a transport helper block appears naturally.
 
+## Book Recommendations
+
+Book recommendations may use the optional `bookRecommendation` presentation inside the existing guide catalogue. Keep the actual supplied cover separate from the promotional image, identify book language and author-provided promotion, and never turn fictional settings into place cards. Independently supplied FR prose may differ from the international EN/IT/UK text; preserve its details and table content rather than forcing mechanical translation alignment. Section `disclosures` render solutions as closed native details, separately from ordinary searchable body text. Never put the same answers back in visible body paragraphs or publish the full manuscript PDF. Current preparation and checks remain separate from owner approval and production verification.
+
 ## Places
 
 - Create or update place objects in `src/content/places.ts`.
