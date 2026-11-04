@@ -170,6 +170,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
   { slug: "la-baie-des-anges-jacques-demy-riviera-filming-locations", ignore: ["cluster"], reason: "cinema guide in the existing Books, Film & Art collection, linked to Nice, Monaco and car-free day trips without a separate search cluster" },
+  { slug: "rebecca-2020-riviera-filming-locations", ignore: ["cluster"], reason: "film guide in the existing Books, Film & Art collection; distinguished from the novel guide and connected to existing day-trip and transport content" },
   { slug: "heartbreaker-larnacoeur-monaco-filming-locations", ignore: ["cluster"], reason: "screen-location guide in the existing Books, Film & Art collection, linked to Monaco day-trip and transport content rather than a new search-intent cluster" },
   { slug: "bonjour-tristesse-francoise-sagan-french-riviera", ignore: ["cluster"], reason: "thematic literary walk surfaced through the existing Books, Film & Art collection, not a new practical search-intent cluster" },
   { slug: "barbecue-picnic-areas-near-menton", ignore: ["cluster"], reason: "safety-first practical reference guide with direct links to verified picnic and controlled private options" },

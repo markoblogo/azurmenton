@@ -68,7 +68,7 @@ describe("release hygiene", () => {
   it("keeps guide and release checks shared while release adds audit and production browsers", () => {
     const guide = projectChecks("/project", { webpack: true });
     const release = projectChecks("/project", { webpack: true, release: true });
-    expect(guide.map((check: { id: string }) => check.id)).toEqual(["docs", "lint", "typecheck", "unit", "preflight", "images", "build", "postbuild"]);
+    expect(guide.map((check: { id: string }) => check.id)).toEqual(["docs", "preflight", "images", "lint", "typecheck", "unit", "build", "postbuild"]);
     expect(release.map((check: { id: string }) => check.id)).toEqual(["native-lockfile", "dependency-audit", ...guide.slice(0, -1).map((check: { id: string }) => check.id), "browser", "postbuild"]);
     expect(release.find((check: { id: string }) => check.id === "build").argv).toContain("--webpack");
     const audit = release.find((check: { id: string }) => check.id === "dependency-audit");

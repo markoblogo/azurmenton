@@ -34,11 +34,12 @@ function execute(argv){
 const nodeStep=(id,script,args=[])=>({id,argv:[process.execPath,path.join(root,"scripts",script),...args]});
 
 async function recordStep(directory,step){
+  const started=Date.now();
   console.log(`${step.id}: running`);
   const result=execute(step.argv);
   const log=path.join(directory,"workflow/logs",`${step.id}.log`);
   await fs.mkdir(path.dirname(log),{recursive:true});await fs.writeFile(log,result.output);
-  return {id:step.id,exitCode:result.code,log:path.relative(directory,log),logHash:await fileHash(log)};
+  return {id:step.id,startedAt:new Date(started).toISOString(),finishedAt:new Date().toISOString(),durationMs:Date.now()-started,exitCode:result.code,log:path.relative(directory,log),logHash:await fileHash(log)};
 }
 async function sourceDescriptor(file){
   const resolved=path.resolve(file);if((await fs.lstat(resolved)).isSymbolicLink())throw Error("Source symlinks are not accepted");
