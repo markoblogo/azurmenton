@@ -1,0 +1,46 @@
+{
+  "slug": "mortelle-randonnee-villa-cypris-filming-location",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": false,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: mortelle-randonnee-villa-cypris-filming-location",
+    "mode: published-guide + missing-only",
+    "matched: 1",
+    "skipped-covered: 2",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 0",
+    "report: build/guide-assets-postpublish/mortelle-randonnee-villa-cypris-filming-location.json",
+    "rerun: npm run guide:assets -- --published-guide mortelle-randonnee-villa-cypris-filming-location --assets-dir /tmp/cypris-images --missing-only --apply-places-patch-safe"
+  ],
+  "counts": {
+    "matched": 1,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 2,
+    "stillMissing": 0,
+    "patchReady": 1
+  },
+  "matchedAssetFiles": [
+    "villa-cypris-roquebrune-cap-martin.png"
+  ],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [
+    "villa-cypris-roquebrune-cap-martin"
+  ],
+  "publishedGuidePlacesWithoutImage": [],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide mortelle-randonnee-villa-cypris-filming-location --assets-dir /tmp/cypris-images --missing-only --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "villa-cypris-roquebrune-cap-martin"
+    ],
+    "failedPlaceIds": []
+  }
+}

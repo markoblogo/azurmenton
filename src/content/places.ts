@@ -303,6 +303,19 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
+    id: "villa-cypris-roquebrune-cap-martin", name: "Villa Cypris", type: "civic",
+    address: "Avenue Douine, 06190 Roquebrune-Cap-Martin, France",
+    area: text("Cap Martin; private estate", "Cap Martin ; domaine privé", "Cap Martin; proprietà privata", "Cap Martin; приватний маєток"),
+    image: "/images/guide/villa-cypris-roquebrune-cap-martin.png",
+    googleMapsUrl: mapsQuery("Villa Cypris", "Avenue Douine", "Roquebrune-Cap-Martin"),
+    programmeUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080958",
+    imageAlt: text("Artistic illustration evoking Villa Cypris by the sea; not a documentary photograph, verified film angle or public entrance", "Illustration artistique évoquant Cypris au bord de mer ; ni photographie documentaire, ni angle de film vérifié, ni entrée publique", "Illustrazione artistica ispirata a Cypris sul mare; non fotografia documentaria, angolo verificato del film o ingresso pubblico", "Художня ілюстрація Cypris біля моря; не документальне фото, перевірений ракурс фільму чи громадський вхід"),
+    sourceStatus: "verified", visitorAccess: "ask-first", requiresMapReview: true,
+    shortNote: text("Private historic estate, not a public museum. Regional tourism confirms Mortelle Randonnée filming; exact shots remain unverified. Observe only from the authorised public coastal trail when open. The location search identifies the estate, not a visitor entrance. Do not enter gardens, driveways or gallery, or bypass barriers.", "Domaine historique privé, pas musée public. Tournage de Mortelle Randonnée confirmé par le tourisme régional ; cadrages exacts non vérifiés. Observation uniquement depuis le sentier public autorisé lorsqu'il est ouvert. La recherche situe le domaine, pas une entrée de visite. Ne pénétrez pas dans les jardins, allées ou galerie ; respectez les barrières.", "Dominio storico privato, non museo pubblico. Turismo regionale conferma Mortelle Randonnée; inquadrature esatte non verificate. Osservare solo dal sentiero pubblico autorizzato quando aperto. La ricerca indica il dominio, non un ingresso visitatori. Non entrare in giardini, viali o galleria e non aggirare barriere.", "Приватний історичний маєток, не громадський музей. Туристична організація підтверджує Mortelle Randonnée; точні кадри не перевірені. Огляд лише з відкритої дозволеної громадської стежки. Пошук показує маєток, не вхід для відвідувачів. Не заходьте в сади, алеї чи галерею й не обходьте бар'єри."),
+    bestFor: [text("public-path architecture views", "architecture depuis le sentier public", "architettura dal sentiero pubblico", "архітектура з громадської стежки")],
+    relatedArticleIds: ["mortelle-randonnee-villa-cypris-filming-location", "best-walks-and-hikes-around-menton"],
+  },
+  {
     id: "monte-carlo-bay-hotel-resort", name: "Monte-Carlo Bay Hotel & Resort", type: "civic",
     address: "40 Avenue Princesse Grace, 98000 Monaco", googleMapsUrl: mapsQuery("Monte-Carlo Bay Hotel & Resort", "40 Avenue Princesse Grace", "Monaco"),
     image: "/images/guide/monte-carlo-bay-hotel-resort.png",
@@ -11570,6 +11583,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["roquebrune-cap-martin-coastal-walk", "villa-ephrussi-de-rothschild"].includes(place.id)) relatedArticleIds.add("mortelle-randonnee-villa-cypris-filming-location");
   if (["jardins-bioves", "promenade-du-soleil", "halles-du-marche", "cours-saleya-nice", "menton-station", "nice-ville-station"].includes(place.id)) relatedArticleIds.add("nice-carnival-menton-lemon-festival-itinerary");
   if (["odyssee-bibliotheque-menton", "rue-longue-menton", "basilica-saint-michel-archange", "halles-du-marche", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("les-derniers-feux-de-la-royaute-menton");
   if (["promenade-du-soleil", "monaco-monte-carlo", "casino-square-monaco", "royal-westminster-menton", "le-majestic-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "halles-du-marche", "musee-matisse-nice", "salle-des-mariages-jean-cocteau", "basilica-saint-michel-archange", "palais-carnoles-menton", "villa-e-1027-roquebrune-cap-martin", "jardin-val-rahmeh", "jardin-serre-de-la-madone", "villa-ephrussi-de-rothschild", "gorbio", "sainte-agnes"].includes(place.id)) relatedArticleIds.add("julian-hale-french-riviera-cultural-history");
