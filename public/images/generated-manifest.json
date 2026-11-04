@@ -1545,5 +1545,12 @@
       "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.avif",
       "public/images/guide/generated/les-derniers-feux-de-la-royaute-menton.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/nice-carnival-menton-lemon-festival-itinerary.png",
+    "outputs": [
+      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.avif",
+      "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.webp"
+    ]
   }
 ]

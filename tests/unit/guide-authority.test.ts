@@ -4,8 +4,8 @@ import { getGuideAuthorityProfile, guideAuthorityProfiles } from "@/content/guid
 import { locales } from "@/i18n/locales";
 
 describe("guide authority profiles", () => {
-  it("covers exactly twenty published guides with valid review metadata", () => {
-    expect(Object.keys(guideAuthorityProfiles)).toHaveLength(20);
+  it("covers exactly twenty-one published guides with valid review metadata", () => {
+    expect(Object.keys(guideAuthorityProfiles)).toHaveLength(21);
 
     for (const [slug, profile] of Object.entries(guideAuthorityProfiles)) {
       expect(getGuideArticle(slug), `${slug} should resolve to a guide`).toBeDefined();

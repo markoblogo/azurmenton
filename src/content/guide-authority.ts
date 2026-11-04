@@ -162,6 +162,15 @@ const profile = (plan: PlanKey, profileSources: GuideAuthoritySource[]): GuideAu
 });
 
 export const guideAuthorityProfiles: Record<string, GuideAuthorityProfile> = {
+  "nice-carnival-menton-lemon-festival-itinerary": {
+    ...profile("eventBase", [
+      { label: t("Menton official festival", "Fête officielle de Menton", "Festival ufficiale di Mentone", "Офіційне свято Ментона"), url: "https://www.fete-du-citron.com/" },
+      { label: t("Nice 2027 programme", "Programme Nice 2027", "Programma Nizza 2027", "Програма Ніцци 2027"), url: "https://www.nicecarnaval.com/en/2027-edition/official-programme/" },
+      { label: t("SNCF night works", "Travaux SNCF nocturnes", "Lavori notturni SNCF", "Нічні роботи SNCF"), url: "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/info-trafic/travaux/travaux-entre-nice-vintimille" },
+    ]),
+    reviewedAt: "2026-11-04",
+    reviewNote: t("Published sessions checked. Menton grandstand notice is dated, not live stock. Verify tickets and a non-rail return after Nice on Tuesday 23 February.", "Séances publiées vérifiées. Avis de tribunes daté, non stock en direct. Vérifiez billets et autre retour après Nice le mardi 23 février.", "Eventi pubblicati verificati. Avviso tribune datato, non disponibilità in tempo reale. Verificare biglietti e rientro non ferroviario dopo Nizza martedì 23 febbraio.", "Опубліковані сеанси перевірено. Стан трибун датований, не поточний. Перевірте квитки й незалізничне повернення після Ніцци у вівторок 23 лютого."),
+  },
   "best-ice-cream-menton": profile("foodWalk", [sources.mentonTourism]),
   "halles-du-marche-menton": profile("foodWalk", [sources.mentonTourism]),
   "supermarkets-in-menton": profile("foodWalk", [sources.mentonTourism]),

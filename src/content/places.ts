@@ -11570,6 +11570,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["jardins-bioves", "promenade-du-soleil", "halles-du-marche", "cours-saleya-nice", "menton-station", "nice-ville-station"].includes(place.id)) relatedArticleIds.add("nice-carnival-menton-lemon-festival-itinerary");
   if (["odyssee-bibliotheque-menton", "rue-longue-menton", "basilica-saint-michel-archange", "halles-du-marche", "esplanade-des-sablettes-menton"].includes(place.id)) relatedArticleIds.add("les-derniers-feux-de-la-royaute-menton");
   if (["promenade-du-soleil", "monaco-monte-carlo", "casino-square-monaco", "royal-westminster-menton", "le-majestic-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "halles-du-marche", "musee-matisse-nice", "salle-des-mariages-jean-cocteau", "basilica-saint-michel-archange", "palais-carnoles-menton", "villa-e-1027-roquebrune-cap-martin", "jardin-val-rahmeh", "jardin-serre-de-la-madone", "villa-ephrussi-de-rothschild", "gorbio", "sainte-agnes"].includes(place.id)) relatedArticleIds.add("julian-hale-french-riviera-cultural-history");
   if (["palais-carnoles-menton", "rue-de-brea-menton", "basilica-saint-michel-archange", "villa-maria-serena"].includes(place.id)) relatedArticleIds.add("poirot-blue-train-filming-locations-menton");
