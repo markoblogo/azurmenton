@@ -1552,5 +1552,19 @@
       "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.avif",
       "public/images/guide/generated/nice-carnival-menton-lemon-festival-itinerary.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/mortelle-randonnee-villa-cypris-filming-location.png",
+    "outputs": [
+      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.avif",
+      "public/images/guide/generated/mortelle-randonnee-villa-cypris-filming-location.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/villa-cypris-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/villa-cypris-roquebrune-cap-martin.webp"
+    ]
   }
 ]

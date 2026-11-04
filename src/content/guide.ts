@@ -33,6 +33,7 @@ import { haleGuide } from "@/content/hale-guide";
 import { portBookGuide } from "@/content/port-book-guide";
 import { platelGuide } from "@/content/platel-guide";
 import { februaryGuide } from "@/content/february-guide";
+import { cyprisGuide } from "@/content/cypris-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -2005,7 +2006,7 @@ export const guideArticles: GuideArticle[] = [
     duration: "half-day",
     locationTags: ["menton-centre", "seafront", "garavan", "monaco"],
     sourceStatus: "editorial",
-    relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "mont-gros-viewpoint", "roquebrune-medieval-village", "sainte-agnes", "promenade-du-soleil", "port-de-garavan"],
+    relatedPlaces: ["sentier-douaniers-menton", "roquebrune-cap-martin-coastal-walk", "villa-cypris-roquebrune-cap-martin", "mont-gros-viewpoint", "roquebrune-medieval-village", "sainte-agnes", "promenade-du-soleil", "port-de-garavan"],
     relatedArticles: ["belle-epoque-menton-architecture-walk", "cycling-bike-rental-menton", "mountains-snow-skiing-near-menton", "menton-without-a-car", "public-transport-in-menton", "best-photo-spots-menton", "menton-in-autumn", "day-trips-from-menton", "a-week-in-menton-book-walking-route"],
     relatedApartments: allApartments,
     sections: [
@@ -2035,8 +2036,11 @@ export const guideArticles: GuideArticle[] = [
         body: [
           t("Difficulty: easy to moderate. Duration: 2-3 hours. The route between Menton and Roquebrune-Cap-Martin combines beaches, sea cliffs, pine trees, historic villas and classic Cap Martin viewpoints.", "Difficulte: facile a moderee. Duree: 2-3 heures. L'itineraire entre Menton et Roquebrune-Cap-Martin combine plages, falaises, pins, villas historiques et vues classiques du Cap Martin.", "Difficolta: facile-moderata. Durata: 2-3 ore. Il percorso tra Mentone e Roquebrune-Cap-Martin unisce spiagge, scogliere, pini, ville storiche e viste classiche di Cap Martin.", "Складність: легко-помірно. Тривалість: 2-3 години. Маршрут між Ментоном і Roquebrune-Cap-Martin поєднує пляжі, морські скелі, сосни, історичні вілли й класичні види Cap Martin."),
           t("You can walk out and back, or use Roquebrune-Cap-Martin station for an easier return.", "Vous pouvez faire l'aller-retour a pied ou utiliser la gare de Roquebrune-Cap-Martin pour un retour plus simple.", "Puoi fare andata e ritorno a piedi oppure usare la stazione di Roquebrune-Cap-Martin per rientrare piu facilmente.", "Можна пройти туди й назад або скористатися станцією Roquebrune-Cap-Martin для простішого повернення."),
+          t("The official route passes the gallery of private Villa Cypris, a documented Mortelle Randonnée filming location. Observe only from the authorised public path when open; no estate visits or exact train connections are guaranteed.", "Le parcours officiel passe près de la galerie de Villa Cypris, domaine privé et décor documenté de Mortelle Randonnée. Observation uniquement depuis le sentier public autorisé lorsqu'il est ouvert ; ni visites du domaine ni trains précis garantis.", "L'itinerario ufficiale passa presso la galleria di Villa Cypris, proprietà privata e location documentata di Mortelle Randonnée. Osservare solo dal sentiero pubblico autorizzato quando aperto; visite e collegamenti ferroviari non garantiti.", "Офіційний маршрут проходить біля галереї приватної Villa Cypris, документованої локації Mortelle Randonnée. Огляд лише з відкритої дозволеної громадської стежки; відвідини маєтку й конкретні поїзди не гарантовані."),
         ],
-        relatedPlaceIds: ["roquebrune-cap-martin-coastal-walk", "borrigo-beaches", "promenade-du-soleil"],
+        relatedPlaceIds: ["roquebrune-cap-martin-coastal-walk", "villa-cypris-roquebrune-cap-martin", "borrigo-beaches", "promenade-du-soleil"],
+        guideLinkSlug: "mortelle-randonnee-villa-cypris-filming-location",
+        guideLinkLabel: t("Villa Cypris: film history and public-path limits", "Villa Cypris : cinéma et limites du sentier public", "Villa Cypris: cinema e limiti del sentiero pubblico", "Villa Cypris: кіно й межі громадської стежки"),
       },
       {
         heading: t("Mont Gros for panoramic views", "Mont Gros pour les panoramas", "Mont Gros per i panorami", "Mont Gros для панорам"),
@@ -11465,6 +11469,11 @@ guideArticles.push(haleGuide);
 guideArticles.push(portBookGuide);
 guideArticles.push(platelGuide);
 guideArticles.push(februaryGuide);
+guideArticles.push(cyprisGuide);
+for (const slug of cyprisGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(cyprisGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), cyprisGuide.slug];
+}
 for (const slug of februaryGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(februaryGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), februaryGuide.slug];

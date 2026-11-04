@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "villa-cypris-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080958" },
   { placeId: "trophee-auguste-la-turbie", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://www.trophee-auguste.fr/visiter/informations-pratiques" },
   { placeId: "cathedrale-saint-nicolas-nice", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://sobor.fr/index.php?content=visitors&lang=fr" },
   { placeId: "villefranche-sur-mer-station", reason: "coordinate_unverified", checkedOn: "2026-11-03", sourceUrl: "https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/se-deplacer/gares/villefranche-sur-mer-87756361" },
