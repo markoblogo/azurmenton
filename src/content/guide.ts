@@ -42,6 +42,7 @@ import { mentonBudgetGuide } from "@/content/menton-budget-guide";
 import { joyHouseGuide } from "@/content/joy-house-guide";
 import { mansfieldGuide } from "@/content/mansfield-guide";
 import { longStayGuide } from "@/content/long-stay-guide";
+import { maigretGuide } from "@/content/maigret-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11486,6 +11487,22 @@ guideArticles.push(mentonBudgetGuide);
 guideArticles.push(joyHouseGuide);
 guideArticles.push(mansfieldGuide);
 guideArticles.push(longStayGuide);
+guideArticles.push(maigretGuide);
+const regionalTripsForMaigret = guideArticles.find(article => article.slug === "day-trips-from-menton");
+if (regionalTripsForMaigret) {
+  regionalTripsForMaigret.sections.push({
+    heading: t("Antibes and Cannes with Maigret", "Antibes et Cannes avec Maigret", "Antibes e Cannes con Maigret", "Антиб і Канни з Мегре"),
+    body: [t("For a literary outing, begin at Antibes station, explore the old town and permitted Port Vauban waterfront, then take a confirmed train to Cannes. La Croisette, Rue Meynadier, Vieux Port and an optional climb into Le Suquet provide thematic contrasts for Simenon's Liberty Bar, not verified scene addresses. Allow a flexible full day or split it into two visits; confirm the return train and keep to public routes. Le Suquet has slopes and steps.", "Pour une sortie littéraire, partez de la gare d'Antibes, explorez la vieille ville et les quais autorisés du Port Vauban, puis prenez un train confirmé pour Cannes. Croisette, rue Meynadier, Vieux Port et Suquet facultatif offrent des contrastes thématiques pour Liberty Bar, pas des adresses de scènes vérifiées. Journée souple ou deux visites ; retour à confirmer, parcours publics et marches au Suquet.", "Per una gita letteraria parti dalla stazione di Antibes, visita centro e aree consentite di Port Vauban, poi un treno confermato per Cannes. Croisette, rue Meynadier, Vieux Port e Suquet facoltativo offrono contrasti tematici per Liberty Bar, non indirizzi di scene verificate. Giornata flessibile o due visite; conferma il ritorno, usa percorsi pubblici e considera i gradini del Suquet.", "Літературний день почніть на вокзалі Антиба, огляньте старе місто й дозволені набережні Port Vauban, потім підтверджений потяг до Канн. Croisette, Rue Meynadier, Vieux Port і Сюке за бажанням дають тематичні контрасти Liberty Bar, не перевірені адреси сцен. Гнучкий день або дві поїздки; уточніть повернення, дотримуйтеся громадських шляхів і врахуйте сходи Сюке.")],
+    relatedPlaceIds: ["antibes-station", "port-vauban-antibes", "le-suquet-cannes"],
+    guideLinkSlug: maigretGuide.slug,
+    guideLinkLabel: t("Read the Maigret itinerary", "Lire le parcours Maigret", "Leggere il percorso Maigret", "Прочитайте маршрут Мегре"),
+  });
+  regionalTripsForMaigret.relatedPlaces = [...new Set([...(regionalTripsForMaigret.relatedPlaces ?? []), "antibes-station", "port-vauban-antibes", "le-suquet-cannes"])];
+}
+for (const slug of maigretGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(maigretGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), maigretGuide.slug];
+}
 for (const slug of longStayGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(longStayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), longStayGuide.slug];

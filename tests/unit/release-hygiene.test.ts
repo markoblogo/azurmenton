@@ -37,6 +37,9 @@ describe("release hygiene", () => {
       const files = Array.from({ length: 12 }, (_, i) => join(root, `${i}.txt`));
       files.forEach(file => writeFileSync(file, file));
       const first = await fingerprintInputs(root, files);
+      expect(await fingerprintInputs(root, files, { concurrency: 16 })).toEqual(first);
+      await expect(fingerprintInputs(root, files, { concurrency: 0 })).rejects.toThrow("concurrency");
+      await expect(fingerprintInputs(root, files, { concurrency: 17 })).rejects.toThrow("concurrency");
       expect(await fingerprintInputs(root, [...files].reverse())).toEqual(first);
       writeFileSync(files[0], "changed bytes");
       expect(await fingerprintInputs(root, files)).not.toEqual(first);

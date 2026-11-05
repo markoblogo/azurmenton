@@ -5,6 +5,7 @@ import { dayRouteDetails } from "./planning/day-route-details";
 import { dogPlaces } from "./dog-places";
 import { hitchcockPlaces } from "./hitchcock-places";
 import { halePlaces } from "./hale-places";
+import { maigretPlaces } from "./maigret-places";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -402,6 +403,7 @@ const rawPlaces: Place[] = [
   ...dogPlaces,
   ...hitchcockPlaces,
   ...halePlaces,
+  ...maigretPlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
     address: "33 Boulevard Edouard Baudoin, 06160 Juan-les-Pins", area: text("Juan-les-Pins", "Juan-les-Pins", "Juan-les-Pins", "Жуан-ле-Пен"),

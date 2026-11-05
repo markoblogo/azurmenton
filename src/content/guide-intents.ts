@@ -169,6 +169,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 ];
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "maigret-liberty-bar-antibes-cannes", ignore: ["cluster"], reason: "literary thematic itinerary in Books, Film & Art, with car-free transport and regional-day-trip links rather than a new practical search cluster" },
   { slug: "katherine-mansfield-menton-stories-isola-bella", ignore: ["cluster"], reason: "literary-history and reading guide in Books, Film & Art, reusing Garavan places and car-free/garden content rather than a new practical-intent cluster" },
   { slug: "joy-house-les-felins-villa-torre-clementina", ignore: ["cluster"], reason: "film and architectural-history guide in the existing Books, Film & Art collection, connected to public coastal walks and transport without a separate practical intent cluster" },
   { slug: "la-baie-des-anges-jacques-demy-riviera-filming-locations", ignore: ["cluster"], reason: "cinema guide in the existing Books, Film & Art collection, linked to Nice, Monaco and car-free day trips without a separate search cluster" },
