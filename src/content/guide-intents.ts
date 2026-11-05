@@ -169,6 +169,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 ];
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "katherine-mansfield-menton-stories-isola-bella", ignore: ["cluster"], reason: "literary-history and reading guide in Books, Film & Art, reusing Garavan places and car-free/garden content rather than a new practical-intent cluster" },
   { slug: "joy-house-les-felins-villa-torre-clementina", ignore: ["cluster"], reason: "film and architectural-history guide in the existing Books, Film & Art collection, connected to public coastal walks and transport without a separate practical intent cluster" },
   { slug: "la-baie-des-anges-jacques-demy-riviera-filming-locations", ignore: ["cluster"], reason: "cinema guide in the existing Books, Film & Art collection, linked to Nice, Monaco and car-free day trips without a separate search cluster" },
   { slug: "rebecca-2020-riviera-filming-locations", ignore: ["cluster"], reason: "film guide in the existing Books, Film & Art collection; distinguished from the novel guide and connected to existing day-trip and transport content" },

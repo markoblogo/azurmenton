@@ -14,6 +14,8 @@ sections.forEach((section, index) => {
   section.officialLinks = undefined;
 });
 sections[5].relatedPlaceIds = ["villa-isola-bella-menton"];
+sections[3].guideLinkSlug = "katherine-mansfield-menton-stories-isola-bella";
+sections[3].guideLinkLabel = t("Mansfield's Menton and what to read", "Le Menton de Mansfield et que lire", "La Mentone di Mansfield e cosa leggere", "Ментон Менсфілд і що читати");
 sections[6].relatedPlaceIds = ["menton-garavan-station", "boulevard-de-garavan-menton", "promenade-reine-astrid"];
 sections[7].relatedPlaceIds = ["jardin-val-rahmeh"];
 sections[8].guideLinkSlug = "menton-without-a-car";
