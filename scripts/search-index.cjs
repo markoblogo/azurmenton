@@ -45,6 +45,7 @@ async function main() {
   const recordsAdded = performance.now();
   const output = await index.getFiles();
   if (output.errors?.length) throw new Error(JSON.stringify(output.errors));
+  const filesExported = performance.now();
   const outputPath = path.join(process.cwd(), "public/pagefind");
   for (const file of output.files) {
     const destination = path.join(outputPath, file.path);
@@ -53,6 +54,6 @@ async function main() {
   }
   console.log(`Search index: ${guideArticles.length} guides, ${targets.length} places, ${events.length} events per language; ${places.length - targets.length} places without a rendered card excluded.`);
   const finished = performance.now();
-  console.log(`Search index timing: ${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), contentLoadMs: Math.round(contentLoaded - started), initializationMs: Math.round(initialized - contentLoaded), recordsMs: Math.round(recordsAdded - initialized), outputMs: Math.round(finished - recordsAdded), durationMs: Math.round(finished - started), recordCount: urls.size, fileCount: output.files.length })}`);
+  console.log(`Search index timing: ${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), contentLoadMs: Math.round(contentLoaded - started), initializationMs: Math.round(initialized - contentLoaded), recordsMs: Math.round(recordsAdded - initialized), exportMs: Math.round(filesExported - recordsAdded), writeMs: Math.round(finished - filesExported), outputMs: Math.round(finished - recordsAdded), durationMs: Math.round(finished - started), recordCount: urls.size, fileCount: output.files.length })}`);
 }
 main().catch((error) => { console.error(error); process.exitCode = 1; });

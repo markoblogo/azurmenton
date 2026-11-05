@@ -1141,6 +1141,20 @@
     ]
   },
   {
+    "source": "public/images/guide/musee-resistance-azureenne-nice.png",
+    "outputs": [
+      "public/images/guide/generated/musee-resistance-azureenne-nice.avif",
+      "public/images/guide/generated/musee-resistance-azureenne-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/musee-terra-amata-nice.png",
+    "outputs": [
+      "public/images/guide/generated/musee-terra-amata-nice.avif",
+      "public/images/guide/generated/musee-terra-amata-nice.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/naturist-nudist-beaches-near-menton.png",
     "outputs": [
       "public/images/guide/generated/naturist-nudist-beaches-near-menton.avif",
@@ -1743,17 +1757,10 @@
     ]
   },
   {
-    "source": "public/images/guide/musee-terra-amata-nice.png",
+    "source": "public/images/guide/menton-sundays-public-holidays.png",
     "outputs": [
-      "public/images/guide/generated/musee-terra-amata-nice.avif",
-      "public/images/guide/generated/musee-terra-amata-nice.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/musee-resistance-azureenne-nice.png",
-    "outputs": [
-      "public/images/guide/generated/musee-resistance-azureenne-nice.avif",
-      "public/images/guide/generated/musee-resistance-azureenne-nice.webp"
+      "public/images/guide/generated/menton-sundays-public-holidays.avif",
+      "public/images/guide/generated/menton-sundays-public-holidays.webp"
     ]
   }
 ]
