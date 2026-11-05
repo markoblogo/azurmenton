@@ -49,6 +49,8 @@ Keep these files private/local: they can contain absolute source paths, prose an
 
 ## Publication Timing And Improvement
 
+`npm run guide:timing` is a read-only comparison of existing publication packets and check receipts. It normalizes historical timing field names, preserves unknown owner/labour time and distinguishes recorded reused-check durations from current wall time. Its hypothetical QA-removal bound is diagnostic, never permission to skip checks. See [the structural publication audit](audits/2026-11-05-guide-publication-path-audit.md) for the proposed declarative package and coherent no-build snapshot path; neither migration is active in production.
+
 The search-index build prints monotonic phase durations for content loading, initialization, record submission and file output, plus record/file counts and observed timestamps. The normal build log retains this line in the existing check receipt. It does not change records, concurrency or validation. Separate this measured substage from the whole build duration before proposing indexing optimizations; a total build duration alone does not identify an indexing bottleneck.
 
 Preparation/image steps now retain `startedAt`, `finishedAt` and `durationMs` alongside their actual exit codes and log hashes. Final checks run cheap documentation/content/readiness/image gates before lint, types and the full test suite; every prior gate remains mandatory. This catches schema, reference and map mistakes before an avoidable long run. Release dependency/native gates still come first, and browser/build checks remain unchanged.

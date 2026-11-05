@@ -11655,6 +11655,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["villa-maria-serena", "menton-garavan-station", "promenade-reine-astrid", "promenade-des-anglais-nice"].includes(place.id)) relatedArticleIds.add("in-the-name-of-my-daughter-villa-maria-serena-menton");
   if (["musee-archeologie-cimiez-nice", "rue-longue-menton", "basilica-saint-michel-archange", "monaco-monte-carlo", "ventimiglia", "menton-station", "royal-westminster-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "promenade-des-anglais-nice", "vieil-antibes", "port-vauban-antibes"].includes(place.id)) relatedArticleIds.add("the-french-riviera-a-history-michael-nelson");
   if (["halles-du-marche", "intermarche-hyper-menton", "carrefour-city-felix-faure", "carrefour-city-sospel-menton", "carrefour-city-thiers-menton", "promenade-du-soleil", "jardins-bioves", "esplanade-des-sablettes-menton", "rue-longue-menton", "basilica-saint-michel-archange", "jardin-val-rahmeh", "menton-station"].includes(place.id)) relatedArticleIds.add("menton-sundays-public-holidays");
   if (["menton-station", "halles-du-marche", "intermarche-hyper-menton", "promenade-du-soleil", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("winter-in-menton-one-two-months");

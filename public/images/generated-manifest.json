@@ -1043,6 +1043,13 @@
     ]
   },
   {
+    "source": "public/images/guide/menton-sundays-public-holidays.png",
+    "outputs": [
+      "public/images/guide/generated/menton-sundays-public-holidays.avif",
+      "public/images/guide/generated/menton-sundays-public-holidays.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/menton-water-sports-bay.png",
     "outputs": [
       "public/images/guide/generated/menton-water-sports-bay.avif",
@@ -1757,10 +1764,10 @@
     ]
   },
   {
-    "source": "public/images/guide/menton-sundays-public-holidays.png",
+    "source": "public/images/guide/in-the-name-of-my-daughter-villa-maria-serena-menton.png",
     "outputs": [
-      "public/images/guide/generated/menton-sundays-public-holidays.avif",
-      "public/images/guide/generated/menton-sundays-public-holidays.webp"
+      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.avif",
+      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.webp"
     ]
   }
 ]
