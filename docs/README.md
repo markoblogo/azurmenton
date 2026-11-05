@@ -13,6 +13,7 @@ Current entrypoints are below. Dated audits, reports and reviews record observat
 
 - [Content rules](content-operations.md): linking, images, maps and sources.
 - [Manual guide packet](guide-manual-workflow.md): preferred guide/translation/later-image path.
+- [Guide publication path audit](audits/2026-11-05-guide-publication-path-audit.md): measured bottlenecks and proposed declarative/no-rebuild migration; not a production switch.
 - [Individual commands](guide-automation.md): diagnostic reference, not a competing workflow.
 - [Content map](content-map.md), [migration history](content-migration-notes.md), [maintenance](guide-maintenance-review.md).
 - [Source verification](guides-verification-loop.md), [guide health](guides-health-observatory.md), [uMap](umap-trial.md).

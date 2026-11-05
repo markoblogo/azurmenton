@@ -46,6 +46,7 @@ import { maigretGuide } from "@/content/maigret-guide";
 import { winterLongStayGuide } from "@/content/winter-long-stay-guide";
 import { nelsonGuide } from "@/content/nelson-guide";
 import { sundayGuide } from "@/content/sunday-guide";
+import { mariaSerenaFilmGuide } from "@/content/maria-serena-film-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11494,6 +11495,11 @@ guideArticles.push(maigretGuide);
 guideArticles.push(winterLongStayGuide);
 guideArticles.push(nelsonGuide);
 guideArticles.push(sundayGuide);
+guideArticles.push(mariaSerenaFilmGuide);
+for (const slug of mariaSerenaFilmGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(mariaSerenaFilmGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), mariaSerenaFilmGuide.slug];
+}
 for (const slug of sundayGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(sundayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), sundayGuide.slug];

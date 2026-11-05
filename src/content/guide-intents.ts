@@ -169,6 +169,7 @@ export const guideIntentClusters: GuideIntentCluster[] = [
 ];
 
 export const guideLinkAuditProfiles: GuideLinkAuditProfile[] = [
+  { slug: "in-the-name-of-my-daughter-villa-maria-serena-menton", ignore: ["cluster"], reason: "film-location and villa-history guide in Books, Film & Art, connected to existing gardens and transport rather than a new practical search cluster" },
   { slug: "the-french-riviera-a-history-michael-nelson", ignore: ["cluster"], reason: "regional-history reading companion in Books, Film & Art, linked to existing museum, transport and day-trip guides rather than a new practical intent cluster" },
   { slug: "maigret-liberty-bar-antibes-cannes", ignore: ["cluster"], reason: "literary thematic itinerary in Books, Film & Art, with car-free transport and regional-day-trip links rather than a new practical search cluster" },
   { slug: "katherine-mansfield-menton-stories-isola-bella", ignore: ["cluster"], reason: "literary-history and reading guide in Books, Film & Art, reusing Garavan places and car-free/garden content rather than a new practical-intent cluster" },
