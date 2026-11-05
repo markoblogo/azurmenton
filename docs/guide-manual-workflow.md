@@ -67,6 +67,8 @@ For each blocker record the affected stage, symptom, observed time lost, cause (
 
 ## Reusing Check Results
 
+Artifact directory hashing uses at most eight concurrent filesystem operations while retaining the same sorted recursive content digest. Symlinks and unsupported artifacts remain errors; no timestamp-based cache or missing-file shortcut is introduced. Receipts expose `initialFingerprintMs` and `finalFingerprintMs`, and `startedAt` now includes the initial fingerprint, matching `durationMs`. Use these actual phase measurements to separate hashing overhead from tests/builds before selecting the next optimization.
+
 Before a full verification after adding a guide or changing intent membership, run its focused guide test together with `tests/unit/content-audit.test.ts`. Schema lint alone does not enforce reciprocal links from intent-cluster canonical guides. Include `tests/unit/guide-assets.test.ts` for illustration changes and `tests/unit/release-hygiene.test.ts` plus `tests/unit/project-check-order.test.ts` for shared-gate changes.
 
 The check suite runs guide review, documentation, lint, TypeScript, unit tests, content/SEO/weekly/funnel preflight, image validation, build and post-build preflight, using the shared project-check definitions. `release:check` adds native dependency validation, production security audit and production browser tests with the same receipt safeguards. A content-only reduced profile is not yet proved for executable TypeScript content modules.

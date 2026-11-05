@@ -64,7 +64,7 @@ export const stayPlans: StayPlan[] = [
     primaryGuideSlug: "stay-cool-in-menton-summer",
     featuredOnGuide: true,
     relatedStaySlug: "sea-view-apartment-menton",
-    relatedGuideSlugs: ["stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-in-autumn"],
+    relatedGuideSlugs: ["stay-cool-in-menton-summer", "best-beaches-in-menton", "menton-in-autumn", "long-stay-menton-apartment-living"],
     relatedPlaceIds: ["plage-casino", "jardin-val-rahmeh", "musee-jean-cocteau-bastion"],
     relatedApartmentSlugs: ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"],
     transportDestinationIds: ["nice", "monaco"],

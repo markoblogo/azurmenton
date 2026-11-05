@@ -4,9 +4,26 @@ import { mkdtemp, readFile, writeFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
-const { runCheckSuite,repositoryFingerprint } = createRequire(import.meta.url)("../../scripts/lib/guide-workflow.cjs");
+const { runCheckSuite,repositoryFingerprint,artifactHash } = createRequire(import.meta.url)("../../scripts/lib/guide-workflow.cjs");
 
 describe("manual guide workflow receipts", () => {
+  it("preserves artifact tree hashes and rejects nested symlinks", async () => {
+    const fs=await import("node:fs/promises");
+    const {createHash}=await import("node:crypto");
+    const root=await mkdtemp(path.join(tmpdir(),"guide-artifact-hash-"));
+    const hash=(value:string|Buffer)=>createHash("sha256").update(value).digest("hex");
+    try {
+      await fs.mkdir(path.join(root,"nested"));
+      await writeFile(path.join(root,"z"),"last");
+      await writeFile(path.join(root,"nested","a"),"first");
+      const expected=hash(JSON.stringify([["nested",hash(JSON.stringify([["a",hash("first")]]))],["z",hash("last")]]));
+      expect(await artifactHash(root)).toBe(expected);
+      await writeFile(path.join(root,"nested","a"),"changed");
+      expect(await artifactHash(root)).not.toBe(expected);
+      await fs.symlink(path.join(root,"z"),path.join(root,"nested","link"));
+      await expect(artifactHash(root)).rejects.toThrow("symlinks");
+    } finally {await rm(root,{recursive:true,force:true});}
+  });
   it("reuses only the unchanged prefix when a build command or later gate changes", async () => {
     const root=await mkdtemp(path.join(tmpdir(),"guide-workflow-prefix-"));
     try {

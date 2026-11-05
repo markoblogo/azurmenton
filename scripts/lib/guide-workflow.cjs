@@ -6,13 +6,27 @@ const {execFileSync}=require("node:child_process");
 const digest=value=>createHash("sha256").update(value).digest("hex");
 async function fileHash(file){return digest(await fs.readFile(file));}
 async function artifactHash(file){
-  const stat=await fs.lstat(file);
-  if(stat.isSymbolicLink())throw Error("Generated artifacts must not be symlinks");
-  if(stat.isFile())return fileHash(file);
-  if(!stat.isDirectory())throw Error("Unsupported generated artifact");
-  const entries=[];
-  for(const name of (await fs.readdir(file)).sort())entries.push([name,await artifactHash(path.join(file,name))]);
-  return digest(JSON.stringify(entries));
+  let active=0;
+  const waiting=[];
+  async function io(operation){
+    if(active>=8)await new Promise(resolve=>waiting.push(resolve));
+    else active++;
+    try{return await operation();}
+    finally{if(waiting.length)waiting.shift()();else active--;}
+  }
+  async function visit(current){
+    const stat=await io(()=>fs.lstat(current));
+    if(stat.isSymbolicLink())throw Error("Generated artifacts must not be symlinks");
+    if(stat.isFile())return io(()=>fileHash(current));
+    if(!stat.isDirectory())throw Error("Unsupported generated artifact");
+    const names=(await io(()=>fs.readdir(current))).sort();
+    // Keep the original sorted tree digest while bounding filesystem operations globally.
+    const results=await Promise.allSettled(names.map(async name=>[name,await visit(path.join(current,name))]));
+    const failure=results.find(result=>result.status==="rejected");
+    if(failure)throw failure.reason;
+    return digest(JSON.stringify(results.map(result=>result.value)));
+  }
+  return visit(file);
 }
 async function json(file){try{return JSON.parse(await fs.readFile(file,"utf8"));}catch(error){if(error.code==="ENOENT")return null;throw error;}}
 async function saveJson(file,value){await fs.mkdir(path.dirname(file),{recursive:true});const temporary=file+"."+randomUUID()+".tmp";try{await fs.writeFile(temporary,JSON.stringify(value,null,2)+"\n",{flag:"wx"});await fs.rename(temporary,file);}finally{await fs.rm(temporary,{force:true});}}
@@ -22,11 +36,12 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
   const started=Date.now();
   onStep("fingerprint","running");
   const inputHash=await fingerprint();
+  const initialFingerprintMs=Date.now()-started;
   onStep("fingerprint","passed");
   const signature=digest(JSON.stringify(checks));
   const previous=await json(receiptPath);
   const compatible=previous?.version===2&&!previous.stale&&previous.fingerprint===inputHash;
-  const receipt={version:2,fingerprint:inputHash,signature,startedAt:new Date().toISOString(),ok:false,publication:"not-performed",plannedChecks:checks.map(x=>x.id),checks:[]};
+  const receipt={version:2,fingerprint:inputHash,signature,startedAt:new Date(started).toISOString(),initialFingerprintMs,ok:false,publication:"not-performed",plannedChecks:checks.map(x=>x.id),checks:[]};
   for(const [index,check] of checks.entries()){
     if(!/^[a-z0-9-]+$/.test(check.id))throw Error("Invalid check id");
     const logPath=path.join(path.dirname(receiptPath),"logs",`${check.id}.log`);
@@ -51,7 +66,9 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
     await saveJson(receiptPath,receipt);
     if(receipt.checks.at(-1).status!=="passed")break;
   }
+  const finalFingerprintStarted=Date.now();
   receipt.stale=await fingerprint()!==inputHash;
+  receipt.finalFingerprintMs=Date.now()-finalFingerprintStarted;
   receipt.ok=!receipt.stale&&receipt.checks.length===checks.length&&receipt.checks.every(x=>x.status==="passed");
   receipt.finishedAt=new Date().toISOString();
   receipt.durationMs=Date.now()-started;
@@ -92,4 +109,4 @@ async function repositoryFingerprint(root,extraFiles=[]){
   const asOf=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
   return digest(JSON.stringify({asOf,node:process.version,platform:process.platform,arch:process.arch,environment:digest(JSON.stringify(environment)),inputs:entries}));
 }
-module.exports={digest,fileHash,json,saveJson,runCheckSuite,repositoryFingerprint,fingerprintInputs};
+module.exports={digest,fileHash,artifactHash,json,saveJson,runCheckSuite,repositoryFingerprint,fingerprintInputs};
