@@ -44,6 +44,7 @@ import { mansfieldGuide } from "@/content/mansfield-guide";
 import { longStayGuide } from "@/content/long-stay-guide";
 import { maigretGuide } from "@/content/maigret-guide";
 import { winterLongStayGuide } from "@/content/winter-long-stay-guide";
+import { nelsonGuide } from "@/content/nelson-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11490,6 +11491,21 @@ guideArticles.push(mansfieldGuide);
 guideArticles.push(longStayGuide);
 guideArticles.push(maigretGuide);
 guideArticles.push(winterLongStayGuide);
+guideArticles.push(nelsonGuide);
+for (const slug of nelsonGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(nelsonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), nelsonGuide.slug];
+}
+const museumsForNelson = guideArticles.find(article => article.slug === "museums-in-menton-nice-monaco");
+if (museumsForNelson) {
+  museumsForNelson.sections.push({
+    heading: t("Nice: prehistory and Resistance history", "Nice : préhistoire et Résistance", "Nizza: preistoria e Resistenza", "Ніцца: доісторія й Опір"),
+    body: [t("Checked 5 November 2026: Terra Amata remains marked closed for accessibility works, with no confirmed reopening date; ordinary listed hours do not override the notice. Choose Cimiez instead until confirmed. The Resistance museum is at Le Phare in Arénas near Parc Phoenix, not beside the old town. Its listed November weekday afternoons exclude 11 November and weekends; confirm reception for your date.", "Vérifié le 5 novembre 2026 : Terra Amata reste signalé fermé pour accessibilité, sans réouverture confirmée ; les horaires ordinaires n'annulent pas l'alerte. Alternative : Cimiez. Le musée de la Résistance est au Phare, Arénas, près du parc Phoenix, pas du Vieux-Nice. Ses après-midi de semaine en novembre excluent le 11 et les week-ends ; confirmer l'accueil.", "Verificato il 5 novembre 2026: Terra Amata ancora indicato chiuso per accessibilità, nessuna riapertura confermata; gli orari ordinari non annullano l'avviso. Alternativa: Cimiez. Il museo della Resistenza è a Le Phare, Arénas, vicino a Parc Phoenix, non al centro storico. Pomeriggi feriali di novembre esclusi l'11 e i fine settimana; conferma l'accoglienza.", "Перевірено 5 листопада 2026: Terra Amata досі закритий на роботи з доступності, без підтвердженого відкриття; звичайні години не скасовують повідомлення. Альтернатива: Cimiez. Музей Опору в Le Phare, Arénas, біля Parc Phoenix, не старого міста. Листопадові будні виключають 11-те й вихідні; уточнюйте прийом.")],
+    relatedPlaceIds: ["musee-terra-amata-nice", "musee-resistance-azureenne-nice"],
+    guideLinkSlug: nelsonGuide.slug,
+    guideLinkLabel: t("Read the coast's longer history", "Lire l'histoire du littoral", "Leggi la storia della costa", "Прочитайте історію узбережжя"),
+  });
+}
 for (const slug of winterLongStayGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(winterLongStayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), winterLongStayGuide.slug];

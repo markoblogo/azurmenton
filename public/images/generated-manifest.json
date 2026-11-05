@@ -1554,6 +1554,13 @@
     ]
   },
   {
+    "source": "public/images/guide/the-french-riviera-a-history-michael-nelson.png",
+    "outputs": [
+      "public/images/guide/generated/the-french-riviera-a-history-michael-nelson.avif",
+      "public/images/guide/generated/the-french-riviera-a-history-michael-nelson.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/the-houses-that-remember-book-cover.png",
     "outputs": [
       "public/images/guide/generated/the-houses-that-remember-book-cover.avif",
@@ -1673,6 +1680,13 @@
     ]
   },
   {
+    "source": "public/images/guide/winter-in-menton-one-two-months.png",
+    "outputs": [
+      "public/images/guide/generated/winter-in-menton-one-two-months.avif",
+      "public/images/guide/generated/winter-in-menton-one-two-months.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/winter-palace-menton.png",
     "outputs": [
       "public/images/guide/generated/winter-palace-menton.avif",
@@ -1729,10 +1743,17 @@
     ]
   },
   {
-    "source": "public/images/guide/winter-in-menton-one-two-months.png",
+    "source": "public/images/guide/musee-terra-amata-nice.png",
     "outputs": [
-      "public/images/guide/generated/winter-in-menton-one-two-months.avif",
-      "public/images/guide/generated/winter-in-menton-one-two-months.webp"
+      "public/images/guide/generated/musee-terra-amata-nice.avif",
+      "public/images/guide/generated/musee-terra-amata-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/musee-resistance-azureenne-nice.png",
+    "outputs": [
+      "public/images/guide/generated/musee-resistance-azureenne-nice.avif",
+      "public/images/guide/generated/musee-resistance-azureenne-nice.webp"
     ]
   }
 ]

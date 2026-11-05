@@ -5,6 +5,7 @@ import { dayRouteDetails } from "./planning/day-route-details";
 import { dogPlaces } from "./dog-places";
 import { hitchcockPlaces } from "./hitchcock-places";
 import { halePlaces } from "./hale-places";
+import { nelsonPlaces } from "./nelson-places";
 import { maigretPlaces } from "./maigret-places";
 
 export type LocalizedText = Record<Locale, string>;
@@ -403,6 +404,7 @@ const rawPlaces: Place[] = [
   ...dogPlaces,
   ...hitchcockPlaces,
   ...halePlaces,
+  ...nelsonPlaces,
   ...maigretPlaces,
   {
     id: "hotel-belles-rives-juan-les-pins", name: "Hôtel Belles Rives / Villa Saint-Louis", type: "viewpoint",
@@ -11653,6 +11655,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["musee-archeologie-cimiez-nice", "rue-longue-menton", "basilica-saint-michel-archange", "monaco-monte-carlo", "ventimiglia", "menton-station", "royal-westminster-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "promenade-des-anglais-nice", "vieil-antibes", "port-vauban-antibes"].includes(place.id)) relatedArticleIds.add("the-french-riviera-a-history-michael-nelson");
   if (["menton-station", "halles-du-marche", "intermarche-hyper-menton", "promenade-du-soleil", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("winter-in-menton-one-two-months");
   if (["halles-du-marche", "intermarche-hyper-menton", "menton-station"].includes(place.id)) relatedArticleIds.add("long-stay-menton-apartment-living");
   if (["villa-isola-bella-menton", "menton-garavan-station", "boulevard-de-garavan-menton", "promenade-reine-astrid", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("katherine-mansfield-menton-stories-isola-bella");
