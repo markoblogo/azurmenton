@@ -39,6 +39,8 @@ Warm-filesystem benchmark, same actual 652 existing files, alternating serial/ei
 
 More meaningful process savings: determine existing image coverage early, reuse five images, prepare the cover once, avoid a redundant apply-cover request and whole-library derivative regeneration, and overlap immutable-tree local verification with CI/preview. All fact, approval, schema, security, build, image and browser gates remain. Next candidate: separately measure source-fingerprint overhead versus build/translation time before selecting another optimization. No cache bypass or timestamp-only substitution for content hashes.
 
+First full attempt stopped at ESLint: the new CommonJS helper needed the same file-local require-import exception used by neighbouring `.cjs` helpers; its TypeScript test had an unnecessary exception. Corrected both before retry. No build/browser pass claimed for that failed attempt; its exact duration is preserved in the local failed receipt. Add a changed-file ESLint pass before freezing an infra/helper change, as unit tests and type checking do not cover this rule.
+
 ## Status Boundary
 
 This source-tree audit records preparation and approval, not publication success. Merge waits for final local and remote checks; production identity and all four public locale pages must then pass. Detailed source paths, benchmark/report JSON and publication timers remain in ignored local files rather than a second public content database.

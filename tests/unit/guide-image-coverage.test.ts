@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import { createRequire } from "node:module";
 import { describe, expect, it } from "vitest";
 const { availablePlaceImages } = createRequire(import.meta.url)("../../scripts/lib/guide-image-coverage.cjs");
