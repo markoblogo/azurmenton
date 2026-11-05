@@ -1589,6 +1589,13 @@
     ]
   },
   {
+    "source": "public/images/guide/villa-torre-clementina-roquebrune-cap-martin.png",
+    "outputs": [
+      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.avif",
+      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/villefranche-sur-mer-station.png",
     "outputs": [
       "public/images/guide/generated/villefranche-sur-mer-station.avif",
@@ -1652,10 +1659,10 @@
     ]
   },
   {
-    "source": "public/images/guide/villa-torre-clementina-roquebrune-cap-martin.png",
+    "source": "public/images/guide/katherine-mansfield-menton-stories-isola-bella.png",
     "outputs": [
-      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.avif",
-      "public/images/guide/generated/villa-torre-clementina-roquebrune-cap-martin.webp"
+      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.avif",
+      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.webp"
     ]
   }
 ]

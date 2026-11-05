@@ -6,6 +6,7 @@ const path = require("node:path");
 const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
 const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
 const { applyGuideCover } = require("./lib/guide-cover-patch.cjs");
+const { availablePlaceImages } = require("./lib/guide-image-coverage.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -143,13 +144,9 @@ async function main(args = process.argv.slice(2)) {
   const { loadTargets, saveTargets, generateDerivatives } = await import("./lib/image-derivatives.mjs");
   const overrides = parsePlaceAssetArgs(placeArgs).map((asset) => ({ ...asset, sourcePath: path.resolve(asset.sourcePath) }));
   const resolvedAssetsDir = assetsDir ? path.resolve(assetsDir) : publicationPlan?.assetsDirectory ? path.resolve(publicationPlan.assetsDirectory) : undefined;
-  const availableImagePaths = [];
-  for (const image of new Set(places.map(place => place.image).filter(Boolean))) {
-    const file = path.resolve(root, "public", image.replace(/^\//, ""));
-    if (!file.startsWith(path.join(root, "public") + path.sep)) throw new Error("Place image must be inside public");
-    try { if ((await fs.stat(file)).isFile()) availableImagePaths.push(image); }
-    catch (error) { if (error.code !== "ENOENT") throw error; }
-  }
+  const coverageStarted = Date.now();
+  const availableImagePaths = await availablePlaceImages(root, places.map(place => place.image));
+  const coverageDurationMs = Date.now() - coverageStarted;
   const assetPlaces = withAvailablePlaceImages(places, availableImagePaths);
   const existingPlaceImages = Object.fromEntries(assetPlaces.filter((place) => place.image).map((place) => [place.id, place.image]));
   const outputSlug = publishedGuideSlug ?? publicationPlan?.slug ?? intake?.slug ?? workingSlug;
@@ -251,6 +248,7 @@ async function main(args = process.argv.slice(2)) {
   }
 
   const report = {
+    imageCoverage: { durationMs: coverageDurationMs, availableFiles: availableImagePaths.length, concurrency: 8 },
     slug: workingSlug,
     strict,
     missingOnly,
