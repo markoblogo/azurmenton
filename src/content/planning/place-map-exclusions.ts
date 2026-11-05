@@ -10,6 +10,8 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  ...["antibes-station", "port-vauban-antibes"].map(placeId => ({ placeId, reason: "coordinate_unverified" as const, checkedOn: "2026-11-05", sourceUrl: "https://www.antibes-juanlespins.com/decouvrir-antibes/cartes-postales-dhier-et-aujourdhui" })),
+  { placeId: "vieux-port-cannes", reason: "coordinate_unverified", checkedOn: "2026-11-05", sourceUrl: "https://www.cannes-france.com/app/uploads/cannes-tourisme/2024/01/PLAN-PEDESTRE.pdf" },
   { placeId: "villa-torre-clementina-roquebrune-cap-martin", reason: "coordinate_unverified", checkedOn: "2026-11-05", sourceUrl: "https://pop.culture.gouv.fr/notice/merimee/PA00080959" },
   { placeId: "villa-eilenroc-antibes", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://www.antibes-juanlespins.com/sorties-loisirs/un-patrimoine-vivant/la-villa-eilenroc" },
   { placeId: "jardin-exotique-monaco", reason: "coordinate_unverified", checkedOn: "2026-11-04", sourceUrl: "https://www.jardin-exotique.mc/fr/preparer-ma-visite" },

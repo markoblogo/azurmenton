@@ -910,6 +910,13 @@
     ]
   },
   {
+    "source": "public/images/guide/long-stay-menton-apartment-living.png",
+    "outputs": [
+      "public/images/guide/generated/long-stay-menton-apartment-living.avif",
+      "public/images/guide/generated/long-stay-menton-apartment-living.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/luggage-storage-in-menton-monaco-and-nice.png",
     "outputs": [
       "public/images/guide/generated/luggage-storage-in-menton-monaco-and-nice.avif",
@@ -928,6 +935,13 @@
     "outputs": [
       "public/images/guide/generated/magiarge-bordighera.avif",
       "public/images/guide/generated/magiarge-bordighera.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/maigret-liberty-bar-antibes-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/maigret-liberty-bar-antibes-cannes.avif",
+      "public/images/guide/generated/maigret-liberty-bar-antibes-cannes.webp"
     ]
   },
   {
@@ -1666,10 +1680,52 @@
     ]
   },
   {
-    "source": "public/images/guide/long-stay-menton-apartment-living.png",
+    "source": "public/images/guide/antibes-station.png",
     "outputs": [
-      "public/images/guide/generated/long-stay-menton-apartment-living.avif",
-      "public/images/guide/generated/long-stay-menton-apartment-living.webp"
+      "public/images/guide/generated/antibes-station.avif",
+      "public/images/guide/generated/antibes-station.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/vieil-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/vieil-antibes.avif",
+      "public/images/guide/generated/vieil-antibes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/port-vauban-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/port-vauban-antibes.avif",
+      "public/images/guide/generated/port-vauban-antibes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/la-croisette-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/la-croisette-cannes.avif",
+      "public/images/guide/generated/la-croisette-cannes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/rue-meynadier-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/rue-meynadier-cannes.avif",
+      "public/images/guide/generated/rue-meynadier-cannes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/vieux-port-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/vieux-port-cannes.avif",
+      "public/images/guide/generated/vieux-port-cannes.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-suquet-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/le-suquet-cannes.avif",
+      "public/images/guide/generated/le-suquet-cannes.webp"
     ]
   }
 ]

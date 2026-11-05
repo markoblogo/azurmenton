@@ -76,7 +76,8 @@ async function runCheckSuite({receiptPath,checks,fingerprint,execute,onStep=()=>
   return receipt;
 }
 
-async function fingerprintInputs(root,paths){
+async function fingerprintInputs(root,paths,{concurrency=8}={}){
+  if(!Number.isInteger(concurrency)||concurrency<1||concurrency>16)throw Error("Invalid fingerprint concurrency (1-16)");
   const sorted=[...new Set(paths)].sort();
   const entries=new Array(sorted.length);
   let next=0;
@@ -93,7 +94,9 @@ async function fingerprintInputs(root,paths){
     }
   }
   // Bound IO concurrency without replacing content hashes with timestamps.
-  await Promise.all(Array.from({length:Math.min(8,sorted.length)},()=>worker()));
+  const results=await Promise.allSettled(Array.from({length:Math.min(concurrency,sorted.length)},()=>worker()));
+  const failure=results.find(result=>result.status==="rejected");
+  if(failure)throw failure.reason;
   return entries.filter(Boolean);
 }
 
@@ -103,7 +106,7 @@ async function repositoryFingerprint(root,extraFiles=[]){
   const paths=new Set(listed.filter(file=>!generated.test(file)).map(file=>path.join(root,file)));
   for(const file of await fs.readdir(root))if(/^\.env(?:\.|$)/.test(file))paths.add(path.join(root,file));
   for(const file of extraFiles)paths.add(path.resolve(file));
-  const entries=await fingerprintInputs(root,paths);
+  const entries=await fingerprintInputs(root,paths,{concurrency:16});
   const volatile=new Set(["_","SHLVL","PWD","OLDPWD","CODEX_TOOL_CALL_ID","npm_lifecycle_event","npm_lifecycle_script","npm_command","INIT_CWD"]);
   const environment=Object.entries(process.env).filter(([key])=>!volatile.has(key)).sort(([a],[b])=>a.localeCompare(b));
   const asOf=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Paris",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
