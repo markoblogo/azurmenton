@@ -11653,6 +11653,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
+  if (["menton-station", "halles-du-marche", "intermarche-hyper-menton", "promenade-du-soleil", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("winter-in-menton-one-two-months");
   if (["halles-du-marche", "intermarche-hyper-menton", "menton-station"].includes(place.id)) relatedArticleIds.add("long-stay-menton-apartment-living");
   if (["villa-isola-bella-menton", "menton-garavan-station", "boulevard-de-garavan-menton", "promenade-reine-astrid", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("katherine-mansfield-menton-stories-isola-bella");
   if (["roquebrune-cap-martin-coastal-walk", "villa-e-1027-roquebrune-cap-martin", "villa-cypris-roquebrune-cap-martin"].includes(place.id)) relatedArticleIds.add("joy-house-les-felins-villa-torre-clementina");

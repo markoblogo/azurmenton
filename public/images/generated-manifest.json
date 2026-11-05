@@ -63,6 +63,13 @@
     ]
   },
   {
+    "source": "public/images/guide/antibes-station.png",
+    "outputs": [
+      "public/images/guide/generated/antibes-station.avif",
+      "public/images/guide/generated/antibes-station.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/asd-pianeta-blu-imbarco-menton.png",
     "outputs": [
       "public/images/guide/generated/asd-pianeta-blu-imbarco-menton.avif",
@@ -700,6 +707,13 @@
     ]
   },
   {
+    "source": "public/images/guide/la-croisette-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/la-croisette-cannes.avif",
+      "public/images/guide/generated/la-croisette-cannes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/la-ferme-des-citrons-menton.png",
     "outputs": [
       "public/images/guide/generated/la-ferme-des-citrons-menton.avif",
@@ -844,6 +858,13 @@
     "outputs": [
       "public/images/guide/generated/le-six-nice.avif",
       "public/images/guide/generated/le-six-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/le-suquet-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/le-suquet-cannes.avif",
+      "public/images/guide/generated/le-suquet-cannes.webp"
     ]
   },
   {
@@ -1316,6 +1337,13 @@
     ]
   },
   {
+    "source": "public/images/guide/port-vauban-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/port-vauban-antibes.avif",
+      "public/images/guide/generated/port-vauban-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/poseidon-diving-snorkeling-nice.png",
     "outputs": [
       "public/images/guide/generated/poseidon-diving-snorkeling-nice.avif",
@@ -1449,6 +1477,13 @@
     ]
   },
   {
+    "source": "public/images/guide/rue-meynadier-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/rue-meynadier-cannes.avif",
+      "public/images/guide/generated/rue-meynadier-cannes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/rue-obscure-villefranche.png",
     "outputs": [
       "public/images/guide/generated/rue-obscure-villefranche.avif",
@@ -1554,10 +1589,24 @@
     ]
   },
   {
+    "source": "public/images/guide/vieil-antibes.png",
+    "outputs": [
+      "public/images/guide/generated/vieil-antibes.avif",
+      "public/images/guide/generated/vieil-antibes.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/vieux-nice.png",
     "outputs": [
       "public/images/guide/generated/vieux-nice.avif",
       "public/images/guide/generated/vieux-nice.webp"
+    ]
+  },
+  {
+    "source": "public/images/guide/vieux-port-cannes.png",
+    "outputs": [
+      "public/images/guide/generated/vieux-port-cannes.avif",
+      "public/images/guide/generated/vieux-port-cannes.webp"
     ]
   },
   {
@@ -1680,52 +1729,10 @@
     ]
   },
   {
-    "source": "public/images/guide/antibes-station.png",
+    "source": "public/images/guide/winter-in-menton-one-two-months.png",
     "outputs": [
-      "public/images/guide/generated/antibes-station.avif",
-      "public/images/guide/generated/antibes-station.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/vieil-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/vieil-antibes.avif",
-      "public/images/guide/generated/vieil-antibes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/port-vauban-antibes.png",
-    "outputs": [
-      "public/images/guide/generated/port-vauban-antibes.avif",
-      "public/images/guide/generated/port-vauban-antibes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/la-croisette-cannes.png",
-    "outputs": [
-      "public/images/guide/generated/la-croisette-cannes.avif",
-      "public/images/guide/generated/la-croisette-cannes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/rue-meynadier-cannes.png",
-    "outputs": [
-      "public/images/guide/generated/rue-meynadier-cannes.avif",
-      "public/images/guide/generated/rue-meynadier-cannes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/vieux-port-cannes.png",
-    "outputs": [
-      "public/images/guide/generated/vieux-port-cannes.avif",
-      "public/images/guide/generated/vieux-port-cannes.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/le-suquet-cannes.png",
-    "outputs": [
-      "public/images/guide/generated/le-suquet-cannes.avif",
-      "public/images/guide/generated/le-suquet-cannes.webp"
+      "public/images/guide/generated/winter-in-menton-one-two-months.avif",
+      "public/images/guide/generated/winter-in-menton-one-two-months.webp"
     ]
   }
 ]
