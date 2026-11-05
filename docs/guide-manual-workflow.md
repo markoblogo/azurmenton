@@ -69,6 +69,8 @@ For each blocker record the affected stage, symptom, observed time lost, cause (
 
 ## Reusing Check Results
 
+Search-index timing separates Pagefind `getFiles()` (`exportMs`) from filesystem output (`writeMs`); `outputMs` remains their aggregate for historical comparisons. Do not interpret older `outputMs` as disk-write time. A 5 November 2026 sync-versus-eight-writer experiment showed no improvement (1.182s / 1.214s on the same retained-output snapshot), so parallel writes were not adopted; identical output alone is insufficient evidence of a speedup.
+
 Artifact directory hashing uses at most eight concurrent filesystem operations while retaining the same sorted recursive content digest. Symlinks and unsupported artifacts remain errors; no timestamp-based cache or missing-file shortcut is introduced. Receipts expose `initialFingerprintMs` and `finalFingerprintMs`, and `startedAt` now includes the initial fingerprint, matching `durationMs`. Use these actual phase measurements to separate hashing overhead from tests/builds before selecting the next optimization.
 
 Repository source fingerprinting uses a separate bounded pool of sixteen readers, retaining sorted paths and complete byte hashes. A fixed 2,414-file comparison produced identical digests at eight and sixteen readers (90.0s / 78.4s, one cache-sensitive pair, not a guaranteed speedup). Invalid concurrency is rejected and failures wait for outstanding work. On this host, use explicit `--webpack` while the recorded Turbopack listener restriction persists; do not spend another full attempt rediscovering it.

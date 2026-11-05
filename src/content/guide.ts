@@ -45,6 +45,7 @@ import { longStayGuide } from "@/content/long-stay-guide";
 import { maigretGuide } from "@/content/maigret-guide";
 import { winterLongStayGuide } from "@/content/winter-long-stay-guide";
 import { nelsonGuide } from "@/content/nelson-guide";
+import { sundayGuide } from "@/content/sunday-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11492,6 +11493,11 @@ guideArticles.push(longStayGuide);
 guideArticles.push(maigretGuide);
 guideArticles.push(winterLongStayGuide);
 guideArticles.push(nelsonGuide);
+guideArticles.push(sundayGuide);
+for (const slug of sundayGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(sundayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), sundayGuide.slug];
+}
 for (const slug of nelsonGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(nelsonGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), nelsonGuide.slug];
