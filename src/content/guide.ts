@@ -43,6 +43,7 @@ import { joyHouseGuide } from "@/content/joy-house-guide";
 import { mansfieldGuide } from "@/content/mansfield-guide";
 import { longStayGuide } from "@/content/long-stay-guide";
 import { maigretGuide } from "@/content/maigret-guide";
+import { winterLongStayGuide } from "@/content/winter-long-stay-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11488,6 +11489,11 @@ guideArticles.push(joyHouseGuide);
 guideArticles.push(mansfieldGuide);
 guideArticles.push(longStayGuide);
 guideArticles.push(maigretGuide);
+guideArticles.push(winterLongStayGuide);
+for (const slug of winterLongStayGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(winterLongStayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), winterLongStayGuide.slug];
+}
 const regionalTripsForMaigret = guideArticles.find(article => article.slug === "day-trips-from-menton");
 if (regionalTripsForMaigret) {
   regionalTripsForMaigret.sections.push({

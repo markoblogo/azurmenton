@@ -7,6 +7,7 @@ const { registerTypescriptContent } = require("./lib/register-ts-content.cjs");
 const { printGuideOperatorHandoff } = require("./lib/guide-operator-handoff.cjs");
 const { applyGuideCover } = require("./lib/guide-cover-patch.cjs");
 const { availablePlaceImages } = require("./lib/guide-image-coverage.cjs");
+const { readPlaceModules, preparePlaceImageModulePatches, applyPlaceImageModulePatches } = require("./lib/place-image-modules.cjs");
 
 const root = path.resolve(__dirname, "..");
 registerTypescriptContent(root);
@@ -19,8 +20,6 @@ const {
   buildPublishedGuideAssetsRerunCommand,
   buildGuideAssetsPersistentSummary,
   buildPublishedGuidePlaceImagePatchBundle,
-  applyPublishedGuidePlaceImagePatchSafe,
-  verifyPublishedGuidePlaceImagePatchApplied,
 } = require("../src/lib/guide-assets.ts");
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
@@ -416,6 +415,10 @@ async function main(args = process.argv.slice(2)) {
     return;
   }
 
+  // Resolve unique owners before copying images or generating derivatives.
+  const placeModulePlan = applyPlacesPatchSafe && placeImagePatchBundle
+    ? preparePlaceImageModulePatches(await readPlaceModules(root), placeImagePatchBundle)
+    : null;
   await fs.mkdir(path.join(root, "public", "images", "guide"), { recursive: true });
 
   const targets = await loadTargets(registryPath);
@@ -460,20 +463,11 @@ async function main(args = process.argv.slice(2)) {
     await fs.writeFile(coverPatch.guidePath, coverPatch.updated);
     console.log(`- applied cover metadata safely: ${publishedGuideSlug}`);
   }
-  if (applyPlacesPatchSafe && placeImagePatchBundle) {
-    const placesPath = path.join(root, "src", "content", "places.ts");
-    const placesSource = await fs.readFile(placesPath, "utf8");
-    const applyResult = applyPublishedGuidePlaceImagePatchSafe({
-      placesSource,
-      bundle: placeImagePatchBundle,
-    });
-    await fs.writeFile(placesPath, applyResult.updatedSource);
-    report.postApplyVerify = verifyPublishedGuidePlaceImagePatchApplied({
-      placesSource: applyResult.updatedSource,
-      bundle: placeImagePatchBundle,
-    });
-    if (applyResult.appliedPlaceIds.length) {
-      console.log(`- applied places patch safely: ${applyResult.appliedPlaceIds.join(", ")}`);
+  if (placeModulePlan) {
+    report.postApplyVerify = await applyPlaceImageModulePatches(placeModulePlan);
+    const appliedPlaceIds = placeModulePlan.patches.flatMap(patch => patch.placeIds);
+    if (appliedPlaceIds.length) {
+      console.log(`- applied places patch safely: ${appliedPlaceIds.join(", ")}`);
     } else {
       console.log("- applied places patch safely: no pending image updates");
     }
