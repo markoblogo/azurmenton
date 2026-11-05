@@ -658,6 +658,13 @@
     ]
   },
   {
+    "source": "public/images/guide/katherine-mansfield-menton-stories-isola-bella.png",
+    "outputs": [
+      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.avif",
+      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/la-baie-des-anges-jacques-demy-riviera-filming-locations.png",
     "outputs": [
       "public/images/guide/generated/la-baie-des-anges-jacques-demy-riviera-filming-locations.avif",
@@ -1659,10 +1666,10 @@
     ]
   },
   {
-    "source": "public/images/guide/katherine-mansfield-menton-stories-isola-bella.png",
+    "source": "public/images/guide/long-stay-menton-apartment-living.png",
     "outputs": [
-      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.avif",
-      "public/images/guide/generated/katherine-mansfield-menton-stories-isola-bella.webp"
+      "public/images/guide/generated/long-stay-menton-apartment-living.avif",
+      "public/images/guide/generated/long-stay-menton-apartment-living.webp"
     ]
   }
 ]

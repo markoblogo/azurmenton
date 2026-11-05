@@ -41,6 +41,7 @@ import { rebeccaFilmGuide } from "@/content/rebecca-film-guide";
 import { mentonBudgetGuide } from "@/content/menton-budget-guide";
 import { joyHouseGuide } from "@/content/joy-house-guide";
 import { mansfieldGuide } from "@/content/mansfield-guide";
+import { longStayGuide } from "@/content/long-stay-guide";
 
 export type RelatedLink = { label: string; href: string };
 export type LocalizedText = Record<Locale, string>;
@@ -11484,6 +11485,11 @@ guideArticles.push(rebeccaFilmGuide);
 guideArticles.push(mentonBudgetGuide);
 guideArticles.push(joyHouseGuide);
 guideArticles.push(mansfieldGuide);
+guideArticles.push(longStayGuide);
+for (const slug of longStayGuide.relatedArticles ?? []) {
+  const guide = guideArticles.find(article => article.slug === slug);
+  if (guide && !guide.relatedArticles?.includes(longStayGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), longStayGuide.slug];
+}
 for (const slug of mansfieldGuide.relatedArticles ?? []) {
   const guide = guideArticles.find(article => article.slug === slug);
   if (guide && !guide.relatedArticles?.includes(mansfieldGuide.slug)) guide.relatedArticles = [...(guide.relatedArticles ?? []), mansfieldGuide.slug];
