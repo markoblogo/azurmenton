@@ -1,18 +1,23 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const path = require("node:path");
 const fs = require("node:fs");
+const { performance } = require("node:perf_hooks");
+const startedAt = new Date().toISOString();
+const started = performance.now();
 require("./lib/register-ts-content.cjs").registerTypescriptContent();
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 const { rivieraEvents, getEventTitle, getEventDetail } = require("../src/content/riviera-events.ts");
 const { getUpcomingEvents } = require("../src/lib/events.ts");
 const { selectPlaceGuide, placeAnchorId } = require("../src/lib/search-place-targets.ts");
+const contentLoaded = performance.now();
 
 const localized = (value, locale) => typeof value === "string" ? value : value?.[locale] || "";
 
 async function main() {
   const { createIndex } = await import("pagefind");
   const { index } = await createIndex();
+  const initialized = performance.now();
   const known = new Set(places.map((place) => place.id));
   const targets = places.map((place) => ({ place, guide: selectPlaceGuide(place, guideArticles, known) })).filter((target) => target.guide);
   const events = getUpcomingEvents(rivieraEvents).filter((event) => getEventDetail(event.slug) && (event.endDate || event.startDate));
@@ -37,6 +42,7 @@ async function main() {
       await add(`/${locale}/events/${event.slug}`, locale, title, [title, localized(event.shortDescription, locale), event.city].filter(Boolean).join(" "), "event", event.endDate || event.startDate);
     }
   }
+  const recordsAdded = performance.now();
   const output = await index.getFiles();
   if (output.errors?.length) throw new Error(JSON.stringify(output.errors));
   const outputPath = path.join(process.cwd(), "public/pagefind");
@@ -46,5 +52,7 @@ async function main() {
     fs.writeFileSync(destination, file.content);
   }
   console.log(`Search index: ${guideArticles.length} guides, ${targets.length} places, ${events.length} events per language; ${places.length - targets.length} places without a rendered card excluded.`);
+  const finished = performance.now();
+  console.log(`Search index timing: ${JSON.stringify({ startedAt, finishedAt: new Date().toISOString(), contentLoadMs: Math.round(contentLoaded - started), initializationMs: Math.round(initialized - contentLoaded), recordsMs: Math.round(recordsAdded - initialized), outputMs: Math.round(finished - recordsAdded), durationMs: Math.round(finished - started), recordCount: urls.size, fileCount: output.files.length })}`);
 }
 main().catch((error) => { console.error(error); process.exitCode = 1; });

@@ -1,0 +1,29 @@
+# Michael Nelson: History Reading Companion
+
+## Scope And Approval
+
+Owner supplied Word source and promotional cover, explicitly approved EN/FR/IT/UK publication after checks, then supplied both requested museum illustrations before final QA. Slug `the-french-riviera-a-history-michael-nelson`. English retains the supplied chapters and FAQ with corrections; natural condensed FR/IT/UK versions retain 21 blocks, seventeen numbered chapters, one six-row table and eleven FAQ answers. Remove source metadata and Russian editorial notes from public copy.
+
+This is a regional-history reading companion, distinct from Julian Hale's cultural-history guide. Reuse thirteen illustrated places, add two museums, link them into the existing museum guide, reciprocate related articles and join Books, Film & Art. No invented coordinates: both museums have dated map exclusions pending coordinate review. All fifteen places have images. Covers/facades are project illustrations, not verified publisher covers, documentary photographs, opening evidence or accessibility surveys. Do not claim full-text reading or equate fiction with historical evidence.
+
+## Sources Checked 5 November 2026
+
+- [Publisher](https://troubador.co.uk/bookshop/history-politics-society/the-french-riviera): Michael Nelson, Matador/Troubador, 28 October 2016, ISBN 9781785898334, paperback £13.99 displayed. No stock/delivery promise or unverified pagination. [Author](https://michaelnelsonbooks.com/) and published index support the broad chronology and other book titles. Remove unverified educational biography details.
+- [Menton municipal history](https://www.menton.fr/Histoire-de-la-Ville.html): Charles Grimaldi 1346, free towns under Sardinian protection 1848, Paris treaty 2 February 1861, Monaco–Menton railway December 1869; distinguish Nice 1860.
+- [Terra Amata municipal page](https://www.nice.fr/lieux/musee-terra-amata/): still closed for accessibility works since 15 April 2026; autumn intention is not a confirmed reopening. Ordinary published hours do not override closure. Preserve that warning even though the supplied illustration depicts open doors.
+- [Cimiez museum](https://www.musee-archeologie-nice.org/infos-pratiques/horaires-acces-tarifs/): 160 avenue des Arènes; winter 10–17, Tuesday and specified holiday closures, last tickets thirty minutes before closing, only partial archaeological accessibility. Recommend Cimiez instead of a promised Terra Amata interior visit.
+- [Resistance museum official tourism listing](https://cotedazurfrance.fr/offres/musee-de-la-resistance-azureenne-nice-fr-4199783/): Le Phare, place des Mosaïques, 455 promenade des Anglais, Arénas near Parc Phoenix, not the old-town waterfront. November periods list weekdays 14–16:30, weekends closed and 11 November excluded. Operator website returned 502; describe tourism-listing evidence, require date-specific confirmation.
+- [Sophia Antipolis history](https://www.sophia-antipolis.fr/histoire/): association 21 July 1969, first company 1974. Publisher synopsis ending in 1974 does not establish a 1974 founding. Working campuses are not public tourist attractions.
+- [Belles Rives history](https://www.bellesrives.com/en/history-and-identity.html): Villa Saint-Louis / Fitzgerald context and hotel transformation in 1929; no guaranteed access to private commercial premises.
+
+[Regional inventory](https://dossiersinventaire.maregionsud.fr/dossier/IA06002812) required a browser challenge; [French History review](https://academic.oup.com/fh/article-abstract/31/3/393/4055732) was inaccessible. Do not repeat the supplied critical assessment as independently read. Google Books could not be retrieved; omit unsupported page count. English edition confirmed; French translation availability remains unknown, not absent.
+
+## Timing And Process
+
+First task clock: `2026-11-05T18:38:47Z` (19:38:47 Paris). Preparation packet created `18:45:46.883Z`; actual command phase durations live in its ignored workflow packet. First compilation failed immediately because the extracted article began with H2 rather than required H1; corrected source structure and reran compilation once. Preserve this as an operator/input-format blocker, not a translation or build failure. No guide was published by the compiler.
+
+The two supplied illustrations ran in one explicit-ID, missing-only batch. Both imported place modules were patched correctly; thirteen existing images skipped, zero unmatched and zero remaining gaps. No broad image-library regeneration, existing-image replacement or source deletion. Exact derivative timings and byte counts remain in the ignored asset reports. This is actual use of the previous module-resolution improvement, not a claim that all preparation became faster.
+
+Search generation now prints monotonic content-loading, initialization, record-submission and output durations with record/file counts. Its records and sequential processing are unchanged. Retain this substage in the build log before choosing any indexing optimization; do not attribute the full build time to Pagefind. Previous Vercel run produced a delayed automatic deployment plus a manual duplicate: missing API results do not prove absence from the queue. Inspect exact-SHA queue state before considering a retry; never repeat an ambiguous deployment POST.
+
+Focused checks: 51 tests passed across the guide, content audit, image importer and imported-module patcher; changed-file ESLint passed. Full QA, CI, actual deployment SHA and public browser outcomes are separate later evidence, not pre-claimed by this audit. Freeze the source tree before final verification. Keep final measured outcomes in ignored `build/guide-intake/the-french-riviera-a-history-michael-nelson/publication-timing.json`; active labour and owner-wait intervals are UNKNOWN unless separately measured.
