@@ -593,7 +593,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.relatedPlaces}</h2>
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
                     {relatedPlaces.map((place) => (
-                      <PlaceCard key={place.id} place={place} locale={locale} compact anchorId={placeAnchorId(place.id)} />
+                      <PlaceCard key={place.id} place={place} content={graph} locale={locale} compact anchorId={placeAnchorId(place.id)} />
                     ))}
                   </div>
                 </section>

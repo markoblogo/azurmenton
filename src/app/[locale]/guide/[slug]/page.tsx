@@ -270,6 +270,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                           <PlaceCard
                             key={place.id}
                             place={place}
+                            content={graph}
                             anchorId={firstPlaceSections.get(place.id) === sectionIndex && sectionPlaces.findIndex((item) => item.id === place.id) === placeIndex ? placeAnchorId(place.id) : undefined}
                             locale={locale}
                             currentGuideId={article.id}
@@ -372,7 +373,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           <Container>
             <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} anchorId={firstPlaceSections.has(place.id) ? undefined : placeAnchorId(place.id)} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} content={graph} locale={locale} currentGuideId={article.id} anchorId={firstPlaceSections.has(place.id) ? undefined : placeAnchorId(place.id)} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
             </div>
           </Container>
         </Section>

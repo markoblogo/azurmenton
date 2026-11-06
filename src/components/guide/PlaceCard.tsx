@@ -21,7 +21,7 @@ const labels = {
 };
 const businessLabels: Record<Locale, string> = { en: "Represent this place? Contact us", fr: "Vous représentez ce lieu ? Contactez-nous", it: "Rappresenti questo luogo? Contattaci", uk: "Представляєте цей заклад? Напишіть нам" };
 
-export function PlaceCard({ place, locale, compact = false, currentGuideId, relatedGuideSlug, anchorId }: { place: Place; locale: Locale; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null; anchorId?: string }) {
+export function PlaceCard({ place, locale, content, compact = false, currentGuideId, relatedGuideSlug, anchorId }: { place: Place; locale: Locale; content: NonNullable<Parameters<typeof placeSharePath>[2]>; compact?: boolean; currentGuideId?: string; relatedGuideSlug?: string | null; anchorId?: string }) {
   const copy = labels[locale];
   const location = place.address ?? place.area?.[locale];
   const mapsHref = place.googleMapsSearchUrl ?? place.googleMapsUrl;
@@ -32,7 +32,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
   const externalLinkLabel = place.type === "cinema" || place.type === "theatre" ? copy.programme : copy.website;
   const visualLabel = place.type.replaceAll("-", " ");
   const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
-  const sharePath = placeSharePath(place.id, locale) ?? (currentGuideId ? `/${locale}/guide/${currentGuideId}#place-${place.id}` : undefined);
+  const sharePath = placeSharePath(place.id, locale, content);
 
   return (
     <article id={anchorId} className="group relative scroll-mt-28 overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">

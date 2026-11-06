@@ -4,6 +4,7 @@ import { places } from "@/content/places";
 import { contentCollections } from "@/content/content-map";
 import { mergeGuideSnapshot, replacePlacePrimaryImage, setPublicationPlace, validateSnapshot, type GuideSnapshot } from "@/lib/guide-runtime-model";
 import { isRuntimeSearchReplacement, runtimeSearchRows, matchRuntimeSearch } from "@/lib/guide-runtime-search";
+import { placeSharePath } from "@/lib/place-share-target";
 
 const fixture = (): GuideSnapshot => {
   const article = structuredClone(guideArticles.find(a => a.slug === "menton-sundays-public-holidays")!);
@@ -88,6 +89,7 @@ describe("runtime publication graph", () => {
     const rows = runtimeSearchRows(graph.guideArticles, graph.places, [article.slug], "en");
     const replacement = rows.find(row => row.placeId === id);
     expect(replacement?.url).toContain("useful-numbers-emergency-contacts-menton#place-");
+    expect(placeSharePath(id, "en", graph)).toBe(replacement?.url);
   });
   it("updates the visible primary gallery image without removing remaining images", () => {
     const place = { ...structuredClone(places[0]), image: "/images/old.jpg", images: ["/images/primary.jpg", "/images/second.jpg"] };
