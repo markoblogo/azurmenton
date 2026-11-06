@@ -1776,5 +1776,12 @@
       "public/images/tools/generated/weather.avif",
       "public/images/tools/generated/weather.webp"
     ]
+  },
+  {
+    "source": "public/images/guide/clos-du-peyronnet-menton.png",
+    "outputs": [
+      "public/images/guide/generated/clos-du-peyronnet-menton.avif",
+      "public/images/guide/generated/clos-du-peyronnet-menton.webp"
+    ]
   }
 ]

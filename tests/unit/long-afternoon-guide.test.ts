@@ -30,16 +30,17 @@ it("distinguishes fiction, current access uncertainty and artistic media", () =>
   expect(en).toContain("not a reconstruction");
   expect(guide.coverImageAlt?.en).toContain("artistic");
   const garden = places.find(place => place.id === "clos-du-peyronnet-menton")!;
-  expect(garden.image).toBeFalsy();
+  expect(garden.image).toBe("/images/guide/clos-du-peyronnet-menton.png");
+  expect(existsSync(`public${garden.image}`)).toBe(true);
   expect(garden.requiresMapReview).toBe(true);
   expect(placeMapExclusions.some(item => item.placeId === garden.id)).toBe(true);
   expect(places.some(place => /lou-paradou/.test(place.id))).toBe(false);
 });
 
-it("derives reciprocal links and reuses five genuine place illustrations", () => {
+it("derives reciprocal links and includes all six place illustrations", () => {
   const related = places.filter(place => guide.relatedPlaces?.includes(place.id));
   expect(related).toHaveLength(6);
-  expect(related.filter(place => place.image)).toHaveLength(5);
+  expect(related.filter(place => place.image)).toHaveLength(6);
   for (const place of related) {
     expect(place.relatedArticleIds).toContain(slug);
     expect(guide.sections.some(section => section.relatedPlaceIds?.includes(place.id))).toBe(true);

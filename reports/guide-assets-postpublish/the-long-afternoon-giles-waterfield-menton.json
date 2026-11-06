@@ -3,41 +3,42 @@
   "mode": "published-guide",
   "strict": false,
   "missingOnly": true,
-  "reportOnly": true,
-  "failOnUnmatched": false,
+  "reportOnly": false,
+  "failOnUnmatched": true,
   "operatorSummary": [
     "status: ok",
     "subject: the-long-afternoon-giles-waterfield-menton",
-    "mode: published-guide + missing-only + report-only",
-    "matched: 0",
+    "mode: published-guide + missing-only",
+    "matched: 1",
     "skipped-covered: 5",
     "already-covered: 0",
     "unmatched: 0",
-    "still-missing: 1",
+    "still-missing: 0",
     "report: build/guide-assets-postpublish/the-long-afternoon-giles-waterfield-menton.json",
-    "rerun: npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --report-only"
+    "rerun: npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --fail-on-unmatched --apply-places-patch-safe"
   ],
   "counts": {
-    "matched": 0,
+    "matched": 1,
     "unmatched": 0,
     "alreadyCovered": 0,
     "skippedCovered": 5,
-    "stillMissing": 1,
-    "patchReady": 0
+    "stillMissing": 0,
+    "patchReady": 1
   },
   "matchedAssetFiles": [],
   "unmatchedAssetFiles": [],
   "alreadyCoveredAssetFiles": [],
-  "matchedPlaceIds": [],
-  "publishedGuidePlacesWithoutImage": [
-    {
-      "placeId": "clos-du-peyronnet-menton",
-      "draftName": "Le Clos du Peyronnet — Waterfield Garden"
-    }
+  "matchedPlaceIds": [
+    "clos-du-peyronnet-menton"
   ],
+  "publishedGuidePlacesWithoutImage": [],
   "likelyGuideTargets": [],
-  "bestRerunCommand": "npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --report-only",
-  "issueCodes": [
-    "pending-place-asset"
-  ]
+  "bestRerunCommand": "npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --fail-on-unmatched --apply-places-patch-safe",
+  "issueCodes": [],
+  "postApplyVerify": {
+    "verifiedPlaceIds": [
+      "clos-du-peyronnet-menton"
+    ],
+    "failedPlaceIds": []
+  }
 }

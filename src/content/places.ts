@@ -306,7 +306,8 @@ const festivalVenues = [
 
 const rawPlaces: Place[] = [
   {
-    id: "clos-du-peyronnet-menton", name: "Le Clos du Peyronnet — Waterfield Garden", type: "garden",
+    id: "clos-du-peyronnet-menton",
+    image: "/images/guide/clos-du-peyronnet-menton.png", name: "Le Clos du Peyronnet — Waterfield Garden", type: "garden",
     address: "Upper tour meeting point: 64 boulevard de Garavan, 06500 Menton; confirm with organiser",
     googleMapsUrl: mapsQuery("Clos du Peyronnet 64 boulevard de Garavan", "Menton"),
     programmeUrl: "https://waterfieldgarden.fr/en/visit/", sourceStatus: "editorial", requiresMapReview: true,
