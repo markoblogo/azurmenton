@@ -7,7 +7,7 @@ require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 const { contentCollections } = require("../src/content/content-map.ts");
-const { mergeGuideSnapshot, setPublicationPlace } = require("../src/lib/guide-runtime-model.ts");
+const { mergeGuideSnapshot, replacePlacePrimaryImage, setPublicationPlace } = require("../src/lib/guide-runtime-model.ts");
 const store = require("../src/lib/guide-blob-store.ts");
 
 async function main() {
@@ -68,11 +68,12 @@ async function main() {
     }
     if (!target) throw Error("Place not in publication");
     const field = options.place ? "image" : "coverImage";
-    if (target[field] !== (options["expected-image"] === "none" ? undefined : options["expected-image"])) throw Error("Image changed: supply exact --expected-image");
+    const visibleImage = options.place && target.images?.length > 1 ? target.images[0] : target[field];
+    if (visibleImage !== (options["expected-image"] === "none" ? undefined : options["expected-image"])) throw Error("Image changed: supply exact --expected-image");
     const bytes = await require("sharp")(options.file, { limitInputPixels: 8192 * 8192 }).resize({ width: 1680, withoutEnlargement: true }).webp({ quality: 85 }).toBuffer();
     if (bytes.length > 4_000_000) throw Error("Image too large");
     target[field] = await store.storeGuideImage(bytes);
-    if (options.place) setPublicationPlace(snapshot, options.slug, target);
+    if (options.place) setPublicationPlace(snapshot, options.slug, replacePlacePrimaryImage(target, target[field]));
   } else if (command === "activate" || command === "rollback") {
     if (!options.approve || !options.hash || !options["request-id"] || options["expected-revision"] === undefined) throw Error("Activation requires --approve --hash --expected-revision --request-id");
     snapshot = await store.readGuideSnapshot(options.hash);

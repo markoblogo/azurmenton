@@ -9,7 +9,6 @@ import { ShareActions } from "@/components/content/ShareActions";
 import { apartments } from "@/content/apartments";
 import { getGuestGuide, guestGuideCopy as copy } from "@/content/guest-guides";
 import { getRuntimeContent } from "@/lib/guide-runtime";
-import { getPlace } from "@/content/places";
 import { isLocale, locales } from "@/i18n/locales";
 import { placeSharePath } from "@/lib/place-share-target";
 import { absoluteUrl, createMetadata } from "@/lib/seo";
@@ -73,8 +72,8 @@ export default async function GuestGuidePage({ params }: Props) {
                 <h3 className="text-lg font-semibold text-[#173f36]">{copy.places[locale]}</h3>
                 <p className="mt-2 text-base leading-7 text-[#5f574c]">{copy.hours[locale]}</p>
                 <ul className="mt-3 divide-y divide-[#dfd4c1]">{section.placeIds.map(id => {
-                  const place = getPlace(id);
-                  const href = placeSharePath(id, locale);
+                  const place = graph.places.find(place => place.id === id);
+                  const href = placeSharePath(id, locale, graph);
                   return place && href ? <li key={id} className="py-3"><Link className="inline-flex min-h-11 items-center gap-2 font-semibold text-[#155b6c] underline" href={href as Route}>{place.name}<ArrowUpRight size={18} aria-hidden="true" /></Link><p className="text-base leading-7 text-[#5f574c]">{place.address}</p></li> : null;
                 })}</ul>
               </div> : null}

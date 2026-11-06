@@ -64,6 +64,10 @@ export function setPublicationPlace(snapshot: GuideSnapshot, slug: string, place
   target.places.push(structuredClone(place));
 }
 
+export function replacePlacePrimaryImage(place: Place, image: string): Place {
+  return { ...structuredClone(place), image, ...(place.images?.length ? { images: [image, ...place.images.slice(1)] } : {}) };
+}
+
 export function mergeGuideSnapshot(baseGuides: GuideArticle[], basePlaces: Place[], baseCollections: ContentCollection[], snapshot: GuideSnapshot) {
   validateSnapshot(snapshot);
   const guides = new Map(baseGuides.map(a => [a.slug, structuredClone(a)]));

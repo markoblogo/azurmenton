@@ -2,7 +2,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { guideArticles } from "@/content/guide";
 import { places } from "@/content/places";
 import { contentCollections } from "@/content/content-map";
-import { mergeGuideSnapshot, setPublicationPlace, validateSnapshot, type GuideSnapshot } from "@/lib/guide-runtime-model";
+import { mergeGuideSnapshot, replacePlacePrimaryImage, setPublicationPlace, validateSnapshot, type GuideSnapshot } from "@/lib/guide-runtime-model";
 import { isRuntimeSearchReplacement, runtimeSearchRows, matchRuntimeSearch } from "@/lib/guide-runtime-search";
 
 const fixture = (): GuideSnapshot => {
@@ -78,6 +78,22 @@ describe("runtime publication graph", () => {
     setPublicationPlace(snapshot, "runtime-first", place);
     expect(second.places).toHaveLength(0);
     expect(mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot).places.find(p => p.id === place.id)?.image).toBe(place.image);
+  });
+  it("keeps a place searchable when its old canonical guide drops the card", () => {
+    const article = structuredClone(guideArticles.find(a => a.slug === "pharmacies-in-menton-and-nice-airport")!);
+    const id = "pharmacie-lafayette-des-jardins";
+    article.relatedPlaces = article.relatedPlaces?.filter(p => p !== id);
+    for (const section of article.sections) section.relatedPlaceIds = section.relatedPlaceIds?.filter(p => p !== id);
+    const graph = mergeGuideSnapshot(guideArticles, places, contentCollections, { version: 1, publications: [{ article, places: [], collections: [], sources: "Reviewed fixture" }] });
+    const rows = runtimeSearchRows(graph.guideArticles, graph.places, [article.slug], "en");
+    const replacement = rows.find(row => row.placeId === id);
+    expect(replacement?.url).toContain("useful-numbers-emergency-contacts-menton#place-");
+  });
+  it("updates the visible primary gallery image without removing remaining images", () => {
+    const place = { ...structuredClone(places[0]), image: "/images/old.jpg", images: ["/images/primary.jpg", "/images/second.jpg"] };
+    const changed = replacePlacePrimaryImage(place, `/guide-media/${"c".repeat(64)}.webp`);
+    expect(changed.images).toEqual([changed.image, "/images/second.jpg"]);
+    expect(place.images[0]).toBe("/images/primary.jpg");
   });
 });
 
