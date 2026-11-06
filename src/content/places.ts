@@ -7,6 +7,7 @@ import { hitchcockPlaces } from "./hitchcock-places";
 import { halePlaces } from "./hale-places";
 import { nelsonPlaces } from "./nelson-places";
 import { maigretPlaces } from "./maigret-places";
+import { packagedGuides } from "./guide-packages";
 
 export type LocalizedText = Record<Locale, string>;
 
@@ -304,6 +305,17 @@ const festivalVenues = [
 ] as const;
 
 const rawPlaces: Place[] = [
+  {
+    id: "clos-du-peyronnet-menton", name: "Le Clos du Peyronnet — Waterfield Garden", type: "garden",
+    address: "Upper tour meeting point: 64 boulevard de Garavan, 06500 Menton; confirm with organiser",
+    googleMapsUrl: mapsQuery("Clos du Peyronnet 64 boulevard de Garavan", "Menton"),
+    programmeUrl: "https://waterfieldgarden.fr/en/visit/", sourceStatus: "editorial", requiresMapReview: true,
+    shortNote: text("Private Waterfield family garden behind the historical context of The Long Afternoon, not a literal reconstruction of fictional Lou Paradou. Checked 6 November 2026: tourism lists temporary closure; the garden's September–October programme does not confirm November access. Follow organiser-confirmed meeting instructions; other listings use different street numbers.", "Jardin privé de la famille Waterfield, contexte historique de The Long Afternoon, pas reconstitution de Lou Paradou. Vérifié le 6 novembre 2026 : fermeture temporaire sur la fiche touristique ; le programme septembre–octobre ne confirme pas novembre. Suivre le rendez-vous confirmé, les adresses des fiches diffèrent.", "Giardino privato dei Waterfield, contesto storico di The Long Afternoon, non ricostruzione di Lou Paradou. Verificato il 6 novembre 2026: chiusura temporanea nella scheda turistica; il programma settembre–ottobre non conferma novembre. Segui il ritrovo confermato; altre schede usano civici diversi.", "Приватний сад Вотерфілдів, історичний контекст The Long Afternoon, не буквальна копія Lou Paradou. Перевірено 6 листопада 2026: туристична картка позначає тимчасове закриття; програма вересня–жовтня не підтверджує листопад. Дотримуйтеся підтвердженого місця зустрічі; адреси в описах різняться."),
+    openingHoursLabel: text("Private; no current tour confirmed", "Privé ; aucune visite actuelle confirmée", "Privato; nessuna visita attuale confermata", "Приватний; актуального сеансу не підтверджено"),
+    bestFor: [text("Garden history, with confirmed access", "Histoire des jardins, accès confirmé", "Storia dei giardini, con accesso confermato", "Історія садів за підтвердженого доступу")],
+    relatedArticleIds: ["the-long-afternoon-giles-waterfield-menton"],
+    visitRules: { conditions: [{ checkedOn: "2026-11-06", sourceUrl: "https://waterfieldgarden.fr/en/visit/", value: text("Authorised reservation only. Stairs and climbing; operator cannot accommodate wheelchairs or reduced mobility on the described tour.", "Réservation autorisée uniquement. Escaliers et montées ; parcours décrit non adapté aux fauteuils et à la mobilité réduite.", "Solo prenotazione autorizzata. Scale e salite; percorso descritto non adatto a sedie a rotelle o mobilità ridotta.", "Лише дозволений підтверджений запис. Сходи й підйоми; описана екскурсія не підходить для крісел колісних або обмеженої мобільності.") }] },
+  },
   {
     id: "jardin-albert-premier-nice", name: "Jardin Albert Ier", type: "garden", address: "Place Masséna / Avenue de Verdun, Nice",
     image: "/images/guide/jardin-albert-premier-nice.png",
@@ -11655,7 +11667,7 @@ function deriveAutoPlaceVisual(place: Place): Pick<Place, "image" | "imageAlt" |
 export const places: Place[] = rawPlaces.map((place) => {
   const visual = placeVisuals[place.id] ?? deriveAutoPlaceVisual(place);
   const relatedArticleIds = new Set(place.relatedArticleIds);
-  if (["villa-maria-serena", "menton-garavan-station", "promenade-reine-astrid", "promenade-des-anglais-nice"].includes(place.id)) relatedArticleIds.add("in-the-name-of-my-daughter-villa-maria-serena-menton");
+  for (const guide of packagedGuides) if (guide.relatedPlaces?.includes(place.id)) relatedArticleIds.add(guide.slug);
   if (["musee-archeologie-cimiez-nice", "rue-longue-menton", "basilica-saint-michel-archange", "monaco-monte-carlo", "ventimiglia", "menton-station", "royal-westminster-menton", "winter-palace-menton", "hotel-belles-rives-juan-les-pins", "juan-les-pins-seafront", "promenade-des-anglais-nice", "vieil-antibes", "port-vauban-antibes"].includes(place.id)) relatedArticleIds.add("the-french-riviera-a-history-michael-nelson");
   if (["halles-du-marche", "intermarche-hyper-menton", "carrefour-city-felix-faure", "carrefour-city-sospel-menton", "carrefour-city-thiers-menton", "promenade-du-soleil", "jardins-bioves", "esplanade-des-sablettes-menton", "rue-longue-menton", "basilica-saint-michel-archange", "jardin-val-rahmeh", "menton-station"].includes(place.id)) relatedArticleIds.add("menton-sundays-public-holidays");
   if (["menton-station", "halles-du-marche", "intermarche-hyper-menton", "promenade-du-soleil", "jardin-val-rahmeh"].includes(place.id)) relatedArticleIds.add("winter-in-menton-one-two-months");

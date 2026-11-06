@@ -4,6 +4,8 @@ This wraps existing guide tools; it is not an automatic publisher, translator, s
 
 ## One Manual Path
 
+Standard long-form guides may instead use the committed package contract in [content operations](content-operations.md): one directory contains `metadata.json`, `en.md`, `fr.md`, `it.md`, `uk.md` and `sources.md`. Images remain in the existing public library, declared in the package manifest. New place records and coordinate exclusions still need review. Run `npm run guide:package`, `npm run release:check`, and `npm run guide:browser -- --slug <slug>`. After approved deployment, repeat the browser check with `--public`. Registration, collection membership and reciprocal links are automatic; never edit the generated index directly. This path needs neither the legacy intake chain nor a synthetic publication plan. Maria Serena has an exact pre-migration checksum regression; The Long Afternoon is the first new package. Publication still uses the ordinary build, sitemap and Pagefind catalogue. Blob runtime publication remains deferred.
+
 ```bash
 # Word, Markdown and plain text remain supported.
 npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
@@ -49,7 +51,7 @@ Keep these files private/local: they can contain absolute source paths, prose an
 
 ## Publication Timing And Improvement
 
-`npm run guide:timing` is a read-only comparison of existing publication packets and check receipts. It normalizes historical timing field names, preserves unknown owner/labour time and distinguishes recorded reused-check durations from current wall time. Its hypothetical QA-removal bound is diagnostic, never permission to skip checks. See [the structural publication audit](audits/2026-11-05-guide-publication-path-audit.md) for the proposed declarative package and coherent no-build snapshot path; neither migration is active in production.
+`npm run guide:timing` is a read-only comparison of existing publication packets and check receipts. It normalizes historical timing field names, preserves unknown owner/labour time and distinguishes recorded reused-check durations from current wall time. Its hypothetical QA-removal bound is diagnostic, never permission to skip checks. See [the structural publication audit](audits/2026-11-05-guide-publication-path-audit.md) for the original proposal and [the package delivery audit](audits/2026-11-06-guide-runtime-migration-status.md) for current verification. The declarative package path is implemented; the no-build snapshot path remains deferred.
 
 The search-index build prints monotonic phase durations for content loading, initialization, record submission and file output, plus record/file counts and observed timestamps. The normal build log retains this line in the existing check receipt. It does not change records, concurrency or validation. Separate this measured substage from the whole build duration before proposing indexing optimizations; a total build duration alone does not identify an indexing bottleneck.
 

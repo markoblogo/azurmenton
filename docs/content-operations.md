@@ -2,6 +2,12 @@
 
 Use this checklist when adding or changing guide articles, places, events or apartment-facing local recommendations.
 
+## Declarative Guide Packages
+
+For guides using this format, `src/content/guide-packages/<slug>/` is the canonical source: `metadata.json`, `en.md`, `fr.md`, `it.md`, `uk.md` and `sources.md`. Metadata contains reviewed article details, explicit section links, collection IDs and an asset manifest referring to files in `public/images`. Never infer places from headings. New places still require an editorial place entry.
+
+Run `npm run guide:package` after a package change and commit its generated index. `npm run guide:package:check` verifies freshness, translations, table alignment, assets and referenced guides, places and collections. The loader registers guides and derives reverse guide/place links, reciprocal guide links and collection membership. Normal release checks and publication approval still apply. Maria Serena is the checksum-preserving migration; The Long Afternoon is the first new package. Bespoke interactive blocks and creating new place records are not supported by this format. Assets use the existing targeted image pipeline; no Blob runtime loading or publication without a build is enabled.
+
 ## Before Editing
 
 - Confirm whether the content is a guide, place, event, apartment link update or a combination.
