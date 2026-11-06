@@ -11,6 +11,8 @@ Purpose: a human-reviewed queue, not an automated editing or publishing system. 
 
 ## Review and report
 
+- Every October and November, prioritise `new-years-eve-menton` for the coming 31 December/1 January. Review confirmed municipal programmes, restaurant offers, exceptional shop hours and overnight transport afresh; never roll dates or previous-year fireworks forward automatically. Keep the stable guide URL, distinguish confirmed/planned/unknown and require owner approval before publication. This uses the existing weekly review, not a new automation.
+
 - Select up to five actionable guides, giving priority to guest safety, access, transport, booking relevance, high-volatility facts and available traffic evidence. Recent checks can supersede the automated ranking, but only for the facts actually checked.
 - For each, include the public guide URL, reason for selection, specific affected claim or evidence gap, authoritative source URL, date checked, finding and a proposed manual action. Mark an unavailable source or unresolved contradiction explicitly. A source homepage or an old cached result alone does not establish a change.
 - Separately list any discovered missing place illustrations with the location name and guide URL; request illustrations from the owner. Do not reuse unrelated media.

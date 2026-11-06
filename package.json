@@ -39,6 +39,7 @@
     "guide:browser": "node scripts/guide-browser-check.cjs",
     "guide:timing": "node scripts/guide-timing-report.cjs",
     "guide:runtime-trial": "node scripts/guide-runtime-trial.cjs",
+    "guide:runtime": "node scripts/guide-runtime.cjs",
     "editorial:report": "node scripts/editorial-report.cjs",
     "guides:health": "node scripts/guides-health.cjs",
     "guides:verify": "node scripts/guides-verify.cjs",
@@ -69,6 +70,7 @@
     "@fullcalendar/daygrid": "^6.1.22",
     "@fullcalendar/react": "^6.1.22",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.8.2",
     "hls.js": "^1.7.4",
     "ics": "^3.12.1",
     "leaflet": "^1.9.4",
@@ -98,6 +100,9 @@
     "vitest": "^4.1.11"
   },
   "overrides": {
+    "@vercel/cli-config": {
+      "zod": "^4.6.6"
+    },
     "minimatch": "$minimatch",
     "@typescript-eslint/typescript-estree": {
       "minimatch": "11.0.3"

@@ -26,13 +26,12 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { TransportHelperBlock } from "@/components/transport/TransportHelperBlock";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getGuideArticle, getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
+import { getGuidePage, guideCategoryLabels, guidePages, localizeGuideArticle } from "@/content/guide";
 import { getGuideAuthorityProfile } from "@/content/guide-authority";
 import { stayPlans } from "@/content/planning/stay-plans";
 import { getGuideApartmentScenario } from "@/content/contextual-apartment-recommendations";
 import { guideApartmentPaths } from "@/content/guide-apartment-paths";
 import { getApartment } from "@/content/apartments";
-import { getPlaces } from "@/content/places";
 import { getEventTitle, getRivieraEvent } from "@/content/riviera-events";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { apartmentDetailAttributionHref, bookingAttributionHref, bookingFunnelEvents, compactBookingAttributionProps } from "@/lib/analytics";
@@ -41,6 +40,7 @@ import { firstPlaceSectionIndices } from "@/lib/guide-place-anchors";
 import { placeAnchorId } from "@/lib/search-place-targets";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -63,8 +63,8 @@ type SectionVideoEmbed = {
   caption?: string;
 };
 
-function guideReferencesPlace(slug: string, placeId: string) {
-  const guide = getGuideArticle(slug);
+function guideReferencesPlace(slug: string, placeId: string, articles: import("@/content/guide").GuideArticle[]) {
+  const guide = articles.find(item => item.slug === slug);
   return Boolean(guide && [...(guide.relatedPlaces ?? []), ...guide.sections.flatMap((section) => section.relatedPlaceIds ?? [])].includes(placeId));
 }
 
@@ -73,9 +73,10 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const graph = await getRuntimeContent();
   const { locale, slug } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
-  const article = getGuideArticle(slug);
+  const article = graph.guideArticles.find(item => item.slug === slug);
   if (!article) return {};
   const localized = localizeGuideArticle(article, safeLocale);
 
@@ -83,6 +84,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function GuideArticlePage({ params }: PageProps) {
+  const graph = await getRuntimeContent();
+  const getGuideArticle = (slug: string) => graph.guideArticles.find(item => item.slug === slug);
+  const getPlaces = (ids: string[]) => ids.flatMap(id => graph.places.find(p => p.id === id) ?? []);
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
 
@@ -91,7 +95,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
 
   const localized = localizeGuideArticle(article, locale);
   const dayPlans = stayPlans.filter(plan => plan.dayRoute?.guideSlugs.includes(slug));
-  const page = getGuidePage(locale, slug);
+  const page = getGuidePage(locale, slug, graph.guideArticles);
   const copy = labels[locale];
   const isWalkingGuide = article.slug === "menton-without-a-car";
   const isTransportGuide = article.slug === "public-transport-in-menton";
@@ -100,7 +104,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const firstPlaceSections = firstPlaceSectionIndices(article.sections);
   const relatedEventSlugs = getGuideRelatedEventSlugs(article);
   const relatedGuideSlugForPlace = (placeId: string, candidateSlugs: string[]) => (
-    candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId)) ?? null
+    candidateSlugs.find((candidateSlug) => candidateSlug !== article.slug && guideReferencesPlace(candidateSlug, placeId, graph.guideArticles)) ?? null
   );
   const isMarketsGuide = article.slug === "best-markets-near-menton-market-days-in-france-and-italy";
   const relatedApartmentKeys = Array.from(new Set([...(article.relatedApartments ?? []), ...article.sections.flatMap((section) => section.relatedApartmentKeys ?? [])]));
@@ -266,6 +270,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
                           <PlaceCard
                             key={place.id}
                             place={place}
+                            content={graph}
                             anchorId={firstPlaceSections.get(place.id) === sectionIndex && sectionPlaces.findIndex((item) => item.id === place.id) === placeIndex ? placeAnchorId(place.id) : undefined}
                             locale={locale}
                             currentGuideId={article.id}
@@ -368,7 +373,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
           <Container>
             <h2 className="serif-heading text-3xl leading-none text-[#173f36]">{copy.usefulPlaces}</h2>
             <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} locale={locale} currentGuideId={article.id} anchorId={firstPlaceSections.has(place.id) ? undefined : placeAnchorId(place.id)} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
+              {relatedPlaces.slice(0, 6).map((place) => <PlaceCard key={place.id} place={place} content={graph} locale={locale} currentGuideId={article.id} anchorId={firstPlaceSections.has(place.id) ? undefined : placeAnchorId(place.id)} relatedGuideSlug={relatedGuideSlugForPlace(place.id, place.relatedArticleIds)} />)}
             </div>
           </Container>
         </Section>

@@ -11914,8 +11914,8 @@ export function localizeGuideArticle(article: GuideArticle, locale: Locale) {
   };
 }
 
-export function getGuidePage(locale: Locale, slug: string): GuidePageContent | undefined {
-  const article = getGuideArticle(slug);
+export function getGuidePage(locale: Locale, slug: string, articles: GuideArticle[] = guideArticles): GuidePageContent | undefined {
+  const article = articles.find(item => item.slug === slug);
   if (!article) return undefined;
   const localized = localizeGuideArticle(article, locale);
   return {
@@ -11933,7 +11933,7 @@ export function getGuidePage(locale: Locale, slug: string): GuidePageContent | u
     utilityBlocks: localized.utilityBlocks,
     practicalTips: localized.practicalTips,
     relatedLinks: (article.relatedArticles ?? []).map((relatedSlug) => {
-      const related = getGuideArticle(relatedSlug);
+      const related = articles.find(item => item.slug === relatedSlug);
       return { label: related ? related.title[locale] : relatedSlug, href: `/guide/${relatedSlug}` };
     }),
     cta: {

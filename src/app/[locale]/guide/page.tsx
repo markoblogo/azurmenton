@@ -12,11 +12,10 @@ import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
-import { contentCollections, isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
-import { getLatestLandingGuideSlug, guideArticles, guideLanding, localizeGuideArticle, guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
+import { isContentCollectionId, resolveContentCollectionGuideSlugs } from "@/content/content-map";
+import { getLatestLandingGuideSlug, guideLanding, localizeGuideArticle, guideBestForOptions, guideCategoryLabels, guideDurationLabels, guideFilterLabels, guideLocationOptions } from "@/content/guide";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { apartmentMapPoints } from "@/content/planning/apartment-map-points";
-import { getPlaces, places } from "@/content/places";
 import { isLocale, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -150,11 +149,14 @@ export async function generateMetadata({ params }: Pick<PageProps, "params">): P
 }
 
 export default async function GuideLandingPage({ params, searchParams }: PageProps) {
+  const { getRuntimeContent } = await import("@/lib/guide-runtime");
+  const { guideArticles, places, contentCollections } = await getRuntimeContent();
+  const getPlaces = (ids: string[]) => ids.flatMap(id => places.find(p => p.id === id) ?? []);
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const copy = guideLanding[safeLocale];
   const local = labels[safeLocale];
-  const latestGuideSlug = getLatestLandingGuideSlug();
+  const latestGuideSlug = getLatestLandingGuideSlug(guideArticles);
   const query = await searchParams;
   const collectionQuery = typeof query.collection === "string" ? query.collection : undefined;
   const selectedCollection = isContentCollectionId(collectionQuery) ? contentCollections.find((collection) => collection.id === collectionQuery) : undefined;

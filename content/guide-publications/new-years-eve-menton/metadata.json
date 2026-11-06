@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "article": {
+    "id": "new-years-eve-menton",
+    "slug": "new-years-eve-menton",
+    "title": {
+      "en": "New Year's Eve in Menton: Dinner, Midnight and Getting Home",
+      "fr": "Réveillon à Menton : dîner, minuit et retour",
+      "it": "Capodanno a Mentone: cena, mezzanotte e ritorno",
+      "uk": "Новий рік у Ментоні: вечеря, північ і повернення додому"
+    },
+    "seoTitle": {
+      "en": "New Year's Eve in Menton 2026/27: Dinner and Transport",
+      "fr": "Réveillon à Menton 2026/27 : dîner et retour",
+      "it": "Capodanno a Mentone 2026/27: cena e trasporti",
+      "uk": "Новий рік у Ментоні 2026/27: вечеря й транспорт"
+    },
+    "seoDescription": {
+      "en": "Plan dinner, shopping, midnight and a safe return for New Year's Eve in Menton. Separate confirmed 2026/27 opening from programmes still awaiting announcements.",
+      "fr": "Dîner, courses, minuit et retour à Menton pour le réveillon 2026/27 : distinguez les horaires annoncés des programmes encore attendus.",
+      "it": "Cena, spesa, mezzanotte e ritorno a Mentone per Capodanno 2026/27: orari annunciati e programmi ancora da confermare.",
+      "uk": "Вечеря, покупки, північ і повернення в Ментоні на Новий рік 2026/27: підтверджені години й програми, що ще очікуються."
+    },
+    "excerpt": {
+      "en": "Choose a walkable restaurant or a private apartment dinner, buy supplies early and confirm your return before celebrating outside Menton.",
+      "fr": "Choisissez un dîner à pied de votre logement ou une soirée à l'appartement ; anticipez les courses et le retour avant de quitter Menton.",
+      "it": "Scegli un ristorante raggiungibile a piedi o una cena nell'appartamento; anticipa la spesa e conferma il rientro prima di uscire da Mentone.",
+      "uk": "Оберіть ресторан неподалік або вечерю в апартаментах, закупіться завчасно й підтвердьте повернення до святкування поза Ментоном."
+    },
+    "category": "practical",
+    "duration": "evening",
+    "publishedOn": "2026-11-06",
+    "sourceStatus": "editorial",
+    "coverImage": "/images/guide/new-years-eve-menton.webp",
+    "coverImageAlt": {
+      "en": "Artistic New Year's Eve composition of Menton with fireworks; not evidence of an announced public display",
+      "fr": "Composition artistique du réveillon à Menton avec feux d'artifice, sans valeur d'annonce officielle",
+      "it": "Composizione artistica di Capodanno a Mentone con fuochi, non prova di uno spettacolo annunciato",
+      "uk": "Художня новорічна композиція Ментона з феєрверками, не підтвердження оголошеного салюту"
+    },
+    "visualTheme": "itinerary",
+    "visualStatus": "project_illustration",
+    "locationTags": [
+      "menton",
+      "monaco"
+    ],
+    "tags": [
+      {
+        "en": "New Year",
+        "fr": "Nouvel An",
+        "it": "Capodanno",
+        "uk": "Новий рік"
+      },
+      {
+        "en": "Winter",
+        "fr": "Hiver",
+        "it": "Inverno",
+        "uk": "Зима"
+      }
+    ],
+    "bestFor": [
+      {
+        "en": "Couples",
+        "fr": "Couples",
+        "it": "Coppie",
+        "uk": "Пари"
+      },
+      {
+        "en": "Families",
+        "fr": "Familles",
+        "it": "Famiglie",
+        "uk": "Сім'ї"
+      }
+    ],
+    "relatedPlaces": [
+      "halles-du-marche",
+      "carrefour-city-felix-faure",
+      "carrefour-city-thiers-menton",
+      "carrefour-city-sospel-menton",
+      "promenade-du-soleil",
+      "jardins-bioves",
+      "port-hercule-christmas-monaco",
+      "menton-station"
+    ],
+    "relatedArticles": [
+      "menton-sundays-public-holidays",
+      "supermarkets-in-menton",
+      "first-evening-menton-late-arrival",
+      "winter-walks-menton-sunshine-short-routes",
+      "public-transport-in-menton"
+    ],
+    "relatedApartments": [
+      "sea-view-balcony-studio",
+      "panoramic-sea-view-studio",
+      "beachside-family-apartment"
+    ],
+    "practicalTips": [
+      {
+        "en": "Reviewed 6 November 2026 for New Year 2026/27. Fireworks and overnight services are not confirmed. Review each October–November; check exact dates again before travel.",
+        "fr": "Vérifié le 6 novembre 2026 pour le Nouvel An 2026/27. Feux et services nocturnes non confirmés. Révision chaque octobre–novembre, puis avant le voyage.",
+        "it": "Verificato il 6 novembre 2026 per Capodanno 2026/27. Fuochi e servizi notturni non confermati. Revisione ogni ottobre–novembre e prima del viaggio.",
+        "uk": "Перевірено 6 листопада 2026 для Нового року 2026/27. Феєрверки та нічні рейси не підтверджено. Оновлювати щожовтня–щолистопада й перевіряти перед поїздкою."
+      }
+    ]
+  },
+  "introHeading": {
+    "en": "Plan the evening before midnight",
+    "fr": "Préparer la soirée avant minuit",
+    "it": "Organizzarsi prima di mezzanotte",
+    "uk": "Підготуйте вечір до півночі"
+  },
+  "sectionOverrides": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "relatedPlaceIds": [
+        "halles-du-marche",
+        "carrefour-city-felix-faure",
+        "carrefour-city-thiers-menton",
+        "carrefour-city-sospel-menton"
+      ]
+    },
+    {},
+    {
+      "relatedPlaceIds": [
+        "promenade-du-soleil"
+      ]
+    },
+    {
+      "relatedPlaceIds": [
+        "port-hercule-christmas-monaco"
+      ]
+    },
+    {
+      "relatedPlaceIds": [
+        "menton-station"
+      ]
+    },
+    {
+      "relatedPlaceIds": [
+        "jardins-bioves"
+      ]
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "collections": [
+    "practical-stay",
+    "evening-plans"
+  ],
+  "assets": [
+    "/images/guide/new-years-eve-menton.webp"
+  ],
+  "sources": "sources.md"
+}

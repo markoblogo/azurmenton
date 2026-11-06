@@ -21,6 +21,8 @@ Availability is guidance, not a reservation. Shared favourites contain content I
 
 ## Start Locally
 
+Manual guide and illustration publication without an application rebuild: [Blob publication runbook](docs/guide-blob-publication.md). Source packages, validation, explicit approval and rollback remain required.
+
 Node.js 20.9+ is required; use Node.js 22 to match the main CI job. Python 3 is needed only for Word intake.
 
 ```bash

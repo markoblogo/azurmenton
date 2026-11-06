@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 import { apartments } from "@/content/apartments";
-import { guideArticles, guidePages } from "@/content/guide";
 import { eventDetailSlugs, getEventDetail, isIndexableEventDetail } from "@/content/riviera-events";
 import { stayPages } from "@/content/stay-pages";
 import { travelTools } from "@/content/travel-tools";
@@ -9,7 +8,7 @@ import { locales } from "@/i18n/locales";
 import { absoluteUrl, localizedPath } from "@/lib/seo";
 import { getPublicWeeklyDigest } from "@/content/weekly-digests";
 
-export const revalidate=3600;
+export const dynamic = "force-dynamic";
 
 const staticRoutes = [
   "",
@@ -30,7 +29,9 @@ const staticRoutes = [
   "booking-terms",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { getRuntimeContent } = await import("@/lib/guide-runtime");
+  const { guideArticles } = await getRuntimeContent();
   const entries = locales.flatMap((locale) => [
     ...staticRoutes.filter(path=>path!=="events/this-week"||Boolean(getPublicWeeklyDigest(locale))).map((path) => ({ route: localizedPath(locale, path), path, image: imageForStaticRoute(path) })),
     ...apartments.map((apartment) => ({
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: `apartments/${apartment.slug}`,
       image: apartment.heroImage,
     })),
-    ...guidePages[locale].map((page) => ({
+    ...guideArticles.map((page) => ({
       route: localizedPath(locale, `guide/${page.slug}`),
       path: `guide/${page.slug}`,
       image: guideArticles.find((article) => article.slug === page.slug)?.coverImage,

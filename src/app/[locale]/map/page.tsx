@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { placeMapPoints } from "@/content/planning/place-map-points";
 import { mapCategories, mapPlaceTypes } from "@/content/planning/map-taxonomy";
-import { places } from "@/content/places";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
 import { collectionPageJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -67,6 +67,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function UsefulPlacesMapPage({ params }: PageProps) {
+  const { places } = await getRuntimeContent();
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 

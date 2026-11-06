@@ -4,9 +4,11 @@ Use this checklist when adding or changing guide articles, places, events or apa
 
 ## Declarative Guide Packages
 
+The manual Blob-backed path uses the same standard package contract under `content/guide-publications/`, with immutable staging, guarded activation, current search/discovery and rollback. See [guide-blob-publication.md](guide-blob-publication.md). It does not import new guides into a build or authorize automatic publication. The following paragraph describes the original build-backed variant.
+
 For guides using this format, `src/content/guide-packages/<slug>/` is the canonical source: `metadata.json`, `en.md`, `fr.md`, `it.md`, `uk.md` and `sources.md`. Metadata contains reviewed article details, explicit section links, collection IDs and an asset manifest referring to files in `public/images`. Never infer places from headings. New places still require an editorial place entry.
 
-Run `npm run guide:package` after a package change and commit its generated index. `npm run guide:package:check` verifies freshness, translations, table alignment, assets and referenced guides, places and collections. The loader registers guides and derives reverse guide/place links, reciprocal guide links and collection membership. Normal release checks and publication approval still apply. Maria Serena is the checksum-preserving migration; The Long Afternoon is the first new package. Bespoke interactive blocks and creating new place records are not supported by this format. Assets use the existing targeted image pipeline; no Blob runtime loading or publication without a build is enabled.
+For build-backed packages, run `npm run guide:package` and commit the generated index. `npm run guide:package:check` verifies freshness, translations, table alignment, assets and references. The loader derives reverse guide/place links, reciprocal guide links and collection membership. Normal release checks and publication approval still apply. Maria Serena is the checksum-preserving migration; The Long Afternoon is the first new package. Bespoke interactive blocks and creating new place records are not supported by this standard package format. The separate Blob path stages and activates content without changing this generated index.
 
 ## Before Editing
 

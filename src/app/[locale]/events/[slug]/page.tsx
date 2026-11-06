@@ -16,8 +16,7 @@ import { getCalendarData } from "@/lib/event-calendar";
 import { PlaceCard } from "@/components/guide/PlaceCard";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
-import { getGuideArticle } from "@/content/guide";
-import { getPlaces } from "@/content/places";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { getEventApartmentScenario } from "@/content/contextual-apartment-recommendations";
 import { getEventOccurrencePage } from "@/content/event-occurrences";
 import {
@@ -262,6 +261,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function EventArticlePage({ params }: PageProps) {
+  const graph = await getRuntimeContent();
+  const getGuideArticle = (slug: string) => graph.guideArticles.find(a => a.slug === slug);
+  const getPlaces = (ids: string[]) => ids.flatMap(id => graph.places.find(p => p.id === id) ?? []);
   const { locale, slug } = await params;
 
   if (!isLocale(locale)) {
@@ -591,7 +593,7 @@ export default async function EventArticlePage({ params }: PageProps) {
                   <h2 className="serif-heading text-3xl leading-none text-[#173f36] sm:text-4xl">{labels.relatedPlaces}</h2>
                   <div className="mt-5 grid gap-4 md:grid-cols-2">
                     {relatedPlaces.map((place) => (
-                      <PlaceCard key={place.id} place={place} locale={locale} compact anchorId={placeAnchorId(place.id)} />
+                      <PlaceCard key={place.id} place={place} content={graph} locale={locale} compact anchorId={placeAnchorId(place.id)} />
                     ))}
                   </div>
                 </section>

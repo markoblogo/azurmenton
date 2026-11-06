@@ -1,5 +1,7 @@
 # Manual Guide Publication Packet
 
+For versioned Blob publication, later images and rollback without rebuilding, use [guide-blob-publication.md](guide-blob-publication.md). The build-backed workflow below remains supported for code/schema changes and legacy content. Its historical runtime-trial limitations describe that trial, not the new integrated path.
+
 This wraps existing guide tools; it is not an automatic publisher, translator, source verifier or new content database. The owner still chooses every guide. New places may retain explicit empty illustrations at first publication; the owner supplies the later image package. Existing images are never replaced automatically. No scheduler, paid storage, Telegram or newsletter integration is enabled.
 
 ## One Manual Path

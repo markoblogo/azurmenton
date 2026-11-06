@@ -2,7 +2,7 @@ import type { GuideArticle, LocalizedGuideSection, LocalizedText } from "@/conte
 import { formattedMarkdownGuideBody, markdownGuideSections, type GuideMarkdownRecord } from "@/lib/guide-markdown";
 import data from "./guide-packages.generated.json";
 
-type GuidePackage = {
+export type GuidePackage = {
   article: Omit<GuideArticle, "sections">;
   introHeading: LocalizedText;
   sectionOverrides: Partial<LocalizedGuideSection>[];
@@ -10,7 +10,7 @@ type GuidePackage = {
   records: GuideMarkdownRecord[];
 };
 export const guidePackages = data as GuidePackage[];
-export const packagedGuides: GuideArticle[] = guidePackages.map(({ article, introHeading, sectionOverrides, records }) => {
+export function buildPackagedGuide({ article, introHeading, sectionOverrides, records }: GuidePackage): GuideArticle {
   const sections = markdownGuideSections(records, introHeading);
   sections.forEach((section, index) => {
     section.body = [Object.fromEntries((["en", "fr", "it", "uk"] as const).map(locale => [locale, formattedMarkdownGuideBody(records[index][locale])])) as LocalizedText];
@@ -19,4 +19,5 @@ export const packagedGuides: GuideArticle[] = guidePackages.map(({ article, intr
     Object.assign(section, sectionOverrides[index]);
   });
   return { ...article, sections };
-});
+}
+export const packagedGuides: GuideArticle[] = guidePackages.map(buildPackagedGuide);

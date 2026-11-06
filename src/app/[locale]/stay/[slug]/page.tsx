@@ -11,7 +11,7 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
-import { getGuideArticle } from "@/content/guide";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { getEventDetail, getEventTitle } from "@/content/riviera-events";
 import { getStayPage, localizeStayPage, stayPages } from "@/content/stay-pages";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
@@ -91,6 +91,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function StayPage({ params }: PageProps) {
+  const graph = await getRuntimeContent();
+  const getGuideArticle = (slug: string) => graph.guideArticles.find(a => a.slug === slug);
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
 

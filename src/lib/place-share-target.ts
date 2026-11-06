@@ -11,9 +11,11 @@ const canonicalGuide = cache((id: string) => {
   return place ? selectPlaceGuide(place, guideArticles, knownPlaceIds)?.slug : undefined;
 });
 
-export function placeSharePath(id: string, locale: Locale): string | undefined {
-  const slug = canonicalGuide(id);
+export function placeSharePath(id: string, locale: Locale, content?: { guideArticles: typeof guideArticles; places: typeof places }): string | undefined {
+  const known = content ? new Set(content.places.map(place => place.id)) : knownPlaceIds;
+  const place = content?.places.find(place => place.id === id);
+  const slug = content ? (place ? selectPlaceGuide(place, content.guideArticles, known)?.slug : undefined) : canonicalGuide(id);
   if (slug) return `/${locale}/guide/${slug}#${placeAnchorId(id)}`;
-  const event = rivieraEvents.find(item => item.detailPage && (item.relatedPlaceIds ?? []).filter(placeId => knownPlaceIds.has(placeId)).slice(0, item.placeDisplayLimit ?? 6).includes(id));
+  const event = rivieraEvents.find(item => item.detailPage && (item.relatedPlaceIds ?? []).filter(placeId => known.has(placeId)).slice(0, item.placeDisplayLimit ?? 6).includes(id));
   return event ? `/${locale}/events/${event.occurrenceSlug ?? event.slug}#${placeAnchorId(id)}` : undefined;
 }
