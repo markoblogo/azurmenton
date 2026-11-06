@@ -10,6 +10,7 @@ export type PlaceMapExclusion = {
 // Explicitly record places that need a later coordinate check instead of placing
 // a marker from an approximate address or a generic city result.
 export const placeMapExclusions: PlaceMapExclusion[] = [
+  { placeId: "clos-du-peyronnet-menton", reason: "coordinate_unverified", checkedOn: "2026-11-06", sourceUrl: "https://waterfieldgarden.fr/en/visit/" },
   { placeId: "musee-terra-amata-nice", reason: "coordinate_unverified", checkedOn: "2026-11-05", sourceUrl: "https://www.nice.fr/lieux/musee-terra-amata/" },
   { placeId: "musee-resistance-azureenne-nice", reason: "coordinate_unverified", checkedOn: "2026-11-05", sourceUrl: "https://cotedazurfrance.fr/offres/musee-de-la-resistance-azureenne-nice-fr-4199783/" },
   ...["antibes-station", "port-vauban-antibes"].map(placeId => ({ placeId, reason: "coordinate_unverified" as const, checkedOn: "2026-11-05", sourceUrl: "https://www.antibes-juanlespins.com/decouvrir-antibes/cartes-postales-dhier-et-aujourdhui" })),

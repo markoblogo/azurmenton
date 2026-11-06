@@ -1,10 +1,12 @@
 import { existsSync } from "node:fs";
 import { expect, it } from "vitest";
 import { mariaSerenaFilmGuide as guide } from "@/content/maria-serena-film-guide";
-import records from "@/content/guide-data/in-the-name-of-my-daughter-villa-maria-serena-menton.json";
+import { guidePackages } from "@/content/guide-packages";
 import { guideArticles } from "@/content/guide";
 import { getPlaces } from "@/content/places";
 import { contentCollections, resolveContentCollectionGuideSlugs } from "@/content/content-map";
+
+const records = guidePackages.find(pkg => pkg.article.slug === guide.slug)!.records;
 
 it("retains twelve chapters, ten evidence rows and thirteen FAQ answers in four languages", () => {
   expect(guideArticles).toContain(guide);

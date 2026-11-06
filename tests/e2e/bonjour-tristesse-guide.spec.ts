@@ -7,7 +7,8 @@ test("Sagan guide renders four locales, its table and illustrated thematic stops
     await page.goto(`/${locale}/guide/${slug}`, { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1")).toContainText("Bonjour Tristesse");
     const cover = page.locator(`img[src*="${slug}"]`).first();
-    await expect.poll(() => cover.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);
+    await cover.scrollIntoViewIfNeeded();
+    await expect.poll(() => cover.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0), { timeout: 30000 }).toBe(true);
     await expect(page.locator("table")).toHaveCount(1);
     await expect(page.locator("table tbody tr")).toHaveCount(4);
     for (const id of ["promenade-du-soleil", "plage-casino", "royal-westminster-menton", "jardins-bioves"]) {

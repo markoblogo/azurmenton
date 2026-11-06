@@ -1,0 +1,43 @@
+{
+  "slug": "the-long-afternoon-giles-waterfield-menton",
+  "mode": "published-guide",
+  "strict": false,
+  "missingOnly": true,
+  "reportOnly": true,
+  "failOnUnmatched": false,
+  "operatorSummary": [
+    "status: ok",
+    "subject: the-long-afternoon-giles-waterfield-menton",
+    "mode: published-guide + missing-only + report-only",
+    "matched: 0",
+    "skipped-covered: 5",
+    "already-covered: 0",
+    "unmatched: 0",
+    "still-missing: 1",
+    "report: build/guide-assets-postpublish/the-long-afternoon-giles-waterfield-menton.json",
+    "rerun: npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --report-only"
+  ],
+  "counts": {
+    "matched": 0,
+    "unmatched": 0,
+    "alreadyCovered": 0,
+    "skippedCovered": 5,
+    "stillMissing": 1,
+    "patchReady": 0
+  },
+  "matchedAssetFiles": [],
+  "unmatchedAssetFiles": [],
+  "alreadyCoveredAssetFiles": [],
+  "matchedPlaceIds": [],
+  "publishedGuidePlacesWithoutImage": [
+    {
+      "placeId": "clos-du-peyronnet-menton",
+      "draftName": "Le Clos du Peyronnet — Waterfield Garden"
+    }
+  ],
+  "likelyGuideTargets": [],
+  "bestRerunCommand": "npm run guide:assets -- --published-guide the-long-afternoon-giles-waterfield-menton --missing-only --report-only",
+  "issueCodes": [
+    "pending-place-asset"
+  ]
+}

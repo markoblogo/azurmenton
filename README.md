@@ -46,6 +46,8 @@ Follow the [release checklist](LAUNCH_CHECKLIST.md) and [deployment runbook](DEP
 
 ## Publish Content Manually
 
+New standard long-form guides can use one declarative directory, `src/content/guide-packages/<slug>/`: `metadata.json`, four locale Markdown files and `sources.md`. Metadata declares reviewed places, related guides, collection membership and existing image paths. Run `npm run guide:package`, then normal release and guide browser checks. Registration and reciprocal links are derived automatically; do not edit several registries by hand. The generated index is committed and checked before builds. This path still publishes through the application build, not Blob. See [content rules](docs/content-operations.md).
+
 ```bash
 npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
 # Review facts/links, prepare four translations and insert reviewed canonical content.
@@ -67,7 +69,7 @@ Useful editorial reports: `npm run content:report`, `npm run events:review`, `np
 ## Where Things Live
 
 - `src/app/[locale]/`: localized public routes; `src/app/api/`: server endpoints.
-- `src/content/`: canonical apartment, guide, place, event and editorial data; `src/content/guide-data/`: multilingual long-form sources.
+- `src/content/`: canonical apartment, guide, place, event and editorial data; `src/content/guide-data/`: legacy long-form sources; `src/content/guide-packages/`: declarative guide sources with generated registration.
 - `src/components/` and `src/lib/`: shared UI, booking, availability, search, planning and validation.
 - `scripts/`: editorial and release tools; `tests/unit/` and `tests/e2e/`: regression coverage.
 - `public/images/`: approved media and generated derivatives; generated Pagefind output and local evidence are not tracked.

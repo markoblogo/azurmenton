@@ -553,6 +553,13 @@
     ]
   },
   {
+    "source": "public/images/guide/in-the-name-of-my-daughter-villa-maria-serena-menton.png",
+    "outputs": [
+      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.avif",
+      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/iriparo-menton.png",
     "outputs": [
       "public/images/guide/generated/iriparo-menton.avif",
@@ -1596,6 +1603,13 @@
     ]
   },
   {
+    "source": "public/images/guide/the-long-afternoon-giles-waterfield-menton.webp",
+    "outputs": [
+      "public/images/guide/generated/the-long-afternoon-giles-waterfield-menton.avif",
+      "public/images/guide/generated/the-long-afternoon-giles-waterfield-menton.webp"
+    ]
+  },
+  {
     "source": "public/images/guide/to-catch-a-thief-hitchcock-villefranche-sur-mer.png",
     "outputs": [
       "public/images/guide/generated/to-catch-a-thief-hitchcock-villefranche-sur-mer.avif",
@@ -1761,13 +1775,6 @@
     "outputs": [
       "public/images/tools/generated/weather.avif",
       "public/images/tools/generated/weather.webp"
-    ]
-  },
-  {
-    "source": "public/images/guide/in-the-name-of-my-daughter-villa-maria-serena-menton.png",
-    "outputs": [
-      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.avif",
-      "public/images/guide/generated/in-the-name-of-my-daughter-villa-maria-serena-menton.webp"
     ]
   }
 ]
