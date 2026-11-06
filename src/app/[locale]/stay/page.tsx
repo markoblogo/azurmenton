@@ -9,9 +9,8 @@ import { GuideVisual } from "@/components/guide/GuideVisual";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { apartments } from "@/content/apartments";
-import { getGuideArticle } from "@/content/guide";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { stayPlans } from "@/content/planning/stay-plans";
-import { getPlaces } from "@/content/places";
 import { localizeStayPage, stayPages } from "@/content/stay-pages";
 import { isLocale, locales, type Locale } from "@/i18n/locales";
 import { absoluteUrl, createMetadata, localizedPath } from "@/lib/seo";
@@ -96,6 +95,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function StayIndexPage({ params }: PageProps) {
+  const graph = await getRuntimeContent();
+  const getGuideArticle = (slug: string) => graph.guideArticles.find(a => a.slug === slug);
+  const getPlaces = (ids: string[]) => ids.flatMap(id => graph.places.find(p => p.id === id) ?? []);
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 

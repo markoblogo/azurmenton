@@ -11,6 +11,8 @@ Current entrypoints are below. Dated audits, reports and reviews record observat
 
 ## Guides, Places And Media
 
+- [Blob guide publication](guide-blob-publication.md): versioned packages, current discovery, guarded activation, illustrations and rollback without rebuilding the application.
+
 - [Content rules](content-operations.md): linking, images, maps and sources.
 - [Manual guide packet](guide-manual-workflow.md): preferred guide/translation/later-image path.
 - [Guide publication path audit](audits/2026-11-05-guide-publication-path-audit.md): measured bottlenecks and proposed declarative/no-rebuild migration; not a production switch.

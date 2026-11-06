@@ -13,7 +13,8 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
 import { apartments } from "@/content/apartments";
-import { guidePages } from "@/content/guide";
+import { getGuidePage } from "@/content/guide";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { getEventDateLabel, getEventTitle, rivieraEvents } from "@/content/riviera-events";
 import { getHomepageFaqItems, homeCopy } from "@/content/pages";
 import { t } from "@/content/translations";
@@ -210,6 +211,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LocaleHome({ params }: PageProps) {
+  const graph = await getRuntimeContent();
   const { locale } = await params;
   const safeLocale: Locale = isLocale(locale) ? locale : "en";
   const faqItems = getHomepageFaqItems(safeLocale);
@@ -218,7 +220,7 @@ export default async function LocaleHome({ params }: PageProps) {
   const sections = sectionCopy[safeLocale];
   const now = new Date();
   const guideTeasers = getHomeGuideSlugs(now).flatMap((slug) => {
-    const guide = guidePages[safeLocale].find((page) => page.slug === slug);
+    const guide = getGuidePage(safeLocale, slug, graph.guideArticles);
     return guide ? [guide] : [];
   });
   const homeEvents = getHomeEvents(rivieraEvents, now);

@@ -30,7 +30,7 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - Contextual recommendations use existing apartment links and verified facts. Short confirmed events may suggest request dates after an explicit click; this never confirms availability, changes the saved trip or sends a booking. Longer-stay prices and conditions require a personal reply.
 - uMap is an optional editor-side export/preview tool over canonical route data, not the site's main map or a second place database. Saving/embedding an external map remains a separate approval.
 - A local editorial metadata registry/report coordinates existing workflows without copying content or importing private submissions. Pipeline readiness, owner approval, canonical presence and public verification remain distinct. No scheduled guide publication or automatic publisher is enabled. See `docs/editorial-queue.md`.
-- Manual guide packets wrap existing preparation/check/image commands and retain input-bound local QA receipts. Standard long-form guides may also use one declarative source package, with generated registration and reciprocal links in the ordinary build. Post-publication illustrations remain supported. A loopback-only runtime trial and the provisioned Blob store are not connected to production content, Pagefind, maps or a no-build publisher. See `docs/guide-manual-workflow.md`; no new automatic publication authority is implied.
+- Manual guide packets retain input-bound QA receipts. Standard packages support build-backed registration or versioned Blob publication, including reciprocal links and later illustrations. The Blob path requires explicit activation after validation; Pagefind remains the static baseline with a current guide-search overlay. See `docs/guide-blob-publication.md`; no automatic publication authority is implied.
 - Any future CortexABV guest chat is a separate read-only, guide-grounded surface. It cannot check or change availability, price, payment, booking, guest records, or site content; unsupported or current operational questions must abstain or hand off.
 
 ## Language And Claim Boundaries
@@ -45,6 +45,8 @@ Primary: a manual availability or booking request. Secondary: a useful guide, ap
 - `src/content/`, `src/lib/structured-data.ts`, and booking request routes.
 
 ## Maintenance
+
+Manual Blob publications now have an integrated versioned guide/place graph, lexical search overlay and guarded local activation/rollback; see [guide-blob-publication.md](guide-blob-publication.md). The earlier loopback trial remains historical evidence only. Live acceptance and deployed SHA must be recorded separately; staging is not publication and no scheduler is enabled.
 
 `docs/README.md` indexes current runbooks; dated audits remain historical evidence. `release:check` reuses the input-bound check machinery and shared guide checks, adding production dependency/native/browser gates. It never authorizes a commit, release, external message or production configuration change.
 

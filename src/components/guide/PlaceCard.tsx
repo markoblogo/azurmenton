@@ -32,7 +32,7 @@ export function PlaceCard({ place, locale, compact = false, currentGuideId, rela
   const externalLinkLabel = place.type === "cinema" || place.type === "theatre" ? copy.programme : copy.website;
   const visualLabel = place.type.replaceAll("-", " ");
   const imageAlt = place.imageAlt?.[locale] ?? visualLabel;
-  const sharePath = placeSharePath(place.id, locale);
+  const sharePath = placeSharePath(place.id, locale) ?? (currentGuideId ? `/${locale}/guide/${currentGuideId}#place-${place.id}` : undefined);
 
   return (
     <article id={anchorId} className="group relative scroll-mt-28 overflow-hidden border border-[#dfd2b8] bg-[#fffaf0] transition-all duration-300 hover:border-[#c6a66a]">

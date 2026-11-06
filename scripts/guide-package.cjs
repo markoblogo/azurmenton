@@ -12,7 +12,7 @@ const fail = message => { throw new Error(message); };
 const text = (value, label) => {
   if (!value || typeof value !== "object" || locales.some(l => typeof value[l] !== "string" || !value[l].trim())) fail(`${label}: four translations required`);
 };
-function compile(packageDirectory = directory) {
+function compile(packageDirectory = directory, options = {}) {
   const packages = [];
   for (const entry of fs.readdirSync(packageDirectory, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
     if (!entry.isDirectory() || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.name)) fail(`Invalid package: ${entry.name}`);
@@ -57,7 +57,7 @@ function compile(packageDirectory = directory) {
   const packageSlugs = new Set(packages.map(pkg => pkg.article.slug));
   const previous = fs.existsSync(output) ? JSON.parse(fs.readFileSync(output, "utf8")) : [];
   const previousSlugs = new Set(previous.map(pkg => pkg.article.slug));
-  const guides = new Set([...guideArticles.filter(guide => !previousSlugs.has(guide.slug)).map(guide => guide.slug), ...packageSlugs]);
+  const guides = new Set([...guideArticles.filter(guide => options.runtime || !previousSlugs.has(guide.slug)).map(guide => guide.slug), ...packageSlugs]);
   const placeIds = new Set(places.map(place => place.id));
   const collectionIds = new Set(contentCollections.map(collection => collection.id));
   for (const pkg of packages) {
@@ -68,7 +68,7 @@ function compile(packageDirectory = directory) {
     for (const section of pkg.sectionOverrides) if (section.guideLinkSlug && !guides.has(section.guideLinkSlug)) fail(`${article.slug}: unknown section guide ${section.guideLinkSlug}`);
     for (const id of pkg.collections) if (!collectionIds.has(id)) fail(`${article.slug}: unknown collection ${id}`);
     const matching = guideArticles.filter(guide => guide.slug === article.slug).length;
-    if (matching > 1 || (matching && !previousSlugs.has(article.slug))) fail(`${article.slug}: duplicate guide`);
+    if (matching > 1 || (!options.runtime && matching && !previousSlugs.has(article.slug))) fail(`${article.slug}: duplicate guide`);
   }
   return JSON.stringify(packages, null, 2) + "\n";
 }

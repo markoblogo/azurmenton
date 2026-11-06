@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { ShareActions } from "@/components/content/ShareActions";
 import { apartments } from "@/content/apartments";
 import { getGuestGuide, guestGuideCopy as copy } from "@/content/guest-guides";
-import { getGuideArticle } from "@/content/guide";
+import { getRuntimeContent } from "@/lib/guide-runtime";
 import { getPlace } from "@/content/places";
 import { isLocale, locales } from "@/i18n/locales";
 import { placeSharePath } from "@/lib/place-share-target";
@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GuestGuidePage({ params }: Props) {
+  const graph = await getRuntimeContent();
+  const getGuideArticle = (slug: string) => graph.guideArticles.find(a => a.slug === slug);
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
   const guide = getGuestGuide(slug);
