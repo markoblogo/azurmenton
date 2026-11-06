@@ -59,3 +59,5 @@ Tests cover static parity, immutable inputs, new registration, reciprocal links,
 Public `/guide-media/<sha256>.webp` serves only bounded checksummed images, not arbitrary Blob paths, manuscripts, source notes or secrets. `/api/guide-search` exposes searchable published text; `/api/guide-revision` exposes revision, active slugs and deployment SHA. Blob usage follows provider billing; no free-usage promise or plan change is made.
 
 Annual New Year review uses the existing October/November editorial review in [guide-maintenance-review.md](guide-maintenance-review.md). No automatic date rollover or publication authority is implied.
+
+Production acceptance and measured publication/image/rollback cycle: [6 November 2026 audit](audits/2026-11-06-blob-guide-publication.md). Git archive commits still follow ordinary CI/deployment rules; they are not required for each Blob activation. Static content/health reports remain baseline-only: also inspect `/api/guide-revision` and current runtime guides during editorial reviews.
