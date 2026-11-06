@@ -25,11 +25,24 @@ export function validateSnapshot(snapshot: GuideSnapshot) {
     seen.add(a.slug);
     for (const field of [a.title, a.seoTitle, a.seoDescription, a.excerpt]) if (!localized(field)) throw Error("Four guide translations required");
     if (!["food-markets", "beaches", "walks-views", "with-children", "nightlife-drinks", "photo-spots", "itineraries", "day-trips", "events", "practical"].includes(a.category)) throw Error("Invalid guide category");
+    if (a.duration !== undefined && !["45 to 90 minutes", "1 hour", "1-2 hours", "half-day", "full-day", "2-3 days", "evening", "flexible", "reference"].includes(a.duration)) throw Error("Invalid guide duration");
+    if (!["editorial", "needs_verification", "verified"].includes(a.sourceStatus)) throw Error("Invalid source status");
+    if (!Array.isArray(a.locationTags)) throw Error("Guide locations required");
     for (const list of [a.tags, a.bestFor]) if (!Array.isArray(list) || !list.every(localized)) throw Error("Invalid guide labels");
     for (const list of [a.locationTags, a.relatedPlaces, a.relatedArticles, a.relatedApartments]) if (list !== undefined && (!Array.isArray(list) || !list.every(id))) throw Error("Invalid guide references");
+    if (a.practicalTips !== undefined && (!Array.isArray(a.practicalTips) || !a.practicalTips.every(localized))) throw Error("Invalid practical tips");
+    if (a.appTools !== undefined && (!Array.isArray(a.appTools) || !a.appTools.every(tool => localized(tool.useFor) && localized(tool.bestFor)))) throw Error("Invalid guide app tools");
+    if (a.utilityBlocks !== undefined && !Array.isArray(a.utilityBlocks)) throw Error("Invalid utility blocks");
+    if (a.bookRecommendation && ![a.bookRecommendation.coverImageAlt, a.bookRecommendation.languageNote, a.bookRecommendation.disclosure].every(localized)) throw Error("Invalid book localization");
     if (!Array.isArray(a.sections) || !a.sections.length || a.sections.length > 200) throw Error("Invalid guide sections");
     for (const section of a.sections) {
       if (!localized(section.heading) || !Array.isArray(section.body) || !section.body.every(localized)) throw Error("Invalid localized section");
+      if (section.bullets !== undefined && (!Array.isArray(section.bullets) || !section.bullets.every(localized))) throw Error("Invalid section bullets");
+      for (const refs of [section.relatedPlaceIds, section.relatedEventIds, section.relatedApartmentKeys]) if (refs !== undefined && (!Array.isArray(refs) || !refs.every(id))) throw Error("Invalid section references");
+      if (section.disclosures !== undefined && (!Array.isArray(section.disclosures) || !section.disclosures.every(item => id(item.id) && localized(item.heading) && Array.isArray(item.body) && item.body.every(localized)))) throw Error("Invalid section disclosures");
+      if (section.officialLinks !== undefined && (!Array.isArray(section.officialLinks) || !section.officialLinks.every(link => localized(link.label) && typeof link.url === "string"))) throw Error("Invalid official links");
+      if (section.videoEmbeds !== undefined && (!Array.isArray(section.videoEmbeds) || !section.videoEmbeds.every(video => localized(video.title) && (!video.secondaryLinks || (Array.isArray(video.secondaryLinks) && video.secondaryLinks.every(link => localized(link.label))))))) throw Error("Invalid videos");
+      if (section.artworkCards !== undefined && (!Array.isArray(section.artworkCards) || !section.artworkCards.every(art => [art.workTitle, art.rightsNote, art.locationNote].every(localized)))) throw Error("Invalid artworks");
       if (section.tables) for (const locale of locales) {
         const tables = section.tables[locale];
         if (!Array.isArray(tables) || !tables.every(table => Array.isArray(table.headers) && table.headers.length > 0 && table.headers.every(cell => typeof cell === "string") && Array.isArray(table.rows) && table.rows.every(row => Array.isArray(row) && row.length === table.headers.length && row.every(cell => typeof cell === "string")))) throw Error("Invalid localized table");
@@ -38,12 +51,14 @@ export function validateSnapshot(snapshot: GuideSnapshot) {
     if (!publication.sources?.trim() || !Array.isArray(publication.places) || !Array.isArray(publication.collections)) throw Error("Missing publication manifest");
     const placeIds = new Set<string>();
     for (const place of publication.places) {
-      if (!id(place.id) || placeIds.has(place.id) || !place.name || !placeTypes.has(place.type) || !localized(place.shortNote) || !Array.isArray(place.relatedArticleIds) || !Array.isArray(place.bestFor) || !place.bestFor.every(localized)) throw Error("Invalid place");
+      if (!id(place.id) || placeIds.has(place.id) || typeof place.name !== "string" || !place.name.trim() || !placeTypes.has(place.type) || !localized(place.shortNote) || !Array.isArray(place.relatedArticleIds) || !place.relatedArticleIds.every(id) || !Array.isArray(place.bestFor) || !place.bestFor.every(localized)) throw Error("Invalid place");
       placeIds.add(place.id);
+      if (place.images !== undefined && (!Array.isArray(place.images) || !place.images.every(image => typeof image === "string"))) throw Error("Invalid place gallery");
     }
   }
   // No executable content, external media fetches or arbitrary local file paths.
   function inspect(value: unknown, key = "") {
+    if (["image", "coverImage", "heroImage"].includes(key) && value !== undefined && typeof value !== "string") throw Error("Unsupported publication media");
     if (typeof value === "string") {
       if (value.length > 200_000 || /^(?:javascript|data|file):/i.test(value.trim())) throw Error("Unsafe publication string");
       if (["image", "images", "coverImage", "heroImage"].includes(key) && (!/^\/(?:images\/[\w/.-]+\.(?:png|jpe?g|webp|avif)|guide-media\/[a-f0-9]{64}\.webp)$/.test(value) || value.includes(".."))) throw Error("Unsupported publication media");

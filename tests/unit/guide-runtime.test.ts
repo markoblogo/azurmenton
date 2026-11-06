@@ -52,6 +52,10 @@ describe("runtime publication graph", () => {
     expect(() => validateSnapshot(media)).toThrow("Unsupported publication media");
     const category = fixture(); category.publications[0].article.category = "invalid" as never;
     expect(() => validateSnapshot(category)).toThrow("category");
+    const duration = fixture(); duration.publications[0].article.duration = "2 hours" as never;
+    expect(() => validateSnapshot(duration)).toThrow("duration");
+    const bullets = fixture(); bullets.publications[0].article.sections[0].bullets = {} as never;
+    expect(() => validateSnapshot(bullets)).toThrow("bullets");
     const labels = fixture(); labels.publications[0].article.tags = undefined as never;
     expect(() => validateSnapshot(labels)).toThrow("labels");
     const badPlace = fixture(); badPlace.publications[0].places = [{ ...places[0], type: undefined } as never];
