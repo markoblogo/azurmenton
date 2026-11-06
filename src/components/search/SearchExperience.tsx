@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/i18n/locales";
 import { isCurrentSearchEvent, rankSearchResults, searchQueryVariants, type RankedSearchResult } from "@/lib/search-ranking";
-import { matchRuntimeSearch, type RuntimeSearchRow } from "@/lib/guide-runtime-search";
+import { isRuntimeSearchReplacement, matchRuntimeSearch, type RuntimeSearchRow } from "@/lib/guide-runtime-search";
 
 type Kind = "guide" | "place" | "event";
 type PagefindResult = { url: string; meta: { title: string; type: Kind; endDate?: string } };
@@ -47,8 +47,7 @@ export function SearchExperience({ locale }: { locale: Locale }) {
           batches.push(items.filter(({ item }) => item.meta.type !== "event" || isCurrentSearchEvent(item.meta.endDate, today)).map(({ item, sourceRank }) => ({ url: item.url, title: item.meta.title, type: item.meta.type, sourceRank, exactQuery: variantIndex === 0 })));
         }
         const currentResults: RankedSearchResult[] = matchRuntimeSearch(runtime.rows, variants).map((row, sourceRank) => ({ url: row.url, title: row.title, type: row.type, sourceRank, exactQuery: true }));
-        const overridden = new Set(runtime.rows.map(row => row.url));
-        const staticResults = batches.flat().filter(row => !overridden.has(row.url) && !runtime.slugs.some(slug => row.url.split("#")[0] === `/${locale}/guide/${slug}`));
+        const staticResults = batches.flat().filter(row => !isRuntimeSearchReplacement(row.url, runtime.rows, runtime.slugs, locale));
         if (active) { setResults(rankSearchResults([...staticResults, ...currentResults], query, locale)); setState("ready"); }
       } catch (error) { console.error("Search failed", error); if (active) setState("error"); } finally { if (pagefind) await pagefind.destroy(); }
     }, 200);

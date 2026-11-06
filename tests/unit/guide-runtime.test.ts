@@ -2,8 +2,8 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { guideArticles } from "@/content/guide";
 import { places } from "@/content/places";
 import { contentCollections } from "@/content/content-map";
-import { mergeGuideSnapshot, validateSnapshot, type GuideSnapshot } from "@/lib/guide-runtime-model";
-import { runtimeSearchRows, matchRuntimeSearch } from "@/lib/guide-runtime-search";
+import { mergeGuideSnapshot, setPublicationPlace, validateSnapshot, type GuideSnapshot } from "@/lib/guide-runtime-model";
+import { isRuntimeSearchReplacement, runtimeSearchRows, matchRuntimeSearch } from "@/lib/guide-runtime-search";
 
 const fixture = (): GuideSnapshot => {
   const article = structuredClone(guideArticles.find(a => a.slug === "menton-sundays-public-holidays")!);
@@ -53,6 +53,31 @@ describe("runtime publication graph", () => {
     expect(() => validateSnapshot(category)).toThrow("category");
     const labels = fixture(); labels.publications[0].article.tags = undefined as never;
     expect(() => validateSnapshot(labels)).toThrow("labels");
+    const badPlace = fixture(); badPlace.publications[0].places = [{ ...places[0], type: undefined } as never];
+    expect(() => validateSnapshot(badPlace)).toThrow("Invalid place");
+  });
+  it("keeps bullets searchable and suppresses shared places by identity", () => {
+    const snapshot = fixture(); const a = snapshot.publications[0].article;
+    a.sections[0].bullets = [{ en: "uniquebullet", fr: "unique", it: "unico", uk: "унікальне" }];
+    const graph = mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot);
+    const rows = runtimeSearchRows(graph.guideArticles, graph.places, [a.slug], "en");
+    expect(matchRuntimeSearch(rows, ["uniquebullet"])[0].url).toBe(`/en/guide/${a.slug}`);
+    const place = rows.find(r => r.placeId)!;
+    expect(isRuntimeSearchReplacement(`/en/guide/other#place-${place.placeId}`, rows, [a.slug], "en")).toBe(true);
+  });
+  it("resolves a second runtime guide and edits shared places without stale copies", () => {
+    const snapshot = fixture(); const first = snapshot.publications[0];
+    first.article.id = first.article.slug = "runtime-first";
+    const second = structuredClone(first); second.article.id = second.article.slug = "runtime-second";
+    second.article.relatedArticles = ["runtime-first"];
+    const place = structuredClone(places.find(p => p.id === first.article.relatedPlaces![0])!);
+    first.places = [structuredClone(place)]; second.places = [structuredClone(place)];
+    snapshot.publications.push(second);
+    expect(() => mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot)).not.toThrow();
+    place.image = `/guide-media/${"b".repeat(64)}.webp`;
+    setPublicationPlace(snapshot, "runtime-first", place);
+    expect(second.places).toHaveLength(0);
+    expect(mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot).places.find(p => p.id === place.id)?.image).toBe(place.image);
   });
 });
 
@@ -75,7 +100,7 @@ describe("Blob integrity and atomic activation", () => {
     const next = { ...old, revision: 2, previousHash: hash, requestId: "after" };
     vi.mocked(get).mockResolvedValueOnce(response(snapshot) as never).mockResolvedValueOnce(response(old) as never).mockResolvedValueOnce(response(next) as never);
     await expect(activateGuideSnapshot(hash, 1, "after")).resolves.toEqual(next);
-    expect(put).toHaveBeenCalledWith("guides/v1/head.json", JSON.stringify(next), expect.objectContaining({ ifMatch: "etag-1", access: "private" }));
+    expect(put).toHaveBeenCalledWith("guides/v1/head.json", JSON.stringify(next), expect.objectContaining({ ifMatch: "etag-1", allowOverwrite: true, access: "private" }));
     expect(get).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({ useCache: false }));
   });
   it("rejects stale revisions without a write", async () => {

@@ -59,7 +59,7 @@ export async function activateGuideSnapshot(hash: string, expectedRevision: numb
   }
   if ((current?.head.revision ?? 0) !== expectedRevision) throw Error("Publication revision changed; inspect before retrying");
   const head: GuideHead = { version: 1, revision: expectedRevision + 1, hash, previousHash: current?.head.hash ?? null, requestId };
-  await put(prefix + "head.json", JSON.stringify(head), { access: "private", addRandomSuffix: false, contentType: "application/json", cacheControlMaxAge: 60, ...(current ? { ifMatch: current.etag } : { allowOverwrite: false }) });
+  await put(prefix + "head.json", JSON.stringify(head), { access: "private", addRandomSuffix: false, contentType: "application/json", cacheControlMaxAge: 60, ...(current ? { ifMatch: current.etag, allowOverwrite: true } : { allowOverwrite: false }) });
   const verified = await readGuideHead();
   if (verified?.head.hash !== hash || verified.head.revision !== head.revision) throw Error("Concurrent publication: inspect head");
   return head;

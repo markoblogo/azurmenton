@@ -7,7 +7,7 @@ require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
 const { guideArticles } = require("../src/content/guide.ts");
 const { places } = require("../src/content/places.ts");
 const { contentCollections } = require("../src/content/content-map.ts");
-const { mergeGuideSnapshot } = require("../src/lib/guide-runtime-model.ts");
+const { mergeGuideSnapshot, setPublicationPlace } = require("../src/lib/guide-runtime-model.ts");
 const store = require("../src/lib/guide-blob-store.ts");
 
 async function main() {
@@ -21,8 +21,8 @@ async function main() {
   }
   if (options.env) process.loadEnvFile(options.env);
   const start = Date.now();
-  function packagePublication() {
-    const packages = JSON.parse(require("./guide-package.cjs").compile(path.resolve(options.packages), { runtime: true }));
+  function packagePublication(graph) {
+    const packages = JSON.parse(require("./guide-package.cjs").compile(path.resolve(options.packages), { runtime: true, graph }));
     const pkg = packages.find(p => p.article.slug === options.slug);
     if (!pkg) throw Error("Package slug not found");
     return { article: require("../src/content/guide-packages.ts").buildPackagedGuide(pkg), places: [], collections: pkg.collections, sources: fs.readFileSync(path.join(options.packages, options.slug, "sources.md"), "utf8") };
@@ -44,31 +44,35 @@ async function main() {
   if (command === "stage") {
     let publication;
     if (options.packages) {
-      publication = packagePublication();
+      publication = packagePublication(mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot));
     } else publication = JSON.parse(fs.readFileSync(options.packet, "utf8"));
-    mergeGuideSnapshot(guideArticles, places, contentCollections, { version: 1, publications: [publication] });
+    const previous = snapshot.publications.find(p => p.article.slug === publication.article.slug);
+    publication.places = [...(previous?.places ?? []).filter(p => !publication.places.some(next => next.id === p.id)), ...publication.places];
+    snapshot.publications = snapshot.publications.filter(p => p.article.slug !== publication.article.slug);
+    snapshot.publications.push(publication);
+    for (const place of [...publication.places]) setPublicationPlace(snapshot, publication.article.slug, place);
+    mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot);
     if (publication.article.coverImage?.startsWith("/images/")) {
       const bytes = await require("sharp")(path.join(root, "public", publication.article.coverImage)).webp({ quality: 85 }).toBuffer();
       publication.article.coverImage = await store.storeGuideImage(bytes);
     }
-    snapshot.publications = snapshot.publications.filter(p => p.article.slug !== publication.article.slug);
-    snapshot.publications.push(publication);
   } else if (command === "image") {
     const publication = snapshot.publications.find(p => p.article.slug === options.slug);
     if (!publication || !options.file) throw Error("image requires an existing runtime guide and --file");
-    if (options.place && !publication.places.some(p => p.id === options.place)) {
+    let target = publication.article;
+    if (options.place) {
       const existing = mergeGuideSnapshot(guideArticles, places, contentCollections, snapshot).places.find(p => p.id === options.place);
       const linked = new Set([...(publication.article.relatedPlaces ?? []), ...publication.article.sections.flatMap(s => s.relatedPlaceIds ?? [])]);
       if (!existing || !linked.has(options.place)) throw Error("Place not linked to guide");
-      publication.places.push(structuredClone(existing));
+      target = structuredClone(existing);
     }
-    const target = options.place ? publication.places.find(p => p.id === options.place) : publication.article;
     if (!target) throw Error("Place not in publication");
     const field = options.place ? "image" : "coverImage";
     if (target[field] !== (options["expected-image"] === "none" ? undefined : options["expected-image"])) throw Error("Image changed: supply exact --expected-image");
     const bytes = await require("sharp")(options.file, { limitInputPixels: 8192 * 8192 }).resize({ width: 1680, withoutEnlargement: true }).webp({ quality: 85 }).toBuffer();
     if (bytes.length > 4_000_000) throw Error("Image too large");
     target[field] = await store.storeGuideImage(bytes);
+    if (options.place) setPublicationPlace(snapshot, options.slug, target);
   } else if (command === "activate" || command === "rollback") {
     if (!options.approve || !options.hash || !options["request-id"] || options["expected-revision"] === undefined) throw Error("Activation requires --approve --hash --expected-revision --request-id");
     snapshot = await store.readGuideSnapshot(options.hash);

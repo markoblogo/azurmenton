@@ -13,6 +13,7 @@ export type GuideHead = { version: 1; revision: number; hash: string; previousHa
 const locales = ["en", "fr", "it", "uk"] as const;
 export const validHash = (value: unknown): value is string => typeof value === "string" && /^[a-f0-9]{64}$/.test(value);
 const id = (value: unknown) => typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+const placeTypes = new Set(["market", "supermarket", "cinema", "theatre", "casino", "ice-cream", "restaurant", "bar", "wine-bar", "winery", "golf-course", "rooftop", "beach", "garden", "hospital", "healthcare", "pharmacy", "police", "civic", "tourist-office", "station", "car-rental", "fuel-station", "parking", "bike-shop", "cycle-route", "museum", "viewpoint", "walk", "mountain", "ski-resort", "port", "neighbourhood", "family-activity", "shopping-centre", "bookshop", "pool", "fitness-centre", "theme-park", "playground", "skatepark", "barbershop", "coworking", "fishing-guide", "fishing-shop", "computer-repair"]);
 const localized = (value: LocalizedText) => value && locales.every(locale => typeof value[locale] === "string" && value[locale].trim());
 
 export function validateSnapshot(snapshot: GuideSnapshot) {
@@ -37,7 +38,7 @@ export function validateSnapshot(snapshot: GuideSnapshot) {
     if (!publication.sources?.trim() || !Array.isArray(publication.places) || !Array.isArray(publication.collections)) throw Error("Missing publication manifest");
     const placeIds = new Set<string>();
     for (const place of publication.places) {
-      if (!id(place.id) || placeIds.has(place.id) || !place.name || !localized(place.shortNote) || !Array.isArray(place.relatedArticleIds)) throw Error("Invalid place");
+      if (!id(place.id) || placeIds.has(place.id) || !place.name || !placeTypes.has(place.type) || !localized(place.shortNote) || !Array.isArray(place.relatedArticleIds) || !Array.isArray(place.bestFor) || !place.bestFor.every(localized)) throw Error("Invalid place");
       placeIds.add(place.id);
     }
   }
@@ -53,6 +54,14 @@ export function validateSnapshot(snapshot: GuideSnapshot) {
     }
   }
   inspect(snapshot);
+}
+
+// A shared place has one effective owner in each snapshot, independent of guide order.
+export function setPublicationPlace(snapshot: GuideSnapshot, slug: string, place: Place) {
+  const target = snapshot.publications.find(p => p.article.slug === slug);
+  if (!target) throw Error("Runtime guide not found");
+  for (const publication of snapshot.publications) publication.places = publication.places.filter(p => p.id !== place.id);
+  target.places.push(structuredClone(place));
 }
 
 export function mergeGuideSnapshot(baseGuides: GuideArticle[], basePlaces: Place[], baseCollections: ContentCollection[], snapshot: GuideSnapshot) {

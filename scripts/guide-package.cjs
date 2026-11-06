@@ -50,8 +50,8 @@ function compile(packageDirectory = directory, options = {}) {
     }
     packages.push({ ...meta, records });
   }
-  const { guideArticles } = require("../src/content/guide.ts");
-  const { places } = require("../src/content/places.ts");
+  const guideArticles = options.graph?.guideArticles ?? require("../src/content/guide.ts").guideArticles;
+  const places = options.graph?.places ?? require("../src/content/places.ts").places;
   const { contentCollections } = require("../src/content/content-map.ts");
   const { apartments } = require("../src/content/apartments.ts");
   const packageSlugs = new Set(packages.map(pkg => pkg.article.slug));
