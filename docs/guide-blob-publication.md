@@ -20,13 +20,17 @@ Stage/image store an immutable candidate only; activate/rollback change the publ
 
 Direct Blob CLI below remains an operator recovery path. Its write-endpoint probe uses no credential, refuses bad TLS/redirects, times out after 10 seconds, and defaults SDK retries to one. A command has a 120-second overall deadline; after an activation timeout inspect current status before retrying. Normal remote publications do not run this Vercel-host probe.
 
-The isolated private Vercel Blob store holds immutable SHA-256 snapshots and WebP media under `guides/v1/`. A small `head.json` selects the visible version with a monotonic revision. The authenticated local CLI is the only writer: no public write endpoint, scheduler or autonomous editorial approval. Never share another project's token/store.
+The isolated private Vercel Blob store holds immutable SHA-256 snapshots and WebP media under `guides/v1/`. A small `head.json` selects the visible version with a monotonic revision. Writes require the authenticated same-origin publisher or the direct operator recovery CLI; there is no unauthenticated writer, scheduler or autonomous editorial approval. Never share another project's token/store.
 
 Guide detail/metadata, catalogue/collections, sitemap, search overlay, related guide/place cards, map, favourites, trip planner and curated stay/guest/event references read a versioned graph per request. Static typed content is used when credentials/head are absent. Once configured, read/integrity failures fail visibly, not with a silent stale fallback. Pagefind handles unchanged content; a lexical runtime overlay suppresses overridden guide results and supplies current guide/place text. This is not semantic search or a second editorial database.
 
 Requests already in flight can complete on their pinned version. New requests read the head from origin (`useCache: false`); metadata/body share a React request cache. There is no process-wide content mutation or indefinite head cache. Immutable media may be cached permanently. New mapped locations still require the reviewed-coordinate workflow; the publisher cannot invent map points or edit apartment/event records.
 
 Standard guide source packages live under `content/guide-publications/<slug>/`: metadata, four Markdown locales and sources. This directory is not imported into the application build. Covers upload during staging, so a new guide needs no import, registration or Pagefind build. Code/schema changes still need the normal deployment. Build-backed packages remain supported separately.
+
+Prepared single-frame WebP derivatives within the existing limits are transmitted byte-for-byte, without a second lossy encode. PNG/JPEG sources still receive one bounded WebP conversion. Server integrity, format and size checks remain unchanged. This optimization affects image preparation, not translation or source review.
+
+Production same-origin acceptance on 8 November: [Picnic publication, image update and rollback](audits/2026-11-08-same-origin-picnic-publication.md). Ordinary publication no longer needs local Vercel/Blob account access; the site and its server-side Blob connection must still be reachable.
 
 ## Prepare And Stage
 

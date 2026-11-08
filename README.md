@@ -48,7 +48,9 @@ Follow the [release checklist](LAUNCH_CHECKLIST.md) and [deployment runbook](DEP
 
 ## Publish Content Manually
 
-New standard long-form guides can use one declarative directory, `src/content/guide-packages/<slug>/`: `metadata.json`, four locale Markdown files and `sources.md`. Metadata declares reviewed places, related guides, collection membership and existing image paths. Run `npm run guide:package`, then normal release and guide browser checks. Registration and reciprocal links are derived automatically; do not edit several registries by hand. The generated index is committed and checked before builds. This path still publishes through the application build, not Blob. See [content rules](docs/content-operations.md).
+For ordinary guide publication, use `content/guide-publications/<slug>/`: `metadata.json`, four locale Markdown files and `sources.md`. The same-origin publisher sends the reviewed package and cover to `azurmenton.com`; the server writes Blob. Catalogue, search overlay, sitemap and reciprocal links read the same active version. No local access to vercel.com or application rebuild is required. Source review, owner approval, guarded activation and public acceptance remain mandatory. Later illustrations and rollback use the same lane. See the [Blob publication runbook](docs/guide-blob-publication.md).
+
+Build-backed guides remain supported under `src/content/guide-packages/<slug>/` with `npm run guide:package` and normal release checks. Both formats derive registration and reciprocal links automatically; do not hand-edit multiple registries. The following legacy workflow is useful for Word intake and build-backed content, not required for every runtime publication.
 
 ```bash
 npm run guide:workflow -- prepare --from /absolute/guide.docx --cover /absolute/cover.png
@@ -80,7 +82,7 @@ Useful editorial reports: `npm run content:report`, `npm run events:review`, `np
 
 Use the [documentation index](docs/README.md) to select the relevant runbook instead of loading every historical audit. Read [AGENTS.md](AGENTS.md) before edits and [product context](docs/product-context.md) before changing conversion claims, SEO or booking analytics. [ROADMAP](docs/ROADMAP.md) tracks outcomes, not automatic publication authority.
 
-Booking delivery uses Resend; previews use server-only iCal feeds. Analytics uses aggregate non-PII context. Source-backed hours, prices, dates and accessibility rules can become stale: unknown remains unknown. Search rebuilds with the site and does not yet correct spelling mistakes.
+Booking delivery uses Resend; previews use server-only iCal feeds. Analytics uses aggregate non-PII context. Source-backed hours, prices, dates and accessibility rules can become stale: unknown remains unknown. Base Pagefind search rebuilds with the site; active Blob guides use a current lexical overlay. Search does not yet correct spelling mistakes.
 
 See [contribution guidance](CONTRIBUTING.md), [security reporting](SECURITY.md), [license](LICENSE) and [content/brand exclusions](NOTICE.md). Application code is MIT; editorial content, illustrations, photographs, apartment facts, guest data and branding are not automatically covered by that grant.
 
