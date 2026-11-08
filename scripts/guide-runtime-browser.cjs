@@ -40,7 +40,7 @@ async function main() {
       await page.goto(`${origin}/${locale}/guide`, { waitUntil: "domcontentloaded" });
       assert(await page.locator(`a[href="/${locale}/guide/${slug}"]`).count(), `Missing ${locale} catalogue guide`);
     }
-    await page.goto(`${origin}/en/search`, { waitUntil: "domcontentloaded" });
+    await page.goto(`${origin}/en/search`, { waitUntil: "networkidle" });
     await page.locator("#site-search").fill(englishTitle);
     await page.locator(`a[href="/en/guide/${slug}"]`).first().waitFor({ timeout: 30000 });
     if (args.includes("--related-slug")) {

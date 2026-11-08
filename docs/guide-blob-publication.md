@@ -2,6 +2,24 @@
 
 ## Contract
 
+### Same-Origin Publisher
+
+The authenticated `/api/guides/manage` lane adapts the current ABVXsite runtime-writing pattern: this computer calls `azurmenton.com`; the server calls Blob. Direct access from the computer to `vercel.com` is not needed for ordinary guide/image publication after the engine is deployed. This does not guarantee every hotel network will allow AzurMenton, and it is not offline publication.
+
+The separate server-only `GUIDE_PUBLISH_TOKEN` grants content operations, not Vercel account access. Configure it only for Production; Preview writes fail closed. The local ignored `.env.guide-publisher.local` contains only this operator credential and must be private (0600). Do not use another site's token or copy provider credentials into requests. GET exposes the current snapshot only after authentication; POST accepts bounded JSON and verified WebP bytes, never remote URLs to fetch. Existing snapshot validation, reciprocal graph derivation and conditional activation remain authoritative.
+
+```sh
+npm run guide:remote -- status --env .env.guide-publisher.local
+npm run guide:remote -- stage --packages content/guide-publications --slug <slug> --receipt build/private-guide-ops/<slug>-stage.json --approve --env .env.guide-publisher.local
+npm run guide:remote -- activate --hash <staged-hash> --expected-revision <revision> --request-id <stable-id> --receipt build/private-guide-ops/<slug>-activate.json --approve --env .env.guide-publisher.local
+npm run guide:remote -- image --slug <slug> --place <place-id> --file /absolute/image.png --expected-image <current-path-or-none> --receipt build/private-guide-ops/<slug>-image.json --approve --env .env.guide-publisher.local
+npm run guide:remote -- rollback --hash <prior-hash> --expected-revision <revision> --request-id <stable-id> --receipt build/private-guide-ops/<slug>-rollback.json --approve --env .env.guide-publisher.local
+```
+
+Stage/image store an immutable candidate only; activate/rollback change the public pointer. Omit `--place` for a cover. `--approve` authorizes transmission; without it a request is prepared but not sent (preparation still reads current status). Every write first saves the exact command and target origin to an ignored private request file; a receipt is saved after success. After an ambiguous network response, use `guide:remote retry --receipt <same-path> --approve --env .env.guide-publisher.local`; never issue a fresh activation ID blindly. A stale version returns 409 for inspection. The API limit is 4 MB JSON; local WebP preparation limits an image to 2.5 MB. Keep source files unchanged.
+
+Direct Blob CLI below remains an operator recovery path. Its write-endpoint probe uses no credential, refuses bad TLS/redirects, times out after 10 seconds, and defaults SDK retries to one. A command has a 120-second overall deadline; after an activation timeout inspect current status before retrying. Normal remote publications do not run this Vercel-host probe.
+
 The isolated private Vercel Blob store holds immutable SHA-256 snapshots and WebP media under `guides/v1/`. A small `head.json` selects the visible version with a monotonic revision. The authenticated local CLI is the only writer: no public write endpoint, scheduler or autonomous editorial approval. Never share another project's token/store.
 
 Guide detail/metadata, catalogue/collections, sitemap, search overlay, related guide/place cards, map, favourites, trip planner and curated stay/guest/event references read a versioned graph per request. Static typed content is used when credentials/head are absent. Once configured, read/integrity failures fail visibly, not with a silent stale fallback. Pagefind handles unchanged content; a lexical runtime overlay suppresses overridden guide results and supplies current guide/place text. This is not semantic search or a second editorial database.

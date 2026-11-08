@@ -21,6 +21,7 @@ async function main() {
   }
   if (options.env) process.loadEnvFile(options.env);
   const start = Date.now();
+  await require("./lib/guide-runtime-network.cjs").preflightGuideWrite(command);
   function packagePublication(graph) {
     const packages = JSON.parse(require("./guide-package.cjs").compile(path.resolve(options.packages), { runtime: true, graph }));
     const pkg = packages.find(p => p.article.slug === options.slug);
@@ -85,4 +86,14 @@ async function main() {
   const hash = await store.writeGuideSnapshot(snapshot);
   console.log(JSON.stringify({ status: "staged-not-public", hash, expectedRevision: current?.head.revision ?? 0, durationMs: Date.now() - start }));
 }
-if (require.main === module) main().catch(error => { console.error(error.message); process.exitCode = 1; });
+if (require.main === module) {
+  const deadline = setTimeout(() => {
+    console.error("Guide command exceeded 120 seconds. Stop retries; inspect status before repeating activation or rollback.");
+    process.exit(1);
+  }, 120_000);
+  deadline.unref();
+  main().catch(error => {
+    console.error(error.message, error.cause?.code ?? "");
+    process.exitCode = 1;
+  }).finally(() => clearTimeout(deadline));
+}
