@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require("node:fs");
 const path = require("node:path");
-const crypto = require("node:crypto");
+const { prepareGuideImage } = require("./lib/guide-publisher-assets.cjs");
 const root = path.resolve(__dirname, "..");
 require("./lib/register-ts-content.cjs").registerTypescriptContent(root);
 
@@ -39,12 +39,7 @@ async function main() {
   }
   if (!options.receipt) throw Error("Private --receipt path required before preparing writes");
   const requestFile = options.receipt + ".request.json";
-  const digest = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
-  const asset = async file => {
-    const bytes = await require("sharp")(file, { limitInputPixels: 8192 * 8192 }).resize({ width: 1680, withoutEnlargement: true }).webp({ quality: 85 }).toBuffer();
-    if (bytes.length > 2_500_000) throw Error("Image exceeds 2.5 MB; prepare a smaller web derivative");
-    return { sha256: digest(bytes), base64: bytes.toString("base64") };
-  };
+  const asset = prepareGuideImage;
   let command;
   if (operation === "retry") {
     const saved = JSON.parse(fs.readFileSync(requestFile, "utf8"));

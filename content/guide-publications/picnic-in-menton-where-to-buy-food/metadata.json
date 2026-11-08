@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "article": {
+    "id": "picnic-in-menton-where-to-buy-food",
+    "slug": "picnic-in-menton-where-to-buy-food",
+    "title": {
+      "en": "A Picnic in Menton: Where to Buy Food and How to Choose the Right Spot",
+      "fr": "Un pique-nique à Menton : où acheter à manger et où s'installer",
+      "it": "Un picnic a Mentone: dove comprare il cibo e come scegliere il posto",
+      "uk": "Пікнік у Ментоні: де купити їжу та як вибрати місце"
+    },
+    "seoTitle": {
+      "en": "Picnic in Menton: Spots, Market Food, Budgets and Rules",
+      "fr": "Pique-nique à Menton : lieux, Halles, budgets et règles",
+      "it": "Picnic a Mentone: posti, Halles, budget e regole",
+      "uk": "Пікнік у Ментоні: місця, Halles, бюджети та правила"
+    },
+    "seoDescription": {
+      "en": "Plan a Menton picnic with food from the Halles, example baskets for one, two or a family, Parc du Pian, Fossan's off-season steps and Sablettes rules.",
+      "fr": "Préparez un pique-nique à Menton : achats aux Halles, paniers solo, duo ou famille, Parc du Pian, Fossan hors été et règlement des Sablettes.",
+      "it": "Organizza un picnic a Mentone: acquisti alle Halles, cestini per uno, due o una famiglia, Parc du Pian, Fossan fuori estate e regole delle Sablettes.",
+      "uk": "Сплануйте пікнік у Ментоні: покупки в Halles, кошики для одного, двох чи сім'ї, Parc du Pian, Fossan поза літом і правила Sablettes."
+    },
+    "excerpt": {
+      "en": "Choose an olive-grove lunch or short seaside food break, with illustrative €13, €28 and €37 baskets, local restrictions and practical packing advice.",
+      "fr": "Déjeuner dans l'oliveraie ou courte pause au bord de l'eau : paniers illustratifs de 13, 28 et 37 €, règles locales et sac pratique.",
+      "it": "Pranzo nell'oliveto o breve pausa sul mare: cestini illustrativi da €13, €28 e €37, regole locali e cosa portare.",
+      "uk": "Обід в оливковому гаю чи коротка зупинка біля моря: умовні кошики на €13, €28 і €37, місцеві правила й практичні речі."
+    },
+    "category": "food-markets",
+    "duration": "flexible",
+    "publishedOn": "2026-11-08",
+    "sourceStatus": "editorial",
+    "coverImage": "/images/guide/picnic-in-menton-where-to-buy-food.webp",
+    "coverImageAlt": {
+      "en": "Artistic picnic basket in a terraced olive grove near Menton, not a photograph of a verified seating area",
+      "fr": "Panier de pique-nique illustré dans une oliveraie en terrasses près de Menton, sans certifier un lieu aménagé précis",
+      "it": "Cestino da picnic illustrato in un oliveto a terrazze vicino a Mentone, non una seduta verificata",
+      "uk": "Художній кошик для пікніка в терасованому оливковому гаю біля Ментона, не фотографія перевіреного місця"
+    },
+    "visualTheme": "itinerary",
+    "visualStatus": "project_illustration",
+    "locationTags": ["menton", "garavan"],
+    "tags": [
+      {"en": "Picnics", "fr": "Pique-niques", "it": "Picnic", "uk": "Пікніки"},
+      {"en": "Market food", "fr": "Produits du marché", "it": "Spesa al mercato", "uk": "Продукти з ринку"}
+    ],
+    "bestFor": [
+      {"en": "Couples", "fr": "Couples", "it": "Coppie", "uk": "Пари"},
+      {"en": "Families", "fr": "Familles", "it": "Famiglie", "uk": "Сім'ї"},
+      {"en": "Budget-conscious visitors", "fr": "Petits budgets", "it": "Viaggiatori attenti al budget", "uk": "Економні мандрівники"}
+    ],
+    "relatedPlaces": ["halles-du-marche", "parc-du-pian", "plage-fossan", "esplanade-des-sablettes-menton", "jardin-val-rahmeh"],
+    "relatedArticles": ["halles-du-marche-menton", "supermarkets-in-menton", "menton-sundays-public-holidays", "menton-beach-day-costs-what-to-bring", "menton-with-kids-family-guide", "menton-accessible-step-free-walks", "stay-cool-in-menton-summer"],
+    "relatedApartments": ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"],
+    "practicalTips": [
+      {
+        "en": "Checked 8 November 2026 from published sources, without a field visit. Picnic rules and temporary signs take precedence; budgets are examples, not verified market prices. Val Rahmeh is closed 2–27 November, with reopening announced for 28 November.",
+        "fr": "Vérifié le 8 novembre 2026 sur sources publiées, sans visite de terrain. Règlements et panneaux priment ; budgets illustratifs. Val Rahmeh est fermé du 2 au 27 novembre, réouverture annoncée le 28.",
+        "it": "Verificato l'8 novembre 2026 su fonti pubblicate, senza sopralluogo. Regole e cartelli prevalgono; budget illustrativi. Val Rahmeh chiuso dal 2 al 27 novembre, riapertura annunciata il 28.",
+        "uk": "Перевірено 8 листопада 2026 за джерелами, без польового огляду. Правила й знаки мають перевагу; бюджети умовні. Val Rahmeh закритий 2–27 листопада, відкриття оголошене на 28."
+      }
+    ]
+  },
+  "introHeading": {
+    "en": "A baguette, a little cheese and somewhere beautiful to sit",
+    "fr": "Du pain, un peu de fromage et un endroit agréable",
+    "it": "Pane, un po' di formaggio e un bel posto dove fermarsi",
+    "uk": "Багет, трохи сиру й приємне місце для відпочинку"
+  },
+  "sectionOverrides": [
+    {}, {},
+    {"relatedPlaceIds": ["halles-du-marche"], "guideLinkSlug": "halles-du-marche-menton", "guideLinkLabel": {"en": "Shopping at the Halles", "fr": "Faire ses courses aux Halles", "it": "Fare la spesa alle Halles", "uk": "Покупки в Halles"}},
+    {}, {}, {},
+    {"relatedPlaceIds": ["parc-du-pian"]},
+    {"relatedPlaceIds": ["plage-fossan"], "guideLinkSlug": "menton-beach-day-costs-what-to-bring", "guideLinkLabel": {"en": "Plan a beach day", "fr": "Préparer une journée à la plage", "it": "Organizzare una giornata in spiaggia", "uk": "Спланувати день на пляжі"}},
+    {"relatedPlaceIds": ["esplanade-des-sablettes-menton"]},
+    {"relatedPlaceIds": ["jardin-val-rahmeh"]},
+    {"guideLinkSlug": "menton-accessible-step-free-walks", "guideLinkLabel": {"en": "Step-free route planning", "fr": "Préparer un parcours sans marches", "it": "Organizzare percorsi senza gradini", "uk": "Планування маршруту без сходів"}},
+    {},
+    {"guideLinkSlug": "stay-cool-in-menton-summer", "guideLinkLabel": {"en": "Planning for summer heat", "fr": "Prévoir les fortes chaleurs", "it": "Organizzarsi per il caldo", "uk": "Планування у спеку"}},
+    {}, {}, {}, {},
+    {"guideLinkSlug": "menton-with-kids-family-guide", "guideLinkLabel": {"en": "Menton with children", "fr": "Menton avec des enfants", "it": "Mentone con bambini", "uk": "Ментон із дітьми"}},
+    {}, {}, {}, {}
+  ],
+  "collections": ["food-and-markets", "practical-stay", "family-days"],
+  "assets": ["/images/guide/picnic-in-menton-where-to-buy-food.webp"],
+  "sources": "sources.md"
+}
