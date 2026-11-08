@@ -40,6 +40,7 @@
     "guide:timing": "node scripts/guide-timing-report.cjs",
     "guide:runtime-trial": "node scripts/guide-runtime-trial.cjs",
     "guide:runtime": "node scripts/guide-runtime.cjs",
+    "guide:remote": "node scripts/guide-remote.cjs",
     "editorial:report": "node scripts/editorial-report.cjs",
     "guides:health": "node scripts/guides-health.cjs",
     "guides:verify": "node scripts/guides-verify.cjs",

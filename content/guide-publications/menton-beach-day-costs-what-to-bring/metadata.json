@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "article": {
+    "id": "menton-beach-day-costs-what-to-bring",
+    "slug": "menton-beach-day-costs-what-to-bring",
+    "title": {
+      "en": "A Beach Day in Menton: What It Costs and What to Bring",
+      "fr": "Une journée à la plage à Menton : budget et affaires à emporter",
+      "it": "Una giornata in spiaggia a Mentone: costi e cosa portare",
+      "uk": "День на пляжі в Ментоні: скільки коштує і що взяти"
+    },
+    "seoTitle": {
+      "en": "Menton Beach Day Costs: Free Beaches vs Private Beach Clubs",
+      "fr": "Plages de Menton : budget, transats et affaires à emporter",
+      "it": "Spiagge di Mentone: costi, lettini e cosa portare",
+      "uk": "Пляжі Ментона: бюджет дня, лежаки та що взяти"
+    },
+    "seoDescription": {
+      "en": "Compare a free public beach day in Menton with private sunbed rentals. Reference tariffs, example budgets, packing lists, shade and access at Sablettes, Rondelli and Marché.",
+      "fr": "Comparez plage publique et location de transat à Menton : tarifs de référence, budgets indicatifs, équipement, ombre et accès aux Sablettes, à Rondelli et au Marché.",
+      "it": "Confronta spiaggia pubblica e lettino a Mentone: tariffe di riferimento, budget indicativi, cosa portare, ombra e accesso a Sablettes, Rondelli e Marché.",
+      "uk": "Порівняйте громадський пляж і оренду лежака в Ментоні: тарифи-орієнтири, умовні бюджети, речі, тінь і доступ на Sablettes, Rondelli та Marché."
+    },
+    "excerpt": {
+      "en": "Choose between a short free beach visit and a day with a rented lounger. Compare full costs, pack for comfort and check the sea, shade and seasonal services.",
+      "fr": "Courte sortie gratuite ou journée avec transat : comparez le coût complet, préparez votre sac et vérifiez mer, ombre et services saisonniers.",
+      "it": "Breve uscita gratuita o giornata con lettino: confronta il costo completo, prepara la borsa e verifica mare, ombra e servizi stagionali.",
+      "uk": "Короткий безкоштовний вихід чи день із лежаком: порівняйте повну вартість, підготуйте речі й перевірте море, тінь і сезонні послуги."
+    },
+    "category": "beaches",
+    "duration": "flexible",
+    "publishedOn": "2026-11-08",
+    "sourceStatus": "editorial",
+    "coverImage": "/images/guide/menton-beach-day-costs-what-to-bring.webp",
+    "coverImageAlt": {
+      "en": "Artistic Menton beach composition with a towel, umbrella and loungers; not a photograph of a particular concession",
+      "fr": "Composition artistique d'une plage de Menton avec serviette, parasol et transats, sans représenter une concession précise",
+      "it": "Composizione artistica di una spiaggia di Mentone con telo, ombrellone e lettini, non una concessione specifica",
+      "uk": "Художня пляжна композиція Ментона з рушником, парасолею й лежаками, не фотографія конкретної концесії"
+    },
+    "visualTheme": "itinerary",
+    "visualStatus": "project_illustration",
+    "locationTags": ["menton", "garavan"],
+    "tags": [
+      {"en": "Beach budget", "fr": "Budget plage", "it": "Budget spiaggia", "uk": "Пляжний бюджет"},
+      {"en": "Summer", "fr": "Été", "it": "Estate", "uk": "Літо"}
+    ],
+    "bestFor": [
+      {"en": "Couples", "fr": "Couples", "it": "Coppie", "uk": "Пари"},
+      {"en": "Families", "fr": "Familles", "it": "Famiglie", "uk": "Сім'ї"},
+      {"en": "Budget-conscious visitors", "fr": "Petits budgets", "it": "Viaggiatori attenti al budget", "uk": "Економні мандрівники"}
+    ],
+    "relatedPlaces": ["plage-sablettes", "plage-rondelli", "plage-du-marche-menton", "esplanade-des-sablettes-menton", "handiplage-menton"],
+    "relatedArticles": ["best-beaches-in-menton", "menton-accessible-step-free-walks", "stay-cool-in-menton-summer", "menton-with-kids-family-guide", "menton-holiday-budget", "supermarkets-in-menton"],
+    "relatedApartments": ["sea-view-balcony-studio", "panoramic-sea-view-studio", "beachside-family-apartment"],
+    "practicalTips": [
+      {
+        "en": "Checked 6 November 2026. Two tariff listings date from August 2025; confirm prices, opening, shade and seasonal assistance directly. Food budgets are examples, not menu quotations.",
+        "fr": "Vérifié le 6 novembre 2026. Deux fiches tarifaires datent d'août 2025 : confirmez prix, ouverture, ombre et assistance saisonnière. Budgets repas illustratifs, pas des devis.",
+        "it": "Verificato il 6 novembre 2026. Due schede tariffarie sono di agosto 2025: conferma prezzi, apertura, ombra e assistenza stagionale. Budget pasti illustrativi, non preventivi.",
+        "uk": "Перевірено 6 листопада 2026. Дві тарифні картки датовані серпнем 2025: уточнюйте ціни, відкриття, тінь і сезонну допомогу. Бюджети на їжу умовні."
+      }
+    ]
+  },
+  "introHeading": {
+    "en": "A day by the Mediterranean doesn't have to cost €100",
+    "fr": "Une journée en Méditerranée sans forcément dépenser 100 €",
+    "it": "Una giornata sul Mediterraneo non deve costare per forza €100",
+    "uk": "День біля Середземного моря не обов'язково коштує €100"
+  },
+  "sectionOverrides": [
+    {}, {}, {}, {}, {}, {},
+    {"relatedPlaceIds": ["plage-sablettes", "plage-du-marche-menton", "plage-rondelli", "esplanade-des-sablettes-menton"], "guideLinkSlug": "best-beaches-in-menton", "guideLinkLabel": {"en": "Compare Menton's beaches", "fr": "Comparer les plages de Menton", "it": "Confronta le spiagge di Mentone", "uk": "Порівняти пляжі Ментона"}},
+    {}, {}, {}, {},
+    {"guideLinkSlug": "stay-cool-in-menton-summer", "guideLinkLabel": {"en": "Plan around the summer heat", "fr": "Prévoir les fortes chaleurs", "it": "Organizzarsi per il caldo estivo", "uk": "Планувати відпочинок у спеку"}},
+    {"guideLinkSlug": "supermarkets-in-menton", "guideLinkLabel": {"en": "Grocery shopping in Menton", "fr": "Faire ses courses à Menton", "it": "Fare la spesa a Mentone", "uk": "Продуктові магазини Ментона"}},
+    {}, {},
+    {"guideLinkSlug": "menton-with-kids-family-guide", "guideLinkLabel": {"en": "Menton with children", "fr": "Menton avec des enfants", "it": "Mentone con bambini", "uk": "Ментон із дітьми"}},
+    {"relatedPlaceIds": ["handiplage-menton"], "guideLinkSlug": "menton-accessible-step-free-walks", "guideLinkLabel": {"en": "Menton Without Stairs", "fr": "Menton sans escaliers", "it": "Mentone senza scale", "uk": "Ментон без сходів"}},
+    {}, {}, {}, {}
+  ],
+  "collections": ["beaches-and-seafront", "practical-stay"],
+  "assets": ["/images/guide/menton-beach-day-costs-what-to-bring.webp"],
+  "sources": "sources.md"
+}
